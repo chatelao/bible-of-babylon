@@ -10,7 +10,7 @@ This document defines the requirements and initial syntax draft for the Domain-S
 - **Parseability**: The syntax must be compatible with ANTLR4 for generating a parser.
 - **Readability**: It should be human-readable to facilitate contributions.
 
-## 2. Syntax Draft (v0.1)
+## 2. Syntax (v0.2)
 
 The DSL uses a block-based structure.
 
@@ -36,6 +36,36 @@ instance VarDec1 of VariableDeclaration {
 }
 ```
 
+### Types
+- **Identifier**: A standard name (e.g., variable or function name).
+- **Type**: A logical type name (e.g., "Integer", "String").
+- **Expression**: A value or simple operation (often represented as a string literal for simplicity in v0.2).
+- **Block**: A collection of logical steps (see below).
+- **List<T>**: A collection of items of type T.
+
+### Blocks and Instructions
+Blocks are used for control flow or procedural patterns. They contain instructions rather than raw code.
+
+```
+instance CheckBalance of IfElse {
+    then_branch = {
+        call charge_fee(0)
+    }
+}
+```
+
+### Anonymous Instances and Collections
+Used for nesting complex structures.
+
+```
+instance UserProfile of DataMap {
+    entries = [
+        instance of MapEntry { key = "id", value = 1 },
+        instance of MapEntry { key = "active", value = true }
+    ]
+}
+```
+
 ## 3. Metadata
 
 Patterns and instances can include metadata such as descriptions and notes.
@@ -48,8 +78,15 @@ pattern VariableDeclaration {
 }
 ```
 
-## 4. Next Steps
+## Appendix: Decision Evaluation
 
-- [ ] Validate this syntax against more complex patterns (e.g., Concurrency).
-- [ ] Refine the list of built-in types (Identifier, Type, Expression, etc.).
-- [ ] Implement the ANTLR4 grammar based on this specification.
+### Code Block Representation Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: Opaque Strings** | Represent blocks as single string literals. | Extremely simple to parse. | No semantic validation; generator must do all the heavy lifting. | Discarded |
+| **B: Structural Blocks** | Define a set of logical instructions (call, assign, return) inside `{}`. | Captures semantic intent; allows structured transformation. | Increases grammar complexity. | **Selected** |
+| **C: External References** | Link to external snippets in files. | Keeps DSL clean. | Fragmented source; harder to maintain. | Discarded |
+
+---
+*Evaluated on 2026-05-01*
