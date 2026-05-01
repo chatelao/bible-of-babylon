@@ -24,9 +24,8 @@ by simply comparing the most often used patterns.
 - `ROADMAP.md`: Task the progress of the  development, organized by chapters, 
 - `TECHNICAL_DEBTS.md`: Log of architectural or implementation debts.
 - `/specifications/`: External documentation and manuals converted to reStructuredText.
-- `/docs/`: External documentation and manuals converted to Markdown.
-- `/src/`: Transpiler source code (ANTLR4 grammars, ASG/IR logic, Jinja2 templates).
-- `/test/`: Test suite, including real-world WebFOCUS samples and regression tests.
+- `/docs/`: External documentation and manuals converted to reStructuredText.
+- `/test/`: Test suite, verifications of the syntax of all files.
 
 # HOWTO
 - Use readthedocs.org to produce the documentation
