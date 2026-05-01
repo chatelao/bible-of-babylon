@@ -9,7 +9,7 @@
 ## Phase 2: Transpiler Development
 - [ ] Define DSL for Source Patterns <!-- issue #4 -->
     - [x] 4.1 Define DSL requirements and syntax draft <!-- 2026-05-01, issue #4.1 -->
-    - [ ] 4.2 Validate DSL draft with example patterns <!-- issue #4.2 -->
+    - [x] 4.2 Validate DSL draft with example patterns <!-- 2026-05-01, issue #4.2 -->
     - [ ] 4.3 Finalize DSL specification <!-- issue #4.3 -->
 - [ ] Implement ANTLR4 grammar for the DSL <!-- issue #5 -->
 - [ ] Design the Intermediate Representation (IR) / ASG <!-- issue #6 -->
