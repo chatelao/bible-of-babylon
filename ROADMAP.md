@@ -3,7 +3,8 @@
 ## Phase 1: Foundation
 - [x] Create project structure and initial documentation (`CONCEPT.md`, `GEMINI.md`, `DESIGN.md`) <!-- 2024-05-24, issue #1 -->
 - [x] Setup `src/install.sh` for development environment <!-- 2026-05-01, issue #2 -->
-- [ ] Setup `test/install.sh` and CI/CD workflow <!-- issue #3 -->
+- [x] Setup `test/install.sh` <!-- 2026-05-01, issue #3.1 -->
+- [ ] Setup CI/CD workflow <!-- issue #3.2 -->
 
 ## Phase 2: Transpiler Development
 - [ ] Define DSL for Source Patterns <!-- issue #4 -->

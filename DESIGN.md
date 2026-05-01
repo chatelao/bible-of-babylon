@@ -94,5 +94,13 @@ The generated reST snippets are aggregated into the final documentation structur
 | **B: Python-based Tooling** | Using `pip` to install `jinja2` and `antlr4-tools`. | Easy to automate; handles ANTLR4 environment setup; standard tooling. | Depends on Python/pip. | **Selected** |
 | **C: System Packages** | Using `apt-get` to install `antlr4` and `python3-jinja2`. | Standard system packages. | May be outdated; requires sudo; inconsistent across OS. | Discarded |
 
+### Testing Framework Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: pytest** | A mature, full-featured Python testing tool. | Simple syntax; powerful fixtures; extensive plugin ecosystem. | Slightly more complex than `unittest` for very simple cases. | **Selected** |
+| **B: unittest** | Built-in Python testing library. | No extra dependencies; part of standard library. | More boilerplate; less flexible than `pytest`. | Discarded |
+| **C: nose2** | Successor to `nose`, based on `unittest`. | Extends `unittest` with plugins. | Less active development compared to `pytest`. | Discarded |
+
 ---
 *Evaluated on 2026-05-01*
