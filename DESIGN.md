@@ -86,5 +86,13 @@ The generated reST snippets are aggregated into the final documentation structur
 | **B: Sphinx Grid Tables** | reStructuredText grid tables. | More flexible than Markdown; better support for multi-line cells. | Harder to write/read in raw text; requires reST knowledge for contributors. | Discarded |
 | **C: Interactive Tabs** | Using `sphinx-tabs` to switch between languages. | Saves vertical space; clean look; good for long code snippets. | Requires JavaScript; hard to compare two languages at a glance. | Discarded |
 
+### Environment Setup Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: Manual Installation** | Manually downloading ANTLR4 JAR and setting up CLASSPATH. | Direct control over versions. | Error-prone; hard to automate; manual path management. | Discarded |
+| **B: Python-based Tooling** | Using `pip` to install `jinja2` and `antlr4-tools`. | Easy to automate; handles ANTLR4 environment setup; standard tooling. | Depends on Python/pip. | **Selected** |
+| **C: System Packages** | Using `apt-get` to install `antlr4` and `python3-jinja2`. | Standard system packages. | May be outdated; requires sudo; inconsistent across OS. | Discarded |
+
 ---
-*Evaluated on 2024-05-24*
+*Evaluated on 2026-05-01*
