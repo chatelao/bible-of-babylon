@@ -1,0 +1,90 @@
+# Design
+
+## Book Structure
+
+The comparative book is divided into two main parts: Programming Languages and Data Formats.
+
+### Part I: Programming Languages
+This section compares languages based on common programming patterns.
+
+**Languages:**
+- SQL
+- C
+- XQuery
+- Java
+- Rust
+- Erlang
+- Lisp
+- Bash
+- Cmd
+- PowerShell
+- CSS
+
+**Patterns to be compared:**
+- Variable declaration
+- Control flow (if/else, loops)
+- Function/Procedure definition
+- Error handling
+- Concurrency models
+
+### Part II: Data Formats
+This section compares data structures and serialization formats.
+
+**Formats:**
+- Fixlength
+- CSV
+- XML
+- JSON
+- YAML
+- TOML
+
+**Patterns to be compared:**
+- Basic data types (Strings, Numbers, Booleans)
+- Nested structures (Objects/Maps, Arrays/Lists)
+- Metadata/Attributes
+- Comments support
+- Schema validation
+
+## Presentation Design: Comparison Tables
+
+Each pattern will be presented using a standardized table format to ensure consistency across the book.
+
+### Table Layout Example
+
+| Language/Format | Pattern Implementation | Notes |
+|-----------------|------------------------|-------|
+| Java            | `int x = 5;`           | Strongly typed |
+| Python          | `x = 5`                | Dynamically typed |
+| Rust            | `let x = 5;`           | Immutable by default |
+
+## Technical Architecture: Transpiler Pipeline
+
+The book is generated using a custom transpilation pipeline to ensure consistency and maintainability.
+
+### 1. Source Patterns
+Patterns are defined in a domain-specific format (DSL) that describes the semantic intent of a pattern.
+
+### 2. ANTLR4 Parser
+An ANTLR4 grammar parses the source patterns into a concrete syntax tree (CST).
+
+### 3. Abstract Semantic Graph (ASG) / Intermediate Representation (IR)
+The CST is transformed into an ASG. This representation is language-agnostic and captures the core logic and parameters of the pattern.
+
+### 4. Jinja2 Generators
+Target-specific Jinja2 templates consume the IR to produce reStructuredText (reST) snippets for each language or format.
+
+### 5. Final Assembly
+The generated reST snippets are aggregated into the final documentation structure for ReadTheDocs.
+
+## Appendix: Decision Evaluation
+
+### Presentation Layout Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: Markdown Tables** | Standard GitHub-flavored Markdown tables. | Simple; native support in most editors; readable in raw form. | Limited styling; hard to manage very wide tables (many languages). | **Selected** |
+| **B: Sphinx Grid Tables** | reStructuredText grid tables. | More flexible than Markdown; better support for multi-line cells. | Harder to write/read in raw text; requires reST knowledge for contributors. | Discarded |
+| **C: Interactive Tabs** | Using `sphinx-tabs` to switch between languages. | Saves vertical space; clean look; good for long code snippets. | Requires JavaScript; hard to compare two languages at a glance. | Discarded |
+
+---
+*Evaluated on 2024-05-24*
