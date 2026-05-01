@@ -2,7 +2,7 @@
 
 ## Phase 1: Foundation
 - [x] Create project structure and initial documentation (`CONCEPT.md`, `GEMINI.md`, `DESIGN.md`) <!-- 2024-05-24, issue #1 -->
-- [ ] Setup `src/install.sh` for development environment <!-- issue #2 -->
+- [x] Setup `src/install.sh` for development environment <!-- 2026-05-01, issue #2 -->
 - [ ] Setup `test/install.sh` and CI/CD workflow <!-- issue #3 -->
 
 ## Phase 2: Transpiler Development
