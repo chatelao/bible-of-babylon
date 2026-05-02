@@ -17,8 +17,11 @@
     - [x] 5.3 Define Parser rules for blocks, instructions, and collections <!-- 2026-05-01, issue #5.3 -->
     - [x] 5.4 Implement grammar verification tests <!-- 2026-05-01, issue #5.4 -->
 - [ ] Design the Intermediate Representation (IR) / ASG <!-- issue #6 -->
-    - [ ] 6.1 Define the ASG object model in Python <!-- issue #6.1 -->
+    - [x] 6.1 Define the ASG object model in Python <!-- 2026-05-01, issue #6.1 -->
     - [ ] 6.2 Implement CST to ASG transformation logic <!-- issue #6.2 -->
+        - [ ] 6.2.1 Implement base Visitor for CST to ASG transformation <!-- issue #6.2.1 -->
+        - [ ] 6.2.2 Implement transformation for Pattern definitions <!-- issue #6.2.2 -->
+        - [ ] 6.2.3 Implement transformation for Instance definitions <!-- issue #6.2.3 -->
     - [ ] 6.3 Implement ASG validation (e.g., parameter type checking) <!-- issue #6.3 -->
 - [ ] Implement Jinja2 generators for reStructuredText <!-- issue #7 -->
     - [ ] 7.1 Setup Jinja2 environment and base reST templates <!-- issue #7.1 -->

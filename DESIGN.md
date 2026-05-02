@@ -102,5 +102,13 @@ The generated reST snippets are aggregated into the final documentation structur
 | **B: unittest** | Built-in Python testing library. | No extra dependencies; part of standard library. | More boilerplate; less flexible than `pytest`. | Discarded |
 | **C: nose2** | Successor to `nose`, based on `unittest`. | Extends `unittest` with plugins. | Less active development compared to `pytest`. | Discarded |
 
+### ASG Implementation Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: Plain Classes** | standard Python classes with `__init__`. | No dependencies; full control. | Significant boilerplate (`__init__`, `__repr__`). | Discarded |
+| **B: Dataclasses** | Python's built-in `dataclasses` module. | Part of standard library; reduces boilerplate; good IDE support. | Minimal built-in validation compared to Pydantic. | **Selected** |
+| **C: Pydantic** | Data validation and settings management using Python type hints. | Robust validation; easy serialization. | External dependency; potential overkill for current scope. | Discarded |
+
 ---
 *Evaluated on 2026-05-01*
