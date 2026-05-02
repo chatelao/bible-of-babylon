@@ -22,9 +22,12 @@
         - [x] 6.2.1 Implement base Visitor for CST to ASG transformation <!-- 2026-05-02, issue #6.2.1 -->
         - [ ] 6.2.2 Implement transformation for Pattern definitions <!-- issue #6.2.2 -->
         - [ ] 6.2.3 Implement transformation for Instance definitions <!-- issue #6.2.3 -->
-    - [ ] 6.3 Implement ASG validation (e.g., parameter type checking) <!-- issue #6.3 -->
+    - [ ] 6.3 Implement ASG validation <!-- issue #6.3 -->
+        - [ ] 6.3.1 Validate pattern existence for instances <!-- issue #6.3.1 -->
+        - [ ] 6.3.2 Validate mandatory parameter assignment <!-- issue #6.3.2 -->
+        - [ ] 6.3.3 Validate type consistency for assignments <!-- issue #6.3.3 -->
 - [ ] Implement Jinja2 generators for reStructuredText <!-- issue #7 -->
-    - [ ] 7.1 Setup Jinja2 environment and base reST templates <!-- issue #7.1 -->
+    - [x] 7.1 Setup Jinja2 environment and base reST templates <!-- 2026-05-02, issue #7.1 -->
     - [ ] 7.2 Implement generator logic for Programming Language patterns <!-- issue #7.2 -->
     - [ ] 7.3 Implement generator logic for Data Format patterns <!-- issue #7.3 -->
 
