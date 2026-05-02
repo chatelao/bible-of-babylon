@@ -46,7 +46,7 @@ value
     ;
 
 listLiteral
-    : '[' (value (',' value)*)? ']'
+    : '[' (value (',' value)* ','?)? ']'
     ;
 
 block
@@ -61,7 +61,7 @@ instruction
     ;
 
 callInstruction
-    : CALL IDENTIFIER '(' (value (',' value)*)? ')'
+    : CALL IDENTIFIER '(' (value (',' value)* ','?)? ')'
     ;
 
 assignInstruction
@@ -89,7 +89,7 @@ RETURN: 'return';
 RAW: 'raw';
 
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
-STRING: '"' (~["\r\n])* '"';
+STRING: '"' ( '\\' . | ~["\\\r\n] )* '"';
 NUMBER: [0-9]+ ('.' [0-9]+)?;
 
 WS: [ \t\r\n]+ -> skip;

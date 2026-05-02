@@ -15,7 +15,7 @@
     - [x] 5.1 Define Lexer rules for identifiers, literals, and keywords <!-- 2026-05-01, issue #5.1 -->
     - [x] 5.2 Define Parser rules for pattern definitions, instances, and metadata <!-- 2026-05-01, issue #5.2 -->
     - [x] 5.3 Define Parser rules for blocks, instructions, and collections <!-- 2026-05-01, issue #5.3 -->
-    - [ ] 5.4 Implement grammar verification tests <!-- issue #5.4 -->
+    - [x] 5.4 Implement grammar verification tests <!-- 2026-05-01, issue #5.4 -->
 - [ ] Design the Intermediate Representation (IR) / ASG <!-- issue #6 -->
     - [ ] 6.1 Define the ASG object model in Python <!-- issue #6.1 -->
     - [ ] 6.2 Implement CST to ASG transformation logic <!-- issue #6.2 -->
@@ -26,8 +26,18 @@
     - [ ] 7.3 Implement generator logic for Data Format patterns <!-- issue #7.3 -->
 
 ## Phase 3: Content Creation
-- [ ] Populate Programming Language patterns (Variables, Control Flow, etc.) <!-- issue #8 -->
-- [ ] Populate Data Format patterns (JSON, XML, YAML, etc.) <!-- issue #9 -->
+- [ ] Populate Programming Language patterns <!-- issue #8 -->
+    - [ ] 8.1 Variable declaration <!-- issue #8.1 -->
+    - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
+    - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
+    - [ ] 8.4 Error handling <!-- issue #8.4 -->
+    - [ ] 8.5 Concurrency models <!-- issue #8.5 -->
+- [ ] Populate Data Format patterns <!-- issue #9 -->
+    - [ ] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- issue #9.1 -->
+    - [ ] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- issue #9.2 -->
+    - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
+    - [ ] 9.4 Comments support <!-- issue #9.4 -->
+    - [ ] 9.5 Schema validation <!-- issue #9.5 -->
 
 ## Phase 4: Publication
 - [ ] Configure ReadTheDocs integration <!-- issue #10 -->

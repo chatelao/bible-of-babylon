@@ -10,61 +10,65 @@ else:
 
 def serializedATN():
     return [
-        4,1,26,166,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,26,174,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,1,0,1,0,5,0,35,8,0,10,0,12,0,38,9,0,1,0,1,0,
         1,1,1,1,1,1,1,1,1,1,5,1,47,8,1,10,1,12,1,50,9,1,1,1,1,1,1,2,1,2,
-        1,2,1,2,1,2,1,2,1,2,5,2,61,8,2,10,2,12,2,64,9,2,1,2,1,2,3,2,68,8,
-        2,1,3,1,3,1,3,1,3,1,3,1,3,5,3,76,8,3,10,3,12,3,79,9,3,1,3,1,3,1,
-        4,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,7,1,7,1,
-        7,1,7,1,7,3,7,102,8,7,1,8,1,8,1,8,1,8,1,8,1,8,3,8,110,8,8,1,9,1,
-        9,1,9,1,9,5,9,116,8,9,10,9,12,9,119,9,9,3,9,121,8,9,1,9,1,9,1,10,
-        1,10,5,10,127,8,10,10,10,12,10,130,9,10,1,10,1,10,1,11,1,11,1,11,
-        1,11,3,11,138,8,11,1,12,1,12,1,12,1,12,1,12,1,12,5,12,146,8,12,10,
-        12,12,12,149,9,12,3,12,151,8,12,1,12,1,12,1,13,1,13,1,13,1,13,1,
-        13,1,14,1,14,1,14,1,15,1,15,1,15,1,15,0,0,16,0,2,4,6,8,10,12,14,
-        16,18,20,22,24,26,28,30,0,1,1,0,21,22,172,0,36,1,0,0,0,2,41,1,0,
-        0,0,4,67,1,0,0,0,6,69,1,0,0,0,8,82,1,0,0,0,10,87,1,0,0,0,12,92,1,
-        0,0,0,14,101,1,0,0,0,16,109,1,0,0,0,18,111,1,0,0,0,20,124,1,0,0,
-        0,22,137,1,0,0,0,24,139,1,0,0,0,26,154,1,0,0,0,28,159,1,0,0,0,30,
-        162,1,0,0,0,32,35,3,2,1,0,33,35,3,4,2,0,34,32,1,0,0,0,34,33,1,0,
-        0,0,35,38,1,0,0,0,36,34,1,0,0,0,36,37,1,0,0,0,37,39,1,0,0,0,38,36,
-        1,0,0,0,39,40,5,0,0,1,40,1,1,0,0,0,41,42,5,12,0,0,42,43,5,21,0,0,
-        43,48,5,1,0,0,44,47,3,8,4,0,45,47,3,10,5,0,46,44,1,0,0,0,46,45,1,
-        0,0,0,47,50,1,0,0,0,48,46,1,0,0,0,48,49,1,0,0,0,49,51,1,0,0,0,50,
-        48,1,0,0,0,51,52,5,2,0,0,52,3,1,0,0,0,53,54,5,13,0,0,54,55,5,21,
-        0,0,55,56,5,14,0,0,56,57,5,21,0,0,57,62,5,1,0,0,58,61,3,8,4,0,59,
-        61,3,12,6,0,60,58,1,0,0,0,60,59,1,0,0,0,61,64,1,0,0,0,62,60,1,0,
-        0,0,62,63,1,0,0,0,63,65,1,0,0,0,64,62,1,0,0,0,65,68,5,2,0,0,66,68,
-        3,6,3,0,67,53,1,0,0,0,67,66,1,0,0,0,68,5,1,0,0,0,69,70,5,13,0,0,
-        70,71,5,14,0,0,71,72,5,21,0,0,72,77,5,1,0,0,73,76,3,8,4,0,74,76,
-        3,12,6,0,75,73,1,0,0,0,75,74,1,0,0,0,76,79,1,0,0,0,77,75,1,0,0,0,
-        77,78,1,0,0,0,78,80,1,0,0,0,79,77,1,0,0,0,80,81,5,2,0,0,81,7,1,0,
-        0,0,82,83,5,15,0,0,83,84,5,21,0,0,84,85,5,3,0,0,85,86,7,0,0,0,86,
-        9,1,0,0,0,87,88,5,16,0,0,88,89,5,21,0,0,89,90,5,3,0,0,90,91,3,14,
-        7,0,91,11,1,0,0,0,92,93,5,21,0,0,93,94,5,4,0,0,94,95,3,16,8,0,95,
-        13,1,0,0,0,96,102,5,21,0,0,97,98,5,5,0,0,98,99,3,14,7,0,99,100,5,
-        6,0,0,100,102,1,0,0,0,101,96,1,0,0,0,101,97,1,0,0,0,102,15,1,0,0,
-        0,103,110,5,22,0,0,104,110,5,23,0,0,105,110,5,21,0,0,106,110,3,18,
-        9,0,107,110,3,6,3,0,108,110,3,20,10,0,109,103,1,0,0,0,109,104,1,
-        0,0,0,109,105,1,0,0,0,109,106,1,0,0,0,109,107,1,0,0,0,109,108,1,
-        0,0,0,110,17,1,0,0,0,111,120,5,7,0,0,112,117,3,16,8,0,113,114,5,
-        8,0,0,114,116,3,16,8,0,115,113,1,0,0,0,116,119,1,0,0,0,117,115,1,
-        0,0,0,117,118,1,0,0,0,118,121,1,0,0,0,119,117,1,0,0,0,120,112,1,
-        0,0,0,120,121,1,0,0,0,121,122,1,0,0,0,122,123,5,9,0,0,123,19,1,0,
-        0,0,124,128,5,1,0,0,125,127,3,22,11,0,126,125,1,0,0,0,127,130,1,
-        0,0,0,128,126,1,0,0,0,128,129,1,0,0,0,129,131,1,0,0,0,130,128,1,
-        0,0,0,131,132,5,2,0,0,132,21,1,0,0,0,133,138,3,24,12,0,134,138,3,
-        26,13,0,135,138,3,28,14,0,136,138,3,30,15,0,137,133,1,0,0,0,137,
-        134,1,0,0,0,137,135,1,0,0,0,137,136,1,0,0,0,138,23,1,0,0,0,139,140,
-        5,17,0,0,140,141,5,21,0,0,141,150,5,10,0,0,142,147,3,16,8,0,143,
-        144,5,8,0,0,144,146,3,16,8,0,145,143,1,0,0,0,146,149,1,0,0,0,147,
-        145,1,0,0,0,147,148,1,0,0,0,148,151,1,0,0,0,149,147,1,0,0,0,150,
-        142,1,0,0,0,150,151,1,0,0,0,151,152,1,0,0,0,152,153,5,11,0,0,153,
-        25,1,0,0,0,154,155,5,18,0,0,155,156,5,21,0,0,156,157,5,4,0,0,157,
-        158,3,16,8,0,158,27,1,0,0,0,159,160,5,19,0,0,160,161,3,16,8,0,161,
-        29,1,0,0,0,162,163,5,20,0,0,163,164,5,22,0,0,164,31,1,0,0,0,17,34,
-        36,46,48,60,62,67,75,77,101,109,117,120,128,137,147,150
+        1,2,1,2,1,2,1,2,1,2,1,2,5,2,62,8,2,10,2,12,2,65,9,2,1,2,1,2,3,2,
+        69,8,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,5,3,78,8,3,10,3,12,3,81,9,3,1,
+        3,1,3,1,4,1,4,1,4,1,4,1,4,1,5,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,6,1,
+        7,1,7,1,7,1,7,1,7,3,7,104,8,7,1,8,1,8,1,8,1,8,1,8,1,8,3,8,112,8,
+        8,1,9,1,9,1,9,1,9,5,9,118,8,9,10,9,12,9,121,9,9,1,9,3,9,124,8,9,
+        3,9,126,8,9,1,9,1,9,1,10,1,10,5,10,132,8,10,10,10,12,10,135,9,10,
+        1,10,1,10,1,11,1,11,1,11,1,11,3,11,143,8,11,1,12,1,12,1,12,1,12,
+        1,12,1,12,5,12,151,8,12,10,12,12,12,154,9,12,1,12,3,12,157,8,12,
+        3,12,159,8,12,1,12,1,12,1,13,1,13,1,13,1,13,1,13,1,14,1,14,1,14,
+        1,15,1,15,1,15,1,15,0,0,16,0,2,4,6,8,10,12,14,16,18,20,22,24,26,
+        28,30,0,1,1,0,21,22,184,0,36,1,0,0,0,2,41,1,0,0,0,4,68,1,0,0,0,6,
+        70,1,0,0,0,8,84,1,0,0,0,10,89,1,0,0,0,12,94,1,0,0,0,14,103,1,0,0,
+        0,16,111,1,0,0,0,18,113,1,0,0,0,20,129,1,0,0,0,22,142,1,0,0,0,24,
+        144,1,0,0,0,26,162,1,0,0,0,28,167,1,0,0,0,30,170,1,0,0,0,32,35,3,
+        2,1,0,33,35,3,4,2,0,34,32,1,0,0,0,34,33,1,0,0,0,35,38,1,0,0,0,36,
+        34,1,0,0,0,36,37,1,0,0,0,37,39,1,0,0,0,38,36,1,0,0,0,39,40,5,0,0,
+        1,40,1,1,0,0,0,41,42,5,12,0,0,42,43,5,21,0,0,43,48,5,1,0,0,44,47,
+        3,8,4,0,45,47,3,10,5,0,46,44,1,0,0,0,46,45,1,0,0,0,47,50,1,0,0,0,
+        48,46,1,0,0,0,48,49,1,0,0,0,49,51,1,0,0,0,50,48,1,0,0,0,51,52,5,
+        2,0,0,52,3,1,0,0,0,53,54,5,13,0,0,54,55,5,21,0,0,55,56,5,14,0,0,
+        56,57,5,21,0,0,57,63,5,1,0,0,58,62,3,8,4,0,59,62,3,12,6,0,60,62,
+        5,3,0,0,61,58,1,0,0,0,61,59,1,0,0,0,61,60,1,0,0,0,62,65,1,0,0,0,
+        63,61,1,0,0,0,63,64,1,0,0,0,64,66,1,0,0,0,65,63,1,0,0,0,66,69,5,
+        2,0,0,67,69,3,6,3,0,68,53,1,0,0,0,68,67,1,0,0,0,69,5,1,0,0,0,70,
+        71,5,13,0,0,71,72,5,14,0,0,72,73,5,21,0,0,73,79,5,1,0,0,74,78,3,
+        8,4,0,75,78,3,12,6,0,76,78,5,3,0,0,77,74,1,0,0,0,77,75,1,0,0,0,77,
+        76,1,0,0,0,78,81,1,0,0,0,79,77,1,0,0,0,79,80,1,0,0,0,80,82,1,0,0,
+        0,81,79,1,0,0,0,82,83,5,2,0,0,83,7,1,0,0,0,84,85,5,15,0,0,85,86,
+        5,21,0,0,86,87,5,4,0,0,87,88,7,0,0,0,88,9,1,0,0,0,89,90,5,16,0,0,
+        90,91,5,21,0,0,91,92,5,4,0,0,92,93,3,14,7,0,93,11,1,0,0,0,94,95,
+        5,21,0,0,95,96,5,5,0,0,96,97,3,16,8,0,97,13,1,0,0,0,98,104,5,21,
+        0,0,99,100,5,6,0,0,100,101,3,14,7,0,101,102,5,7,0,0,102,104,1,0,
+        0,0,103,98,1,0,0,0,103,99,1,0,0,0,104,15,1,0,0,0,105,112,5,22,0,
+        0,106,112,5,23,0,0,107,112,5,21,0,0,108,112,3,18,9,0,109,112,3,6,
+        3,0,110,112,3,20,10,0,111,105,1,0,0,0,111,106,1,0,0,0,111,107,1,
+        0,0,0,111,108,1,0,0,0,111,109,1,0,0,0,111,110,1,0,0,0,112,17,1,0,
+        0,0,113,125,5,8,0,0,114,119,3,16,8,0,115,116,5,3,0,0,116,118,3,16,
+        8,0,117,115,1,0,0,0,118,121,1,0,0,0,119,117,1,0,0,0,119,120,1,0,
+        0,0,120,123,1,0,0,0,121,119,1,0,0,0,122,124,5,3,0,0,123,122,1,0,
+        0,0,123,124,1,0,0,0,124,126,1,0,0,0,125,114,1,0,0,0,125,126,1,0,
+        0,0,126,127,1,0,0,0,127,128,5,9,0,0,128,19,1,0,0,0,129,133,5,1,0,
+        0,130,132,3,22,11,0,131,130,1,0,0,0,132,135,1,0,0,0,133,131,1,0,
+        0,0,133,134,1,0,0,0,134,136,1,0,0,0,135,133,1,0,0,0,136,137,5,2,
+        0,0,137,21,1,0,0,0,138,143,3,24,12,0,139,143,3,26,13,0,140,143,3,
+        28,14,0,141,143,3,30,15,0,142,138,1,0,0,0,142,139,1,0,0,0,142,140,
+        1,0,0,0,142,141,1,0,0,0,143,23,1,0,0,0,144,145,5,17,0,0,145,146,
+        5,21,0,0,146,158,5,10,0,0,147,152,3,16,8,0,148,149,5,3,0,0,149,151,
+        3,16,8,0,150,148,1,0,0,0,151,154,1,0,0,0,152,150,1,0,0,0,152,153,
+        1,0,0,0,153,156,1,0,0,0,154,152,1,0,0,0,155,157,5,3,0,0,156,155,
+        1,0,0,0,156,157,1,0,0,0,157,159,1,0,0,0,158,147,1,0,0,0,158,159,
+        1,0,0,0,159,160,1,0,0,0,160,161,5,11,0,0,161,25,1,0,0,0,162,163,
+        5,18,0,0,163,164,5,21,0,0,164,165,5,5,0,0,165,166,3,16,8,0,166,27,
+        1,0,0,0,167,168,5,19,0,0,168,169,3,16,8,0,169,29,1,0,0,0,170,171,
+        5,20,0,0,171,172,5,22,0,0,172,31,1,0,0,0,19,34,36,46,48,61,63,68,
+        77,79,103,111,119,123,125,133,142,152,156,158
     ]
 
 class SourcePatternsParser ( Parser ):
@@ -77,10 +81,10 @@ class SourcePatternsParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "'{'", "'}'", "':'", "'='", "'List<'",
-                     "'>'", "'['", "','", "']'", "'('", "')'", "'pattern'",
-                     "'instance'", "'of'", "'meta'", "'parameter'", "'call'",
-                     "'assign'", "'return'", "'raw'" ]
+    literalNames = [ "<INVALID>", "'{'", "'}'", "','", "':'", "'='", "'List<'",
+                     "'>'", "'['", "']'", "'('", "')'", "'pattern'", "'instance'",
+                     "'of'", "'meta'", "'parameter'", "'call'", "'assign'",
+                     "'return'", "'raw'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>",
@@ -371,7 +375,7 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_instanceDefinition)
         self._la = 0 # Token type
         try:
-            self.state = 67
+            self.state = 68
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
             if la_ == 1:
@@ -386,11 +390,11 @@ class SourcePatternsParser ( Parser ):
                 self.match(SourcePatternsParser.IDENTIFIER)
                 self.state = 57
                 self.match(SourcePatternsParser.T__0)
-                self.state = 62
+                self.state = 63
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==15 or _la==21:
-                    self.state = 60
+                while (((_la) & ~0x3f) == 0 and ((1 << _la) & 2129928) != 0):
+                    self.state = 61
                     self._errHandler.sync(self)
                     token = self._input.LA(1)
                     if token in [15]:
@@ -401,20 +405,24 @@ class SourcePatternsParser ( Parser ):
                         self.state = 59
                         self.assignment()
                         pass
+                    elif token in [3]:
+                        self.state = 60
+                        self.match(SourcePatternsParser.T__2)
+                        pass
                     else:
                         raise NoViableAltException(self)
 
-                    self.state = 64
+                    self.state = 65
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
-                self.state = 65
+                self.state = 66
                 self.match(SourcePatternsParser.T__1)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 66
+                self.state = 67
                 self.anonymousInstance()
                 pass
 
@@ -479,37 +487,41 @@ class SourcePatternsParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 69
-            self.match(SourcePatternsParser.INSTANCE)
             self.state = 70
-            self.match(SourcePatternsParser.OF)
+            self.match(SourcePatternsParser.INSTANCE)
             self.state = 71
-            self.match(SourcePatternsParser.IDENTIFIER)
+            self.match(SourcePatternsParser.OF)
             self.state = 72
+            self.match(SourcePatternsParser.IDENTIFIER)
+            self.state = 73
             self.match(SourcePatternsParser.T__0)
-            self.state = 77
+            self.state = 79
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while _la==15 or _la==21:
-                self.state = 75
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 2129928) != 0):
+                self.state = 77
                 self._errHandler.sync(self)
                 token = self._input.LA(1)
                 if token in [15]:
-                    self.state = 73
+                    self.state = 74
                     self.metaDefinition()
                     pass
                 elif token in [21]:
-                    self.state = 74
+                    self.state = 75
                     self.assignment()
+                    pass
+                elif token in [3]:
+                    self.state = 76
+                    self.match(SourcePatternsParser.T__2)
                     pass
                 else:
                     raise NoViableAltException(self)
 
-                self.state = 79
+                self.state = 81
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 80
+            self.state = 82
             self.match(SourcePatternsParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -560,13 +572,13 @@ class SourcePatternsParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 82
-            self.match(SourcePatternsParser.META)
-            self.state = 83
-            self.match(SourcePatternsParser.IDENTIFIER)
             self.state = 84
-            self.match(SourcePatternsParser.T__2)
+            self.match(SourcePatternsParser.META)
             self.state = 85
+            self.match(SourcePatternsParser.IDENTIFIER)
+            self.state = 86
+            self.match(SourcePatternsParser.T__3)
+            self.state = 87
             _la = self._input.LA(1)
             if not(_la==21 or _la==22):
                 self._errHandler.recoverInline(self)
@@ -619,13 +631,13 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_parameterDefinition)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 87
-            self.match(SourcePatternsParser.PARAMETER)
-            self.state = 88
-            self.match(SourcePatternsParser.IDENTIFIER)
             self.state = 89
-            self.match(SourcePatternsParser.T__2)
+            self.match(SourcePatternsParser.PARAMETER)
             self.state = 90
+            self.match(SourcePatternsParser.IDENTIFIER)
+            self.state = 91
+            self.match(SourcePatternsParser.T__3)
+            self.state = 92
             self.type_()
         except RecognitionException as re:
             localctx.exception = re
@@ -670,11 +682,11 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_assignment)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 92
-            self.match(SourcePatternsParser.IDENTIFIER)
-            self.state = 93
-            self.match(SourcePatternsParser.T__3)
             self.state = 94
+            self.match(SourcePatternsParser.IDENTIFIER)
+            self.state = 95
+            self.match(SourcePatternsParser.T__4)
+            self.state = 96
             self.value()
         except RecognitionException as re:
             localctx.exception = re
@@ -718,22 +730,22 @@ class SourcePatternsParser ( Parser ):
         localctx = SourcePatternsParser.TypeContext(self, self._ctx, self.state)
         self.enterRule(localctx, 14, self.RULE_type)
         try:
-            self.state = 101
+            self.state = 103
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [21]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 96
+                self.state = 98
                 self.match(SourcePatternsParser.IDENTIFIER)
                 pass
-            elif token in [5]:
+            elif token in [6]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 97
-                self.match(SourcePatternsParser.T__4)
-                self.state = 98
-                self.type_()
                 self.state = 99
                 self.match(SourcePatternsParser.T__5)
+                self.state = 100
+                self.type_()
+                self.state = 101
+                self.match(SourcePatternsParser.T__6)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -794,37 +806,37 @@ class SourcePatternsParser ( Parser ):
         localctx = SourcePatternsParser.ValueContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_value)
         try:
-            self.state = 109
+            self.state = 111
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [22]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 103
+                self.state = 105
                 self.match(SourcePatternsParser.STRING)
                 pass
             elif token in [23]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 104
+                self.state = 106
                 self.match(SourcePatternsParser.NUMBER)
                 pass
             elif token in [21]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 105
+                self.state = 107
                 self.match(SourcePatternsParser.IDENTIFIER)
                 pass
-            elif token in [7]:
+            elif token in [8]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 106
+                self.state = 108
                 self.listLiteral()
                 pass
             elif token in [13]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 107
+                self.state = 109
                 self.anonymousInstance()
                 pass
             elif token in [1]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 108
+                self.state = 110
                 self.block()
                 pass
             else:
@@ -874,29 +886,38 @@ class SourcePatternsParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 111
-            self.match(SourcePatternsParser.T__6)
-            self.state = 120
+            self.state = 113
+            self.match(SourcePatternsParser.T__7)
+            self.state = 125
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 14688386) != 0):
-                self.state = 112
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 14688514) != 0):
+                self.state = 114
                 self.value()
-                self.state = 117
+                self.state = 119
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,11,self._ctx)
+                while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                    if _alt==1:
+                        self.state = 115
+                        self.match(SourcePatternsParser.T__2)
+                        self.state = 116
+                        self.value()
+                    self.state = 121
+                    self._errHandler.sync(self)
+                    _alt = self._interp.adaptivePredict(self._input,11,self._ctx)
+
+                self.state = 123
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==8:
-                    self.state = 113
-                    self.match(SourcePatternsParser.T__7)
-                    self.state = 114
-                    self.value()
-                    self.state = 119
-                    self._errHandler.sync(self)
-                    _la = self._input.LA(1)
+                if _la==3:
+                    self.state = 122
+                    self.match(SourcePatternsParser.T__2)
 
 
 
-            self.state = 122
+
+            self.state = 127
             self.match(SourcePatternsParser.T__8)
         except RecognitionException as re:
             localctx.exception = re
@@ -942,19 +963,19 @@ class SourcePatternsParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 124
+            self.state = 129
             self.match(SourcePatternsParser.T__0)
-            self.state = 128
+            self.state = 133
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while (((_la) & ~0x3f) == 0 and ((1 << _la) & 1966080) != 0):
-                self.state = 125
-                self.instruction()
                 self.state = 130
+                self.instruction()
+                self.state = 135
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 131
+            self.state = 136
             self.match(SourcePatternsParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -1007,27 +1028,27 @@ class SourcePatternsParser ( Parser ):
         localctx = SourcePatternsParser.InstructionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 22, self.RULE_instruction)
         try:
-            self.state = 137
+            self.state = 142
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [17]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 133
+                self.state = 138
                 self.callInstruction()
                 pass
             elif token in [18]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 134
+                self.state = 139
                 self.assignInstruction()
                 pass
             elif token in [19]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 135
+                self.state = 140
                 self.returnInstruction()
                 pass
             elif token in [20]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 136
+                self.state = 141
                 self.rawInstruction()
                 pass
             else:
@@ -1083,33 +1104,42 @@ class SourcePatternsParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 139
+            self.state = 144
             self.match(SourcePatternsParser.CALL)
-            self.state = 140
+            self.state = 145
             self.match(SourcePatternsParser.IDENTIFIER)
-            self.state = 141
+            self.state = 146
             self.match(SourcePatternsParser.T__9)
-            self.state = 150
+            self.state = 158
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 14688386) != 0):
-                self.state = 142
-                self.value()
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 14688514) != 0):
                 self.state = 147
+                self.value()
+                self.state = 152
+                self._errHandler.sync(self)
+                _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
+                while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
+                    if _alt==1:
+                        self.state = 148
+                        self.match(SourcePatternsParser.T__2)
+                        self.state = 149
+                        self.value()
+                    self.state = 154
+                    self._errHandler.sync(self)
+                    _alt = self._interp.adaptivePredict(self._input,16,self._ctx)
+
+                self.state = 156
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                while _la==8:
-                    self.state = 143
-                    self.match(SourcePatternsParser.T__7)
-                    self.state = 144
-                    self.value()
-                    self.state = 149
-                    self._errHandler.sync(self)
-                    _la = self._input.LA(1)
+                if _la==3:
+                    self.state = 155
+                    self.match(SourcePatternsParser.T__2)
 
 
 
-            self.state = 152
+
+            self.state = 160
             self.match(SourcePatternsParser.T__10)
         except RecognitionException as re:
             localctx.exception = re
@@ -1157,13 +1187,13 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 26, self.RULE_assignInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 154
+            self.state = 162
             self.match(SourcePatternsParser.ASSIGN)
-            self.state = 155
+            self.state = 163
             self.match(SourcePatternsParser.IDENTIFIER)
-            self.state = 156
-            self.match(SourcePatternsParser.T__3)
-            self.state = 157
+            self.state = 164
+            self.match(SourcePatternsParser.T__4)
+            self.state = 165
             self.value()
         except RecognitionException as re:
             localctx.exception = re
@@ -1208,9 +1238,9 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 28, self.RULE_returnInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 159
+            self.state = 167
             self.match(SourcePatternsParser.RETURN)
-            self.state = 160
+            self.state = 168
             self.value()
         except RecognitionException as re:
             localctx.exception = re
@@ -1254,9 +1284,9 @@ class SourcePatternsParser ( Parser ):
         self.enterRule(localctx, 30, self.RULE_rawInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 162
+            self.state = 170
             self.match(SourcePatternsParser.RAW)
-            self.state = 163
+            self.state = 171
             self.match(SourcePatternsParser.STRING)
         except RecognitionException as re:
             localctx.exception = re
