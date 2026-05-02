@@ -12,9 +12,9 @@
     - [x] 4.2 Validate DSL draft with example patterns <!-- 2026-05-01, issue #4.2 -->
     - [x] 4.3 Finalize DSL specification <!-- 2026-05-01, issue #4.3 -->
 - [ ] Implement ANTLR4 grammar for the DSL <!-- issue #5 -->
-    - [ ] 5.1 Define Lexer rules for identifiers, literals, and keywords <!-- issue #5.1 -->
-    - [ ] 5.2 Define Parser rules for pattern definitions, instances, and metadata <!-- issue #5.2 -->
-    - [ ] 5.3 Define Parser rules for blocks, instructions, and collections <!-- issue #5.3 -->
+    - [x] 5.1 Define Lexer rules for identifiers, literals, and keywords <!-- 2026-05-01, issue #5.1 -->
+    - [x] 5.2 Define Parser rules for pattern definitions, instances, and metadata <!-- 2026-05-01, issue #5.2 -->
+    - [x] 5.3 Define Parser rules for blocks, instructions, and collections <!-- 2026-05-01, issue #5.3 -->
     - [ ] 5.4 Implement grammar verification tests <!-- issue #5.4 -->
 - [ ] Design the Intermediate Representation (IR) / ASG <!-- issue #6 -->
     - [ ] 6.1 Define the ASG object model in Python <!-- issue #6.1 -->
