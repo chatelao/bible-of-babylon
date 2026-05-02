@@ -180,13 +180,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_program
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterProgram" ):
-                listener.enterProgram(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitProgram" ):
-                listener.exitProgram(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitProgram" ):
+                return visitor.visitProgram(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -261,13 +259,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_patternDefinition
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPatternDefinition" ):
-                listener.enterPatternDefinition(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPatternDefinition" ):
-                listener.exitPatternDefinition(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitPatternDefinition" ):
+                return visitor.visitPatternDefinition(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -358,13 +354,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_instanceDefinition
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterInstanceDefinition" ):
-                listener.enterInstanceDefinition(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitInstanceDefinition" ):
-                listener.exitInstanceDefinition(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstanceDefinition" ):
+                return visitor.visitInstanceDefinition(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -469,13 +463,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_anonymousInstance
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAnonymousInstance" ):
-                listener.enterAnonymousInstance(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAnonymousInstance" ):
-                listener.exitAnonymousInstance(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAnonymousInstance" ):
+                return visitor.visitAnonymousInstance(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -554,13 +546,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_metaDefinition
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMetaDefinition" ):
-                listener.enterMetaDefinition(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMetaDefinition" ):
-                listener.exitMetaDefinition(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitMetaDefinition" ):
+                return visitor.visitMetaDefinition(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -614,13 +604,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_parameterDefinition
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParameterDefinition" ):
-                listener.enterParameterDefinition(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParameterDefinition" ):
-                listener.exitParameterDefinition(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitParameterDefinition" ):
+                return visitor.visitParameterDefinition(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -665,13 +653,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_assignment
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAssignment" ):
-                listener.enterAssignment(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAssignment" ):
-                listener.exitAssignment(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignment" ):
+                return visitor.visitAssignment(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -714,13 +700,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_type
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterType" ):
-                listener.enterType(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitType" ):
-                listener.exitType(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitType" ):
+                return visitor.visitType(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -790,13 +774,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_value
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterValue" ):
-                listener.enterValue(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitValue" ):
-                listener.exitValue(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitValue" ):
+                return visitor.visitValue(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -868,13 +850,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_listLiteral
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterListLiteral" ):
-                listener.enterListLiteral(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitListLiteral" ):
-                listener.exitListLiteral(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitListLiteral" ):
+                return visitor.visitListLiteral(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -945,13 +925,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_block
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBlock" ):
-                listener.enterBlock(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBlock" ):
-                listener.exitBlock(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitBlock" ):
+                return visitor.visitBlock(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1012,13 +990,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_instruction
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterInstruction" ):
-                listener.enterInstruction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitInstruction" ):
-                listener.exitInstruction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitInstruction" ):
+                return visitor.visitInstruction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1086,13 +1062,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_callInstruction
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterCallInstruction" ):
-                listener.enterCallInstruction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitCallInstruction" ):
-                listener.exitCallInstruction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCallInstruction" ):
+                return visitor.visitCallInstruction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1170,13 +1144,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_assignInstruction
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAssignInstruction" ):
-                listener.enterAssignInstruction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAssignInstruction" ):
-                listener.exitAssignInstruction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignInstruction" ):
+                return visitor.visitAssignInstruction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1221,13 +1193,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_returnInstruction
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterReturnInstruction" ):
-                listener.enterReturnInstruction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitReturnInstruction" ):
-                listener.exitReturnInstruction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitReturnInstruction" ):
+                return visitor.visitReturnInstruction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
@@ -1267,13 +1237,11 @@ class SourcePatternsParser ( Parser ):
         def getRuleIndex(self):
             return SourcePatternsParser.RULE_rawInstruction
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterRawInstruction" ):
-                listener.enterRawInstruction(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitRawInstruction" ):
-                listener.exitRawInstruction(self)
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRawInstruction" ):
+                return visitor.visitRawInstruction(self)
+            else:
+                return visitor.visitChildren(self)
 
 
 
