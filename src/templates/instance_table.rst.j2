@@ -1,0 +1,20 @@
+.. list-table:: {{ pattern.name }} Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+{%- for param in pattern.parameters %}
+     - {{ param.name }}
+{%- endfor %}
+{%- for instance in instances %}
+   * - {{ instance.name }}
+{%- for param in pattern.parameters %}
+     - {% set ns = namespace(val="N/A") -%}
+       {%- for assignment in instance.assignments -%}
+         {%- if assignment.name == param.name -%}
+           {%- set ns.val = assignment.value -%}
+         {%- endif -%}
+       {%- endfor -%}
+       {{ ns.val|format_value }}
+{%- endfor %}
+{%- endfor %}

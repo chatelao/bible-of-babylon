@@ -1,6 +1,23 @@
 from pathlib import Path
+from typing import List, Dict
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from .models import Pattern, Program
+from .models import Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier
+
+def format_value(value) -> str:
+    if isinstance(value, str):
+        return value
+    if isinstance(value, (int, float)):
+        return str(value)
+    if isinstance(value, Identifier):
+        return value.name
+    if isinstance(value, ListLiteral):
+        elements = [format_value(e) for e in value.elements]
+        return f"[{', '.join(elements)}]"
+    if isinstance(value, AnonymousInstance):
+        return f"instance of {value.pattern_name}"
+    if isinstance(value, Block):
+        return "{ ... }"
+    return str(value)
 
 class CodeGenerator:
     def __init__(self, template_dir=None):
@@ -11,14 +28,34 @@ class CodeGenerator:
             loader=FileSystemLoader(str(template_dir)),
             autoescape=select_autoescape()
         )
+        self.env.filters['format_value'] = format_value
 
     def render_pattern(self, pattern: Pattern) -> str:
         template = self.env.get_template('pattern.rst.j2')
         return template.render(pattern=pattern)
 
+    def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
+        template = self.env.get_template('instance_table.rst.j2')
+        return template.render(pattern=pattern, instances=instances)
+
     def render_program(self, program: Program) -> str:
-        # For now, just render patterns
         results = []
-        for pattern in program.patterns:
+
+        # Map pattern name to pattern object
+        patterns_map = {p.name: p for p in program.patterns}
+
+        # Group instances by pattern
+        instances_by_pattern: Dict[str, List[Instance]] = {}
+        for instance in program.instances:
+            if instance.pattern_name not in instances_by_pattern:
+                instances_by_pattern[instance.pattern_name] = []
+            instances_by_pattern[instance.pattern_name].append(instance)
+
+        # Render each pattern and its instances
+        for pattern_name, pattern in patterns_map.items():
             results.append(self.render_pattern(pattern))
+
+            if pattern_name in instances_by_pattern:
+                results.append(self.render_instance_table(pattern, instances_by_pattern[pattern_name]))
+
         return "\n\n".join(results)

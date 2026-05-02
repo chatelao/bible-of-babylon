@@ -29,7 +29,7 @@
 - [ ] Implement Jinja2 generators for reStructuredText <!-- issue #7 -->
     - [x] 7.1 Setup Jinja2 environment and base reST templates <!-- 2026-05-02, issue #7.1 -->
     - [ ] 7.2 Implement generator logic for Pattern instances (tables) <!-- issue #7.2 -->
-        - [ ] 7.2.1 Implement reST table rendering for basic assignments <!-- issue #7.2.1 -->
+        - [x] 7.2.1 Implement reST table rendering for basic assignments <!-- 2026-05-02, issue #7.2.1 -->
         - [ ] 7.2.2 Implement reST rendering for nested instances and lists <!-- issue #7.2.2 -->
     - [ ] 7.3 Implement generator logic for Instructions (blocks) <!-- issue #7.3 -->
         - [ ] 7.3.1 Implement reST rendering for call, assign, and return instructions <!-- issue #7.3.1 -->
