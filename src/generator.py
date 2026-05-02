@@ -1,7 +1,10 @@
 from pathlib import Path
 from typing import List, Dict
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from .models import Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier
+from .models import (
+    Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier,
+    CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
+)
 
 def format_value(value) -> str:
     if isinstance(value, str):
@@ -17,7 +20,17 @@ def format_value(value) -> str:
         assignments = [f"{a.name}={format_value(a.value)}" for a in value.assignments]
         return f"{value.pattern_name}({', '.join(assignments)})"
     if isinstance(value, Block):
-        return "{ ... }"
+        instructions = [format_value(i) for i in value.instructions]
+        return f"{{ {'; '.join(instructions)} }}"
+    if isinstance(value, CallInstruction):
+        args = [format_value(a) for a in value.arguments]
+        return f"call {value.name}({', '.join(args)})"
+    if isinstance(value, AssignInstruction):
+        return f"assign {value.target} = {format_value(value.value)}"
+    if isinstance(value, ReturnInstruction):
+        return f"return {format_value(value.value)}"
+    if isinstance(value, RawInstruction):
+        return f'raw "{value.snippet}"'
     return str(value)
 
 class CodeGenerator:
