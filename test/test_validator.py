@@ -1,15 +1,25 @@
 import pytest
 
-from src.models import Program, Pattern, Instance, AnonymousInstance, Assignment, Block, RawInstruction
+from src.models import Program, Pattern, Instance, AnonymousInstance, Assignment, Block, RawInstruction, Parameter, Type
 from src.validator import Validator, ValidationError
 
 def test_validate_success():
     program = Program(
-        patterns=[Pattern(name="P1")],
-        instances=[Instance(name="I1", pattern_name="P1")]
+        patterns=[Pattern(name="P1", parameters=[Parameter(name="param1", type=Type(name="String"))])],
+        instances=[Instance(name="I1", pattern_name="P1", assignments=[Assignment(name="param1", value="val")])]
     )
     validator = Validator()
     validator.validate(program)  # Should not raise
+
+def test_validate_missing_mandatory_parameter():
+    program = Program(
+        patterns=[Pattern(name="P1", parameters=[Parameter(name="param1", type=Type(name="String"))])],
+        instances=[Instance(name="I1", pattern_name="P1")]
+    )
+    validator = Validator()
+    with pytest.raises(ValidationError) as excinfo:
+        validator.validate(program)
+    assert "Missing mandatory parameter 'param1' for instance 'I1' of pattern 'P1'." in str(excinfo.value)
 
 def test_validate_missing_pattern():
     program = Program(

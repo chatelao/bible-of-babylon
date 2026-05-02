@@ -14,7 +14,7 @@ class Validator:
 
     def __init__(self):
         self.errors: List[str] = []
-        self.pattern_names: Set[str] = set()
+        self.patterns = {}
 
     def validate(self, program: Program):
         """
@@ -27,7 +27,7 @@ class Validator:
             ValidationError: If any validation errors are found.
         """
         self.errors = []
-        self.pattern_names = {p.name for p in program.patterns}
+        self.patterns = {p.name: p for p in program.patterns}
 
         for instance in program.instances:
             self._validate_instance(instance)
@@ -37,9 +37,19 @@ class Validator:
 
     def _validate_instance(self, instance: AnonymousInstance):
         """Validates an instance or anonymous instance."""
-        if instance.pattern_name not in self.pattern_names:
-            name_part = f" '{instance.name}'" if isinstance(instance, Instance) else ""
+        pattern = self.patterns.get(instance.pattern_name)
+        name_part = f" '{instance.name}'" if isinstance(instance, Instance) else ""
+
+        if not pattern:
             self.errors.append(f"Pattern '{instance.pattern_name}' not found for instance{name_part}.")
+        else:
+            # Validate mandatory parameter assignment
+            assigned_names = {a.name for a in instance.assignments}
+            for param in pattern.parameters:
+                if param.name not in assigned_names:
+                    self.errors.append(
+                        f"Missing mandatory parameter '{param.name}' for instance{name_part} of pattern '{pattern.name}'."
+                    )
 
         for assignment in instance.assignments:
             self._validate_value(assignment.value)
