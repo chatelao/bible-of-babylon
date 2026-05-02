@@ -47,7 +47,7 @@ def test_validate_nested_anonymous_missing_pattern():
 
 def test_validate_block_nested_missing_pattern():
     program = Program(
-        patterns=[Pattern(name="P1")],
+        patterns=[Pattern(name="P1", parameters=[Parameter(name="body", type=Type(name="Block"))])],
         instances=[
             Instance(name="I1", pattern_name="P1", assignments=[
                 Assignment(name="body", value=Block(instructions=[
