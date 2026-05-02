@@ -14,7 +14,8 @@ def format_value(value) -> str:
         elements = [format_value(e) for e in value.elements]
         return f"[{', '.join(elements)}]"
     if isinstance(value, AnonymousInstance):
-        return f"instance of {value.pattern_name}"
+        assignments = [f"{a.name}={format_value(a.value)}" for a in value.assignments]
+        return f"{value.pattern_name}({', '.join(assignments)})"
     if isinstance(value, Block):
         return "{ ... }"
     return str(value)
