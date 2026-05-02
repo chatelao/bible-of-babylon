@@ -1,0 +1,11 @@
+{% if pattern %}
+Pattern: {{ pattern.name }}
+{% for meta in pattern.metadata %}
+:{{ meta.key }}: {{ meta.value }}
+{% endfor %}
+
+Parameters:
+{% for param in pattern.parameters %}
+* {{ param.name }}: {{ param.type.name }}{% if param.type.inner_type %}<{{ param.type.inner_type.name }}>{% endif %}
+{% endfor %}
+{% endif %}
