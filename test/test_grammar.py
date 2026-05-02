@@ -4,8 +4,8 @@ from antlr4.error.ErrorListener import ErrorListener
 import sys
 import os
 
-# Add src/generated/src to sys.path to import the generated parser
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src', 'generated', 'src')))
+# Add src/generated to sys.path to import the generated parser
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src', 'generated')))
 
 from SourcePatternsLexer import SourcePatternsLexer
 from SourcePatternsParser import SourcePatternsParser

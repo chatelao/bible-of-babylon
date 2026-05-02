@@ -19,7 +19,7 @@
 - [ ] Design the Intermediate Representation (IR) / ASG <!-- issue #6 -->
     - [x] 6.1 Define the ASG object model in Python <!-- 2026-05-01, issue #6.1 -->
     - [ ] 6.2 Implement CST to ASG transformation logic <!-- issue #6.2 -->
-        - [ ] 6.2.1 Implement base Visitor for CST to ASG transformation <!-- issue #6.2.1 -->
+        - [x] 6.2.1 Implement base Visitor for CST to ASG transformation <!-- 2026-05-02, issue #6.2.1 -->
         - [ ] 6.2.2 Implement transformation for Pattern definitions <!-- issue #6.2.2 -->
         - [ ] 6.2.3 Implement transformation for Instance definitions <!-- issue #6.2.3 -->
     - [ ] 6.3 Implement ASG validation (e.g., parameter type checking) <!-- issue #6.3 -->
