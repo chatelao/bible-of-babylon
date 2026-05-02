@@ -1,0 +1,18 @@
+pattern VariableDeclaration {
+    meta description: "The act of naming a value and optionally specifying its type."
+    parameter name: String
+    parameter type: String
+    parameter initial_value: Number
+}
+
+instance JavaVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+}
+
+instance PythonVar of VariableDeclaration {
+    name = "x"
+    type = "None"
+    initial_value = 42
+}
