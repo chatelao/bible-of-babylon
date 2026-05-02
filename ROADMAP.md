@@ -31,9 +31,9 @@
     - [x] 7.2 Implement generator logic for Pattern instances (tables) <!-- 2026-05-02, issue #7.2 -->
         - [x] 7.2.1 Implement reST table rendering for basic assignments <!-- 2026-05-02, issue #7.2.1 -->
         - [x] 7.2.2 Implement reST rendering for nested instances and lists <!-- 2026-05-02, issue #7.2.2 -->
-    - [ ] 7.3 Implement generator logic for Instructions (blocks) <!-- issue #7.3 -->
-        - [ ] 7.3.1 Implement reST rendering for call, assign, and return instructions <!-- issue #7.3.1 -->
-        - [ ] 7.3.2 Implement reST rendering for raw snippets and nested blocks <!-- issue #7.3.2 -->
+    - [x] 7.3 Implement generator logic for Instructions (blocks) <!-- 2026-05-02, issue #7.3 -->
+        - [x] 7.3.1 Implement reST rendering for call, assign, and return instructions <!-- 2026-05-02, issue #7.3.1 -->
+        - [x] 7.3.2 Implement reST rendering for raw snippets and nested blocks <!-- 2026-05-02, issue #7.3.2 -->
 
 ## Phase 3: Content Creation
 - [ ] Populate Programming Language patterns <!-- issue #8 -->
