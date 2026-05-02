@@ -9,4 +9,7 @@ pip install jinja2
 echo "Installing ANTLR4 tools..."
 pip install antlr4-tools
 
+echo "Installing ANTLR4 Python runtime..."
+pip install antlr4-python3-runtime==4.13.2
+
 echo "Development environment setup complete."
