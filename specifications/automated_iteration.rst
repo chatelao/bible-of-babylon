@@ -12,23 +12,24 @@ Workflow Logic
 
 The workflow is triggered upon the successful completion of a CI/CD pipeline for a pull request. It checks for specific labels to determine if and how to proceed with automation.
 
-Label: ``Auto``
----------------
+Label: ``Auto-Repeat``
+----------------------
 
 * **Action**: If CI/CD passes, the pull request is automatically merged.
 * **Refinement**: The associated issue is duplicated.
-* **Continuity**: The duplicated issue retains the ``Auto`` label.
+* **Continuity**: The duplicated issue retains the ``Auto-Repeat`` label.
 * **Termination**: The loop continues indefinitely until a CI/CD failure occurs or the label is manually removed.
 
-Label: ``Auto-X`` (e.g., ``Auto-10``)
-------------------------------------
+Label: ``Auto-Repeat-X`` (e.g., ``Auto-Repeat-10``) [Planned]
+-------------------------------------------------------------
 
+* **Note**: This is a planned enhancement to the MVP.
 * **Action**: If CI/CD passes, the pull request is automatically merged.
 * **Refinement**: The associated issue is duplicated.
-* **Continuity**: The counter ``X`` is decremented by 1 in the duplicated issue's label (e.g., ``Auto-10`` becomes ``Auto-9``).
+* **Continuity**: The counter ``X`` is decremented by 1 in the duplicated issue's label (e.g., ``Auto-Repeat-10`` becomes ``Auto-Repeat-9``).
 * **Termination**:
-    * If the decremented counter is greater than 0, the new label (e.g., ``Auto-9``) is applied to the duplicated issue.
-    * If the counter reaches 0, no ``Auto`` or ``Auto-X`` label is applied to the new issue, effectively stopping the automated loop.
+    * If the decremented counter is greater than 0, the new label (e.g., ``Auto-Repeat-9``) is applied to the duplicated issue.
+    * If the counter reaches 0, no ``Auto-Repeat`` or ``Auto-Repeat-X`` label is applied to the new issue, effectively stopping the automated loop.
 
 Appendix: Decision Evaluation
 =============================
@@ -46,7 +47,7 @@ Triggering Strategy Options
      - Cons
      - Status
    * - **A: Label-based**
-     - Using GitHub Labels (``Auto``, ``Auto-X``) to trigger the workflow.
+     - Using GitHub Labels (``Auto-Repeat``, ``Auto-Repeat-X``) to trigger the workflow.
      - Highly visible; easy to manage via UI; native GitHub feature.
      - Can clutter the labels list if not managed.
      - **Selected**

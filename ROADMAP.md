@@ -5,9 +5,9 @@
 - [x] Setup `src/install.sh` for development environment <!-- 2026-05-01, issue #2 -->
 - [x] Setup `test/install.sh` <!-- 2026-05-01, issue #3.1 -->
 - [x] Setup CI/CD workflow <!-- 2024-05-24, issue #3.2 -->
-- [x] Implement Automated Iteration Workflow <!-- 2024-05-24, issue #12 -->
-    - [x] 12.1 Define concept for Auto/Auto-X labels <!-- 2024-05-24, issue #12.1 -->
-    - [x] 12.2 Implement GitHub Actions workflow for PR merge and issue duplication <!-- 2024-05-24, issue #12.2 -->
+- [x] Implement Automated Iteration Workflow (Auto-Repeat) <!-- 2024-05-24, issue #12 -->
+    - [x] 12.1 Define concept for Auto-Repeat labels <!-- 2024-05-24, issue #12.1 -->
+    - [x] 12.2 Implement GitHub Actions workflow for PR merge and issue duplication (MVP) <!-- 2024-05-24, issue #12.2 -->
 
 ## Phase 2: Transpiler Development
 - [ ] Define DSL for Source Patterns <!-- issue #4 -->
