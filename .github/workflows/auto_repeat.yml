@@ -50,7 +50,7 @@ jobs:
           fi
 
           # Refresh state to ensure accuracy
-          PR_STATE=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json state --jq -r '.state')
+          PR_STATE=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json state --jq '.state' | jq -r '.')
           echo "Processing PR #$PR_NUMBER (State: $PR_STATE)"
 
           if [ "$PR_STATE" != "OPEN" ]; then
@@ -68,10 +68,10 @@ jobs:
 
           # 3. Check for iteration labels (Auto-Repeat or Auto-Repeat-X)
           # We check both the PR and the associated Issue
-          PR_LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq -r '.labels[].name' 2>/dev/null || true)
+          PR_LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq '.labels[].name' 2>/dev/null | jq -r '.' || true)
           ISSUE_LABELS=""
           if [ -n "$ISSUE_NUMBER" ]; then
-            ISSUE_LABELS=$(gh issue view $ISSUE_NUMBER --repo $REPOSITORY --json labels --jq -r '.labels[].name' 2>/dev/null || true)
+            ISSUE_LABELS=$(gh issue view $ISSUE_NUMBER --repo $REPOSITORY --json labels --jq '.labels[].name' 2>/dev/null | jq -r '.' || true)
           fi
 
           ALL_LABELS=$(printf "%s\n%s" "$PR_LABELS" "$ISSUE_LABELS" | grep . | sort -u || true)
