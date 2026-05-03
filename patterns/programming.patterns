@@ -336,3 +336,48 @@ instance RustFunction of FunctionDefinition {
     syntax = "fn add(a: i32, b: i32) -> i32 { a + b }"
     notes = "Uses 'fn' keyword; return type preceded by '->'; last expression is returned implicitly."
 }
+
+instance PythonFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "Dynamic"
+    body = { raw "return a + b" }
+    syntax = "def add(a, b): return a + b"
+    notes = "Uses 'def' keyword; indentation defines the block."
+}
+
+instance BashFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["$1", "$2"]
+    return_type = "Exit Code / Stdout"
+    body = { raw "echo $(($1 + $2))" }
+    syntax = "add() { echo $(($1 + $2)); }"
+    notes = "Parameters are accessed via $1, $2, etc.; return values are typically exit codes or printed to stdout."
+}
+
+instance PowerShellFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["$a", "$b"]
+    return_type = "Dynamic"
+    body = { raw "return $a + $b" }
+    syntax = "function add($a, $b) { return $a + $b }"
+    notes = "Uses 'function' keyword; parameters are variables starting with $."
+}
+
+instance CmdFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["%1", "%2"]
+    return_type = "ErrorLevel"
+    body = { raw "set /a res=%1+%2\nexit /b %res%" }
+    syntax = ":add\nset /a res=%~1+%~2\nexit /b %res%"
+    notes = "Functions are labels; called with 'call :label'; arguments are %1, %2."
+}
+
+instance SqlFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["@a INT", "@b INT"]
+    return_type = "INT"
+    body = { raw "RETURN @a + @b" }
+    syntax = "CREATE FUNCTION add(@a INT, @b INT) RETURNS INT AS BEGIN RETURN @a + @b END"
+    notes = "T-SQL syntax for Scalar-Valued Functions."
+}
