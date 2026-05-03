@@ -23,50 +23,40 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
+          set -e
+
           # Get the PR associated with the workflow run
-          PR_JSON=$(curl -s -H "Authorization: token $GH_TOKEN" \
-            "${{ github.event.workflow_run.repository.url }}/actions/runs/${{ github.event.workflow_run.id }}/pull_requests")
+          PR_NUMBER=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0].number')
 
-          PR_NUMBER=$(echo "$PR_JSON" | jq -r '.[0].number // empty')
-
-          if [ -z "$PR_NUMBER" ]; then
+          if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
             echo "No PR associated with this workflow run."
             exit 0
           fi
 
           echo "Processing PR #$PR_NUMBER"
 
-          # Get PR labels
-          LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels -q '.labels[].name')
-          echo "Labels found: $LABELS"
+          # Check for Auto-Repeat label on the PR
+          IS_AUTO_REPEAT=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq 'any(.labels[]; .name == "Auto-Repeat")')
 
-          IS_AUTO_REPEAT=false
-          for label in $LABELS; do
-            if [ "$label" == "Auto-Repeat" ]; then
-              IS_AUTO_REPEAT=true
-              break
-            fi
-          done
-
-          if [ "$IS_AUTO_REPEAT" = false ]; then
-            echo "No Auto-Repeat label found. Skipping."
+          if [ "$IS_AUTO_REPEAT" != "true" ]; then
+            echo "No Auto-Repeat label found on PR #$PR_NUMBER. Skipping."
             exit 0
           fi
 
           # Merge the PR
           echo "Merging PR #$PR_NUMBER"
-          gh pr merge $PR_NUMBER --repo $REPOSITORY --merge || echo "Merge failed or already merged"
+          gh pr merge $PR_NUMBER --repo $REPOSITORY --merge
 
           # Find associated issue
-          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences -q '.closingIssuesReferences[0].number // empty')
+          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences --jq '.closingIssuesReferences[0].number // empty')
 
           if [ -z "$ISSUE_NUMBER" ]; then
             # Fallback: search for #ISSUE in body
-            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body -q '.body' | grep -oP '(?<=#)[0-9]+' | head -n 1 || true)
+            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body --jq '.body' | grep -oP '(?<=#)[0-9]+' | head -n 1 || true)
           fi
 
           if [ -z "$ISSUE_NUMBER" ]; then
-            echo "No associated issue found."
+            echo "No associated issue found for PR #$PR_NUMBER."
             exit 0
           fi
 
@@ -78,14 +68,8 @@ jobs:
           echo "$ISSUE_DATA" | jq -r '.body' > "$BODY_FILE"
 
           # Prepare new labels for the duplicated issue
-          NEW_LABELS_FILE=$(mktemp)
-          echo "$ISSUE_DATA" | jq -r '.labels[].name | select(test("^Auto-Repeat$") | not)' > "$NEW_LABELS_FILE"
+          # We take all labels from the original issue, and ensure Auto-Repeat is present
+          NEW_LABELS=$(echo "$ISSUE_DATA" | jq -r '[.labels[].name, "Auto-Repeat"] | unique | join(",")')
 
-          if [ "$IS_AUTO_REPEAT" = true ]; then
-            echo "Auto-Repeat" >> "$NEW_LABELS_FILE"
-          fi
-
-          NEW_LABELS_STR=$(grep . "$NEW_LABELS_FILE" | paste -sd "," - || true)
-
-          echo "Creating new issue with labels: $NEW_LABELS_STR"
-          gh issue create --repo $REPOSITORY --title "$TITLE" --body-file "$BODY_FILE" --label "$NEW_LABELS_STR"
+          echo "Creating new issue with labels: $NEW_LABELS"
+          gh issue create --repo $REPOSITORY --title "$TITLE" --body-file "$BODY_FILE" --label "$NEW_LABELS"
