@@ -44,10 +44,10 @@
     - [ ] 8.1 Variable declaration <!-- issue #8.1 -->
         - [x] 8.1.1 C-family languages (C, Java, Rust) <!-- 2026-05-02, issue #8.1.1 -->
         - [x] 8.1.2 Functional languages (Erlang, Lisp) <!-- 2026-05-02, issue #8.1.2 -->
-        - [ ] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL, Python) <!-- issue #8.1.3 -->
-        - [ ] 8.1.4 Specialized (XQuery, CSS) <!-- issue #8.1.4 -->
+        - [x] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL, Python) <!-- 2026-05-03, issue #8.1.3 -->
+        - [x] 8.1.4 Specialized (XQuery, CSS) <!-- 2026-05-03, issue #8.1.4 -->
     - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
-        - [ ] 8.2.1 Define `IfElse` and `Loop` patterns <!-- issue #8.2.1 -->
+        - [x] 8.2.1 Define `IfElse` and `Loop` patterns <!-- 2026-05-03, issue #8.2.1 -->
         - [ ] 8.2.2 Implement C-family instances <!-- issue #8.2.2 -->
         - [ ] 8.2.3 Implement Scripting & Shell instances <!-- issue #8.2.3 -->
         - [ ] 8.2.4 Implement Functional instances <!-- issue #8.2.4 -->
