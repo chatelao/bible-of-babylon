@@ -3,16 +3,38 @@ pattern VariableDeclaration {
     parameter name: String
     parameter type: String
     parameter initial_value: Number
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+    syntax = "int x = 42;"
+    notes = "Static typing, terminated by semicolon."
 }
 
 instance JavaVar of VariableDeclaration {
     name = "x"
     type = "int"
     initial_value = 42
+    syntax = "int x = 42;"
+    notes = "Strongly typed, similar to C."
+}
+
+instance RustVar of VariableDeclaration {
+    name = "x"
+    type = "i32"
+    initial_value = 42
+    syntax = "let x: i32 = 42;"
+    notes = "Immutable by default; supports type inference."
 }
 
 instance PythonVar of VariableDeclaration {
     name = "x"
     type = "None"
     initial_value = 42
+    syntax = "x = 42"
+    notes = "Dynamically typed, no explicit type declaration needed."
 }
