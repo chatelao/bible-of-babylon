@@ -409,3 +409,101 @@ Parameters:
      - { raw "N/A" }
      - N/A
      - CSS does not support loops natively.
+
+
+Pattern: TryCatch
+
+:description: Handling exceptions or errors within a block of code.
+
+
+Parameters:
+
+* try_body: Block
+
+* exception_type: String
+
+* error_variable: String
+
+* catch_body: Block
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: TryCatch Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - try_body
+     - exception_type
+     - error_variable
+     - catch_body
+     - syntax
+     - notes
+   * - CTryCatch
+     - { call do_something() }
+     - N/A
+     - N/A
+     - { raw "/* Error handling in C is typically done via return codes */" }
+     - N/A
+     - C does not have native try-catch blocks; error handling is usually manual.
+   * - JavaTryCatch
+     - { call do_something() }
+     - Exception
+     - e
+     - { call handle(e) }
+     - try { do_something(); } catch (Exception e) { handle(e); }
+     - Standard Java exception handling.
+   * - RustTryCatch
+     - { call do_something() }
+     - Result
+     - e
+     - { call handle(e) }
+     - match do_something() { Ok(v) => v, Err(e) => handle(e) }
+     - Rust uses Result type and pattern matching instead of traditional try-catch.
+
+
+Pattern: Raise
+
+:description: Explicitly triggering an exception or error.
+
+
+Parameters:
+
+* exception_type: String
+
+* message: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Raise Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - exception_type
+     - message
+     - syntax
+     - notes
+   * - CRaise
+     - Signal/Exit
+     - Error
+     - exit(1);
+     - C uses exit() or signals for severe errors.
+   * - JavaRaise
+     - RuntimeException
+     - Error
+     - throw new RuntimeException(\"Error\");
+     - Uses 'throw' to raise an exception.
+   * - RustRaise
+     - Panic
+     - Error
+     - panic!(\"Error\");
+     - Uses 'panic!' for unrecoverable errors.

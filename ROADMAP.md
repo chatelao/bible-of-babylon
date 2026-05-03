@@ -41,28 +41,28 @@
 
 ## Phase 3: Content Creation
 - [ ] Populate Programming Language patterns <!-- issue #8 -->
-    - [ ] 8.1 Variable declaration <!-- issue #8.1 -->
+    - [x] 8.1 Variable declaration <!-- 2026-05-03, issue #8.1 -->
         - [x] 8.1.1 C-family languages (C, Java, Rust) <!-- 2026-05-02, issue #8.1.1 -->
         - [x] 8.1.2 Functional languages (Erlang, Lisp) <!-- 2026-05-02, issue #8.1.2 -->
         - [x] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL, Python) <!-- 2026-05-03, issue #8.1.3 -->
         - [x] 8.1.4 Specialized (XQuery, CSS) <!-- 2026-05-03, issue #8.1.4 -->
-    - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
+    - [x] 8.2 Control flow (if/else, loops) <!-- 2026-05-03, issue #8.2 -->
         - [x] 8.2.1 Define `IfElse` and `Loop` patterns <!-- 2026-05-03, issue #8.2.1 -->
         - [x] 8.2.2 Implement C-family instances (C, Java, Rust) <!-- 2026-05-03, issue #8.2.2 -->
         - [x] 8.2.3 Implement Scripting & Shell instances <!-- 2026-05-03, issue #8.2.3 -->
         - [x] 8.2.4 Implement Functional instances <!-- 2026-05-03, issue #8.2.4 -->
         - [x] 8.2.5 Implement Specialized instances (XQuery, CSS) <!-- 2026-05-03, issue #8.2.5 -->
-    - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
+    - [x] 8.3 Function/Procedure definition <!-- 2026-05-04, issue #8.3 -->
         - [x] 8.3.1 Define `FunctionDefinition` pattern <!-- 2026-05-03, issue #8.3.1 -->
-        - [ ] 8.3.2 Implement instances across language groups <!-- issue #8.3.2 -->
+        - [x] 8.3.2 Implement instances across language groups <!-- 2026-05-04, issue #8.3.2 -->
             - [x] 8.3.2.1 C-family languages (C, Java, Rust) <!-- 2026-05-03, issue #8.3.2.1 -->
             - [x] 8.3.2.2 Scripting & Shell instances <!-- 2026-05-03, issue #8.3.2.2 -->
             - [x] 8.3.2.3 Functional instances <!-- 2026-05-04, issue #8.3.2.3 -->
             - [x] 8.3.2.4 Specialized instances (XQuery) <!-- 2026-05-04, issue #8.3.2.4 -->
     - [ ] 8.4 Error handling <!-- issue #8.4 -->
-        - [ ] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- issue #8.4.1 -->
+        - [x] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- 2026-05-05, issue #8.4.1 -->
         - [ ] 8.4.2 Implement instances across language groups <!-- issue #8.4.2 -->
-            - [ ] 8.4.2.1 C-family languages (C, Java, Rust) <!-- issue #8.4.2.1 -->
+            - [x] 8.4.2.1 C-family languages (C, Java, Rust) <!-- 2026-05-05, issue #8.4.2.1 -->
             - [ ] 8.4.2.2 Scripting & Shell instances <!-- issue #8.4.2.2 -->
             - [ ] 8.4.2.3 Functional instances <!-- issue #8.4.2.3 -->
     - [ ] 8.5 Concurrency models <!-- issue #8.5 -->

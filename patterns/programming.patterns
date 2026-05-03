@@ -417,3 +417,69 @@ instance CssFunction of FunctionDefinition {
     syntax = "N/A"
     notes = "CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors)."
 }
+
+pattern TryCatch {
+    meta description: "Handling exceptions or errors within a block of code."
+    parameter try_body: Block
+    parameter exception_type: String
+    parameter error_variable: String
+    parameter catch_body: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Raise {
+    meta description: "Explicitly triggering an exception or error."
+    parameter exception_type: String
+    parameter message: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* Error handling in C is typically done via return codes */" }
+    syntax = "N/A"
+    notes = "C does not have native try-catch blocks; error handling is usually manual."
+}
+
+instance JavaTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try { do_something(); } catch (Exception e) { handle(e); }"
+    notes = "Standard Java exception handling."
+}
+
+instance RustTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Result"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "match do_something() { Ok(v) => v, Err(e) => handle(e) }"
+    notes = "Rust uses Result type and pattern matching instead of traditional try-catch."
+}
+
+instance CRaise of Raise {
+    exception_type = "Signal/Exit"
+    message = "Error"
+    syntax = "exit(1);"
+    notes = "C uses exit() or signals for severe errors."
+}
+
+instance JavaRaise of Raise {
+    exception_type = "RuntimeException"
+    message = "Error"
+    syntax = "throw new RuntimeException(\"Error\");"
+    notes = "Uses 'throw' to raise an exception."
+}
+
+instance RustRaise of Raise {
+    exception_type = "Panic"
+    message = "Error"
+    syntax = "panic!(\"Error\");"
+    notes = "Uses 'panic!' for unrecoverable errors."
+}
