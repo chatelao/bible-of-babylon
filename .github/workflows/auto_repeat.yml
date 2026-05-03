@@ -9,7 +9,7 @@ on:
 jobs:
   iterate:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'pull_request' }}
     permissions:
       contents: write
       pull-requests: write
@@ -26,17 +26,24 @@ jobs:
           set -e
 
           # Get the PR associated with the workflow run
-          PR_NUMBER=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0].number')
+          PR_INFO=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0] | {number: .number, state: .state}')
+          PR_NUMBER=$(echo "$PR_INFO" | jq -r '.number // empty')
+          PR_STATE=$(echo "$PR_INFO" | jq -r '.state // empty')
 
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
             echo "No PR associated with this workflow run."
             exit 0
           fi
 
-          echo "Processing PR #$PR_NUMBER"
+          echo "Processing PR #$PR_NUMBER (State: $PR_STATE)"
+
+          if [ "$PR_STATE" != "open" ]; then
+            echo "PR #$PR_NUMBER is not open (State: $PR_STATE). Skipping merge."
+            exit 0
+          fi
 
           # Check for Auto-Repeat label on the PR
-          IS_AUTO_REPEAT=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq 'any(.labels[]; .name == "Auto-Repeat")')
+          IS_AUTO_REPEAT=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq 'any(.labels[]?; .name == "Auto-Repeat")')
 
           if [ "$IS_AUTO_REPEAT" != "true" ]; then
             echo "No Auto-Repeat label found on PR #$PR_NUMBER. Skipping."
@@ -48,11 +55,11 @@ jobs:
           gh pr merge $PR_NUMBER --repo $REPOSITORY --merge
 
           # Find associated issue
-          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences --jq '.closingIssuesReferences[0].number // empty')
+          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences --jq '.closingIssuesReferences[0]?.number // empty')
 
           if [ -z "$ISSUE_NUMBER" ]; then
             # Fallback: search for #ISSUE in body
-            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body --jq '.body' | grep -oP '(?<=#)[0-9]+' | head -n 1 || true)
+            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body --jq '.body // ""' | grep -oP '(?<=#)[0-9]+' | head -n 1 || true)
           fi
 
           if [ -z "$ISSUE_NUMBER" ]; then
