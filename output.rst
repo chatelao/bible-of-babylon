@@ -179,6 +179,18 @@ Parameters:
      - { return 0 }
      - IF @x > 0 BEGIN RETURN 1 END ELSE BEGIN RETURN 0 END
      - Uses IF-ELSE with BEGIN-END blocks.
+   * - ErlangIfElse
+     - X > 0
+     - { return 1 }
+     - { return 0 }
+     - if X > 0 -> 1; true -> 0 end
+     - Erlang 'if' uses guards; 'true' acts as an 'else' branch.
+   * - LispIfElse
+     - (> x 0)
+     - { return 1 }
+     - { return 0 }
+     - (if (> x 0) 1 0)
+     - The 'if' expression evaluates the condition and returns the corresponding branch result.
 
 
 Pattern: Loop
@@ -247,3 +259,13 @@ Parameters:
      - { raw "SET @x = @x - 1" }
      - WHILE @x > 0 BEGIN SET @x = @x - 1 END
      - Standard WHILE loop in T-SQL.
+   * - ErlangLoop
+     - X > 0
+     - { raw "loop(X - 1)" }
+     - loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).
+     - Erlang uses recursion for looping; there are no built-in while/for loops.
+   * - LispLoop
+     - (> x 0)
+     - { raw "(setq x (1- x))" }
+     - (loop while (> x 0) do (setq x (1- x)))
+     - Common Lisp 'loop' macro provides a versatile way to iterate.

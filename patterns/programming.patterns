@@ -239,3 +239,33 @@ instance SqlLoop of Loop {
     syntax = "WHILE @x > 0 BEGIN SET @x = @x - 1 END"
     notes = "Standard WHILE loop in T-SQL."
 }
+
+instance ErlangIfElse of IfElse {
+    condition = "X > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if X > 0 -> 1; true -> 0 end"
+    notes = "Erlang 'if' uses guards; 'true' acts as an 'else' branch."
+}
+
+instance ErlangLoop of Loop {
+    condition = "X > 0"
+    body = { raw "loop(X - 1)" }
+    syntax = "loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1)."
+    notes = "Erlang uses recursion for looping; there are no built-in while/for loops."
+}
+
+instance LispIfElse of IfElse {
+    condition = "(> x 0)"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "(if (> x 0) 1 0)"
+    notes = "The 'if' expression evaluates the condition and returns the corresponding branch result."
+}
+
+instance LispLoop of Loop {
+    condition = "(> x 0)"
+    body = { raw "(setq x (1- x))" }
+    syntax = "(loop while (> x 0) do (setq x (1- x)))"
+    notes = "Common Lisp 'loop' macro provides a versatile way to iterate."
+}
