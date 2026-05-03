@@ -190,6 +190,34 @@ Parameters:
      - { raw "RETURN @a + @b" }
      - CREATE FUNCTION add(@a INT, @b INT) RETURNS INT AS BEGIN RETURN @a + @b END
      - T-SQL syntax for Scalar-Valued Functions.
+   * - ErlangFunction
+     - add
+     - [A, B]
+     - Dynamic
+     - { raw "A + B" }
+     - add(A, B) -> A + B.
+     - Erlang functions use pattern matching on arguments; the last expression's value is returned.
+   * - LispFunction
+     - add
+     - [a, b]
+     - Dynamic
+     - { raw "(+ a b)" }
+     - (defun add (a b) (+ a b))
+     - Functions are defined with 'defun'; Lisp follows prefix notation.
+   * - XQueryFunction
+     - local:add
+     - [$a as xs:integer, $b as xs:integer]
+     - xs:integer
+     - { raw "$a + $b" }
+     - declare function local:add($a as xs:integer, $b as xs:integer) as xs:integer { $a + $b };
+     - Functions must be declared in a namespace (e.g., 'local').
+   * - CssFunction
+     - N/A
+     - [N/A]
+     - N/A
+     - { raw "N/A" }
+     - N/A
+     - CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors).
 
 
 Pattern: IfElse

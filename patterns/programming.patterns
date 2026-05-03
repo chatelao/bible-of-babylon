@@ -381,3 +381,39 @@ instance SqlFunction of FunctionDefinition {
     syntax = "CREATE FUNCTION add(@a INT, @b INT) RETURNS INT AS BEGIN RETURN @a + @b END"
     notes = "T-SQL syntax for Scalar-Valued Functions."
 }
+
+instance ErlangFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["A", "B"]
+    return_type = "Dynamic"
+    body = { raw "A + B" }
+    syntax = "add(A, B) -> A + B."
+    notes = "Erlang functions use pattern matching on arguments; the last expression's value is returned."
+}
+
+instance LispFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "Dynamic"
+    body = { raw "(+ a b)" }
+    syntax = "(defun add (a b) (+ a b))"
+    notes = "Functions are defined with 'defun'; Lisp follows prefix notation."
+}
+
+instance XQueryFunction of FunctionDefinition {
+    name = "local:add"
+    parameters = ["$a as xs:integer", "$b as xs:integer"]
+    return_type = "xs:integer"
+    body = { raw "$a + $b" }
+    syntax = "declare function local:add($a as xs:integer, $b as xs:integer) as xs:integer { $a + $b };"
+    notes = "Functions must be declared in a namespace (e.g., 'local')."
+}
+
+instance CssFunction of FunctionDefinition {
+    name = "N/A"
+    parameters = ["N/A"]
+    return_type = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors)."
+}
