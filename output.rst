@@ -102,6 +102,28 @@ Parameters:
      - CSS custom properties (variables).
 
 
+Pattern: FunctionDefinition
+
+:description: Declaration of a reusable block of code with parameters and a return value.
+
+
+Parameters:
+
+* name: String
+
+* parameters: List<String>
+
+* return_type: String
+
+* body: Block
+
+* syntax: String
+
+* notes: String
+
+
+
+
 Pattern: IfElse
 
 :description: Conditional execution of code blocks.
@@ -191,6 +213,18 @@ Parameters:
      - { return 0 }
      - (if (> x 0) 1 0)
      - The 'if' expression evaluates the condition and returns the corresponding branch result.
+   * - XQueryIfElse
+     - $x > 0
+     - { return 1 }
+     - { return 0 }
+     - if ($x > 0) then 1 else 0
+     - Functional if-then-else expression; both branches are required.
+   * - CssIfElse
+     - min-width: 0px
+     - { raw "color: red;" }
+     - { raw "color: blue;" }
+     - @media (min-width: 0px) { .element { color: red; } }
+     - Media queries provide conditional styling; no true else branch exists.
 
 
 Pattern: Loop
@@ -269,3 +303,13 @@ Parameters:
      - { raw "(setq x (1- x))" }
      - (loop while (> x 0) do (setq x (1- x)))
      - Common Lisp 'loop' macro provides a versatile way to iterate.
+   * - XQueryLoop
+     - $i in 1 to $x
+     - { raw "$i" }
+     - for $i in 1 to $x return $i
+     - XQuery uses 'for' expressions for iteration over sequences.
+   * - CssLoop
+     - N/A
+     - { raw "N/A" }
+     - N/A
+     - CSS does not support loops natively.
