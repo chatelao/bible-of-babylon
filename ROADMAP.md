@@ -51,9 +51,9 @@
         - [x] 8.2.2 Implement C-family instances (C, Java, Rust) <!-- 2026-05-03, issue #8.2.2 -->
         - [x] 8.2.3 Implement Scripting & Shell instances <!-- 2026-05-03, issue #8.2.3 -->
         - [x] 8.2.4 Implement Functional instances <!-- 2026-05-03, issue #8.2.4 -->
-        - [ ] 8.2.5 Implement Specialized instances (XQuery, CSS) <!-- issue #8.2.5 -->
+        - [x] 8.2.5 Implement Specialized instances (XQuery, CSS) <!-- 2026-05-03, issue #8.2.5 -->
     - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
-        - [ ] 8.3.1 Define `FunctionDefinition` pattern <!-- issue #8.3.1 -->
+        - [x] 8.3.1 Define `FunctionDefinition` pattern <!-- 2026-05-03, issue #8.3.1 -->
         - [ ] 8.3.2 Implement instances across language groups <!-- issue #8.3.2 -->
     - [ ] 8.4 Error handling <!-- issue #8.4 -->
         - [ ] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- issue #8.4.1 -->
