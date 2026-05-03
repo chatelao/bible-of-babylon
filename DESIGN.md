@@ -82,16 +82,16 @@ To support automated bulk tasks, the repository implements a GitHub Actions work
 
 ### Workflow Logic
 
-- **Label `Auto`**:
+- **Label `Auto-Repeat`**:
     - If CI/CD passes, the PR is automatically merged.
     - The associated issue is duplicated.
-    - The duplicate issue retains the `Auto` label, enabling an infinite loop until a CI/CD failure occurs.
+    - The duplicate issue retains the `Auto-Repeat` label, enabling an infinite loop until a CI/CD failure occurs.
 
-- **Label `Auto-X` (e.g., `Auto-10`)**:
+- **Label `Auto-Repeat-X` (e.g., `Auto-Repeat-10`) [Planned Enhancement]**:
     - If CI/CD passes, the PR is automatically merged.
     - The associated issue is duplicated.
-    - The counter `X` is decremented in the new issue's label (e.g., `Auto-9`).
-    - If the counter reaches 0, the `Auto` or `Auto-X` label is removed from the new issue, stopping the loop.
+    - The counter `X` is decremented in the new issue's label (e.g., `Auto-Repeat-9`).
+    - If the counter reaches 0, the `Auto-Repeat` or `Auto-Repeat-X` label is removed from the new issue, stopping the loop.
 
 ## Appendix: Decision Evaluation
 

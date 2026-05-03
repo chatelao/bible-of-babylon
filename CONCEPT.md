@@ -16,7 +16,7 @@ Standardizing and simplifying the understanding of various data formats to facil
 - **UC 2.1: Format Translation**: Understanding how a nested structure in JSON maps to an equivalent XML or YAML structure.
 - **UC 2.2: Constraint Mapping**: Comparing how different formats handle data types and constraints (e.g., JSON Schema vs XSD).
 
-### BC 3: Automated Iterative Refinement
+### BC 3: Automated Iterative Refinement (Auto-Repeat)
 Increasing development velocity by automating repetitive tasks associated with incremental content creation and bug fixing. The formal specification for this workflow is documented in `specifications/automated_iteration.rst`.
 
 #### Use Cases

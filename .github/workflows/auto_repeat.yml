@@ -1,4 +1,4 @@
-name: Auto Iteration
+name: Auto Repeat
 
 on:
   workflow_run:
@@ -18,13 +18,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Process Auto-Iteration
+      - name: Process Auto-Repeat
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
           # Get the PR associated with the workflow run
-          # Note: pull_requests array might be empty in some cases, so we handle it.
           PR_JSON=$(curl -s -H "Authorization: token $GH_TOKEN" \
             "${{ github.event.workflow_run.repository.url }}/actions/runs/${{ github.event.workflow_run.id }}/pull_requests")
 
@@ -41,21 +40,16 @@ jobs:
           LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels -q '.labels[].name')
           echo "Labels found: $LABELS"
 
-          IS_AUTO=false
-          AUTO_X_LABEL=""
-          COUNTER=0
-
+          IS_AUTO_REPEAT=false
           for label in $LABELS; do
-            if [ "$label" == "Auto" ]; then
-              IS_AUTO=true
-            elif [[ "$label" =~ ^Auto-[0-9]+$ ]]; then
-              AUTO_X_LABEL=$label
-              COUNTER=$(echo $label | cut -d'-' -f2)
+            if [ "$label" == "Auto-Repeat" ]; then
+              IS_AUTO_REPEAT=true
+              break
             fi
           done
 
-          if [ "$IS_AUTO" = false ] && [ -z "$AUTO_X_LABEL" ]; then
-            echo "No Auto-iteration label found. Skipping."
+          if [ "$IS_AUTO_REPEAT" = false ]; then
+            echo "No Auto-Repeat label found. Skipping."
             exit 0
           fi
 
@@ -84,17 +78,11 @@ jobs:
           echo "$ISSUE_DATA" | jq -r '.body' > "$BODY_FILE"
 
           # Prepare new labels for the duplicated issue
-          # Use jq to filter labels to avoid grep exit code issues
           NEW_LABELS_FILE=$(mktemp)
-          echo "$ISSUE_DATA" | jq -r '.labels[].name | select(test("^Auto(-[0-9]+)?$") | not)' > "$NEW_LABELS_FILE"
+          echo "$ISSUE_DATA" | jq -r '.labels[].name | select(test("^Auto-Repeat$") | not)' > "$NEW_LABELS_FILE"
 
-          if [ "$IS_AUTO" = true ]; then
-            echo "Auto" >> "$NEW_LABELS_FILE"
-          elif [ -n "$AUTO_X_LABEL" ]; then
-            NEW_COUNTER=$((COUNTER - 1))
-            if [ $NEW_COUNTER -gt 0 ]; then
-              echo "Auto-$NEW_COUNTER" >> "$NEW_LABELS_FILE"
-            fi
+          if [ "$IS_AUTO_REPEAT" = true ]; then
+            echo "Auto-Repeat" >> "$NEW_LABELS_FILE"
           fi
 
           NEW_LABELS_STR=$(grep . "$NEW_LABELS_FILE" | paste -sd "," - || true)
