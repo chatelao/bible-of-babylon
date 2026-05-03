@@ -32,8 +32,10 @@ jobs:
 
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
             echo "PR number not found in event context, attempting API lookup..."
-            PR_NUMBER=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0].number // empty')
+            PR_NUMBER=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.pull_requests[0].number // empty')
           fi
+
+          echo "PR_NUMBER: $PR_NUMBER"
 
           # Fallback: search by head SHA if direct link is missing
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
@@ -63,8 +65,10 @@ jobs:
           ISSUE_NUMBER=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json closingIssuesReferences --template '{{range .closingIssuesReferences}}{{.number}}{{"\n"}}{{end}}' | head -n 1)
           if [ -z "$ISSUE_NUMBER" ]; then
             echo "No closing reference found, searching PR body and title..."
-            ISSUE_NUMBER=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json body,title --template '{{.body}} {{.title}}' | grep -oE '#[0-9]+' | head -n 1 | tr -d '#' || true)
+            ISSUE_NUMBER=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json body,title --template '{{.body}} {{.title}}' | grep -oE '#[0-9]+' | tr -d '#' | grep -v "^$PR_NUMBER$" | head -n 1 || true)
           fi
+
+          echo "ISSUE_NUMBER: $ISSUE_NUMBER"
 
           # 3. Check for iteration labels (Auto-Repeat or Auto-Repeat-X)
           # We check both the PR and the associated Issue
@@ -117,6 +121,13 @@ jobs:
 
           # Prepare labels for the new issue
           if [ -n "$NEXT_LABEL" ]; then
+            # Ensure NEXT_LABEL exists
+            if ! gh label list --repo "$REPOSITORY" --json name --jq '.[].name' | grep -q "^$NEXT_LABEL$"; then
+              echo "Label $NEXT_LABEL does not exist. Creating it..."
+              COLOR=$(gh label view "$ITERATION_LABEL" --repo "$REPOSITORY" --json color --jq '.color' 2>/dev/null || echo "EDEDED")
+              gh label create "$NEXT_LABEL" --repo "$REPOSITORY" --color "$COLOR"
+            fi
+
             NEW_LABELS=$(echo "$ISSUE_DATA" | jq -r --arg next "$NEXT_LABEL" --arg old "$ITERATION_LABEL" \
               '[.labels[].name | select(. != $old)] + [$next] | unique | join(",")')
           else
