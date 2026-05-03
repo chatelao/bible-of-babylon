@@ -155,6 +155,41 @@ Parameters:
      - { raw "a + b" }
      - fn add(a: i32, b: i32) -> i32 { a + b }
      - Uses 'fn' keyword; return type preceded by '->'; last expression is returned implicitly.
+   * - PythonFunction
+     - add
+     - [a, b]
+     - Dynamic
+     - { raw "return a + b" }
+     - def add(a, b): return a + b
+     - Uses 'def' keyword; indentation defines the block.
+   * - BashFunction
+     - add
+     - [$1, $2]
+     - Exit Code / Stdout
+     - { raw "echo $(($1 + $2))" }
+     - add() { echo $(($1 + $2)); }
+     - Parameters are accessed via $1, $2, etc.; return values are typically exit codes or printed to stdout.
+   * - PowerShellFunction
+     - add
+     - [$a, $b]
+     - Dynamic
+     - { raw "return $a + $b" }
+     - function add($a, $b) { return $a + $b }
+     - Uses 'function' keyword; parameters are variables starting with $.
+   * - CmdFunction
+     - add
+     - [%1, %2]
+     - ErrorLevel
+     - { raw "set /a res=%1+%2\nexit /b %res%" }
+     - :add\nset /a res=%~1+%~2\nexit /b %res%
+     - Functions are labels; called with 'call :label'; arguments are %1, %2.
+   * - SqlFunction
+     - add
+     - [@a INT, @b INT]
+     - INT
+     - { raw "RETURN @a + @b" }
+     - CREATE FUNCTION add(@a INT, @b INT) RETURNS INT AS BEGIN RETURN @a + @b END
+     - T-SQL syntax for Scalar-Valued Functions.
 
 
 Pattern: IfElse
