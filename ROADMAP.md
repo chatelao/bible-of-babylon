@@ -7,7 +7,7 @@
 - [x] Setup CI/CD workflow <!-- 2024-05-24, issue #3.2 -->
 - [x] Implement Automated Iteration Workflow (Auto-Repeat) <!-- 2024-05-24, issue #12 -->
     - [x] 12.1 Define concept for Auto-Repeat labels <!-- 2024-05-24, issue #12.1 -->
-    - [x] 12.2 Implement GitHub Actions workflow for PR merge and issue duplication (MVP) <!-- 2024-05-24, issue #12.2 -->
+    - [x] 12.2 Implement GitHub Actions workflow for PR merge and issue duplication (MVP) <!-- 2026-05-03, issue #12.2 -->
 
 ## Phase 2: Transpiler Development
 - [ ] Define DSL for Source Patterns <!-- issue #4 -->
