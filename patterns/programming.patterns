@@ -7,6 +7,23 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern IfElse {
+    meta description: "Conditional execution of code blocks."
+    parameter condition: String
+    parameter then_branch: Block
+    parameter else_branch: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Loop {
+    meta description: "Repeated execution of a code block based on a condition."
+    parameter condition: String
+    parameter body: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
 instance CVar of VariableDeclaration {
     name = "x"
     type = "int"
@@ -53,4 +70,52 @@ instance LispVar of VariableDeclaration {
     initial_value = 42
     syntax = "(defparameter x 42)"
     notes = "Dynamic typing; defined using defparameter or defvar."
+}
+
+instance BashVar of VariableDeclaration {
+    name = "x"
+    type = "Untyped"
+    initial_value = 42
+    syntax = "x=42"
+    notes = "No spaces around the assignment operator."
+}
+
+instance CmdVar of VariableDeclaration {
+    name = "x"
+    type = "Untyped"
+    initial_value = 42
+    syntax = "set x=42"
+    notes = "Used in Windows Command Prompt."
+}
+
+instance PowerShellVar of VariableDeclaration {
+    name = "x"
+    type = "Dynamic"
+    initial_value = 42
+    syntax = "$x = 42"
+    notes = "Variables start with a dollar sign."
+}
+
+instance SqlVar of VariableDeclaration {
+    name = "x"
+    type = "INT"
+    initial_value = 42
+    syntax = "DECLARE @x INT = 42;"
+    notes = "T-SQL syntax for variable declaration."
+}
+
+instance XQueryVar of VariableDeclaration {
+    name = "x"
+    type = "xs:integer"
+    initial_value = 42
+    syntax = "let $x := 42"
+    notes = "XQuery uses 'let' for variable binding."
+}
+
+instance CssVar of VariableDeclaration {
+    name = "x"
+    type = "Number"
+    initial_value = 42
+    syntax = "--x: 42;"
+    notes = "CSS custom properties (variables)."
 }
