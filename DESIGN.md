@@ -76,7 +76,32 @@ Target-specific Jinja2 templates consume the IR to produce reStructuredText (reS
 ### 5. Final Assembly
 The generated reST snippets are aggregated into the final documentation structure for ReadTheDocs.
 
+## Automated Iteration Workflow
+
+To support automated bulk tasks, the repository implements a GitHub Actions workflow that automatically merges PRs and duplicates their associated issues based on labels.
+
+### Workflow Logic
+
+- **Label `Auto`**:
+    - If CI/CD passes, the PR is automatically merged.
+    - The associated issue is duplicated.
+    - The duplicate issue retains the `Auto` label, enabling an infinite loop until a CI/CD failure occurs.
+
+- **Label `Auto-X` (e.g., `Auto-10`)**:
+    - If CI/CD passes, the PR is automatically merged.
+    - The associated issue is duplicated.
+    - The counter `X` is decremented in the new issue's label (e.g., `Auto-9`).
+    - If the counter reaches 0, the `Auto` or `Auto-X` label is removed from the new issue, stopping the loop.
+
 ## Appendix: Decision Evaluation
+
+### Automation Implementation Options
+
+| Option | Description | Pros | Cons | Status |
+|---|---|---|---|---|
+| **A: GitHub CLI in Bash** | Using `gh` commands within a standard Bash script in a workflow. | Native integration; no extra dependencies; easy to debug; fast execution. | Limited to what `gh` CLI provides. | **Selected** |
+| **B: GitHub Script** | Using the `actions/github-script` (JavaScript) for complex logic. | Full access to GitHub API via Octokit; powerful for complex data manipulation. | Requires JavaScript knowledge; slightly more overhead than pure Bash for simple tasks. | Discarded |
+| **C: Custom Python Action** | Writing a dedicated Python script and using it as a composite action. | Consistent with the rest of the codebase (Python); highly testable. | More boilerplate; slower to run due to environment setup; overkill for simple CLI tasks. | Discarded |
 
 ### Presentation Layout Options
 

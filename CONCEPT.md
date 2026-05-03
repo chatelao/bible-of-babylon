@@ -16,6 +16,13 @@ Standardizing and simplifying the understanding of various data formats to facil
 - **UC 2.1: Format Translation**: Understanding how a nested structure in JSON maps to an equivalent XML or YAML structure.
 - **UC 2.2: Constraint Mapping**: Comparing how different formats handle data types and constraints (e.g., JSON Schema vs XSD).
 
+### BC 3: Automated Iterative Refinement
+Increasing development velocity by automating repetitive tasks associated with incremental content creation and bug fixing.
+
+#### Use Cases
+- **UC 3.1: Automated Bulk Content Creation**: Automatically merging and re-opening tasks for patterns that require multiple small, iterative steps.
+- **UC 3.2: Iterative Bug Fixing**: Automating the process of fixing large-scale issues through series of small, verified PRs.
+
 ## High-level Business Architecture
 The project employs a pattern-driven transpilation pipeline.
 1. **Source Patterns**: Common programming and data patterns defined in a structured format.
