@@ -40,20 +40,37 @@
 - [ ] Populate Programming Language patterns <!-- issue #8 -->
     - [ ] 8.1 Variable declaration <!-- issue #8.1 -->
         - [x] 8.1.1 C-family languages (C, Java, Rust) <!-- 2026-05-02, issue #8.1.1 -->
-        - [ ] 8.1.2 Functional languages (Erlang, Lisp) <!-- issue #8.1.2 -->
-        - [ ] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL) <!-- issue #8.1.3 -->
+        - [x] 8.1.2 Functional languages (Erlang, Lisp) <!-- 2026-05-02, issue #8.1.2 -->
+        - [ ] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL, Python) <!-- issue #8.1.3 -->
         - [ ] 8.1.4 Specialized (XQuery, CSS) <!-- issue #8.1.4 -->
     - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
+        - [ ] 8.2.1 Define `IfElse` and `Loop` patterns <!-- issue #8.2.1 -->
+        - [ ] 8.2.2 Implement C-family instances <!-- issue #8.2.2 -->
+        - [ ] 8.2.3 Implement Scripting & Shell instances <!-- issue #8.2.3 -->
+        - [ ] 8.2.4 Implement Functional instances <!-- issue #8.2.4 -->
     - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
+        - [ ] 8.3.1 Define `FunctionDefinition` pattern <!-- issue #8.3.1 -->
+        - [ ] 8.3.2 Implement instances across language groups <!-- issue #8.3.2 -->
     - [ ] 8.4 Error handling <!-- issue #8.4 -->
+        - [ ] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- issue #8.4.1 -->
+        - [ ] 8.4.2 Implement instances across language groups <!-- issue #8.4.2 -->
     - [ ] 8.5 Concurrency models <!-- issue #8.5 -->
+        - [ ] 8.5.1 Define `Thread` and `MessagePassing` patterns <!-- issue #8.5.1 -->
+        - [ ] 8.5.2 Implement instances (Rust, Erlang, Java) <!-- issue #8.5.2 -->
 - [ ] Populate Data Format patterns <!-- issue #9 -->
     - [ ] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- issue #9.1 -->
+        - [ ] 9.1.1 Define `BasicTypes` pattern <!-- issue #9.1.1 -->
+        - [ ] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- issue #9.1.2 -->
     - [ ] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- issue #9.2 -->
+        - [ ] 9.2.1 Define `Collection` and `Mapping` patterns <!-- issue #9.2.1 -->
+        - [ ] 9.2.2 Implement instances across formats <!-- issue #9.2.2 -->
     - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
     - [ ] 9.4 Comments support <!-- issue #9.4 -->
     - [ ] 9.5 Schema validation <!-- issue #9.5 -->
 
 ## Phase 4: Publication
 - [ ] Configure ReadTheDocs integration <!-- issue #10 -->
+    - [ ] 10.1 Create `docs/conf.py` and `index.rst` <!-- issue #10.1 -->
+    - [ ] 10.2 Setup `.readthedocs.yaml` <!-- issue #10.2 -->
+    - [ ] 10.3 Integrate transpiler output into Sphinx build <!-- issue #10.3 -->
 - [ ] Final review and polish of the comparative book <!-- issue #11 -->

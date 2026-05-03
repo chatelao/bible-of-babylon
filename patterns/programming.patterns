@@ -38,3 +38,19 @@ instance PythonVar of VariableDeclaration {
     syntax = "x = 42"
     notes = "Dynamically typed, no explicit type declaration needed."
 }
+
+instance ErlangVar of VariableDeclaration {
+    name = "X"
+    type = "Dynamic"
+    initial_value = 42
+    syntax = "X = 42."
+    notes = "Single assignment; must start with an uppercase letter."
+}
+
+instance LispVar of VariableDeclaration {
+    name = "x"
+    type = "Dynamic"
+    initial_value = 42
+    syntax = "(defparameter x 42)"
+    notes = "Dynamic typing; defined using defparameter or defvar."
+}
