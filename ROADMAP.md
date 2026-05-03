@@ -49,7 +49,7 @@
     - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
         - [x] 8.2.1 Define `IfElse` and `Loop` patterns <!-- 2026-05-03, issue #8.2.1 -->
         - [x] 8.2.2 Implement C-family instances (C, Java, Rust) <!-- 2026-05-03, issue #8.2.2 -->
-        - [ ] 8.2.3 Implement Scripting & Shell instances <!-- issue #8.2.3 -->
+        - [x] 8.2.3 Implement Scripting & Shell instances <!-- 2026-05-03, issue #8.2.3 -->
         - [ ] 8.2.4 Implement Functional instances <!-- issue #8.2.4 -->
     - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
         - [ ] 8.3.1 Define `FunctionDefinition` pattern <!-- issue #8.3.1 -->
