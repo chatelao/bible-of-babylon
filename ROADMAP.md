@@ -57,21 +57,35 @@
         - [ ] 8.3.2 Implement instances across language groups <!-- issue #8.3.2 -->
             - [x] 8.3.2.1 C-family languages (C, Java, Rust) <!-- 2026-05-03, issue #8.3.2.1 -->
             - [x] 8.3.2.2 Scripting & Shell instances <!-- 2026-05-03, issue #8.3.2.2 -->
-            - [ ] 8.3.2.3 Functional instances <!-- issue #8.3.2.3 -->
-            - [ ] 8.3.2.4 Specialized instances (XQuery) <!-- issue #8.3.2.4 -->
+            - [x] 8.3.2.3 Functional instances <!-- 2026-05-04, issue #8.3.2.3 -->
+            - [x] 8.3.2.4 Specialized instances (XQuery) <!-- 2026-05-04, issue #8.3.2.4 -->
     - [ ] 8.4 Error handling <!-- issue #8.4 -->
         - [ ] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- issue #8.4.1 -->
         - [ ] 8.4.2 Implement instances across language groups <!-- issue #8.4.2 -->
+            - [ ] 8.4.2.1 C-family languages (C, Java, Rust) <!-- issue #8.4.2.1 -->
+            - [ ] 8.4.2.2 Scripting & Shell instances <!-- issue #8.4.2.2 -->
+            - [ ] 8.4.2.3 Functional instances <!-- issue #8.4.2.3 -->
     - [ ] 8.5 Concurrency models <!-- issue #8.5 -->
         - [ ] 8.5.1 Define `Thread` and `MessagePassing` patterns <!-- issue #8.5.1 -->
         - [ ] 8.5.2 Implement instances (Rust, Erlang, Java) <!-- issue #8.5.2 -->
+            - [ ] 8.5.2.1 Rust instances <!-- issue #8.5.2.1 -->
+            - [ ] 8.5.2.2 Erlang instances <!-- issue #8.5.2.2 -->
+            - [ ] 8.5.2.3 Java instances <!-- issue #8.5.2.3 -->
 - [ ] Populate Data Format patterns <!-- issue #9 -->
     - [ ] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- issue #9.1 -->
         - [ ] 9.1.1 Define `BasicTypes` pattern <!-- issue #9.1.1 -->
         - [ ] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- issue #9.1.2 -->
+            - [ ] 9.1.2.1 JSON <!-- issue #9.1.2.1 -->
+            - [ ] 9.1.2.2 XML <!-- issue #9.1.2.2 -->
+            - [ ] 9.1.2.3 YAML <!-- issue #9.1.2.3 -->
+            - [ ] 9.1.2.4 TOML <!-- issue #9.1.2.4 -->
     - [ ] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- issue #9.2 -->
         - [ ] 9.2.1 Define `Collection` and `Mapping` patterns <!-- issue #9.2.1 -->
         - [ ] 9.2.2 Implement instances across formats <!-- issue #9.2.2 -->
+            - [ ] 9.2.2.1 JSON <!-- issue #9.2.2.1 -->
+            - [ ] 9.2.2.2 XML <!-- issue #9.2.2.2 -->
+            - [ ] 9.2.2.3 YAML <!-- issue #9.2.2.3 -->
+            - [ ] 9.2.2.4 TOML <!-- issue #9.2.2.4 -->
     - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
     - [ ] 9.4 Comments support <!-- issue #9.4 -->
     - [ ] 9.5 Schema validation <!-- issue #9.5 -->
