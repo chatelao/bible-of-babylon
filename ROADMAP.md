@@ -39,7 +39,7 @@
 ## Phase 3: Content Creation
 - [ ] Populate Programming Language patterns <!-- issue #8 -->
     - [ ] 8.1 Variable declaration <!-- issue #8.1 -->
-        - [ ] 8.1.1 C-family languages (C, Java, Rust) <!-- issue #8.1.1 -->
+        - [x] 8.1.1 C-family languages (C, Java, Rust) <!-- 2026-05-02, issue #8.1.1 -->
         - [ ] 8.1.2 Functional languages (Erlang, Lisp) <!-- issue #8.1.2 -->
         - [ ] 8.1.3 Shells and Scripting (Bash, Cmd, PowerShell, SQL) <!-- issue #8.1.3 -->
         - [ ] 8.1.4 Specialized (XQuery, CSS) <!-- issue #8.1.4 -->
