@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'generat
 
 from SourcePatternsParser import SourcePatternsParser
 from SourcePatternsVisitor import SourcePatternsVisitor
-from models import (
+from .models import (
     Program, Pattern, Instance, AnonymousInstance, Metadata, Parameter,
     Type, Assignment, Block, Instruction, CallInstruction, AssignInstruction,
     ReturnInstruction, RawInstruction, Identifier, ListLiteral

@@ -48,7 +48,7 @@
         - [x] 8.1.4 Specialized (XQuery, CSS) <!-- 2026-05-03, issue #8.1.4 -->
     - [ ] 8.2 Control flow (if/else, loops) <!-- issue #8.2 -->
         - [x] 8.2.1 Define `IfElse` and `Loop` patterns <!-- 2026-05-03, issue #8.2.1 -->
-        - [ ] 8.2.2 Implement C-family instances <!-- issue #8.2.2 -->
+        - [x] 8.2.2 Implement C-family instances (C, Java, Rust) <!-- 2026-05-03, issue #8.2.2 -->
         - [ ] 8.2.3 Implement Scripting & Shell instances <!-- issue #8.2.3 -->
         - [ ] 8.2.4 Implement Functional instances <!-- issue #8.2.4 -->
     - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->

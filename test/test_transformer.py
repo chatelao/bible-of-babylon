@@ -9,8 +9,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 's
 
 from SourcePatternsLexer import SourcePatternsLexer
 from SourcePatternsParser import SourcePatternsParser
-from transformer import SourcePatternsTransformer
-from models import Program, Pattern, Instance, AnonymousInstance, Metadata, Type, Parameter, Assignment, Identifier, Block, CallInstruction, ListLiteral
+from src.transformer import SourcePatternsTransformer
+from src.models import Program, Pattern, Instance, AnonymousInstance, Metadata, Type, Parameter, Assignment, Identifier, Block, CallInstruction, ListLiteral
 
 def transform_snippet(snippet):
     input_stream = InputStream(snippet)
