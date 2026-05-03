@@ -14,7 +14,8 @@ def test_render_pattern_only():
     generator = CodeGenerator()
     output = generator.render_program(program)
 
-    assert "Pattern: VarDec" in output
+    assert "VarDec" in output
+    assert "======" in output
     assert "* name: Identifier" in output
     assert "* type: Type" in output
 
