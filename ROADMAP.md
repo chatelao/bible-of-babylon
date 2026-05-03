@@ -55,6 +55,10 @@
     - [ ] 8.3 Function/Procedure definition <!-- issue #8.3 -->
         - [x] 8.3.1 Define `FunctionDefinition` pattern <!-- 2026-05-03, issue #8.3.1 -->
         - [ ] 8.3.2 Implement instances across language groups <!-- issue #8.3.2 -->
+            - [x] 8.3.2.1 C-family languages (C, Java, Rust) <!-- 2026-05-03, issue #8.3.2.1 -->
+            - [ ] 8.3.2.2 Scripting & Shell instances <!-- issue #8.3.2.2 -->
+            - [ ] 8.3.2.3 Functional instances <!-- issue #8.3.2.3 -->
+            - [ ] 8.3.2.4 Specialized instances (XQuery) <!-- issue #8.3.2.4 -->
     - [ ] 8.4 Error handling <!-- issue #8.4 -->
         - [ ] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- issue #8.4.1 -->
         - [ ] 8.4.2 Implement instances across language groups <!-- issue #8.4.2 -->
