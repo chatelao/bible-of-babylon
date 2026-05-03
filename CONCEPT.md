@@ -17,7 +17,7 @@ Standardizing and simplifying the understanding of various data formats to facil
 - **UC 2.2: Constraint Mapping**: Comparing how different formats handle data types and constraints (e.g., JSON Schema vs XSD).
 
 ### BC 3: Automated Iterative Refinement
-Increasing development velocity by automating repetitive tasks associated with incremental content creation and bug fixing.
+Increasing development velocity by automating repetitive tasks associated with incremental content creation and bug fixing. The formal specification for this workflow is documented in `specifications/automated_iteration.rst`.
 
 #### Use Cases
 - **UC 3.1: Automated Bulk Content Creation**: Automatically merging and re-opening tasks for patterns that require multiple small, iterative steps.
