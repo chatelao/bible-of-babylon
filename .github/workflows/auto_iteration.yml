@@ -1,0 +1,103 @@
+name: Auto Iteration
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+
+jobs:
+  iterate:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Process Auto-Iteration
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          # Get the PR associated with the workflow run
+          # Note: pull_requests array might be empty in some cases, so we handle it.
+          PR_JSON=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "${{ github.event.workflow_run.repository.url }}/actions/runs/${{ github.event.workflow_run.id }}/pull_requests")
+
+          PR_NUMBER=$(echo "$PR_JSON" | jq -r '.[0].number // empty')
+
+          if [ -z "$PR_NUMBER" ]; then
+            echo "No PR associated with this workflow run."
+            exit 0
+          fi
+
+          echo "Processing PR #$PR_NUMBER"
+
+          # Get PR labels
+          LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels -q '.labels[].name')
+          echo "Labels found: $LABELS"
+
+          IS_AUTO=false
+          AUTO_X_LABEL=""
+          COUNTER=0
+
+          for label in $LABELS; do
+            if [ "$label" == "Auto" ]; then
+              IS_AUTO=true
+            elif [[ "$label" =~ ^Auto-[0-9]+$ ]]; then
+              AUTO_X_LABEL=$label
+              COUNTER=$(echo $label | cut -d'-' -f2)
+            fi
+          done
+
+          if [ "$IS_AUTO" = false ] && [ -z "$AUTO_X_LABEL" ]; then
+            echo "No Auto-iteration label found. Skipping."
+            exit 0
+          fi
+
+          # Merge the PR
+          echo "Merging PR #$PR_NUMBER"
+          gh pr merge $PR_NUMBER --repo $REPOSITORY --merge || echo "Merge failed or already merged"
+
+          # Find associated issue
+          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences -q '.closingIssuesReferences[0].number // empty')
+
+          if [ -z "$ISSUE_NUMBER" ]; then
+            # Fallback: search for #ISSUE in body
+            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body -q '.body' | grep -oP '(?<=#)[0-9]+' | head -n 1 || true)
+          fi
+
+          if [ -z "$ISSUE_NUMBER" ]; then
+            echo "No associated issue found."
+            exit 0
+          fi
+
+          echo "Duplicating issue #$ISSUE_NUMBER"
+
+          ISSUE_DATA=$(gh issue view $ISSUE_NUMBER --repo $REPOSITORY --json title,body,labels)
+          TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
+          BODY_FILE=$(mktemp)
+          echo "$ISSUE_DATA" | jq -r '.body' > "$BODY_FILE"
+
+          # Prepare new labels for the duplicated issue
+          # Use jq to filter labels to avoid grep exit code issues
+          NEW_LABELS_FILE=$(mktemp)
+          echo "$ISSUE_DATA" | jq -r '.labels[].name | select(test("^Auto(-[0-9]+)?$") | not)' > "$NEW_LABELS_FILE"
+
+          if [ "$IS_AUTO" = true ]; then
+            echo "Auto" >> "$NEW_LABELS_FILE"
+          elif [ -n "$AUTO_X_LABEL" ]; then
+            NEW_COUNTER=$((COUNTER - 1))
+            if [ $NEW_COUNTER -gt 0 ]; then
+              echo "Auto-$NEW_COUNTER" >> "$NEW_LABELS_FILE"
+            fi
+          fi
+
+          NEW_LABELS_STR=$(grep . "$NEW_LABELS_FILE" | paste -sd "," - || true)
+
+          echo "Creating new issue with labels: $NEW_LABELS_STR"
+          gh issue create --repo $REPOSITORY --title "$TITLE" --body-file "$BODY_FILE" --label "$NEW_LABELS_STR"
