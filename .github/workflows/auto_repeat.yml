@@ -24,7 +24,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.repository }}
         run: |
-          set -e
+          set -ex
 
           # 1. Get the PR associated with the workflow run
           echo "Fetching PR information..."
@@ -32,16 +32,16 @@ jobs:
 
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
             echo "PR number not found in event context, attempting API lookup..."
-            PR_INFO=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0] | {number: .number, state: .state}')
-            PR_NUMBER=$(echo "$PR_INFO" | jq -r '.number // empty')
+            PR_NUMBER=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}/pull_requests" --jq '.[0].number // empty')
           fi
 
           # Fallback: search by head SHA if direct link is missing
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
             echo "Direct PR link not found, falling back to head SHA lookup..."
-            HEAD_SHA=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}" --jq '.head_sha')
-            PR_INFO=$(gh api "/repos/$REPOSITORY/commits/$HEAD_SHA/pulls" --jq '.[0] | {number: .number, state: .state}')
-            PR_NUMBER=$(echo "$PR_INFO" | jq -r '.number // empty')
+            HEAD_SHA=$(gh api "/repos/$REPOSITORY/actions/runs/${{ github.event.workflow_run.id }}" --jq '.head_sha // empty')
+            if [ -n "$HEAD_SHA" ]; then
+              PR_NUMBER=$(gh api "/repos/$REPOSITORY/commits/$HEAD_SHA/pulls" --jq '.[0].number // empty')
+            fi
           fi
 
           if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
@@ -50,7 +50,7 @@ jobs:
           fi
 
           # Refresh state to ensure accuracy
-          PR_STATE=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json state --jq '.state' | jq -r '.')
+          PR_STATE=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json state --template '{{.state}}')
           echo "Processing PR #$PR_NUMBER (State: $PR_STATE)"
 
           if [ "$PR_STATE" != "OPEN" ]; then
@@ -60,18 +60,18 @@ jobs:
 
           # 2. Detect associated issue
           echo "Detecting associated issue..."
-          ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json closingIssuesReferences --jq '.closingIssuesReferences[0]?.number // empty')
+          ISSUE_NUMBER=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json closingIssuesReferences --template '{{range .closingIssuesReferences}}{{.number}}{{"\n"}}{{end}}' | head -n 1)
           if [ -z "$ISSUE_NUMBER" ]; then
             echo "No closing reference found, searching PR body and title..."
-            ISSUE_NUMBER=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json body,title --jq '.body + " " + .title' | grep -oE '#[0-9]+' | head -n 1 | tr -d '#' || true)
+            ISSUE_NUMBER=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json body,title --template '{{.body}} {{.title}}' | grep -oE '#[0-9]+' | head -n 1 | tr -d '#' || true)
           fi
 
           # 3. Check for iteration labels (Auto-Repeat or Auto-Repeat-X)
           # We check both the PR and the associated Issue
-          PR_LABELS=$(gh pr view $PR_NUMBER --repo $REPOSITORY --json labels --jq '.labels[].name' 2>/dev/null | jq -r '.' || true)
+          PR_LABELS=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json labels --template '{{range .labels}}{{.name}}{{"\n"}}{{end}}' 2>/dev/null || true)
           ISSUE_LABELS=""
           if [ -n "$ISSUE_NUMBER" ]; then
-            ISSUE_LABELS=$(gh issue view $ISSUE_NUMBER --repo $REPOSITORY --json labels --jq '.labels[].name' 2>/dev/null | jq -r '.' || true)
+            ISSUE_LABELS=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json labels --template '{{range .labels}}{{.name}}{{"\n"}}{{end}}' 2>/dev/null || true)
           fi
 
           ALL_LABELS=$(printf "%s\n%s" "$PR_LABELS" "$ISSUE_LABELS" | grep . | sort -u || true)
@@ -87,7 +87,7 @@ jobs:
           # 4. Merge the PR
           echo "Merging PR #$PR_NUMBER..."
           # Use --auto to handle mergeability waiting, but fallback to immediate merge
-          gh pr merge $PR_NUMBER --repo $REPOSITORY --merge --auto || gh pr merge $PR_NUMBER --repo $REPOSITORY --merge
+          gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --merge --auto || gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --merge
 
           # 5. Handle Iteration (Issue Duplication)
           if [ -z "$ISSUE_NUMBER" ]; then
@@ -96,7 +96,7 @@ jobs:
           fi
 
           echo "Duplicating issue #$ISSUE_NUMBER for the next iteration..."
-          ISSUE_DATA=$(gh issue view $ISSUE_NUMBER --repo $REPOSITORY --json title,body,labels)
+          ISSUE_DATA=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json title,body,labels)
           TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
           BODY_FILE=$(mktemp)
           echo "$ISSUE_DATA" | jq -r '.body' > "$BODY_FILE"
@@ -127,8 +127,8 @@ jobs:
           echo "Creating new issue..."
           if [ -n "$NEW_LABELS" ]; then
             echo "Applying labels: $NEW_LABELS"
-            gh issue create --repo $REPOSITORY --title "$TITLE" --body-file "$BODY_FILE" --label "$NEW_LABELS"
+            gh issue create --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE" --label "$NEW_LABELS"
           else
             echo "No labels to apply."
-            gh issue create --repo $REPOSITORY --title "$TITLE" --body-file "$BODY_FILE"
+            gh issue create --repo "$REPOSITORY" --title "$TITLE" --body-file "$BODY_FILE"
           fi
