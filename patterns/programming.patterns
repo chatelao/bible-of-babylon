@@ -309,3 +309,30 @@ instance CssLoop of Loop {
     syntax = "N/A"
     notes = "CSS does not support loops natively."
 }
+
+instance CFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["int a", "int b"]
+    return_type = "int"
+    body = { raw "return a + b;" }
+    syntax = "int add(int a, int b) { return a + b; }"
+    notes = "Standard C function with static types and curly braces."
+}
+
+instance JavaFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["int a", "int b"]
+    return_type = "int"
+    body = { raw "return a + b;" }
+    syntax = "public int add(int a, int b) { return a + b; }"
+    notes = "Similar to C, but typically within a class with an access modifier."
+}
+
+instance RustFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a: i32", "b: i32"]
+    return_type = "i32"
+    body = { raw "a + b" }
+    syntax = "fn add(a: i32, b: i32) -> i32 { a + b }"
+    notes = "Uses 'fn' keyword; return type preceded by '->'; last expression is returned implicitly."
+}

@@ -123,6 +123,39 @@ Parameters:
 
 
 
+.. list-table:: FunctionDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - name
+     - parameters
+     - return_type
+     - body
+     - syntax
+     - notes
+   * - CFunction
+     - add
+     - [int a, int b]
+     - int
+     - { raw "return a + b;" }
+     - int add(int a, int b) { return a + b; }
+     - Standard C function with static types and curly braces.
+   * - JavaFunction
+     - add
+     - [int a, int b]
+     - int
+     - { raw "return a + b;" }
+     - public int add(int a, int b) { return a + b; }
+     - Similar to C, but typically within a class with an access modifier.
+   * - RustFunction
+     - add
+     - [a: i32, b: i32]
+     - i32
+     - { raw "a + b" }
+     - fn add(a: i32, b: i32) -> i32 { a + b }
+     - Uses 'fn' keyword; return type preceded by '->'; last expression is returned implicitly.
+
 
 Pattern: IfElse
 
