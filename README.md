@@ -1,5 +1,7 @@
 # Bible of Babylon
 
+[![Documentation Status](https://readthedocs.org/projects/bible-of-babylon/badge/?version=latest)](https://bible-of-babylon.readthedocs.io/en/latest/?badge=latest)
+
 Bible of Babylon is a comprehensive comparative guide designed for developers and data engineers. It provides structured comparisons of common patterns across various programming languages and data formats.
 
 ## Key Concepts
@@ -12,7 +14,8 @@ Bible of Babylon is a comprehensive comparative guide designed for developers an
 
 The full documentation, including detailed comparison tables for programming patterns and data formats, is hosted on Read the Docs:
 
-[https://xiao-seeed-rp2040-renode.readthedocs.io/](https://xiao-seeed-rp2040-renode.readthedocs.io/)
+- **Documentation**: [https://bible-of-babylon.readthedocs.io/](https://bible-of-babylon.readthedocs.io/)
+- **Project Page**: [https://readthedocs.org/projects/bible-of-babylon/](https://readthedocs.org/projects/bible-of-babylon/)
 
 ## Project Structure
 
