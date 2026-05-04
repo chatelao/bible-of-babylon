@@ -95,3 +95,29 @@ instance TomlMapping of Mapping {
     syntax = "key = \"value\"\nnum = 42"
     notes = "Top-level or grouped using [headers]."
 }
+
+pattern Metadata {
+    meta description: "Way to attach metadata or attributes to data elements."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonMetadata of Metadata {
+    syntax = "N/A"
+    notes = "JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., \"_metadata\": { ... })."
+}
+
+instance XmlMetadata of Metadata {
+    syntax = "<element attr=\"value\">Content</element>"
+    notes = "XML has native support for attributes on elements."
+}
+
+instance YamlMetadata of Metadata {
+    syntax = "!!str \"value\" or !custom { key: val }"
+    notes = "YAML supports tags to specify types or attach metadata to nodes."
+}
+
+instance TomlMetadata of Metadata {
+    syntax = "N/A"
+    notes = "TOML does not support per-element metadata, though it uses headers for grouping."
+}

@@ -48,3 +48,128 @@ Parameters:
      - 42 or 3.14
      - true / false
      - TOML is strictly typed; strings must be double-quoted.
+
+
+
+Collection
+==========
+
+
+:description: Ordered sequence of elements (Arrays, Lists, or Sequences).
+
+
+Parameters:
+
+* elements: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Collection Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - elements
+     - syntax
+     - notes
+   * - JsonCollection
+     - Any JSON value
+     - [1, \"two\", true]
+     - Elements are comma-separated and enclosed in square brackets.
+   * - XmlCollection
+     - Repeated child elements
+     - <list>\n  <item>1</item>\n  <item>2</item>\n</list>
+     - Collections are typically represented by repeating elements under a parent.
+   * - YamlCollection
+     - Any YAML value
+     - - 1\n- two\n- true
+     - Uses a dash followed by a space for each element.
+   * - TomlCollection
+     - Any TOML value
+     - [1, 2, 3]
+     - Arrays can contain values of different types since TOML 1.0.0.
+
+
+
+Mapping
+=======
+
+
+:description: Unordered collection of key-value pairs (Objects, Maps, or Dictionaries).
+
+
+Parameters:
+
+* entries: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Mapping Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - entries
+     - syntax
+     - notes
+   * - JsonMapping
+     - Key-value pairs
+     - {\"key\": \"value\", \"num\": 42}
+     - Keys must be double-quoted strings.
+   * - XmlMapping
+     - Child elements or attributes
+     - <object>\n  <key>value</key>\n  <num>42</num>\n</object>
+     - Mappings are represented as nested elements.
+   * - YamlMapping
+     - Key-value pairs
+     - key: value\nnum: 42
+     - Uses a colon followed by a space to separate key and value.
+   * - TomlMapping
+     - Key-value pairs
+     - key = \"value\"\nnum = 42
+     - Top-level or grouped using [headers].
+
+
+
+Metadata
+========
+
+
+:description: Way to attach metadata or attributes to data elements.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Metadata Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - syntax
+     - notes
+   * - JsonMetadata
+     - N/A
+     - JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., \"_metadata\": { ... }).
+   * - XmlMetadata
+     - <element attr=\"value\">Content</element>
+     - XML has native support for attributes on elements.
+   * - YamlMetadata
+     - !!str \"value\" or !custom { key: val }
+     - YAML supports tags to specify types or attach metadata to nodes.
+   * - TomlMetadata
+     - N/A
+     - TOML does not support per-element metadata, though it uses headers for grouping.
