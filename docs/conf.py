@@ -1,6 +1,6 @@
 # Configuration file for the Sphinx documentation builder.
 
-project = 'Xiao Seeed RP2040 Renode'
+project = 'Bible of Babylon'
 copyright = '2024, chatelao'
 author = 'chatelao'
 

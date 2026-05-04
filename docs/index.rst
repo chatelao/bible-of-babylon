@@ -1,5 +1,5 @@
-Welcome to the Xiao Seeed RP2040 Renode Pattern Documentation
-=============================================================
+Welcome to the Bible of Babylon Documentation
+=============================================
 
 .. toctree::
    :maxdepth: 2
