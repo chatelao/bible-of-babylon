@@ -121,3 +121,34 @@ instance TomlMetadata of Metadata {
     syntax = "N/A"
     notes = "TOML does not support per-element metadata, though it uses headers for grouping."
 }
+
+pattern Comment {
+    meta description: "Way to add non-executable explanatory text to the data."
+    parameter single_line: String
+    parameter multi_line: String
+    parameter notes: String
+}
+
+instance JsonComment of Comment {
+    single_line = "N/A"
+    multi_line = "N/A"
+    notes = "JSON does not natively support comments."
+}
+
+instance XmlComment of Comment {
+    single_line = "<!-- comment -->"
+    multi_line = "<!--\n  line 1\n  line 2\n-->"
+    notes = "XML uses the same syntax for single and multi-line comments."
+}
+
+instance YamlComment of Comment {
+    single_line = "# comment"
+    multi_line = "# line 1\n# line 2"
+    notes = "YAML only supports single-line comments starting with #."
+}
+
+instance TomlComment of Comment {
+    single_line = "# comment"
+    multi_line = "# line 1\n# line 2"
+    notes = "TOML only supports single-line comments starting with #."
+}
