@@ -50,22 +50,71 @@ jobs:
           echo "pr_number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
           echo "issue_number=$ISSUE_NUMBER" >> "$GITHUB_OUTPUT"
 
-      - name: Invoke Jules for Auto-Repeat
+      - name: Perform Auto-Repeat
         if: steps.info.outputs.pr_number != ''
-        uses: google-labs-code/jules-invoke@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          message: |
-            The CI workflow has completed successfully for PR #${{ steps.info.outputs.pr_number }}.
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.info.outputs.pr_number }}
+          ISSUE_NUMBER: ${{ steps.info.outputs.issue_number }}
+        run: |
+          set -ex
 
-            Task: Handle the 'Auto-Repeat' logic for PR #${{ steps.info.outputs.pr_number }} and its associated Issue #${{ steps.info.outputs.issue_number }}.
+          # 1. Gather all labels from PR and Issue
+          LABELS=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json labels --jq '.labels[].name')
+          if [ -n "$ISSUE_NUMBER" ]; then
+            ISSUE_LABELS=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json labels --jq '.labels[].name')
+            LABELS=$(echo -e "$LABELS\n$ISSUE_LABELS" | sort -u)
+          fi
 
-            Instructions:
-            1. Check for 'Auto-Repeat' or 'Auto-Repeat-X' labels on either the PR or the Issue.
-            2. If an iteration label is found:
-               a. Merge PR #${{ steps.info.outputs.pr_number }}.
-               b. Duplicate Issue #${{ steps.info.outputs.issue_number }}.
-               c. If the label was 'Auto-Repeat-X' (e.g., 'Auto-Repeat-5'), decrement the counter in the new issue's label (e.g., to 'Auto-Repeat-4'). If it reaches 0, stop repeating.
-               d. Ensure any new labels (like decremented counters) are created in the repository if they don't exist, using the same color as the original label.
-            3. Maintain all other labels from the original issue on the new one.
+          # 2. Identify iteration label
+          ITERATION_LABEL=$(echo "$LABELS" | grep -E '^Auto-Repeat(-[0-9]+)?$' | head -n 1 || true)
+
+          if [ -z "$ITERATION_LABEL" ]; then
+            echo "No iteration label found. Skipping."
+            exit 0
+          fi
+
+          # 3. Merge PR
+          gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --merge --auto
+
+          if [ -z "$ISSUE_NUMBER" ]; then
+            echo "No associated issue found for duplication. Skipping issue creation."
+            exit 0
+          fi
+
+          # 4. Handle Issue Duplication and Counter Management
+          NEW_ITERATION_LABEL=""
+          if [ "$ITERATION_LABEL" == "Auto-Repeat" ]; then
+            NEW_ITERATION_LABEL="Auto-Repeat"
+          else
+            COUNTER=$(echo "$ITERATION_LABEL" | grep -oE '[0-9]+')
+            NEXT_COUNTER=$((COUNTER - 1))
+            if [ "$NEXT_COUNTER" -gt 0 ]; then
+              NEW_ITERATION_LABEL="Auto-Repeat-$NEXT_COUNTER"
+            fi
+          fi
+
+          # 5. Create new issue
+          ISSUE_DATA=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json title,body)
+          TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
+          BODY=$(echo "$ISSUE_DATA" | jq -r '.body')
+
+          # Collect other labels (excluding the current iteration label)
+          OTHER_LABELS=$(echo "$LABELS" | grep -v "^$ITERATION_LABEL$" | paste -sd "," -)
+
+          NEW_LABELS="$OTHER_LABELS"
+          if [ -n "$NEW_ITERATION_LABEL" ]; then
+            # Ensure the new label exists
+            if ! gh label list --repo "$REPOSITORY" --json name --jq '.[].name' | grep -q "^$NEW_ITERATION_LABEL$"; then
+              COLOR=$(gh label list --repo "$REPOSITORY" --json name,color --jq ".[] | select(.name == \"$ITERATION_LABEL\") | .color")
+              gh label create "$NEW_ITERATION_LABEL" --repo "$REPOSITORY" --color "$COLOR" || true
+            fi
+            if [ -n "$NEW_LABELS" ]; then
+              NEW_LABELS="$NEW_LABELS,$NEW_ITERATION_LABEL"
+            else
+              NEW_LABELS="$NEW_ITERATION_LABEL"
+            fi
+          fi
+
+          gh issue create --repo "$REPOSITORY" --title "$TITLE" --body "$BODY" --label "$NEW_LABELS"
