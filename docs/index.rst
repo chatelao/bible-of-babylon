@@ -7,7 +7,8 @@ Welcome to the Xiao Seeed RP2040 Renode Pattern Documentation
 
    dsl_specification
    dsl_examples
-   patterns
+   programming
+   data_formats
 
 Indices and tables
 ==================

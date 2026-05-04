@@ -40,7 +40,7 @@
     - [x] 7.4 Implement CLI entry point (`src/main.py`) <!-- 2026-05-02, issue #7.4 -->
 
 ## Phase 3: Content Creation
-- [ ] Populate Programming Language patterns <!-- issue #8 -->
+- [x] Populate Programming Language patterns <!-- 2026-05-08, issue #8 -->
     - [x] 8.1 Variable declaration <!-- 2026-05-03, issue #8.1 -->
         - [x] 8.1.1 C-family languages (C, Java, Rust) <!-- 2026-05-02, issue #8.1.1 -->
         - [x] 8.1.2 Functional languages (Erlang, Lisp) <!-- 2026-05-02, issue #8.1.2 -->
@@ -73,13 +73,13 @@
             - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
             - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
 - [ ] Populate Data Format patterns <!-- issue #9 -->
-    - [ ] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- issue #9.1 -->
-        - [ ] 9.1.1 Define `BasicTypes` pattern <!-- issue #9.1.1 -->
-        - [ ] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- issue #9.1.2 -->
-            - [ ] 9.1.2.1 JSON <!-- issue #9.1.2.1 -->
-            - [ ] 9.1.2.2 XML <!-- issue #9.1.2.2 -->
-            - [ ] 9.1.2.3 YAML <!-- issue #9.1.2.3 -->
-            - [ ] 9.1.2.4 TOML <!-- issue #9.1.2.4 -->
+    - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
+        - [x] 9.1.1 Define `BasicTypes` pattern <!-- 2026-05-08, issue #9.1.1 -->
+        - [x] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- 2026-05-08, issue #9.1.2 -->
+            - [x] 9.1.2.1 JSON <!-- 2026-05-08, issue #9.1.2.1 -->
+            - [x] 9.1.2.2 XML <!-- 2026-05-08, issue #9.1.2.2 -->
+            - [x] 9.1.2.3 YAML <!-- 2026-05-08, issue #9.1.2.3 -->
+            - [x] 9.1.2.4 TOML <!-- 2026-05-08, issue #9.1.2.4 -->
     - [ ] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- issue #9.2 -->
         - [ ] 9.2.1 Define `Collection` and `Mapping` patterns <!-- issue #9.2.1 -->
         - [ ] 9.2.2 Implement instances across formats <!-- issue #9.2.2 -->
