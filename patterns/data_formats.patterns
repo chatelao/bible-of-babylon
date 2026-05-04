@@ -33,3 +33,65 @@ instance TomlBasic of BasicTypes {
     boolean_val = "true / false"
     notes = "TOML is strictly typed; strings must be double-quoted."
 }
+
+pattern Collection {
+    meta description: "Ordered sequence of elements (Arrays, Lists, or Sequences)."
+    parameter elements: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonCollection of Collection {
+    elements = "Any JSON value"
+    syntax = "[1, \"two\", true]"
+    notes = "Elements are comma-separated and enclosed in square brackets."
+}
+
+instance XmlCollection of Collection {
+    elements = "Repeated child elements"
+    syntax = "<list>\n  <item>1</item>\n  <item>2</item>\n</list>"
+    notes = "Collections are typically represented by repeating elements under a parent."
+}
+
+instance YamlCollection of Collection {
+    elements = "Any YAML value"
+    syntax = "- 1\n- two\n- true"
+    notes = "Uses a dash followed by a space for each element."
+}
+
+instance TomlCollection of Collection {
+    elements = "Any TOML value"
+    syntax = "[1, 2, 3]"
+    notes = "Arrays can contain values of different types since TOML 1.0.0."
+}
+
+pattern Mapping {
+    meta description: "Unordered collection of key-value pairs (Objects, Maps, or Dictionaries)."
+    parameter entries: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonMapping of Mapping {
+    entries = "Key-value pairs"
+    syntax = "{\"key\": \"value\", \"num\": 42}"
+    notes = "Keys must be double-quoted strings."
+}
+
+instance XmlMapping of Mapping {
+    entries = "Child elements or attributes"
+    syntax = "<object>\n  <key>value</key>\n  <num>42</num>\n</object>"
+    notes = "Mappings are represented as nested elements."
+}
+
+instance YamlMapping of Mapping {
+    entries = "Key-value pairs"
+    syntax = "key: value\nnum: 42"
+    notes = "Uses a colon followed by a space to separate key and value."
+}
+
+instance TomlMapping of Mapping {
+    entries = "Key-value pairs"
+    syntax = "key = \"value\"\nnum = 42"
+    notes = "Top-level or grouped using [headers]."
+}

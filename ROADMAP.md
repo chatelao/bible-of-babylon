@@ -80,13 +80,13 @@
             - [x] 9.1.2.2 XML <!-- 2026-05-08, issue #9.1.2.2 -->
             - [x] 9.1.2.3 YAML <!-- 2026-05-08, issue #9.1.2.3 -->
             - [x] 9.1.2.4 TOML <!-- 2026-05-08, issue #9.1.2.4 -->
-    - [ ] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- issue #9.2 -->
-        - [ ] 9.2.1 Define `Collection` and `Mapping` patterns <!-- issue #9.2.1 -->
-        - [ ] 9.2.2 Implement instances across formats <!-- issue #9.2.2 -->
-            - [ ] 9.2.2.1 JSON <!-- issue #9.2.2.1 -->
-            - [ ] 9.2.2.2 XML <!-- issue #9.2.2.2 -->
-            - [ ] 9.2.2.3 YAML <!-- issue #9.2.2.3 -->
-            - [ ] 9.2.2.4 TOML <!-- issue #9.2.2.4 -->
+    - [x] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- 2026-05-04, issue #9.2 -->
+        - [x] 9.2.1 Define `Collection` and `Mapping` patterns <!-- 2026-05-04, issue #9.2.1 -->
+        - [x] 9.2.2 Implement instances across formats <!-- 2026-05-04, issue #9.2.2 -->
+            - [x] 9.2.2.1 JSON <!-- 2026-05-04, issue #9.2.2.1 -->
+            - [x] 9.2.2.2 XML <!-- 2026-05-04, issue #9.2.2.2 -->
+            - [x] 9.2.2.3 YAML <!-- 2026-05-04, issue #9.2.2.3 -->
+            - [x] 9.2.2.4 TOML <!-- 2026-05-04, issue #9.2.2.4 -->
     - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
         - [ ] 9.3.1 Define `Metadata` pattern <!-- issue #9.3.1 -->
         - [ ] 9.3.2 Implement instances across formats <!-- issue #9.3.2 -->
