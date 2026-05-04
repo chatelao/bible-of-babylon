@@ -87,13 +87,13 @@
             - [x] 9.2.2.2 XML <!-- 2026-05-04, issue #9.2.2.2 -->
             - [x] 9.2.2.3 YAML <!-- 2026-05-04, issue #9.2.2.3 -->
             - [x] 9.2.2.4 TOML <!-- 2026-05-04, issue #9.2.2.4 -->
-    - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
-        - [ ] 9.3.1 Define `Metadata` pattern <!-- issue #9.3.1 -->
-        - [ ] 9.3.2 Implement instances across formats <!-- issue #9.3.2 -->
-            - [ ] 9.3.2.1 JSON (N/A) <!-- issue #9.3.2.1 -->
-            - [ ] 9.3.2.2 XML (Attributes) <!-- issue #9.3.2.2 -->
-            - [ ] 9.3.2.3 YAML <!-- issue #9.3.2.3 -->
-            - [ ] 9.3.2.4 TOML <!-- issue #9.3.2.4 -->
+    - [x] 9.3 Metadata/Attributes <!-- 2026-05-10, issue #9.3 -->
+        - [x] 9.3.1 Define `Metadata` pattern <!-- 2026-05-10, issue #9.3.1 -->
+        - [x] 9.3.2 Implement instances across formats <!-- 2026-05-10, issue #9.3.2 -->
+            - [x] 9.3.2.1 JSON (N/A) <!-- 2026-05-10, issue #9.3.2.1 -->
+            - [x] 9.3.2.2 XML (Attributes) <!-- 2026-05-10, issue #9.3.2.2 -->
+            - [x] 9.3.2.3 YAML <!-- 2026-05-10, issue #9.3.2.3 -->
+            - [x] 9.3.2.4 TOML <!-- 2026-05-10, issue #9.3.2.4 -->
     - [ ] 9.4 Comments support <!-- issue #9.4 -->
         - [ ] 9.4.1 Define `Comment` pattern <!-- issue #9.4.1 -->
         - [ ] 9.4.2 Implement instances across formats <!-- issue #9.4.2 -->
