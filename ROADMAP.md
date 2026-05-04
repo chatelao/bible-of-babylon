@@ -59,12 +59,13 @@
             - [x] 8.3.2.2 Scripting & Shell instances <!-- 2026-05-03, issue #8.3.2.2 -->
             - [x] 8.3.2.3 Functional instances <!-- 2026-05-04, issue #8.3.2.3 -->
             - [x] 8.3.2.4 Specialized instances (XQuery) <!-- 2026-05-04, issue #8.3.2.4 -->
-    - [ ] 8.4 Error handling <!-- issue #8.4 -->
+    - [x] 8.4 Error handling <!-- 2026-05-07, issue #8.4 -->
         - [x] 8.4.1 Define `TryCatch` and `Raise` patterns <!-- 2026-05-05, issue #8.4.1 -->
-        - [ ] 8.4.2 Implement instances across language groups <!-- issue #8.4.2 -->
+        - [x] 8.4.2 Implement instances across language groups <!-- 2026-05-07, issue #8.4.2 -->
             - [x] 8.4.2.1 C-family languages (C, Java, Rust) <!-- 2026-05-05, issue #8.4.2.1 -->
             - [x] 8.4.2.2 Scripting & Shell instances <!-- 2026-05-06, issue #8.4.2.2 -->
-            - [ ] 8.4.2.3 Functional instances <!-- issue #8.4.2.3 -->
+            - [x] 8.4.2.3 Functional instances <!-- 2026-05-07, issue #8.4.2.3 -->
+            - [x] 8.4.2.4 Specialized instances (XQuery, CSS) <!-- 2026-05-07, issue #8.4.2.4 -->
     - [ ] 8.5 Concurrency models <!-- issue #8.5 -->
         - [ ] 8.5.1 Define `Thread` and `MessagePassing` patterns <!-- issue #8.5.1 -->
         - [ ] 8.5.2 Implement instances (Rust, Erlang, Java) <!-- issue #8.5.2 -->

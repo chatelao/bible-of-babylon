@@ -563,3 +563,67 @@ instance SqlRaise of Raise {
     syntax = "THROW 50000, 'Error', 1;"
     notes = "The THROW statement raises an exception and transfers execution to a CATCH block."
 }
+
+instance ErlangTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "error"
+    error_variable = "Reason"
+    catch_body = { call handle(Reason) }
+    syntax = "try do_something() catch error:Reason -> handle(Reason) end"
+    notes = "Erlang uses try...catch blocks; the type can be throw, error, or exit (defaulting to throw if omitted)."
+}
+
+instance ErlangRaise of Raise {
+    exception_type = "error"
+    message = "Error"
+    syntax = "error(\"Error\")"
+    notes = "The error/1 BIF is used to stop execution and provide a stack trace."
+}
+
+instance LispTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "error"
+    error_variable = "c"
+    catch_body = { call handle(c) }
+    syntax = "(handler-case (do_something) (error (c) (handle c)))"
+    notes = "Common Lisp uses handler-case for high-level error handling."
+}
+
+instance LispRaise of Raise {
+    exception_type = "error"
+    message = "Error"
+    syntax = "(error \"Error\")"
+    notes = "Signals a continuous error that must be handled or it enters the debugger."
+}
+
+instance XQueryTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "*"
+    error_variable = "err"
+    catch_body = { raw "handle($err)" }
+    syntax = "try { do_something() } catch * { handle($err) }"
+    notes = "XQuery 3.0+ supports try-catch; $err is a variable containing error information."
+}
+
+instance XQueryRaise of Raise {
+    exception_type = "error"
+    message = "Error"
+    syntax = "fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')"
+    notes = "The fn:error() function signals a dynamic error."
+}
+
+instance CssTryCatch of TryCatch {
+    try_body = { raw "/* N/A */" }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* N/A */" }
+    syntax = "N/A"
+    notes = "CSS does not have native error handling mechanisms like try-catch."
+}
+
+instance CssRaise of Raise {
+    exception_type = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "CSS does not have a mechanism to raise exceptions."
+}
