@@ -64,11 +64,13 @@ jobs:
           LABELS=$(gh pr view "$PR_NUMBER" --repo "$REPOSITORY" --json labels --jq '.labels[].name')
           if [ -n "$ISSUE_NUMBER" ]; then
             ISSUE_LABELS=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json labels --jq '.labels[].name')
-            LABELS=$(echo -e "$LABELS\n$ISSUE_LABELS" | sort -u)
+            LABELS=$(echo -e "$LABELS\n$ISSUE_LABELS" | grep . | sort -u || true)
+          else
+            LABELS=$(echo "$LABELS" | grep . | sort -u || true)
           fi
 
           # 2. Identify iteration label
-          ITERATION_LABEL=$(echo "$LABELS" | grep -E '^Auto-Repeat(-[0-9]+)?$' | head -n 1 || true)
+          ITERATION_LABEL=$(echo "$LABELS" | grep . | grep -E '^Auto-Repeat(-[0-9]+)?$' | head -n 1 || true)
 
           if [ -z "$ITERATION_LABEL" ]; then
             echo "No iteration label found. Skipping."
@@ -98,16 +100,17 @@ jobs:
           # 5. Create new issue
           ISSUE_DATA=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json title,body)
           TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
-          BODY=$(echo "$ISSUE_DATA" | jq -r '.body')
+          echo "$ISSUE_DATA" | jq -r '.body' > issue_body.md
 
           # Collect other labels (excluding the current iteration label)
-          OTHER_LABELS=$(echo "$LABELS" | grep -v "^$ITERATION_LABEL$" | paste -sd "," -)
+          OTHER_LABELS=$(echo "$LABELS" | grep -v "^$ITERATION_LABEL$" | grep . | paste -sd "," - || true)
 
           NEW_LABELS="$OTHER_LABELS"
           if [ -n "$NEW_ITERATION_LABEL" ]; then
             # Ensure the new label exists
             if ! gh label list --repo "$REPOSITORY" --json name --jq '.[].name' | grep -q "^$NEW_ITERATION_LABEL$"; then
               COLOR=$(gh label list --repo "$REPOSITORY" --json name,color --jq ".[] | select(.name == \"$ITERATION_LABEL\") | .color")
+              if [ -z "$COLOR" ]; then COLOR="EDEDED"; fi
               gh label create "$NEW_ITERATION_LABEL" --repo "$REPOSITORY" --color "$COLOR" || true
             fi
             if [ -n "$NEW_LABELS" ]; then
@@ -117,4 +120,4 @@ jobs:
             fi
           fi
 
-          gh issue create --repo "$REPOSITORY" --title "$TITLE" --body "$BODY" --label "$NEW_LABELS"
+          gh issue create --repo "$REPOSITORY" --title "$TITLE" --body-file issue_body.md --label "$NEW_LABELS"
