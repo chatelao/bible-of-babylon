@@ -1,5 +1,8 @@
 
-Pattern: VariableDeclaration
+
+VariableDeclaration
+===================
+
 
 :description: The act of naming a value and optionally specifying its type.
 
@@ -102,7 +105,10 @@ Parameters:
      - CSS custom properties (variables).
 
 
-Pattern: FunctionDefinition
+
+FunctionDefinition
+==================
+
 
 :description: Declaration of a reusable block of code with parameters and a return value.
 
@@ -220,7 +226,10 @@ Parameters:
      - CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors).
 
 
-Pattern: IfElse
+
+IfElse
+======
+
 
 :description: Conditional execution of code blocks.
 
@@ -323,7 +332,10 @@ Parameters:
      - Media queries provide conditional styling; no true else branch exists.
 
 
-Pattern: Loop
+
+Loop
+====
+
 
 :description: Repeated execution of a code block based on a condition.
 
@@ -411,7 +423,10 @@ Parameters:
      - CSS does not support loops natively.
 
 
-Pattern: TryCatch
+
+TryCatch
+========
+
 
 :description: Handling exceptions or errors within a block of code.
 
@@ -464,9 +479,47 @@ Parameters:
      - { call handle(e) }
      - match do_something() { Ok(v) => v, Err(e) => handle(e) }
      - Rust uses Result type and pattern matching instead of traditional try-catch.
+   * - PythonTryCatch
+     - { call do_something() }
+     - Exception
+     - e
+     - { call handle(e) }
+     - try:\n    do_something()\nexcept Exception as e:\n    handle(e)
+     - Standard Python exception handling using try-except.
+   * - BashTryCatch
+     - { call do_something() }
+     - Exit Code
+     - EXIT_STATUS
+     - { call handle_error() }
+     - do_something || handle_error
+     - Shells often use command chaining (||) for basic error handling based on exit codes; $? stores the exit status.
+   * - PowerShellTryCatch
+     - { call do_something() }
+     - ErrorRecord
+     - PSItem
+     - { call handle_error(PSItem) }
+     - try { do_something } catch { handle_error($_) }
+     - PowerShell supports try-catch-finally blocks; $_ (or $PSItem) refers to the current error.
+   * - CmdTryCatch
+     - { call do_something() }
+     - ErrorLevel
+     - %errorlevel%
+     - { call handle_error() }
+     - do_something || call :handle_error
+     - Cmd uses || to execute a command if the previous one failed (non-zero errorlevel).
+   * - SqlTryCatch
+     - { call do_something() }
+     - Error
+     - @@ERROR
+     - { call handle_error() }
+     - BEGIN TRY\n    EXEC do_something;\nEND TRY\nBEGIN CATCH\n    EXEC handle_error;\nEND CATCH
+     - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
 
 
-Pattern: Raise
+
+Raise
+=====
+
 
 :description: Explicitly triggering an exception or error.
 
@@ -507,3 +560,28 @@ Parameters:
      - Error
      - panic!(\"Error\");
      - Uses 'panic!' for unrecoverable errors.
+   * - PythonRaise
+     - Exception
+     - Error
+     - raise Exception(\"Error\")
+     - Uses 'raise' to trigger an exception.
+   * - BashRaise
+     - Exit
+     - Error
+     - exit 1
+     - Terminates the script or subshell with a non-zero exit code.
+   * - PowerShellRaise
+     - Exception
+     - Error
+     - throw \"Error\"
+     - Uses 'throw' to create a terminating error.
+   * - CmdRaise
+     - ErrorLevel
+     - Error
+     - exit /b 1
+     - Sets the errorlevel and exits the current script or function.
+   * - SqlRaise
+     - Error
+     - Error
+     - THROW 50000, 'Error', 1;
+     - The THROW statement raises an exception and transfers execution to a CATCH block.

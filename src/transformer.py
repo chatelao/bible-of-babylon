@@ -71,7 +71,7 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
     def visitMetaDefinition(self, ctx: SourcePatternsParser.MetaDefinitionContext):
         key = ctx.IDENTIFIER(0).getText()
         if ctx.STRING():
-            value = ctx.STRING().getText().strip('"')
+            value = ctx.STRING().getText()[1:-1]
         else:
             value = ctx.IDENTIFIER(1).getText()
         return Metadata(key=key, value=value)
@@ -96,7 +96,7 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
 
     def visitValue(self, ctx: SourcePatternsParser.ValueContext):
         if ctx.STRING():
-            return ctx.STRING().getText().strip('"')
+            return ctx.STRING().getText()[1:-1]
         if ctx.NUMBER():
             val = ctx.NUMBER().getText()
             return float(val) if '.' in val else int(val)
@@ -136,5 +136,5 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
         return ReturnInstruction(value=value)
 
     def visitRawInstruction(self, ctx: SourcePatternsParser.RawInstructionContext):
-        snippet = ctx.STRING().getText().strip('"')
+        snippet = ctx.STRING().getText()[1:-1]
         return RawInstruction(snippet=snippet)

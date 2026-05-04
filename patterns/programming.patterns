@@ -483,3 +483,83 @@ instance RustRaise of Raise {
     syntax = "panic!(\"Error\");"
     notes = "Uses 'panic!' for unrecoverable errors."
 }
+
+instance PythonTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try:\n    do_something()\nexcept Exception as e:\n    handle(e)"
+    notes = "Standard Python exception handling using try-except."
+}
+
+instance PythonRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "raise Exception(\"Error\")"
+    notes = "Uses 'raise' to trigger an exception."
+}
+
+instance BashTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Exit Code"
+    error_variable = "EXIT_STATUS"
+    catch_body = { call handle_error() }
+    syntax = "do_something || handle_error"
+    notes = "Shells often use command chaining (||) for basic error handling based on exit codes; $? stores the exit status."
+}
+
+instance BashRaise of Raise {
+    exception_type = "Exit"
+    message = "Error"
+    syntax = "exit 1"
+    notes = "Terminates the script or subshell with a non-zero exit code."
+}
+
+instance PowerShellTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "ErrorRecord"
+    error_variable = "PSItem"
+    catch_body = { call handle_error(PSItem) }
+    syntax = "try { do_something } catch { handle_error($_) }"
+    notes = "PowerShell supports try-catch-finally blocks; $_ (or $PSItem) refers to the current error."
+}
+
+instance PowerShellRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "throw \"Error\""
+    notes = "Uses 'throw' to create a terminating error."
+}
+
+instance CmdTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "ErrorLevel"
+    error_variable = "%errorlevel%"
+    catch_body = { call handle_error() }
+    syntax = "do_something || call :handle_error"
+    notes = "Cmd uses || to execute a command if the previous one failed (non-zero errorlevel)."
+}
+
+instance CmdRaise of Raise {
+    exception_type = "ErrorLevel"
+    message = "Error"
+    syntax = "exit /b 1"
+    notes = "Sets the errorlevel and exits the current script or function."
+}
+
+instance SqlTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Error"
+    error_variable = "@@ERROR"
+    catch_body = { call handle_error() }
+    syntax = "BEGIN TRY\n    EXEC do_something;\nEND TRY\nBEGIN CATCH\n    EXEC handle_error;\nEND CATCH"
+    notes = "T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks."
+}
+
+instance SqlRaise of Raise {
+    exception_type = "Error"
+    message = "Error"
+    syntax = "THROW 50000, 'Error', 1;"
+    notes = "The THROW statement raises an exception and transfers execution to a CATCH block."
+}
