@@ -173,3 +173,47 @@ Parameters:
    * - TomlMetadata
      - N/A
      - TOML does not support per-element metadata, though it uses headers for grouping.
+
+
+
+Comment
+=======
+
+
+:description: Way to add non-executable explanatory text to the data.
+
+
+Parameters:
+
+* single_line: String
+
+* multi_line: String
+
+* notes: String
+
+
+
+.. list-table:: Comment Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - single_line
+     - multi_line
+     - notes
+   * - JsonComment
+     - N/A
+     - N/A
+     - JSON does not natively support comments.
+   * - XmlComment
+     - <!-- comment -->
+     - <!--\n  line 1\n  line 2\n-->
+     - XML uses the same syntax for single and multi-line comments.
+   * - YamlComment
+     - # comment
+     - # line 1\n# line 2
+     - YAML only supports single-line comments starting with #.
+   * - TomlComment
+     - # comment
+     - # line 1\n# line 2
+     - TOML only supports single-line comments starting with #.

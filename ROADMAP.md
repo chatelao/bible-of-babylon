@@ -94,13 +94,13 @@
             - [x] 9.3.2.2 XML (Attributes) <!-- 2026-05-10, issue #9.3.2.2 -->
             - [x] 9.3.2.3 YAML <!-- 2026-05-10, issue #9.3.2.3 -->
             - [x] 9.3.2.4 TOML <!-- 2026-05-10, issue #9.3.2.4 -->
-    - [ ] 9.4 Comments support <!-- issue #9.4 -->
-        - [ ] 9.4.1 Define `Comment` pattern <!-- issue #9.4.1 -->
-        - [ ] 9.4.2 Implement instances across formats <!-- issue #9.4.2 -->
-            - [ ] 9.4.2.1 JSON (N/A) <!-- issue #9.4.2.1 -->
-            - [ ] 9.4.2.2 XML <!-- issue #9.4.2.2 -->
-            - [ ] 9.4.2.3 YAML <!-- issue #9.4.2.3 -->
-            - [ ] 9.4.2.4 TOML <!-- issue #9.4.2.4 -->
+    - [x] 9.4 Comments support <!-- 2026-05-11, issue #9.4 -->
+        - [x] 9.4.1 Define `Comment` pattern <!-- 2026-05-11, issue #9.4.1 -->
+        - [x] 9.4.2 Implement instances across formats <!-- 2026-05-11, issue #9.4.2 -->
+            - [x] 9.4.2.1 JSON (N/A) <!-- 2026-05-11, issue #9.4.2.1 -->
+            - [x] 9.4.2.2 XML <!-- 2026-05-11, issue #9.4.2.2 -->
+            - [x] 9.4.2.3 YAML <!-- 2026-05-11, issue #9.4.2.3 -->
+            - [x] 9.4.2.4 TOML <!-- 2026-05-11, issue #9.4.2.4 -->
     - [ ] 9.5 Schema validation <!-- issue #9.5 -->
         - [ ] 9.5.1 Define `SchemaLink` pattern <!-- issue #9.5.1 -->
         - [ ] 9.5.2 Implement instances across formats <!-- issue #9.5.2 -->
@@ -115,3 +115,7 @@
     - [x] 10.2 Setup `.readthedocs.yaml` <!-- 2026-05-03, issue #10.2 -->
     - [x] 10.3 Integrate transpiler output into Sphinx build <!-- 2026-05-03, issue #10.3 -->
 - [ ] Final review and polish of the comparative book <!-- issue #11 -->
+    - [ ] 11.1 Verify consistency of pattern descriptions and parameter names <!-- issue #11.1 -->
+    - [ ] 11.2 Review generated reST for formatting issues or table alignment problems <!-- issue #11.2 -->
+    - [ ] 11.3 Add a "Language/Format Coverage" summary to the documentation <!-- issue #11.3 -->
+    - [ ] 11.4 Final verification of the Read the Docs build process <!-- issue #11.4 -->
