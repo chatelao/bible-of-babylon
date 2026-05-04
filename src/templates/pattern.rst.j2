@@ -1,5 +1,8 @@
 {% if pattern %}
-Pattern: {{ pattern.name }}
+
+{{ pattern.name }}
+{{ "=" * pattern.name|length }}
+
 {% for meta in pattern.metadata %}
 :{{ meta.key }}: {{ meta.value }}
 {% endfor %}

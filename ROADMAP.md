@@ -91,8 +91,8 @@
     - [ ] 9.5 Schema validation <!-- issue #9.5 -->
 
 ## Phase 4: Publication
-- [ ] Configure ReadTheDocs integration <!-- issue #10 -->
-    - [ ] 10.1 Create `docs/conf.py` and `index.rst` <!-- issue #10.1 -->
-    - [ ] 10.2 Setup `.readthedocs.yaml` <!-- issue #10.2 -->
-    - [ ] 10.3 Integrate transpiler output into Sphinx build <!-- issue #10.3 -->
+- [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->
+    - [x] 10.1 Create `docs/conf.py` and `index.rst` <!-- 2026-05-03, issue #10.1 -->
+    - [x] 10.2 Setup `.readthedocs.yaml` <!-- 2026-05-03, issue #10.2 -->
+    - [x] 10.3 Integrate transpiler output into Sphinx build <!-- 2026-05-03, issue #10.3 -->
 - [ ] Final review and polish of the comparative book <!-- issue #11 -->
