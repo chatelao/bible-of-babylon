@@ -103,6 +103,18 @@ Parameters:
      - 42
      - --x: 42;
      - CSS custom properties (variables).
+   * - CudaVar
+     - x
+     - int
+     - 42
+     - __device__ int x = 42;
+     - Uses __device__ qualifier for GPU memory.
+   * - X86Var
+     - x
+     - DWORD
+     - 42
+     - x dd 42
+     - Defined in the .data section (Intel syntax).
 
 
 
@@ -224,6 +236,20 @@ Parameters:
      - { raw "N/A" }
      - N/A
      - CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors).
+   * - CudaFunction
+     - add
+     - [int a, int b]
+     - int
+     - { raw "return a + b;" }
+     - __device__ int add(int a, int b) { return a + b; }
+     - Functions can be qualified with __device__, __host__, or __global__.
+   * - X86Function
+     - add
+     - [eax, ebx]
+     - eax
+     - { raw "add eax, ebx\nret" }
+     - add_func:\nadd eax, ebx\nret
+     - Functions are labels; parameters usually passed via registers or stack.
 
 
 
@@ -330,6 +356,18 @@ Parameters:
      - { raw "color: blue;" }
      - @media (min-width: 0px) { .element { color: red; } }
      - Media queries provide conditional styling; no true else branch exists.
+   * - CudaIfElse
+     - x > 0
+     - { return 1 }
+     - { return 0 }
+     - if (x > 0) { return 1; } else { return 0; }
+     - Standard C-like if-else statement.
+   * - X86IfElse
+     - eax > 0
+     - { return 1 }
+     - { return 0 }
+     - cmp eax, 0\njle .else\nmov eax, 1\njmp .end\n.else:\nmov eax, 0\n.end:
+     - Implemented using comparison and jump instructions (Intel syntax).
 
 
 
@@ -421,6 +459,16 @@ Parameters:
      - { raw "N/A" }
      - N/A
      - CSS does not support loops natively.
+   * - CudaLoop
+     - x > 0
+     - { raw "x = x - 1;" }
+     - while (x > 0) { x = x - 1; }
+     - Standard C-like while loop.
+   * - X86Loop
+     - ecx > 0
+     - { raw "dec ecx" }
+     - .loop:\ncmp ecx, 0\njle .end\ndec ecx\njmp .loop\n.end:
+     - Implemented using labels and conditional jumps.
 
 
 
@@ -542,6 +590,20 @@ Parameters:
      - { raw "/* N/A */" }
      - N/A
      - CSS does not have native error handling mechanisms like try-catch.
+   * - CudaTryCatch
+     - { call do_something() }
+     - N/A
+     - N/A
+     - { raw "/* Error handling in CUDA kernels is typically manual */" }
+     - N/A
+     - CUDA does not support C++ exceptions in device code.
+   * - X86TryCatch
+     - { call do_something() }
+     - N/A
+     - N/A
+     - { raw "/* SEH or manual error checking */" }
+     - N/A
+     - No high-level try-catch; requires OS-specific mechanisms like SEH.
 
 
 
@@ -633,6 +695,16 @@ Parameters:
      - N/A
      - N/A
      - CSS does not have a mechanism to raise exceptions.
+   * - CudaRaise
+     - N/A
+     - N/A
+     - N/A
+     - No native exception mechanism in CUDA device code.
+   * - X86Raise
+     - Interrupt
+     - Error
+     - int 3
+     - Software interrupts (like int 3) can be used to signal errors or breakpoints.
 
 
 
@@ -673,6 +745,14 @@ Parameters:
      - { call do_work() }
      - new Thread(() -> { do_work(); }).start();
      - Spawns a new platform thread; virtual threads are available in newer versions.
+   * - CudaThread
+     - { call kernel() }
+     - kernel<<<grid, block>>>();
+     - Launches a grid of threads on the GPU.
+   * - X86Thread
+     - { call do_work() }
+     - push offset do_work\ncall CreateThread
+     - Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread).
 
 
 
@@ -719,6 +799,16 @@ Parameters:
      - 42
      - queue.put(42);
      - Commonly implemented using BlockingQueue; put() may block if the queue is full.
+   * - CudaSendMessage
+     - sm_id
+     - data
+     - N/A
+     - CUDA threads typically communicate via shared memory or atomics, not explicit message passing.
+   * - X86SendMessage
+     - thread_id
+     - msg
+     - push msg\npush thread_id\ncall PostThreadMessage
+     - Message passing is done via OS APIs.
 
 
 
@@ -765,3 +855,13 @@ Parameters:
      - { call handle(msg) }
      - int msg = queue.take(); handle(msg);
      - Using BlockingQueue.take(); blocks until an element becomes available.
+   * - CudaReceiveMessage
+     - data
+     - { raw "/* access shared memory */" }
+     - N/A
+     - Communication is memory-based.
+   * - X86ReceiveMessage
+     - msg
+     - { call handle(msg) }
+     - call GetMessage
+     - Message retrieval via OS APIs.

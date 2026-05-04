@@ -19,6 +19,8 @@ This section compares languages based on common programming patterns.
 - Cmd
 - PowerShell
 - CSS
+- CUDA
+- x86 Assembler
 
 **Patterns to be compared:**
 - Variable declaration
