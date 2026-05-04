@@ -66,12 +66,12 @@
             - [x] 8.4.2.2 Scripting & Shell instances <!-- 2026-05-06, issue #8.4.2.2 -->
             - [x] 8.4.2.3 Functional instances <!-- 2026-05-07, issue #8.4.2.3 -->
             - [x] 8.4.2.4 Specialized instances (XQuery, CSS) <!-- 2026-05-07, issue #8.4.2.4 -->
-    - [ ] 8.5 Concurrency models <!-- issue #8.5 -->
-        - [ ] 8.5.1 Define `Thread` and `MessagePassing` patterns <!-- issue #8.5.1 -->
-        - [ ] 8.5.2 Implement instances (Rust, Erlang, Java) <!-- issue #8.5.2 -->
-            - [ ] 8.5.2.1 Rust instances <!-- issue #8.5.2.1 -->
-            - [ ] 8.5.2.2 Erlang instances <!-- issue #8.5.2.2 -->
-            - [ ] 8.5.2.3 Java instances <!-- issue #8.5.2.3 -->
+    - [x] 8.5 Concurrency models <!-- 2026-05-08, issue #8.5 -->
+        - [x] 8.5.1 Define `Thread` and `SendMessage`/`ReceiveMessage` patterns <!-- 2026-05-08, issue #8.5.1 -->
+        - [x] 8.5.2 Implement instances (Rust, Erlang, Java) <!-- 2026-05-08, issue #8.5.2 -->
+            - [x] 8.5.2.1 Rust instances <!-- 2026-05-08, issue #8.5.2.1 -->
+            - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
+            - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
 - [ ] Populate Data Format patterns <!-- issue #9 -->
     - [ ] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- issue #9.1 -->
         - [ ] 9.1.1 Define `BasicTypes` pattern <!-- issue #9.1.1 -->
@@ -88,8 +88,26 @@
             - [ ] 9.2.2.3 YAML <!-- issue #9.2.2.3 -->
             - [ ] 9.2.2.4 TOML <!-- issue #9.2.2.4 -->
     - [ ] 9.3 Metadata/Attributes <!-- issue #9.3 -->
+        - [ ] 9.3.1 Define `Metadata` pattern <!-- issue #9.3.1 -->
+        - [ ] 9.3.2 Implement instances across formats <!-- issue #9.3.2 -->
+            - [ ] 9.3.2.1 JSON (N/A) <!-- issue #9.3.2.1 -->
+            - [ ] 9.3.2.2 XML (Attributes) <!-- issue #9.3.2.2 -->
+            - [ ] 9.3.2.3 YAML <!-- issue #9.3.2.3 -->
+            - [ ] 9.3.2.4 TOML <!-- issue #9.3.2.4 -->
     - [ ] 9.4 Comments support <!-- issue #9.4 -->
+        - [ ] 9.4.1 Define `Comment` pattern <!-- issue #9.4.1 -->
+        - [ ] 9.4.2 Implement instances across formats <!-- issue #9.4.2 -->
+            - [ ] 9.4.2.1 JSON (N/A) <!-- issue #9.4.2.1 -->
+            - [ ] 9.4.2.2 XML <!-- issue #9.4.2.2 -->
+            - [ ] 9.4.2.3 YAML <!-- issue #9.4.2.3 -->
+            - [ ] 9.4.2.4 TOML <!-- issue #9.4.2.4 -->
     - [ ] 9.5 Schema validation <!-- issue #9.5 -->
+        - [ ] 9.5.1 Define `SchemaLink` pattern <!-- issue #9.5.1 -->
+        - [ ] 9.5.2 Implement instances across formats <!-- issue #9.5.2 -->
+            - [ ] 9.5.2.1 JSON Schema <!-- issue #9.5.2.1 -->
+            - [ ] 9.5.2.2 XML (XSD/DTD) <!-- issue #9.5.2.2 -->
+            - [ ] 9.5.2.3 YAML (JSON Schema/Custom) <!-- issue #9.5.2.3 -->
+            - [ ] 9.5.2.4 TOML <!-- issue #9.5.2.4 -->
 
 ## Phase 4: Publication
 - [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->

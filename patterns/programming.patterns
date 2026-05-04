@@ -627,3 +627,86 @@ instance CssRaise of Raise {
     syntax = "N/A"
     notes = "CSS does not have a mechanism to raise exceptions."
 }
+
+pattern Thread {
+    meta description: "Creating and running a new thread of execution."
+    parameter body: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern SendMessage {
+    meta description: "Sending a message to another process or thread."
+    parameter recipient: String
+    parameter message: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ReceiveMessage {
+    meta description: "Receiving a message from another process or thread."
+    parameter match_pattern: String
+    parameter body: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance ErlangThread of Thread {
+    body = { call do_work() }
+    syntax = "Pid = spawn(fun() -> do_work() end)."
+    notes = "Creates a new process (lightweight thread) and returns its PID."
+}
+
+instance ErlangSendMessage of SendMessage {
+    recipient = "Pid"
+    message = "hello"
+    syntax = "Pid ! hello."
+    notes = "Asynchronous message passing using the ! operator."
+}
+
+instance ErlangReceiveMessage of ReceiveMessage {
+    match_pattern = "hello"
+    body = { call handle_hello() }
+    syntax = "receive hello -> handle_hello() end."
+    notes = "Selective receive; blocks until a matching message is in the mailbox."
+}
+
+instance RustThread of Thread {
+    body = { call do_work() }
+    syntax = "thread::spawn(|| { do_work(); });"
+    notes = "Spawns a native OS thread. Closures are used for the thread body."
+}
+
+instance RustSendMessage of SendMessage {
+    recipient = "tx"
+    message = "42"
+    syntax = "tx.send(42).unwrap();"
+    notes = "Using a channel sender. Result must be handled."
+}
+
+instance RustReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "let msg = rx.recv().unwrap(); handle(msg);"
+    notes = "Using a channel receiver; blocks until a message is available."
+}
+
+instance JavaThread of Thread {
+    body = { call do_work() }
+    syntax = "new Thread(() -> { do_work(); }).start();"
+    notes = "Spawns a new platform thread; virtual threads are available in newer versions."
+}
+
+instance JavaSendMessage of SendMessage {
+    recipient = "queue"
+    message = "42"
+    syntax = "queue.put(42);"
+    notes = "Commonly implemented using BlockingQueue; put() may block if the queue is full."
+}
+
+instance JavaReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "int msg = queue.take(); handle(msg);"
+    notes = "Using BlockingQueue.take(); blocks until an element becomes available."
+}
