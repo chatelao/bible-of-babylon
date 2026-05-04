@@ -10,7 +10,7 @@
     - [x] 12.2 Implement GitHub Actions workflow for PR merge and issue duplication (MVP) <!-- 2026-05-03, issue #12.2 -->
 
 ## Phase 2: Transpiler Development
-- [ ] Define DSL for Source Patterns <!-- issue #4 -->
+- [x] Define DSL for Source Patterns <!-- 2026-05-01, issue #4 -->
     - [x] 4.1 Define DSL requirements and syntax draft <!-- 2026-05-01, issue #4.1 -->
     - [x] 4.2 Validate DSL draft with example patterns <!-- 2026-05-01, issue #4.2 -->
     - [x] 4.3 Finalize DSL specification <!-- 2026-05-01, issue #4.3 -->
@@ -72,7 +72,7 @@
             - [x] 8.5.2.1 Rust instances <!-- 2026-05-08, issue #8.5.2.1 -->
             - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
             - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
-- [ ] Populate Data Format patterns <!-- issue #9 -->
+- [x] Populate Data Format patterns <!-- 2026-05-11, issue #9 -->
     - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
         - [x] 9.1.1 Define `BasicTypes` pattern <!-- 2026-05-08, issue #9.1.1 -->
         - [x] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- 2026-05-08, issue #9.1.2 -->
@@ -101,13 +101,13 @@
             - [x] 9.4.2.2 XML <!-- 2026-05-11, issue #9.4.2.2 -->
             - [x] 9.4.2.3 YAML <!-- 2026-05-11, issue #9.4.2.3 -->
             - [x] 9.4.2.4 TOML <!-- 2026-05-11, issue #9.4.2.4 -->
-    - [ ] 9.5 Schema validation <!-- issue #9.5 -->
-        - [ ] 9.5.1 Define `SchemaLink` pattern <!-- issue #9.5.1 -->
-        - [ ] 9.5.2 Implement instances across formats <!-- issue #9.5.2 -->
-            - [ ] 9.5.2.1 JSON Schema <!-- issue #9.5.2.1 -->
-            - [ ] 9.5.2.2 XML (XSD/DTD) <!-- issue #9.5.2.2 -->
-            - [ ] 9.5.2.3 YAML (JSON Schema/Custom) <!-- issue #9.5.2.3 -->
-            - [ ] 9.5.2.4 TOML <!-- issue #9.5.2.4 -->
+    - [x] 9.5 Schema validation <!-- 2026-05-11, issue #9.5 -->
+        - [x] 9.5.1 Define `SchemaLink` pattern <!-- 2026-05-11, issue #9.5.1 -->
+        - [x] 9.5.2 Implement instances across formats <!-- 2026-05-11, issue #9.5.2 -->
+            - [x] 9.5.2.1 JSON Schema <!-- 2026-05-11, issue #9.5.2.1 -->
+            - [x] 9.5.2.2 XML (XSD/DTD) <!-- 2026-05-11, issue #9.5.2.2 -->
+            - [x] 9.5.2.3 YAML (JSON Schema/Custom) <!-- 2026-05-11, issue #9.5.2.3 -->
+            - [x] 9.5.2.4 TOML <!-- 2026-05-11, issue #9.5.2.4 -->
 
 ## Phase 4: Publication
 - [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->

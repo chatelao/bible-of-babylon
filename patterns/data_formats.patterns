@@ -152,3 +152,29 @@ instance TomlComment of Comment {
     multi_line = "# line 1\n# line 2"
     notes = "TOML only supports single-line comments starting with #."
 }
+
+pattern SchemaLink {
+    meta description: "Linking a data file to a schema for validation (e.g., JSON Schema, XSD)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonSchemaLink of SchemaLink {
+    syntax = "\"\$schema\": \"http://json-schema.org/draft-07/schema#\""
+    notes = "JSON uses the \$schema keyword to point to a JSON Schema file."
+}
+
+instance XmlSchemaLink of SchemaLink {
+    syntax = "<root xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n      xsi:schemaLocation=\"http://example.com schema.xsd\">"
+    notes = "XML uses the xsi:schemaLocation attribute to link to an XSD."
+}
+
+instance YamlSchemaLink of SchemaLink {
+    syntax = "# yaml-language-server: \$schema=<url_or_path>"
+    notes = "YAML often relies on editor-specific comments (like VS Code's language server) for schema linking."
+}
+
+instance TomlSchemaLink of SchemaLink {
+    syntax = "N/A"
+    notes = "TOML does not have a native or widely standardized way to link to a schema within the file."
+}
