@@ -1,0 +1,35 @@
+pattern BasicTypes {
+    meta description: "Representation of fundamental data types: Strings, Numbers, and Booleans."
+    parameter string_val: String
+    parameter number_val: String
+    parameter boolean_val: String
+    parameter notes: String
+}
+
+instance JsonBasic of BasicTypes {
+    string_val = "\"Hello\""
+    number_val = "42 or 3.14"
+    boolean_val = "true / false"
+    notes = "Standard JSON types; strings must be double-quoted."
+}
+
+instance XmlBasic of BasicTypes {
+    string_val = "<tag>Hello</tag>"
+    number_val = "<tag>42</tag>"
+    boolean_val = "<tag>true</tag>"
+    notes = "XML is text-based; types are typically inferred or defined by a schema (XSD)."
+}
+
+instance YamlBasic of BasicTypes {
+    string_val = "Hello or 'Hello' or \"Hello\""
+    number_val = "42 or 3.14"
+    boolean_val = "true / false (or yes/no, on/off in YAML 1.1)"
+    notes = "YAML supports plain, single-quoted, and double-quoted strings."
+}
+
+instance TomlBasic of BasicTypes {
+    string_val = "\"Hello\""
+    number_val = "42 or 3.14"
+    boolean_val = "true / false"
+    notes = "TOML is strictly typed; strings must be double-quoted."
+}
