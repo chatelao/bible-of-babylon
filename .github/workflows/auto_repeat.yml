@@ -78,12 +78,14 @@ jobs:
           fi
 
           # 3. Merge PR
-          gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --merge --auto
+          gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --merge --auto --delete-branch
 
           if [ -z "$ISSUE_NUMBER" ]; then
             echo "No associated issue found for duplication. Skipping issue creation."
             exit 0
           fi
+
+          gh issue close "$ISSUE_NUMBER" --repo "$REPOSITORY"
 
           # 4. Handle Issue Duplication and Counter Management
           NEW_ITERATION_LABEL=""
@@ -97,27 +99,26 @@ jobs:
             fi
           fi
 
-          # 5. Create new issue
-          ISSUE_DATA=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json title,body)
-          TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
-          echo "$ISSUE_DATA" | jq -r '.body' > issue_body.md
-
-          # Collect other labels (excluding the current iteration label)
-          OTHER_LABELS=$(echo "$LABELS" | grep -v "^$ITERATION_LABEL$" | grep . | paste -sd "," - || true)
-
-          NEW_LABELS="$OTHER_LABELS"
+          # 5. Create new issue if needed
           if [ -n "$NEW_ITERATION_LABEL" ]; then
+            ISSUE_DATA=$(gh issue view "$ISSUE_NUMBER" --repo "$REPOSITORY" --json title,body)
+            TITLE=$(echo "$ISSUE_DATA" | jq -r '.title')
+            echo "$ISSUE_DATA" | jq -r '.body' > issue_body.md
+
+            # Collect other labels (excluding the current iteration label)
+            OTHER_LABELS=$(echo "$LABELS" | grep -v "^$ITERATION_LABEL$" | grep . | paste -sd "," - || true)
+
             # Ensure the new label exists
             if ! gh label list --repo "$REPOSITORY" --json name --jq '.[].name' | grep -q "^$NEW_ITERATION_LABEL$"; then
               COLOR=$(gh label list --repo "$REPOSITORY" --json name,color --jq ".[] | select(.name == \"$ITERATION_LABEL\") | .color")
               if [ -z "$COLOR" ]; then COLOR="EDEDED"; fi
               gh label create "$NEW_ITERATION_LABEL" --repo "$REPOSITORY" --color "$COLOR" || true
             fi
-            if [ -n "$NEW_LABELS" ]; then
-              NEW_LABELS="$NEW_LABELS,$NEW_ITERATION_LABEL"
-            else
-              NEW_LABELS="$NEW_ITERATION_LABEL"
-            fi
-          fi
 
-          gh issue create --repo "$REPOSITORY" --title "$TITLE" --body-file issue_body.md --label "$NEW_LABELS"
+            NEW_LABELS="$NEW_ITERATION_LABEL"
+            if [ -n "$OTHER_LABELS" ]; then
+              NEW_LABELS="$NEW_LABELS,$OTHER_LABELS"
+            fi
+
+            gh issue create --repo "$REPOSITORY" --title "$TITLE" --body-file issue_body.md --label "$NEW_LABELS"
+          fi
