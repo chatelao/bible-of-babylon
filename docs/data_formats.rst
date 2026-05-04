@@ -217,3 +217,40 @@ Parameters:
      - # comment
      - # line 1\n# line 2
      - TOML only supports single-line comments starting with #.
+
+
+
+SchemaLink
+==========
+
+
+:description: Linking a data file to a schema for validation (e.g., JSON Schema, XSD).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SchemaLink Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - syntax
+     - notes
+   * - JsonSchemaLink
+     - \"\$schema\": \"http://json-schema.org/draft-07/schema#\"
+     - JSON uses the \$schema keyword to point to a JSON Schema file.
+   * - XmlSchemaLink
+     - <root xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n      xsi:schemaLocation=\"http://example.com schema.xsd\">
+     - XML uses the xsi:schemaLocation attribute to link to an XSD.
+   * - YamlSchemaLink
+     - # yaml-language-server: \$schema=<url_or_path>
+     - YAML often relies on editor-specific comments (like VS Code's language server) for schema linking.
+   * - TomlSchemaLink
+     - N/A
+     - TOML does not have a native or widely standardized way to link to a schema within the file.
