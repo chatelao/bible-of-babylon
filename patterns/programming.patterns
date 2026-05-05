@@ -130,6 +130,22 @@ instance CssVar of VariableDeclaration {
     notes = "CSS custom properties (variables)."
 }
 
+instance CudaVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+    syntax = "__device__ int x = 42;"
+    notes = "Uses __device__ qualifier for GPU memory."
+}
+
+instance X86Var of VariableDeclaration {
+    name = "x"
+    type = "DWORD"
+    initial_value = 42
+    syntax = "x dd 42"
+    notes = "Defined in the .data section (Intel syntax)."
+}
+
 instance CIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -303,11 +319,41 @@ instance CssIfElse of IfElse {
     notes = "Media queries provide conditional styling; no true else branch exists."
 }
 
+instance CudaIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) { return 1; } else { return 0; }"
+    notes = "Standard C-like if-else statement."
+}
+
+instance X86IfElse of IfElse {
+    condition = "eax > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "cmp eax, 0\njle .else\nmov eax, 1\njmp .end\n.else:\nmov eax, 0\n.end:"
+    notes = "Implemented using comparison and jump instructions (Intel syntax)."
+}
+
 instance CssLoop of Loop {
     condition = "N/A"
     body = { raw "N/A" }
     syntax = "N/A"
     notes = "CSS does not support loops natively."
+}
+
+instance CudaLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1;" }
+    syntax = "while (x > 0) { x = x - 1; }"
+    notes = "Standard C-like while loop."
+}
+
+instance X86Loop of Loop {
+    condition = "ecx > 0"
+    body = { raw "dec ecx" }
+    syntax = ".loop:\ncmp ecx, 0\njle .end\ndec ecx\njmp .loop\n.end:"
+    notes = "Implemented using labels and conditional jumps."
 }
 
 instance CFunction of FunctionDefinition {
@@ -416,6 +462,24 @@ instance CssFunction of FunctionDefinition {
     body = { raw "N/A" }
     syntax = "N/A"
     notes = "CSS does not support user-defined functions in the traditional sense (excluding Houdini or preprocessors)."
+}
+
+instance CudaFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["int a", "int b"]
+    return_type = "int"
+    body = { raw "return a + b;" }
+    syntax = "__device__ int add(int a, int b) { return a + b; }"
+    notes = "Functions can be qualified with __device__, __host__, or __global__."
+}
+
+instance X86Function of FunctionDefinition {
+    name = "add"
+    parameters = ["eax", "ebx"]
+    return_type = "eax"
+    body = { raw "add eax, ebx\nret" }
+    syntax = "add_func:\nadd eax, ebx\nret"
+    notes = "Functions are labels; parameters usually passed via registers or stack."
 }
 
 pattern TryCatch {
@@ -621,11 +685,43 @@ instance CssTryCatch of TryCatch {
     notes = "CSS does not have native error handling mechanisms like try-catch."
 }
 
+instance CudaTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* Error handling in CUDA kernels is typically manual */" }
+    syntax = "N/A"
+    notes = "CUDA does not support C++ exceptions in device code."
+}
+
+instance X86TryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* SEH or manual error checking */" }
+    syntax = "N/A"
+    notes = "No high-level try-catch; requires OS-specific mechanisms like SEH."
+}
+
 instance CssRaise of Raise {
     exception_type = "N/A"
     message = "N/A"
     syntax = "N/A"
     notes = "CSS does not have a mechanism to raise exceptions."
+}
+
+instance CudaRaise of Raise {
+    exception_type = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "No native exception mechanism in CUDA device code."
+}
+
+instance X86Raise of Raise {
+    exception_type = "Interrupt"
+    message = "Error"
+    syntax = "int 3"
+    notes = "Software interrupts (like int 3) can be used to signal errors or breakpoints."
 }
 
 pattern Thread {
@@ -697,6 +793,18 @@ instance JavaThread of Thread {
     notes = "Spawns a new platform thread; virtual threads are available in newer versions."
 }
 
+instance CudaThread of Thread {
+    body = { call kernel() }
+    syntax = "kernel<<<grid, block>>>();"
+    notes = "Launches a grid of threads on the GPU."
+}
+
+instance X86Thread of Thread {
+    body = { call do_work() }
+    syntax = "push offset do_work\ncall CreateThread"
+    notes = "Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread)."
+}
+
 instance JavaSendMessage of SendMessage {
     recipient = "queue"
     message = "42"
@@ -704,9 +812,37 @@ instance JavaSendMessage of SendMessage {
     notes = "Commonly implemented using BlockingQueue; put() may block if the queue is full."
 }
 
+instance CudaSendMessage of SendMessage {
+    recipient = "sm_id"
+    message = "data"
+    syntax = "N/A"
+    notes = "CUDA threads typically communicate via shared memory or atomics, not explicit message passing."
+}
+
+instance X86SendMessage of SendMessage {
+    recipient = "thread_id"
+    message = "msg"
+    syntax = "push msg\npush thread_id\ncall PostThreadMessage"
+    notes = "Message passing is done via OS APIs."
+}
+
 instance JavaReceiveMessage of ReceiveMessage {
     match_pattern = "msg"
     body = { call handle(msg) }
     syntax = "int msg = queue.take(); handle(msg);"
     notes = "Using BlockingQueue.take(); blocks until an element becomes available."
+}
+
+instance CudaReceiveMessage of ReceiveMessage {
+    match_pattern = "data"
+    body = { raw "/* access shared memory */" }
+    syntax = "N/A"
+    notes = "Communication is memory-based."
+}
+
+instance X86ReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "call GetMessage"
+    notes = "Message retrieval via OS APIs."
 }
