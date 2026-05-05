@@ -68,14 +68,13 @@ def test_render_instance_table():
     output = generator.render_program(program)
 
     assert ".. list-table:: VarDec Comparison" in output
-    assert "* - Instance" in output
-    assert "  - name" in output
-    assert "  - value" in output
-    assert "  - syntax" in output
+    assert "* - Language" in output
+    assert "  - Syntax" in output
     assert "* - Python" in output
-    assert "  - x" in output
-    assert "  - 42" in output
     assert "  - ``x = 42``" in output
     assert "* - Java" in output
-    assert "  - y" in output
-    assert "  - 100" in output
+    assert "  - N/A" in output
+
+    # These should NOT be in the table anymore
+    assert "  - name" not in output
+    assert "  - value" not in output

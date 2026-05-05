@@ -9,7 +9,7 @@ def test_render_instructions():
     pattern = Pattern(
         name="Function",
         parameters=[
-            Parameter(name="body", type=Type(name="Block"))
+            Parameter(name="syntax", type=Type(name="Block"))
         ]
     )
 
@@ -19,7 +19,7 @@ def test_render_instructions():
             pattern_name="Function",
             assignments=[
                 Assignment(
-                    name="body",
+                    name="syntax",
                     value=Block(instructions=[
                         CallInstruction(name="print", arguments=["hello"]),
                         AssignInstruction(target="x", value=10),
@@ -45,7 +45,7 @@ def test_render_nested_blocks():
     pattern = Pattern(
         name="ControlFlow",
         parameters=[
-            Parameter(name="nested", type=Type(name="Block"))
+            Parameter(name="syntax", type=Type(name="Block"))
         ]
     )
 
@@ -55,7 +55,7 @@ def test_render_nested_blocks():
             pattern_name="ControlFlow",
             assignments=[
                 Assignment(
-                    name="nested",
+                    name="syntax",
                     value=Block(instructions=[
                         AssignInstruction(
                             target="inner",

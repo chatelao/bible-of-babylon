@@ -2,19 +2,19 @@
    :widths: auto
    :header-rows: 1
 
-   * - Instance
-{%- for param in pattern.parameters %}
-     - {{ param.name }}
+   * - Language
+{%- for param in display_parameters %}
+     - {{ param.name|replace('_', ' ')|capitalize }}
 {%- endfor %}
 {%- for instance in instances %}
    * - {{ instance.name }}
-{%- for param in pattern.parameters %}
+{%- for param in display_parameters %}
      - {% set ns = namespace(val="N/A") -%}
        {%- for assignment in instance.assignments -%}
          {%- if assignment.name == param.name -%}
            {%- set ns.val = assignment.value -%}
          {%- endif -%}
        {%- endfor -%}
-       {{ ns.val|format_value|format_table_cell(is_code=(param.name == 'syntax'))|indent(7) }}
+       {{ ns.val|format_value|format_table_cell(is_code=(param.name != 'notes'))|indent(7) }}
 {%- endfor %}
 {%- endfor %}

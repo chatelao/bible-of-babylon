@@ -6,7 +6,7 @@ def test_render_nested_list_and_instance():
     pattern = Pattern(
         name="DataMap",
         parameters=[
-            Parameter(name="entries", type=Type(name="List", inner_type=Type(name="MapEntry")))
+            Parameter(name="syntax", type=Type(name="List", inner_type=Type(name="MapEntry")))
         ]
     )
 
@@ -24,7 +24,7 @@ def test_render_nested_list_and_instance():
             pattern_name="DataMap",
             assignments=[
                 Assignment(
-                    name="entries",
+                    name="syntax",
                     value=ListLiteral(elements=[
                         AnonymousInstance(
                             pattern_name="MapEntry",
