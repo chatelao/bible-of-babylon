@@ -34,6 +34,13 @@ instance TomlBasic of BasicTypes {
     notes = "TOML is strictly typed; strings must be double-quoted."
 }
 
+instance CsvBasic of BasicTypes {
+    string_val = "Hello or \"Hello\""
+    number_val = "42 or 3.14"
+    boolean_val = "true / false"
+    notes = "CSV values are typically plain text; quoting is used for values containing delimiters or newlines."
+}
+
 pattern Collection {
     meta description: "Ordered sequence of elements (Arrays, Lists, or Sequences)."
     parameter elements: String
@@ -63,6 +70,12 @@ instance TomlCollection of Collection {
     elements = "Any TOML value"
     syntax = "[1, 2, 3]"
     notes = "Arrays can contain values of different types since TOML 1.0.0."
+}
+
+instance CsvCollection of Collection {
+    elements = "Comma-separated values"
+    syntax = "1,two,true"
+    notes = "A single row represents a collection of fields."
 }
 
 pattern Mapping {
@@ -96,6 +109,12 @@ instance TomlMapping of Mapping {
     notes = "Top-level or grouped using [headers]."
 }
 
+instance CsvMapping of Mapping {
+    entries = "Header to field mapping"
+    syntax = "Name,Age\nAlice,30"
+    notes = "Mappings are established by associating header names with column values."
+}
+
 pattern Metadata {
     meta description: "Way to attach metadata or attributes to data elements."
     parameter syntax: String
@@ -120,6 +139,11 @@ instance YamlMetadata of Metadata {
 instance TomlMetadata of Metadata {
     syntax = "N/A"
     notes = "TOML does not support per-element metadata, though it uses headers for grouping."
+}
+
+instance CsvMetadata of Metadata {
+    syntax = "N/A"
+    notes = "Standard CSV (RFC 4180) does not support metadata or attributes."
 }
 
 pattern Comment {
@@ -153,6 +177,12 @@ instance TomlComment of Comment {
     notes = "TOML only supports single-line comments starting with #."
 }
 
+instance CsvComment of Comment {
+    single_line = "N/A"
+    multi_line = "N/A"
+    notes = "Standard CSV does not natively support comments; some variations use #."
+}
+
 pattern SchemaLink {
     meta description: "Linking a data file to a schema for validation (e.g., JSON Schema, XSD)."
     parameter syntax: String
@@ -177,4 +207,9 @@ instance YamlSchemaLink of SchemaLink {
 instance TomlSchemaLink of SchemaLink {
     syntax = "N/A"
     notes = "TOML does not have a native or widely standardized way to link to a schema within the file."
+}
+
+instance CsvSchemaLink of SchemaLink {
+    syntax = "N/A"
+    notes = "CSV does not have a native schema linking mechanism; often defined in a sidecar file (e.g., CSVW metadata)."
 }

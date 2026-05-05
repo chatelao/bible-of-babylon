@@ -51,6 +51,11 @@ Parameters:
      - 42 or 3.14
      - true / false
      - TOML is strictly typed; strings must be double-quoted.
+   * - CsvBasic
+     - Hello or "Hello"
+     - 42 or 3.14
+     - true / false
+     - CSV values are typically plain text; quoting is used for values containing delimiters or newlines.
 
 
 
@@ -100,6 +105,10 @@ Parameters:
      - Any TOML value
      - [1, 2, 3]
      - Arrays can contain values of different types since TOML 1.0.0.
+   * - CsvCollection
+     - Comma-separated values
+     - 1,two,true
+     - A single row represents a collection of fields.
 
 
 
@@ -149,6 +158,11 @@ Parameters:
      - | key = "value"
        | num = 42
      - Top-level or grouped using [headers].
+   * - CsvMapping
+     - Header to field mapping
+     - | Name,Age
+       | Alice,30
+     - Mappings are established by associating header names with column values.
 
 
 
@@ -186,6 +200,9 @@ Parameters:
    * - TomlMetadata
      - N/A
      - TOML does not support per-element metadata, though it uses headers for grouping.
+   * - CsvMetadata
+     - N/A
+     - Standard CSV (RFC 4180) does not support metadata or attributes.
 
 
 
@@ -235,6 +252,10 @@ Parameters:
      - | # line 1
        | # line 2
      - TOML only supports single-line comments starting with #.
+   * - CsvComment
+     - N/A
+     - N/A
+     - Standard CSV does not natively support comments; some variations use #.
 
 
 
@@ -273,3 +294,6 @@ Parameters:
    * - TomlSchemaLink
      - N/A
      - TOML does not have a native or widely standardized way to link to a schema within the file.
+   * - CsvSchemaLink
+     - N/A
+     - CSV does not have a native schema linking mechanism; often defined in a sidecar file (e.g., CSVW metadata).
