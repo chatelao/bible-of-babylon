@@ -52,8 +52,11 @@ class CodeGenerator:
         template = self.env.get_template('instance_table.rst.j2')
         return template.render(pattern=pattern, instances=instances)
 
-    def render_program(self, program: Program) -> str:
+    def render_program(self, program: Program, title: str = None) -> str:
         results = []
+
+        if title:
+            results.append(f"{title}\n{'=' * len(title)}")
 
         # Map pattern name to pattern object
         patterns_map = {p.name: p for p in program.patterns}

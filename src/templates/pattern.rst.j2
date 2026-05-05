@@ -1,7 +1,7 @@
 {% if pattern %}
 
 {{ pattern.name }}
-{{ "=" * pattern.name|length }}
+{{ "-" * pattern.name|length }}
 
 {% for meta in pattern.metadata %}
 :{{ meta.key }}: {{ meta.value }}
