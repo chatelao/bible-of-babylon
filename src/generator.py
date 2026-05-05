@@ -8,7 +8,7 @@ from .models import (
 
 def format_table_cell(value: Any) -> str:
     if isinstance(value, str) and "\n" in value:
-        lines = value.split("\n")
+        lines = value.strip().split("\n")
         return "\n".join(f"| {line}" if line.strip() else "|" for line in lines)
     return str(value)
 
