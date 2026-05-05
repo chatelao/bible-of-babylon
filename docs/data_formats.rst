@@ -32,7 +32,7 @@ Parameters:
      - boolean_val
      - notes
    * - JsonBasic
-     - \"Hello\"
+     - "Hello"
      - 42 or 3.14
      - true / false
      - Standard JSON types; strings must be double-quoted.
@@ -42,12 +42,12 @@ Parameters:
      - <tag>true</tag>
      - XML is text-based; types are typically inferred or defined by a schema (XSD).
    * - YamlBasic
-     - Hello or 'Hello' or \"Hello\"
+     - Hello or 'Hello' or "Hello"
      - 42 or 3.14
      - true / false (or yes/no, on/off in YAML 1.1)
      - YAML supports plain, single-quoted, and double-quoted strings.
    * - TomlBasic
-     - \"Hello\"
+     - "Hello"
      - 42 or 3.14
      - true / false
      - TOML is strictly typed; strings must be double-quoted.
@@ -81,15 +81,20 @@ Parameters:
      - notes
    * - JsonCollection
      - Any JSON value
-     - [1, \"two\", true]
+     - [1, "two", true]
      - Elements are comma-separated and enclosed in square brackets.
    * - XmlCollection
      - Repeated child elements
-     - <list>\n  <item>1</item>\n  <item>2</item>\n</list>
+     - | <list>
+       |   <item>1</item>
+       |   <item>2</item>
+       | </list>
      - Collections are typically represented by repeating elements under a parent.
    * - YamlCollection
      - Any YAML value
-     - - 1\n- two\n- true
+     - | - 1
+       | - two
+       | - true
      - Uses a dash followed by a space for each element.
    * - TomlCollection
      - Any TOML value
@@ -125,19 +130,24 @@ Parameters:
      - notes
    * - JsonMapping
      - Key-value pairs
-     - {\"key\": \"value\", \"num\": 42}
+     - {"key": "value", "num": 42}
      - Keys must be double-quoted strings.
    * - XmlMapping
      - Child elements or attributes
-     - <object>\n  <key>value</key>\n  <num>42</num>\n</object>
+     - | <object>
+       |   <key>value</key>
+       |   <num>42</num>
+       | </object>
      - Mappings are represented as nested elements.
    * - YamlMapping
      - Key-value pairs
-     - key: value\nnum: 42
+     - | key: value
+       | num: 42
      - Uses a colon followed by a space to separate key and value.
    * - TomlMapping
      - Key-value pairs
-     - key = \"value\"\nnum = 42
+     - | key = "value"
+       | num = 42
      - Top-level or grouped using [headers].
 
 
@@ -166,12 +176,12 @@ Parameters:
      - notes
    * - JsonMetadata
      - N/A
-     - JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., \"_metadata\": { ... }).
+     - JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., "_metadata": { ... }).
    * - XmlMetadata
-     - <element attr=\"value\">Content</element>
+     - <element attr="value">Content</element>
      - XML has native support for attributes on elements.
    * - YamlMetadata
-     - !!str \"value\" or !custom { key: val }
+     - !!str "value" or !custom { key: val }
      - YAML supports tags to specify types or attach metadata to nodes.
    * - TomlMetadata
      - N/A
@@ -210,15 +220,20 @@ Parameters:
      - JSON does not natively support comments.
    * - XmlComment
      - <!-- comment -->
-     - <!--\n  line 1\n  line 2\n-->
+     - | <!--
+       |   line 1
+       |   line 2
+       | -->
      - XML uses the same syntax for single and multi-line comments.
    * - YamlComment
      - # comment
-     - # line 1\n# line 2
+     - | # line 1
+       | # line 2
      - YAML only supports single-line comments starting with #.
    * - TomlComment
      - # comment
-     - # line 1\n# line 2
+     - | # line 1
+       | # line 2
      - TOML only supports single-line comments starting with #.
 
 
@@ -246,10 +261,11 @@ Parameters:
      - syntax
      - notes
    * - JsonSchemaLink
-     - \"\$schema\": \"http://json-schema.org/draft-07/schema#\"
+     - "\$schema": "http://json-schema.org/draft-07/schema#"
      - JSON uses the \$schema keyword to point to a JSON Schema file.
    * - XmlSchemaLink
-     - <root xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n      xsi:schemaLocation=\"http://example.com schema.xsd\">
+     - | <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       |       xsi:schemaLocation="http://example.com schema.xsd">
      - XML uses the xsi:schemaLocation attribute to link to an XSD.
    * - YamlSchemaLink
      - # yaml-language-server: \$schema=<url_or_path>

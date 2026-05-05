@@ -109,6 +109,8 @@
             - [x] 9.5.2.2 XML (XSD/DTD) <!-- 2026-05-11, issue #9.5.2.2 -->
             - [x] 9.5.2.3 YAML (JSON Schema/Custom) <!-- 2026-05-11, issue #9.5.2.3 -->
             - [x] 9.5.2.4 TOML <!-- 2026-05-11, issue #9.5.2.4 -->
+    - [ ] 9.6 Implement CSV instances <!-- issue #9.6 -->
+    - [ ] 9.7 Implement Fixlength instances <!-- issue #9.7 -->
 
 ## Phase 4: Publication
 - [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->
@@ -118,5 +120,5 @@
 - [ ] Final review and polish of the comparative book <!-- issue #11 -->
     - [ ] 11.1 Verify consistency of pattern descriptions and parameter names <!-- issue #11.1 -->
     - [ ] 11.2 Review generated reST for formatting issues or table alignment problems <!-- issue #11.2 -->
-    - [ ] 11.3 Add a "Language/Format Coverage" summary to the documentation <!-- issue #11.3 -->
+    - [x] 11.3 Add a "Language/Format Coverage" summary to the documentation <!-- 2026-05-24, issue #11.3 -->
     - [ ] 11.4 Final verification of the Read the Docs build process <!-- issue #11.4 -->
