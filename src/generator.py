@@ -13,12 +13,11 @@ def format_table_cell(value: Any, is_code: bool = False) -> str:
 
     if is_code and str_value != "N/A":
         if "\n" in str_value:
-            lines = str_value.split("\n")
-            return "\n".join(f"| ``{line}``" if line.strip() else "|" for line in lines)
+            return "::\n\n" + "\n".join(f"    {line}" for line in str_value.splitlines())
         return f"``{str_value}``"
 
-    if isinstance(value, str) and "\n" in value:
-        lines = str_value.split("\n")
+    if isinstance(value, str) and "\n" in str_value:
+        lines = str_value.splitlines()
         return "\n".join(f"| {line}" if line.strip() else "|" for line in lines)
     return str_value
 
