@@ -1,5 +1,5 @@
-Data Format Patterns
-====================
+Data Formats
+============
 
 
 
@@ -86,28 +86,28 @@ Parameters:
      - notes
    * - JsonCollection
      - Any JSON value
-     - [1, "two", true]
+     - ``[1, "two", true]``
      - Elements are comma-separated and enclosed in square brackets.
    * - XmlCollection
      - Repeated child elements
-     - | <list>
-       |   <item>1</item>
-       |   <item>2</item>
-       | </list>
+     - | ``<list>``
+       | ``  <item>1</item>``
+       | ``  <item>2</item>``
+       | ``</list>``
      - Collections are typically represented by repeating elements under a parent.
    * - YamlCollection
      - Any YAML value
-     - | - 1
-       | - two
-       | - true
+     - | ``- 1``
+       | ``- two``
+       | ``- true``
      - Uses a dash followed by a space for each element.
    * - TomlCollection
      - Any TOML value
-     - [1, 2, 3]
+     - ``[1, 2, 3]``
      - Arrays can contain values of different types since TOML 1.0.0.
    * - CsvCollection
      - Comma-separated values
-     - 1,two,true
+     - ``1,two,true``
      - A single row represents a collection of fields.
 
 
@@ -139,29 +139,29 @@ Parameters:
      - notes
    * - JsonMapping
      - Key-value pairs
-     - {"key": "value", "num": 42}
+     - ``{"key": "value", "num": 42}``
      - Keys must be double-quoted strings.
    * - XmlMapping
      - Child elements or attributes
-     - | <object>
-       |   <key>value</key>
-       |   <num>42</num>
-       | </object>
+     - | ``<object>``
+       | ``  <key>value</key>``
+       | ``  <num>42</num>``
+       | ``</object>``
      - Mappings are represented as nested elements.
    * - YamlMapping
      - Key-value pairs
-     - | key: value
-       | num: 42
+     - | ``key: value``
+       | ``num: 42``
      - Uses a colon followed by a space to separate key and value.
    * - TomlMapping
      - Key-value pairs
-     - | key = "value"
-       | num = 42
+     - | ``key = "value"``
+       | ``num = 42``
      - Top-level or grouped using [headers].
    * - CsvMapping
      - Header to field mapping
-     - | Name,Age
-       | Alice,30
+     - | ``Name,Age``
+       | ``Alice,30``
      - Mappings are established by associating header names with column values.
 
 
@@ -192,10 +192,10 @@ Parameters:
      - N/A
      - JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., "_metadata": { ... }).
    * - XmlMetadata
-     - <element attr="value">Content</element>
+     - ``<element attr="value">Content</element>``
      - XML has native support for attributes on elements.
    * - YamlMetadata
-     - !!str "value" or !custom { key: val }
+     - ``!!str "value" or !custom { key: val }``
      - YAML supports tags to specify types or attach metadata to nodes.
    * - TomlMetadata
      - N/A
@@ -282,14 +282,14 @@ Parameters:
      - syntax
      - notes
    * - JsonSchemaLink
-     - "\$schema": "http://json-schema.org/draft-07/schema#"
+     - ``"\$schema": "http://json-schema.org/draft-07/schema#"``
      - JSON uses the \$schema keyword to point to a JSON Schema file.
    * - XmlSchemaLink
-     - | <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       |       xsi:schemaLocation="http://example.com schema.xsd">
+     - | ``<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"``
+       | ``      xsi:schemaLocation="http://example.com schema.xsd">``
      - XML uses the xsi:schemaLocation attribute to link to an XSD.
    * - YamlSchemaLink
-     - # yaml-language-server: \$schema=<url_or_path>
+     - ``# yaml-language-server: \$schema=<url_or_path>``
      - YAML often relies on editor-specific comments (like VS Code's language server) for schema linking.
    * - TomlSchemaLink
      - N/A

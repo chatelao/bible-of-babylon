@@ -40,7 +40,8 @@ def test_render_instance_table():
         name="VarDec",
         parameters=[
             Parameter(name="name", type=Type(name="Identifier")),
-            Parameter(name="value", type=Type(name="Expression"))
+            Parameter(name="value", type=Type(name="Expression")),
+            Parameter(name="syntax", type=Type(name="String"))
         ]
     )
     instances = [
@@ -49,7 +50,8 @@ def test_render_instance_table():
             pattern_name="VarDec",
             assignments=[
                 Assignment(name="name", value="x"),
-                Assignment(name="value", value=42)
+                Assignment(name="value", value=42),
+                Assignment(name="syntax", value="x = 42")
             ]
         ),
         Instance(
@@ -69,9 +71,11 @@ def test_render_instance_table():
     assert "* - Instance" in output
     assert "  - name" in output
     assert "  - value" in output
+    assert "  - syntax" in output
     assert "* - Python" in output
     assert "  - x" in output
     assert "  - 42" in output
+    assert "  - ``x = 42``" in output
     assert "* - Java" in output
     assert "  - y" in output
     assert "  - 100" in output
