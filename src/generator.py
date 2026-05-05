@@ -9,11 +9,11 @@ from .models import (
 def format_table_cell(value: Any, is_code: bool = False) -> str:
     str_value = str(value)
     if str_value != "N/A":
-        str_value = str_value.rstrip("\n")
+        str_value = str_value.rstrip()
 
     if is_code and str_value != "N/A":
         if "\n" in str_value:
-            return "::\n\n" + "\n".join(f"    {line}" for line in str_value.splitlines())
+            return "::\n" + "\n".join(f"    {line}" for line in str_value.splitlines())
         return f"``{str_value}``"
 
     if isinstance(value, str) and "\n" in str_value:
