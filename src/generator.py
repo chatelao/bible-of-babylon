@@ -6,11 +6,17 @@ from .models import (
     CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
 )
 
-def format_table_cell(value: Any) -> str:
-    if isinstance(value, str) and "\n" in value:
-        lines = value.split("\n")
+def format_table_cell(value: Any, is_code: bool = False) -> str:
+    val_str = str(value)
+    if "\n" in val_str:
+        lines = val_str.split("\n")
+        if is_code:
+            return "\n".join(f"| ``{line}``" if line.strip() else "|" for line in lines)
         return "\n".join(f"| {line}" if line.strip() else "|" for line in lines)
-    return str(value)
+
+    if is_code:
+        return f"``{val_str}``"
+    return val_str
 
 def format_value(value) -> str:
     if isinstance(value, str):
