@@ -103,3 +103,56 @@ class CodeGenerator:
                 results.append(self.render_instance_table(pattern, instances_by_pattern[pattern_name]))
 
         return "\n\n".join(results)
+
+    def render_pivot_table(self, program: Program, language: str) -> str:
+        syntax_params = ["syntax", "single_line", "multi_line", "string_val", "number_val", "boolean_val", "notes"]
+
+        # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
+        all_languages = [
+            "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
+            "PowerShell", "Python", "CSS", "CUDA", "x86 Assembler"
+        ]
+
+        pivot_data = []
+        for instance in program.instances:
+            # First, check if any OTHER language matches the instance name better
+            other_matches = [lang for lang in all_languages if lang.lower() != language.lower()
+                             and instance.name.lower().startswith(lang.lower())]
+
+            # If the requested language matches the prefix
+            if instance.name.lower().startswith(language.lower()):
+                # Ensure no OTHER language is a longer (better) match
+                is_best_match = True
+                for other in other_matches:
+                    if len(other) > len(language):
+                        is_best_match = False
+                        break
+
+                if not is_best_match:
+                    continue
+
+                assignments = {a.name: a.value for a in instance.assignments}
+                pivot_data.append({
+                    "pattern_name": instance.pattern_name,
+                    "assignments": assignments
+                })
+
+        if not pivot_data:
+            return f"No data found for language: {language}"
+
+        template = self.env.get_template('pivot_table.rst.j2')
+        return template.render(
+            language=language,
+            display_parameters=syntax_params,
+            pivot_data=pivot_data
+        )
+
+    def render_pivot_chapter(self, program: Program, language: str, title: str = None) -> str:
+        results = []
+        if not title:
+            title = f"{language} Pivot View"
+
+        results.append(f"{title}\n{'=' * len(title)}")
+        results.append(self.render_pivot_table(program, language))
+
+        return "\n\n".join(results)

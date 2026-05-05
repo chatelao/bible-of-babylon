@@ -137,9 +137,9 @@
     - [ ] 14.2 Implement instances across all 14 languages <!-- issue #14.2 -->
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
-- [ ] Implement Pivot Chapter generator logic <!-- issue #15 -->
-- [ ] Generate Pivot Chapter for SQL <!-- issue #15.1 -->
-- [ ] Generate Pivot Chapter for C <!-- issue #15.2 -->
+- [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
+- [x] Generate Pivot Chapter for SQL <!-- issue #15.1 -->
+- [x] Generate Pivot Chapter for C <!-- issue #15.2 -->
 - [ ] Generate Pivot Chapter for XQuery <!-- issue #15.3 -->
 - [ ] Generate Pivot Chapter for Java <!-- issue #15.4 -->
 - [ ] Generate Pivot Chapter for Rust <!-- issue #15.5 -->
