@@ -1028,3 +1028,94 @@ instance X86Print of Print {
     syntax = "push offset hello_msg\ncall printf"
     notes = "Printing in assembler usually involves calling C library functions or OS-specific system calls."
 }
+
+pattern Import {
+    meta description: "Including external modules, packages, or files into the current scope."
+    parameter module_name: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CImport of Import {
+    module_name = "stdio.h"
+    syntax = "#include <stdio.h>"
+    notes = "Standard C way to include header files."
+}
+
+instance JavaImport of Import {
+    module_name = "java.util.List"
+    syntax = "import java.util.List;"
+    notes = "Imports a specific class; can use * for all classes in a package."
+}
+
+instance RustImport of Import {
+    module_name = "std::collections::HashMap"
+    syntax = "use std::collections::HashMap;"
+    notes = "Brings a path into scope using the 'use' keyword."
+}
+
+instance PythonImport of Import {
+    module_name = "math"
+    syntax = "import math"
+    notes = "Standard Python import; can also use 'from ... import ...'."
+}
+
+instance BashImport of Import {
+    module_name = "utils.sh"
+    syntax = "source utils.sh"
+    notes = "The 'source' (or .) command executes a script in the current shell context."
+}
+
+instance PowerShellImport of Import {
+    module_name = "ActiveDirectory"
+    syntax = "Import-Module ActiveDirectory"
+    notes = "Loads a module into the current session."
+}
+
+instance CmdImport of Import {
+    module_name = "other.cmd"
+    syntax = "call other.cmd"
+    notes = "The 'call' command is used to run another batch file from within one."
+}
+
+instance SqlImport of Import {
+    module_name = "N/A"
+    syntax = "N/A"
+    notes = "Standard SQL does not have a native 'import' keyword for code; database objects are globally accessible or schema-qualified."
+}
+
+instance ErlangImport of Import {
+    module_name = "header.hrl"
+    syntax = "-include(\"header.hrl\")."
+    notes = "Includes header files; module functions are typically called using Module:Function syntax."
+}
+
+instance LispImport of Import {
+    module_name = "iter"
+    syntax = "(use-package :iter)"
+    notes = "Makes symbols from the specified package available in the current package."
+}
+
+instance XQueryImport of Import {
+    module_name = "http://example.com/utils"
+    syntax = "import module namespace utils = \"http://example.com/utils\";"
+    notes = "Imports a library module by its namespace URI."
+}
+
+instance CssImport of Import {
+    module_name = "base.css"
+    syntax = "@import \"base.css\";"
+    notes = "Imports styles from another stylesheet."
+}
+
+instance CudaImport of Import {
+    module_name = "cuda_runtime.h"
+    syntax = "#include <cuda_runtime.h>"
+    notes = "Same as C; used to include CUDA runtime headers."
+}
+
+instance X86Import of Import {
+    module_name = "macros.inc"
+    syntax = "include 'macros.inc'"
+    notes = "Includes another assembly file; syntax varies by assembler (e.g., FASM uses 'include')."
+}

@@ -29,6 +29,8 @@ This section compares languages based on common programming patterns.
 - Function/Procedure definition
 - Error handling
 - Concurrency models
+- Module/Package Import
+- Constants
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
