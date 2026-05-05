@@ -65,8 +65,19 @@ class CodeGenerator:
         return template.render(pattern=pattern)
 
     def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
+        syntax_params = {"syntax", "single_line", "multi_line", "string_val", "number_val", "boolean_val"}
+
+        display_parameters = [p for p in pattern.parameters if p.name in syntax_params]
+        notes_param = next((p for p in pattern.parameters if p.name == "notes"), None)
+        if notes_param:
+            display_parameters.append(notes_param)
+
         template = self.env.get_template('instance_table.rst.j2')
-        return template.render(pattern=pattern, instances=instances)
+        return template.render(
+            pattern=pattern,
+            instances=instances,
+            display_parameters=display_parameters
+        )
 
     def render_program(self, program: Program, title: str = None) -> str:
         results = []
