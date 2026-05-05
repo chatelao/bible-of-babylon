@@ -41,6 +41,13 @@ instance CsvBasic of BasicTypes {
     notes = "CSV values are typically plain text; quoting is used for values containing delimiters or newlines."
 }
 
+instance FixlengthBasic of BasicTypes {
+    string_val = "Fixed width string (e.g., 'Hello     ')"
+    number_val = "Fixed width number (e.g., '00042')"
+    boolean_val = "Fixed width indicator (e.g., 'Y' / 'N')"
+    notes = "Data is defined by fixed positions and lengths rather than delimiters."
+}
+
 pattern Collection {
     meta description: "Ordered sequence of elements (Arrays, Lists, or Sequences)."
     parameter elements: String
@@ -76,6 +83,12 @@ instance CsvCollection of Collection {
     elements = "Comma-separated values"
     syntax = "1,two,true"
     notes = "A single row represents a collection of fields."
+}
+
+instance FixlengthCollection of Collection {
+    elements = "Positional fields"
+    syntax = "Field1Field2Field3"
+    notes = "Collections are typically represented by a sequence of fields with pre-defined lengths."
 }
 
 pattern Mapping {
@@ -115,6 +128,12 @@ instance CsvMapping of Mapping {
     notes = "Mappings are established by associating header names with column values."
 }
 
+instance FixlengthMapping of Mapping {
+    entries = "Position-to-field mapping"
+    syntax = "Pos 1-10: Name, 11-15: Age"
+    notes = "Mappings are established by a schema defining which positions correspond to which fields."
+}
+
 pattern Metadata {
     meta description: "Way to attach metadata or attributes to data elements."
     parameter syntax: String
@@ -144,6 +163,11 @@ instance TomlMetadata of Metadata {
 instance CsvMetadata of Metadata {
     syntax = "N/A"
     notes = "Standard CSV (RFC 4180) does not support metadata or attributes."
+}
+
+instance FixlengthMetadata of Metadata {
+    syntax = "N/A"
+    notes = "Fixed-length formats do not natively support metadata or attributes within the data records."
 }
 
 pattern Comment {
@@ -183,6 +207,12 @@ instance CsvComment of Comment {
     notes = "Standard CSV does not natively support comments; some variations use #."
 }
 
+instance FixlengthComment of Comment {
+    single_line = "N/A"
+    multi_line = "N/A"
+    notes = "Fixed-length formats generally do not support comments; every byte is typically part of the data definition."
+}
+
 pattern SchemaLink {
     meta description: "Linking a data file to a schema for validation (e.g., JSON Schema, XSD)."
     parameter syntax: String
@@ -212,4 +242,9 @@ instance TomlSchemaLink of SchemaLink {
 instance CsvSchemaLink of SchemaLink {
     syntax = "N/A"
     notes = "CSV does not have a native schema linking mechanism; often defined in a sidecar file (e.g., CSVW metadata)."
+}
+
+instance FixlengthSchemaLink of SchemaLink {
+    syntax = "N/A"
+    notes = "Schema definition is usually external (e.g., a Copybook or a COBOL file descriptor)."
 }
