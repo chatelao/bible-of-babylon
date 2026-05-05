@@ -32,6 +32,7 @@ This section compares languages based on common programming patterns.
 - Concurrency models
 - Module/Package Import
 - Constants
+- Switch/Case statement
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
