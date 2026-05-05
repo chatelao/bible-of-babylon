@@ -1205,3 +1205,100 @@ instance PrologImport of Import {
     syntax = "use_module(library(math))."
     notes = "Imports predicates from a library module."
 }
+
+pattern SwitchCase {
+    meta description: "Multi-way branch based on the value of an expression."
+    parameter expression: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
+    notes = "Standard C switch statement with case labels and default."
+}
+
+instance JavaSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
+    notes = "Identical to C; modern Java also supports switch expressions."
+}
+
+instance RustSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "match x {\n    1 => 1,\n    2 => 2,\n    _ => 0,\n}"
+    notes = "Rust uses 'match' for pattern matching, which is exhaustive."
+}
+
+instance PythonSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "match x:\n    case 1:\n        return 1\n    case 2:\n        return 2\n    case _:\n        return 0"
+    notes = "Introduced in Python 3.10 as structural pattern matching."
+}
+
+instance BashSwitchCase of SwitchCase {
+    expression = "$x"
+    syntax = "case $x in\n    1)\n        echo \"one\"\n        ;;\n    2)\n        echo \"two\"\n        ;;\n    *)\n        echo \"none\"\n        ;;\nesac"
+    notes = "Uses case-in-esac structure; patterns end with ) and blocks end with ;;."
+}
+
+instance PowerShellSwitchCase of SwitchCase {
+    expression = "$x"
+    syntax = "switch ($x) {\n    1 { \"one\" }\n    2 { \"two\" }\n    default { \"none\" }\n}"
+    notes = "Versatile switch statement that supports multiple types and patterns."
+}
+
+instance CmdSwitchCase of SwitchCase {
+    expression = "%x%"
+    syntax = "if \"%x%\"==\"1\" (goto :one) else if \"%x%\"==\"2\" (goto :two) else (goto :none)"
+    notes = "Cmd does not have a native switch; it is typically simulated with if/else or goto."
+}
+
+instance SqlSwitchCase of SwitchCase {
+    expression = "@x"
+    syntax = "CASE @x\n    WHEN 1 THEN 'one'\n    WHEN 2 THEN 'two'\n    ELSE 'none'\nEND"
+    notes = "The CASE expression is used for conditional logic in SQL."
+}
+
+instance ErlangSwitchCase of SwitchCase {
+    expression = "X"
+    syntax = "case X of\n    1 -> one;\n    2 -> two;\n    _ -> none\nend"
+    notes = "Uses 'case' for pattern matching; _ is the catch-all pattern."
+}
+
+instance LispSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "(case x\n  (1 \"one\")\n  (2 \"two\")\n  (t \"none\"))"
+    notes = "Standard 'case' macro; 't' or 'otherwise' is the default branch."
+}
+
+instance XQuerySwitchCase of SwitchCase {
+    expression = "$x"
+    syntax = "switch ($x)\n  case 1 return \"one\"\n  case 2 return \"two\"\n  default return \"none\""
+    notes = "The 'switch' expression was introduced in XQuery 3.0."
+}
+
+instance CssSwitchCase of SwitchCase {
+    expression = "N/A"
+    syntax = "N/A"
+    notes = "CSS does not support switch/case logic."
+}
+
+instance CudaSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
+    notes = "Standard C-like switch statement."
+}
+
+instance X86SwitchCase of SwitchCase {
+    expression = "eax"
+    syntax = "    cmp eax, 1\n    je .case1\n    cmp eax, 2\n    je .case2\n    jmp .default\n.case1:\n    ; ...\n.case2:\n    ; ...\n.default:\n    ; ..."
+    notes = "Implemented using a series of comparison and jump instructions."
+}
+
+instance PrologSwitchCase of SwitchCase {
+    expression = "X"
+    syntax = "(   X = 1 -> writeln('one')\n;   X = 2 -> writeln('two')\n;   writeln('none')\n)"
+    notes = "Usually implemented using nested (If -> Then ; Else) or multiple clauses."
+}

@@ -135,6 +135,9 @@
 - [ ] Implement `Constant` pattern <!-- issue #14 -->
     - [ ] 14.1 Define `Constant` pattern <!-- issue #14.1 -->
     - [ ] 14.2 Implement instances across all 15 languages <!-- issue #14.2 -->
+- [x] Implement `SwitchCase` pattern <!-- issue #16 -->
+    - [x] 16.1 Define `SwitchCase` pattern <!-- issue #16.1 -->
+    - [x] 16.2 Implement instances across all 15 languages <!-- issue #16.2 -->
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
