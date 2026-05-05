@@ -248,3 +248,39 @@ instance FixlengthSchemaLink of SchemaLink {
     syntax = "N/A"
     notes = "Schema definition is usually external (e.g., a Copybook or a COBOL file descriptor)."
 }
+
+pattern Header {
+    meta description: "Standardized header or declaration at the beginning of a file or document."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonHeader of Header {
+    syntax = "N/A"
+    notes = "JSON files do not have a standardized header; they start directly with the data (object or array)."
+}
+
+instance XmlHeader of Header {
+    syntax = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+    notes = "XML declaration specifies the version and encoding of the document."
+}
+
+instance YamlHeader of Header {
+    syntax = "%YAML 1.2\n---"
+    notes = "The %YAML directive (optional) specifies the version, and the triple dash (---) marks the start of a document."
+}
+
+instance TomlHeader of Header {
+    syntax = "N/A"
+    notes = "TOML does not have a native file-level header or declaration."
+}
+
+instance CsvHeader of Header {
+    syntax = "Name,Age,City"
+    notes = "The first row of a CSV file often contains the column names (headers)."
+}
+
+instance FixlengthHeader of Header {
+    syntax = "H2026052400001"
+    notes = "Fixed-length formats often use a 'Header' record (e.g., starting with 'H') containing metadata like date or batch ID."
+}

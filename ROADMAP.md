@@ -116,6 +116,7 @@
     - [x] 9.7 Implement Fixlength instances <!-- 2026-05-24, issue #9.7 -->
         - [x] 9.7.1 Basic types, Collections, and Mappings <!-- 2026-05-24, issue #9.7.1 -->
         - [x] 9.7.2 Metadata, Comments, and Schema links <!-- 2026-05-24, issue #9.7.2 -->
+    - [x] 9.8 Header <!-- 2026-05-24, issue #9.8 -->
 
 ## Phase 4: Publication
 - [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->
