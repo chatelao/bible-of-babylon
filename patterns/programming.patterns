@@ -937,3 +937,94 @@ instance X86Comment of Comment {
     multi_line = "N/A"
     notes = "Most assemblers use semicolon for comments (Intel syntax)."
 }
+
+pattern Print {
+    meta description: "Outputting text to the console or standard output."
+    parameter value: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CPrint of Print {
+    value = "Hello, World!"
+    syntax = "printf(\"Hello, World!\\n\");"
+    notes = "Uses the standard library's printf function; requires stdio.h."
+}
+
+instance JavaPrint of Print {
+    value = "Hello, World!"
+    syntax = "System.out.println(\"Hello, World!\");"
+    notes = "Uses System.out for standard output; includes a newline."
+}
+
+instance RustPrint of Print {
+    value = "Hello, World!"
+    syntax = "println!(\"Hello, World!\");"
+    notes = "Uses a macro for formatted output to standard output with a newline."
+}
+
+instance PythonPrint of Print {
+    value = "Hello, World!"
+    syntax = "print(\"Hello, World!\")"
+    notes = "The print() function adds a newline by default."
+}
+
+instance BashPrint of Print {
+    value = "Hello, World!"
+    syntax = "echo \"Hello, World!\""
+    notes = "The echo command outputs text followed by a newline."
+}
+
+instance PowerShellPrint of Print {
+    value = "Hello, World!"
+    syntax = "Write-Host \"Hello, World!\""
+    notes = "Write-Host outputs directly to the console host."
+}
+
+instance CmdPrint of Print {
+    value = "Hello, World!"
+    syntax = "echo Hello, World!"
+    notes = "Echo displays messages in Windows Command Prompt."
+}
+
+instance SqlPrint of Print {
+    value = "Hello, World!"
+    syntax = "PRINT 'Hello, World!';"
+    notes = "T-SQL PRINT statement outputs a message to the client."
+}
+
+instance ErlangPrint of Print {
+    value = "Hello, World!"
+    syntax = "io:format(\"Hello, World!~n\")."
+    notes = "The io:format function is used for formatted output; ~n is the newline sequence."
+}
+
+instance LispPrint of Print {
+    value = "Hello, World!"
+    syntax = "(format t \"Hello, World!~%\")"
+    notes = "The format function with 't' outputs to standard output; ~% is a newline."
+}
+
+instance XQueryPrint of Print {
+    value = "Hello, World!"
+    syntax = "\"Hello, World!\""
+    notes = "In XQuery, a string literal is often the result of an expression and is automatically serialized to output."
+}
+
+instance CssPrint of Print {
+    value = "Hello, World!"
+    syntax = ".element::before { content: \"Hello, World!\"; }"
+    notes = "CSS can 'print' text using the content property in pseudo-elements."
+}
+
+instance CudaPrint of Print {
+    value = "Hello, World!"
+    syntax = "printf(\"Hello, World!\\n\");"
+    notes = "CUDA supports printf within device kernels for debugging."
+}
+
+instance X86Print of Print {
+    value = "Hello, World!"
+    syntax = "push offset hello_msg\ncall printf"
+    notes = "Printing in assembler usually involves calling C library functions or OS-specific system calls."
+}
