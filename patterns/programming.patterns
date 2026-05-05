@@ -146,6 +146,14 @@ instance X86Var of VariableDeclaration {
     notes = "Defined in the .data section (Intel syntax)."
 }
 
+instance PrologVariableDeclaration of VariableDeclaration {
+    name = "X"
+    type = "Dynamic"
+    initial_value = 42
+    syntax = "X = 42."
+    notes = "Uses unification for assignment; variables must start with an uppercase letter."
+}
+
 instance CIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -335,6 +343,14 @@ instance X86IfElse of IfElse {
     notes = "Implemented using comparison and jump instructions (Intel syntax)."
 }
 
+instance PrologIfElse of IfElse {
+    condition = "X > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "(X > 0 -> Result = 1 ; Result = 0)"
+    notes = "Uses the (Condition -> Then ; Else) control construct."
+}
+
 instance CssLoop of Loop {
     condition = "N/A"
     body = { raw "N/A" }
@@ -354,6 +370,13 @@ instance X86Loop of Loop {
     body = { raw "    dec ecx" }
     syntax = ".loop:\n    cmp ecx, 0\n    jle .end\n    dec ecx\n    jmp .loop\n.end:"
     notes = "Implemented using labels and conditional jumps."
+}
+
+instance PrologLoop of Loop {
+    condition = "X > 0"
+    body = { raw "loop(X - 1)" }
+    syntax = "loop(0) :- !.\nloop(X) :- X > 0, X1 is X - 1, loop(X1)."
+    notes = "Prolog uses recursion and tail-call optimization for looping."
 }
 
 instance CFunction of FunctionDefinition {
@@ -480,6 +503,15 @@ instance X86Function of FunctionDefinition {
     body = { raw "    add eax, ebx\n    ret" }
     syntax = "add_func:\n    add eax, ebx\n    ret"
     notes = "Functions are labels; parameters usually passed via registers or stack."
+}
+
+instance PrologFunctionDefinition of FunctionDefinition {
+    name = "add"
+    parameters = ["A", "B", "Res"]
+    return_type = "is"
+    body = { raw "Res is A + B" }
+    syntax = "add(A, B, Res) :- Res is A + B."
+    notes = "Functions are predicates; return values are typically unified with an output argument."
 }
 
 pattern TryCatch {
@@ -703,6 +735,15 @@ instance X86TryCatch of TryCatch {
     notes = "No high-level try-catch; requires OS-specific mechanisms like SEH."
 }
 
+instance PrologTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Error"
+    error_variable = "E"
+    catch_body = { call handle(E) }
+    syntax = "catch(do_something, E, handle(E))"
+    notes = "Standard Prolog error handling using the catch/3 predicate."
+}
+
 instance CssRaise of Raise {
     exception_type = "N/A"
     message = "N/A"
@@ -722,6 +763,13 @@ instance X86Raise of Raise {
     message = "Error"
     syntax = "    int 3"
     notes = "Software interrupts (like int 3) can be used to signal errors or breakpoints."
+}
+
+instance PrologRaise of Raise {
+    exception_type = "error"
+    message = "Error"
+    syntax = "throw(error(Error))"
+    notes = "Uses throw/1 to raise an exception."
 }
 
 pattern Thread {
@@ -805,6 +853,12 @@ instance X86Thread of Thread {
     notes = "Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread)."
 }
 
+instance PrologThread of Thread {
+    body = { call do_work() }
+    syntax = "thread_create(do_work, Id, [])."
+    notes = "Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog)."
+}
+
 instance JavaSendMessage of SendMessage {
     recipient = "queue"
     message = "42"
@@ -826,6 +880,13 @@ instance X86SendMessage of SendMessage {
     notes = "Message passing is done via OS APIs."
 }
 
+instance PrologSendMessage of SendMessage {
+    recipient = "Id"
+    message = "hello"
+    syntax = "thread_send_message(Id, hello)."
+    notes = "Sends a message to a thread's message queue."
+}
+
 instance JavaReceiveMessage of ReceiveMessage {
     match_pattern = "msg"
     body = { call handle(msg) }
@@ -845,6 +906,13 @@ instance X86ReceiveMessage of ReceiveMessage {
     body = { call handle(msg) }
     syntax = "    call GetMessage"
     notes = "Message retrieval via OS APIs."
+}
+
+instance PrologReceiveMessage of ReceiveMessage {
+    match_pattern = "hello"
+    body = { call handle_hello() }
+    syntax = "thread_get_message(hello)."
+    notes = "Retrieves a matching message from the current thread's queue."
 }
 
 pattern Comment {
@@ -938,6 +1006,12 @@ instance X86Comment of Comment {
     notes = "Most assemblers use semicolon for comments (Intel syntax)."
 }
 
+instance PrologComment of Comment {
+    single_line = "% comment"
+    multi_line = "/* line 1\\n   line 2 */"
+    notes = "Uses % for single-line and /* */ for multi-line comments."
+}
+
 pattern Print {
     meta description: "Outputting text to the console or standard output."
     parameter value: String
@@ -1029,6 +1103,12 @@ instance X86Print of Print {
     notes = "Printing in assembler usually involves calling C library functions or OS-specific system calls."
 }
 
+instance PrologPrint of Print {
+    value = "Hello, World!"
+    syntax = "writeln('Hello, World!')."
+    notes = "Outputs text followed by a newline."
+}
+
 pattern Import {
     meta description: "Including external modules, packages, or files into the current scope."
     parameter module_name: String
@@ -1118,4 +1198,10 @@ instance X86Import of Import {
     module_name = "macros.inc"
     syntax = "include 'macros.inc'"
     notes = "Includes another assembly file; syntax varies by assembler (e.g., FASM uses 'include')."
+}
+
+instance PrologImport of Import {
+    module_name = "math"
+    syntax = "use_module(library(math))."
+    notes = "Imports predicates from a library module."
 }

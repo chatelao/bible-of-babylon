@@ -22,6 +22,7 @@ Welcome to the Bible of Babylon Documentation
 
    sql_pivot
    c_pivot
+   prolog_pivot
 
 Indices and tables
 ==================
