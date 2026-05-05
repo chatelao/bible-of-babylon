@@ -1,51 +1,109 @@
-pattern BasicTypes {
-    meta description: "Representation of fundamental data types: Strings, Numbers, and Booleans."
-    parameter string_val: String
-    parameter number_val: String
-    parameter boolean_val: String
+pattern String {
+    meta description: "Representation of string data types."
+    parameter syntax: String
     parameter notes: String
 }
 
-instance JsonBasic of BasicTypes {
-    string_val = "\"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
-    notes = "Standard JSON types; strings must be double-quoted."
+pattern Number {
+    meta description: "Representation of numeric data types."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance XmlBasic of BasicTypes {
-    string_val = "<tag>Hello</tag>"
-    number_val = "<tag>42</tag>"
-    boolean_val = "<tag>true</tag>"
-    notes = "XML is text-based; types are typically inferred or defined by a schema (XSD)."
+pattern Boolean {
+    meta description: "Representation of boolean data types."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance YamlBasic of BasicTypes {
-    string_val = "Hello or 'Hello' or \"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false (or yes/no, on/off in YAML 1.1)"
-    notes = "YAML supports plain, single-quoted, and double-quoted strings."
+instance JSON of String {
+    syntax = "\"Hello\""
+    notes = "Strings must be double-quoted."
 }
 
-instance TomlBasic of BasicTypes {
-    string_val = "\"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
-    notes = "TOML is strictly typed; strings must be double-quoted."
+instance JSON of Number {
+    syntax = "42 or 3.14"
+    notes = "Standard JSON numbers."
 }
 
-instance CsvBasic of BasicTypes {
-    string_val = "Hello or \"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
-    notes = "CSV values are typically plain text; quoting is used for values containing delimiters or newlines."
+instance JSON of Boolean {
+    syntax = "true / false"
+    notes = "Standard JSON booleans."
 }
 
-instance FixlengthBasic of BasicTypes {
-    string_val = "Fixed width string (e.g., 'Hello     ')"
-    number_val = "Fixed width number (e.g., '00042')"
-    boolean_val = "Fixed width indicator (e.g., 'Y' / 'N')"
-    notes = "Data is defined by fixed positions and lengths rather than delimiters."
+instance XML of String {
+    syntax = "<tag>Hello</tag>"
+    notes = "Content within elements is treated as text."
+}
+
+instance XML of Number {
+    syntax = "<tag>42</tag>"
+    notes = "Numbers are represented as text within elements."
+}
+
+instance XML of Boolean {
+    syntax = "<tag>true</tag>"
+    notes = "Booleans are represented as text within elements."
+}
+
+instance YAML of String {
+    syntax = "Hello or 'Hello' or \"Hello\""
+    notes = "Supports plain, single-quoted, and double-quoted strings."
+}
+
+instance YAML of Number {
+    syntax = "42 or 3.14"
+    notes = "Standard YAML numbers."
+}
+
+instance YAML of Boolean {
+    syntax = "true / false (or yes/no, on/off in YAML 1.1)"
+    notes = "Standard YAML booleans."
+}
+
+instance TOML of String {
+    syntax = "\"Hello\""
+    notes = "Strings must be double-quoted."
+}
+
+instance TOML of Number {
+    syntax = "42 or 3.14"
+    notes = "TOML is strictly typed."
+}
+
+instance TOML of Boolean {
+    syntax = "true / false"
+    notes = "Standard TOML booleans."
+}
+
+instance CSV of String {
+    syntax = "Hello or \"Hello\""
+    notes = "Quoting used for values containing delimiters."
+}
+
+instance CSV of Number {
+    syntax = "42 or 3.14"
+    notes = "Values are plain text; type is inferred."
+}
+
+instance CSV of Boolean {
+    syntax = "true / false"
+    notes = "Values are plain text; type is inferred."
+}
+
+instance Fixlength of String {
+    syntax = "Fixed width string (e.g., 'Hello     ')"
+    notes = "Defined by fixed positions."
+}
+
+instance Fixlength of Number {
+    syntax = "Fixed width number (e.g., '00042')"
+    notes = "Padded with zeros or spaces."
+}
+
+instance Fixlength of Boolean {
+    syntax = "Fixed width indicator (e.g., 'Y' / 'N')"
+    notes = "Uses pre-defined single character indicators."
 }
 
 pattern Collection {
@@ -55,37 +113,37 @@ pattern Collection {
     parameter notes: String
 }
 
-instance JsonCollection of Collection {
+instance JSON of Collection {
     elements = "Any JSON value"
     syntax = "[1, \"two\", true]"
     notes = "Elements are comma-separated and enclosed in square brackets."
 }
 
-instance XmlCollection of Collection {
+instance XML of Collection {
     elements = "Repeated child elements"
     syntax = "<list>\n  <item>1</item>\n  <item>2</item>\n</list>"
     notes = "Collections are typically represented by repeating elements under a parent."
 }
 
-instance YamlCollection of Collection {
+instance YAML of Collection {
     elements = "Any YAML value"
     syntax = "- 1\n- two\n- true"
     notes = "Uses a dash followed by a space for each element."
 }
 
-instance TomlCollection of Collection {
+instance TOML of Collection {
     elements = "Any TOML value"
     syntax = "[1, 2, 3]"
     notes = "Arrays can contain values of different types since TOML 1.0.0."
 }
 
-instance CsvCollection of Collection {
+instance CSV of Collection {
     elements = "Comma-separated values"
     syntax = "1,two,true"
     notes = "A single row represents a collection of fields."
 }
 
-instance FixlengthCollection of Collection {
+instance Fixlength of Collection {
     elements = "Positional fields"
     syntax = "Field1Field2Field3"
     notes = "Collections are typically represented by a sequence of fields with pre-defined lengths."
@@ -98,37 +156,37 @@ pattern Mapping {
     parameter notes: String
 }
 
-instance JsonMapping of Mapping {
+instance JSON of Mapping {
     entries = "Key-value pairs"
     syntax = "{\"key\": \"value\", \"num\": 42}"
     notes = "Keys must be double-quoted strings."
 }
 
-instance XmlMapping of Mapping {
+instance XML of Mapping {
     entries = "Child elements or attributes"
     syntax = "<object>\n  <key>value</key>\n  <num>42</num>\n</object>"
     notes = "Mappings are represented as nested elements."
 }
 
-instance YamlMapping of Mapping {
+instance YAML of Mapping {
     entries = "Key-value pairs"
     syntax = "key: value\nnum: 42"
     notes = "Uses a colon followed by a space to separate key and value."
 }
 
-instance TomlMapping of Mapping {
+instance TOML of Mapping {
     entries = "Key-value pairs"
     syntax = "key = \"value\"\nnum = 42"
     notes = "Top-level or grouped using [headers]."
 }
 
-instance CsvMapping of Mapping {
+instance CSV of Mapping {
     entries = "Header to field mapping"
     syntax = "Name,Age\nAlice,30"
     notes = "Mappings are established by associating header names with column values."
 }
 
-instance FixlengthMapping of Mapping {
+instance Fixlength of Mapping {
     entries = "Position-to-field mapping"
     syntax = "Pos 1-10: Name, 11-15: Age"
     notes = "Mappings are established by a schema defining which positions correspond to which fields."
@@ -140,77 +198,106 @@ pattern Metadata {
     parameter notes: String
 }
 
-instance JsonMetadata of Metadata {
+instance JSON of Metadata {
     syntax = "N/A"
     notes = "JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., \"_metadata\": { ... })."
 }
 
-instance XmlMetadata of Metadata {
+instance XML of Metadata {
     syntax = "<element attr=\"value\">Content</element>"
     notes = "XML has native support for attributes on elements."
 }
 
-instance YamlMetadata of Metadata {
+instance YAML of Metadata {
     syntax = "!!str \"value\" or !custom { key: val }"
     notes = "YAML supports tags to specify types or attach metadata to nodes."
 }
 
-instance TomlMetadata of Metadata {
+instance TOML of Metadata {
     syntax = "N/A"
     notes = "TOML does not support per-element metadata, though it uses headers for grouping."
 }
 
-instance CsvMetadata of Metadata {
+instance CSV of Metadata {
     syntax = "N/A"
     notes = "Standard CSV (RFC 4180) does not support metadata or attributes."
 }
 
-instance FixlengthMetadata of Metadata {
+instance Fixlength of Metadata {
     syntax = "N/A"
     notes = "Fixed-length formats do not natively support metadata or attributes within the data records."
 }
 
-pattern Comment {
-    meta description: "Way to add non-executable explanatory text to the data."
-    parameter single_line: String
-    parameter multi_line: String
+pattern SingleLineComment {
+    meta description: "Way to add non-executable explanatory text to a single line of data."
+    parameter syntax: String
     parameter notes: String
 }
 
-instance JsonComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
+pattern MultiLineComment {
+    meta description: "Way to add non-executable explanatory text spanning multiple lines of data."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JSON of SingleLineComment {
+    syntax = "N/A"
     notes = "JSON does not natively support comments."
 }
 
-instance XmlComment of Comment {
-    single_line = "<!-- comment -->"
-    multi_line = "<!--\n  line 1\n  line 2\n-->"
-    notes = "XML uses the same syntax for single and multi-line comments."
+instance JSON of MultiLineComment {
+    syntax = "N/A"
+    notes = "JSON does not natively support comments."
 }
 
-instance YamlComment of Comment {
-    single_line = "# comment"
-    multi_line = "# line 1\n# line 2"
+instance XML of SingleLineComment {
+    syntax = "<!-- comment -->"
+    notes = "Standard XML comment syntax."
+}
+
+instance XML of MultiLineComment {
+    syntax = "<!--\n  line 1\n  line 2\n-->"
+    notes = "XML uses the same syntax for multi-line comments."
+}
+
+instance YAML of SingleLineComment {
+    syntax = "# comment"
     notes = "YAML only supports single-line comments starting with #."
 }
 
-instance TomlComment of Comment {
-    single_line = "# comment"
-    multi_line = "# line 1\n# line 2"
+instance YAML of MultiLineComment {
+    syntax = "# line 1\n# line 2"
+    notes = "Multi-line comments are formed by repeated single-line comments."
+}
+
+instance TOML of SingleLineComment {
+    syntax = "# comment"
     notes = "TOML only supports single-line comments starting with #."
 }
 
-instance CsvComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
+instance TOML of MultiLineComment {
+    syntax = "# line 1\n# line 2"
+    notes = "Multi-line comments are formed by repeated single-line comments."
+}
+
+instance CSV of SingleLineComment {
+    syntax = "N/A"
     notes = "Standard CSV does not natively support comments; some variations use #."
 }
 
-instance FixlengthComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
-    notes = "Fixed-length formats generally do not support comments; every byte is typically part of the data definition."
+instance CSV of MultiLineComment {
+    syntax = "N/A"
+    notes = "Standard CSV does not natively support comments."
+}
+
+instance Fixlength of SingleLineComment {
+    syntax = "N/A"
+    notes = "Fixed-length formats generally do not support comments."
+}
+
+instance Fixlength of MultiLineComment {
+    syntax = "N/A"
+    notes = "Fixed-length formats generally do not support comments."
 }
 
 pattern SchemaLink {
@@ -219,32 +306,32 @@ pattern SchemaLink {
     parameter notes: String
 }
 
-instance JsonSchemaLink of SchemaLink {
-    syntax = "\"\$schema\": \"http://json-schema.org/draft-07/schema#\""
-    notes = "JSON uses the \$schema keyword to point to a JSON Schema file."
+instance JSON of SchemaLink {
+    syntax = "\"$schema\": \"http://json-schema.org/draft-07/schema#\""
+    notes = "JSON uses the $schema keyword to point to a JSON Schema file."
 }
 
-instance XmlSchemaLink of SchemaLink {
+instance XML of SchemaLink {
     syntax = "<root xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n      xsi:schemaLocation=\"http://example.com schema.xsd\">"
     notes = "XML uses the xsi:schemaLocation attribute to link to an XSD."
 }
 
-instance YamlSchemaLink of SchemaLink {
-    syntax = "# yaml-language-server: \$schema=<url_or_path>"
-    notes = "YAML often relies on editor-specific comments (like VS Code's language server) for schema linking."
+instance YAML of SchemaLink {
+    syntax = "# yaml-language-server: $schema=<url_or_path>"
+    notes = "YAML often relies on editor-specific comments for schema linking."
 }
 
-instance TomlSchemaLink of SchemaLink {
+instance TOML of SchemaLink {
     syntax = "N/A"
-    notes = "TOML does not have a native or widely standardized way to link to a schema within the file."
+    notes = "TOML does not have a native or widely standardized way to link to a schema."
 }
 
-instance CsvSchemaLink of SchemaLink {
+instance CSV of SchemaLink {
     syntax = "N/A"
-    notes = "CSV does not have a native schema linking mechanism; often defined in a sidecar file (e.g., CSVW metadata)."
+    notes = "CSV does not have a native schema linking mechanism."
 }
 
-instance FixlengthSchemaLink of SchemaLink {
+instance Fixlength of SchemaLink {
     syntax = "N/A"
-    notes = "Schema definition is usually external (e.g., a Copybook or a COBOL file descriptor)."
+    notes = "Schema definition is usually external."
 }
