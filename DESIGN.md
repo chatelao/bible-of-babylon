@@ -51,6 +51,7 @@ This section compares data structures and serialization formats.
 - Metadata/Attributes
 - Comments support
 - Schema validation
+- Header
 
 ## Presentation Design: Comparison Tables
 
