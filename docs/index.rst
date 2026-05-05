@@ -14,6 +14,7 @@ Welcome to the Bible of Babylon Documentation
 
    programming
    data_formats
+   coverage
 
 Indices and tables
 ==================
