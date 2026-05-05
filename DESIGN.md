@@ -22,6 +22,7 @@ This section compares languages based on common programming patterns.
 - CSS
 - CUDA
 - x86 Assembler
+- Prolog
 
 **Patterns to be compared:**
 - Variable declaration

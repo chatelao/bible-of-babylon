@@ -131,10 +131,10 @@
 ## Phase 5: Advanced Language Features
 - [x] Implement `Import` pattern <!-- issue #13 -->
     - [x] 13.1 Define `Import` pattern <!-- issue #13.1 -->
-    - [x] 13.2 Implement instances across all 14 languages <!-- issue #13.2 -->
+    - [x] 13.2 Implement instances across all 15 languages <!-- issue #13.2 -->
 - [ ] Implement `Constant` pattern <!-- issue #14 -->
     - [ ] 14.1 Define `Constant` pattern <!-- issue #14.1 -->
-    - [ ] 14.2 Implement instances across all 14 languages <!-- issue #14.2 -->
+    - [ ] 14.2 Implement instances across all 15 languages <!-- issue #14.2 -->
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
@@ -152,3 +152,4 @@
 - [ ] Generate Pivot Chapter for CSS <!-- issue #15.12 -->
 - [ ] Generate Pivot Chapter for CUDA <!-- issue #15.13 -->
 - [ ] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
+- [ ] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
