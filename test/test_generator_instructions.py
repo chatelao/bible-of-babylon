@@ -9,7 +9,7 @@ def test_render_instructions():
     pattern = Pattern(
         name="Function",
         parameters=[
-            Parameter(name="body", type=Type(name="Block"))
+            Parameter(name="syntax", type=Type(name="Block"))
         ]
     )
 
@@ -19,7 +19,7 @@ def test_render_instructions():
             pattern_name="Function",
             assignments=[
                 Assignment(
-                    name="body",
+                    name="syntax",
                     value=Block(instructions=[
                         CallInstruction(name="print", arguments=["hello"]),
                         AssignInstruction(target="x", value=10),
@@ -35,7 +35,7 @@ def test_render_instructions():
     generator = CodeGenerator()
     output = generator.render_program(program)
 
-    expected_body = "{ call print(hello); assign x = 10; return x; raw \"exit(0);\" }"
+    expected_body = "``{ call print(hello); assign x = 10; return x; raw \"exit(0);\" }``"
     assert expected_body in output
 
 def test_render_nested_blocks():
@@ -45,7 +45,7 @@ def test_render_nested_blocks():
     pattern = Pattern(
         name="ControlFlow",
         parameters=[
-            Parameter(name="nested", type=Type(name="Block"))
+            Parameter(name="syntax", type=Type(name="Block"))
         ]
     )
 
@@ -55,7 +55,7 @@ def test_render_nested_blocks():
             pattern_name="ControlFlow",
             assignments=[
                 Assignment(
-                    name="nested",
+                    name="syntax",
                     value=Block(instructions=[
                         AssignInstruction(
                             target="inner",
@@ -75,5 +75,5 @@ def test_render_nested_blocks():
 
     # Note: Identifier 'inner' in assign target doesn't use format_value yet in AssignInstruction
     # but the value does.
-    expected_content = "{ assign inner = { call log(inner) } }"
+    expected_content = "``{ assign inner = { call log(inner) } }``"
     assert expected_content in output

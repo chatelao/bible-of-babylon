@@ -1,20 +1,20 @@
 .. list-table:: {{ pattern.name }} Comparison
-   :widths: auto
+   :widths: 20 60 20
    :header-rows: 1
 
-   * - Instance
-{%- for param in pattern.parameters %}
-     - {{ param.name }}
-{%- endfor %}
+   * - Language
+     - Syntax
+     - Notes
 {%- for instance in instances %}
-   * - {{ instance.name }}
-{%- for param in pattern.parameters %}
-     - {% set ns = namespace(val="N/A") -%}
+   * - {{ instance.name|replace('_', ' ') }}
+     - {% set ns = namespace(syntax="N/A", notes="N/A") -%}
        {%- for assignment in instance.assignments -%}
-         {%- if assignment.name == param.name -%}
-           {%- set ns.val = assignment.value -%}
+         {%- if assignment.name == 'syntax' -%}
+           {%- set ns.syntax = assignment.value -%}
+         {%- elif assignment.name == 'notes' -%}
+           {%- set ns.notes = assignment.value -%}
          {%- endif -%}
        {%- endfor -%}
-       {{ ns.val|format_value|format_table_cell(is_code=(param.name == 'syntax'))|indent(7) }}
-{%- endfor %}
+       {{ ns.syntax|format_value|format_table_cell(is_code=true)|indent(7) }}
+     - {{ ns.notes|format_value|format_table_cell(is_code=false)|indent(7) }}
 {%- endfor %}

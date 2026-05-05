@@ -41,7 +41,8 @@ def test_render_instance_table():
         parameters=[
             Parameter(name="name", type=Type(name="Identifier")),
             Parameter(name="value", type=Type(name="Expression")),
-            Parameter(name="syntax", type=Type(name="String"))
+            Parameter(name="syntax", type=Type(name="String")),
+            Parameter(name="notes", type=Type(name="String"))
         ]
     )
     instances = [
@@ -51,7 +52,8 @@ def test_render_instance_table():
             assignments=[
                 Assignment(name="name", value="x"),
                 Assignment(name="value", value=42),
-                Assignment(name="syntax", value="x = 42")
+                Assignment(name="syntax", value="x = 42"),
+                Assignment(name="notes", value="dynamic")
             ]
         ),
         Instance(
@@ -68,14 +70,12 @@ def test_render_instance_table():
     output = generator.render_program(program)
 
     assert ".. list-table:: VarDec Comparison" in output
-    assert "* - Instance" in output
-    assert "  - name" in output
-    assert "  - value" in output
-    assert "  - syntax" in output
+    assert "* - Language" in output
+    assert "  - Syntax" in output
+    assert "  - Notes" in output
     assert "* - Python" in output
-    assert "  - x" in output
-    assert "  - 42" in output
     assert "  - ``x = 42``" in output
+    assert "  - dynamic" in output
     assert "* - Java" in output
-    assert "  - y" in output
-    assert "  - 100" in output
+    assert "  - N/A" in output
+    assert "  - N/A" in output
