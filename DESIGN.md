@@ -18,6 +18,7 @@ This section compares languages based on common programming patterns.
 - Bash
 - Cmd
 - PowerShell
+- Python
 - CSS
 - CUDA
 - x86 Assembler
