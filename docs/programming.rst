@@ -865,3 +865,87 @@ Parameters:
      - { call handle(msg) }
      - call GetMessage
      - Message retrieval via OS APIs.
+
+
+
+Comment
+=======
+
+
+:description: Way to add non-executable explanatory text to the source code.
+
+
+Parameters:
+
+* single_line: String
+
+* multi_line: String
+
+* notes: String
+
+
+
+.. list-table:: Comment Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - single_line
+     - multi_line
+     - notes
+   * - CComment
+     - // comment
+     - /* line 1\n   line 2 */
+     - Standard C comment syntax.
+   * - JavaComment
+     - // comment
+     - /* line 1\n   line 2 */
+     - Identical to C.
+   * - RustComment
+     - // comment
+     - /* line 1\n   line 2 */
+     - Supports nested multi-line comments.
+   * - PythonComment
+     - # comment
+     - \"\"\" line 1\n    line 2 \"\"\"
+     - Multi-line comments are typically implemented using docstrings.
+   * - BashComment
+     - # comment
+     - N/A
+     - Bash only supports single-line comments starting with #.
+   * - PowerShellComment
+     - # comment
+     - <# line 1\n   line 2 #>
+     - Uses <# and #> for block comments.
+   * - CmdComment
+     - REM comment
+     - N/A
+     - Uses REM or :: (label hack) for comments.
+   * - SqlComment
+     - -- comment
+     - /* line 1\n   line 2 */
+     - Standard SQL comment syntax.
+   * - ErlangComment
+     - % comment
+     - N/A
+     - Erlang only supports single-line comments starting with %.
+   * - LispComment
+     - ; comment
+     - #| line 1\n   line 2 |#
+     - Single-line comments use semicolon; multi-line use #| |#.
+   * - XQueryComment
+     - (: comment :)
+     - (: line 1\n   line 2 :)
+     - XQuery uses (: :) for both single and multi-line comments.
+   * - CssComment
+     - N/A
+     - /* line 1\n   line 2 */
+     - CSS only supports block comments.
+   * - CudaComment
+     - // comment
+     - /* line 1\n   line 2 */
+     - Standard C-like comment syntax.
+   * - X86Comment
+     - ; comment
+     - N/A
+     - Most assemblers use semicolon for comments (Intel syntax).

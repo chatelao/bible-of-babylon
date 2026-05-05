@@ -846,3 +846,94 @@ instance X86ReceiveMessage of ReceiveMessage {
     syntax = "call GetMessage"
     notes = "Message retrieval via OS APIs."
 }
+
+pattern Comment {
+    meta description: "Way to add non-executable explanatory text to the source code."
+    parameter single_line: String
+    parameter multi_line: String
+    parameter notes: String
+}
+
+instance CComment of Comment {
+    single_line = "// comment"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "Standard C comment syntax."
+}
+
+instance JavaComment of Comment {
+    single_line = "// comment"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "Identical to C."
+}
+
+instance RustComment of Comment {
+    single_line = "// comment"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "Supports nested multi-line comments."
+}
+
+instance PythonComment of Comment {
+    single_line = "# comment"
+    multi_line = "\"\"\" line 1\n    line 2 \"\"\""
+    notes = "Multi-line comments are typically implemented using docstrings."
+}
+
+instance BashComment of Comment {
+    single_line = "# comment"
+    multi_line = "N/A"
+    notes = "Bash only supports single-line comments starting with #."
+}
+
+instance PowerShellComment of Comment {
+    single_line = "# comment"
+    multi_line = "<# line 1\n   line 2 #>"
+    notes = "Uses <# and #> for block comments."
+}
+
+instance CmdComment of Comment {
+    single_line = "REM comment"
+    multi_line = "N/A"
+    notes = "Uses REM or :: (label hack) for comments."
+}
+
+instance SqlComment of Comment {
+    single_line = "-- comment"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "Standard SQL comment syntax."
+}
+
+instance ErlangComment of Comment {
+    single_line = "% comment"
+    multi_line = "N/A"
+    notes = "Erlang only supports single-line comments starting with %."
+}
+
+instance LispComment of Comment {
+    single_line = "; comment"
+    multi_line = "#| line 1\n   line 2 |#"
+    notes = "Single-line comments use semicolon; multi-line use #| |#."
+}
+
+instance XQueryComment of Comment {
+    single_line = "(: comment :)"
+    multi_line = "(: line 1\n   line 2 :)"
+    notes = "XQuery uses (: :) for both single and multi-line comments."
+}
+
+instance CssComment of Comment {
+    single_line = "N/A"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "CSS only supports block comments."
+}
+
+instance CudaComment of Comment {
+    single_line = "// comment"
+    multi_line = "/* line 1\n   line 2 */"
+    notes = "Standard C-like comment syntax."
+}
+
+instance X86Comment of Comment {
+    single_line = "; comment"
+    multi_line = "N/A"
+    notes = "Most assemblers use semicolon for comments (Intel syntax)."
+}
