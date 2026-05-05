@@ -109,8 +109,12 @@
             - [x] 9.5.2.2 XML (XSD/DTD) <!-- 2026-05-11, issue #9.5.2.2 -->
             - [x] 9.5.2.3 YAML (JSON Schema/Custom) <!-- 2026-05-11, issue #9.5.2.3 -->
             - [x] 9.5.2.4 TOML <!-- 2026-05-11, issue #9.5.2.4 -->
-    - [ ] 9.6 Implement CSV instances <!-- issue #9.6 -->
+    - [x] 9.6 Implement CSV instances <!-- issue #9.6 -->
+        - [x] 9.6.1 Basic types, Collections, and Mappings <!-- issue #9.6.1 -->
+        - [x] 9.6.2 Metadata, Comments, and Schema links <!-- issue #9.6.2 -->
     - [ ] 9.7 Implement Fixlength instances <!-- issue #9.7 -->
+        - [ ] 9.7.1 Basic types, Collections, and Mappings <!-- issue #9.7.1 -->
+        - [ ] 9.7.2 Metadata, Comments, and Schema links <!-- issue #9.7.2 -->
 
 ## Phase 4: Publication
 - [x] Configure ReadTheDocs integration <!-- 2026-05-03, issue #10 -->
