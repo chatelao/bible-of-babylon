@@ -1,10 +1,16 @@
 from pathlib import Path
-from typing import List, Dict
+from typing import List, Dict, Any
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from .models import (
     Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier,
     CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
 )
+
+def format_table_cell(value: Any) -> str:
+    if isinstance(value, str) and "\n" in value:
+        lines = value.split("\n")
+        return "\n".join(f"| {line}" if line.strip() else "|" for line in lines)
+    return str(value)
 
 def format_value(value) -> str:
     if isinstance(value, str):
@@ -43,6 +49,7 @@ class CodeGenerator:
             autoescape=select_autoescape()
         )
         self.env.filters['format_value'] = format_value
+        self.env.filters['format_table_cell'] = format_table_cell
 
     def render_pattern(self, pattern: Pattern) -> str:
         template = self.env.get_template('pattern.rst.j2')

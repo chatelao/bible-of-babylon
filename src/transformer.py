@@ -1,5 +1,6 @@
 import sys
 import os
+import ast
 
 # Add src/generated to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'generated')))
@@ -71,7 +72,7 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
     def visitMetaDefinition(self, ctx: SourcePatternsParser.MetaDefinitionContext):
         key = ctx.IDENTIFIER(0).getText()
         if ctx.STRING():
-            value = ctx.STRING().getText()[1:-1]
+            value = ast.literal_eval(ctx.STRING().getText())
         else:
             value = ctx.IDENTIFIER(1).getText()
         return Metadata(key=key, value=value)
@@ -96,7 +97,7 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
 
     def visitValue(self, ctx: SourcePatternsParser.ValueContext):
         if ctx.STRING():
-            return ctx.STRING().getText()[1:-1]
+            return ast.literal_eval(ctx.STRING().getText())
         if ctx.NUMBER():
             val = ctx.NUMBER().getText()
             return float(val) if '.' in val else int(val)
@@ -136,5 +137,5 @@ class SourcePatternsTransformer(SourcePatternsVisitor):
         return ReturnInstruction(value=value)
 
     def visitRawInstruction(self, ctx: SourcePatternsParser.RawInstructionContext):
-        snippet = ctx.STRING().getText()[1:-1]
+        snippet = ast.literal_eval(ctx.STRING().getText())
         return RawInstruction(snippet=snippet)
