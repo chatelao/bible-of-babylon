@@ -105,7 +105,7 @@ class CodeGenerator:
         return "\n\n".join(results)
 
     def render_pivot_table(self, program: Program, language: str) -> str:
-        syntax_params = ["syntax", "single_line", "multi_line", "string_val", "number_val", "boolean_val", "notes"]
+        syntax_params = ["syntax", "multi_line", "string_val", "number_val", "boolean_val", "notes"]
 
         # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
         all_languages = [
@@ -132,6 +132,11 @@ class CodeGenerator:
                     continue
 
                 assignments = {a.name: a.value for a in instance.assignments}
+
+                # Merge single_line into syntax if syntax is missing or N/A
+                if assignments.get("syntax", "N/A") == "N/A" and "single_line" in assignments:
+                    assignments["syntax"] = assignments["single_line"]
+
                 pivot_data.append({
                     "pattern_name": instance.pattern_name,
                     "assignments": assignments
