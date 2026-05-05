@@ -1,0 +1,14 @@
+.. list-table:: {{ language }} Pivot Table
+   :widths: auto
+   :header-rows: 1
+
+   * - Pattern
+{%- for param in display_parameters %}
+     - {{ param|replace('_', ' ')|capitalize }}
+{%- endfor %}
+{%- for item in pivot_data %}
+   * - {{ item.pattern_name }}
+{%- for param in display_parameters %}
+     - {{ item.assignments.get(param, "N/A")|format_value|format_table_cell(is_code=(param != 'notes'))|indent(7) }}
+{%- endfor %}
+{%- endfor %}

@@ -18,6 +18,7 @@ def main():
     parser.add_argument("input", help="Path to the input .patterns file")
     parser.add_argument("-o", "--output", help="Path to the output .rst file (defaults to stdout)")
     parser.add_argument("-t", "--title", help="Top-level title for the generated documentation")
+    parser.add_argument("-p", "--pivot", help="Generate a pivot table for the specified language")
 
     args = parser.parse_args()
 
@@ -49,7 +50,10 @@ def main():
 
     # 4. Generation
     generator = CodeGenerator()
-    output_rst = generator.render_program(program_asg, title=args.title)
+    if args.pivot:
+        output_rst = generator.render_pivot_chapter(program_asg, args.pivot, title=args.title)
+    else:
+        output_rst = generator.render_program(program_asg, title=args.title)
 
     # 5. Output
     if args.output:
