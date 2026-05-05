@@ -73,6 +73,7 @@
             - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
             - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
     - [x] 8.6 Comments <!-- 2026-05-12, issue #8.6 -->
+    - [x] 8.7 Print (Hello World) <!-- 2026-05-24, issue #8.7 -->
 - [x] Populate Data Format patterns <!-- 2026-05-11, issue #9 -->
     - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
         - [x] 9.1.1 Define `BasicTypes` pattern <!-- 2026-05-08, issue #9.1.1 -->
@@ -121,8 +122,8 @@
     - [x] 10.1 Create `docs/conf.py` and `index.rst` <!-- 2026-05-03, issue #10.1 -->
     - [x] 10.2 Setup `.readthedocs.yaml` <!-- 2026-05-03, issue #10.2 -->
     - [x] 10.3 Integrate transpiler output into Sphinx build <!-- 2026-05-03, issue #10.3 -->
-- [ ] Final review and polish of the comparative book <!-- issue #11 -->
-    - [ ] 11.1 Verify consistency of pattern descriptions and parameter names <!-- issue #11.1 -->
-    - [ ] 11.2 Review generated reST for formatting issues or table alignment problems <!-- issue #11.2 -->
+- [x] Final review and polish of the comparative book <!-- 2026-05-24, issue #11 -->
+    - [x] 11.1 Verify consistency of pattern descriptions and parameter names <!-- 2026-05-24, issue #11.1 -->
+    - [x] 11.2 Review generated reST for formatting issues or table alignment problems <!-- 2026-05-24, issue #11.2 -->
     - [x] 11.3 Add a "Language/Format Coverage" summary to the documentation <!-- 2026-05-24, issue #11.3 -->
-    - [ ] 11.4 Final verification of the Read the Docs build process <!-- issue #11.4 -->
+    - [x] 11.4 Final verification of the Read the Docs build process <!-- 2026-05-24, issue #11.4 -->

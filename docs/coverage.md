@@ -32,6 +32,6 @@ This page provides an overview of the implementation status for all patterns acr
 | YAML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | TOML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | CSV | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Fixlength | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Fixlength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 *Legend: ✅ = Implemented, ❌ = Not yet implemented.*
