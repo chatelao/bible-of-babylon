@@ -1,5 +1,5 @@
-Programming Language Patterns
-=============================
+Programming Languages
+=====================
 
 
 
@@ -201,8 +201,11 @@ Parameters:
      - add
      - [%1, %2]
      - ErrorLevel
-     - { raw "set /a res=%1+%2\nexit /b %res%" }
-     - :add\nset /a res=%~1+%~2\nexit /b %res%
+     - | { raw "set /a res=%1+%2
+       | exit /b %res%" }
+     - | :add
+       | set /a res=%~1+%~2
+       | exit /b %res%
      - Functions are labels; called with 'call :label'; arguments are %1, %2.
    * - SqlFunction
      - add
@@ -250,8 +253,11 @@ Parameters:
      - add
      - [eax, ebx]
      - eax
-     - { raw "add eax, ebx\nret" }
-     - add_func:\nadd eax, ebx\nret
+     - | { raw "add eax, ebx
+       | ret" }
+     - | add_func:
+       | add eax, ebx
+       | ret
      - Functions are labels; parameters usually passed via registers or stack.
 
 
@@ -369,7 +375,13 @@ Parameters:
      - eax > 0
      - { return 1 }
      - { return 0 }
-     - cmp eax, 0\njle .else\nmov eax, 1\njmp .end\n.else:\nmov eax, 0\n.end:
+     - | cmp eax, 0
+       | jle .else
+       | mov eax, 1
+       | jmp .end
+       | .else:
+       | mov eax, 0
+       | .end:
      - Implemented using comparison and jump instructions (Intel syntax).
 
 
@@ -435,7 +447,8 @@ Parameters:
    * - CmdLoop
      - x GTR 0
      - { raw "set /a x=x-1" }
-     - :loop\nif %x% GTR 0 (set /a x=x-1 & goto loop)
+     - | :loop
+       | if %x% GTR 0 (set /a x=x-1 & goto loop)
      - Loops are typically implemented using labels and goto.
    * - SqlLoop
      - @x > 0
@@ -470,7 +483,12 @@ Parameters:
    * - X86Loop
      - ecx > 0
      - { raw "dec ecx" }
-     - .loop:\ncmp ecx, 0\njle .end\ndec ecx\njmp .loop\n.end:
+     - | .loop:
+       | cmp ecx, 0
+       | jle .end
+       | dec ecx
+       | jmp .loop
+       | .end:
      - Implemented using labels and conditional jumps.
 
 
@@ -535,7 +553,10 @@ Parameters:
      - Exception
      - e
      - { call handle(e) }
-     - try:\n    do_something()\nexcept Exception as e:\n    handle(e)
+     - | try:
+       |     do_something()
+       | except Exception as e:
+       |     handle(e)
      - Standard Python exception handling using try-except.
    * - BashTryCatch
      - { call do_something() }
@@ -563,7 +584,12 @@ Parameters:
      - Error
      - @@ERROR
      - { call handle_error() }
-     - BEGIN TRY\n    EXEC do_something;\nEND TRY\nBEGIN CATCH\n    EXEC handle_error;\nEND CATCH
+     - | BEGIN TRY
+       |     EXEC do_something;
+       | END TRY
+       | BEGIN CATCH
+       |     EXEC handle_error;
+       | END CATCH
      - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
    * - ErlangTryCatch
      - { call do_something() }
@@ -646,17 +672,17 @@ Parameters:
    * - JavaRaise
      - RuntimeException
      - Error
-     - throw new RuntimeException(\"Error\");
+     - throw new RuntimeException("Error");
      - Uses 'throw' to raise an exception.
    * - RustRaise
      - Panic
      - Error
-     - panic!(\"Error\");
+     - panic!("Error");
      - Uses 'panic!' for unrecoverable errors.
    * - PythonRaise
      - Exception
      - Error
-     - raise Exception(\"Error\")
+     - raise Exception("Error")
      - Uses 'raise' to trigger an exception.
    * - BashRaise
      - Exit
@@ -666,7 +692,7 @@ Parameters:
    * - PowerShellRaise
      - Exception
      - Error
-     - throw \"Error\"
+     - throw "Error"
      - Uses 'throw' to create a terminating error.
    * - CmdRaise
      - ErrorLevel
@@ -681,12 +707,12 @@ Parameters:
    * - ErlangRaise
      - error
      - Error
-     - error(\"Error\")
+     - error("Error")
      - The error/1 BIF is used to stop execution and provide a stack trace.
    * - LispRaise
      - error
      - Error
-     - (error \"Error\")
+     - (error "Error")
      - Signals a continuous error that must be handled or it enters the debugger.
    * - XQueryRaise
      - error
@@ -754,7 +780,8 @@ Parameters:
      - Launches a grid of threads on the GPU.
    * - X86Thread
      - { call do_work() }
-     - push offset do_work\ncall CreateThread
+     - | push offset do_work
+       | call CreateThread
      - Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread).
 
 
@@ -810,7 +837,9 @@ Parameters:
    * - X86SendMessage
      - thread_id
      - msg
-     - push msg\npush thread_id\ncall PostThreadMessage
+     - | push msg
+       | push thread_id
+       | call PostThreadMessage
      - Message passing is done via OS APIs.
 
 
@@ -872,7 +901,7 @@ Parameters:
 
 
 Comment
-=======
+-------
 
 
 :description: Way to add non-executable explanatory text to the source code.
@@ -898,19 +927,23 @@ Parameters:
      - notes
    * - CComment
      - // comment
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - Standard C comment syntax.
    * - JavaComment
      - // comment
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - Identical to C.
    * - RustComment
      - // comment
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - Supports nested multi-line comments.
    * - PythonComment
      - # comment
-     - \"\"\" line 1\n    line 2 \"\"\"
+     - | """ line 1
+       |     line 2 """
      - Multi-line comments are typically implemented using docstrings.
    * - BashComment
      - # comment
@@ -918,7 +951,8 @@ Parameters:
      - Bash only supports single-line comments starting with #.
    * - PowerShellComment
      - # comment
-     - <# line 1\n   line 2 #>
+     - | <# line 1
+       |    line 2 #>
      - Uses <# and #> for block comments.
    * - CmdComment
      - REM comment
@@ -926,7 +960,8 @@ Parameters:
      - Uses REM or :: (label hack) for comments.
    * - SqlComment
      - -- comment
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - Standard SQL comment syntax.
    * - ErlangComment
      - % comment
@@ -934,21 +969,113 @@ Parameters:
      - Erlang only supports single-line comments starting with %.
    * - LispComment
      - ; comment
-     - #| line 1\n   line 2 |#
+     - | #| line 1
+       |    line 2 |#
      - Single-line comments use semicolon; multi-line use #| |#.
    * - XQueryComment
      - (: comment :)
-     - (: line 1\n   line 2 :)
+     - | (: line 1
+       |    line 2 :)
      - XQuery uses (: :) for both single and multi-line comments.
    * - CssComment
      - N/A
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - CSS only supports block comments.
    * - CudaComment
      - // comment
-     - /* line 1\n   line 2 */
+     - | /* line 1
+       |    line 2 */
      - Standard C-like comment syntax.
    * - X86Comment
      - ; comment
      - N/A
      - Most assemblers use semicolon for comments (Intel syntax).
+
+
+
+Print
+-----
+
+
+:description: Outputting text to the standard output or console.
+
+
+Parameters:
+
+* value: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Print Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Instance
+     - value
+     - syntax
+     - notes
+   * - CPrint
+     - Hello World
+     - printf("Hello World\\n");
+     - Uses the standard I/O library (stdio.h).
+   * - JavaPrint
+     - Hello World
+     - System.out.println("Hello World");
+     - Prints to the standard output stream.
+   * - RustPrint
+     - Hello World
+     - println!("Hello World");
+     - Uses a macro for formatted output to stdout.
+   * - PythonPrint
+     - Hello World
+     - print("Hello World")
+     - Built-in function for outputting to the console.
+   * - BashPrint
+     - Hello World
+     - echo "Hello World"
+     - Common command to output text in shell scripts.
+   * - PowerShellPrint
+     - Hello World
+     - Write-Host "Hello World"
+     - Writes to the host's console; can also use Write-Output.
+   * - CmdPrint
+     - Hello World
+     - echo Hello World
+     - Displays messages in Windows Command Prompt.
+   * - SqlPrint
+     - Hello World
+     - PRINT 'Hello World';
+     - T-SQL syntax for sending messages to the client.
+   * - ErlangPrint
+     - Hello World
+     - io:format("Hello World~n").
+     - Uses the io module for formatted output.
+   * - LispPrint
+     - Hello World
+     - (format t "Hello World~%")
+     - The format function is used for output; ~% is a newline.
+   * - XQueryPrint
+     - Hello World
+     - "Hello World"
+     - XQuery expressions return values; strings are implicitly output in many contexts.
+   * - CssPrint
+     - Hello World
+     - .element::before { content: "Hello World"; }
+     - CSS can 'print' text to the page using pseudo-elements and the content property.
+   * - CudaPrint
+     - Hello World
+     - printf("Hello World\\n");
+     - printf is supported within CUDA kernels for debugging.
+   * - X86Print
+     - Hello World
+     - | mov eax, 4
+       | mov ebx, 1
+       | mov ecx, msg
+       | mov edx, 12
+       | int 0x80
+     - Uses system calls (e.g., sys_write in Linux) to output to stdout.

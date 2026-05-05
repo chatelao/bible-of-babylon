@@ -73,6 +73,7 @@
             - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
             - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
     - [x] 8.6 Comments <!-- 2026-05-12, issue #8.6 -->
+    - [x] 8.7 Print (Hello World) <!-- 2026-05-13, issue #8.7 -->
 - [x] Populate Data Format patterns <!-- 2026-05-11, issue #9 -->
     - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
         - [x] 9.1.1 Define `BasicTypes` pattern <!-- 2026-05-08, issue #9.1.1 -->

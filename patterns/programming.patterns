@@ -937,3 +937,94 @@ instance X86Comment of Comment {
     multi_line = "N/A"
     notes = "Most assemblers use semicolon for comments (Intel syntax)."
 }
+
+pattern Print {
+    meta description: "Outputting text to the standard output or console."
+    parameter value: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CPrint of Print {
+    value = "Hello World"
+    syntax = "printf(\"Hello World\\\\n\");"
+    notes = "Uses the standard I/O library (stdio.h)."
+}
+
+instance JavaPrint of Print {
+    value = "Hello World"
+    syntax = "System.out.println(\"Hello World\");"
+    notes = "Prints to the standard output stream."
+}
+
+instance RustPrint of Print {
+    value = "Hello World"
+    syntax = "println!(\"Hello World\");"
+    notes = "Uses a macro for formatted output to stdout."
+}
+
+instance PythonPrint of Print {
+    value = "Hello World"
+    syntax = "print(\"Hello World\")"
+    notes = "Built-in function for outputting to the console."
+}
+
+instance BashPrint of Print {
+    value = "Hello World"
+    syntax = "echo \"Hello World\""
+    notes = "Common command to output text in shell scripts."
+}
+
+instance PowerShellPrint of Print {
+    value = "Hello World"
+    syntax = "Write-Host \"Hello World\""
+    notes = "Writes to the host's console; can also use Write-Output."
+}
+
+instance CmdPrint of Print {
+    value = "Hello World"
+    syntax = "echo Hello World"
+    notes = "Displays messages in Windows Command Prompt."
+}
+
+instance SqlPrint of Print {
+    value = "Hello World"
+    syntax = "PRINT 'Hello World';"
+    notes = "T-SQL syntax for sending messages to the client."
+}
+
+instance ErlangPrint of Print {
+    value = "Hello World"
+    syntax = "io:format(\"Hello World~n\")."
+    notes = "Uses the io module for formatted output."
+}
+
+instance LispPrint of Print {
+    value = "Hello World"
+    syntax = "(format t \"Hello World~%\")"
+    notes = "The format function is used for output; ~% is a newline."
+}
+
+instance XQueryPrint of Print {
+    value = "Hello World"
+    syntax = "\"Hello World\""
+    notes = "XQuery expressions return values; strings are implicitly output in many contexts."
+}
+
+instance CssPrint of Print {
+    value = "Hello World"
+    syntax = ".element::before { content: \"Hello World\"; }"
+    notes = "CSS can 'print' text to the page using pseudo-elements and the content property."
+}
+
+instance CudaPrint of Print {
+    value = "Hello World"
+    syntax = "printf(\"Hello World\\\\n\");"
+    notes = "printf is supported within CUDA kernels for debugging."
+}
+
+instance X86Print of Print {
+    value = "Hello World"
+    syntax = "mov eax, 4\nmov ebx, 1\nmov ecx, msg\nmov edx, 12\nint 0x80"
+    notes = "Uses system calls (e.g., sys_write in Linux) to output to stdout."
+}
