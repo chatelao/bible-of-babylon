@@ -331,7 +331,7 @@ instance X86IfElse of IfElse {
     condition = "eax > 0"
     then_branch = { return 1 }
     else_branch = { return 0 }
-    syntax = "cmp eax, 0\njle .else\nmov eax, 1\njmp .end\n.else:\nmov eax, 0\n.end:"
+    syntax = "    cmp eax, 0\n    jle .else\n    mov eax, 1\n    jmp .end\n.else:\n    mov eax, 0\n.end:"
     notes = "Implemented using comparison and jump instructions (Intel syntax)."
 }
 
@@ -351,8 +351,8 @@ instance CudaLoop of Loop {
 
 instance X86Loop of Loop {
     condition = "ecx > 0"
-    body = { raw "dec ecx" }
-    syntax = ".loop:\ncmp ecx, 0\njle .end\ndec ecx\njmp .loop\n.end:"
+    body = { raw "    dec ecx" }
+    syntax = ".loop:\n    cmp ecx, 0\n    jle .end\n    dec ecx\n    jmp .loop\n.end:"
     notes = "Implemented using labels and conditional jumps."
 }
 
@@ -477,8 +477,8 @@ instance X86Function of FunctionDefinition {
     name = "add"
     parameters = ["eax", "ebx"]
     return_type = "eax"
-    body = { raw "add eax, ebx\nret" }
-    syntax = "add_func:\nadd eax, ebx\nret"
+    body = { raw "    add eax, ebx\n    ret" }
+    syntax = "add_func:\n    add eax, ebx\n    ret"
     notes = "Functions are labels; parameters usually passed via registers or stack."
 }
 
@@ -720,7 +720,7 @@ instance CudaRaise of Raise {
 instance X86Raise of Raise {
     exception_type = "Interrupt"
     message = "Error"
-    syntax = "int 3"
+    syntax = "    int 3"
     notes = "Software interrupts (like int 3) can be used to signal errors or breakpoints."
 }
 
@@ -801,7 +801,7 @@ instance CudaThread of Thread {
 
 instance X86Thread of Thread {
     body = { call do_work() }
-    syntax = "push offset do_work\ncall CreateThread"
+    syntax = "    push offset do_work\n    call CreateThread"
     notes = "Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread)."
 }
 
@@ -822,7 +822,7 @@ instance CudaSendMessage of SendMessage {
 instance X86SendMessage of SendMessage {
     recipient = "thread_id"
     message = "msg"
-    syntax = "push msg\npush thread_id\ncall PostThreadMessage"
+    syntax = "    push msg\n    push thread_id\n    call PostThreadMessage"
     notes = "Message passing is done via OS APIs."
 }
 
@@ -843,7 +843,7 @@ instance CudaReceiveMessage of ReceiveMessage {
 instance X86ReceiveMessage of ReceiveMessage {
     match_pattern = "msg"
     body = { call handle(msg) }
-    syntax = "call GetMessage"
+    syntax = "    call GetMessage"
     notes = "Message retrieval via OS APIs."
 }
 
@@ -933,7 +933,7 @@ instance CudaComment of Comment {
 }
 
 instance X86Comment of Comment {
-    single_line = "; comment"
+    single_line = "    ; comment"
     multi_line = "N/A"
     notes = "Most assemblers use semicolon for comments (Intel syntax)."
 }
