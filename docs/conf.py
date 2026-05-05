@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 project = 'Bible of Babylon'
-copyright = '2024, chatelao'
+copyright = '2026, chatelao'
 author = 'chatelao'
 
 # -- General configuration ---------------------------------------------------
