@@ -127,3 +127,11 @@
     - [x] 11.2 Review generated reST for formatting issues or table alignment problems <!-- 2026-05-24, issue #11.2 -->
     - [x] 11.3 Add a "Language/Format Coverage" summary to the documentation <!-- 2026-05-24, issue #11.3 -->
     - [x] 11.4 Final verification of the Read the Docs build process <!-- 2026-05-24, issue #11.4 -->
+
+## Phase 5: Advanced Language Features
+- [x] Implement `Import` pattern <!-- issue #13 -->
+    - [x] 13.1 Define `Import` pattern <!-- issue #13.1 -->
+    - [x] 13.2 Implement instances across all 14 languages <!-- issue #13.2 -->
+- [ ] Implement `Constant` pattern <!-- issue #14 -->
+    - [ ] 14.1 Define `Constant` pattern <!-- issue #14.1 -->
+    - [ ] 14.2 Implement instances across all 14 languages <!-- issue #14.2 -->
