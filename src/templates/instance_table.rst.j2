@@ -15,6 +15,6 @@
            {%- set ns.val = assignment.value -%}
          {%- endif -%}
        {%- endfor -%}
-       {{ ns.val|format_value|format_table_cell|indent(7) }}
+       {{ ns.val|format_value|format_table_cell(param.name == 'syntax')|indent(7) }}
 {%- endfor %}
 {%- endfor %}
