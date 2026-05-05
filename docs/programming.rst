@@ -1,7 +1,10 @@
+Programming Language Patterns
+=============================
+
 
 
 VariableDeclaration
-===================
+-------------------
 
 
 :description: The act of naming a value and optionally specifying its type.
@@ -119,7 +122,7 @@ Parameters:
 
 
 FunctionDefinition
-==================
+------------------
 
 
 :description: Declaration of a reusable block of code with parameters and a return value.
@@ -254,7 +257,7 @@ Parameters:
 
 
 IfElse
-======
+------
 
 
 :description: Conditional execution of code blocks.
@@ -372,7 +375,7 @@ Parameters:
 
 
 Loop
-====
+----
 
 
 :description: Repeated execution of a code block based on a condition.
@@ -473,7 +476,7 @@ Parameters:
 
 
 TryCatch
-========
+--------
 
 
 :description: Handling exceptions or errors within a block of code.
@@ -608,7 +611,7 @@ Parameters:
 
 
 Raise
-=====
+-----
 
 
 :description: Explicitly triggering an exception or error.
@@ -709,7 +712,7 @@ Parameters:
 
 
 Thread
-======
+------
 
 
 :description: Creating and running a new thread of execution.
@@ -757,7 +760,7 @@ Parameters:
 
 
 SendMessage
-===========
+-----------
 
 
 :description: Sending a message to another process or thread.
@@ -813,7 +816,7 @@ Parameters:
 
 
 ReceiveMessage
-==============
+--------------
 
 
 :description: Receiving a message from another process or thread.

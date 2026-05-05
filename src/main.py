@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser(description="Transform Source Patterns DSL to reStructuredText.")
     parser.add_argument("input", help="Path to the input .patterns file")
     parser.add_argument("-o", "--output", help="Path to the output .rst file (defaults to stdout)")
+    parser.add_argument("-t", "--title", help="Top-level title for the generated documentation")
 
     args = parser.parse_args()
 
@@ -48,7 +49,7 @@ def main():
 
     # 4. Generation
     generator = CodeGenerator()
-    output_rst = generator.render_program(program_asg)
+    output_rst = generator.render_program(program_asg, title=args.title)
 
     # 5. Output
     if args.output:

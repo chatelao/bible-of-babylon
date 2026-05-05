@@ -1,7 +1,10 @@
+Data Format Patterns
+====================
+
 
 
 BasicTypes
-==========
+----------
 
 
 :description: Representation of fundamental data types: Strings, Numbers, and Booleans.
@@ -52,7 +55,7 @@ Parameters:
 
 
 Collection
-==========
+----------
 
 
 :description: Ordered sequence of elements (Arrays, Lists, or Sequences).
@@ -96,7 +99,7 @@ Parameters:
 
 
 Mapping
-=======
+-------
 
 
 :description: Unordered collection of key-value pairs (Objects, Maps, or Dictionaries).
@@ -140,7 +143,7 @@ Parameters:
 
 
 Metadata
-========
+--------
 
 
 :description: Way to attach metadata or attributes to data elements.
@@ -177,7 +180,7 @@ Parameters:
 
 
 Comment
-=======
+-------
 
 
 :description: Way to add non-executable explanatory text to the data.
@@ -221,7 +224,7 @@ Parameters:
 
 
 SchemaLink
-==========
+----------
 
 
 :description: Linking a data file to a schema for validation (e.g., JSON Schema, XSD).

@@ -15,9 +15,25 @@ def test_render_pattern_only():
     output = generator.render_program(program)
 
     assert "VarDec" in output
-    assert "======" in output
+    assert "------" in output
     assert "* name: Identifier" in output
     assert "* type: Type" in output
+
+def test_render_program_with_title():
+    pattern = Pattern(
+        name="VarDec",
+        parameters=[
+            Parameter(name="name", type=Type(name="Identifier"))
+        ]
+    )
+    program = Program(patterns=[pattern], instances=[])
+    generator = CodeGenerator()
+    output = generator.render_program(program, title="My Title")
+
+    assert "My Title" in output
+    assert "========" in output
+    assert "VarDec" in output
+    assert "------" in output
 
 def test_render_instance_table():
     pattern = Pattern(
