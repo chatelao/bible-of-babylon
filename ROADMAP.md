@@ -139,6 +139,8 @@
 - [x] Implement `SwitchCase` pattern <!-- issue #16 -->
     - [x] 16.1 Define `SwitchCase` pattern <!-- issue #16.1 -->
     - [x] 16.2 Implement instances across all 15 languages <!-- issue #16.2 -->
+- [x] Implement `Arithmetic` and `Bitwise` patterns
+    - [x] Define patterns and implement instances across all 18 languages
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->

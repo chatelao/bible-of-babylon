@@ -1788,3 +1788,404 @@ instance JavaBytecodeConstant of Constant {
     syntax = ".field public static final MAX I = 100"
     notes = "Constants are represented as static final fields."
 }
+
+pattern Arithmetic {
+    meta description: "Standard mathematical operations for numeric values."
+    parameter plus: String
+    parameter minus: String
+    parameter times: String
+    parameter divide: String
+    parameter mod: String
+    parameter floor: String
+    parameter round: String
+    parameter notes: String
+}
+
+pattern Bitwise {
+    meta description: "Operations that perform bit-level manipulations on integer values."
+    parameter bit_and: String
+    parameter bit_or: String
+    parameter bit_xor: String
+    parameter bit_not: String
+    parameter bit_lshift: String
+    parameter bit_rshift: String
+    parameter notes: String
+}
+
+instance CArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "floor(a)"
+    round = "round(a)"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators in C."
+}
+
+instance JavaArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "Math.floor(a)"
+    round = "Math.round(a)"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators in Java."
+}
+
+instance RustArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "a.floor()"
+    round = "a.round()"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "!a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Bitwise NOT uses the ! operator."
+}
+
+instance PythonArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "math.floor(a)"
+    round = "round(a)"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators."
+}
+
+instance PhpArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "floor(a)"
+    round = "round(a)"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators."
+}
+
+instance BashArithmetic of Arithmetic {
+    plus = "((a + b))"
+    minus = "((a - b))"
+    times = "((a * b))"
+    divide = "((a / b))"
+    mod = "((a % b))"
+    floor = "echo \"a / 1\" | bc"
+    round = "printf \"%.0f\" \"$a\""
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashBitwise of Bitwise {
+    bit_and = "((a & b))"
+    bit_or = "((a | b))"
+    bit_xor = "((a ^ b))"
+    bit_not = "((~a))"
+    bit_lshift = "((a << b))"
+    bit_rshift = "((a >> b))"
+    notes = "Bitwise operations within double parentheses."
+}
+
+instance PowerShellArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "[Math]::Floor(a)"
+    round = "[Math]::Round(a)"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellBitwise of Bitwise {
+    bit_and = "a -band b"
+    bit_or = "a -bor b"
+    bit_xor = "a -bxor b"
+    bit_not = "-bnot a"
+    bit_lshift = "a -shl b"
+    bit_rshift = "a -shr b"
+    notes = "Uses prefixed operators for bitwise logic."
+}
+
+instance CmdArithmetic of Arithmetic {
+    plus = "set /a res=a+b"
+    minus = "set /a res=a-b"
+    times = "set /a res=a*b"
+    divide = "set /a res=a/b"
+    mod = "set /a res=a%%b"
+    floor = "N/A"
+    round = "N/A"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdBitwise of Bitwise {
+    bit_and = "set /a res=\"a & b\""
+    bit_or = "set /a res=\"a | b\""
+    bit_xor = "set /a res=\"a ^ b\""
+    bit_not = "set /a res=\"~a\""
+    bit_lshift = "set /a res=\"a << b\""
+    bit_rshift = "set /a res=\"a >> b\""
+    notes = "Bitwise operators within set /a expressions."
+}
+
+instance SqlArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "FLOOR(a)"
+    round = "ROUND(a, 0)"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "N/A"
+    bit_rshift = "N/A"
+    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+}
+
+instance ErlangArithmetic of Arithmetic {
+    plus = "A + B"
+    minus = "A - B"
+    times = "A * B"
+    divide = "A / B"
+    mod = "A rem B"
+    floor = "floor(A)"
+    round = "round(A)"
+    notes = "Uses 'rem' for remainder and 'div' for integer division."
+}
+
+instance ErlangBitwise of Bitwise {
+    bit_and = "A band B"
+    bit_or = "A bor B"
+    bit_xor = "A bxor B"
+    bit_not = "bnot A"
+    bit_lshift = "A bsl B"
+    bit_rshift = "A bsr B"
+    notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
+}
+
+instance LispArithmetic of Arithmetic {
+    plus = "(+ a b)"
+    minus = "(- a b)"
+    times = "(* a b)"
+    divide = "(/ a b)"
+    mod = "(mod a b)"
+    floor = "(floor a)"
+    round = "(round a)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispBitwise of Bitwise {
+    bit_and = "(logand a b)"
+    bit_or = "(logior a b)"
+    bit_xor = "(logxor a b)"
+    bit_not = "(lognot a)"
+    bit_lshift = "(ash a b)"
+    bit_rshift = "(ash a -b)"
+    notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
+}
+
+instance XQueryArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a div b"
+    mod = "a mod b"
+    floor = "floor(a)"
+    round = "round(a)"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryBitwise of Bitwise {
+    bit_and = "N/A"
+    bit_or = "N/A"
+    bit_xor = "N/A"
+    bit_not = "N/A"
+    bit_lshift = "N/A"
+    bit_rshift = "N/A"
+    notes = "Standard XQuery does not have native bitwise operators."
+}
+
+instance CssArithmetic of Arithmetic {
+    plus = "calc(a + b)"
+    minus = "calc(a - b)"
+    times = "calc(a * b)"
+    divide = "calc(a / b)"
+    mod = "mod(a, b)"
+    floor = "N/A"
+    round = "round(a)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssBitwise of Bitwise {
+    bit_and = "N/A"
+    bit_or = "N/A"
+    bit_xor = "N/A"
+    bit_not = "N/A"
+    bit_lshift = "N/A"
+    bit_rshift = "N/A"
+    notes = "CSS does not support bitwise operations."
+}
+
+instance CudaArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a % b"
+    floor = "floor(a)"
+    round = "round(a)"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators supported in kernels."
+}
+
+instance X86Arithmetic of Arithmetic {
+    plus = "add eax, ebx"
+    minus = "sub eax, ebx"
+    times = "imul eax, ebx"
+    divide = "idiv ebx"
+    mod = "N/A"
+    floor = "N/A"
+    round = "N/A"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Bitwise of Bitwise {
+    bit_and = "and eax, ebx"
+    bit_or = "or eax, ebx"
+    bit_xor = "xor eax, ebx"
+    bit_not = "not eax"
+    bit_lshift = "shl eax, cl"
+    bit_rshift = "shr eax, cl"
+    notes = "Bitwise instructions for general-purpose registers."
+}
+
+instance RiscvArithmetic of Arithmetic {
+    plus = "add t0, t1, t2"
+    minus = "sub t0, t1, t2"
+    times = "mul t0, t1, t2"
+    divide = "div t0, t1, t2"
+    mod = "rem t0, t1, t2"
+    floor = "N/A"
+    round = "N/A"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvBitwise of Bitwise {
+    bit_and = "and t0, t1, t2"
+    bit_or = "or t0, t1, t2"
+    bit_xor = "xor t0, t1, t2"
+    bit_not = "not t0, t1"
+    bit_lshift = "sll t0, t1, t2"
+    bit_rshift = "srl t0, t1, t2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance PrologArithmetic of Arithmetic {
+    plus = "Res is A + B"
+    minus = "Res is A - B"
+    times = "Res is A * B"
+    divide = "Res is A / B"
+    mod = "Res is A mod B"
+    floor = "Res is floor(A)"
+    round = "Res is round(A)"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologBitwise of Bitwise {
+    bit_and = "Res is A /\ B"
+    bit_or = "Res is A \/ B"
+    bit_xor = "Res is A xor B"
+    bit_not = "Res is \ A"
+    bit_lshift = "Res is A << B"
+    bit_rshift = "Res is A >> B"
+    notes = "Bitwise operators within arithmetic expressions."
+}
+
+instance JavaBytecodeArithmetic of Arithmetic {
+    plus = "iadd"
+    minus = "isub"
+    times = "imul"
+    divide = "idiv"
+    mod = "irem"
+    floor = "N/A"
+    round = "N/A"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeBitwise of Bitwise {
+    bit_and = "iand"
+    bit_or = "ior"
+    bit_xor = "ixor"
+    bit_not = "iconst_m1\nixor"
+    bit_lshift = "ishl"
+    bit_rshift = "ishr"
+    notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
+}

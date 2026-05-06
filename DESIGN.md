@@ -38,6 +38,8 @@ This section compares languages based on common programming patterns.
 - Switch/Case statement
 - Single-line comments
 - Multi-line comments
+- Arithmetic operators
+- Bitwise operators
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
