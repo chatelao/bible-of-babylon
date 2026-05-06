@@ -71,7 +71,7 @@ def test_render_instance_table():
     assert "* - Language" in output
     assert "  - Syntax" in output
     assert "* - Python" in output
-    assert "  - ::\n\n           x = 42" in output
+    assert "  - .. code-block:: python\n\n           x = 42" in output
     assert "* - Java" in output
     assert "  - N/A" in output
 

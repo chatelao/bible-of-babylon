@@ -6,13 +6,14 @@ from .models import (
     CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
 )
 
-def format_table_cell(value: Any, is_code: bool = False) -> str:
+def format_table_cell(value: Any, is_code: bool = False, lexer: str = None) -> str:
     str_value = str(value)
     if str_value != "N/A":
         str_value = str_value.rstrip()
 
     if is_code and str_value != "N/A":
-        return "::\n\n" + "\n".join(f"    {line}" for line in str_value.splitlines())
+        marker = f".. code-block:: {lexer}" if lexer else "::"
+        return f"{marker}\n\n" + "\n".join(f"    {line}" for line in str_value.splitlines())
 
     if isinstance(value, str) and "\n" in str_value:
         lines = str_value.splitlines()
@@ -58,6 +59,34 @@ class CodeGenerator:
     ]
     ALL_SUPPORTED = PROGRAMMING_LANGUAGES + DATA_FORMATS
 
+    LEXER_MAP = {
+        "SQL": "sql",
+        "C": "c",
+        "XQuery": "xquery",
+        "Java": "java",
+        "Rust": "rust",
+        "Erlang": "erlang",
+        "Lisp": "common-lisp",
+        "Bash": "bash",
+        "Cmd": "doscon",
+        "PowerShell": "powershell",
+        "Python": "python",
+        "PHP": "php",
+        "CSS": "css",
+        "CUDA": "cpp",
+        "x86 Assembler": "nasm",
+        "X86": "nasm",
+        "RISC-V Assembler": "asm",
+        "Riscv": "asm",
+        "Prolog": "prolog",
+        "JSON": "json",
+        "XML": "xml",
+        "YAML": "yaml",
+        "TOML": "toml",
+        "CSV": "text",
+        "Fixlength": "text"
+    }
+
     def __init__(self, template_dir=None):
         if template_dir is None:
             template_dir = Path(__file__).parent / 'templates'
@@ -68,6 +97,20 @@ class CodeGenerator:
         )
         self.env.filters['format_value'] = format_value
         self.env.filters['format_table_cell'] = format_table_cell
+        self.env.filters['get_lexer'] = self.get_lexer
+
+    def get_lexer(self, name: str) -> str:
+        """
+        Determines the Pygments lexer for a given instance or language name
+        using a longest-match strategy.
+        """
+        best_match = None
+        for key in self.LEXER_MAP:
+            if name.lower().startswith(key.lower()):
+                if best_match is None or len(key) > len(best_match):
+                    best_match = key
+
+        return self.LEXER_MAP.get(best_match, "text")
 
     def render_pattern(self, pattern: Pattern) -> str:
         template = self.env.get_template('pattern.rst.j2')

@@ -9,6 +9,6 @@
 {%- for row in matrix %}
    * - {{ row.language }}
 {%- for cell in row.cells %}
-     - {{ cell|format_value|format_table_cell(is_code=True)|indent(7) }}
+     - {{ cell|format_value|format_table_cell(is_code=True, lexer=row.language|get_lexer)|indent(7) }}
 {%- endfor %}
 {%- endfor %}
