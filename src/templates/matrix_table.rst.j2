@@ -2,13 +2,12 @@
    :widths: auto
    :header-rows: 1
 
-   * - Language
-{%- for p_name in pattern_names %}
-     - {{ p_name }}
-{%- endfor %}
+   * {% for header in headers -%}
+     - {{ header }}
+     {% endfor %}
 {%- for row in matrix %}
-   * - {{ row.language }}
+   * - {{ row.label }}
 {%- for cell in row.cells %}
-     - {{ cell|format_value|format_table_cell(is_code=True, lexer=row.language|get_lexer)|indent(7) }}
+     - {{ cell.value|format_value|format_table_cell(is_code=True, lexer=cell.lexer)|indent(7) }}
 {%- endfor %}
 {%- endfor %}

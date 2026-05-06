@@ -237,74 +237,112 @@ class CodeGenerator:
 
         return "\n\n".join(results)
 
-    def _build_matrix_data(self, program: Program, languages: List[str]):
+    def _build_matrix_data(self, program: Program, languages: List[str], pivoted: bool = False):
         # 1. Get all pattern names in order
         pattern_names = [p.name for p in program.patterns]
 
         # 2. Build the matrix: row = language, column = pattern
         matrix = []
-        for lang in languages:
-            row = {"language": lang, "cells": []}
-            for p_name in pattern_names:
-                # Find the instance for this language and pattern
-                # Using the same "longest match" logic as in render_pivot_table
-                instance = None
 
-                for inst in program.instances:
-                    if inst.pattern_name == p_name and (inst.name.lower().startswith(self._normalize(lang)) or inst.name.lower().startswith(lang.lower())):
-                        other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
-                                         and (inst.name.lower().startswith(self._normalize(l)) or inst.name.lower().startswith(l.lower()))]
-                        is_best_match = True
-                        for other in other_matches:
-                            if len(other) > len(lang):
-                                is_best_match = False
+        if not pivoted:
+            # Traditional matrix: Rows = Languages, Columns = Patterns
+            for lang in languages:
+                row = {"label": lang, "cells": []}
+                for p_name in pattern_names:
+                    # Find the instance for this language and pattern
+                    instance = None
+                    for inst in program.instances:
+                        if inst.pattern_name == p_name and (inst.name.lower().startswith(self._normalize(lang)) or inst.name.lower().startswith(lang.lower())):
+                            other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
+                                             and (inst.name.lower().startswith(self._normalize(l)) or inst.name.lower().startswith(l.lower()))]
+                            is_best_match = True
+                            for other in other_matches:
+                                if len(other) > len(lang):
+                                    is_best_match = False
+                                    break
+                            if is_best_match:
+                                instance = inst
                                 break
-                        if is_best_match:
-                            instance = inst
-                            break
 
-                if instance:
-                    # Try to find a displayable value in priority order
-                    syntax = "N/A"
-                    priority_params = [
-                        "syntax", "string_val", "number_val", "boolean_val",
-                        "plus", "minus", "times", "divide", "mod", "floor", "round",
-                        "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
-                    ]
-                    for param in priority_params:
-                        val = next((a.value for a in instance.assignments if a.name == param), None)
-                        if val and val != "N/A":
-                            syntax = val
-                            break
-                else:
-                    syntax = "N/A"
+                    if instance:
+                        syntax = "N/A"
+                        priority_params = [
+                            "syntax", "string_val", "number_val", "boolean_val",
+                            "plus", "minus", "times", "divide", "mod", "floor", "round",
+                            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
+                        ]
+                        for param in priority_params:
+                            val = next((a.value for a in instance.assignments if a.name == param), None)
+                            if val and val != "N/A":
+                                syntax = val
+                                break
+                    else:
+                        syntax = "N/A"
 
-                row["cells"].append(syntax)
-            matrix.append(row)
+                    row["cells"].append({"value": syntax, "lexer": self.get_lexer(lang)})
+                matrix.append(row)
+            headers = ["Language"] + pattern_names
+        else:
+            # Pivoted matrix: Rows = Patterns, Columns = Languages
+            for p_name in pattern_names:
+                row = {"label": p_name, "cells": []}
+                for lang in languages:
+                    instance = None
+                    for inst in program.instances:
+                        if inst.pattern_name == p_name and (inst.name.lower().startswith(self._normalize(lang)) or inst.name.lower().startswith(lang.lower())):
+                            other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
+                                             and (inst.name.lower().startswith(self._normalize(l)) or inst.name.lower().startswith(l.lower()))]
+                            is_best_match = True
+                            for other in other_matches:
+                                if len(other) > len(lang):
+                                    is_best_match = False
+                                    break
+                            if is_best_match:
+                                instance = inst
+                                break
 
-        return pattern_names, matrix
+                    if instance:
+                        syntax = "N/A"
+                        priority_params = [
+                            "syntax", "string_val", "number_val", "boolean_val",
+                            "plus", "minus", "times", "divide", "mod", "floor", "round",
+                            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
+                        ]
+                        for param in priority_params:
+                            val = next((a.value for a in instance.assignments if a.name == param), None)
+                            if val and val != "N/A":
+                                syntax = val
+                                break
+                    else:
+                        syntax = "N/A"
 
-    def render_matrix_table(self, program: Program, languages: List[str]) -> str:
-        pattern_names, matrix = self._build_matrix_data(program, languages)
+                    row["cells"].append({"value": syntax, "lexer": self.get_lexer(lang)})
+                matrix.append(row)
+            headers = ["Pattern"] + languages
+
+        return headers, matrix
+
+    def render_matrix_table(self, program: Program, languages: List[str], pivoted: bool = False) -> str:
+        headers, matrix = self._build_matrix_data(program, languages, pivoted=pivoted)
         template = self.env.get_template('matrix_table.rst.j2')
         return template.render(
-            pattern_names=pattern_names,
+            headers=headers,
             matrix=matrix
         )
 
-    def render_matrix_chapter(self, program: Program, languages: List[str], title: str = None) -> str:
+    def render_matrix_chapter(self, program: Program, languages: List[str], title: str = None, pivoted: bool = False) -> str:
         results = []
         if title:
             results.append(f"{title}\n{'=' * len(title)}")
 
-        results.append(self.render_matrix_table(program, languages))
+        results.append(self.render_matrix_table(program, languages, pivoted=pivoted))
 
         return "\n\n".join(results)
 
-    def render_matrix_csv(self, program: Program, languages: List[str]) -> str:
-        pattern_names, matrix = self._build_matrix_data(program, languages)
+    def render_matrix_csv(self, program: Program, languages: List[str], pivoted: bool = False) -> str:
+        headers, matrix = self._build_matrix_data(program, languages, pivoted=pivoted)
         template = self.env.get_template('matrix_table.csv.j2')
         return template.render(
-            pattern_names=pattern_names,
+            headers=headers,
             matrix=matrix
         )
