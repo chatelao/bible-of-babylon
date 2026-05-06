@@ -1302,3 +1302,132 @@ instance PrologSwitchCase of SwitchCase {
     syntax = "(   X = 1 -> writeln('one')\n;   X = 2 -> writeln('two')\n;   writeln('none')\n)"
     notes = "Usually implemented using nested (If -> Then ; Else) or multiple clauses."
 }
+
+pattern Constant {
+    meta description: "Declaration of an immutable value that remains unchanged throughout the program's execution."
+    parameter name: String
+    parameter type: String
+    parameter value: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "const int MAX = 100;"
+    notes = "The 'const' qualifier makes the variable immutable after initialization."
+}
+
+instance JavaConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "public static final int MAX = 100;"
+    notes = "Uses 'final' to prevent modification; typically combined with 'static' for class-level constants."
+}
+
+instance RustConstant of Constant {
+    name = "MAX"
+    type = "i32"
+    value = "100"
+    syntax = "const MAX: i32 = 100;"
+    notes = "Constants are always immutable and must have their types explicitly declared."
+}
+
+instance PythonConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "MAX = 100"
+    notes = "Python does not have true constants; uppercase naming is a convention to indicate immutability."
+}
+
+instance BashConstant of Constant {
+    name = "MAX"
+    type = "Untyped"
+    value = "100"
+    syntax = "readonly MAX=100"
+    notes = "The 'readonly' command prevents the variable from being redefined or unset."
+}
+
+instance PowerShellConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "Set-Variable -Name MAX -Value 100 -Option ReadOnly"
+    notes = "Using Set-Variable with the ReadOnly option; Constant option is even more restrictive."
+}
+
+instance CmdConstant of Constant {
+    name = "MAX"
+    type = "Untyped"
+    value = "100"
+    syntax = "set MAX=100"
+    notes = "Cmd has no native support for constants; developers must manually ensure the value is not changed."
+}
+
+instance SqlConstant of Constant {
+    name = "MAX"
+    type = "INT"
+    value = "100"
+    syntax = "DECLARE @MAX INT = 100;"
+    notes = "T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure."
+}
+
+instance ErlangConstant of Constant {
+    name = "MAX"
+    type = "N/A"
+    value = "100"
+    syntax = "-define(MAX, 100)."
+    notes = "Uses preprocessor macros to define constants; replaced at compile time."
+}
+
+instance LispConstant of Constant {
+    name = "MAX"
+    type = "Dynamic"
+    value = "100"
+    syntax = "(defconstant +max+ 100)"
+    notes = "Defines a global constant; by convention, names are often wrapped in + signs."
+}
+
+instance XQueryConstant of Constant {
+    name = "MAX"
+    type = "xs:integer"
+    value = "100"
+    syntax = "declare variable $MAX as xs:integer := 100;"
+    notes = "In XQuery, variables declared in the prolog are immutable by default."
+}
+
+instance CssConstant of Constant {
+    name = "MAX"
+    type = "Number"
+    value = "100"
+    syntax = "--MAX: 100;"
+    notes = "CSS custom properties act as constants within their scope."
+}
+
+instance CudaConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "__constant__ int MAX = 100;"
+    notes = "The __constant__ qualifier places the variable in the constant memory space of the GPU."
+}
+
+instance X86Constant of Constant {
+    name = "MAX"
+    type = "Immediate"
+    value = "100"
+    syntax = "MAX equ 100"
+    notes = "Uses the EQU directive to define a symbolic constant (Intel syntax)."
+}
+
+instance PrologConstant of Constant {
+    name = "max"
+    type = "Atom/Integer"
+    value = "100"
+    syntax = "max(100)."
+    notes = "Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment."
+}
