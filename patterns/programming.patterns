@@ -1684,3 +1684,107 @@ instance PrologConstant of Constant {
     syntax = "max(100)."
     notes = "Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment."
 }
+
+instance JavaBytecodeVar of VariableDeclaration {
+    name = "x"
+    type = "I"
+    initial_value = 42
+    syntax = ".field private static x I = 42"
+    notes = "In Jasmin syntax, static fields represent global-like variables."
+}
+
+instance JavaBytecodeIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "    getstatic MyClass/x I\n    ifgt LabelThen\n    iconst_0\n    ireturn\nLabelThen:\n    iconst_1\n    ireturn"
+    notes = "Implemented using stack operations and branch instructions (ifgt)."
+}
+
+instance JavaBytecodeLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1;" }
+    syntax = "LoopStart:\n    getstatic MyClass/x I\n    ifle LoopEnd\n    getstatic MyClass/x I\n    iconst_1\n    isub\n    putstatic MyClass/x I\n    goto LoopStart\nLoopEnd:"
+    notes = "Loops are built with labels and jump instructions (goto, ifle)."
+}
+
+instance JavaBytecodeFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["I", "I"]
+    return_type = "I"
+    body = { raw "iload_0\niload_1\niadd\nireturn" }
+    syntax = ".method public static add(II)I\n    .limit stack 2\n    .limit locals 2\n    iload_0\n    iload_1\n    iadd\n    ireturn\n.end method"
+    notes = "Methods define stack and local variable limits; parameters are accessed by index."
+}
+
+instance JavaBytecodeTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "java/lang/Exception"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = ".catch java/lang/Exception from TryStart to TryEnd using CatchHandler\nTryStart:\n    invokestatic MyClass/do_something()V\nTryEnd:\n    goto Done\nCatchHandler:\n    astore_1\n    aload_1\n    invokestatic MyClass/handle(Ljava/lang/Exception;)V\nDone:"
+    notes = "Exception handlers are defined via .catch directives for specific code ranges."
+}
+
+instance JavaBytecodeRaise of Raise {
+    exception_type = "java/lang/RuntimeException"
+    message = "Error"
+    syntax = "    new java/lang/RuntimeException\n    dup\n    ldc \"Error\"\n    invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V\n    athrow"
+    notes = "Exceptions are instantiated and then thrown using the athrow instruction."
+}
+
+instance JavaBytecodePrint of Print {
+    value = "Hello, World!"
+    syntax = "    getstatic java/lang/System/out Ljava/io/PrintStream;\n    ldc \"Hello, World!\"\n    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V"
+    notes = "Calls println on the static System.out field."
+}
+
+instance JavaBytecodeThread of Thread {
+    body = { call do_work() }
+    syntax = "    new java/lang/Thread\n    dup\n    new MyRunnable\n    dup\n    invokespecial MyRunnable/<init>()V\n    invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V\n    invokevirtual java/lang/Thread/start()V"
+    notes = "Involves instantiating a Thread object with a Runnable and calling start()."
+}
+
+instance JavaBytecodeSendMessage of SendMessage {
+    recipient = "queue"
+    message = "42"
+    syntax = "    aload_0 ; queue\n    bipush 42\n    invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;\n    invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V"
+    notes = "Typically uses standard Java concurrent collections like BlockingQueue."
+}
+
+instance JavaBytecodeReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "    aload_0 ; queue\n    invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;\n    checkcast java/lang/Integer\n    invokevirtual java/lang/Integer/intValue()I\n    istore_1 ; msg\n    iload_1\n    invokestatic MyClass/handle(I)V"
+    notes = "Blocking retrieval from a concurrent collection."
+}
+
+instance JavaBytecodeSingleLineComment of SingleLineComment {
+    syntax = "; comment"
+    notes = "Jasmin uses semicolons for single-line comments."
+}
+
+instance JavaBytecodeMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Java Bitcode (Jasmin) does not have a native multi-line comment syntax; multiple semicolons are used."
+}
+
+instance JavaBytecodeImport of Import {
+    module_name = "java/util/List"
+    syntax = "Ljava/util/List;"
+    notes = "Internal descriptors are used to reference external classes."
+}
+
+instance JavaBytecodeSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "    getstatic MyClass/x I\n    lookupswitch\n        1: Label1\n        2: Label2\n        default: LabelDefault\nLabel1:\n    ; ...\nLabel2:\n    ; ...\nLabelDefault:\n    ; ..."
+    notes = "Uses lookupswitch or tableswitch instructions for multi-way branching."
+}
+
+instance JavaBytecodeConstant of Constant {
+    name = "MAX"
+    type = "I"
+    value = "100"
+    syntax = ".field public static final MAX I = 100"
+    notes = "Constants are represented as static final fields."
+}

@@ -52,7 +52,7 @@ class CodeGenerator:
     PROGRAMMING_LANGUAGES = [
         "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
-        "X86", "Riscv"
+        "X86", "Riscv", "Java Bytecode"
     ]
     DATA_FORMATS = [
         "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
@@ -79,6 +79,7 @@ class CodeGenerator:
         "RISC-V Assembler": "asm",
         "Riscv": "asm",
         "Prolog": "prolog",
+        "Java Bytecode": "jasm",
         "JSON": "json",
         "XML": "xml",
         "YAML": "yaml",
@@ -99,6 +100,13 @@ class CodeGenerator:
         self.env.filters['format_table_cell'] = format_table_cell
         self.env.filters['get_lexer'] = self.get_lexer
 
+    def _normalize(self, name: str) -> str:
+        """
+        Normalizes a language or format name for prefix matching by removing
+        spaces, hyphens, and the word 'assembler'.
+        """
+        return name.lower().replace(" ", "").replace("-", "").replace("assembler", "")
+
     def get_lexer(self, name: str) -> str:
         """
         Determines the Pygments lexer for a given instance or language name
@@ -106,7 +114,7 @@ class CodeGenerator:
         """
         best_match = None
         for key in self.LEXER_MAP:
-            if name.lower().startswith(key.lower()):
+            if name.lower().startswith(self._normalize(key)) or name.lower().startswith(key.lower()):
                 if best_match is None or len(key) > len(best_match):
                     best_match = key
 
@@ -164,10 +172,11 @@ class CodeGenerator:
         for instance in program.instances:
             # First, check if any OTHER language matches the instance name better
             other_matches = [lang for lang in self.ALL_SUPPORTED if lang.lower() != language.lower()
-                             and instance.name.lower().startswith(lang.lower())]
+                             and (instance.name.lower().startswith(self._normalize(lang))
+                                  or instance.name.lower().startswith(lang.lower()))]
 
             # If the requested language matches the prefix
-            if instance.name.lower().startswith(language.lower()):
+            if instance.name.lower().startswith(self._normalize(language)) or instance.name.lower().startswith(language.lower()):
                 # Ensure no OTHER language is a longer (better) match
                 is_best_match = True
                 for other in other_matches:
@@ -233,9 +242,9 @@ class CodeGenerator:
                 instance = None
 
                 for inst in program.instances:
-                    if inst.pattern_name == p_name and inst.name.lower().startswith(lang.lower()):
+                    if inst.pattern_name == p_name and (inst.name.lower().startswith(self._normalize(lang)) or inst.name.lower().startswith(lang.lower())):
                         other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
-                                         and inst.name.lower().startswith(l.lower())]
+                                         and (inst.name.lower().startswith(self._normalize(l)) or inst.name.lower().startswith(l.lower()))]
                         is_best_match = True
                         for other in other_matches:
                             if len(other) > len(lang):

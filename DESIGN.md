@@ -25,6 +25,7 @@ This section compares languages based on common programming patterns.
 - x86 Assembler
 - RISC-V Assembler
 - Prolog
+- Java Bytecode
 
 **Patterns to be compared:**
 - Variable declaration
