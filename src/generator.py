@@ -108,7 +108,7 @@ class CodeGenerator:
 
         # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
         all_languages = [
-            "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
+            "SQL", "C", "XQuery", "Java Bitcode", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
             "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog"
         ]
 
@@ -116,10 +116,10 @@ class CodeGenerator:
         for instance in program.instances:
             # First, check if any OTHER language matches the instance name better
             other_matches = [lang for lang in all_languages if lang.lower() != language.lower()
-                             and instance.name.lower().startswith(lang.lower())]
+                             and (instance.name.lower().startswith(lang.lower().replace(" ", "")) or instance.name.lower().startswith(lang.lower()))]
 
             # If the requested language matches the prefix
-            if instance.name.lower().startswith(language.lower()):
+            if instance.name.lower().startswith(language.lower().replace(" ", "")) or instance.name.lower().startswith(language.lower()):
                 # Ensure no OTHER language is a longer (better) match
                 is_best_match = True
                 for other in other_matches:
