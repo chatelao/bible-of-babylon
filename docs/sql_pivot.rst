@@ -7,7 +7,6 @@ SQL Pivot
 
    * - Pattern
      - Syntax
-     - Single line
      - Multi line
      - String val
      - Number val
@@ -15,7 +14,6 @@ SQL Pivot
      - Notes
    * - VariableDeclaration
      - ``DECLARE @x INT = 42;``
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -36,7 +34,6 @@ SQL Pivot
      - N/A
      - N/A
      - N/A
-     - N/A
      - Uses IF-ELSE with BEGIN-END blocks.
    * - Loop
      - ::
@@ -45,7 +42,6 @@ SQL Pivot
            BEGIN
                SET @x = @x - 1
            END
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -59,7 +55,6 @@ SQL Pivot
            BEGIN
                RETURN @a + @b
            END
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -78,7 +73,6 @@ SQL Pivot
      - N/A
      - N/A
      - N/A
-     - N/A
      - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
    * - Raise
      - ``THROW 50000, 'Error', 1;``
@@ -86,11 +80,15 @@ SQL Pivot
      - N/A
      - N/A
      - N/A
-     - N/A
      - The THROW statement raises an exception and transfers execution to a CATCH block.
-   * - Comment
-     - N/A
+   * - SingleLineComment
      - ``-- comment``
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL single-line comment.
+   * - MultiLineComment
      - ::
 
            /* line 1
@@ -98,10 +96,10 @@ SQL Pivot
      - N/A
      - N/A
      - N/A
-     - Standard SQL comment syntax.
+     - N/A
+     - Standard SQL multi-line comment.
    * - Print
      - ``PRINT 'Hello, World!';``
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -113,5 +111,24 @@ SQL Pivot
      - N/A
      - N/A
      - N/A
-     - N/A
      - Standard SQL does not have a native 'import' keyword for code; database objects are globally accessible or schema-qualified.
+   * - SwitchCase
+     - ::
+
+           CASE @x
+               WHEN 1 THEN 'one'
+               WHEN 2 THEN 'two'
+               ELSE 'none'
+           END
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - The CASE expression is used for conditional logic in SQL.
+   * - Constant
+     - ``DECLARE @MAX INT = 100;``
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.

@@ -72,7 +72,7 @@
             - [x] 8.5.2.1 Rust instances <!-- 2026-05-08, issue #8.5.2.1 -->
             - [x] 8.5.2.2 Erlang instances <!-- 2026-05-08, issue #8.5.2.2 -->
             - [x] 8.5.2.3 Java instances <!-- 2026-05-08, issue #8.5.2.3 -->
-    - [x] 8.6 Comments <!-- 2026-05-12, issue #8.6 -->
+    - [x] 8.6 Single-line and Multi-line comments <!-- 2026-05-12, issue #8.6 -->
     - [x] 8.7 Print (Hello World) <!-- 2026-05-24, issue #8.7 -->
 - [x] Populate Data Format patterns <!-- 2026-05-11, issue #9 -->
     - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
@@ -96,8 +96,8 @@
             - [x] 9.3.2.2 XML (Attributes) <!-- 2026-05-10, issue #9.3.2.2 -->
             - [x] 9.3.2.3 YAML <!-- 2026-05-10, issue #9.3.2.3 -->
             - [x] 9.3.2.4 TOML <!-- 2026-05-10, issue #9.3.2.4 -->
-    - [x] 9.4 Comments support <!-- 2026-05-11, issue #9.4 -->
-        - [x] 9.4.1 Define `Comment` pattern <!-- 2026-05-11, issue #9.4.1 -->
+    - [x] 9.4 Single-line and Multi-line comments <!-- 2026-05-11, issue #9.4 -->
+        - [x] 9.4.1 Define `SingleLineComment` and `MultiLineComment` patterns <!-- 2026-05-11, issue #9.4.1 -->
         - [x] 9.4.2 Implement instances across formats <!-- 2026-05-11, issue #9.4.2 -->
             - [x] 9.4.2.1 JSON (N/A) <!-- 2026-05-11, issue #9.4.2.1 -->
             - [x] 9.4.2.2 XML <!-- 2026-05-11, issue #9.4.2.2 -->

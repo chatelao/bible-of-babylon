@@ -34,6 +34,8 @@ This section compares languages based on common programming patterns.
 - Module/Package Import
 - Constants
 - Switch/Case statement
+- Single-line comments
+- Multi-line comments
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
@@ -50,7 +52,8 @@ This section compares data structures and serialization formats.
 - Basic data types (Strings, Numbers, Booleans)
 - Nested structures (Objects/Maps, Arrays/Lists)
 - Metadata/Attributes
-- Comments support
+- Single-line comments
+- Multi-line comments
 - Schema validation
 - Header
 
