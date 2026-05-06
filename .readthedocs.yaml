@@ -8,6 +8,11 @@ build:
     pre_build:
       - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -o docs/programming.rst --title "Programming Language Patterns"
       - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -o docs/data_formats.rst --title "Data Format Patterns"
+      - echo "Comparison Matrices" > docs/matrices.rst
+      - echo "===================" >> docs/matrices.rst
+      - echo "" >> docs/matrices.rst
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,X86,Riscv,Prolog" --title "Programming Languages Matrix" >> docs/matrices.rst
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --title "Data Formats Matrix" >> docs/matrices.rst
 
 python:
   install:

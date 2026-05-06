@@ -1,0 +1,4 @@
+Language,{{ pattern_names|join(',') }}
+{%- for row in matrix %}
+{{ row.language }},{{ row.cells | map('format_value') | map('replace', '"', '""') | map('format_csv_cell') | join(',') }}
+{%- endfor %}

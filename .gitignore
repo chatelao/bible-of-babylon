@@ -5,4 +5,4 @@ __pycache__/
 docs/_build/
 docs/programming.rst
 docs/data_formats.rst
-docs/appendix.rst
+docs/matrices.rst

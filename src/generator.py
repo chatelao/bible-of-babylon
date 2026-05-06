@@ -19,6 +19,12 @@ def format_table_cell(value: Any, is_code: bool = False) -> str:
         return "\n".join(f"| {line}" if line.strip() else "|" for line in lines)
     return str_value
 
+def format_csv_cell(value: Any) -> str:
+    str_value = str(value)
+    if ',' in str_value or '\n' in str_value or '"' in str_value:
+        return f'"{str_value}"'
+    return str_value
+
 def format_value(value) -> str:
     if isinstance(value, str):
         return value
@@ -68,6 +74,7 @@ class CodeGenerator:
         )
         self.env.filters['format_value'] = format_value
         self.env.filters['format_table_cell'] = format_table_cell
+        self.env.filters['format_csv_cell'] = format_csv_cell
 
     def render_pattern(self, pattern: Pattern) -> str:
         template = self.env.get_template('pattern.rst.j2')
@@ -230,3 +237,45 @@ class CodeGenerator:
         results.append(self.render_matrix_table(program, languages))
 
         return "\n\n".join(results)
+
+    def render_matrix_csv(self, program: Program, languages: List[str]) -> str:
+        # 1. Get all pattern names in order
+        pattern_names = [p.name for p in program.patterns]
+
+        # 2. Build the matrix: row = language, column = pattern
+        matrix = []
+        for lang in languages:
+            row = {"language": lang, "cells": []}
+            for p_name in pattern_names:
+                instance = None
+                for inst in program.instances:
+                    if inst.pattern_name == p_name and inst.name.lower().startswith(lang.lower()):
+                        other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
+                                         and inst.name.lower().startswith(l.lower())]
+                        is_best_match = True
+                        for other in other_matches:
+                            if len(other) > len(lang):
+                                is_best_match = False
+                                break
+                        if is_best_match:
+                            instance = inst
+                            break
+
+                if instance:
+                    syntax = "N/A"
+                    for param in ["syntax", "string_val", "number_val", "boolean_val"]:
+                        val = next((a.value for a in instance.assignments if a.name == param), None)
+                        if val and val != "N/A":
+                            syntax = val
+                            break
+                else:
+                    syntax = "N/A"
+
+                row["cells"].append(syntax)
+            matrix.append(row)
+
+        template = self.env.get_template('matrix_table.csv.j2')
+        return template.render(
+            pattern_names=pattern_names,
+            matrix=matrix
+        )
