@@ -23,6 +23,7 @@ Welcome to the Bible of Babylon Documentation
    sql_pivot
    c_pivot
    xquery_pivot
+   php_pivot
    prolog_pivot
 
 Indices and tables

@@ -110,7 +110,7 @@ class CodeGenerator:
         # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
         all_languages = [
             "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
-            "PowerShell", "Python", "CSS", "CUDA", "x86 Assembler", "Prolog"
+            "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "Prolog"
         ]
 
         pivot_data = []
