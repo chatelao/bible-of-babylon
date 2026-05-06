@@ -63,16 +63,16 @@ For language-specific pivot chapters, we can use the `.. highlight:: <lang>` dir
 | Option | Description | Pros | Cons | Status |
 |---|---|---|---|---|
 | **A: Default Highlighting** | Use `.. highlight:: none` or let Sphinx guess. | No changes needed to templates. | Poor visual quality; inconsistent highlighting. | Discarded |
-| **B: Per-Cell Directives** | Wrap every code snippet in a specific `.. code-block:: <lang>`. | Precise highlighting for every cell; works in all tables. | Increases generated file size; more complex Jinja2 logic. | **Selected** |
+| **B: Per-Cell Directives** | Wrap every code snippet in a specific `.. code-block:: <lang>`. | Precise highlighting for every cell; works in all tables. | Increases generated file size; more complex Jinja2 logic. | **Completed** |
 | **C: Language-Specific Pages Only** | Only highlight on Pivot chapters using `.. highlight::`. | Simple implementation; clean pivot chapters. | Comparison tables (the core of the project) remain unhighlighted. | Discarded |
 
 ### Lexer Selection for Assembly
 
 | Option | Description | Pros | Cons | Status |
 |---|---|---|---|---|
-| **A: Generic `asm`** | Use the standard Pygments `asm` lexer. | Simple; broad compatibility. | May not capture dialect-specific keywords (e.g., RISC-V vs x86). | **Selected** (for RISC-V) |
-| **B: Dialect-Specific** | Use `nasm`, `gas`, etc. | Better highlighting for specific dialects. | Requires mapping internal names to specific dialects. | **Selected** (for x86) |
+| **A: Generic `asm`** | Use the standard Pygments `asm` lexer. | Simple; broad compatibility. | May not capture dialect-specific keywords (e.g., RISC-V vs x86). | **Completed** (for RISC-V) |
+| **B: Dialect-Specific** | Use `nasm`, `gas`, etc. | Better highlighting for specific dialects. | Requires mapping internal names to specific dialects. | **Completed** (for x86) |
 | **C: Custom Lexer** | Write a custom Pygments lexer for the project. | Perfect highlighting. | High maintenance overhead; overkill for documentation. | Discarded |
 
 ---
-*Evaluated on 2026-05-24*
+*Evaluated on 2026-05-24. Implemented on 2026-05-24.*
