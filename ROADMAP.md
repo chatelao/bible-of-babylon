@@ -133,9 +133,9 @@
 - [x] Implement `Import` pattern <!-- issue #13 -->
     - [x] 13.1 Define `Import` pattern <!-- issue #13.1 -->
     - [x] 13.2 Implement instances across all 15 languages <!-- issue #13.2 -->
-- [ ] Implement `Constant` pattern <!-- issue #14 -->
-    - [ ] 14.1 Define `Constant` pattern <!-- issue #14.1 -->
-    - [ ] 14.2 Implement instances across all 15 languages <!-- issue #14.2 -->
+- [x] Implement `Constant` pattern <!-- issue #14 -->
+    - [x] 14.1 Define `Constant` pattern <!-- issue #14.1 -->
+    - [x] 14.2 Implement instances across all 15 languages <!-- issue #14.2 -->
 - [x] Implement `SwitchCase` pattern <!-- issue #16 -->
     - [x] 16.1 Define `SwitchCase` pattern <!-- issue #16.1 -->
     - [x] 16.2 Implement instances across all 15 languages <!-- issue #16.2 -->
@@ -156,4 +156,4 @@
 - [ ] Generate Pivot Chapter for CSS <!-- issue #15.12 -->
 - [ ] Generate Pivot Chapter for CUDA <!-- issue #15.13 -->
 - [ ] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
-- [ ] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
+- [x] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
