@@ -1798,6 +1798,10 @@ pattern Arithmetic {
     parameter mod: String
     parameter floor: String
     parameter round: String
+    parameter increment: String
+    parameter decrement: String
+    parameter lshift: String
+    parameter rshift: String
     parameter notes: String
 }
 
@@ -1820,6 +1824,10 @@ instance CArithmetic of Arithmetic {
     mod = "a % b"
     floor = "floor(a)"
     round = "round(a)"
+    increment = "a++"
+    decrement = "a--"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Standard C operators; floor and round require math.h."
 }
 
@@ -1841,6 +1849,10 @@ instance JavaArithmetic of Arithmetic {
     mod = "a % b"
     floor = "Math.floor(a)"
     round = "Math.round(a)"
+    increment = "a++"
+    decrement = "a--"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Standard operators; Math class provides rounding and floor functions."
 }
 
@@ -1862,6 +1874,10 @@ instance RustArithmetic of Arithmetic {
     mod = "a % b"
     floor = "a.floor()"
     round = "a.round()"
+    increment = "a += 1"
+    decrement = "a -= 1"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Operators for primitive types; floor and round are methods on float types."
 }
 
@@ -1883,6 +1899,10 @@ instance PythonArithmetic of Arithmetic {
     mod = "a % b"
     floor = "math.floor(a)"
     round = "round(a)"
+    increment = "a += 1"
+    decrement = "a -= 1"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Supports both true division (/) and floor division (//)."
 }
 
@@ -1904,6 +1924,10 @@ instance PhpArithmetic of Arithmetic {
     mod = "a % b"
     floor = "floor(a)"
     round = "round(a)"
+    increment = "a++"
+    decrement = "a--"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Standard PHP arithmetic operators."
 }
 
@@ -1925,6 +1949,10 @@ instance BashArithmetic of Arithmetic {
     mod = "((a % b))"
     floor = "echo \"a / 1\" | bc"
     round = "printf \"%.0f\" \"$a\""
+    increment = "((a++))"
+    decrement = "((a--))"
+    lshift = "((a << b))"
+    rshift = "((a >> b))"
     notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
 }
 
@@ -1946,6 +1974,10 @@ instance PowerShellArithmetic of Arithmetic {
     mod = "a % b"
     floor = "[Math]::Floor(a)"
     round = "[Math]::Round(a)"
+    increment = "a++"
+    decrement = "a--"
+    lshift = "a -shl b"
+    rshift = "a -shr b"
     notes = "Standard operators; uses .NET Math class for advanced functions."
 }
 
@@ -1967,6 +1999,10 @@ instance CmdArithmetic of Arithmetic {
     mod = "set /a res=a%%b"
     floor = "N/A"
     round = "N/A"
+    increment = "set /a a+=1"
+    decrement = "set /a a-=1"
+    lshift = "set /a res=a<<b"
+    rshift = "set /a res=a>>b"
     notes = "Uses set /a for integer arithmetic; no native floating point support."
 }
 
@@ -1988,6 +2024,10 @@ instance SqlArithmetic of Arithmetic {
     mod = "a % b"
     floor = "FLOOR(a)"
     round = "ROUND(a, 0)"
+    increment = "a + 1"
+    decrement = "a - 1"
+    lshift = "N/A"
+    rshift = "N/A"
     notes = "Standard SQL arithmetic functions."
 }
 
@@ -2009,7 +2049,11 @@ instance ErlangArithmetic of Arithmetic {
     mod = "A rem B"
     floor = "floor(A)"
     round = "round(A)"
-    notes = "Uses 'rem' for remainder and 'div' for integer division."
+    increment = "A + 1"
+    decrement = "A - 1"
+    lshift = "A bsl B"
+    rshift = "A bsr B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
 }
 
 instance ErlangBitwise of Bitwise {
@@ -2030,6 +2074,10 @@ instance LispArithmetic of Arithmetic {
     mod = "(mod a b)"
     floor = "(floor a)"
     round = "(round a)"
+    increment = "(1+ a)"
+    decrement = "(1- a)"
+    lshift = "(ash a b)"
+    rshift = "(ash a -b)"
     notes = "Prefix notation for all mathematical operations."
 }
 
@@ -2051,6 +2099,10 @@ instance XQueryArithmetic of Arithmetic {
     mod = "a mod b"
     floor = "floor(a)"
     round = "round(a)"
+    increment = "a + 1"
+    decrement = "a - 1"
+    lshift = "N/A"
+    rshift = "N/A"
     notes = "Uses 'div' for division and 'idiv' for integer division."
 }
 
@@ -2072,6 +2124,10 @@ instance CssArithmetic of Arithmetic {
     mod = "mod(a, b)"
     floor = "N/A"
     round = "round(a)"
+    increment = "calc(a + 1)"
+    decrement = "calc(a - 1)"
+    lshift = "N/A"
+    rshift = "N/A"
     notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
 }
 
@@ -2093,6 +2149,10 @@ instance CudaArithmetic of Arithmetic {
     mod = "a % b"
     floor = "floor(a)"
     round = "round(a)"
+    increment = "a++"
+    decrement = "a--"
+    lshift = "a << b"
+    rshift = "a >> b"
     notes = "Same as C; device-side math functions are optimized for GPU."
 }
 
@@ -2114,6 +2174,10 @@ instance X86Arithmetic of Arithmetic {
     mod = "N/A"
     floor = "N/A"
     round = "N/A"
+    increment = "inc eax"
+    decrement = "dec eax"
+    lshift = "shl eax, cl"
+    rshift = "shr eax, cl"
     notes = "Operates on registers; division stores remainder in edx."
 }
 
@@ -2135,6 +2199,10 @@ instance RiscvArithmetic of Arithmetic {
     mod = "rem t0, t1, t2"
     floor = "N/A"
     round = "N/A"
+    increment = "addi t0, t0, 1"
+    decrement = "addi t0, t0, -1"
+    lshift = "sll t0, t1, t2"
+    rshift = "srl t0, t1, t2"
     notes = "Standard RISC-V M-extension instructions."
 }
 
@@ -2156,6 +2224,10 @@ instance PrologArithmetic of Arithmetic {
     mod = "Res is A mod B"
     floor = "Res is floor(A)"
     round = "Res is round(A)"
+    increment = "Res is A + 1"
+    decrement = "Res is A - 1"
+    lshift = "Res is A << B"
+    rshift = "Res is A >> B"
     notes = "Uses the 'is' operator to evaluate arithmetic expressions."
 }
 
@@ -2177,6 +2249,10 @@ instance JavaBytecodeArithmetic of Arithmetic {
     mod = "irem"
     floor = "N/A"
     round = "N/A"
+    increment = "iinc index, 1"
+    decrement = "iinc index, -1"
+    lshift = "ishl"
+    rshift = "ishr"
     notes = "Stack-based arithmetic instructions for integers."
 }
 
@@ -2302,6 +2378,10 @@ instance CamelArithmetic of Arithmetic {
     mod = "a mod b"
     floor = "floor a"
     round = "Float.round a"
+    increment = "a + 1"
+    decrement = "a - 1"
+    lshift = "a lsl b"
+    rshift = "a lsr b"
     notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
 }
 

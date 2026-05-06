@@ -130,6 +130,7 @@ class CodeGenerator:
         syntax_params = {
             "syntax", "string_val", "number_val", "boolean_val",
             "plus", "minus", "times", "divide", "mod", "floor", "round",
+            "increment", "decrement", "lshift", "rshift",
             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
         }
 
@@ -175,6 +176,7 @@ class CodeGenerator:
         candidates = [
             "syntax", "string_val", "number_val", "boolean_val",
             "plus", "minus", "times", "divide", "mod", "floor", "round",
+            "increment", "decrement", "lshift", "rshift",
             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift",
             "notes"
         ]
@@ -271,6 +273,7 @@ class CodeGenerator:
                         priority_params = [
                             "syntax", "string_val", "number_val", "boolean_val",
                             "plus", "minus", "times", "divide", "mod", "floor", "round",
+                            "increment", "decrement", "lshift", "rshift",
                             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
                         ]
                         for param in priority_params:
@@ -308,6 +311,7 @@ class CodeGenerator:
                         priority_params = [
                             "syntax", "string_val", "number_val", "boolean_val",
                             "plus", "minus", "times", "divide", "mod", "floor", "round",
+                            "increment", "decrement", "lshift", "rshift",
                             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
                         ]
                         for param in priority_params:
