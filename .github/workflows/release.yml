@@ -1,0 +1,31 @@
+name: Release Assets
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  generate-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate CSV Matrices
+        run: |
+          export PYTHONPATH=$PYTHONPATH:.
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog" --csv > programming_matrix.csv
+          python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --csv > data_formats_matrix.csv
+
+      - name: Upload Assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.event.release.tag_name }} programming_matrix.csv data_formats_matrix.csv

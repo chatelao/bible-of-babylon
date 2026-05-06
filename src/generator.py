@@ -219,7 +219,7 @@ class CodeGenerator:
 
         return "\n\n".join(results)
 
-    def render_matrix_table(self, program: Program, languages: List[str]) -> str:
+    def _build_matrix_data(self, program: Program, languages: List[str]):
         # 1. Get all pattern names in order
         pattern_names = [p.name for p in program.patterns]
 
@@ -259,6 +259,10 @@ class CodeGenerator:
                 row["cells"].append(syntax)
             matrix.append(row)
 
+        return pattern_names, matrix
+
+    def render_matrix_table(self, program: Program, languages: List[str]) -> str:
+        pattern_names, matrix = self._build_matrix_data(program, languages)
         template = self.env.get_template('matrix_table.rst.j2')
         return template.render(
             pattern_names=pattern_names,
@@ -273,3 +277,11 @@ class CodeGenerator:
         results.append(self.render_matrix_table(program, languages))
 
         return "\n\n".join(results)
+
+    def render_matrix_csv(self, program: Program, languages: List[str]) -> str:
+        pattern_names, matrix = self._build_matrix_data(program, languages)
+        template = self.env.get_template('matrix_table.csv.j2')
+        return template.render(
+            pattern_names=pattern_names,
+            matrix=matrix
+        )
