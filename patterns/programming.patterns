@@ -1209,7 +1209,7 @@ instance PrologSingleLineComment of SingleLineComment {
 }
 
 instance PrologMultiLineComment of MultiLineComment {
-    syntax = "/* line 1\\n   line 2 */"
+    syntax = "/* line 1\n   line 2 */"
     notes = "Standard C-style block comment."
 }
 

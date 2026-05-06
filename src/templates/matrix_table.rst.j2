@@ -1,0 +1,14 @@
+.. list-table:: Pattern Comparison Matrix
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+{%- for p_name in pattern_names %}
+     - {{ p_name }}
+{%- endfor %}
+{%- for row in matrix %}
+   * - {{ row.language }}
+{%- for cell in row.cells %}
+     - {{ cell|format_value|format_table_cell(is_code=True)|indent(7) }}
+{%- endfor %}
+{%- endfor %}

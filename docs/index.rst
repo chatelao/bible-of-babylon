@@ -15,6 +15,7 @@ Welcome to the Bible of Babylon Documentation
    programming
    data_formats
    coverage
+   appendix
 
 .. toctree::
    :maxdepth: 2

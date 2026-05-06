@@ -19,6 +19,7 @@ def main():
     parser.add_argument("-o", "--output", help="Path to the output .rst file (defaults to stdout)")
     parser.add_argument("-t", "--title", help="Top-level title for the generated documentation")
     parser.add_argument("-p", "--pivot", help="Generate a pivot table for the specified language")
+    parser.add_argument("-m", "--matrix", help="Generate a matrix table for the specified comma-separated languages")
 
     args = parser.parse_args()
 
@@ -52,6 +53,9 @@ def main():
     generator = CodeGenerator()
     if args.pivot:
         output_rst = generator.render_pivot_chapter(program_asg, args.pivot, title=args.title)
+    elif args.matrix:
+        langs = [l.strip() for l in args.matrix.split(",")]
+        output_rst = generator.render_matrix_chapter(program_asg, langs, title=args.title)
     else:
         output_rst = generator.render_program(program_asg, title=args.title)
 

@@ -47,6 +47,17 @@ def format_value(value) -> str:
     return str(value)
 
 class CodeGenerator:
+    # Centralized lists of supported languages and formats
+    PROGRAMMING_LANGUAGES = [
+        "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
+        "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
+        "X86", "Riscv"
+    ]
+    DATA_FORMATS = [
+        "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
+    ]
+    ALL_SUPPORTED = PROGRAMMING_LANGUAGES + DATA_FORMATS
+
     def __init__(self, template_dir=None):
         if template_dir is None:
             template_dir = Path(__file__).parent / 'templates'
@@ -106,16 +117,10 @@ class CodeGenerator:
         # Candidate parameters for columns in pivot table
         candidates = ["syntax", "string_val", "number_val", "boolean_val", "notes"]
 
-        # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
-        all_languages = [
-            "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
-            "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog"
-        ]
-
         pivot_data = []
         for instance in program.instances:
             # First, check if any OTHER language matches the instance name better
-            other_matches = [lang for lang in all_languages if lang.lower() != language.lower()
+            other_matches = [lang for lang in self.ALL_SUPPORTED if lang.lower() != language.lower()
                              and instance.name.lower().startswith(lang.lower())]
 
             # If the requested language matches the prefix
@@ -168,5 +173,60 @@ class CodeGenerator:
 
         results.append(f"{title}\n{'=' * len(title)}")
         results.append(self.render_pivot_table(program, language))
+
+        return "\n\n".join(results)
+
+    def render_matrix_table(self, program: Program, languages: List[str]) -> str:
+        # 1. Get all pattern names in order
+        pattern_names = [p.name for p in program.patterns]
+
+        # 2. Build the matrix: row = language, column = pattern
+        matrix = []
+        for lang in languages:
+            row = {"language": lang, "cells": []}
+            for p_name in pattern_names:
+                # Find the instance for this language and pattern
+                # Using the same "longest match" logic as in render_pivot_table
+                instance = None
+
+                for inst in program.instances:
+                    if inst.pattern_name == p_name and inst.name.lower().startswith(lang.lower()):
+                        other_matches = [l for l in self.ALL_SUPPORTED if l.lower() != lang.lower()
+                                         and inst.name.lower().startswith(l.lower())]
+                        is_best_match = True
+                        for other in other_matches:
+                            if len(other) > len(lang):
+                                is_best_match = False
+                                break
+                        if is_best_match:
+                            instance = inst
+                            break
+
+                if instance:
+                    # Try to find a displayable value in priority order
+                    syntax = "N/A"
+                    for param in ["syntax", "string_val", "number_val", "boolean_val"]:
+                        val = next((a.value for a in instance.assignments if a.name == param), None)
+                        if val and val != "N/A":
+                            syntax = val
+                            break
+                else:
+                    syntax = "N/A"
+
+                row["cells"].append(syntax)
+            matrix.append(row)
+
+        template = self.env.get_template('matrix_table.rst.j2')
+        return template.render(
+            pattern_names=pattern_names,
+            matrix=matrix
+        )
+
+    def render_matrix_chapter(self, program: Program, languages: List[str], title: str = None) -> str:
+        results = []
+        if title:
+            results.append(f"{title}\n{'=' * len(title)}")
+
+        results.append(self.render_matrix_table(program, languages))
 
         return "\n\n".join(results)
