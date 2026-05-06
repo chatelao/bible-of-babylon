@@ -157,4 +157,5 @@
 - [ ] Generate Pivot Chapter for CSS <!-- issue #15.12 -->
 - [ ] Generate Pivot Chapter for CUDA <!-- issue #15.13 -->
 - [ ] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
+- [x] Generate Pivot Chapter for RISC-V Assembler
 - [x] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->

@@ -154,6 +154,14 @@ instance X86Var of VariableDeclaration {
     notes = "Defined in the .data section (Intel syntax)."
 }
 
+instance RiscvVar of VariableDeclaration {
+    name = "x"
+    type = ".word"
+    initial_value = 42
+    syntax = "x:  .word 42"
+    notes = "Defined in the .data section."
+}
+
 instance PrologVariableDeclaration of VariableDeclaration {
     name = "X"
     type = "Dynamic"
@@ -366,6 +374,14 @@ instance X86IfElse of IfElse {
     notes = "Implemented using comparison and jump instructions (Intel syntax)."
 }
 
+instance RiscvIfElse of IfElse {
+    condition = "t0 > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "    blez t0, .else\n    li a0, 1\n    j .end\n.else:\n    li a0, 0\n.end:"
+    notes = "Uses branch instructions like blez (branch if less than or equal to zero)."
+}
+
 instance PrologIfElse of IfElse {
     condition = "X > 0"
     then_branch = { return 1 }
@@ -393,6 +409,13 @@ instance X86Loop of Loop {
     body = { raw "    dec ecx" }
     syntax = ".loop:\n    cmp ecx, 0\n    jle .end\n    dec ecx\n    jmp .loop\n.end:"
     notes = "Implemented using labels and conditional jumps."
+}
+
+instance RiscvLoop of Loop {
+    condition = "t0 > 0"
+    body = { raw "    addi t0, t0, -1" }
+    syntax = ".loop:\n    blez t0, .end\n    addi t0, t0, -1\n    j .loop\n.end:"
+    notes = "Uses conditional branches and jumps to implement loops."
 }
 
 instance PrologLoop of Loop {
@@ -535,6 +558,15 @@ instance X86Function of FunctionDefinition {
     body = { raw "    add eax, ebx\n    ret" }
     syntax = "add_func:\n    add eax, ebx\n    ret"
     notes = "Functions are labels; parameters usually passed via registers or stack."
+}
+
+instance RiscvFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a0", "a1"]
+    return_type = "a0"
+    body = { raw "    add a0, a0, a1\n    ret" }
+    syntax = "add:\n    add a0, a0, a1\n    ret"
+    notes = "Functions follow the RISC-V calling convention; a0-a7 are argument registers."
 }
 
 instance PrologFunctionDefinition of FunctionDefinition {
@@ -783,6 +815,15 @@ instance X86TryCatch of TryCatch {
     notes = "No high-level try-catch; requires OS-specific mechanisms like SEH."
 }
 
+instance RiscvTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* Manual error checking or trap handling */" }
+    syntax = "N/A"
+    notes = "No native try-catch; relies on return codes or trap handlers for errors."
+}
+
 instance PrologTryCatch of TryCatch {
     try_body = { call do_something() }
     exception_type = "Error"
@@ -811,6 +852,13 @@ instance X86Raise of Raise {
     message = "Error"
     syntax = "    int 3"
     notes = "Software interrupts (like int 3) can be used to signal errors or breakpoints."
+}
+
+instance RiscvRaise of Raise {
+    exception_type = "Trap"
+    message = "Error"
+    syntax = "    ebreak"
+    notes = "The ebreak instruction triggers a debug trap; ecall can be used for system calls."
 }
 
 instance PrologRaise of Raise {
@@ -901,6 +949,12 @@ instance X86Thread of Thread {
     notes = "Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread)."
 }
 
+instance RiscvThread of Thread {
+    body = { call do_work() }
+    syntax = "    li a7, 220 # clone syscall\n    ecall"
+    notes = "Thread creation typically involves invoking OS system calls (e.g., clone in Linux)."
+}
+
 instance PrologThread of Thread {
     body = { call do_work() }
     syntax = "thread_create(do_work, Id, [])."
@@ -926,6 +980,13 @@ instance X86SendMessage of SendMessage {
     message = "msg"
     syntax = "    push msg\n    push thread_id\n    call PostThreadMessage"
     notes = "Message passing is done via OS APIs."
+}
+
+instance RiscvSendMessage of SendMessage {
+    recipient = "tid"
+    message = "msg"
+    syntax = "    li a7, 139 # rt_sigqueueinfo\n    ecall"
+    notes = "Inter-process/thread communication is managed by the OS."
 }
 
 instance PrologSendMessage of SendMessage {
@@ -954,6 +1015,13 @@ instance X86ReceiveMessage of ReceiveMessage {
     body = { call handle(msg) }
     syntax = "    call GetMessage"
     notes = "Message retrieval via OS APIs."
+}
+
+instance RiscvReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "    li a7, 128 # rt_sigtimedwait\n    ecall"
+    notes = "Receiving signals or messages involves OS system calls."
 }
 
 instance PrologReceiveMessage of ReceiveMessage {
@@ -1120,9 +1188,19 @@ instance X86SingleLineComment of SingleLineComment {
     notes = "Most assemblers use semicolon for single-line comments (Intel syntax)."
 }
 
+instance RiscvSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "RISC-V assembly typically uses the hash character for single-line comments."
+}
+
 instance X86MultiLineComment of MultiLineComment {
     syntax = "N/A"
     notes = "Most assemblers do not have a native multi-line comment syntax."
+}
+
+instance RiscvMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "RISC-V assembly does not have a native multi-line comment syntax."
 }
 
 instance PrologSingleLineComment of SingleLineComment {
@@ -1232,6 +1310,12 @@ instance X86Print of Print {
     notes = "Printing in assembler usually involves calling C library functions or OS-specific system calls."
 }
 
+instance RiscvPrint of Print {
+    value = "Hello, World!"
+    syntax = "    la a0, hello_msg\n    call printf"
+    notes = "Typically uses the C library printf or writes to stdout via system calls."
+}
+
 instance PrologPrint of Print {
     value = "Hello, World!"
     syntax = "writeln('Hello, World!')."
@@ -1335,6 +1419,12 @@ instance X86Import of Import {
     notes = "Includes another assembly file; syntax varies by assembler (e.g., FASM uses 'include')."
 }
 
+instance RiscvImport of Import {
+    module_name = "macros.s"
+    syntax = ".include \"macros.s\""
+    notes = "Uses the .include directive to include external source files."
+}
+
 instance PrologImport of Import {
     module_name = "math"
     syntax = "use_module(library(math))."
@@ -1436,6 +1526,12 @@ instance X86SwitchCase of SwitchCase {
     expression = "eax"
     syntax = "    cmp eax, 1\n    je .case1\n    cmp eax, 2\n    je .case2\n    jmp .default\n.case1:\n    ; ...\n.case2:\n    ; ...\n.default:\n    ; ..."
     notes = "Implemented using a series of comparison and jump instructions."
+}
+
+instance RiscvSwitchCase of SwitchCase {
+    expression = "t0"
+    syntax = "    li t1, 1\n    beq t0, t1, .case1\n    li t1, 2\n    beq t0, t1, .case2\n    j .default"
+    notes = "Typically implemented using comparison and branch instructions."
 }
 
 instance PrologSwitchCase of SwitchCase {
@@ -1571,6 +1667,14 @@ instance X86Constant of Constant {
     value = "100"
     syntax = "MAX equ 100"
     notes = "Uses the EQU directive to define a symbolic constant (Intel syntax)."
+}
+
+instance RiscvConstant of Constant {
+    name = "MAX"
+    type = "Symbolic"
+    value = "100"
+    syntax = ".equiv MAX, 100"
+    notes = "Uses the .equiv or .set directive to define constants."
 }
 
 instance PrologConstant of Constant {
