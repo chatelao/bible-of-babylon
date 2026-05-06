@@ -63,7 +63,7 @@ class CodeGenerator:
         return template.render(pattern=pattern)
 
     def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
-        syntax_params = {"syntax", "single_line", "multi_line", "string_val", "number_val", "boolean_val"}
+        syntax_params = {"syntax", "string_val", "number_val", "boolean_val"}
 
         display_parameters = [p for p in pattern.parameters if p.name in syntax_params]
         notes_param = next((p for p in pattern.parameters if p.name == "notes"), None)
@@ -103,7 +103,8 @@ class CodeGenerator:
         return "\n\n".join(results)
 
     def render_pivot_table(self, program: Program, language: str) -> str:
-        syntax_params = ["syntax", "multi_line", "string_val", "number_val", "boolean_val", "notes"]
+        # Candidate parameters for columns in pivot table
+        candidates = ["syntax", "string_val", "number_val", "boolean_val", "notes"]
 
         # List of all known languages from DESIGN.md to avoid prefix collisions (e.g., C vs CSS)
         all_languages = [
@@ -131,10 +132,6 @@ class CodeGenerator:
 
                 assignments = {a.name: a.value for a in instance.assignments}
 
-                # Merge single_line into syntax if syntax is missing or N/A
-                if assignments.get("syntax", "N/A") == "N/A" and "single_line" in assignments:
-                    assignments["syntax"] = assignments["single_line"]
-
                 pivot_data.append({
                     "pattern_name": instance.pattern_name,
                     "assignments": assignments
@@ -143,10 +140,24 @@ class CodeGenerator:
         if not pivot_data:
             return f"No data found for language: {language}"
 
+        # Dynamically determine which columns to show
+        display_parameters = []
+        for cand in candidates:
+            if any(item["assignments"].get(cand, "N/A") != "N/A" for item in pivot_data):
+                display_parameters.append(cand)
+
+        # Ensure 'syntax' is at the beginning and 'notes' at the end
+        if "notes" in display_parameters:
+            display_parameters.remove("notes")
+            display_parameters.append("notes")
+        if "syntax" in display_parameters:
+            display_parameters.remove("syntax")
+            display_parameters.insert(0, "syntax")
+
         template = self.env.get_template('pivot_table.rst.j2')
         return template.render(
             language=language,
-            display_parameters=syntax_params,
+            display_parameters=display_parameters,
             pivot_data=pivot_data
         )
 

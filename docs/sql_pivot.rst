@@ -7,17 +7,11 @@ SQL Pivot
 
    * - Pattern
      - Syntax
-     - Multi line
-     - String val
-     - Number val
-     - Boolean val
      - Notes
    * - VariableDeclaration
-     - ``DECLARE @x INT = 42;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           DECLARE @x INT = 42;
      - T-SQL syntax for variable declaration.
    * - IfElse
      - ::
@@ -30,10 +24,6 @@ SQL Pivot
            BEGIN
                RETURN 0
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses IF-ELSE with BEGIN-END blocks.
    * - Loop
      - ::
@@ -42,10 +32,6 @@ SQL Pivot
            BEGIN
                SET @x = @x - 1
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard WHILE loop in T-SQL.
    * - FunctionDefinition
      - ::
@@ -55,10 +41,6 @@ SQL Pivot
            BEGIN
                RETURN @a + @b
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL syntax for Scalar-Valued Functions.
    * - TryCatch
      - ::
@@ -69,47 +51,29 @@ SQL Pivot
            BEGIN CATCH
                EXEC handle_error;
            END CATCH
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
    * - Raise
-     - ``THROW 50000, 'Error', 1;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           THROW 50000, 'Error', 1;
      - The THROW statement raises an exception and transfers execution to a CATCH block.
    * - SingleLineComment
-     - ``-- comment``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           -- comment
      - Standard SQL single-line comment.
    * - MultiLineComment
      - ::
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL multi-line comment.
    * - Print
-     - ``PRINT 'Hello, World!';``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           PRINT 'Hello, World!';
      - T-SQL PRINT statement outputs a message to the client.
    * - Import
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - Standard SQL does not have a native 'import' keyword for code; database objects are globally accessible or schema-qualified.
    * - SwitchCase
@@ -120,15 +84,9 @@ SQL Pivot
                WHEN 2 THEN 'two'
                ELSE 'none'
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The CASE expression is used for conditional logic in SQL.
    * - Constant
-     - ``DECLARE @MAX INT = 100;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           DECLARE @MAX INT = 100;
      - T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.
