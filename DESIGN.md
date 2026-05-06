@@ -23,6 +23,7 @@ This section compares languages based on common programming patterns.
 - CSS
 - CUDA
 - x86 Assembler
+- RISC-V Assembler
 - Prolog
 
 **Patterns to be compared:**
