@@ -144,7 +144,7 @@
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
 - [x] Generate Pivot Chapter for SQL <!-- issue #15.1 -->
 - [x] Generate Pivot Chapter for C <!-- issue #15.2 -->
-- [ ] Generate Pivot Chapter for XQuery <!-- issue #15.3 -->
+- [x] Generate Pivot Chapter for XQuery <!-- issue #15.3 -->
 - [ ] Generate Pivot Chapter for Java <!-- issue #15.4 -->
 - [ ] Generate Pivot Chapter for Rust <!-- issue #15.5 -->
 - [ ] Generate Pivot Chapter for Erlang <!-- issue #15.6 -->
