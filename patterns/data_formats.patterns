@@ -170,47 +170,76 @@ instance FixlengthMetadata of Metadata {
     notes = "Fixed-length formats do not natively support metadata or attributes within the data records."
 }
 
-pattern Comment {
-    meta description: "Way to add non-executable explanatory text to the data."
-    parameter single_line: String
-    parameter multi_line: String
+pattern SingleLineComment {
+    meta description: "Way to add non-executable explanatory text to the data on a single line."
+    parameter syntax: String
     parameter notes: String
 }
 
-instance JsonComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
+pattern MultiLineComment {
+    meta description: "Way to add non-executable explanatory text to the data spanning multiple lines."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance JsonSingleLineComment of SingleLineComment {
+    syntax = "N/A"
     notes = "JSON does not natively support comments."
 }
 
-instance XmlComment of Comment {
-    single_line = "<!-- comment -->"
-    multi_line = "<!--\n  line 1\n  line 2\n-->"
+instance JsonMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "JSON does not natively support comments."
+}
+
+instance XmlSingleLineComment of SingleLineComment {
+    syntax = "<!-- comment -->"
+    notes = "XML uses <!-- --> for comments."
+}
+
+instance XmlMultiLineComment of MultiLineComment {
+    syntax = "<!--\n  line 1\n  line 2\n-->"
     notes = "XML uses the same syntax for single and multi-line comments."
 }
 
-instance YamlComment of Comment {
-    single_line = "# comment"
-    multi_line = "# line 1\n# line 2"
-    notes = "YAML only supports single-line comments starting with #."
+instance YamlSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "YAML uses # for single-line comments."
 }
 
-instance TomlComment of Comment {
-    single_line = "# comment"
-    multi_line = "# line 1\n# line 2"
+instance YamlMultiLineComment of MultiLineComment {
+    syntax = "# line 1\n# line 2"
+    notes = "YAML does not have a native block comment; it uses multiple single-line comments."
+}
+
+instance TomlSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "TOML uses # for single-line comments."
+}
+
+instance TomlMultiLineComment of MultiLineComment {
+    syntax = "# line 1\n# line 2"
     notes = "TOML only supports single-line comments starting with #."
 }
 
-instance CsvComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
+instance CsvSingleLineComment of SingleLineComment {
+    syntax = "N/A"
     notes = "Standard CSV does not natively support comments; some variations use #."
 }
 
-instance FixlengthComment of Comment {
-    single_line = "N/A"
-    multi_line = "N/A"
-    notes = "Fixed-length formats generally do not support comments; every byte is typically part of the data definition."
+instance CsvMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Standard CSV does not support multi-line comments."
+}
+
+instance FixlengthSingleLineComment of SingleLineComment {
+    syntax = "N/A"
+    notes = "Fixed-length formats generally do not support comments."
+}
+
+instance FixlengthMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Fixed-length formats generally do not support comments."
 }
 
 pattern SchemaLink {

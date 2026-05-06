@@ -67,8 +67,14 @@ XQuery Pivot
      - N/A
      - N/A
      - The fn:error() function signals a dynamic error.
-   * - Comment
+   * - SingleLineComment
      - ``(: comment :)``
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - XQuery uses (: :) for single-line comments.
+   * - MultiLineComment
      - ::
 
            (: line 1
@@ -76,7 +82,8 @@ XQuery Pivot
      - N/A
      - N/A
      - N/A
-     - XQuery uses (: :) for both single and multi-line comments.
+     - N/A
+     - XQuery uses (: :) for multi-line comments.
    * - Print
      - ``"Hello, World!"``
      - N/A

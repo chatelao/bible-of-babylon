@@ -1,5 +1,5 @@
-Prolog Pivot View
-=================
+Prolog Pivot
+============
 
 .. list-table:: Prolog Pivot Table
    :widths: auto
@@ -78,13 +78,20 @@ Prolog Pivot View
      - N/A
      - N/A
      - Retrieves a matching message from the current thread's queue.
-   * - Comment
+   * - SingleLineComment
      - ``% comment``
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard Prolog single-line comment.
+   * - MultiLineComment
      - ``/* line 1\n   line 2 */``
      - N/A
      - N/A
      - N/A
-     - Uses % for single-line and /* */ for multi-line comments.
+     - N/A
+     - Standard C-style block comment.
    * - Print
      - ``writeln('Hello, World!').``
      - N/A

@@ -963,107 +963,176 @@ instance PrologReceiveMessage of ReceiveMessage {
     notes = "Retrieves a matching message from the current thread's queue."
 }
 
-pattern Comment {
-    meta description: "Way to add non-executable explanatory text to the source code."
-    parameter single_line: String
-    parameter multi_line: String
+pattern SingleLineComment {
+    meta description: "Way to add non-executable explanatory text to a single line of source code."
+    parameter syntax: String
     parameter notes: String
 }
 
-instance CComment of Comment {
-    single_line = "// comment"
-    multi_line = "/* line 1\n   line 2 */"
-    notes = "Standard C comment syntax."
+pattern MultiLineComment {
+    meta description: "Way to add non-executable explanatory text spanning multiple lines of source code."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance JavaComment of Comment {
-    single_line = "// comment"
-    multi_line = "/* line 1\n   line 2 */"
+instance CSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard C single-line comment."
+}
+
+instance CMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard C multi-line comment."
+}
+
+instance JavaSingleLineComment of SingleLineComment {
+    syntax = "// comment"
     notes = "Identical to C."
 }
 
-instance RustComment of Comment {
-    single_line = "// comment"
-    multi_line = "/* line 1\n   line 2 */"
+instance JavaMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Identical to C."
+}
+
+instance RustSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard Rust single-line comment."
+}
+
+instance RustMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
     notes = "Supports nested multi-line comments."
 }
 
-instance PythonComment of Comment {
-    single_line = "# comment"
-    multi_line = "\"\"\" line 1\n    line 2 \"\"\""
+instance PythonSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "Standard Python single-line comment."
+}
+
+instance PythonMultiLineComment of MultiLineComment {
+    syntax = "\"\"\" line 1\n    line 2 \"\"\""
     notes = "Multi-line comments are typically implemented using docstrings."
 }
 
-instance PhpComment of Comment {
-    single_line = "// comment"
-    multi_line = "/* line 1\n   line 2 */"
-    notes = "Supports //, # for single-line, and /* */ for multi-line comments."
+instance PhpSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Supports // and # for single-line comments."
 }
 
-instance BashComment of Comment {
-    single_line = "# comment"
-    multi_line = "N/A"
+instance PhpMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard C-style block comments."
+}
+
+instance BashSingleLineComment of SingleLineComment {
+    syntax = "# comment"
     notes = "Bash only supports single-line comments starting with #."
 }
 
-instance PowerShellComment of Comment {
-    single_line = "# comment"
-    multi_line = "<# line 1\n   line 2 #>"
+instance BashMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Bash does not have a native multi-line comment syntax; multiple single-line comments are used."
+}
+
+instance PowerShellSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "Standard PowerShell single-line comment."
+}
+
+instance PowerShellMultiLineComment of MultiLineComment {
+    syntax = "<# line 1\n   line 2 #>"
     notes = "Uses <# and #> for block comments."
 }
 
-instance CmdComment of Comment {
-    single_line = "REM comment"
-    multi_line = "N/A"
+instance CmdSingleLineComment of SingleLineComment {
+    syntax = "REM comment"
     notes = "Uses REM or :: (label hack) for comments."
 }
 
-instance SqlComment of Comment {
-    single_line = "-- comment"
-    multi_line = "/* line 1\n   line 2 */"
-    notes = "Standard SQL comment syntax."
+instance CmdMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Command Prompt does not support multi-line comments."
 }
 
-instance ErlangComment of Comment {
-    single_line = "% comment"
-    multi_line = "N/A"
+instance SqlSingleLineComment of SingleLineComment {
+    syntax = "-- comment"
+    notes = "Standard SQL single-line comment."
+}
+
+instance SqlMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard SQL multi-line comment."
+}
+
+instance ErlangSingleLineComment of SingleLineComment {
+    syntax = "% comment"
     notes = "Erlang only supports single-line comments starting with %."
 }
 
-instance LispComment of Comment {
-    single_line = "; comment"
-    multi_line = "#| line 1\n   line 2 |#"
-    notes = "Single-line comments use semicolon; multi-line use #| |#."
+instance ErlangMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Erlang does not have a native multi-line comment syntax."
 }
 
-instance XQueryComment of Comment {
-    single_line = "(: comment :)"
-    multi_line = "(: line 1\n   line 2 :)"
-    notes = "XQuery uses (: :) for both single and multi-line comments."
+instance LispSingleLineComment of SingleLineComment {
+    syntax = "; comment"
+    notes = "Standard Lisp single-line comment using semicolon."
 }
 
-instance CssComment of Comment {
-    single_line = "N/A"
-    multi_line = "/* line 1\n   line 2 */"
-    notes = "CSS only supports block comments."
+instance LispMultiLineComment of MultiLineComment {
+    syntax = "#| line 1\n   line 2 |#"
+    notes = "Uses ``#|`` and ``|#`` for block comments."
 }
 
-instance CudaComment of Comment {
-    single_line = "// comment"
-    multi_line = "/* line 1\n   line 2 */"
-    notes = "Standard C-like comment syntax."
+instance XQuerySingleLineComment of SingleLineComment {
+    syntax = "(: comment :)"
+    notes = "XQuery uses (: :) for single-line comments."
 }
 
-instance X86Comment of Comment {
-    single_line = "; comment"
-    multi_line = "N/A"
-    notes = "Most assemblers use semicolon for comments (Intel syntax)."
+instance XQueryMultiLineComment of MultiLineComment {
+    syntax = "(: line 1\n   line 2 :)"
+    notes = "XQuery uses (: :) for multi-line comments."
 }
 
-instance PrologComment of Comment {
-    single_line = "% comment"
-    multi_line = "/* line 1\\n   line 2 */"
-    notes = "Uses % for single-line and /* */ for multi-line comments."
+instance CssSingleLineComment of SingleLineComment {
+    syntax = "N/A"
+    notes = "CSS does not natively support single-line comments (though // is common in preprocessors)."
+}
+
+instance CssMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard CSS block comment."
+}
+
+instance CudaSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard C-like single-line comment."
+}
+
+instance CudaMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard C-like block comment."
+}
+
+instance X86SingleLineComment of SingleLineComment {
+    syntax = "; comment"
+    notes = "Most assemblers use semicolon for single-line comments (Intel syntax)."
+}
+
+instance X86MultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Most assemblers do not have a native multi-line comment syntax."
+}
+
+instance PrologSingleLineComment of SingleLineComment {
+    syntax = "% comment"
+    notes = "Standard Prolog single-line comment."
+}
+
+instance PrologMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\\n   line 2 */"
+    notes = "Standard C-style block comment."
 }
 
 pattern Print {

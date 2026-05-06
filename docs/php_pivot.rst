@@ -74,8 +74,14 @@ PHP Pivot
      - N/A
      - N/A
      - Uses 'throw' to trigger an exception.
-   * - Comment
+   * - SingleLineComment
      - ``// comment``
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Supports // and # for single-line comments.
+   * - MultiLineComment
      - ::
 
            /* line 1
@@ -83,7 +89,8 @@ PHP Pivot
      - N/A
      - N/A
      - N/A
-     - Supports //, # for single-line, and /* */ for multi-line comments.
+     - N/A
+     - Standard C-style block comments.
    * - Print
      - ``echo "Hello, World!";``
      - N/A
