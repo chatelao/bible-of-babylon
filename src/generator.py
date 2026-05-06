@@ -181,6 +181,7 @@ class CodeGenerator:
             "notes"
         ]
 
+        normalized_lang = self._normalize(language)
         pivot_data = []
         for instance in program.instances:
             # First, check if any OTHER language matches the instance name better
@@ -189,11 +190,18 @@ class CodeGenerator:
                                   or instance.name.lower().startswith(lang.lower()))]
 
             # If the requested language matches the prefix
-            if instance.name.lower().startswith(self._normalize(language)) or instance.name.lower().startswith(language.lower()):
+            # Use strict matching for short language names like 'C'
+            if len(normalized_lang) <= 2:
+                matches = instance.name.lower().startswith(normalized_lang) and \
+                          (len(instance.name) == len(normalized_lang) or not instance.name[len(normalized_lang)].islower())
+            else:
+                matches = instance.name.lower().startswith(normalized_lang) or instance.name.lower().startswith(language.lower())
+
+            if matches:
                 # Ensure no OTHER language is a longer (better) match
                 is_best_match = True
                 for other in other_matches:
-                    if len(other) > len(language):
+                    if len(self._normalize(other)) > len(normalized_lang):
                         is_best_match = False
                         break
 
