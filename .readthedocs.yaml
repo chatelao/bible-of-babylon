@@ -13,11 +13,11 @@ build:
       - echo "" >> docs/matrices.rst
       - echo "Programming Languages" >> docs/matrices.rst
       - echo "---------------------" >> docs/matrices.rst
-      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog" >> docs/matrices.rst
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog" --pivot-matrix >> docs/matrices.rst
       - echo "" >> docs/matrices.rst
       - echo "Data Formats" >> docs/matrices.rst
       - echo "------------" >> docs/matrices.rst
-      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" >> docs/matrices.rst
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --pivot-matrix >> docs/matrices.rst
 
 python:
   install:

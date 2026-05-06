@@ -20,6 +20,7 @@ def main():
     parser.add_argument("-t", "--title", help="Top-level title for the generated documentation")
     parser.add_argument("-p", "--pivot", help="Generate a pivot table for the specified language")
     parser.add_argument("-m", "--matrix", help="Generate a matrix table for the specified comma-separated languages")
+    parser.add_argument("--pivot-matrix", action="store_true", help="Pivot the matrix (patterns as rows, languages as columns)")
     parser.add_argument("--csv", action="store_true", help="Output in CSV format (only for matrix)")
 
     args = parser.parse_args()
@@ -57,9 +58,9 @@ def main():
     elif args.matrix:
         langs = [l.strip() for l in args.matrix.split(",")]
         if args.csv:
-            output_rst = generator.render_matrix_csv(program_asg, langs)
+            output_rst = generator.render_matrix_csv(program_asg, langs, pivoted=args.pivot_matrix)
         else:
-            output_rst = generator.render_matrix_chapter(program_asg, langs, title=args.title)
+            output_rst = generator.render_matrix_chapter(program_asg, langs, title=args.title, pivoted=args.pivot_matrix)
     else:
         output_rst = generator.render_program(program_asg, title=args.title)
 

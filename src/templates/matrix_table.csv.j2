@@ -1,6 +1,6 @@
-Language,{{ pattern_names|join(',') }}
+{{ headers|join(',') }}
 {%- for row in matrix %}
-"{{ row.language }}",{% for cell in row.cells -%}
-"{{ cell|format_value|replace('"', '""') }}"{{ "," if not loop.last }}
+"{{ row.label }}",{% for cell in row.cells -%}
+"{{ cell.value|format_value|replace('"', '""') }}"{{ "," if not loop.last }}
 {%- endfor %}
 {%- endfor -%}
