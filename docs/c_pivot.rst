@@ -7,17 +7,11 @@ C Pivot
 
    * - Pattern
      - Syntax
-     - Multi line
-     - String val
-     - Number val
-     - Boolean val
      - Notes
    * - VariableDeclaration
-     - ``int x = 42;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           int x = 42;
      - Static typing, terminated by semicolon.
    * - IfElse
      - ::
@@ -27,10 +21,6 @@ C Pivot
            } else {
                return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C if-else statement.
    * - Loop
      - ::
@@ -38,10 +28,6 @@ C Pivot
            while (x > 0) {
                x = x - 1;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C while loop.
    * - FunctionDefinition
      - ::
@@ -49,55 +35,35 @@ C Pivot
            int add(int a, int b) {
                return a + b;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C function with static types and curly braces.
    * - TryCatch
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - C does not have native try-catch blocks; error handling is usually manual.
    * - Raise
-     - ``exit(1);``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           exit(1);
      - C uses exit() or signals for severe errors.
    * - SingleLineComment
-     - ``// comment``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           // comment
      - Standard C single-line comment.
    * - MultiLineComment
      - ::
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C multi-line comment.
    * - Print
-     - ``printf("Hello, World!\n");``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           printf("Hello, World!\n");
      - Uses the standard library's printf function; requires stdio.h.
    * - Import
-     - ``#include <stdio.h>``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           #include <stdio.h>
      - Standard C way to include header files.
    * - SwitchCase
      - ::
@@ -110,15 +76,9 @@ C Pivot
                default:
                    return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C switch statement with case labels and default.
    * - Constant
-     - ``const int MAX = 100;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           const int MAX = 100;
      - The 'const' qualifier makes the variable immutable after initialization.

@@ -7,31 +7,21 @@ XQuery Pivot
 
    * - Pattern
      - Syntax
-     - Multi line
-     - String val
-     - Number val
-     - Boolean val
      - Notes
    * - VariableDeclaration
-     - ``let $x := 42``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           let $x := 42
      - XQuery uses 'let' for variable binding.
    * - IfElse
-     - ``if ($x > 0) then 1 else 0``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           if ($x > 0) then 1 else 0
      - Functional if-then-else expression; both branches are required.
    * - Loop
-     - ``for $i in 1 to $x return $i``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           for $i in 1 to $x return $i
      - XQuery uses 'for' expressions for iteration over sequences.
    * - FunctionDefinition
      - ::
@@ -42,10 +32,6 @@ XQuery Pivot
            ) as xs:integer {
                $a + $b
            };
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Functions must be declared in a namespace (e.g., 'local').
    * - TryCatch
      - ::
@@ -55,48 +41,32 @@ XQuery Pivot
            } catch * {
                handle($err)
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - XQuery 3.0+ supports try-catch; $err is a variable containing error information.
    * - Raise
-     - ``fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
      - The fn:error() function signals a dynamic error.
    * - SingleLineComment
-     - ``(: comment :)``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           (: comment :)
      - XQuery uses (: :) for single-line comments.
    * - MultiLineComment
      - ::
 
            (: line 1
               line 2 :)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - XQuery uses (: :) for multi-line comments.
    * - Print
-     - ``"Hello, World!"``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           "Hello, World!"
      - In XQuery, a string literal is often the result of an expression and is automatically serialized to output.
    * - Import
-     - ``import module namespace utils = "http://example.com/utils";``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           import module namespace utils = "http://example.com/utils";
      - Imports a library module by its namespace URI.
    * - SwitchCase
      - ::
@@ -105,15 +75,9 @@ XQuery Pivot
              case 1 return "one"
              case 2 return "two"
              default return "none"
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The 'switch' expression was introduced in XQuery 3.0.
    * - Constant
-     - ``declare variable $MAX as xs:integer := 100;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           declare variable $MAX as xs:integer := 100;
      - In XQuery, variables declared in the prolog are immutable by default.

@@ -7,17 +7,11 @@ PHP Pivot
 
    * - Pattern
      - Syntax
-     - Multi line
-     - String val
-     - Number val
-     - Boolean val
      - Notes
    * - VariableDeclaration
-     - ``$x = 42;``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           $x = 42;
      - Variables start with a dollar sign; dynamically typed but supports type declarations.
    * - IfElse
      - ::
@@ -27,10 +21,6 @@ PHP Pivot
            } else {
                return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-like if-else statement.
    * - Loop
      - ::
@@ -38,10 +28,6 @@ PHP Pivot
            while ($x > 0) {
                $x = $x - 1;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-like while loop.
    * - FunctionDefinition
      - ::
@@ -49,10 +35,6 @@ PHP Pivot
            function add(int $a, int $b): int {
                return $a + $b;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses 'function' keyword; supports type hints for parameters and return values.
    * - TryCatch
      - ::
@@ -62,48 +44,32 @@ PHP Pivot
            } catch (Exception $e) {
                handle($e);
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard PHP exception handling using try-catch blocks.
    * - Raise
-     - ``throw new Exception("Error");``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           throw new Exception("Error");
      - Uses 'throw' to trigger an exception.
    * - SingleLineComment
-     - ``// comment``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           // comment
      - Supports // and # for single-line comments.
    * - MultiLineComment
      - ::
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style block comments.
    * - Print
-     - ``echo "Hello, World!";``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           echo "Hello, World!";
      - The echo statement is used to output text.
    * - Import
-     - ``require 'utils.php';``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           require 'utils.php';
      - Uses include, require, include_once, or require_once to include other files.
    * - SwitchCase
      - ::
@@ -116,15 +82,9 @@ PHP Pivot
                default:
                    return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-like switch statement; match expression is also available in PHP 8.0+.
    * - Constant
-     - ``define('MAX', 100);``
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+     - ::
+
+           define('MAX', 100);
      - Constants can be defined using define() or the 'const' keyword (for class constants or global constants in modern PHP).

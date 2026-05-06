@@ -1,0 +1,53 @@
+Running Sphinx v9.1.0
+loading translations [en]... done
+WARNING: html_static_path entry '_static' does not exist
+myst v5.0.0: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=set(), disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output...
+building [html]: targets for 11 source files that are out of date
+updating environment: [new config] 11 added, 0 changed, 0 removed
+reading sources... [  9%] c_pivot
+reading sources... [ 18%] coverage
+reading sources... [ 27%] data_formats
+reading sources... [ 36%] dsl_examples
+reading sources... [ 45%] dsl_specification
+reading sources... [ 55%] index
+reading sources... [ 64%] php_pivot
+reading sources... [ 73%] programming
+reading sources... [ 82%] prolog_pivot
+reading sources... [ 91%] sql_pivot
+reading sources... [100%] xquery_pivot
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets...
+copying static files...
+Writing evaluated template result to /app/docs/_build/_static/language_data.js
+Writing evaluated template result to /app/docs/_build/_static/documentation_options.js
+Writing evaluated template result to /app/docs/_build/_static/basic.css
+Writing evaluated template result to /app/docs/_build/_static/js/versions.js
+copying static files: done
+copying extra files...
+copying extra files: done
+copying assets: done
+writing output... [  9%] c_pivot
+writing output... [ 18%] coverage
+writing output... [ 27%] data_formats
+writing output... [ 36%] dsl_examples
+writing output... [ 45%] dsl_specification
+writing output... [ 55%] index
+writing output... [ 64%] php_pivot
+writing output... [ 73%] programming
+writing output... [ 82%] prolog_pivot
+writing output... [ 91%] sql_pivot
+writing output... [100%] xquery_pivot
+
+generating indices... genindex done
+writing additional pages... search done
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded, 1 warning.
+
+The HTML pages are in docs/_build.
