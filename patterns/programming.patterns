@@ -2189,3 +2189,128 @@ instance JavaBytecodeBitwise of Bitwise {
     bit_rshift = "ishr"
     notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
 }
+
+instance CamelVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+    syntax = "let x = 42"
+    notes = "Immutable binding by default; type inference is used."
+}
+
+instance CamelIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if x > 0 then 1 else 0"
+    notes = "If-then-else is an expression; both branches must return the same type."
+}
+
+instance CamelLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x := !x - 1" }
+    syntax = "while !x > 0 do\n    x := !x - 1\ndone"
+    notes = "Uses references for mutable state in while loops."
+}
+
+instance CamelFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "int"
+    body = { raw "a + b" }
+    syntax = "let add a b = a + b"
+    notes = "Functions are defined with let; parameters are space-separated."
+}
+
+instance CamelTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try do_something () with e -> handle e"
+    notes = "Uses the try...with construct for exception handling."
+}
+
+instance CamelRaise of Raise {
+    exception_type = "Failure"
+    message = "Error"
+    syntax = "raise (Failure \"Error\")"
+    notes = "Standard way to raise an exception."
+}
+
+instance CamelThread of Thread {
+    body = { call do_work() }
+    syntax = "Thread.create do_work ()"
+    notes = "Requires the 'threads' library."
+}
+
+instance CamelSendMessage of SendMessage {
+    recipient = "ch"
+    message = "42"
+    syntax = "Event.sync (Event.send ch 42)"
+    notes = "Synchronous communication using the Event module."
+}
+
+instance CamelReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "let msg = Event.sync (Event.receive ch) in handle msg"
+    notes = "Receives a message from a channel."
+}
+
+instance CamelSingleLineComment of SingleLineComment {
+    syntax = "(* comment *)"
+    notes = "OCaml uses (* *) for all comments."
+}
+
+instance CamelMultiLineComment of MultiLineComment {
+    syntax = "(* line 1\n   line 2 *)"
+    notes = "Supports nested comments."
+}
+
+instance CamelPrint of Print {
+    value = "Hello, World!"
+    syntax = "print_endline \"Hello, World!\""
+    notes = "Outputs a string followed by a newline."
+}
+
+instance CamelImport of Import {
+    module_name = "List"
+    syntax = "open List"
+    notes = "Opens a module namespace."
+}
+
+instance CamelSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "match x with\n| 1 -> 1\n| 2 -> 2\n| _ -> 0"
+    notes = "Structural pattern matching using the match expression."
+}
+
+instance CamelConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "let max = 100"
+    notes = "Top-level let bindings are effectively constant."
+}
+
+instance CamelArithmetic of Arithmetic {
+    plus = "a + b"
+    minus = "a - b"
+    times = "a * b"
+    divide = "a / b"
+    mod = "a mod b"
+    floor = "floor a"
+    round = "Float.round a"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelBitwise of Bitwise {
+    bit_and = "a land b"
+    bit_or = "a lor b"
+    bit_xor = "a lxor b"
+    bit_not = "lnot a"
+    bit_lshift = "a lsl b"
+    bit_rshift = "a lsr b"
+    notes = "Bitwise operators are keywords."
+}
