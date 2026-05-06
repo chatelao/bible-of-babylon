@@ -159,3 +159,4 @@
 - [ ] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
 - [x] Generate Pivot Chapter for RISC-V Assembler
 - [x] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
+- [ ] Generate Pivot Chapter for Java Bytecode
