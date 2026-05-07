@@ -27,6 +27,10 @@ This section compares languages based on common programming patterns.
 - ARM AArch64 Assembler
 - Prolog
 - Java Bytecode
+- Go
+- Haskell
+- TypeScript
+- Tcl
 
 **Patterns to be compared:**
 - Variable declaration

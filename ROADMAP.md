@@ -164,3 +164,7 @@
 - [x] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
 - [x] Generate Pivot Chapter for Java Bytecode
 - [x] Generate Pivot Chapter for Camel
+- [x] Generate Pivot Chapter for Go
+- [x] Generate Pivot Chapter for Haskell
+- [x] Generate Pivot Chapter for TypeScript
+- [x] Generate Pivot Chapter for Tcl
