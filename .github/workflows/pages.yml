@@ -1,0 +1,64 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Prepare Documentation Assets
+        run: |
+          export PYTHONPATH=$PYTHONPATH:.
+          # Generate RST files
+          python3 -m src.main patterns/programming.patterns -o docs/programming.rst --title "Programming Language Patterns"
+          python3 -m src.main patterns/data_formats.patterns -o docs/data_formats.rst --title "Data Format Patterns"
+
+          # Generate matrices for documentation
+          echo "Pattern Comparison Matrices" > docs/matrices.rst
+          echo "===========================" >> docs/matrices.rst
+          echo "" >> docs/matrices.rst
+          echo "Programming Languages" >> docs/matrices.rst
+          echo "---------------------" >> docs/matrices.rst
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel" --pivot-matrix >> docs/matrices.rst
+          echo "" >> docs/matrices.rst
+          echo "Data Formats" >> docs/matrices.rst
+          echo "------------" >> docs/matrices.rst
+          python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --pivot-matrix >> docs/matrices.rst
+
+          # Generate Downloadable Matrices for Sphinx :download: role
+          # Sphinx expects these files to be in the source tree during build
+          # By convention, we put them in docs/
+          # CSV
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel" --csv > docs/programming_matrix.csv
+          python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --csv > docs/data_formats_matrix.csv
+          # Excel
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel" --excel -o docs/programming_matrix.xlsx
+          python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --excel -o docs/data_formats_matrix.xlsx
+
+      - name: Build Documentation
+        run: |
+          # Sphinx build
+          sphinx-build -b html docs docs/_build/html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html

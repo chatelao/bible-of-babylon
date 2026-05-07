@@ -5,3 +5,4 @@ pytest
 sphinx
 myst-parser
 sphinx-rtd-theme
+openpyxl

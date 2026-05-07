@@ -12,4 +12,7 @@ pip install antlr4-tools
 echo "Installing ANTLR4 Python runtime..."
 pip install antlr4-python3-runtime==4.13.2
 
+echo "Installing openpyxl..."
+pip install openpyxl
+
 echo "Development environment setup complete."
