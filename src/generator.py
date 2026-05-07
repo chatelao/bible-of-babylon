@@ -131,8 +131,6 @@ class CodeGenerator:
     def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
         syntax_params = {
             "syntax", "string_val", "number_val", "boolean_val",
-            "plus", "minus", "times", "divide", "mod", "floor", "round",
-            "increment", "decrement", "lshift", "rshift",
             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
         }
 
@@ -177,8 +175,6 @@ class CodeGenerator:
         # Candidate parameters for columns in pivot table
         candidates = [
             "syntax", "string_val", "number_val", "boolean_val",
-            "plus", "minus", "times", "divide", "mod", "floor", "round",
-            "increment", "decrement", "lshift", "rshift",
             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift",
             "notes"
         ]
@@ -282,8 +278,6 @@ class CodeGenerator:
                         syntax = "N/A"
                         priority_params = [
                             "syntax", "string_val", "number_val", "boolean_val",
-                            "plus", "minus", "times", "divide", "mod", "floor", "round",
-                            "increment", "decrement", "lshift", "rshift",
                             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
                         ]
                         for param in priority_params:
@@ -320,8 +314,6 @@ class CodeGenerator:
                         syntax = "N/A"
                         priority_params = [
                             "syntax", "string_val", "number_val", "boolean_val",
-                            "plus", "minus", "times", "divide", "mod", "floor", "round",
-                            "increment", "decrement", "lshift", "rshift",
                             "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
                         ]
                         for param in priority_params:

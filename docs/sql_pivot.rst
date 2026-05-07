@@ -7,15 +7,6 @@ SQL Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Mod
-     - Floor
-     - Round
-     - Increment
-     - Decrement
      - Bit and
      - Bit or
      - Bit xor
@@ -25,15 +16,6 @@ SQL Pivot View
      - .. code-block:: sql
 
            DECLARE @x INT = 42;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -54,15 +36,6 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses IF-ELSE with BEGIN-END blocks.
    * - Loop
      - .. code-block:: sql
@@ -71,15 +44,6 @@ SQL Pivot View
            BEGIN
                SET @x = @x - 1
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -97,15 +61,6 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL syntax for Scalar-Valued Functions.
    * - ProcedureDefinition
      - .. code-block:: sql
@@ -115,15 +70,6 @@ SQL Pivot View
            BEGIN
                PRINT @msg;
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -142,15 +88,6 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
    * - Raise
      - .. code-block:: sql
@@ -160,29 +97,11 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The THROW statement raises an exception and transfers execution to a CATCH block.
    * - SingleLineComment
      - .. code-block:: sql
 
            -- comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -197,15 +116,6 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL multi-line comment.
    * - Print
      - .. code-block:: sql
@@ -215,26 +125,8 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL PRINT statement outputs a message to the client.
    * - Import
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -253,15 +145,6 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The CASE expression is used for conditional logic in SQL.
    * - Constant
      - .. code-block:: sql
@@ -271,42 +154,80 @@ SQL Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: sql
 
            a + b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Subtraction
      - .. code-block:: sql
 
            a - b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Multiplication
      - .. code-block:: sql
 
            a * b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Division
      - .. code-block:: sql
 
            a / b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Remainder
      - .. code-block:: sql
 
            a % b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Floor
      - .. code-block:: sql
 
            FLOOR(a)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Rounding
      - .. code-block:: sql
 
            ROUND(a, 0)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Increment
      - .. code-block:: sql
 
            a + 1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - Decrement
      - .. code-block:: sql
 
            a - 1
@@ -315,16 +236,21 @@ SQL Pivot View
      - N/A
      - N/A
      - Standard SQL arithmetic functions.
+   * - LeftShift
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
+   * - RightShift
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard SQL arithmetic functions.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: sql
 

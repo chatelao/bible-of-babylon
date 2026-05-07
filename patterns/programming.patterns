@@ -1942,21 +1942,72 @@ instance JavaBytecodeProcedure of ProcedureDefinition {
     notes = "Methods with a 'V' return descriptor are procedures; 'return' instruction is used for void return."
 }
 
-pattern Arithmetic {
-    meta description: "Standard mathematical operations for numeric values."
-    parameter plus: String
-    parameter minus: String
-    parameter times: String
-    parameter divide: String
-    parameter mod: String
-    parameter floor: String
-    parameter round: String
-    parameter increment: String
-    parameter decrement: String
-    parameter lshift: String
-    parameter rshift: String
+pattern Addition {
+    meta description: "Addition of two numeric values."
+    parameter syntax: String
     parameter notes: String
 }
+
+pattern Subtraction {
+    meta description: "Subtraction of two numeric values."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Multiplication {
+    meta description: "Multiplication of two numeric values."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Division {
+    meta description: "Division of two numeric values."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Remainder {
+    meta description: "The remainder after division of one number by another (modulo)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Floor {
+    meta description: "The largest integer less than or equal to a given number."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Rounding {
+    meta description: "Rounding a number to the nearest integer."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Increment {
+    meta description: "Increasing the value of a variable by one."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Decrement {
+    meta description: "Decreasing the value of a variable by one."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern LeftShift {
+    meta description: "Shifting the bits of a number to the left."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern RightShift {
+    meta description: "Shifting the bits of a number to the right."
+    parameter syntax: String
+    parameter notes: String
+}
+
 
 pattern Bitwise {
     meta description: "Operations that perform bit-level manipulations on integer values."
@@ -1969,18 +2020,58 @@ pattern Bitwise {
     parameter notes: String
 }
 
-instance CArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "floor(a)"
-    round = "round(a)"
-    increment = "a++"
-    decrement = "a--"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance CAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CDivision of Division {
+    syntax = "a / b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CFloor of Floor {
+    syntax = "floor(a)"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CRounding of Rounding {
+    syntax = "round(a)"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard C operators; floor and round require math.h."
+}
+
+instance CRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Standard C operators; floor and round require math.h."
 }
 
@@ -1994,18 +2085,58 @@ instance CBitwise of Bitwise {
     notes = "Standard bitwise operators in C."
 }
 
-instance JavaArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "Math.floor(a)"
-    round = "Math.round(a)"
-    increment = "a++"
-    decrement = "a--"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance JavaAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaDivision of Division {
+    syntax = "a / b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaFloor of Floor {
+    syntax = "Math.floor(a)"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaRounding of Rounding {
+    syntax = "Math.round(a)"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard operators; Math class provides rounding and floor functions."
+}
+
+instance JavaRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Standard operators; Math class provides rounding and floor functions."
 }
 
@@ -2019,18 +2150,58 @@ instance JavaBitwise of Bitwise {
     notes = "Standard bitwise operators in Java."
 }
 
-instance RustArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "a.floor()"
-    round = "a.round()"
-    increment = "a += 1"
-    decrement = "a -= 1"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance RustAddition of Addition {
+    syntax = "a + b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustDivision of Division {
+    syntax = "a / b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustFloor of Floor {
+    syntax = "a.floor()"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustRounding of Rounding {
+    syntax = "a.round()"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustIncrement of Increment {
+    syntax = "a += 1"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustDecrement of Decrement {
+    syntax = "a -= 1"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Operators for primitive types; floor and round are methods on float types."
+}
+
+instance RustRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Operators for primitive types; floor and round are methods on float types."
 }
 
@@ -2044,18 +2215,58 @@ instance RustBitwise of Bitwise {
     notes = "Bitwise NOT uses the ! operator."
 }
 
-instance PythonArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "math.floor(a)"
-    round = "round(a)"
-    increment = "a += 1"
-    decrement = "a -= 1"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance PythonAddition of Addition {
+    syntax = "a + b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonDivision of Division {
+    syntax = "a / b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonFloor of Floor {
+    syntax = "math.floor(a)"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonRounding of Rounding {
+    syntax = "round(a)"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonIncrement of Increment {
+    syntax = "a += 1"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonDecrement of Decrement {
+    syntax = "a -= 1"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Supports both true division (/) and floor division (//)."
+}
+
+instance PythonRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Supports both true division (/) and floor division (//)."
 }
 
@@ -2069,18 +2280,58 @@ instance PythonBitwise of Bitwise {
     notes = "Standard bitwise operators."
 }
 
-instance PhpArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "floor(a)"
-    round = "round(a)"
-    increment = "a++"
-    decrement = "a--"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance PhpAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpDivision of Division {
+    syntax = "a / b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpFloor of Floor {
+    syntax = "floor(a)"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpRounding of Rounding {
+    syntax = "round(a)"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard PHP arithmetic operators."
+}
+
+instance PhpRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Standard PHP arithmetic operators."
 }
 
@@ -2094,18 +2345,58 @@ instance PhpBitwise of Bitwise {
     notes = "Standard bitwise operators."
 }
 
-instance BashArithmetic of Arithmetic {
-    plus = "((a + b))"
-    minus = "((a - b))"
-    times = "((a * b))"
-    divide = "((a / b))"
-    mod = "((a % b))"
-    floor = "echo \"a / 1\" | bc"
-    round = "printf \"%.0f\" \"$a\""
-    increment = "((a++))"
-    decrement = "((a--))"
-    lshift = "((a << b))"
-    rshift = "((a >> b))"
+instance BashAddition of Addition {
+    syntax = "((a + b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashSubtraction of Subtraction {
+    syntax = "((a - b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashMultiplication of Multiplication {
+    syntax = "((a * b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashDivision of Division {
+    syntax = "((a / b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashRemainder of Remainder {
+    syntax = "((a % b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashFloor of Floor {
+    syntax = "echo \"a / 1\" | bc"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashRounding of Rounding {
+    syntax = "printf \"%.0f\" \"$a\""
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashIncrement of Increment {
+    syntax = "((a++))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashDecrement of Decrement {
+    syntax = "((a--))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashLeftShift of LeftShift {
+    syntax = "((a << b))"
+    notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
+}
+
+instance BashRightShift of RightShift {
+    syntax = "((a >> b))"
     notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
 }
 
@@ -2119,18 +2410,58 @@ instance BashBitwise of Bitwise {
     notes = "Bitwise operations within double parentheses."
 }
 
-instance PowerShellArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "[Math]::Floor(a)"
-    round = "[Math]::Round(a)"
-    increment = "a++"
-    decrement = "a--"
-    lshift = "a -shl b"
-    rshift = "a -shr b"
+instance PowerShellAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellDivision of Division {
+    syntax = "a / b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellFloor of Floor {
+    syntax = "[Math]::Floor(a)"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellRounding of Rounding {
+    syntax = "[Math]::Round(a)"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellLeftShift of LeftShift {
+    syntax = "a -shl b"
+    notes = "Standard operators; uses .NET Math class for advanced functions."
+}
+
+instance PowerShellRightShift of RightShift {
+    syntax = "a -shr b"
     notes = "Standard operators; uses .NET Math class for advanced functions."
 }
 
@@ -2144,18 +2475,58 @@ instance PowerShellBitwise of Bitwise {
     notes = "Uses prefixed operators for bitwise logic."
 }
 
-instance CmdArithmetic of Arithmetic {
-    plus = "set /a res=a+b"
-    minus = "set /a res=a-b"
-    times = "set /a res=a*b"
-    divide = "set /a res=a/b"
-    mod = "set /a res=a%%b"
-    floor = "N/A"
-    round = "N/A"
-    increment = "set /a a+=1"
-    decrement = "set /a a-=1"
-    lshift = "set /a res=a<<b"
-    rshift = "set /a res=a>>b"
+instance CmdAddition of Addition {
+    syntax = "set /a res=a+b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdSubtraction of Subtraction {
+    syntax = "set /a res=a-b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdMultiplication of Multiplication {
+    syntax = "set /a res=a*b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdDivision of Division {
+    syntax = "set /a res=a/b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdRemainder of Remainder {
+    syntax = "set /a res=a%%b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdFloor of Floor {
+    syntax = "N/A"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdRounding of Rounding {
+    syntax = "N/A"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdIncrement of Increment {
+    syntax = "set /a a+=1"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdDecrement of Decrement {
+    syntax = "set /a a-=1"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdLeftShift of LeftShift {
+    syntax = "set /a res=a<<b"
+    notes = "Uses set /a for integer arithmetic; no native floating point support."
+}
+
+instance CmdRightShift of RightShift {
+    syntax = "set /a res=a>>b"
     notes = "Uses set /a for integer arithmetic; no native floating point support."
 }
 
@@ -2169,18 +2540,58 @@ instance CmdBitwise of Bitwise {
     notes = "Bitwise operators within set /a expressions."
 }
 
-instance SqlArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "FLOOR(a)"
-    round = "ROUND(a, 0)"
-    increment = "a + 1"
-    decrement = "a - 1"
-    lshift = "N/A"
-    rshift = "N/A"
+instance SqlAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlDivision of Division {
+    syntax = "a / b"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlFloor of Floor {
+    syntax = "FLOOR(a)"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlRounding of Rounding {
+    syntax = "ROUND(a, 0)"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlIncrement of Increment {
+    syntax = "a + 1"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlDecrement of Decrement {
+    syntax = "a - 1"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlLeftShift of LeftShift {
+    syntax = "N/A"
+    notes = "Standard SQL arithmetic functions."
+}
+
+instance SqlRightShift of RightShift {
+    syntax = "N/A"
     notes = "Standard SQL arithmetic functions."
 }
 
@@ -2194,18 +2605,58 @@ instance SqlBitwise of Bitwise {
     notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
 }
 
-instance ErlangArithmetic of Arithmetic {
-    plus = "A + B"
-    minus = "A - B"
-    times = "A * B"
-    divide = "A / B"
-    mod = "A rem B"
-    floor = "floor(A)"
-    round = "round(A)"
-    increment = "A + 1"
-    decrement = "A - 1"
-    lshift = "A bsl B"
-    rshift = "A bsr B"
+instance ErlangAddition of Addition {
+    syntax = "A + B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangSubtraction of Subtraction {
+    syntax = "A - B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangMultiplication of Multiplication {
+    syntax = "A * B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangDivision of Division {
+    syntax = "A / B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangRemainder of Remainder {
+    syntax = "A rem B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangFloor of Floor {
+    syntax = "floor(A)"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangRounding of Rounding {
+    syntax = "round(A)"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangIncrement of Increment {
+    syntax = "A + 1"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangDecrement of Decrement {
+    syntax = "A - 1"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangLeftShift of LeftShift {
+    syntax = "A bsl B"
+    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+}
+
+instance ErlangRightShift of RightShift {
+    syntax = "A bsr B"
     notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
 }
 
@@ -2219,18 +2670,58 @@ instance ErlangBitwise of Bitwise {
     notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
 }
 
-instance LispArithmetic of Arithmetic {
-    plus = "(+ a b)"
-    minus = "(- a b)"
-    times = "(* a b)"
-    divide = "(/ a b)"
-    mod = "(mod a b)"
-    floor = "(floor a)"
-    round = "(round a)"
-    increment = "(1+ a)"
-    decrement = "(1- a)"
-    lshift = "(ash a b)"
-    rshift = "(ash a -b)"
+instance LispAddition of Addition {
+    syntax = "(+ a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispSubtraction of Subtraction {
+    syntax = "(- a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispMultiplication of Multiplication {
+    syntax = "(* a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispDivision of Division {
+    syntax = "(/ a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispRemainder of Remainder {
+    syntax = "(mod a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispFloor of Floor {
+    syntax = "(floor a)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispRounding of Rounding {
+    syntax = "(round a)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispIncrement of Increment {
+    syntax = "(1+ a)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispDecrement of Decrement {
+    syntax = "(1- a)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispLeftShift of LeftShift {
+    syntax = "(ash a b)"
+    notes = "Prefix notation for all mathematical operations."
+}
+
+instance LispRightShift of RightShift {
+    syntax = "(ash a -b)"
     notes = "Prefix notation for all mathematical operations."
 }
 
@@ -2244,18 +2735,58 @@ instance LispBitwise of Bitwise {
     notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
 }
 
-instance XQueryArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a div b"
-    mod = "a mod b"
-    floor = "floor(a)"
-    round = "round(a)"
-    increment = "a + 1"
-    decrement = "a - 1"
-    lshift = "N/A"
-    rshift = "N/A"
+instance XQueryAddition of Addition {
+    syntax = "a + b"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQuerySubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryDivision of Division {
+    syntax = "a div b"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryRemainder of Remainder {
+    syntax = "a mod b"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryFloor of Floor {
+    syntax = "floor(a)"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryRounding of Rounding {
+    syntax = "round(a)"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryIncrement of Increment {
+    syntax = "a + 1"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryDecrement of Decrement {
+    syntax = "a - 1"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryLeftShift of LeftShift {
+    syntax = "N/A"
+    notes = "Uses 'div' for division and 'idiv' for integer division."
+}
+
+instance XQueryRightShift of RightShift {
+    syntax = "N/A"
     notes = "Uses 'div' for division and 'idiv' for integer division."
 }
 
@@ -2269,18 +2800,58 @@ instance XQueryBitwise of Bitwise {
     notes = "Standard XQuery does not have native bitwise operators."
 }
 
-instance CssArithmetic of Arithmetic {
-    plus = "calc(a + b)"
-    minus = "calc(a - b)"
-    times = "calc(a * b)"
-    divide = "calc(a / b)"
-    mod = "mod(a, b)"
-    floor = "N/A"
-    round = "round(a)"
-    increment = "calc(a + 1)"
-    decrement = "calc(a - 1)"
-    lshift = "N/A"
-    rshift = "N/A"
+instance CssAddition of Addition {
+    syntax = "calc(a + b)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssSubtraction of Subtraction {
+    syntax = "calc(a - b)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssMultiplication of Multiplication {
+    syntax = "calc(a * b)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssDivision of Division {
+    syntax = "calc(a / b)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssRemainder of Remainder {
+    syntax = "mod(a, b)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssFloor of Floor {
+    syntax = "N/A"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssRounding of Rounding {
+    syntax = "round(a)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssIncrement of Increment {
+    syntax = "calc(a + 1)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssDecrement of Decrement {
+    syntax = "calc(a - 1)"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssLeftShift of LeftShift {
+    syntax = "N/A"
+    notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
+}
+
+instance CssRightShift of RightShift {
+    syntax = "N/A"
     notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
 }
 
@@ -2294,18 +2865,58 @@ instance CssBitwise of Bitwise {
     notes = "CSS does not support bitwise operations."
 }
 
-instance CudaArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a % b"
-    floor = "floor(a)"
-    round = "round(a)"
-    increment = "a++"
-    decrement = "a--"
-    lshift = "a << b"
-    rshift = "a >> b"
+instance CudaAddition of Addition {
+    syntax = "a + b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaDivision of Division {
+    syntax = "a / b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaFloor of Floor {
+    syntax = "floor(a)"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaRounding of Rounding {
+    syntax = "round(a)"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaIncrement of Increment {
+    syntax = "a++"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaDecrement of Decrement {
+    syntax = "a--"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Same as C; device-side math functions are optimized for GPU."
+}
+
+instance CudaRightShift of RightShift {
+    syntax = "a >> b"
     notes = "Same as C; device-side math functions are optimized for GPU."
 }
 
@@ -2319,18 +2930,58 @@ instance CudaBitwise of Bitwise {
     notes = "Standard bitwise operators supported in kernels."
 }
 
-instance X86Arithmetic of Arithmetic {
-    plus = "add eax, ebx"
-    minus = "sub eax, ebx"
-    times = "imul eax, ebx"
-    divide = "idiv ebx"
-    mod = "N/A"
-    floor = "N/A"
-    round = "N/A"
-    increment = "inc eax"
-    decrement = "dec eax"
-    lshift = "shl eax, cl"
-    rshift = "shr eax, cl"
+instance X86Addition of Addition {
+    syntax = "add eax, ebx"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Subtraction of Subtraction {
+    syntax = "sub eax, ebx"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Multiplication of Multiplication {
+    syntax = "imul eax, ebx"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Division of Division {
+    syntax = "idiv ebx"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Remainder of Remainder {
+    syntax = "N/A"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Floor of Floor {
+    syntax = "N/A"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Rounding of Rounding {
+    syntax = "N/A"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Increment of Increment {
+    syntax = "inc eax"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86Decrement of Decrement {
+    syntax = "dec eax"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86LeftShift of LeftShift {
+    syntax = "shl eax, cl"
+    notes = "Operates on registers; division stores remainder in edx."
+}
+
+instance X86RightShift of RightShift {
+    syntax = "shr eax, cl"
     notes = "Operates on registers; division stores remainder in edx."
 }
 
@@ -2344,18 +2995,58 @@ instance X86Bitwise of Bitwise {
     notes = "Bitwise instructions for general-purpose registers."
 }
 
-instance RiscvArithmetic of Arithmetic {
-    plus = "add t0, t1, t2"
-    minus = "sub t0, t1, t2"
-    times = "mul t0, t1, t2"
-    divide = "div t0, t1, t2"
-    mod = "rem t0, t1, t2"
-    floor = "N/A"
-    round = "N/A"
-    increment = "addi t0, t0, 1"
-    decrement = "addi t0, t0, -1"
-    lshift = "sll t0, t1, t2"
-    rshift = "srl t0, t1, t2"
+instance RiscvAddition of Addition {
+    syntax = "add t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvSubtraction of Subtraction {
+    syntax = "sub t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvMultiplication of Multiplication {
+    syntax = "mul t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvDivision of Division {
+    syntax = "div t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvRemainder of Remainder {
+    syntax = "rem t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvFloor of Floor {
+    syntax = "N/A"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvRounding of Rounding {
+    syntax = "N/A"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvIncrement of Increment {
+    syntax = "addi t0, t0, 1"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvDecrement of Decrement {
+    syntax = "addi t0, t0, -1"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvLeftShift of LeftShift {
+    syntax = "sll t0, t1, t2"
+    notes = "Standard RISC-V M-extension instructions."
+}
+
+instance RiscvRightShift of RightShift {
+    syntax = "srl t0, t1, t2"
     notes = "Standard RISC-V M-extension instructions."
 }
 
@@ -2369,18 +3060,58 @@ instance RiscvBitwise of Bitwise {
     notes = "Core bitwise logical and shift instructions."
 }
 
-instance PrologArithmetic of Arithmetic {
-    plus = "Res is A + B"
-    minus = "Res is A - B"
-    times = "Res is A * B"
-    divide = "Res is A / B"
-    mod = "Res is A mod B"
-    floor = "Res is floor(A)"
-    round = "Res is round(A)"
-    increment = "Res is A + 1"
-    decrement = "Res is A - 1"
-    lshift = "Res is A << B"
-    rshift = "Res is A >> B"
+instance PrologAddition of Addition {
+    syntax = "Res is A + B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologSubtraction of Subtraction {
+    syntax = "Res is A - B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologMultiplication of Multiplication {
+    syntax = "Res is A * B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologDivision of Division {
+    syntax = "Res is A / B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologRemainder of Remainder {
+    syntax = "Res is A mod B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologFloor of Floor {
+    syntax = "Res is floor(A)"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologRounding of Rounding {
+    syntax = "Res is round(A)"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologIncrement of Increment {
+    syntax = "Res is A + 1"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologDecrement of Decrement {
+    syntax = "Res is A - 1"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologLeftShift of LeftShift {
+    syntax = "Res is A << B"
+    notes = "Uses the 'is' operator to evaluate arithmetic expressions."
+}
+
+instance PrologRightShift of RightShift {
+    syntax = "Res is A >> B"
     notes = "Uses the 'is' operator to evaluate arithmetic expressions."
 }
 
@@ -2394,18 +3125,58 @@ instance PrologBitwise of Bitwise {
     notes = "Bitwise operators within arithmetic expressions."
 }
 
-instance JavaBytecodeArithmetic of Arithmetic {
-    plus = "iadd"
-    minus = "isub"
-    times = "imul"
-    divide = "idiv"
-    mod = "irem"
-    floor = "N/A"
-    round = "N/A"
-    increment = "iinc index, 1"
-    decrement = "iinc index, -1"
-    lshift = "ishl"
-    rshift = "ishr"
+instance JavaBytecodeAddition of Addition {
+    syntax = "iadd"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeSubtraction of Subtraction {
+    syntax = "isub"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeMultiplication of Multiplication {
+    syntax = "imul"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeDivision of Division {
+    syntax = "idiv"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeRemainder of Remainder {
+    syntax = "irem"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeFloor of Floor {
+    syntax = "N/A"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeRounding of Rounding {
+    syntax = "N/A"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeIncrement of Increment {
+    syntax = "iinc index, 1"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeDecrement of Decrement {
+    syntax = "iinc index, -1"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeLeftShift of LeftShift {
+    syntax = "ishl"
+    notes = "Stack-based arithmetic instructions for integers."
+}
+
+instance JavaBytecodeRightShift of RightShift {
+    syntax = "ishr"
     notes = "Stack-based arithmetic instructions for integers."
 }
 
@@ -2531,18 +3302,58 @@ instance CamelProcedure of ProcedureDefinition {
     notes = "Procedures in OCaml return the unit type ()."
 }
 
-instance CamelArithmetic of Arithmetic {
-    plus = "a + b"
-    minus = "a - b"
-    times = "a * b"
-    divide = "a / b"
-    mod = "a mod b"
-    floor = "floor a"
-    round = "Float.round a"
-    increment = "a + 1"
-    decrement = "a - 1"
-    lshift = "a lsl b"
-    rshift = "a lsr b"
+instance CamelAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelDivision of Division {
+    syntax = "a / b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelRemainder of Remainder {
+    syntax = "a mod b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelFloor of Floor {
+    syntax = "floor a"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelRounding of Rounding {
+    syntax = "Float.round a"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelIncrement of Increment {
+    syntax = "a + 1"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelDecrement of Decrement {
+    syntax = "a - 1"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelLeftShift of LeftShift {
+    syntax = "a lsl b"
+    notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
+}
+
+instance CamelRightShift of RightShift {
+    syntax = "a lsr b"
     notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
 }
 
@@ -2668,18 +3479,58 @@ instance ArmAarch64Constant of Constant {
     notes = "Uses the .equiv directive to define constants."
 }
 
-instance ArmAarch64Arithmetic of Arithmetic {
-    plus = "add x0, x1, x2"
-    minus = "sub x0, x1, x2"
-    times = "mul x0, x1, x2"
-    divide = "sdiv x0, x1, x2"
-    mod = "N/A"
-    floor = "N/A"
-    round = "N/A"
-    increment = "add x0, x0, #1"
-    decrement = "sub x0, x0, #1"
-    lshift = "lsl x0, x1, x2"
-    rshift = "lsr x0, x1, x2"
+instance ArmAarch64Addition of Addition {
+    syntax = "add x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Subtraction of Subtraction {
+    syntax = "sub x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Multiplication of Multiplication {
+    syntax = "mul x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Division of Division {
+    syntax = "sdiv x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Remainder of Remainder {
+    syntax = "N/A"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Floor of Floor {
+    syntax = "N/A"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Rounding of Rounding {
+    syntax = "N/A"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Increment of Increment {
+    syntax = "add x0, x0, #1"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Decrement of Decrement {
+    syntax = "sub x0, x0, #1"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64LeftShift of LeftShift {
+    syntax = "lsl x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64RightShift of RightShift {
+    syntax = "lsr x0, x1, x2"
     notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
 }
 

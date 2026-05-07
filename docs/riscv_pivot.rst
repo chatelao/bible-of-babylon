@@ -7,15 +7,6 @@ RISC-V Assembler Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Mod
-     - Increment
-     - Decrement
-     - Lshift
-     - Rshift
      - Bit and
      - Bit or
      - Bit xor
@@ -27,15 +18,6 @@ RISC-V Assembler Pivot View
      - .. code-block:: asm
 
            x:  .word 42
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -58,15 +40,6 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses branch instructions like blez (branch if less than or equal to zero).
    * - Loop
      - .. code-block:: asm
@@ -82,15 +55,6 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses conditional branches and jumps to implement loops.
    * - FunctionDefinition
      - .. code-block:: asm
@@ -98,15 +62,6 @@ RISC-V Assembler Pivot View
            add:
                add a0, a0, a1
                ret
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -130,26 +85,8 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Follows standard calling convention; must save/restore return address (ra) if calling other functions.
    * - TryCatch
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -168,30 +105,12 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The ebreak instruction triggers a debug trap; ecall can be used for system calls.
    * - Thread
      - .. code-block:: asm
 
                li a7, 220 # clone syscall
                ecall
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -210,30 +129,12 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Inter-process/thread communication is managed by the OS.
    * - ReceiveMessage
      - .. code-block:: asm
 
                li a7, 128 # rt_sigtimedwait
                ecall
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -251,26 +152,8 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - RISC-V assembly typically uses the hash character for single-line comments.
    * - MultiLineComment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -290,29 +173,11 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Typically uses the C library printf or writes to stdout via system calls.
    * - Import
      - .. code-block:: asm
 
            .include "macros.s"
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -334,15 +199,6 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Typically implemented using comparison and branch instructions.
    * - Constant
      - .. code-block:: asm
@@ -354,42 +210,114 @@ RISC-V Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the .equiv or .set directive to define constants.
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: asm
 
            add t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Subtraction
      - .. code-block:: asm
 
            sub t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Multiplication
      - .. code-block:: asm
 
            mul t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Division
      - .. code-block:: asm
 
            div t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Remainder
      - .. code-block:: asm
 
            rem t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Floor
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Rounding
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Increment
      - .. code-block:: asm
 
            addi t0, t0, 1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - Decrement
      - .. code-block:: asm
 
            addi t0, t0, -1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - LeftShift
      - .. code-block:: asm
 
            sll t0, t1, t2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard RISC-V M-extension instructions.
+   * - RightShift
      - .. code-block:: asm
 
            srl t0, t1, t2
@@ -401,15 +329,6 @@ RISC-V Assembler Pivot View
      - N/A
      - Standard RISC-V M-extension instructions.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: asm
 

@@ -39,7 +39,17 @@ This section compares languages based on common programming patterns.
 - Switch/Case statement
 - Single-line comments
 - Multi-line comments
-- Arithmetic operators
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Remainder
+- Floor
+- Rounding
+- Increment
+- Decrement
+- Left shift
+- Right shift
 - Bitwise operators
 
 ### Part II: Data Formats

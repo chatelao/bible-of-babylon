@@ -7,17 +7,6 @@ Prolog Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Mod
-     - Floor
-     - Round
-     - Increment
-     - Decrement
-     - Lshift
-     - Rshift
      - Bit and
      - Bit or
      - Bit xor
@@ -35,33 +24,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses unification for assignment; variables must start with an uppercase letter.
    * - IfElse
      - .. code-block:: prolog
 
            (X > 0 -> Result = 1 ; Result = 0)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -80,33 +47,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Prolog uses recursion and tail-call optimization for looping.
    * - FunctionDefinition
      - .. code-block:: prolog
 
            add(A, B, Res) :- Res is A + B.
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -124,33 +69,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Predicates without an output argument act as procedures.
    * - TryCatch
      - .. code-block:: prolog
 
            catch(do_something, E, handle(E))
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -168,33 +91,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses throw/1 to raise an exception.
    * - Thread
      - .. code-block:: prolog
 
            thread_create(do_work, Id, []).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -212,17 +113,6 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Sends a message to a thread's message queue.
    * - ReceiveMessage
      - .. code-block:: prolog
@@ -234,33 +124,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Retrieves a matching message from the current thread's queue.
    * - SingleLineComment
      - .. code-block:: prolog
 
            % comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -279,17 +147,6 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style block comment.
    * - Print
      - .. code-block:: prolog
@@ -301,33 +158,11 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Outputs text followed by a newline.
    * - Import
      - .. code-block:: prolog
 
            use_module(library(math)).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -348,17 +183,6 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
    * - Constant
      - .. code-block:: prolog
@@ -370,50 +194,118 @@ Prolog Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment.
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: prolog
 
            Res is A + B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Subtraction
      - .. code-block:: prolog
 
            Res is A - B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Multiplication
      - .. code-block:: prolog
 
            Res is A * B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Division
      - .. code-block:: prolog
 
            Res is A / B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Remainder
      - .. code-block:: prolog
 
            Res is A mod B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Floor
      - .. code-block:: prolog
 
            Res is floor(A)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Rounding
      - .. code-block:: prolog
 
            Res is round(A)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Increment
      - .. code-block:: prolog
 
            Res is A + 1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - Decrement
      - .. code-block:: prolog
 
            Res is A - 1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - LeftShift
      - .. code-block:: prolog
 
            Res is A << B
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Uses the 'is' operator to evaluate arithmetic expressions.
+   * - RightShift
      - .. code-block:: prolog
 
            Res is A >> B
@@ -425,17 +317,6 @@ Prolog Pivot View
      - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: prolog
 
