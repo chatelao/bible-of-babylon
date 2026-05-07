@@ -4196,495 +4196,567 @@ Parameters:
 
 
 
-Bitwise
--------
+BitAnd
+------
 
 
-:description: Operations that perform bit-level manipulations on integer values.
+:description: Bitwise AND operation.
 
 
 Parameters:
 
-* bit_and: String
-
-* bit_or: String
-
-* bit_xor: String
-
-* bit_not: String
-
-* bit_lshift: String
-
-* bit_rshift: String
+* syntax: String
 
 * notes: String
 
 
 
-.. list-table:: Bitwise Comparison
+.. list-table:: BitAnd Comparison
    :widths: auto
    :header-rows: 1
 
    * - Language
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
+     - Syntax
      - Notes
-   * - CBitwise
+   * - CBitAnd
      - .. code-block:: c
 
            a & b
-     - .. code-block:: c
-
-           a | b
-     - .. code-block:: c
-
-           a ^ b
-     - .. code-block:: c
-
-           ~a
-     - .. code-block:: c
-
-           a << b
-     - .. code-block:: c
-
-           a >> b
      - Standard bitwise operators in C.
-   * - JavaBitwise
+   * - JavaBitAnd
      - .. code-block:: java
 
            a & b
-     - .. code-block:: java
-
-           a | b
-     - .. code-block:: java
-
-           a ^ b
-     - .. code-block:: java
-
-           ~a
-     - .. code-block:: java
-
-           a << b
-     - .. code-block:: java
-
-           a >> b
      - Standard bitwise operators in Java.
-   * - RustBitwise
+   * - RustBitAnd
      - .. code-block:: rust
 
            a & b
-     - .. code-block:: rust
-
-           a | b
-     - .. code-block:: rust
-
-           a ^ b
-     - .. code-block:: rust
-
-           !a
-     - .. code-block:: rust
-
-           a << b
-     - .. code-block:: rust
-
-           a >> b
      - Bitwise NOT uses the ! operator.
-   * - PythonBitwise
+   * - PythonBitAnd
      - .. code-block:: python
 
            a & b
-     - .. code-block:: python
-
-           a | b
-     - .. code-block:: python
-
-           a ^ b
-     - .. code-block:: python
-
-           ~a
-     - .. code-block:: python
-
-           a << b
-     - .. code-block:: python
-
-           a >> b
      - Standard bitwise operators.
-   * - PhpBitwise
+   * - PhpBitAnd
      - .. code-block:: php
 
            a & b
-     - .. code-block:: php
-
-           a | b
-     - .. code-block:: php
-
-           a ^ b
-     - .. code-block:: php
-
-           ~a
-     - .. code-block:: php
-
-           a << b
-     - .. code-block:: php
-
-           a >> b
      - Standard bitwise operators.
-   * - BashBitwise
+   * - BashBitAnd
      - .. code-block:: bash
 
            ((a & b))
-     - .. code-block:: bash
-
-           ((a | b))
-     - .. code-block:: bash
-
-           ((a ^ b))
-     - .. code-block:: bash
-
-           ((~a))
-     - .. code-block:: bash
-
-           ((a << b))
-     - .. code-block:: bash
-
-           ((a >> b))
      - Bitwise operations within double parentheses.
-   * - PowerShellBitwise
+   * - PowerShellBitAnd
      - .. code-block:: powershell
 
            a -band b
-     - .. code-block:: powershell
-
-           a -bor b
-     - .. code-block:: powershell
-
-           a -bxor b
-     - .. code-block:: powershell
-
-           -bnot a
-     - .. code-block:: powershell
-
-           a -shl b
-     - .. code-block:: powershell
-
-           a -shr b
      - Uses prefixed operators for bitwise logic.
-   * - CmdBitwise
+   * - CmdBitAnd
      - .. code-block:: doscon
 
            set /a res="a & b"
-     - .. code-block:: doscon
-
-           set /a res="a | b"
-     - .. code-block:: doscon
-
-           set /a res="a ^ b"
-     - .. code-block:: doscon
-
-           set /a res="~a"
-     - .. code-block:: doscon
-
-           set /a res="a << b"
-     - .. code-block:: doscon
-
-           set /a res="a >> b"
      - Bitwise operators within set /a expressions.
-   * - SqlBitwise
+   * - SqlBitAnd
      - .. code-block:: sql
 
            a & b
-     - .. code-block:: sql
-
-           a | b
-     - .. code-block:: sql
-
-           a ^ b
-     - .. code-block:: sql
-
-           ~a
-     - N/A
-     - N/A
      - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
-   * - ErlangBitwise
+   * - ErlangBitAnd
      - .. code-block:: erlang
 
            A band B
-     - .. code-block:: erlang
-
-           A bor B
-     - .. code-block:: erlang
-
-           A bxor B
-     - .. code-block:: erlang
-
-           bnot A
-     - .. code-block:: erlang
-
-           A bsl B
-     - .. code-block:: erlang
-
-           A bsr B
      - Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr).
-   * - LispBitwise
+   * - LispBitAnd
      - .. code-block:: common-lisp
 
            (logand a b)
-     - .. code-block:: common-lisp
-
-           (logior a b)
-     - .. code-block:: common-lisp
-
-           (logxor a b)
-     - .. code-block:: common-lisp
-
-           (lognot a)
-     - .. code-block:: common-lisp
-
-           (ash a b)
-     - .. code-block:: common-lisp
-
-           (ash a -b)
      - Common Lisp bitwise operations; ash is used for both left and right shifts.
-   * - XQueryBitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+   * - XQueryBitAnd
      - N/A
      - Standard XQuery does not have native bitwise operators.
-   * - CssBitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
+   * - CssBitAnd
      - N/A
      - CSS does not support bitwise operations.
-   * - CudaBitwise
+   * - CudaBitAnd
      - .. code-block:: cpp
 
            a & b
-     - .. code-block:: cpp
-
-           a | b
-     - .. code-block:: cpp
-
-           a ^ b
-     - .. code-block:: cpp
-
-           ~a
-     - .. code-block:: cpp
-
-           a << b
-     - .. code-block:: cpp
-
-           a >> b
      - Standard bitwise operators supported in kernels.
-   * - X86Bitwise
+   * - X86BitAnd
      - .. code-block:: nasm
 
            and eax, ebx
-     - .. code-block:: nasm
-
-           or eax, ebx
-     - .. code-block:: nasm
-
-           xor eax, ebx
-     - .. code-block:: nasm
-
-           not eax
-     - .. code-block:: nasm
-
-           shl eax, cl
-     - .. code-block:: nasm
-
-           shr eax, cl
      - Bitwise instructions for general-purpose registers.
-   * - RiscvBitwise
+   * - RiscvBitAnd
      - .. code-block:: asm
 
            and t0, t1, t2
-     - .. code-block:: asm
-
-           or t0, t1, t2
-     - .. code-block:: asm
-
-           xor t0, t1, t2
-     - .. code-block:: asm
-
-           not t0, t1
-     - .. code-block:: asm
-
-           sll t0, t1, t2
-     - .. code-block:: asm
-
-           srl t0, t1, t2
      - Core bitwise logical and shift instructions.
-   * - PrologBitwise
+   * - PrologBitAnd
      - .. code-block:: prolog
 
            Res is A /\ B
-     - .. code-block:: prolog
-
-           Res is A \/ B
-     - .. code-block:: prolog
-
-           Res is A xor B
-     - .. code-block:: prolog
-
-           Res is \ A
-     - .. code-block:: prolog
-
-           Res is A << B
-     - .. code-block:: prolog
-
-           Res is A >> B
      - Bitwise operators within arithmetic expressions.
-   * - JavaBytecodeBitwise
+   * - JavaBytecodeBitAnd
      - .. code-block:: jasm
 
            iand
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - CamelBitAnd
+     - .. code-block:: ocaml
+
+           a land b
+     - Bitwise operators are keywords.
+   * - ArmAarch64BitAnd
+     - .. code-block:: asm
+
+           and x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - GoBitAnd
+     - .. code-block:: go
+
+           a & b
+     - Bitwise NOT is implemented using the bitwise XOR operator with no left operand.
+   * - HaskellBitAnd
+     - .. code-block:: haskell
+
+           a .&. b
+     - Requires Data.Bits.
+   * - TypeScriptBitAnd
+     - .. code-block:: typescript
+
+           a & b
+     - Standard bitwise operators.
+   * - TclBitAnd
+     - .. code-block:: tcl
+
+           [expr {$a & $b}]
+     - Math operations require the expr command.
+
+
+
+BitOr
+-----
+
+
+:description: Bitwise OR operation.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: BitOr Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CBitOr
+     - .. code-block:: c
+
+           a | b
+     - Standard bitwise operators in C.
+   * - JavaBitOr
+     - .. code-block:: java
+
+           a | b
+     - Standard bitwise operators in Java.
+   * - RustBitOr
+     - .. code-block:: rust
+
+           a | b
+     - Bitwise NOT uses the ! operator.
+   * - PythonBitOr
+     - .. code-block:: python
+
+           a | b
+     - Standard bitwise operators.
+   * - PhpBitOr
+     - .. code-block:: php
+
+           a | b
+     - Standard bitwise operators.
+   * - BashBitOr
+     - .. code-block:: bash
+
+           ((a | b))
+     - Bitwise operations within double parentheses.
+   * - PowerShellBitOr
+     - .. code-block:: powershell
+
+           a -bor b
+     - Uses prefixed operators for bitwise logic.
+   * - CmdBitOr
+     - .. code-block:: doscon
+
+           set /a res="a | b"
+     - Bitwise operators within set /a expressions.
+   * - SqlBitOr
+     - .. code-block:: sql
+
+           a | b
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - ErlangBitOr
+     - .. code-block:: erlang
+
+           A bor B
+     - Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr).
+   * - LispBitOr
+     - .. code-block:: common-lisp
+
+           (logior a b)
+     - Common Lisp bitwise operations; ash is used for both left and right shifts.
+   * - XQueryBitOr
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - CssBitOr
+     - N/A
+     - CSS does not support bitwise operations.
+   * - CudaBitOr
+     - .. code-block:: cpp
+
+           a | b
+     - Standard bitwise operators supported in kernels.
+   * - X86BitOr
+     - .. code-block:: nasm
+
+           or eax, ebx
+     - Bitwise instructions for general-purpose registers.
+   * - RiscvBitOr
+     - .. code-block:: asm
+
+           or t0, t1, t2
+     - Core bitwise logical and shift instructions.
+   * - PrologBitOr
+     - .. code-block:: prolog
+
+           Res is A \/ B
+     - Bitwise operators within arithmetic expressions.
+   * - JavaBytecodeBitOr
      - .. code-block:: jasm
 
            ior
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - CamelBitOr
+     - .. code-block:: ocaml
+
+           a lor b
+     - Bitwise operators are keywords.
+   * - ArmAarch64BitOr
+     - .. code-block:: asm
+
+           orr x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - GoBitOr
+     - .. code-block:: go
+
+           a | b
+     - Bitwise NOT is implemented using the bitwise XOR operator with no left operand.
+   * - HaskellBitOr
+     - .. code-block:: haskell
+
+           a .|. b
+     - Requires Data.Bits.
+   * - TypeScriptBitOr
+     - .. code-block:: typescript
+
+           a | b
+     - Standard bitwise operators.
+   * - TclBitOr
+     - .. code-block:: tcl
+
+           [expr {$a | $b}]
+     - Math operations require the expr command.
+
+
+
+BitXor
+------
+
+
+:description: Bitwise XOR operation.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: BitXor Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CBitXor
+     - .. code-block:: c
+
+           a ^ b
+     - Standard bitwise operators in C.
+   * - JavaBitXor
+     - .. code-block:: java
+
+           a ^ b
+     - Standard bitwise operators in Java.
+   * - RustBitXor
+     - .. code-block:: rust
+
+           a ^ b
+     - Bitwise NOT uses the ! operator.
+   * - PythonBitXor
+     - .. code-block:: python
+
+           a ^ b
+     - Standard bitwise operators.
+   * - PhpBitXor
+     - .. code-block:: php
+
+           a ^ b
+     - Standard bitwise operators.
+   * - BashBitXor
+     - .. code-block:: bash
+
+           ((a ^ b))
+     - Bitwise operations within double parentheses.
+   * - PowerShellBitXor
+     - .. code-block:: powershell
+
+           a -bxor b
+     - Uses prefixed operators for bitwise logic.
+   * - CmdBitXor
+     - .. code-block:: doscon
+
+           set /a res="a ^ b"
+     - Bitwise operators within set /a expressions.
+   * - SqlBitXor
+     - .. code-block:: sql
+
+           a ^ b
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - ErlangBitXor
+     - .. code-block:: erlang
+
+           A bxor B
+     - Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr).
+   * - LispBitXor
+     - .. code-block:: common-lisp
+
+           (logxor a b)
+     - Common Lisp bitwise operations; ash is used for both left and right shifts.
+   * - XQueryBitXor
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - CssBitXor
+     - N/A
+     - CSS does not support bitwise operations.
+   * - CudaBitXor
+     - .. code-block:: cpp
+
+           a ^ b
+     - Standard bitwise operators supported in kernels.
+   * - X86BitXor
+     - .. code-block:: nasm
+
+           xor eax, ebx
+     - Bitwise instructions for general-purpose registers.
+   * - RiscvBitXor
+     - .. code-block:: asm
+
+           xor t0, t1, t2
+     - Core bitwise logical and shift instructions.
+   * - PrologBitXor
+     - .. code-block:: prolog
+
+           Res is A xor B
+     - Bitwise operators within arithmetic expressions.
+   * - JavaBytecodeBitXor
      - .. code-block:: jasm
 
            ixor
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - CamelBitXor
+     - .. code-block:: ocaml
+
+           a lxor b
+     - Bitwise operators are keywords.
+   * - ArmAarch64BitXor
+     - .. code-block:: asm
+
+           eor x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - GoBitXor
+     - .. code-block:: go
+
+           a ^ b
+     - Bitwise NOT is implemented using the bitwise XOR operator with no left operand.
+   * - HaskellBitXor
+     - .. code-block:: haskell
+
+           xor a b
+     - Requires Data.Bits.
+   * - TypeScriptBitXor
+     - .. code-block:: typescript
+
+           a ^ b
+     - Standard bitwise operators.
+   * - TclBitXor
+     - .. code-block:: tcl
+
+           [expr {$a ^ $b}]
+     - Math operations require the expr command.
+
+
+
+BitNot
+------
+
+
+:description: Bitwise NOT operation (bitwise complement).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: BitNot Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CBitNot
+     - .. code-block:: c
+
+           ~a
+     - Standard bitwise operators in C.
+   * - JavaBitNot
+     - .. code-block:: java
+
+           ~a
+     - Standard bitwise operators in Java.
+   * - RustBitNot
+     - .. code-block:: rust
+
+           !a
+     - Bitwise NOT uses the ! operator.
+   * - PythonBitNot
+     - .. code-block:: python
+
+           ~a
+     - Standard bitwise operators.
+   * - PhpBitNot
+     - .. code-block:: php
+
+           ~a
+     - Standard bitwise operators.
+   * - BashBitNot
+     - .. code-block:: bash
+
+           ((~a))
+     - Bitwise operations within double parentheses.
+   * - PowerShellBitNot
+     - .. code-block:: powershell
+
+           -bnot a
+     - Uses prefixed operators for bitwise logic.
+   * - CmdBitNot
+     - .. code-block:: doscon
+
+           set /a res="~a"
+     - Bitwise operators within set /a expressions.
+   * - SqlBitNot
+     - .. code-block:: sql
+
+           ~a
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - ErlangBitNot
+     - .. code-block:: erlang
+
+           bnot A
+     - Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr).
+   * - LispBitNot
+     - .. code-block:: common-lisp
+
+           (lognot a)
+     - Common Lisp bitwise operations; ash is used for both left and right shifts.
+   * - XQueryBitNot
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - CssBitNot
+     - N/A
+     - CSS does not support bitwise operations.
+   * - CudaBitNot
+     - .. code-block:: cpp
+
+           ~a
+     - Standard bitwise operators supported in kernels.
+   * - X86BitNot
+     - .. code-block:: nasm
+
+           not eax
+     - Bitwise instructions for general-purpose registers.
+   * - RiscvBitNot
+     - .. code-block:: asm
+
+           not t0, t1
+     - Core bitwise logical and shift instructions.
+   * - PrologBitNot
+     - .. code-block:: prolog
+
+           Res is \ A
+     - Bitwise operators within arithmetic expressions.
+   * - JavaBytecodeBitNot
      - .. code-block:: jasm
 
            iconst_m1
            ixor
-     - .. code-block:: jasm
-
-           ishl
-     - .. code-block:: jasm
-
-           ishr
      - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
-   * - CamelBitwise
-     - .. code-block:: ocaml
-
-           a land b
-     - .. code-block:: ocaml
-
-           a lor b
-     - .. code-block:: ocaml
-
-           a lxor b
+   * - CamelBitNot
      - .. code-block:: ocaml
 
            lnot a
-     - .. code-block:: ocaml
-
-           a lsl b
-     - .. code-block:: ocaml
-
-           a lsr b
      - Bitwise operators are keywords.
-   * - ArmAarch64Bitwise
-     - .. code-block:: asm
-
-           and x0, x1, x2
-     - .. code-block:: asm
-
-           orr x0, x1, x2
-     - .. code-block:: asm
-
-           eor x0, x1, x2
+   * - ArmAarch64BitNot
      - .. code-block:: asm
 
            mvn x0, x1
-     - .. code-block:: asm
-
-           lsl x0, x1, x2
-     - .. code-block:: asm
-
-           lsr x0, x1, x2
      - Core bitwise logical and shift instructions.
-   * - GoBitwise
-     - .. code-block:: go
-
-           a & b
-     - .. code-block:: go
-
-           a | b
-     - .. code-block:: go
-
-           a ^ b
+   * - GoBitNot
      - .. code-block:: go
 
            ^a
-     - .. code-block:: go
-
-           a << b
-     - .. code-block:: go
-
-           a >> b
      - Bitwise NOT is implemented using the bitwise XOR operator with no left operand.
-   * - HaskellBitwise
-     - .. code-block:: haskell
-
-           a .&. b
-     - .. code-block:: haskell
-
-           a .|. b
-     - .. code-block:: haskell
-
-           xor a b
+   * - HaskellBitNot
      - .. code-block:: haskell
 
            complement a
-     - .. code-block:: haskell
-
-           shiftL a b
-     - .. code-block:: haskell
-
-           shiftR a b
      - Requires Data.Bits.
-   * - TypeScriptBitwise
-     - .. code-block:: typescript
-
-           a & b
-     - .. code-block:: typescript
-
-           a | b
-     - .. code-block:: typescript
-
-           a ^ b
+   * - TypeScriptBitNot
      - .. code-block:: typescript
 
            ~a
-     - .. code-block:: typescript
-
-           a << b
-     - .. code-block:: typescript
-
-           a >> b
      - Standard bitwise operators.
-   * - TclBitwise
-     - .. code-block:: tcl
-
-           [expr {$a & $b}]
-     - .. code-block:: tcl
-
-           [expr {$a | $b}]
-     - .. code-block:: tcl
-
-           [expr {$a ^ $b}]
+   * - TclBitNot
      - .. code-block:: tcl
 
            [expr {~$a}]
-     - .. code-block:: tcl
-
-           [expr {$a << $b}]
-     - .. code-block:: tcl
-
-           [expr {$a >> $b}]
      - Math operations require the expr command.
 
 

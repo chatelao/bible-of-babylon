@@ -1,4 +1,4 @@
-Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,SwitchCase,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,Bitwise,Float4VectorMultiplication
+Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,SwitchCase,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication
 "C","int x = 42;","void log_message(const char *msg) {
     printf(""%s\n"", msg);
 }","int add(int a, int b) {
@@ -17,7 +17,7 @@ Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,
         return 2;
     default:
         return 0;
-}","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
+}","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
 "Java","int x = 42;","public void logMessage(String msg) {
     System.out.println(msg);
 }","public int add(int a, int b) {
@@ -40,7 +40,7 @@ Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,
         return 2;
     default:
         return 0;
-}","public static final int MAX = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
+}","public static final int MAX = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
 "Rust","let x: i32 = 42;","fn log_message(msg: &str) {
     println!(""{}"", msg);
 }","fn add(a: i32, b: i32) -> i32 {
@@ -59,7 +59,7 @@ Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,
     1 => 1,
     2 => 2,
     _ => 0,
-}","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","a % b","a.floor()","a.round()","a += 1","a -= 1","a << b","a >> b","a & b","for i in 0..4 { c[i] = a[i] * b[i]; }"
+}","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","a % b","a.floor()","a.round()","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","!a","for i in 0..4 { c[i] = a[i] * b[i]; }"
 "Python","x = 42","def log_message(msg):
     print(msg)","def add(a, b):
     return a + b","1 if x > 0 else 0","while x > 0: x = x - 1","try:
@@ -72,7 +72,7 @@ except Exception as e:
     case 2:
         return 2
     case _:
-        return 0","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","c = [ai * bi for ai, bi in zip(a, b)]"
+        return 0","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","c = [ai * bi for ai, bi in zip(a, b)]"
 "PHP","$x = 42;","function log_message(string $msg): void {
     echo $msg;
 }","function add(int $a, int $b): int {
@@ -95,7 +95,7 @@ except Exception as e:
         return 2;
     default:
         return 0;
-}","define('MAX', 100);","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","$c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);"
+}","define('MAX', 100);","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","$c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);"
 "Bash","x=42","log_message() {
     echo ""$1""
 }","add() {
@@ -116,7 +116,7 @@ done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A
     *)
         echo ""none""
         ;;
-esac","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done"
+esac","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","((a | b))","((a ^ b))","((~a))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done"
 "PowerShell","$x = 42","function log-message($msg) {
     Write-Host $msg
 }","function add($a, $b) {
@@ -136,13 +136,13 @@ esac","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % 
     1 { ""one"" }
     2 { ""two"" }
     default { ""none"" }
-}","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b","$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }"
+}","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b","a -bor b","a -bxor b","-bnot a","$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }"
 "Cmd","set x=42",":log_message
 echo %~1
 goto :eof",":add
 set /a res=%~1+%~2
 exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)",":loop
-if %x% GTR 0 (set /a x=x-1 & goto loop)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","N/A"
+if %x% GTR 0 (set /a x=x-1 & goto loop)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A"
 "SQL","DECLARE @x INT = 42;","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
 AS
 BEGIN
@@ -171,7 +171,7 @@ END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
     WHEN 1 THEN 'one'
     WHEN 2 THEN 'two'
     ELSE 'none'
-END","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","SELECT a1*b1, a2*b2, a3*b3, a4*b4"
+END","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4"
 "Erlang","X = 42.","log_message(Msg) ->
     io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","try
     do_something()
@@ -181,13 +181,13 @@ end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","r
     1 -> one;
     2 -> two;
     _ -> none
-end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)]."
+end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)]."
 "Lisp","(defparameter x 42)","(defun log-message (msg)
   (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(loop while (> x 0) do (setq x (1- x)))","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
    line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(case x
   (1 ""one"")
   (2 ""two"")
-  (t ""none""))","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)","(mapcar #'* a b)"
+  (t ""none""))","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)","(logior a b)","(logxor a b)","(lognot a)","(mapcar #'* a b)"
 "XQuery","let $x := 42","declare function local:log-message(
     $msg as xs:string
 ) as empty-sequence() {
@@ -205,9 +205,9 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
    line 2 :)","""Hello, World!""","import module namespace utils = ""http://example.com/utils"";","switch ($x)
   case 1 return ""one""
   case 2 return ""two""
-  default return ""none""","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A","for $i in 1 to 4 return $a[$i] * $b[$i]"
+  default return ""none""","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A","N/A","N/A","N/A","for $i in 1 to 4 return $a[$i] * $b[$i]"
 "CSS","--x: 42;","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
-   line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","N/A","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A"
+   line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","N/A","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A"
 "CUDA","__device__ int x = 42;","__device__ void log_message(const char *msg) {
     printf(""%s\n"", msg);
 }","__device__ int add(int a, int b) {
@@ -226,7 +226,7 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
         return 2;
     default:
         return 0;
-}","__constant__ int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","c.x = a.x * b.x; c.y = a.y * b.y; c.z = a.z * b.z; c.w = a.w * b.w;"
+}","__constant__ int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c.x = a.x * b.x; c.y = a.y * b.y; c.z = a.z * b.z; c.w = a.w * b.w;"
 "x86 Assembler","x   dd 42","log_message:
     push edx
     call printf
@@ -258,7 +258,7 @@ call printf","include 'macros.inc'","    cmp eax, 1
 .case2:
     ; ...
 .default:
-    ; ...","MAX equ 100","add eax, ebx","sub eax, ebx","imul eax, ebx","idiv ebx","N/A","N/A","N/A","inc eax","dec eax","shl eax, cl","shr eax, cl","and eax, ebx","mulps xmm0, xmm1"
+    ; ...","MAX equ 100","add eax, ebx","sub eax, ebx","imul eax, ebx","idiv ebx","N/A","N/A","N/A","inc eax","dec eax","shl eax, cl","shr eax, cl","and eax, ebx","or eax, ebx","xor eax, ebx","not eax","mulps xmm0, xmm1"
 "RISC-V Assembler","x:  .word 42","log_message:
     addi sp, sp, -16
     sd ra, 8(sp)
@@ -284,7 +284,7 @@ call printf","include 'macros.inc'","    cmp eax, 1
     beq t0, t1, .case1
     li t1, 2
     beq t0, t1, .case2
-    j .default",".equiv MAX, 100","add t0, t1, t2","sub t0, t1, t2","mul t0, t1, t2","div t0, t1, t2","rem t0, t1, t2","N/A","N/A","addi t0, t0, 1","addi t0, t0, -1","sll t0, t1, t2","srl t0, t1, t2","and t0, t1, t2","vsetvli t0, x0, e32, m1
+    j .default",".equiv MAX, 100","add t0, t1, t2","sub t0, t1, t2","mul t0, t1, t2","div t0, t1, t2","rem t0, t1, t2","N/A","N/A","addi t0, t0, 1","addi t0, t0, -1","sll t0, t1, t2","srl t0, t1, t2","and t0, t1, t2","or t0, t1, t2","xor t0, t1, t2","not t0, t1","vsetvli t0, x0, e32, m1
 vfmul.vv v1, v2, v3"
 "ARM AArch64 Assembler","x:  .quad 42","log_message:
     stp x29, x30, [sp, -16]!
@@ -313,13 +313,13 @@ vfmul.vv v1, v2, v3"
     beq .case1
     cmp x0, #2
     beq .case2
-    b .default",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2","fmul v0.4s, v1.4s, v2.4s"
+    b .default",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2","orr x0, x1, x2","eor x0, x1, x2","mvn x0, x1","fmul v0.4s, v1.4s, v2.4s"
 "Prolog","X = 42.","log_message(Msg) :- writeln(Msg).","add(A, B, Res) :- Res is A + B.","(X > 0 -> Result = 1 ; Result = 0)","loop(0) :- !.
 loop(X) :- X > 0, X1 is X - 1, loop(X1).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","% comment","/* line 1
    line 2 */","writeln('Hello, World!').","use_module(library(math)).","(   X = 1 -> writeln('one')
 ;   X = 2 -> writeln('two')
 ;   writeln('none')
-)","max(100).","Res is A + B","Res is A - B","Res is A * B","Res is A / B","Res is A mod B","Res is floor(A)","Res is round(A)","Res is A + 1","Res is A - 1","Res is A << B","Res is A >> B","Res is A /\ B","maplist(multiply, A, B, C)."
+)","max(100).","Res is A + B","Res is A - B","Res is A * B","Res is A / B","Res is A mod B","Res is floor(A)","Res is round(A)","Res is A + 1","Res is A - 1","Res is A << B","Res is A >> B","Res is A /\ B","Res is A \/ B","Res is A xor B","Res is \ A","maplist(multiply, A, B, C)."
 "Java Bytecode",".field private static x I = 42",".method public static logMessage(Ljava/lang/String;)V
     .limit stack 2
     .limit locals 1
@@ -388,7 +388,8 @@ Label1:
 Label2:
     ; ...
 LabelDefault:
-    ; ...",".field public static final MAX I = 100","iadd","isub","imul","idiv","irem","N/A","N/A","iinc index, 1","iinc index, -1","ishl","ishr","iand","fload_1
+    ; ...",".field public static final MAX I = 100","iadd","isub","imul","idiv","irem","N/A","N/A","iinc index, 1","iinc index, -1","ishl","ishr","iand","ior","ixor","iconst_m1
+ixor","fload_1
 fload_2
 fmul"
 "Camel","let x = 42","let log_message msg = print_endline msg","let add a b = a + b","if x > 0 then 1 else 0","while !x > 0 do
@@ -397,7 +398,7 @@ done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thre
    line 2 *)","print_endline ""Hello, World!""","open List","match x with
 | 1 -> 1
 | 2 -> 2
-| _ -> 0","let max = 100","a + b","a - b","a * b","a / b","a mod b","floor a","Float.round a","a + 1","a - 1","a lsl b","a lsr b","a land b","Array.map2 (fun ai bi -> ai *. bi) a b"
+| _ -> 0","let max = 100","a + b","a - b","a * b","a / b","a mod b","floor a","Float.round a","a + 1","a - 1","a lsl b","a lsr b","a land b","a lor b","a lxor b","lnot a","Array.map2 (fun ai bi -> ai *. bi) a b"
 "Go","var x int = 42","func logMessage(msg string) {
     fmt.Println(msg)
 }","func add(a int, b int) int {
@@ -419,7 +420,7 @@ case 2:
     return 2
 default:
     return 0
-}","const MAX = 100","a + b","a - b","a * b","a / b","a % b","math.Floor(a)","math.Round(a)","a++","a--","a << b","a >> b","a & b","for i := range a { c[i] = a[i] * b[i] }"
+}","const MAX = 100","a + b","a - b","a * b","a / b","a % b","math.Floor(a)","math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","^a","for i := range a { c[i] = a[i] * b[i] }"
 "Haskell","let x = 42","logMessage :: String -> IO ()
 logMessage msg = putStrLn msg","add :: Int -> Int -> Int
 add a b = a + b","if x > 0 then 1 else 0","loop x = if x > 0 then loop (x - 1) else return ()","do_something `catch` \(e :: SomeException) -> handle e","error ""Error""","forkIO (do_work)","writeChan chan 42","msg <- readChan chan
@@ -427,7 +428,7 @@ handle msg","-- comment","{- line 1
    line 2 -}","putStrLn ""Hello, World!""","import Data.List","case x of
     1 -> 1
     2 -> 2
-    _ -> 0","maxVal = 100","a + b","a - b","a * b","a / b","a `mod` b","floor a","round a","a + 1","a - 1","shiftL a b","shiftR a b","a .&. b","zipWith (*) a b"
+    _ -> 0","maxVal = 100","a + b","a - b","a * b","a / b","a `mod` b","floor a","round a","a + 1","a - 1","shiftL a b","shiftR a b","a .&. b","a .|. b","xor a b","complement a","zipWith (*) a b"
 "TypeScript","let x: number = 42;","function logMessage(msg: string): void {
     console.log(msg);
 }","function add(a: number, b: number): number {
@@ -450,7 +451,7 @@ handle msg","-- comment","{- line 1
         return 2;
     default:
         return 0;
-}","const MAX: number = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","const c = a.map((v, i) => v * b[i]);"
+}","const MAX: number = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a.map((v, i) => v * b[i]);"
 "Tcl","set x 42","proc logMessage {msg} {
     puts $msg
 }","proc add {a b} {
@@ -475,4 +476,4 @@ handle msg","-- comment","{- line 1
     default {
         return 0
     }
-}","set MAX 100","[expr {$a + $b}]","[expr {$a - $b}]","[expr {$a * $b}]","[expr {$a / $b}]","[expr {$a % $b}]","[expr {floor($a)}]","[expr {round($a)}]","incr a","incr a -1","[expr {$a << $b}]","[expr {$a >> $b}]","[expr {$a & $b}]","foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }"
+}","set MAX 100","[expr {$a + $b}]","[expr {$a - $b}]","[expr {$a * $b}]","[expr {$a / $b}]","[expr {$a % $b}]","[expr {floor($a)}]","[expr {round($a)}]","incr a","incr a -1","[expr {$a << $b}]","[expr {$a >> $b}]","[expr {$a & $b}]","[expr {$a | $b}]","[expr {$a ^ $b}]","[expr {~$a}]","foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }"

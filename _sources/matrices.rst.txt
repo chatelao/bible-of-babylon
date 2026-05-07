@@ -2308,7 +2308,7 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a >> $b}]
-   * - Bitwise
+   * - BitAnd
      - .. code-block:: c
 
            a & b
@@ -2377,6 +2377,214 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a & $b}]
+   * - BitOr
+     - .. code-block:: c
+
+           a | b
+     - .. code-block:: java
+
+           a | b
+     - .. code-block:: rust
+
+           a | b
+     - .. code-block:: python
+
+           a | b
+     - .. code-block:: php
+
+           a | b
+     - .. code-block:: bash
+
+           ((a | b))
+     - .. code-block:: powershell
+
+           a -bor b
+     - .. code-block:: doscon
+
+           set /a res="a | b"
+     - .. code-block:: sql
+
+           a | b
+     - .. code-block:: erlang
+
+           A bor B
+     - .. code-block:: common-lisp
+
+           (logior a b)
+     - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           a | b
+     - .. code-block:: nasm
+
+           or eax, ebx
+     - .. code-block:: asm
+
+           or t0, t1, t2
+     - .. code-block:: asm
+
+           orr x0, x1, x2
+     - .. code-block:: prolog
+
+           Res is A \/ B
+     - .. code-block:: jasm
+
+           ior
+     - .. code-block:: ocaml
+
+           a lor b
+     - .. code-block:: go
+
+           a | b
+     - .. code-block:: haskell
+
+           a .|. b
+     - .. code-block:: typescript
+
+           a | b
+     - .. code-block:: tcl
+
+           [expr {$a | $b}]
+   * - BitXor
+     - .. code-block:: c
+
+           a ^ b
+     - .. code-block:: java
+
+           a ^ b
+     - .. code-block:: rust
+
+           a ^ b
+     - .. code-block:: python
+
+           a ^ b
+     - .. code-block:: php
+
+           a ^ b
+     - .. code-block:: bash
+
+           ((a ^ b))
+     - .. code-block:: powershell
+
+           a -bxor b
+     - .. code-block:: doscon
+
+           set /a res="a ^ b"
+     - .. code-block:: sql
+
+           a ^ b
+     - .. code-block:: erlang
+
+           A bxor B
+     - .. code-block:: common-lisp
+
+           (logxor a b)
+     - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           a ^ b
+     - .. code-block:: nasm
+
+           xor eax, ebx
+     - .. code-block:: asm
+
+           xor t0, t1, t2
+     - .. code-block:: asm
+
+           eor x0, x1, x2
+     - .. code-block:: prolog
+
+           Res is A xor B
+     - .. code-block:: jasm
+
+           ixor
+     - .. code-block:: ocaml
+
+           a lxor b
+     - .. code-block:: go
+
+           a ^ b
+     - .. code-block:: haskell
+
+           xor a b
+     - .. code-block:: typescript
+
+           a ^ b
+     - .. code-block:: tcl
+
+           [expr {$a ^ $b}]
+   * - BitNot
+     - .. code-block:: c
+
+           ~a
+     - .. code-block:: java
+
+           ~a
+     - .. code-block:: rust
+
+           !a
+     - .. code-block:: python
+
+           ~a
+     - .. code-block:: php
+
+           ~a
+     - .. code-block:: bash
+
+           ((~a))
+     - .. code-block:: powershell
+
+           -bnot a
+     - .. code-block:: doscon
+
+           set /a res="~a"
+     - .. code-block:: sql
+
+           ~a
+     - .. code-block:: erlang
+
+           bnot A
+     - .. code-block:: common-lisp
+
+           (lognot a)
+     - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           ~a
+     - .. code-block:: nasm
+
+           not eax
+     - .. code-block:: asm
+
+           not t0, t1
+     - .. code-block:: asm
+
+           mvn x0, x1
+     - .. code-block:: prolog
+
+           Res is \ A
+     - .. code-block:: jasm
+
+           iconst_m1
+           ixor
+     - .. code-block:: ocaml
+
+           lnot a
+     - .. code-block:: go
+
+           ^a
+     - .. code-block:: haskell
+
+           complement a
+     - .. code-block:: typescript
+
+           ~a
+     - .. code-block:: tcl
+
+           [expr {~$a}]
    * - Float4VectorMultiplication
      - .. code-block:: c
 

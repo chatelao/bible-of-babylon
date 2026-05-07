@@ -3022,7 +3022,7 @@ LabelDefault:
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -3114,7 +3114,284 @@ LabelDefault:
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>BitOr</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a | b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span><span class="p">|</span><span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-bor</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a | b&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">bor</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">logior</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">or</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">or</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">orr</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">\/</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ior
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">lor</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.|.</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a ^ b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>^<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-bxor</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a ^ b&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">bxor</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">logxor</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">eor</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">xor</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ixor
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">lxor</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="p">^</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">~a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>~a<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="o">-bnot</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;~a&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="ow">bnot</span><span class="w"> </span><span class="nv">A</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">lognot</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">not</span><span class="w"> </span><span class="nb">eax</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">not</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mvn</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="s s-Atom">\</span> <span class="nv">A</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iconst_m1
+ixor
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">lnot</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="p">^</span><span class="nx">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">complement</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="o">~</span><span class="nv">$a</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </pre></div>
 </div>
