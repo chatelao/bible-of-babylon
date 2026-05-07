@@ -27,6 +27,7 @@ This section compares languages based on common programming patterns.
 - ARM AArch64 Assembler
 - Prolog
 - Java Bytecode
+- Camel/OCaml
 - Go
 - Haskell
 - TypeScript
@@ -56,6 +57,7 @@ This section compares languages based on common programming patterns.
 - Right shift
 - Bitwise operators
 - 4-float vector multiplication
+- 4-float vector dot product
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
