@@ -80,6 +80,10 @@
 <li class="toctree-l1"><a class="reference internal" href="java_bytecode_pivot.html">Java Bytecode Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arm_pivot.html">ARM AArch64 Assembler Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="camel_pivot.html">Camel Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="go_pivot.html">Go Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell_pivot.html">Haskell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typescript_pivot.html">TypeScript Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcl_pivot.html">Tcl Pivot View</a></li>
 </ul>
 
         </div>
@@ -134,6 +138,10 @@
 <th class="head"><p>Prolog</p></th>
 <th class="head"><p>Java Bytecode</p></th>
 <th class="head"><p>Camel</p></th>
+<th class="head"><p>Go</p></th>
+<th class="head"><p>Haskell</p></th>
+<th class="head"><p>TypeScript</p></th>
+<th class="head"><p>Tcl</p></th>
 </tr>
 </thead>
 <tbody>
@@ -215,6 +223,22 @@
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="mi">42</span>
 </pre></div>
 </div>
 </td>
@@ -346,6 +370,29 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">logMessage</span><span class="p">(</span><span class="nx">msg</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">logMessage</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<span class="nf">logMessage</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">logMessage</span><span class="p">(</span><span class="nx">msg</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>logMessage<span class="w"> </span><span class="k">{</span><span class="nv">msg</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="nv">$msg</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -461,6 +508,29 @@
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">add</span> <span class="n">a</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>add<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span>b<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+<span class="k">}</span>
 </pre></div>
 </div>
 </td>
@@ -604,6 +674,34 @@ LabelThen:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -726,6 +824,28 @@ LoopEnd:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="mi">1</span><span class="k">}]</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
@@ -830,6 +950,32 @@ Done:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">do_something</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">do_something</span><span class="w"> </span><span class="p">`</span><span class="n">catch</span><span class="p">`</span><span class="w"> </span><span class="nf">\</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">SomeException</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">e</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">do_something</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">try</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">do_something</span>
+<span class="k">}</span><span class="w"> </span>on<span class="w"> </span>error<span class="w"> </span><span class="k">{</span><span class="nv">e</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$e</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -910,6 +1056,22 @@ athrow
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="ne">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">error</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
@@ -971,6 +1133,22 @@ invokevirtual java/lang/Thread/start()V
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="nx">do_work</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">forkIO</span><span class="w"> </span><span class="p">(</span><span class="n">do_work</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span><span class="w"> </span><span class="nx">Worker</span><span class="p">(</span><span class="s1">&#39;worker.js&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>create<span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">do_work</span><span class="w"> </span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
@@ -1024,6 +1202,22 @@ invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Event</span><span class="p">.</span><span class="n">sync</span> <span class="o">(</span><span class="nn">Event</span><span class="p">.</span><span class="n">send</span> <span class="n">ch</span> <span class="mi">42</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">ch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">writeChan</span><span class="w"> </span><span class="n">chan</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>send<span class="w"> </span><span class="nv">$id</span><span class="w"> </span><span class="nv">$msg</span>
 </pre></div>
 </div>
 </td>
@@ -1081,6 +1275,24 @@ invokestatic MyClass/handle(I)V
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">msg</span> <span class="o">=</span> <span class="nn">Event</span><span class="p">.</span><span class="n">sync</span> <span class="o">(</span><span class="nn">Event</span><span class="p">.</span><span class="n">receive</span> <span class="n">ch</span><span class="o">)</span> <span class="k">in</span> <span class="n">handle</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">ch</span>
+<span class="nx">handle</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">msg</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readChan</span><span class="w"> </span><span class="n">chan</span>
+<span class="nf">handle</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">worker</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">handle</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">vwait</span><span class="w"> </span>msg<span class="k">;</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$msg</span>
 </pre></div>
 </div>
 </td>
@@ -1163,6 +1375,22 @@ invokestatic MyClass/handle(I)V
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
@@ -1237,6 +1465,22 @@ invokestatic MyClass/handle(I)V
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="cm">{- line 1</span>
+<span class="cm">   line 2 -}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -1325,6 +1569,22 @@ invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">putStrLn</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -1401,6 +1661,22 @@ invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nc">List</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.List</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./math&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">package</span><span class="w"> </span>require<span class="w"> </span>Tcl
 </pre></div>
 </div>
 </td>
@@ -1583,6 +1859,49 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+<span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">default</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">case</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">of</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kr">_</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">1</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">2</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">default</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">1</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">2</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
@@ -1662,6 +1981,22 @@ LabelDefault:
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">maxVal</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>MAX<span class="w"> </span><span class="mi">100</span>
 </pre></div>
 </div>
 </td>
@@ -1747,6 +2082,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
@@ -1826,6 +2177,22 @@ LabelDefault:
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
 </pre></div>
 </div>
 </td>
@@ -1911,6 +2278,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
@@ -1993,6 +2376,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
@@ -2069,6 +2468,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -2130,6 +2545,22 @@ LabelDefault:
 </td>
 <td><p>N/A</p></td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">math</span><span class="p">.</span><span class="nx">Floor</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">floor</span><span class="k">(</span><span class="nv">$a</span><span class="k">)}]</span>
 </pre></div>
 </div>
 </td>
@@ -2197,6 +2628,22 @@ LabelDefault:
 </td>
 <td><p>N/A</p></td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Float</span><span class="p">.</span><span class="n">round</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">math</span><span class="p">.</span><span class="nx">Round</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">round</span><span class="k">(</span><span class="nv">$a</span><span class="k">)}]</span>
 </pre></div>
 </div>
 </td>
@@ -2282,6 +2729,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">incr</span><span class="w"> </span>a
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
@@ -2364,6 +2827,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">incr</span><span class="w"> </span>a<span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
@@ -2434,6 +2913,22 @@ LabelDefault:
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">lsl</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
 </pre></div>
 </div>
 </td>
@@ -2510,6 +3005,22 @@ LabelDefault:
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftR</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Bitwise</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
@@ -2583,6 +3094,22 @@ LabelDefault:
 </div>
 </td>
 <td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">land</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.&amp;.</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
 </pre></div>
 </div>
 </td>

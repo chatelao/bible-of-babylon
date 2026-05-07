@@ -106,6 +106,10 @@
 <li class="toctree-l1"><a class="reference internal" href="java_bytecode_pivot.html">Java Bytecode Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="arm_pivot.html">ARM AArch64 Assembler Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="camel_pivot.html">Camel Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="go_pivot.html">Go Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell_pivot.html">Haskell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typescript_pivot.html">TypeScript Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcl_pivot.html">Tcl Pivot View</a></li>
 </ul>
 
         </div>
@@ -297,6 +301,34 @@
 </div>
 </td>
 <td><p>Defined in the .data section.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoVar</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Static typing with optional type inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellVar</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Immutable binding within a scope; part of let-in or where clause.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptVar</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Supports static typing on top of JavaScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclVar</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Variables are untyped strings; set is used for assignment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -511,6 +543,41 @@
 </td>
 <td><p>Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30).</p></td>
 </tr>
+<tr class="row-even"><td><p>GoProcedure</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">logMessage</span><span class="p">(</span><span class="nx">msg</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures are functions with no return value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellProcedure</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">logMessage</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<span class="nf">logMessage</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures are functions that return an IO action.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptProcedure</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">logMessage</span><span class="p">(</span><span class="nx">msg</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures use the ‘void’ return type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclProcedure</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>logMessage<span class="w"> </span><span class="k">{</span><span class="nv">msg</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="nv">$msg</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘proc’ to define a command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -714,6 +781,41 @@
 </div>
 </td>
 <td><p>Standard AArch64 calling convention; x0-x7 are argument registers, x0 is the return register.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoFunction</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">func</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions use the ‘func’ keyword; return type follows the parameter list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellFunction</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Function types are usually declared explicitly; arguments are space-separated.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptFunction</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span><span class="w"> </span><span class="nx">add</span><span class="p">(</span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions support typed parameters and return values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclFunction</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>add<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span>b<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures can return values using the return command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -940,6 +1042,46 @@ LabelThen:
 </td>
 <td><p>Implemented using comparison and branch instructions (ble).</p></td>
 </tr>
+<tr class="row-even"><td><p>GoIfElse</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parentheses around condition are not required; braces are mandatory.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellIfElse</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><p>If-then-else is an expression; both branches must be present and have the same type.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptIfElse</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style if-else statement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclIfElse</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses braces for the condition and branches.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1146,6 +1288,40 @@ LoopEnd:
 </td>
 <td><p>Uses conditional branches to implement loops.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoLoop</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go uses ‘for’ for all looping constructs, including while-like loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellLoop</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Haskell uses recursion for iteration as it is a pure functional language.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptLoop</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard while loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclLoop</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="mi">1</span><span class="k">}]</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard while loop; expr is used for mathematical evaluation.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1336,6 +1512,44 @@ Done:
 <td><p>N/A</p></td>
 <td><p>No native try-catch; relies on return codes or exception levels/traps for errors.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoTryCatch</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">do_something</span><span class="p">();</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go handles errors explicitly by returning them as values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellTryCatch</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">do_something</span><span class="w"> </span><span class="p">`</span><span class="n">catch</span><span class="p">`</span><span class="w"> </span><span class="nf">\</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">SomeException</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">e</span>
+</pre></div>
+</div>
+</td>
+<td><p>Exception handling using the catch function from Control.Exception.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptTryCatch</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">do_something</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">handle</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript exception handling.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclTryCatch</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">try</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">do_something</span>
+<span class="k">}</span><span class="w"> </span>on<span class="w"> </span>error<span class="w"> </span><span class="k">{</span><span class="nv">e</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$e</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The try command handles errors and exceptions (Tcl 8.6+).</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1500,6 +1714,34 @@ athrow
 </td>
 <td><p>The brk instruction triggers a breakpoint exception.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoRaise</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘panic’ for unrecoverable errors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellRaise</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="ne">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘error’ function stops execution and displays a message.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptRaise</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="ne">Error</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘throw’ to raise an error.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclRaise</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">error</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Signals an error condition.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1604,6 +1846,34 @@ invokevirtual java/lang/Thread/start()V
 </td>
 <td><p>Thread creation typically involves invoking OS system calls (e.g., clone on Linux).</p></td>
 </tr>
+<tr class="row-even"><td><p>GoThread</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">go</span><span class="w"> </span><span class="nx">do_work</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘go’ keyword starts a new goroutine (lightweight thread).</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellThread</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">forkIO</span><span class="w"> </span><span class="p">(</span><span class="n">do_work</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>forkIO creates a lightweight thread (requires Control.Concurrent).</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptThread</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span><span class="w"> </span><span class="nx">Worker</span><span class="p">(</span><span class="s1">&#39;worker.js&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Concurrency is typically handled via Web Workers or asynchronous programming (Promises/async-await).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclThread</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>create<span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">do_work</span><span class="w"> </span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the Thread package.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1703,6 +1973,34 @@ invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
 </div>
 </td>
 <td><p>Inter-process/thread communication is managed via OS system calls.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoSendMessage</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">ch</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sends a value to a channel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellSendMessage</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">writeChan</span><span class="w"> </span><span class="n">chan</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Writes a value to a Chan (unbounded FIFO channel).</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptSendMessage</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">worker</span><span class="p">.</span><span class="nx">postMessage</span><span class="p">(</span><span class="mf">42</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Communicates with a Web Worker.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclSendMessage</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>send<span class="w"> </span><span class="nv">$id</span><span class="w"> </span><span class="nv">$msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sends a message to a thread.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1804,6 +2102,36 @@ invokestatic MyClass/handle(I)V
 </div>
 </td>
 <td><p>Receiving signals or messages involves OS system calls.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoReceiveMessage</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">msg</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">ch</span>
+<span class="nx">handle</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Receives a value from a channel; blocks until data is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellReceiveMessage</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">msg</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readChan</span><span class="w"> </span><span class="n">chan</span>
+<span class="nf">handle</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Reads a value from a Chan; blocks if the channel is empty.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptReceiveMessage</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">worker</span><span class="p">.</span><span class="nx">onmessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">handle</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Handles messages from a Web Worker.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclReceiveMessage</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">vwait</span><span class="w"> </span>msg<span class="k">;</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>vwait blocks until a variable is written.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1966,6 +2294,34 @@ invokestatic MyClass/handle(I)V
 </td>
 <td><p>AArch64 assembly often uses // or ; for single-line comments.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoSingleLineComment</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellSingleLineComment</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptSingleLineComment</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclSingleLineComment</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Hashes start comments; must be at the beginning of a command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2121,6 +2477,34 @@ invokestatic MyClass/handle(I)V
 <tr class="row-odd"><td><p>ArmAarch64MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>AArch64 assembly does not have a native multi-line comment syntax.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoMultiLineComment</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard block comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellMultiLineComment</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="cm">{- line 1</span>
+<span class="cm">   line 2 -}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard block comment; can be nested.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptMultiLineComment</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard block comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclMultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>Tcl has no native multi-line comment syntax.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2293,6 +2677,34 @@ invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 </td>
 <td><p>Typically uses the C library printf; adrp/add are used for PC-relative addressing.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoPrint</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the fmt package for formatted I/O.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellPrint</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">putStrLn</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs a string followed by a newline in the IO monad.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptPrint</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs to the console.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclPrint</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs a string to stdout followed by a newline.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2454,6 +2866,34 @@ invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
 </div>
 </td>
 <td><p>Uses the .include directive for external source files.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoImport</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports a package by its path.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellImport</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.List</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports symbols from a module into the current namespace.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptImport</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./math&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>ESM import syntax.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclImport</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">package</span><span class="w"> </span>require<span class="w"> </span>Tcl
+</pre></div>
+</div>
+</td>
+<td><p>Loads a package into the interpreter.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2717,6 +3157,61 @@ LabelDefault:
 </td>
 <td><p>Implemented using comparison and branch instructions.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoSwitchCase</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+<span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">default</span><span class="p">:</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Switch cases do not fall through by default in Go.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellSwitchCase</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">case</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">of</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kr">_</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses pattern matching in a case expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptSwitchCase</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">1</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="nx">2</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">default</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style switch statement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclSwitchCase</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">1</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">2</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="w">    </span><span class="nv">default</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The switch command provides multi-way branching.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2884,6 +3379,34 @@ LabelDefault:
 </td>
 <td><p>Uses the .equiv directive to define constants.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoConstant</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><p>Constants are declared with the ‘const’ keyword.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellConstant</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">maxVal</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><p>Top-level bindings are immutable and effectively constant.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptConstant</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘const’ for immutable declarations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclConstant</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>MAX<span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><p>Tcl does not have true constants; naming conventions are used.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3047,6 +3570,34 @@ LabelDefault:
 </div>
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoAddition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellAddition</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptAddition</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclAddition</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3212,6 +3763,34 @@ LabelDefault:
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoSubtraction</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellSubtraction</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptSubtraction</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclSubtraction</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3375,6 +3954,34 @@ LabelDefault:
 </div>
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoMultiplication</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellMultiplication</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptMultiplication</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclMultiplication</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3540,6 +4147,34 @@ LabelDefault:
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoDivision</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellDivision</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Haskell uses / for floating-point and ‘div’ or ‘quot’ for integer division.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptDivision</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclDivision</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3698,6 +4333,34 @@ LabelDefault:
 <td><p>N/A</p></td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoRemainder</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellRemainder</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="p">`</span><span class="n">mod</span><span class="p">`</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptRemainder</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclRemainder</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3843,6 +4506,34 @@ LabelDefault:
 <tr class="row-odd"><td><p>ArmAarch64Floor</p></td>
 <td><p>N/A</p></td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoFloor</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">math</span><span class="p">.</span><span class="nx">Floor</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the math package.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellFloor</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptFloor</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclFloor</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">floor</span><span class="k">(</span><span class="nv">$a</span><span class="k">)}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3992,6 +4683,34 @@ LabelDefault:
 <tr class="row-odd"><td><p>ArmAarch64Rounding</p></td>
 <td><p>N/A</p></td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoRounding</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">math</span><span class="p">.</span><span class="nx">Round</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the math package.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellRounding</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard mathematical operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptRounding</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclRounding</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">round</span><span class="k">(</span><span class="nv">$a</span><span class="k">)}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4157,6 +4876,34 @@ LabelDefault:
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoIncrement</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go supports postfix increment as a statement, not an expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellIncrement</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>No native increment operator; use addition.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptIncrement</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclIncrement</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">incr</span><span class="w"> </span>a
+</pre></div>
+</div>
+</td>
+<td><p>The incr command increments an integer variable.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4321,6 +5068,34 @@ LabelDefault:
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoDecrement</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go supports postfix decrement as a statement, not an expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellDecrement</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>No native decrement operator; use subtraction.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptDecrement</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclDecrement</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">incr</span><span class="w"> </span>a<span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>The incr command can decrement if a negative value is provided.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4476,6 +5251,34 @@ LabelDefault:
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
 </tr>
+<tr class="row-even"><td><p>GoLeftShift</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise shift operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellLeftShift</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptLeftShift</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclLeftShift</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4630,6 +5433,34 @@ LabelDefault:
 </div>
 </td>
 <td><p>Standard A64 instructions; modulo is typically calculated via sdiv and msub.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoRightShift</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise shift operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellRightShift</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftR</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptRightShift</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard JavaScript operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclRightShift</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5163,6 +5994,114 @@ ixor
 </div>
 </td>
 <td><p>Core bitwise logical and shift instructions.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoBitwise</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="p">^</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="p">^</span><span class="nx">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise NOT is implemented using the bitwise XOR operator with no left operand.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellBitwise</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.&amp;.</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.|.</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">complement</span><span class="w"> </span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftR</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptBitwise</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">a</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclBitwise</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="o">~</span><span class="nv">$a</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Math operations require the expr command.</p></td>
 </tr>
 </tbody>
 </table>

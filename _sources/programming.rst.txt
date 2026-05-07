@@ -131,6 +131,26 @@ Parameters:
 
            x:  .quad 42
      - Defined in the .data section.
+   * - GoVar
+     - .. code-block:: go
+
+           var x int = 42
+     - Static typing with optional type inference.
+   * - HaskellVar
+     - .. code-block:: haskell
+
+           let x = 42
+     - Immutable binding within a scope; part of let-in or where clause.
+   * - TypeScriptVar
+     - .. code-block:: typescript
+
+           let x: number = 42;
+     - Supports static typing on top of JavaScript.
+   * - TclVar
+     - .. code-block:: tcl
+
+           set x 42
+     - Variables are untyped strings; set is used for assignment.
 
 
 
@@ -309,6 +329,33 @@ Parameters:
                ldp x29, x30, [sp], 16
                ret
      - Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30).
+   * - GoProcedure
+     - .. code-block:: go
+
+           func logMessage(msg string) {
+               fmt.Println(msg)
+           }
+     - Procedures are functions with no return value.
+   * - HaskellProcedure
+     - .. code-block:: haskell
+
+           logMessage :: String -> IO ()
+           logMessage msg = putStrLn msg
+     - Procedures are functions that return an IO action.
+   * - TypeScriptProcedure
+     - .. code-block:: typescript
+
+           function logMessage(msg: string): void {
+               console.log(msg);
+           }
+     - Procedures use the 'void' return type.
+   * - TclProcedure
+     - .. code-block:: tcl
+
+           proc logMessage {msg} {
+               puts $msg
+           }
+     - Uses 'proc' to define a command.
 
 
 
@@ -479,6 +526,33 @@ Parameters:
                add x0, x0, x1
                ret
      - Standard AArch64 calling convention; x0-x7 are argument registers, x0 is the return register.
+   * - GoFunction
+     - .. code-block:: go
+
+           func add(a int, b int) int {
+               return a + b
+           }
+     - Functions use the 'func' keyword; return type follows the parameter list.
+   * - HaskellFunction
+     - .. code-block:: haskell
+
+           add :: Int -> Int -> Int
+           add a b = a + b
+     - Function types are usually declared explicitly; arguments are space-separated.
+   * - TypeScriptFunction
+     - .. code-block:: typescript
+
+           function add(a: number, b: number): number {
+               return a + b;
+           }
+     - Functions support typed parameters and return values.
+   * - TclFunction
+     - .. code-block:: tcl
+
+           proc add {a b} {
+               return [expr {$a + $b}]
+           }
+     - Procedures can return values using the return command.
 
 
 
@@ -668,6 +742,38 @@ Parameters:
                mov x0, #0
            .end:
      - Implemented using comparison and branch instructions (ble).
+   * - GoIfElse
+     - .. code-block:: go
+
+           if x > 0 {
+               return 1
+           } else {
+               return 0
+           }
+     - Parentheses around condition are not required; braces are mandatory.
+   * - HaskellIfElse
+     - .. code-block:: haskell
+
+           if x > 0 then 1 else 0
+     - If-then-else is an expression; both branches must be present and have the same type.
+   * - TypeScriptIfElse
+     - .. code-block:: typescript
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - Standard C-style if-else statement.
+   * - TclIfElse
+     - .. code-block:: tcl
+
+           if {$x > 0} {
+               return 1
+           } else {
+               return 0
+           }
+     - Uses braces for the condition and branches.
 
 
 
@@ -838,6 +944,32 @@ Parameters:
                b .loop
            .end:
      - Uses conditional branches to implement loops.
+   * - GoLoop
+     - .. code-block:: go
+
+           for x > 0 {
+               x = x - 1
+           }
+     - Go uses 'for' for all looping constructs, including while-like loops.
+   * - HaskellLoop
+     - .. code-block:: haskell
+
+           loop x = if x > 0 then loop (x - 1) else return ()
+     - Haskell uses recursion for iteration as it is a pure functional language.
+   * - TypeScriptLoop
+     - .. code-block:: typescript
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - Standard while loop.
+   * - TclLoop
+     - .. code-block:: tcl
+
+           while {$x > 0} {
+               set x [expr {$x - 1}]
+           }
+     - Standard while loop; expr is used for mathematical evaluation.
 
 
 
@@ -999,6 +1131,36 @@ Parameters:
    * - ArmAarch64TryCatch
      - N/A
      - No native try-catch; relies on return codes or exception levels/traps for errors.
+   * - GoTryCatch
+     - .. code-block:: go
+
+           if err := do_something(); err != nil {
+               handle(err)
+           }
+     - Go handles errors explicitly by returning them as values.
+   * - HaskellTryCatch
+     - .. code-block:: haskell
+
+           do_something `catch` \(e :: SomeException) -> handle e
+     - Exception handling using the catch function from Control.Exception.
+   * - TypeScriptTryCatch
+     - .. code-block:: typescript
+
+           try {
+               do_something();
+           } catch (e) {
+               handle(e);
+           }
+     - Standard JavaScript exception handling.
+   * - TclTryCatch
+     - .. code-block:: tcl
+
+           try {
+               do_something
+           } on error {e} {
+               handle $e
+           }
+     - The try command handles errors and exceptions (Tcl 8.6+).
 
 
 
@@ -1128,6 +1290,26 @@ Parameters:
 
                brk #0
      - The brk instruction triggers a breakpoint exception.
+   * - GoRaise
+     - .. code-block:: go
+
+           panic("Error")
+     - Uses 'panic' for unrecoverable errors.
+   * - HaskellRaise
+     - .. code-block:: haskell
+
+           error "Error"
+     - The 'error' function stops execution and displays a message.
+   * - TypeScriptRaise
+     - .. code-block:: typescript
+
+           throw new Error("Error");
+     - Uses 'throw' to raise an error.
+   * - TclRaise
+     - .. code-block:: tcl
+
+           error "Error"
+     - Signals an error condition.
 
 
 
@@ -1214,6 +1396,26 @@ Parameters:
                mov x8, #220 // clone syscall
                svc #0
      - Thread creation typically involves invoking OS system calls (e.g., clone on Linux).
+   * - GoThread
+     - .. code-block:: go
+
+           go do_work()
+     - The 'go' keyword starts a new goroutine (lightweight thread).
+   * - HaskellThread
+     - .. code-block:: haskell
+
+           forkIO (do_work)
+     - forkIO creates a lightweight thread (requires Control.Concurrent).
+   * - TypeScriptThread
+     - .. code-block:: typescript
+
+           new Worker('worker.js');
+     - Concurrency is typically handled via Web Workers or asynchronous programming (Promises/async-await).
+   * - TclThread
+     - .. code-block:: tcl
+
+           thread::create { do_work }
+     - Requires the Thread package.
 
 
 
@@ -1298,6 +1500,26 @@ Parameters:
                mov x8, #139 // rt_sigqueueinfo
                svc #0
      - Inter-process/thread communication is managed via OS system calls.
+   * - GoSendMessage
+     - .. code-block:: go
+
+           ch <- 42
+     - Sends a value to a channel.
+   * - HaskellSendMessage
+     - .. code-block:: haskell
+
+           writeChan chan 42
+     - Writes a value to a Chan (unbounded FIFO channel).
+   * - TypeScriptSendMessage
+     - .. code-block:: typescript
+
+           worker.postMessage(42);
+     - Communicates with a Web Worker.
+   * - TclSendMessage
+     - .. code-block:: tcl
+
+           thread::send $id $msg
+     - Sends a message to a thread.
 
 
 
@@ -1383,6 +1605,28 @@ Parameters:
                mov x8, #128 // rt_sigtimedwait
                svc #0
      - Receiving signals or messages involves OS system calls.
+   * - GoReceiveMessage
+     - .. code-block:: go
+
+           msg := <-ch
+           handle(msg)
+     - Receives a value from a channel; blocks until data is available.
+   * - HaskellReceiveMessage
+     - .. code-block:: haskell
+
+           msg <- readChan chan
+           handle msg
+     - Reads a value from a Chan; blocks if the channel is empty.
+   * - TypeScriptReceiveMessage
+     - .. code-block:: typescript
+
+           worker.onmessage = (e) => { handle(e.data); };
+     - Handles messages from a Web Worker.
+   * - TclReceiveMessage
+     - .. code-block:: tcl
+
+           vwait msg; handle $msg
+     - vwait blocks until a variable is written.
 
 
 
@@ -1506,6 +1750,26 @@ Parameters:
 
            // comment
      - AArch64 assembly often uses // or ; for single-line comments.
+   * - GoSingleLineComment
+     - .. code-block:: go
+
+           // comment
+     - Standard single-line comment.
+   * - HaskellSingleLineComment
+     - .. code-block:: haskell
+
+           -- comment
+     - Standard single-line comment.
+   * - TypeScriptSingleLineComment
+     - .. code-block:: typescript
+
+           // comment
+     - Standard single-line comment.
+   * - TclSingleLineComment
+     - .. code-block:: tcl
+
+           # comment
+     - Hashes start comments; must be at the beginning of a command.
 
 
 
@@ -1630,6 +1894,27 @@ Parameters:
    * - ArmAarch64MultiLineComment
      - N/A
      - AArch64 assembly does not have a native multi-line comment syntax.
+   * - GoMultiLineComment
+     - .. code-block:: go
+
+           /* line 1
+              line 2 */
+     - Standard block comment.
+   * - HaskellMultiLineComment
+     - .. code-block:: haskell
+
+           {- line 1
+              line 2 -}
+     - Standard block comment; can be nested.
+   * - TypeScriptMultiLineComment
+     - .. code-block:: typescript
+
+           /* line 1
+              line 2 */
+     - Standard block comment.
+   * - TclMultiLineComment
+     - N/A
+     - Tcl has no native multi-line comment syntax.
 
 
 
@@ -1763,6 +2048,26 @@ Parameters:
                add x0, x0, :lo12:hello_msg
                bl printf
      - Typically uses the C library printf; adrp/add are used for PC-relative addressing.
+   * - GoPrint
+     - .. code-block:: go
+
+           fmt.Println("Hello, World!")
+     - Uses the fmt package for formatted I/O.
+   * - HaskellPrint
+     - .. code-block:: haskell
+
+           putStrLn "Hello, World!"
+     - Outputs a string followed by a newline in the IO monad.
+   * - TypeScriptPrint
+     - .. code-block:: typescript
+
+           console.log("Hello, World!");
+     - Outputs to the console.
+   * - TclPrint
+     - .. code-block:: tcl
+
+           puts "Hello, World!"
+     - Outputs a string to stdout followed by a newline.
 
 
 
@@ -1888,6 +2193,26 @@ Parameters:
 
            .include "macros.s"
      - Uses the .include directive for external source files.
+   * - GoImport
+     - .. code-block:: go
+
+           import "fmt"
+     - Imports a package by its path.
+   * - HaskellImport
+     - .. code-block:: haskell
+
+           import Data.List
+     - Imports symbols from a module into the current namespace.
+   * - TypeScriptImport
+     - .. code-block:: typescript
+
+           import { add } from './math';
+     - ESM import syntax.
+   * - TclImport
+     - .. code-block:: tcl
+
+           package require Tcl
+     - Loads a package into the interpreter.
 
 
 
@@ -2113,6 +2438,53 @@ Parameters:
                beq .case2
                b .default
      - Implemented using comparison and branch instructions.
+   * - GoSwitchCase
+     - .. code-block:: go
+
+           switch x {
+           case 1:
+               return 1
+           case 2:
+               return 2
+           default:
+               return 0
+           }
+     - Switch cases do not fall through by default in Go.
+   * - HaskellSwitchCase
+     - .. code-block:: haskell
+
+           case x of
+               1 -> 1
+               2 -> 2
+               _ -> 0
+     - Uses pattern matching in a case expression.
+   * - TypeScriptSwitchCase
+     - .. code-block:: typescript
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch statement.
+   * - TclSwitchCase
+     - .. code-block:: tcl
+
+           switch $x {
+               1 {
+                   return 1
+               }
+               2 {
+                   return 2
+               }
+               default {
+                   return 0
+               }
+           }
+     - The switch command provides multi-way branching.
 
 
 
@@ -2244,6 +2616,26 @@ Parameters:
 
            .equiv MAX, 100
      - Uses the .equiv directive to define constants.
+   * - GoConstant
+     - .. code-block:: go
+
+           const MAX = 100
+     - Constants are declared with the 'const' keyword.
+   * - HaskellConstant
+     - .. code-block:: haskell
+
+           maxVal = 100
+     - Top-level bindings are immutable and effectively constant.
+   * - TypeScriptConstant
+     - .. code-block:: typescript
+
+           const MAX: number = 100;
+     - Uses 'const' for immutable declarations.
+   * - TclConstant
+     - .. code-block:: tcl
+
+           set MAX 100
+     - Tcl does not have true constants; naming conventions are used.
 
 
 
@@ -2369,6 +2761,26 @@ Parameters:
 
            add x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoAddition
+     - .. code-block:: go
+
+           a + b
+     - Standard arithmetic operators.
+   * - HaskellAddition
+     - .. code-block:: haskell
+
+           a + b
+     - Standard mathematical operators.
+   * - TypeScriptAddition
+     - .. code-block:: typescript
+
+           a + b
+     - Standard JavaScript operators.
+   * - TclAddition
+     - .. code-block:: tcl
+
+           [expr {$a + $b}]
+     - Math operations require the expr command.
 
 
 
@@ -2494,6 +2906,26 @@ Parameters:
 
            sub x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoSubtraction
+     - .. code-block:: go
+
+           a - b
+     - Standard arithmetic operators.
+   * - HaskellSubtraction
+     - .. code-block:: haskell
+
+           a - b
+     - Standard mathematical operators.
+   * - TypeScriptSubtraction
+     - .. code-block:: typescript
+
+           a - b
+     - Standard JavaScript operators.
+   * - TclSubtraction
+     - .. code-block:: tcl
+
+           [expr {$a - $b}]
+     - Math operations require the expr command.
 
 
 
@@ -2619,6 +3051,26 @@ Parameters:
 
            mul x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoMultiplication
+     - .. code-block:: go
+
+           a * b
+     - Standard arithmetic operators.
+   * - HaskellMultiplication
+     - .. code-block:: haskell
+
+           a * b
+     - Standard mathematical operators.
+   * - TypeScriptMultiplication
+     - .. code-block:: typescript
+
+           a * b
+     - Standard JavaScript operators.
+   * - TclMultiplication
+     - .. code-block:: tcl
+
+           [expr {$a * $b}]
+     - Math operations require the expr command.
 
 
 
@@ -2744,6 +3196,26 @@ Parameters:
 
            sdiv x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoDivision
+     - .. code-block:: go
+
+           a / b
+     - Standard arithmetic operators.
+   * - HaskellDivision
+     - .. code-block:: haskell
+
+           a / b
+     - Haskell uses / for floating-point and 'div' or 'quot' for integer division.
+   * - TypeScriptDivision
+     - .. code-block:: typescript
+
+           a / b
+     - Standard JavaScript operators.
+   * - TclDivision
+     - .. code-block:: tcl
+
+           [expr {$a / $b}]
+     - Math operations require the expr command.
 
 
 
@@ -2865,6 +3337,26 @@ Parameters:
    * - ArmAarch64Remainder
      - N/A
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoRemainder
+     - .. code-block:: go
+
+           a % b
+     - Standard arithmetic operators.
+   * - HaskellRemainder
+     - .. code-block:: haskell
+
+           a `mod` b
+     - Standard mathematical operators.
+   * - TypeScriptRemainder
+     - .. code-block:: typescript
+
+           a % b
+     - Standard JavaScript operators.
+   * - TclRemainder
+     - .. code-block:: tcl
+
+           [expr {$a % $b}]
+     - Math operations require the expr command.
 
 
 
@@ -2978,6 +3470,26 @@ Parameters:
    * - ArmAarch64Floor
      - N/A
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoFloor
+     - .. code-block:: go
+
+           math.Floor(a)
+     - Requires the math package.
+   * - HaskellFloor
+     - .. code-block:: haskell
+
+           floor a
+     - Standard mathematical operators.
+   * - TypeScriptFloor
+     - .. code-block:: typescript
+
+           Math.floor(a)
+     - Standard JavaScript operators.
+   * - TclFloor
+     - .. code-block:: tcl
+
+           [expr {floor($a)}]
+     - Math operations require the expr command.
 
 
 
@@ -3093,6 +3605,26 @@ Parameters:
    * - ArmAarch64Rounding
      - N/A
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoRounding
+     - .. code-block:: go
+
+           math.Round(a)
+     - Requires the math package.
+   * - HaskellRounding
+     - .. code-block:: haskell
+
+           round a
+     - Standard mathematical operators.
+   * - TypeScriptRounding
+     - .. code-block:: typescript
+
+           Math.round(a)
+     - Standard JavaScript operators.
+   * - TclRounding
+     - .. code-block:: tcl
+
+           [expr {round($a)}]
+     - Math operations require the expr command.
 
 
 
@@ -3218,6 +3750,26 @@ Parameters:
 
            add x0, x0, #1
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoIncrement
+     - .. code-block:: go
+
+           a++
+     - Go supports postfix increment as a statement, not an expression.
+   * - HaskellIncrement
+     - .. code-block:: haskell
+
+           a + 1
+     - No native increment operator; use addition.
+   * - TypeScriptIncrement
+     - .. code-block:: typescript
+
+           a++
+     - Standard JavaScript operators.
+   * - TclIncrement
+     - .. code-block:: tcl
+
+           incr a
+     - The incr command increments an integer variable.
 
 
 
@@ -3343,6 +3895,26 @@ Parameters:
 
            sub x0, x0, #1
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoDecrement
+     - .. code-block:: go
+
+           a--
+     - Go supports postfix decrement as a statement, not an expression.
+   * - HaskellDecrement
+     - .. code-block:: haskell
+
+           a - 1
+     - No native decrement operator; use subtraction.
+   * - TypeScriptDecrement
+     - .. code-block:: typescript
+
+           a--
+     - Standard JavaScript operators.
+   * - TclDecrement
+     - .. code-block:: tcl
+
+           incr a -1
+     - The incr command can decrement if a negative value is provided.
 
 
 
@@ -3462,6 +4034,26 @@ Parameters:
 
            lsl x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoLeftShift
+     - .. code-block:: go
+
+           a << b
+     - Standard bitwise shift operators.
+   * - HaskellLeftShift
+     - .. code-block:: haskell
+
+           shiftL a b
+     - Requires Data.Bits.
+   * - TypeScriptLeftShift
+     - .. code-block:: typescript
+
+           a << b
+     - Standard JavaScript operators.
+   * - TclLeftShift
+     - .. code-block:: tcl
+
+           [expr {$a << $b}]
+     - Math operations require the expr command.
 
 
 
@@ -3581,6 +4173,26 @@ Parameters:
 
            lsr x0, x1, x2
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - GoRightShift
+     - .. code-block:: go
+
+           a >> b
+     - Standard bitwise shift operators.
+   * - HaskellRightShift
+     - .. code-block:: haskell
+
+           shiftR a b
+     - Requires Data.Bits.
+   * - TypeScriptRightShift
+     - .. code-block:: typescript
+
+           a >> b
+     - Standard JavaScript operators.
+   * - TclRightShift
+     - .. code-block:: tcl
+
+           [expr {$a >> $b}]
+     - Math operations require the expr command.
 
 
 
@@ -3994,3 +4606,83 @@ Parameters:
 
            lsr x0, x1, x2
      - Core bitwise logical and shift instructions.
+   * - GoBitwise
+     - .. code-block:: go
+
+           a & b
+     - .. code-block:: go
+
+           a | b
+     - .. code-block:: go
+
+           a ^ b
+     - .. code-block:: go
+
+           ^a
+     - .. code-block:: go
+
+           a << b
+     - .. code-block:: go
+
+           a >> b
+     - Bitwise NOT is implemented using the bitwise XOR operator with no left operand.
+   * - HaskellBitwise
+     - .. code-block:: haskell
+
+           a .&. b
+     - .. code-block:: haskell
+
+           a .|. b
+     - .. code-block:: haskell
+
+           xor a b
+     - .. code-block:: haskell
+
+           complement a
+     - .. code-block:: haskell
+
+           shiftL a b
+     - .. code-block:: haskell
+
+           shiftR a b
+     - Requires Data.Bits.
+   * - TypeScriptBitwise
+     - .. code-block:: typescript
+
+           a & b
+     - .. code-block:: typescript
+
+           a | b
+     - .. code-block:: typescript
+
+           a ^ b
+     - .. code-block:: typescript
+
+           ~a
+     - .. code-block:: typescript
+
+           a << b
+     - .. code-block:: typescript
+
+           a >> b
+     - Standard bitwise operators.
+   * - TclBitwise
+     - .. code-block:: tcl
+
+           [expr {$a & $b}]
+     - .. code-block:: tcl
+
+           [expr {$a | $b}]
+     - .. code-block:: tcl
+
+           [expr {$a ^ $b}]
+     - .. code-block:: tcl
+
+           [expr {~$a}]
+     - .. code-block:: tcl
+
+           [expr {$a << $b}]
+     - .. code-block:: tcl
+
+           [expr {$a >> $b}]
+     - Math operations require the expr command.
