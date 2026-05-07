@@ -2217,57 +2217,57 @@ instance RustBitwise of Bitwise {
 
 instance PythonAddition of Addition {
     syntax = "a + b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonSubtraction of Subtraction {
     syntax = "a - b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonMultiplication of Multiplication {
     syntax = "a * b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonDivision of Division {
     syntax = "a / b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonRemainder of Remainder {
     syntax = "a % b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonFloor of Floor {
     syntax = "math.floor(a)"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonRounding of Rounding {
     syntax = "round(a)"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonIncrement of Increment {
     syntax = "a += 1"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonDecrement of Decrement {
     syntax = "a -= 1"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonLeftShift of LeftShift {
     syntax = "a << b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonRightShift of RightShift {
     syntax = "a >> b"
-    notes = "Supports both true division (/) and floor division (//)."
+    notes = "Standard Python arithmetic operator."
 }
 
 instance PythonBitwise of Bitwise {
@@ -2607,57 +2607,57 @@ instance SqlBitwise of Bitwise {
 
 instance ErlangAddition of Addition {
     syntax = "A + B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangSubtraction of Subtraction {
     syntax = "A - B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangMultiplication of Multiplication {
     syntax = "A * B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangDivision of Division {
     syntax = "A / B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangRemainder of Remainder {
     syntax = "A rem B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangFloor of Floor {
     syntax = "floor(A)"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangRounding of Rounding {
     syntax = "round(A)"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangIncrement of Increment {
     syntax = "A + 1"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangDecrement of Decrement {
     syntax = "A - 1"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangLeftShift of LeftShift {
     syntax = "A bsl B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangRightShift of RightShift {
     syntax = "A bsr B"
-    notes = "Uses 'rem' for remainder and 'div' for integer division; Erlang is immutable, so increment returns a new value."
+    notes = "Standard Erlang arithmetic operator."
 }
 
 instance ErlangBitwise of Bitwise {
@@ -2932,57 +2932,57 @@ instance CudaBitwise of Bitwise {
 
 instance X86Addition of Addition {
     syntax = "add eax, ebx"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Subtraction of Subtraction {
     syntax = "sub eax, ebx"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Multiplication of Multiplication {
     syntax = "imul eax, ebx"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Division of Division {
     syntax = "idiv ebx"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Remainder of Remainder {
     syntax = "N/A"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Floor of Floor {
     syntax = "N/A"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Rounding of Rounding {
     syntax = "N/A"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Increment of Increment {
     syntax = "inc eax"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Decrement of Decrement {
     syntax = "dec eax"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86LeftShift of LeftShift {
     syntax = "shl eax, cl"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86RightShift of RightShift {
     syntax = "shr eax, cl"
-    notes = "Operates on registers; division stores remainder in edx."
+    notes = "Operates on registers or memory."
 }
 
 instance X86Bitwise of Bitwise {
