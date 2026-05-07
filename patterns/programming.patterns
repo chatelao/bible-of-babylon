@@ -4251,3 +4251,129 @@ instance TclBitwise of Bitwise {
     bit_rshift = "[expr {$a >> $b}]"
     notes = "Math operations require the expr command."
 }
+
+pattern Float4VectorMultiplication {
+    meta description: "Element-wise multiplication of two 4-component floating-point vectors."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
+    notes = "Standard C requires a loop for element-wise multiplication of arrays."
+}
+
+instance JavaFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];"
+    notes = "Standard Java uses loops; the Vector API (incubating) provides SIMD support."
+}
+
+instance RustFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for i in 0..4 { c[i] = a[i] * b[i]; }"
+    notes = "Usually implemented with loops or iterator zipping; crates like nalgebra or glam provide dedicated types."
+}
+
+instance PythonFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "c = [ai * bi for ai, bi in zip(a, b)]"
+    notes = "Uses list comprehension with zip; NumPy is preferred for performance."
+}
+
+instance PhpFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "$c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);"
+    notes = "Uses array_map with an arrow function."
+}
+
+instance BashFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for i in {0..3}; do c[$i]=$(echo \"${a[$i]} * ${b[$i]}\" | bc); done"
+    notes = "Requires external tools like bc for floating-point arithmetic."
+}
+
+instance PowerShellFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }"
+    notes = "Uses a pipeline and ForEach-Object to iterate over indices."
+}
+
+instance CmdFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "N/A"
+    notes = "Cmd does not natively support floating-point arithmetic or vectors."
+}
+
+instance SqlFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "SELECT a1*b1, a2*b2, a3*b3, a4*b4"
+    notes = "SQL typically operates on columns; vector operations are dialect-specific."
+}
+
+instance ErlangFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)]."
+    notes = "Uses list comprehension and lists:zip."
+}
+
+instance LispFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "(mapcar #'* a b)"
+    notes = "Applies the multiplication function element-wise to the lists."
+}
+
+instance XQueryFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for $i in 1 to 4 return $a[$i] * $b[$i]"
+    notes = "Uses a for expression to iterate over indices."
+}
+
+instance CssFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "N/A"
+    notes = "CSS does not support vector types or element-wise multiplication."
+}
+
+instance CudaFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "c.x = a.x * b.x; c.y = a.y * b.y; c.z = a.z * b.z; c.w = a.w * b.w;"
+    notes = "The float4 type in CUDA is a struct; multiplication is done per-component."
+}
+
+instance X86Float4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "mulps xmm0, xmm1"
+    notes = "SSE instruction for packed single-precision floating-point multiplication (4 floats)."
+}
+
+instance RiscvFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "vsetvli t0, x0, e32, m1\nvfmul.vv v1, v2, v3"
+    notes = "Uses the RISC-V Vector extension (RVV) for element-wise float multiplication."
+}
+
+instance PrologFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "maplist(multiply, A, B, C)."
+    notes = "Uses maplist to apply a predicate element-wise."
+}
+
+instance JavaBytecodeFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "fload_1\nfload_2\nfmul"
+    notes = "Java Bytecode uses fmul for individual floats; vectorization is typically handled by the JIT."
+}
+
+instance CamelFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "Array.map2 (fun ai bi -> ai *. bi) a b"
+    notes = "OCaml uses specific operators for floating-point arithmetic (*.)."
+}
+
+instance ArmAarch64Float4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "fmul v0.4s, v1.4s, v2.4s"
+    notes = "NEON instruction for 4-lane single-precision floating-point multiplication."
+}
+
+instance GoFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for i := range a { c[i] = a[i] * b[i] }"
+    notes = "Iterates over the indices of the slices or arrays."
+}
+
+instance HaskellFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "zipWith (*) a b"
+    notes = "Applies multiplication element-wise to two lists."
+}
+
+instance TypeScriptFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "const c = a.map((v, i) => v * b[i]);"
+    notes = "Uses the Array.map method with the index parameter."
+}
+
+instance TclFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }"
+    notes = "Uses a multi-variable foreach loop to zip and multiply."
+}
