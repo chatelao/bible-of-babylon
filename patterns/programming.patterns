@@ -2009,16 +2009,30 @@ pattern RightShift {
 }
 
 
-pattern Bitwise {
-    meta description: "Operations that perform bit-level manipulations on integer values."
-    parameter bit_and: String
-    parameter bit_or: String
-    parameter bit_xor: String
-    parameter bit_not: String
-    parameter bit_lshift: String
-    parameter bit_rshift: String
+pattern BitAnd {
+    meta description: "Bitwise AND operation."
+    parameter syntax: String
     parameter notes: String
 }
+
+pattern BitOr {
+    meta description: "Bitwise OR operation."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern BitXor {
+    meta description: "Bitwise XOR operation."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern BitNot {
+    meta description: "Bitwise NOT operation (bitwise complement)."
+    parameter syntax: String
+    parameter notes: String
+}
+
 
 instance CAddition of Addition {
     syntax = "a + b"
@@ -2075,13 +2089,23 @@ instance CRightShift of RightShift {
     notes = "Standard C operators; floor and round require math.h."
 }
 
-instance CBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance CBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators in C."
+}
+
+instance CBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators in C."
+}
+
+instance CBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators in C."
+}
+
+instance CBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators in C."
 }
 
@@ -2140,13 +2164,23 @@ instance JavaRightShift of RightShift {
     notes = "Standard operators; Math class provides rounding and floor functions."
 }
 
-instance JavaBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance JavaBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators in Java."
+}
+
+instance JavaBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators in Java."
+}
+
+instance JavaBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators in Java."
+}
+
+instance JavaBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators in Java."
 }
 
@@ -2205,13 +2239,23 @@ instance RustRightShift of RightShift {
     notes = "Operators for primitive types; floor and round are methods on float types."
 }
 
-instance RustBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "!a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance RustBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Bitwise NOT uses the ! operator."
+}
+
+instance RustBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Bitwise NOT uses the ! operator."
+}
+
+instance RustBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Bitwise NOT uses the ! operator."
+}
+
+instance RustBitNot of BitNot {
+    syntax = "!a"
     notes = "Bitwise NOT uses the ! operator."
 }
 
@@ -2270,13 +2314,23 @@ instance PythonRightShift of RightShift {
     notes = "Standard Python arithmetic operator."
 }
 
-instance PythonBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance PythonBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators."
+}
+
+instance PythonBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators."
+}
+
+instance PythonBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators."
+}
+
+instance PythonBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators."
 }
 
@@ -2335,13 +2389,23 @@ instance PhpRightShift of RightShift {
     notes = "Standard PHP arithmetic operators."
 }
 
-instance PhpBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance PhpBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators."
+}
+
+instance PhpBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators."
+}
+
+instance PhpBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators."
+}
+
+instance PhpBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators."
 }
 
@@ -2400,13 +2464,23 @@ instance BashRightShift of RightShift {
     notes = "Arithmetic expansion handles integers; bc or printf used for floating point operations."
 }
 
-instance BashBitwise of Bitwise {
-    bit_and = "((a & b))"
-    bit_or = "((a | b))"
-    bit_xor = "((a ^ b))"
-    bit_not = "((~a))"
-    bit_lshift = "((a << b))"
-    bit_rshift = "((a >> b))"
+instance BashBitAnd of BitAnd {
+    syntax = "((a & b))"
+    notes = "Bitwise operations within double parentheses."
+}
+
+instance BashBitOr of BitOr {
+    syntax = "((a | b))"
+    notes = "Bitwise operations within double parentheses."
+}
+
+instance BashBitXor of BitXor {
+    syntax = "((a ^ b))"
+    notes = "Bitwise operations within double parentheses."
+}
+
+instance BashBitNot of BitNot {
+    syntax = "((~a))"
     notes = "Bitwise operations within double parentheses."
 }
 
@@ -2465,13 +2539,23 @@ instance PowerShellRightShift of RightShift {
     notes = "Standard operators; uses .NET Math class for advanced functions."
 }
 
-instance PowerShellBitwise of Bitwise {
-    bit_and = "a -band b"
-    bit_or = "a -bor b"
-    bit_xor = "a -bxor b"
-    bit_not = "-bnot a"
-    bit_lshift = "a -shl b"
-    bit_rshift = "a -shr b"
+instance PowerShellBitAnd of BitAnd {
+    syntax = "a -band b"
+    notes = "Uses prefixed operators for bitwise logic."
+}
+
+instance PowerShellBitOr of BitOr {
+    syntax = "a -bor b"
+    notes = "Uses prefixed operators for bitwise logic."
+}
+
+instance PowerShellBitXor of BitXor {
+    syntax = "a -bxor b"
+    notes = "Uses prefixed operators for bitwise logic."
+}
+
+instance PowerShellBitNot of BitNot {
+    syntax = "-bnot a"
     notes = "Uses prefixed operators for bitwise logic."
 }
 
@@ -2530,13 +2614,23 @@ instance CmdRightShift of RightShift {
     notes = "Uses set /a for integer arithmetic; no native floating point support."
 }
 
-instance CmdBitwise of Bitwise {
-    bit_and = "set /a res=\"a & b\""
-    bit_or = "set /a res=\"a | b\""
-    bit_xor = "set /a res=\"a ^ b\""
-    bit_not = "set /a res=\"~a\""
-    bit_lshift = "set /a res=\"a << b\""
-    bit_rshift = "set /a res=\"a >> b\""
+instance CmdBitAnd of BitAnd {
+    syntax = "set /a res=\"a & b\""
+    notes = "Bitwise operators within set /a expressions."
+}
+
+instance CmdBitOr of BitOr {
+    syntax = "set /a res=\"a | b\""
+    notes = "Bitwise operators within set /a expressions."
+}
+
+instance CmdBitXor of BitXor {
+    syntax = "set /a res=\"a ^ b\""
+    notes = "Bitwise operators within set /a expressions."
+}
+
+instance CmdBitNot of BitNot {
+    syntax = "set /a res=\"~a\""
     notes = "Bitwise operators within set /a expressions."
 }
 
@@ -2595,13 +2689,23 @@ instance SqlRightShift of RightShift {
     notes = "Standard SQL arithmetic functions."
 }
 
-instance SqlBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "N/A"
-    bit_rshift = "N/A"
+instance SqlBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+}
+
+instance SqlBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+}
+
+instance SqlBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+}
+
+instance SqlBitNot of BitNot {
+    syntax = "~a"
     notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
 }
 
@@ -2660,13 +2764,23 @@ instance ErlangRightShift of RightShift {
     notes = "Standard Erlang arithmetic operator."
 }
 
-instance ErlangBitwise of Bitwise {
-    bit_and = "A band B"
-    bit_or = "A bor B"
-    bit_xor = "A bxor B"
-    bit_not = "bnot A"
-    bit_lshift = "A bsl B"
-    bit_rshift = "A bsr B"
+instance ErlangBitAnd of BitAnd {
+    syntax = "A band B"
+    notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
+}
+
+instance ErlangBitOr of BitOr {
+    syntax = "A bor B"
+    notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
+}
+
+instance ErlangBitXor of BitXor {
+    syntax = "A bxor B"
+    notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
+}
+
+instance ErlangBitNot of BitNot {
+    syntax = "bnot A"
     notes = "Bitwise operators are keywords (band, bor, bxor, bnot, bsl, bsr)."
 }
 
@@ -2725,13 +2839,23 @@ instance LispRightShift of RightShift {
     notes = "Prefix notation for all mathematical operations."
 }
 
-instance LispBitwise of Bitwise {
-    bit_and = "(logand a b)"
-    bit_or = "(logior a b)"
-    bit_xor = "(logxor a b)"
-    bit_not = "(lognot a)"
-    bit_lshift = "(ash a b)"
-    bit_rshift = "(ash a -b)"
+instance LispBitAnd of BitAnd {
+    syntax = "(logand a b)"
+    notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
+}
+
+instance LispBitOr of BitOr {
+    syntax = "(logior a b)"
+    notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
+}
+
+instance LispBitXor of BitXor {
+    syntax = "(logxor a b)"
+    notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
+}
+
+instance LispBitNot of BitNot {
+    syntax = "(lognot a)"
     notes = "Common Lisp bitwise operations; ash is used for both left and right shifts."
 }
 
@@ -2790,13 +2914,23 @@ instance XQueryRightShift of RightShift {
     notes = "Uses 'div' for division and 'idiv' for integer division."
 }
 
-instance XQueryBitwise of Bitwise {
-    bit_and = "N/A"
-    bit_or = "N/A"
-    bit_xor = "N/A"
-    bit_not = "N/A"
-    bit_lshift = "N/A"
-    bit_rshift = "N/A"
+instance XQueryBitAnd of BitAnd {
+    syntax = "N/A"
+    notes = "Standard XQuery does not have native bitwise operators."
+}
+
+instance XQueryBitOr of BitOr {
+    syntax = "N/A"
+    notes = "Standard XQuery does not have native bitwise operators."
+}
+
+instance XQueryBitXor of BitXor {
+    syntax = "N/A"
+    notes = "Standard XQuery does not have native bitwise operators."
+}
+
+instance XQueryBitNot of BitNot {
+    syntax = "N/A"
     notes = "Standard XQuery does not have native bitwise operators."
 }
 
@@ -2855,13 +2989,23 @@ instance CssRightShift of RightShift {
     notes = "calc() function allows basic math; mod() and round() are in newer CSS specs."
 }
 
-instance CssBitwise of Bitwise {
-    bit_and = "N/A"
-    bit_or = "N/A"
-    bit_xor = "N/A"
-    bit_not = "N/A"
-    bit_lshift = "N/A"
-    bit_rshift = "N/A"
+instance CssBitAnd of BitAnd {
+    syntax = "N/A"
+    notes = "CSS does not support bitwise operations."
+}
+
+instance CssBitOr of BitOr {
+    syntax = "N/A"
+    notes = "CSS does not support bitwise operations."
+}
+
+instance CssBitXor of BitXor {
+    syntax = "N/A"
+    notes = "CSS does not support bitwise operations."
+}
+
+instance CssBitNot of BitNot {
+    syntax = "N/A"
     notes = "CSS does not support bitwise operations."
 }
 
@@ -2920,13 +3064,23 @@ instance CudaRightShift of RightShift {
     notes = "Same as C; device-side math functions are optimized for GPU."
 }
 
-instance CudaBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance CudaBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators supported in kernels."
+}
+
+instance CudaBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators supported in kernels."
+}
+
+instance CudaBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators supported in kernels."
+}
+
+instance CudaBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators supported in kernels."
 }
 
@@ -2985,13 +3139,23 @@ instance X86RightShift of RightShift {
     notes = "Operates on registers or memory."
 }
 
-instance X86Bitwise of Bitwise {
-    bit_and = "and eax, ebx"
-    bit_or = "or eax, ebx"
-    bit_xor = "xor eax, ebx"
-    bit_not = "not eax"
-    bit_lshift = "shl eax, cl"
-    bit_rshift = "shr eax, cl"
+instance X86BitAnd of BitAnd {
+    syntax = "and eax, ebx"
+    notes = "Bitwise instructions for general-purpose registers."
+}
+
+instance X86BitOr of BitOr {
+    syntax = "or eax, ebx"
+    notes = "Bitwise instructions for general-purpose registers."
+}
+
+instance X86BitXor of BitXor {
+    syntax = "xor eax, ebx"
+    notes = "Bitwise instructions for general-purpose registers."
+}
+
+instance X86BitNot of BitNot {
+    syntax = "not eax"
     notes = "Bitwise instructions for general-purpose registers."
 }
 
@@ -3050,13 +3214,23 @@ instance RiscvRightShift of RightShift {
     notes = "Standard RISC-V M-extension instructions."
 }
 
-instance RiscvBitwise of Bitwise {
-    bit_and = "and t0, t1, t2"
-    bit_or = "or t0, t1, t2"
-    bit_xor = "xor t0, t1, t2"
-    bit_not = "not t0, t1"
-    bit_lshift = "sll t0, t1, t2"
-    bit_rshift = "srl t0, t1, t2"
+instance RiscvBitAnd of BitAnd {
+    syntax = "and t0, t1, t2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance RiscvBitOr of BitOr {
+    syntax = "or t0, t1, t2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance RiscvBitXor of BitXor {
+    syntax = "xor t0, t1, t2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance RiscvBitNot of BitNot {
+    syntax = "not t0, t1"
     notes = "Core bitwise logical and shift instructions."
 }
 
@@ -3115,13 +3289,23 @@ instance PrologRightShift of RightShift {
     notes = "Uses the 'is' operator to evaluate arithmetic expressions."
 }
 
-instance PrologBitwise of Bitwise {
-    bit_and = "Res is A /\ B"
-    bit_or = "Res is A \/ B"
-    bit_xor = "Res is A xor B"
-    bit_not = "Res is \ A"
-    bit_lshift = "Res is A << B"
-    bit_rshift = "Res is A >> B"
+instance PrologBitAnd of BitAnd {
+    syntax = "Res is A /\ B"
+    notes = "Bitwise operators within arithmetic expressions."
+}
+
+instance PrologBitOr of BitOr {
+    syntax = "Res is A \/ B"
+    notes = "Bitwise operators within arithmetic expressions."
+}
+
+instance PrologBitXor of BitXor {
+    syntax = "Res is A xor B"
+    notes = "Bitwise operators within arithmetic expressions."
+}
+
+instance PrologBitNot of BitNot {
+    syntax = "Res is \ A"
     notes = "Bitwise operators within arithmetic expressions."
 }
 
@@ -3180,13 +3364,23 @@ instance JavaBytecodeRightShift of RightShift {
     notes = "Stack-based arithmetic instructions for integers."
 }
 
-instance JavaBytecodeBitwise of Bitwise {
-    bit_and = "iand"
-    bit_or = "ior"
-    bit_xor = "ixor"
-    bit_not = "iconst_m1\nixor"
-    bit_lshift = "ishl"
-    bit_rshift = "ishr"
+instance JavaBytecodeBitAnd of BitAnd {
+    syntax = "iand"
+    notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
+}
+
+instance JavaBytecodeBitOr of BitOr {
+    syntax = "ior"
+    notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
+}
+
+instance JavaBytecodeBitXor of BitXor {
+    syntax = "ixor"
+    notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
+}
+
+instance JavaBytecodeBitNot of BitNot {
+    syntax = "iconst_m1\nixor"
     notes = "Stack-based bitwise instructions; NOT is implemented as XOR with -1."
 }
 
@@ -3357,13 +3551,23 @@ instance CamelRightShift of RightShift {
     notes = "Standard operators; OCaml uses separate operators for floats (e.g., +.)."
 }
 
-instance CamelBitwise of Bitwise {
-    bit_and = "a land b"
-    bit_or = "a lor b"
-    bit_xor = "a lxor b"
-    bit_not = "lnot a"
-    bit_lshift = "a lsl b"
-    bit_rshift = "a lsr b"
+instance CamelBitAnd of BitAnd {
+    syntax = "a land b"
+    notes = "Bitwise operators are keywords."
+}
+
+instance CamelBitOr of BitOr {
+    syntax = "a lor b"
+    notes = "Bitwise operators are keywords."
+}
+
+instance CamelBitXor of BitXor {
+    syntax = "a lxor b"
+    notes = "Bitwise operators are keywords."
+}
+
+instance CamelBitNot of BitNot {
+    syntax = "lnot a"
     notes = "Bitwise operators are keywords."
 }
 
@@ -3534,13 +3738,23 @@ instance ArmAarch64RightShift of RightShift {
     notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
 }
 
-instance ArmAarch64Bitwise of Bitwise {
-    bit_and = "and x0, x1, x2"
-    bit_or = "orr x0, x1, x2"
-    bit_xor = "eor x0, x1, x2"
-    bit_not = "mvn x0, x1"
-    bit_lshift = "lsl x0, x1, x2"
-    bit_rshift = "lsr x0, x1, x2"
+instance ArmAarch64BitAnd of BitAnd {
+    syntax = "and x0, x1, x2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance ArmAarch64BitOr of BitOr {
+    syntax = "orr x0, x1, x2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance ArmAarch64BitXor of BitXor {
+    syntax = "eor x0, x1, x2"
+    notes = "Core bitwise logical and shift instructions."
+}
+
+instance ArmAarch64BitNot of BitNot {
+    syntax = "mvn x0, x1"
     notes = "Core bitwise logical and shift instructions."
 }
 
@@ -3711,13 +3925,23 @@ instance GoRightShift of RightShift {
     notes = "Standard bitwise shift operators."
 }
 
-instance GoBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "^a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance GoBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Bitwise NOT is implemented using the bitwise XOR operator with no left operand."
+}
+
+instance GoBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Bitwise NOT is implemented using the bitwise XOR operator with no left operand."
+}
+
+instance GoBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Bitwise NOT is implemented using the bitwise XOR operator with no left operand."
+}
+
+instance GoBitNot of BitNot {
+    syntax = "^a"
     notes = "Bitwise NOT is implemented using the bitwise XOR operator with no left operand."
 }
 
@@ -3888,13 +4112,23 @@ instance HaskellRightShift of RightShift {
     notes = "Requires Data.Bits."
 }
 
-instance HaskellBitwise of Bitwise {
-    bit_and = "a .&. b"
-    bit_or = "a .|. b"
-    bit_xor = "xor a b"
-    bit_not = "complement a"
-    bit_lshift = "shiftL a b"
-    bit_rshift = "shiftR a b"
+instance HaskellBitAnd of BitAnd {
+    syntax = "a .&. b"
+    notes = "Requires Data.Bits."
+}
+
+instance HaskellBitOr of BitOr {
+    syntax = "a .|. b"
+    notes = "Requires Data.Bits."
+}
+
+instance HaskellBitXor of BitXor {
+    syntax = "xor a b"
+    notes = "Requires Data.Bits."
+}
+
+instance HaskellBitNot of BitNot {
+    syntax = "complement a"
     notes = "Requires Data.Bits."
 }
 
@@ -4065,13 +4299,23 @@ instance TypeScriptRightShift of RightShift {
     notes = "Standard JavaScript operators."
 }
 
-instance TypeScriptBitwise of Bitwise {
-    bit_and = "a & b"
-    bit_or = "a | b"
-    bit_xor = "a ^ b"
-    bit_not = "~a"
-    bit_lshift = "a << b"
-    bit_rshift = "a >> b"
+instance TypeScriptBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operators."
+}
+
+instance TypeScriptBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operators."
+}
+
+instance TypeScriptBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operators."
+}
+
+instance TypeScriptBitNot of BitNot {
+    syntax = "~a"
     notes = "Standard bitwise operators."
 }
 
@@ -4242,12 +4486,22 @@ instance TclRightShift of RightShift {
     notes = "Math operations require the expr command."
 }
 
-instance TclBitwise of Bitwise {
-    bit_and = "[expr {$a & $b}]"
-    bit_or = "[expr {$a | $b}]"
-    bit_xor = "[expr {$a ^ $b}]"
-    bit_not = "[expr {~$a}]"
-    bit_lshift = "[expr {$a << $b}]"
-    bit_rshift = "[expr {$a >> $b}]"
+instance TclBitAnd of BitAnd {
+    syntax = "[expr {$a & $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclBitOr of BitOr {
+    syntax = "[expr {$a | $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclBitXor of BitXor {
+    syntax = "[expr {$a ^ $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclBitNot of BitNot {
+    syntax = "[expr {~$a}]"
     notes = "Math operations require the expr command."
 }

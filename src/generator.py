@@ -137,8 +137,7 @@ class CodeGenerator:
 
     def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
         syntax_params = {
-            "syntax", "string_val", "number_val", "boolean_val",
-            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
+            "syntax", "string_val", "number_val", "boolean_val"
         }
 
         display_parameters = [p for p in pattern.parameters if p.name in syntax_params]
@@ -182,7 +181,6 @@ class CodeGenerator:
         # Candidate parameters for columns in pivot table
         candidates = [
             "syntax", "string_val", "number_val", "boolean_val",
-            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift",
             "notes"
         ]
 
@@ -284,8 +282,7 @@ class CodeGenerator:
                     if instance:
                         syntax = "N/A"
                         priority_params = [
-                            "syntax", "string_val", "number_val", "boolean_val",
-                            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
+                            "syntax", "string_val", "number_val", "boolean_val"
                         ]
                         for param in priority_params:
                             val = next((a.value for a in instance.assignments if a.name == param), None)
@@ -320,8 +317,7 @@ class CodeGenerator:
                     if instance:
                         syntax = "N/A"
                         priority_params = [
-                            "syntax", "string_val", "number_val", "boolean_val",
-                            "bit_and", "bit_or", "bit_xor", "bit_not", "bit_lshift", "bit_rshift"
+                            "syntax", "string_val", "number_val", "boolean_val"
                         ]
                         for param in priority_params:
                             val = next((a.value for a in instance.assignments if a.name == param), None)

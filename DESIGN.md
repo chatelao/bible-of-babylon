@@ -54,7 +54,10 @@ This section compares languages based on common programming patterns.
 - Decrement
 - Left shift
 - Right shift
-- Bitwise operators
+- Bitwise AND
+- Bitwise OR
+- Bitwise XOR
+- Bitwise NOT
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
