@@ -52,7 +52,7 @@ class CodeGenerator:
     PROGRAMMING_LANGUAGES = [
         "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
-        "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm"
+        "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel"
     ]
     DATA_FORMATS = [
         "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
