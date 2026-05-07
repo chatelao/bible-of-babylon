@@ -6,9 +6,10 @@ Bible of Babylon is a comprehensive comparative guide designed for developers an
 
 ## 📖 Documentation
 
-The full documentation, including detailed comparison tables for programming patterns and data formats, is hosted on Read the Docs:
+The full documentation, including detailed comparison tables for programming patterns and data formats, is hosted on Read the Docs and GitHub Pages:
 
 - **Official Documentation**: [https://bible-of-babylon.readthedocs.io/](https://bible-of-babylon.readthedocs.io/)
+- **GitHub Pages**: [https://chatelao.github.io/bible-of-babylon/](https://chatelao.github.io/bible-of-babylon/)
 - **Read the Docs Project Page**: [https://readthedocs.org/projects/bible-of-babylon/](https://readthedocs.org/projects/bible-of-babylon/)
 
 ## 🚀 Key Concepts
