@@ -3543,3 +3543,711 @@ instance ArmAarch64Bitwise of Bitwise {
     bit_rshift = "lsr x0, x1, x2"
     notes = "Core bitwise logical and shift instructions."
 }
+
+instance GoVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+    syntax = "var x int = 42"
+    notes = "Static typing with optional type inference."
+}
+
+instance GoIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if x > 0 {\n    return 1\n} else {\n    return 0\n}"
+    notes = "Parentheses around condition are not required; braces are mandatory."
+}
+
+instance GoLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1" }
+    syntax = "for x > 0 {\n    x = x - 1\n}"
+    notes = "Go uses 'for' for all looping constructs, including while-like loops."
+}
+
+instance GoFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a int", "b int"]
+    return_type = "int"
+    body = { raw "return a + b" }
+    syntax = "func add(a int, b int) int {\n    return a + b\n}"
+    notes = "Functions use the 'func' keyword; return type follows the parameter list."
+}
+
+instance GoProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg string"]
+    body = { raw "fmt.Println(msg)" }
+    syntax = "func logMessage(msg string) {\n    fmt.Println(msg)\n}"
+    notes = "Procedures are functions with no return value."
+}
+
+instance GoTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "error"
+    error_variable = "err"
+    catch_body = { call handle(err) }
+    syntax = "if err := do_something(); err != nil {\n    handle(err)\n}"
+    notes = "Go handles errors explicitly by returning them as values."
+}
+
+instance GoRaise of Raise {
+    exception_type = "Panic"
+    message = "Error"
+    syntax = "panic(\"Error\")"
+    notes = "Uses 'panic' for unrecoverable errors."
+}
+
+instance GoThread of Thread {
+    body = { call do_work() }
+    syntax = "go do_work()"
+    notes = "The 'go' keyword starts a new goroutine (lightweight thread)."
+}
+
+instance GoSendMessage of SendMessage {
+    recipient = "ch"
+    message = "42"
+    syntax = "ch <- 42"
+    notes = "Sends a value to a channel."
+}
+
+instance GoReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "msg := <-ch\nhandle(msg)"
+    notes = "Receives a value from a channel; blocks until data is available."
+}
+
+instance GoSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard single-line comment."
+}
+
+instance GoMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard block comment."
+}
+
+instance GoPrint of Print {
+    value = "Hello, World!"
+    syntax = "fmt.Println(\"Hello, World!\")"
+    notes = "Uses the fmt package for formatted I/O."
+}
+
+instance GoImport of Import {
+    module_name = "fmt"
+    syntax = "import \"fmt\""
+    notes = "Imports a package by its path."
+}
+
+instance GoSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch x {\ncase 1:\n    return 1\ncase 2:\n    return 2\ndefault:\n    return 0\n}"
+    notes = "Switch cases do not fall through by default in Go."
+}
+
+instance GoConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "const MAX = 100"
+    notes = "Constants are declared with the 'const' keyword."
+}
+
+instance GoAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic operators."
+}
+
+instance GoSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic operators."
+}
+
+instance GoMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic operators."
+}
+
+instance GoDivision of Division {
+    syntax = "a / b"
+    notes = "Standard arithmetic operators."
+}
+
+instance GoRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard arithmetic operators."
+}
+
+instance GoFloor of Floor {
+    syntax = "math.Floor(a)"
+    notes = "Requires the math package."
+}
+
+instance GoRounding of Rounding {
+    syntax = "math.Round(a)"
+    notes = "Requires the math package."
+}
+
+instance GoIncrement of Increment {
+    syntax = "a++"
+    notes = "Go supports postfix increment as a statement, not an expression."
+}
+
+instance GoDecrement of Decrement {
+    syntax = "a--"
+    notes = "Go supports postfix decrement as a statement, not an expression."
+}
+
+instance GoLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard bitwise shift operators."
+}
+
+instance GoRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Standard bitwise shift operators."
+}
+
+instance GoBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "^a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Bitwise NOT is implemented using the bitwise XOR operator with no left operand."
+}
+
+instance HaskellVar of VariableDeclaration {
+    name = "x"
+    type = "Int"
+    initial_value = 42
+    syntax = "let x = 42"
+    notes = "Immutable binding within a scope; part of let-in or where clause."
+}
+
+instance HaskellIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if x > 0 then 1 else 0"
+    notes = "If-then-else is an expression; both branches must be present and have the same type."
+}
+
+instance HaskellLoop of Loop {
+    condition = "x > 0"
+    body = { raw "loop (x - 1)" }
+    syntax = "loop x = if x > 0 then loop (x - 1) else return ()"
+    notes = "Haskell uses recursion for iteration as it is a pure functional language."
+}
+
+instance HaskellFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "Int"
+    body = { raw "a + b" }
+    syntax = "add :: Int -> Int -> Int\nadd a b = a + b"
+    notes = "Function types are usually declared explicitly; arguments are space-separated."
+}
+
+instance HaskellProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg"]
+    body = { raw "putStrLn msg" }
+    syntax = "logMessage :: String -> IO ()\nlogMessage msg = putStrLn msg"
+    notes = "Procedures are functions that return an IO action."
+}
+
+instance HaskellTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "SomeException"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "do_something `catch` \(e :: SomeException) -> handle e"
+    notes = "Exception handling using the catch function from Control.Exception."
+}
+
+instance HaskellRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "error \"Error\""
+    notes = "The 'error' function stops execution and displays a message."
+}
+
+instance HaskellThread of Thread {
+    body = { call do_work() }
+    syntax = "forkIO (do_work)"
+    notes = "forkIO creates a lightweight thread (requires Control.Concurrent)."
+}
+
+instance HaskellSendMessage of SendMessage {
+    recipient = "chan"
+    message = "42"
+    syntax = "writeChan chan 42"
+    notes = "Writes a value to a Chan (unbounded FIFO channel)."
+}
+
+instance HaskellReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "msg <- readChan chan\nhandle msg"
+    notes = "Reads a value from a Chan; blocks if the channel is empty."
+}
+
+instance HaskellSingleLineComment of SingleLineComment {
+    syntax = "-- comment"
+    notes = "Standard single-line comment."
+}
+
+instance HaskellMultiLineComment of MultiLineComment {
+    syntax = "{- line 1\n   line 2 -}"
+    notes = "Standard block comment; can be nested."
+}
+
+instance HaskellPrint of Print {
+    value = "Hello, World!"
+    syntax = "putStrLn \"Hello, World!\""
+    notes = "Outputs a string followed by a newline in the IO monad."
+}
+
+instance HaskellImport of Import {
+    module_name = "Data.List"
+    syntax = "import Data.List"
+    notes = "Imports symbols from a module into the current namespace."
+}
+
+instance HaskellSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "case x of\n    1 -> 1\n    2 -> 2\n    _ -> 0"
+    notes = "Uses pattern matching in a case expression."
+}
+
+instance HaskellConstant of Constant {
+    name = "maxVal"
+    type = "Int"
+    value = "100"
+    syntax = "maxVal = 100"
+    notes = "Top-level bindings are immutable and effectively constant."
+}
+
+instance HaskellAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellDivision of Division {
+    syntax = "a / b"
+    notes = "Haskell uses / for floating-point and 'div' or 'quot' for integer division."
+}
+
+instance HaskellRemainder of Remainder {
+    syntax = "a `mod` b"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellFloor of Floor {
+    syntax = "floor a"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellRounding of Rounding {
+    syntax = "round a"
+    notes = "Standard mathematical operators."
+}
+
+instance HaskellIncrement of Increment {
+    syntax = "a + 1"
+    notes = "No native increment operator; use addition."
+}
+
+instance HaskellDecrement of Decrement {
+    syntax = "a - 1"
+    notes = "No native decrement operator; use subtraction."
+}
+
+instance HaskellLeftShift of LeftShift {
+    syntax = "shiftL a b"
+    notes = "Requires Data.Bits."
+}
+
+instance HaskellRightShift of RightShift {
+    syntax = "shiftR a b"
+    notes = "Requires Data.Bits."
+}
+
+instance HaskellBitwise of Bitwise {
+    bit_and = "a .&. b"
+    bit_or = "a .|. b"
+    bit_xor = "xor a b"
+    bit_not = "complement a"
+    bit_lshift = "shiftL a b"
+    bit_rshift = "shiftR a b"
+    notes = "Requires Data.Bits."
+}
+
+instance TypeScriptVar of VariableDeclaration {
+    name = "x"
+    type = "number"
+    initial_value = 42
+    syntax = "let x: number = 42;"
+    notes = "Supports static typing on top of JavaScript."
+}
+
+instance TypeScriptIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) {\n    return 1;\n} else {\n    return 0;\n}"
+    notes = "Standard C-style if-else statement."
+}
+
+instance TypeScriptLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1;" }
+    syntax = "while (x > 0) {\n    x = x - 1;\n}"
+    notes = "Standard while loop."
+}
+
+instance TypeScriptFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a: number", "b: number"]
+    return_type = "number"
+    body = { raw "return a + b;" }
+    syntax = "function add(a: number, b: number): number {\n    return a + b;\n}"
+    notes = "Functions support typed parameters and return values."
+}
+
+instance TypeScriptProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg: string"]
+    body = { raw "console.log(msg);" }
+    syntax = "function logMessage(msg: string): void {\n    console.log(msg);\n}"
+    notes = "Procedures use the 'void' return type."
+}
+
+instance TypeScriptTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Error"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try {\n    do_something();\n} catch (e) {\n    handle(e);\n}"
+    notes = "Standard JavaScript exception handling."
+}
+
+instance TypeScriptRaise of Raise {
+    exception_type = "Error"
+    message = "Error"
+    syntax = "throw new Error(\"Error\");"
+    notes = "Uses 'throw' to raise an error."
+}
+
+instance TypeScriptThread of Thread {
+    body = { call do_work() }
+    syntax = "new Worker('worker.js');"
+    notes = "Concurrency is typically handled via Web Workers or asynchronous programming (Promises/async-await)."
+}
+
+instance TypeScriptSendMessage of SendMessage {
+    recipient = "worker"
+    message = "42"
+    syntax = "worker.postMessage(42);"
+    notes = "Communicates with a Web Worker."
+}
+
+instance TypeScriptReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "worker.onmessage = (e) => { handle(e.data); };"
+    notes = "Handles messages from a Web Worker."
+}
+
+instance TypeScriptSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard single-line comment."
+}
+
+instance TypeScriptMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard block comment."
+}
+
+instance TypeScriptPrint of Print {
+    value = "Hello, World!"
+    syntax = "console.log(\"Hello, World!\");"
+    notes = "Outputs to the console."
+}
+
+instance TypeScriptImport of Import {
+    module_name = "math"
+    syntax = "import { add } from './math';"
+    notes = "ESM import syntax."
+}
+
+instance TypeScriptSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
+    notes = "Standard C-style switch statement."
+}
+
+instance TypeScriptConstant of Constant {
+    name = "MAX"
+    type = "number"
+    value = "100"
+    syntax = "const MAX: number = 100;"
+    notes = "Uses 'const' for immutable declarations."
+}
+
+instance TypeScriptAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptDivision of Division {
+    syntax = "a / b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptFloor of Floor {
+    syntax = "Math.floor(a)"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptRounding of Rounding {
+    syntax = "Math.round(a)"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Standard JavaScript operators."
+}
+
+instance TypeScriptBitwise of Bitwise {
+    bit_and = "a & b"
+    bit_or = "a | b"
+    bit_xor = "a ^ b"
+    bit_not = "~a"
+    bit_lshift = "a << b"
+    bit_rshift = "a >> b"
+    notes = "Standard bitwise operators."
+}
+
+instance TclVar of VariableDeclaration {
+    name = "x"
+    type = "Untyped"
+    initial_value = 42
+    syntax = "set x 42"
+    notes = "Variables are untyped strings; set is used for assignment."
+}
+
+instance TclIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if {$x > 0} {\n    return 1\n} else {\n    return 0\n}"
+    notes = "Uses braces for the condition and branches."
+}
+
+instance TclLoop of Loop {
+    condition = "x > 0"
+    body = { raw "set x [expr {$x - 1}]" }
+    syntax = "while {$x > 0} {\n    set x [expr {$x - 1}]\n}"
+    notes = "Standard while loop; expr is used for mathematical evaluation."
+}
+
+instance TclFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "Dynamic"
+    body = { raw "return [expr {$a + $b}]" }
+    syntax = "proc add {a b} {\n    return [expr {$a + $b}]\n}"
+    notes = "Procedures can return values using the return command."
+}
+
+instance TclProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg"]
+    body = { raw "puts $msg" }
+    syntax = "proc logMessage {msg} {\n    puts $msg\n}"
+    notes = "Uses 'proc' to define a command."
+}
+
+instance TclTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "error"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try {\n    do_something\n} on error {e} {\n    handle $e\n}"
+    notes = "The try command handles errors and exceptions (Tcl 8.6+)."
+}
+
+instance TclRaise of Raise {
+    exception_type = "error"
+    message = "Error"
+    syntax = "error \"Error\""
+    notes = "Signals an error condition."
+}
+
+instance TclThread of Thread {
+    body = { call do_work() }
+    syntax = "thread::create { do_work }"
+    notes = "Requires the Thread package."
+}
+
+instance TclSendMessage of SendMessage {
+    recipient = "id"
+    message = "msg"
+    syntax = "thread::send $id $msg"
+    notes = "Sends a message to a thread."
+}
+
+instance TclReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "vwait msg; handle $msg"
+    notes = "vwait blocks until a variable is written."
+}
+
+instance TclSingleLineComment of SingleLineComment {
+    syntax = "# comment"
+    notes = "Hashes start comments; must be at the beginning of a command."
+}
+
+instance TclMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Tcl has no native multi-line comment syntax."
+}
+
+instance TclPrint of Print {
+    value = "Hello, World!"
+    syntax = "puts \"Hello, World!\""
+    notes = "Outputs a string to stdout followed by a newline."
+}
+
+instance TclImport of Import {
+    module_name = "Tcl"
+    syntax = "package require Tcl"
+    notes = "Loads a package into the interpreter."
+}
+
+instance TclSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch $x {\n    1 {\n        return 1\n    }\n    2 {\n        return 2\n    }\n    default {\n        return 0\n    }\n}"
+    notes = "The switch command provides multi-way branching."
+}
+
+instance TclConstant of Constant {
+    name = "MAX"
+    type = "Untyped"
+    value = "100"
+    syntax = "set MAX 100"
+    notes = "Tcl does not have true constants; naming conventions are used."
+}
+
+instance TclAddition of Addition {
+    syntax = "[expr {$a + $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclSubtraction of Subtraction {
+    syntax = "[expr {$a - $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclMultiplication of Multiplication {
+    syntax = "[expr {$a * $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclDivision of Division {
+    syntax = "[expr {$a / $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclRemainder of Remainder {
+    syntax = "[expr {$a % $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclFloor of Floor {
+    syntax = "[expr {floor($a)}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclRounding of Rounding {
+    syntax = "[expr {round($a)}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclIncrement of Increment {
+    syntax = "incr a"
+    notes = "The incr command increments an integer variable."
+}
+
+instance TclDecrement of Decrement {
+    syntax = "incr a -1"
+    notes = "The incr command can decrement if a negative value is provided."
+}
+
+instance TclLeftShift of LeftShift {
+    syntax = "[expr {$a << $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclRightShift of RightShift {
+    syntax = "[expr {$a >> $b}]"
+    notes = "Math operations require the expr command."
+}
+
+instance TclBitwise of Bitwise {
+    bit_and = "[expr {$a & $b}]"
+    bit_or = "[expr {$a | $b}]"
+    bit_xor = "[expr {$a ^ $b}]"
+    bit_not = "[expr {~$a}]"
+    bit_lshift = "[expr {$a << $b}]"
+    bit_rshift = "[expr {$a >> $b}]"
+    notes = "Math operations require the expr command."
+}

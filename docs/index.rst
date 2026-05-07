@@ -42,6 +42,10 @@ Welcome to the Bible of Babylon Documentation
    java_bytecode_pivot
    arm_pivot
    camel_pivot
+   go_pivot
+   haskell_pivot
+   typescript_pivot
+   tcl_pivot
 
 Downloads
 =========
