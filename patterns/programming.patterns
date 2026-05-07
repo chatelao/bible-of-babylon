@@ -2555,3 +2555,140 @@ instance CamelBitwise of Bitwise {
     bit_rshift = "a lsr b"
     notes = "Bitwise operators are keywords."
 }
+
+instance ArmAarch64Var of VariableDeclaration {
+    name = "x"
+    type = ".quad"
+    initial_value = 42
+    syntax = "x:  .quad 42"
+    notes = "Defined in the .data section."
+}
+
+instance ArmAarch64IfElse of IfElse {
+    condition = "x0 > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "    cmp x0, #0\n    ble .else\n    mov x0, #1\n    b .end\n.else:\n    mov x0, #0\n.end:"
+    notes = "Implemented using comparison and branch instructions (ble)."
+}
+
+instance ArmAarch64Loop of Loop {
+    condition = "x0 > 0"
+    body = { raw "sub x0, x0, #1" }
+    syntax = ".loop:\n    cmp x0, #0\n    ble .end\n    sub x0, x0, #1\n    b .loop\n.end:"
+    notes = "Uses conditional branches to implement loops."
+}
+
+instance ArmAarch64Function of FunctionDefinition {
+    name = "add"
+    parameters = ["x0", "x1"]
+    return_type = "x0"
+    body = { raw "add x0, x0, x1\nret" }
+    syntax = "add:\n    add x0, x0, x1\n    ret"
+    notes = "Standard AArch64 calling convention; x0-x7 are argument registers, x0 is the return register."
+}
+
+instance ArmAarch64Procedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["x0"]
+    body = { raw "bl printf" }
+    syntax = "log_message:\n    stp x29, x30, [sp, -16]!\n    mov x29, sp\n    bl printf\n    ldp x29, x30, [sp], 16\n    ret"
+    notes = "Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30)."
+}
+
+instance ArmAarch64TryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* Manual error checking or trap handling */" }
+    syntax = "N/A"
+    notes = "No native try-catch; relies on return codes or exception levels/traps for errors."
+}
+
+instance ArmAarch64Raise of Raise {
+    exception_type = "Trap"
+    message = "Error"
+    syntax = "    brk #0"
+    notes = "The brk instruction triggers a breakpoint exception."
+}
+
+instance ArmAarch64Thread of Thread {
+    body = { call do_work() }
+    syntax = "    mov x8, #220 // clone syscall\n    svc #0"
+    notes = "Thread creation typically involves invoking OS system calls (e.g., clone on Linux)."
+}
+
+instance ArmAarch64SendMessage of SendMessage {
+    recipient = "tid"
+    message = "msg"
+    syntax = "    mov x8, #139 // rt_sigqueueinfo\n    svc #0"
+    notes = "Inter-process/thread communication is managed via OS system calls."
+}
+
+instance ArmAarch64ReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "    mov x8, #128 // rt_sigtimedwait\n    svc #0"
+    notes = "Receiving signals or messages involves OS system calls."
+}
+
+instance ArmAarch64SingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "AArch64 assembly often uses // or ; for single-line comments."
+}
+
+instance ArmAarch64MultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "AArch64 assembly does not have a native multi-line comment syntax."
+}
+
+instance ArmAarch64Print of Print {
+    value = "Hello, World!"
+    syntax = "    adrp x0, hello_msg\n    add x0, x0, :lo12:hello_msg\n    bl printf"
+    notes = "Typically uses the C library printf; adrp/add are used for PC-relative addressing."
+}
+
+instance ArmAarch64Import of Import {
+    module_name = "macros.s"
+    syntax = ".include \"macros.s\""
+    notes = "Uses the .include directive for external source files."
+}
+
+instance ArmAarch64SwitchCase of SwitchCase {
+    expression = "x0"
+    syntax = "    cmp x0, #1\n    beq .case1\n    cmp x0, #2\n    beq .case2\n    b .default"
+    notes = "Implemented using comparison and branch instructions."
+}
+
+instance ArmAarch64Constant of Constant {
+    name = "MAX"
+    type = "Symbolic"
+    value = "100"
+    syntax = ".equiv MAX, 100"
+    notes = "Uses the .equiv directive to define constants."
+}
+
+instance ArmAarch64Arithmetic of Arithmetic {
+    plus = "add x0, x1, x2"
+    minus = "sub x0, x1, x2"
+    times = "mul x0, x1, x2"
+    divide = "sdiv x0, x1, x2"
+    mod = "N/A"
+    floor = "N/A"
+    round = "N/A"
+    increment = "add x0, x0, #1"
+    decrement = "sub x0, x0, #1"
+    lshift = "lsl x0, x1, x2"
+    rshift = "lsr x0, x1, x2"
+    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+}
+
+instance ArmAarch64Bitwise of Bitwise {
+    bit_and = "and x0, x1, x2"
+    bit_or = "orr x0, x1, x2"
+    bit_xor = "eor x0, x1, x2"
+    bit_not = "mvn x0, x1"
+    bit_lshift = "lsl x0, x1, x2"
+    bit_rshift = "lsr x0, x1, x2"
+    notes = "Core bitwise logical and shift instructions."
+}

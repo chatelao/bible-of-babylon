@@ -52,7 +52,7 @@ class CodeGenerator:
     PROGRAMMING_LANGUAGES = [
         "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
-        "X86", "Riscv", "Java Bytecode", "OCaml"
+        "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm"
     ]
     DATA_FORMATS = [
         "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
@@ -78,6 +78,8 @@ class CodeGenerator:
         "X86": "nasm",
         "RISC-V Assembler": "asm",
         "Riscv": "asm",
+        "ARM AArch64 Assembler": "asm",
+        "Arm": "asm",
         "Prolog": "prolog",
         "Java Bytecode": "jasm",
         "Camel": "ocaml",

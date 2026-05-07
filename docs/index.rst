@@ -29,6 +29,7 @@ Welcome to the Bible of Babylon Documentation
    riscv_pivot
    prolog_pivot
    java_bytecode_pivot
+   arm_pivot
 
 Indices and tables
 ==================

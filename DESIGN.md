@@ -24,6 +24,7 @@ This section compares languages based on common programming patterns.
 - CUDA
 - x86 Assembler
 - RISC-V Assembler
+- ARM AArch64 Assembler
 - Prolog
 - Java Bytecode
 
