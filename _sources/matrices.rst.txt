@@ -2377,6 +2377,78 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a & $b}]
+   * - Float4VectorMultiplication
+     - .. code-block:: c
+
+           for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - .. code-block:: java
+
+           for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - .. code-block:: rust
+
+           for i in 0..4 { c[i] = a[i] * b[i]; }
+     - .. code-block:: python
+
+           c = [ai * bi for ai, bi in zip(a, b)]
+     - .. code-block:: php
+
+           $c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);
+     - .. code-block:: bash
+
+           for i in {0..3}; do c[$i]=$(echo "${a[$i]} * ${b[$i]}" | bc); done
+     - .. code-block:: powershell
+
+           $c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }
+     - N/A
+     - .. code-block:: sql
+
+           SELECT a1*b1, a2*b2, a3*b3, a4*b4
+     - .. code-block:: erlang
+
+           [Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].
+     - .. code-block:: common-lisp
+
+           (mapcar #'* a b)
+     - .. code-block:: xquery
+
+           for $i in 1 to 4 return $a[$i] * $b[$i]
+     - N/A
+     - .. code-block:: cpp
+
+           c.x = a.x * b.x; c.y = a.y * b.y; c.z = a.z * b.z; c.w = a.w * b.w;
+     - .. code-block:: nasm
+
+           mulps xmm0, xmm1
+     - .. code-block:: asm
+
+           vsetvli t0, x0, e32, m1
+           vfmul.vv v1, v2, v3
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+     - .. code-block:: prolog
+
+           maplist(multiply, A, B, C).
+     - .. code-block:: jasm
+
+           fload_1
+           fload_2
+           fmul
+     - .. code-block:: ocaml
+
+           Array.map2 (fun ai bi -> ai *. bi) a b
+     - .. code-block:: go
+
+           for i := range a { c[i] = a[i] * b[i] }
+     - .. code-block:: haskell
+
+           zipWith (*) a b
+     - .. code-block:: typescript
+
+           const c = a.map((v, i) => v * b[i]);
+     - .. code-block:: tcl
+
+           foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
 
 Data Formats
 ------------
