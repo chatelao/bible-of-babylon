@@ -7,17 +7,6 @@ PHP Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Mod
-     - Floor
-     - Round
-     - Increment
-     - Decrement
-     - Lshift
-     - Rshift
      - Bit and
      - Bit or
      - Bit xor
@@ -29,17 +18,6 @@ PHP Pivot View
      - .. code-block:: php
 
            $x = 42;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -61,17 +39,6 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-like if-else statement.
    * - Loop
      - .. code-block:: php
@@ -79,17 +46,6 @@ PHP Pivot View
            while ($x > 0) {
                $x = $x - 1;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -109,17 +65,6 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses 'function' keyword; supports type hints for parameters and return values.
    * - ProcedureDefinition
      - .. code-block:: php
@@ -127,17 +72,6 @@ PHP Pivot View
            function log_message(string $msg): void {
                echo $msg;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -159,17 +93,6 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard PHP exception handling using try-catch blocks.
    * - Raise
      - .. code-block:: php
@@ -181,33 +104,11 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses 'throw' to trigger an exception.
    * - SingleLineComment
      - .. code-block:: php
 
            // comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -226,17 +127,6 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style block comments.
    * - Print
      - .. code-block:: php
@@ -248,33 +138,11 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The echo statement is used to output text.
    * - Import
      - .. code-block:: php
 
            require 'utils.php';
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -299,17 +167,6 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-like switch statement; match expression is also available in PHP 8.0+.
    * - Constant
      - .. code-block:: php
@@ -321,50 +178,118 @@ PHP Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Constants can be defined using define() or the 'const' keyword (for class constants or global constants in modern PHP).
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: php
 
            a + b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Subtraction
      - .. code-block:: php
 
            a - b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Multiplication
      - .. code-block:: php
 
            a * b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Division
      - .. code-block:: php
 
            a / b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Remainder
      - .. code-block:: php
 
            a % b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Floor
      - .. code-block:: php
 
            floor(a)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Rounding
      - .. code-block:: php
 
            round(a)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Increment
      - .. code-block:: php
 
            a++
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - Decrement
      - .. code-block:: php
 
            a--
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - LeftShift
      - .. code-block:: php
 
            a << b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard PHP arithmetic operators.
+   * - RightShift
      - .. code-block:: php
 
            a >> b
@@ -376,17 +301,6 @@ PHP Pivot View
      - N/A
      - Standard PHP arithmetic operators.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: php
 

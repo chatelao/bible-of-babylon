@@ -7,15 +7,6 @@ Java Bytecode Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Mod
-     - Increment
-     - Decrement
-     - Lshift
-     - Rshift
      - Bit and
      - Bit or
      - Bit xor
@@ -33,15 +24,6 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - In Jasmin syntax, static fields represent global-like variables.
    * - IfElse
      - .. code-block:: jasm
@@ -53,15 +35,6 @@ Java Bytecode Pivot View
            LabelThen:
                iconst_1
                ireturn
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -87,15 +60,6 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Loops are built with labels and jump instructions (goto, ifle).
    * - FunctionDefinition
      - .. code-block:: jasm
@@ -108,15 +72,6 @@ Java Bytecode Pivot View
                iadd
                ireturn
            .end method
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -143,15 +98,6 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Exception handlers are defined via .catch directives for specific code ranges.
    * - Raise
      - .. code-block:: jasm
@@ -167,15 +113,6 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Exceptions are instantiated and then thrown using the athrow instruction.
    * - Print
      - .. code-block:: jasm
@@ -183,15 +120,6 @@ Java Bytecode Pivot View
                getstatic java/lang/System/out Ljava/io/PrintStream;
                ldc "Hello, World!"
                invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -215,15 +143,6 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Involves instantiating a Thread object with a Runnable and calling start().
    * - SendMessage
      - .. code-block:: jasm
@@ -232,15 +151,6 @@ Java Bytecode Pivot View
                bipush 42
                invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
                invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -264,29 +174,11 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Blocking retrieval from a concurrent collection.
    * - SingleLineComment
      - .. code-block:: jasm
 
            ; comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -302,29 +194,11 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Java Bitcode (Jasmin) does not have a native multi-line comment syntax; multiple semicolons are used.
    * - Import
      - .. code-block:: jasm
 
            Ljava/util/List;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -352,29 +226,11 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses lookupswitch or tableswitch instructions for multi-way branching.
    * - Constant
      - .. code-block:: jasm
 
            .field public static final MAX I = 100
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -399,42 +255,114 @@ Java Bytecode Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Methods with a 'V' return descriptor are procedures; 'return' instruction is used for void return.
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: jasm
 
            iadd
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Subtraction
      - .. code-block:: jasm
 
            isub
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Multiplication
      - .. code-block:: jasm
 
            imul
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Division
      - .. code-block:: jasm
 
            idiv
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Remainder
      - .. code-block:: jasm
 
            irem
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Floor
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Rounding
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Increment
      - .. code-block:: jasm
 
            iinc index, 1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - Decrement
      - .. code-block:: jasm
 
            iinc index, -1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - LeftShift
      - .. code-block:: jasm
 
            ishl
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Stack-based arithmetic instructions for integers.
+   * - RightShift
      - .. code-block:: jasm
 
            ishr
@@ -446,15 +374,6 @@ Java Bytecode Pivot View
      - N/A
      - Stack-based arithmetic instructions for integers.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: jasm
 

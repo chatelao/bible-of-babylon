@@ -7,14 +7,6 @@ ARM AArch64 Assembler Pivot View
 
    * - Pattern
      - Syntax
-     - Plus
-     - Minus
-     - Times
-     - Divide
-     - Increment
-     - Decrement
-     - Lshift
-     - Rshift
      - Bit and
      - Bit or
      - Bit xor
@@ -26,14 +18,6 @@ ARM AArch64 Assembler Pivot View
      - .. code-block:: asm
 
            x:  .quad 42
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -57,14 +41,6 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Implemented using comparison and branch instructions (ble).
    * - Loop
      - .. code-block:: asm
@@ -81,14 +57,6 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses conditional branches to implement loops.
    * - FunctionDefinition
      - .. code-block:: asm
@@ -96,14 +64,6 @@ ARM AArch64 Assembler Pivot View
            add:
                add x0, x0, x1
                ret
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -126,24 +86,8 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30).
    * - TryCatch
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -162,28 +106,12 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The brk instruction triggers a breakpoint exception.
    * - Thread
      - .. code-block:: asm
 
                mov x8, #220 // clone syscall
                svc #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -202,28 +130,12 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Inter-process/thread communication is managed via OS system calls.
    * - ReceiveMessage
      - .. code-block:: asm
 
                mov x8, #128 // rt_sigtimedwait
                svc #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -241,24 +153,8 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - AArch64 assembly often uses // or ; for single-line comments.
    * - MultiLineComment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -279,27 +175,11 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Typically uses the C library printf; adrp/add are used for PC-relative addressing.
    * - Import
      - .. code-block:: asm
 
            .include "macros.s"
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -321,14 +201,6 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Implemented using comparison and branch instructions.
    * - Constant
      - .. code-block:: asm
@@ -340,38 +212,112 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - N/A
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the .equiv directive to define constants.
-   * - Arithmetic
-     - N/A
+   * - Addition
      - .. code-block:: asm
 
            add x0, x1, x2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Subtraction
      - .. code-block:: asm
 
            sub x0, x1, x2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Multiplication
      - .. code-block:: asm
 
            mul x0, x1, x2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Division
      - .. code-block:: asm
 
            sdiv x0, x1, x2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Remainder
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Floor
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Rounding
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Increment
      - .. code-block:: asm
 
            add x0, x0, #1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - Decrement
      - .. code-block:: asm
 
            sub x0, x0, #1
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - LeftShift
      - .. code-block:: asm
 
            lsl x0, x1, x2
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+   * - RightShift
      - .. code-block:: asm
 
            lsr x0, x1, x2
@@ -383,14 +329,6 @@ ARM AArch64 Assembler Pivot View
      - N/A
      - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
    * - Bitwise
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - .. code-block:: asm
 
