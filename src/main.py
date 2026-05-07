@@ -22,6 +22,7 @@ def main():
     parser.add_argument("-m", "--matrix", help="Generate a matrix table for the specified comma-separated languages")
     parser.add_argument("--pivot-matrix", action="store_true", help="Pivot the matrix (patterns as rows, languages as columns)")
     parser.add_argument("--csv", action="store_true", help="Output in CSV format (only for matrix)")
+    parser.add_argument("--excel", action="store_true", help="Output in Excel format (only for matrix)")
 
     args = parser.parse_args()
 
@@ -53,24 +54,33 @@ def main():
 
     # 4. Generation
     generator = CodeGenerator()
+    output_data = None
     if args.pivot:
-        output_rst = generator.render_pivot_chapter(program_asg, args.pivot, title=args.title)
+        output_data = generator.render_pivot_chapter(program_asg, args.pivot, title=args.title)
     elif args.matrix:
         langs = [l.strip() for l in args.matrix.split(",")]
         if args.csv:
-            output_rst = generator.render_matrix_csv(program_asg, langs, pivoted=args.pivot_matrix)
+            output_data = generator.render_matrix_csv(program_asg, langs, pivoted=args.pivot_matrix)
+        elif args.excel:
+            output_data = generator.render_matrix_excel(program_asg, langs, pivoted=args.pivot_matrix)
         else:
-            output_rst = generator.render_matrix_chapter(program_asg, langs, title=args.title, pivoted=args.pivot_matrix)
+            output_data = generator.render_matrix_chapter(program_asg, langs, title=args.title, pivoted=args.pivot_matrix)
     else:
-        output_rst = generator.render_program(program_asg, title=args.title)
+        output_data = generator.render_program(program_asg, title=args.title)
 
     # 5. Output
     if args.output:
         output_path = Path(args.output)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        output_path.write_text(output_rst)
+        if isinstance(output_data, bytes):
+            output_path.write_bytes(output_data)
+        else:
+            output_path.write_text(output_data)
     else:
-        print(output_rst)
+        if isinstance(output_data, bytes):
+            sys.stdout.buffer.write(output_data)
+        else:
+            print(output_data)
 
 if __name__ == "__main__":
     main()

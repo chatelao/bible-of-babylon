@@ -1,6 +1,8 @@
+import io
 from pathlib import Path
 from typing import List, Dict, Any
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import openpyxl
 from .models import (
     Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier,
     CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
@@ -337,6 +339,44 @@ class CodeGenerator:
             headers=headers,
             matrix=matrix
         )
+
+    def render_matrix_excel(self, program: Program, languages: List[str], pivoted: bool = False) -> bytes:
+        headers, matrix = self._build_matrix_data(program, languages, pivoted=pivoted)
+
+        wb = openpyxl.Workbook()
+        ws = wb.active
+        ws.title = "Matrix"
+
+        # Write headers
+        ws.append(headers)
+
+        # Write data
+        for row in matrix:
+            row_data = [row["label"]] + [cell["value"] for cell in row["cells"]]
+            # Convert all to strings and handle format_value if needed (already handled in _build_matrix_data for 'value')
+            # But wait, _build_matrix_data gives the raw value, format_value is a filter in Jinja2
+            # Let's ensure we use format_value here too.
+            formatted_row = [row["label"]]
+            for cell in row["cells"]:
+                formatted_row.append(format_value(cell["value"]))
+            ws.append(formatted_row)
+
+        # Auto-adjust column widths
+        for col in ws.columns:
+            max_length = 0
+            column = col[0].column_letter # Get the column name
+            for cell in col:
+                try:
+                    if len(str(cell.value)) > max_length:
+                        max_length = len(str(cell.value))
+                except:
+                    pass
+            adjusted_width = (max_length + 2)
+            ws.column_dimensions[column].width = adjusted_width
+
+        output = io.BytesIO()
+        wb.save(output)
+        return output.getvalue()
 
     def render_matrix_chapter(self, program: Program, languages: List[str], title: str = None, pivoted: bool = False) -> str:
         results = []
