@@ -4902,3 +4902,153 @@ Parameters:
 
            foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
      - Uses a multi-variable foreach loop to zip and multiply.
+
+
+
+Float4VectorDotProduct
+----------------------
+
+
+:description: Scalar product of two 4-component floating-point vectors.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Float4VectorDotProduct Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CFloat4VectorDotProduct
+     - .. code-block:: c
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - Standard C implementation using a loop and an accumulator.
+   * - JavaFloat4VectorDotProduct
+     - .. code-block:: java
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - Standard Java implementation using a loop; Vector API provides optimized dot product.
+   * - RustFloat4VectorDotProduct
+     - .. code-block:: rust
+
+           let dot: f32 = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();
+     - Functional approach using iterators, zip, map, and sum.
+   * - PythonFloat4VectorDotProduct
+     - .. code-block:: python
+
+           dot = sum(ai * bi for ai, bi in zip(a, b))
+     - Uses a generator expression with zip and sum; NumPy's np.dot is standard for performance.
+   * - PhpFloat4VectorDotProduct
+     - .. code-block:: php
+
+           $dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));
+     - Combines array_map and array_sum.
+   * - BashFloat4VectorDotProduct
+     - .. code-block:: bash
+
+           dot=0; for i in {0..3}; do dot=$(echo "$dot + (${a[$i]} * ${b[$i]})" | bc); done
+     - Requires bc for floating-point accumulation.
+   * - PowerShellFloat4VectorDotProduct
+     - .. code-block:: powershell
+
+           $dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }
+     - Iterates over indices and accumulates the product.
+   * - CmdFloat4VectorDotProduct
+     - N/A
+     - Cmd has no native support for floating-point arithmetic.
+   * - SqlFloat4VectorDotProduct
+     - .. code-block:: sql
+
+           SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4
+     - Calculated by manually summing component-wise products.
+   * - ErlangFloat4VectorDotProduct
+     - .. code-block:: erlang
+
+           Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).
+     - Uses lists:zip and lists:foldl to calculate the sum of products.
+   * - LispFloat4VectorDotProduct
+     - .. code-block:: common-lisp
+
+           (reduce #'+ (mapcar #'* a b))
+     - Maps multiplication over lists and reduces the result with addition.
+   * - XQueryFloat4VectorDotProduct
+     - .. code-block:: xquery
+
+           sum(for $i in 1 to 4 return $a[$i] * $b[$i])
+     - Uses the built-in sum() function over a sequence of products.
+   * - CssFloat4VectorDotProduct
+     - N/A
+     - CSS does not support vector dot products.
+   * - CudaFloat4VectorDotProduct
+     - .. code-block:: cpp
+
+           float dot = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+     - Manually calculated using the components of the float4 struct.
+   * - X86Float4VectorDotProduct
+     - .. code-block:: nasm
+
+           dpps xmm0, xmm1, 0xF1
+     - SSE4.1 instruction for Dot Product of Packed Singles. 0xF1 mask controls input/output lanes.
+   * - RiscvFloat4VectorDotProduct
+     - .. code-block:: asm
+
+           vsetvli t0, x0, e32, m1
+           vfmul.vv v1, v2, v3
+           vfredusum.vs v4, v1, v5
+     - Uses vfmul.vv for multiplication and vfredusum.vs for a horizontal sum.
+   * - PrologFloat4VectorDotProduct
+     - .. code-block:: prolog
+
+           dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
+     - Commonly implemented using maplist and sum_list.
+   * - JavaBytecodeFloat4VectorDotProduct
+     - .. code-block:: jasm
+
+           fload_1 ; a[i]
+           fload_2 ; b[i]
+           fmul
+           fadd
+     - Dot product is built by repeating fmul and fadd instructions on the stack.
+   * - CamelFloat4VectorDotProduct
+     - .. code-block:: ocaml
+
+           let dot = List.fold_left2 (fun acc ai bi -> acc +. ai *. bi) 0.0 a b
+     - Uses fold_left2 for efficient simultaneous iteration over two lists.
+   * - ArmAarch64Float4VectorDotProduct
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+           faddp v0.4s, v0.4s, v0.4s
+           faddp s0, v0.2s
+     - Uses fmul for component-wise multiplication and faddp for horizontal pairwise addition.
+   * - GoFloat4VectorDotProduct
+     - .. code-block:: go
+
+           dot := 0.0
+           for i := range a { dot += a[i] * b[i] }
+     - Standard imperative loop for accumulating the sum of products.
+   * - HaskellFloat4VectorDotProduct
+     - .. code-block:: haskell
+
+           dot = sum $ zipWith (*) a b
+     - Pure functional approach using zipWith, multiplication, and sum.
+   * - TypeScriptFloat4VectorDotProduct
+     - .. code-block:: typescript
+
+           const dot = a.reduce((acc, v, i) => acc + v * b[i], 0);
+     - Uses Array.reduce to accumulate the product of elements.
+   * - TclFloat4VectorDotProduct
+     - .. code-block:: tcl
+
+           set dot 0
+           foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
+     - Uses a multi-variable foreach loop to multiply and accumulate using expr.

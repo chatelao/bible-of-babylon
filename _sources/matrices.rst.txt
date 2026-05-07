@@ -2657,6 +2657,84 @@ Programming Languages
      - .. code-block:: tcl
 
            foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
+   * - Float4VectorDotProduct
+     - .. code-block:: c
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - .. code-block:: java
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - .. code-block:: rust
+
+           let dot: f32 = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();
+     - .. code-block:: python
+
+           dot = sum(ai * bi for ai, bi in zip(a, b))
+     - .. code-block:: php
+
+           $dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));
+     - .. code-block:: bash
+
+           dot=0; for i in {0..3}; do dot=$(echo "$dot + (${a[$i]} * ${b[$i]})" | bc); done
+     - .. code-block:: powershell
+
+           $dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }
+     - N/A
+     - .. code-block:: sql
+
+           SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4
+     - .. code-block:: erlang
+
+           Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).
+     - .. code-block:: common-lisp
+
+           (reduce #'+ (mapcar #'* a b))
+     - .. code-block:: xquery
+
+           sum(for $i in 1 to 4 return $a[$i] * $b[$i])
+     - N/A
+     - .. code-block:: cpp
+
+           float dot = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
+     - .. code-block:: nasm
+
+           dpps xmm0, xmm1, 0xF1
+     - .. code-block:: asm
+
+           vsetvli t0, x0, e32, m1
+           vfmul.vv v1, v2, v3
+           vfredusum.vs v4, v1, v5
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+           faddp v0.4s, v0.4s, v0.4s
+           faddp s0, v0.2s
+     - .. code-block:: prolog
+
+           dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
+     - .. code-block:: jasm
+
+           fload_1 ; a[i]
+           fload_2 ; b[i]
+           fmul
+           fadd
+     - .. code-block:: ocaml
+
+           let dot = List.fold_left2 (fun acc ai bi -> acc +. ai *. bi) 0.0 a b
+     - .. code-block:: go
+
+           dot := 0.0
+           for i := range a { dot += a[i] * b[i] }
+     - .. code-block:: haskell
+
+           dot = sum $ zipWith (*) a b
+     - .. code-block:: typescript
+
+           const dot = a.reduce((acc, v, i) => acc + v * b[i], 0);
+     - .. code-block:: tcl
+
+           set dot 0
+           foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
 
 Data Formats
 ------------
