@@ -143,6 +143,8 @@
     - [x] Define patterns and implement instances across all 18 languages
 - [x] Implement `Float4VectorMultiplication` pattern
     - [x] Define pattern and implement instances across all 24 languages
+- [x] Implement `Float4VectorDotProduct` pattern
+    - [x] Define pattern and implement instances across all 24 languages
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
