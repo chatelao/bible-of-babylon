@@ -1,0 +1,2825 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pattern Comparison Matrices &mdash; Bible of Babylon  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Language and Format Coverage" href="coverage.html" />
+    <link rel="prev" title="Data Format Patterns" href="data_formats.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bible of Babylon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DSL Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dsl_specification.html">DSL Specification: Source Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsl_examples.html">DSL Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pattern Comparison Matrices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#programming-languages">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-formats">Data Formats</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_pivot.html">Java Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust_pivot.html">Rust Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erlang_pivot.html">Erlang Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lisp_pivot.html">Lisp Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_pivot.html">Bash Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmd_pivot.html">Cmd Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powershell_pivot.html">PowerShell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_pivot.html">Python Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php_pivot.html">PHP Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="css_pivot.html">CSS Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_pivot.html">CUDA Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x86_pivot.html">x86 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="riscv_pivot.html">RISC-V Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prolog_pivot.html">Prolog Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_bytecode_pivot.html">Java Bytecode Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arm_pivot.html">ARM AArch64 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camel_pivot.html">Camel Pivot View</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bible of Babylon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Pattern Comparison Matrices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/matrices.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pattern-comparison-matrices">
+<h1>Pattern Comparison Matrices<a class="headerlink" href="#pattern-comparison-matrices" title="Link to this heading"></a></h1>
+<section id="programming-languages">
+<h2>Programming Languages<a class="headerlink" href="#programming-languages" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern</p></th>
+<th class="head"><p>C</p></th>
+<th class="head"><p>Java</p></th>
+<th class="head"><p>Rust</p></th>
+<th class="head"><p>Python</p></th>
+<th class="head"><p>PHP</p></th>
+<th class="head"><p>Bash</p></th>
+<th class="head"><p>PowerShell</p></th>
+<th class="head"><p>Cmd</p></th>
+<th class="head"><p>SQL</p></th>
+<th class="head"><p>Erlang</p></th>
+<th class="head"><p>Lisp</p></th>
+<th class="head"><p>XQuery</p></th>
+<th class="head"><p>CSS</p></th>
+<th class="head"><p>CUDA</p></th>
+<th class="head"><p>x86 Assembler</p></th>
+<th class="head"><p>RISC-V Assembler</p></th>
+<th class="head"><p>ARM AArch64 Assembler</p></th>
+<th class="head"><p>Prolog</p></th>
+<th class="head"><p>Java Bytecode</p></th>
+<th class="head"><p>Camel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VariableDeclaration</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$x = 42;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">x</span><span class="o">=</span><span class="m">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$x</span> <span class="p">=</span> <span class="n">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set x=42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defparameter</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">--x</span><span class="o">:</span><span class="w"> </span><span class="nt">42</span><span class="o">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">__device__</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">x</span><span class="w">   </span><span class="nv">dd</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">x:</span><span class="w">  </span><span class="na">.word</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">x:</span><span class="w">  </span><span class="na">.quad</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">X</span> <span class="o">=</span> <span class="mf">42.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.field private static x I = 42
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kp">&amp;</span><span class="kt">str</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;{}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function log_message(string $msg): void {</span>
+<span class="x">    echo $msg;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>log_message<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">log-message</span><span class="p">(</span><span class="nv">$msg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">Write-Host</span> <span class="nv">$msg</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:log_message</span>
+<span class="go">echo %~1</span>
+<span class="go">goto :eof</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nf">log_message</span><span class="p">(</span><span class="nv">Msg</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span>
+<span class="w">    </span><span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;</span><span class="si">~p~n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nv">Msg</span><span class="p">]).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">log-message</span><span class="w"> </span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;~A~%&quot;</span><span class="w"> </span><span class="nv">msg</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:log-message</span><span class="p">(</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">msg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:string</span>
+<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nt">empty-sequence</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">();</span><span class="w"> </span><span class="c">(: side effects in XQuery are implementation-defined or via extensions :)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">__device__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">log_message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nl">log_message:</span>
+<span class="w">    </span><span class="nf">push</span><span class="w"> </span><span class="nb">edx</span>
+<span class="w">    </span><span class="nf">call</span><span class="w"> </span><span class="nv">printf</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">esp</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">log_message:</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">-16</span>
+<span class="w">    </span><span class="nf">sd</span><span class="w"> </span><span class="no">ra</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">(</span><span class="no">sp</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">call</span><span class="w"> </span><span class="no">printf</span>
+<span class="w">    </span><span class="nf">ld</span><span class="w"> </span><span class="no">ra</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">(</span><span class="no">sp</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">log_message:</span>
+<span class="w">    </span><span class="nf">stp</span><span class="w"> </span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">-16</span><span class="p">]!</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span>
+<span class="w">    </span><span class="nf">bl</span><span class="w"> </span><span class="no">printf</span>
+<span class="w">    </span><span class="nf">ldp</span><span class="w"> </span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">],</span><span class="w"> </span><span class="mi">16</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">log_message</span><span class="p">(</span><span class="nv">Msg</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">writeln</span><span class="p">(</span><span class="nv">Msg</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.method public static logMessage(Ljava/lang/String;)V
+    .limit stack 2
+    .limit locals 1
+    getstatic java/lang/System/out Ljava/io/PrintStream;
+    aload_0
+    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+    return
+.end method
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">log_message</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">print_endline</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">-&gt;</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function add(int $a, int $b): int {</span>
+<span class="x">    return $a + $b;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>add<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$2</span><span class="k">))</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">add</span><span class="p">(</span><span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$a</span> <span class="p">+</span> <span class="nv">$b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:add</span>
+<span class="go">set /a res=%~1+%~2</span>
+<span class="go">exit /b %res%</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">b</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">B</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:add</span><span class="p">(</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span>
+<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">__device__</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nl">add_func:</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">add:</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">add:</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
+<span class="w">    </span><span class="nf">ret</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">Res</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">+</span> <span class="nv">B</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.method public static add(II)I
+    .limit stack 2
+    .limit locals 2
+    iload_0
+    iload_1
+    iadd
+    ireturn
+.end method
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">add</span> <span class="n">a</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>IfElse</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">if ($x &gt; 0) {</span>
+<span class="x">    return 1;</span>
+<span class="x">} else {</span>
+<span class="x">    return 0;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">1</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %x% GTR 0 (exit /b 1) else (exit /b 0)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">END</span>
+<span class="k">ELSE</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">true</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">end</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">media</span><span class="w"> </span><span class="o">(</span><span class="nt">min-width</span><span class="o">:</span><span class="w"> </span><span class="nt">0px</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="nc">element</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="nf">jle</span><span class="w"> </span><span class="nv">.else</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nv">.end</span>
+<span class="nl">.else:</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.else</span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.end</span>
+<span class="nl">.else:</span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="w">    </span><span class="nf">ble</span><span class="w"> </span><span class="no">.else</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b</span><span class="w"> </span><span class="no">.end</span>
+<span class="nl">.else:</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="s s-Atom">-&gt;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>    getstatic MyClass/x I
+    ifgt LabelThen
+    iconst_0
+    ireturn
+LabelThen:
+    iconst_1
+    ireturn
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">then</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Loop</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">while ($x &gt; 0) {</span>
+<span class="x">    $x = $x - 1;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">x</span><span class="o">=</span><span class="k">$((</span><span class="nv">x</span><span class="o">-</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="p">(</span><span class="nv">$x</span> <span class="o">-gt</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$x</span> <span class="p">=</span> <span class="nv">$x</span> <span class="p">-</span> <span class="n">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:loop</span>
+<span class="go">if %x% GTR 0 (set /a x=x-1 &amp; goto loop)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="p">;</span><span class="w"> </span><span class="n">loop</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">loop</span><span class="p">(</span><span class="nv">X</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">while</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="nb">do</span><span class="w"> </span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">(</span><span class="nb">1-</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="nf">jle</span><span class="w"> </span><span class="nv">.end</span>
+<span class="w">    </span><span class="nf">dec</span><span class="w"> </span><span class="nb">ecx</span>
+<span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nv">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="w">    </span><span class="nf">ble</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">sub</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">:-</span> <span class="p">!.</span>
+<span class="nf">loop</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">X1</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">loop</span><span class="p">(</span><span class="nv">X1</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>LoopStart:
+    getstatic MyClass/x I
+    ifle LoopEnd
+    getstatic MyClass/x I
+    iconst_1
+    isub
+    putstatic MyClass/x I
+    goto LoopStart
+LoopEnd:
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">!</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">do</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="o">!</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">match</span><span class="w"> </span><span class="n">do_something</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">,</span>
+<span class="w">    </span><span class="nb">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">do_something</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">try {</span>
+<span class="x">    do_something();</span>
+<span class="x">} catch (Exception $e) {</span>
+<span class="x">    handle($e);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>do_something<span class="w"> </span><span class="o">||</span><span class="w"> </span>handle_error
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="n">do_something</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">{</span>
+    <span class="n">handle_error</span><span class="p">(</span><span class="nv">$_</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">do_something || call :handle_error</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
+<span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">handle_error</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="k">try</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">()</span>
+<span class="k">catch</span>
+<span class="w">    </span><span class="nn">error</span><span class="p">:</span><span class="nv">Reason</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="nv">Reason</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">handler-case</span><span class="w"> </span><span class="p">(</span><span class="nv">do_something</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nv">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">handle</span><span class="w"> </span><span class="nv">c</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">do_something</span><span class="p">()</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="nt">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">handle</span><span class="p">(</span><span class="nv">$</span><span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">catch</span><span class="p">(</span><span class="s s-Atom">do_something</span><span class="p">,</span> <span class="nv">E</span><span class="p">,</span> <span class="nf">handle</span><span class="p">(</span><span class="nv">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.catch java/lang/Exception from TryStart to TryEnd using CatchHandler
+TryStart:
+    invokestatic MyClass/do_something()V
+TryEnd:
+    goto Done
+CatchHandler:
+    astore_1
+    aload_1
+    invokestatic MyClass/handle(Ljava/lang/Exception;)V
+Done:
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="n">do_something</span> <span class="bp">()</span> <span class="k">with</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="n">handle</span> <span class="n">e</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Raise</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">panic!</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">throw new Exception(&quot;Error&quot;);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span> <span class="s2">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">exit /b 1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nf">error</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">&#39;http://example.com/errors&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MY_ERROR&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">int</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">ebreak</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">brk</span><span class="w"> </span><span class="mi">#0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">throw</span><span class="p">(</span><span class="nf">error</span><span class="p">(</span><span class="nv">Error</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>new java/lang/RuntimeException
+dup
+ldc &quot;Error&quot;
+invokespecial java/lang/RuntimeException/&lt;init&gt;(Ljava/lang/String;)V
+athrow
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="o">(</span><span class="nc">Failure</span> <span class="s2">&quot;Error&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Thread</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">thread</span><span class="p">::</span><span class="n">spawn</span><span class="p">(</span><span class="o">||</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">});</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">Pid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">spawn</span><span class="p">(</span><span class="k">fun</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">do_work</span><span class="p">()</span><span class="w"> </span><span class="k">end</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">kernel</span><span class="o">&lt;&lt;&lt;</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">block</span><span class="o">&gt;&gt;&gt;</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">push</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">do_work</span>
+<span class="nf">call</span><span class="w"> </span><span class="nv">CreateThread</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="w"> </span><span class="c1"># clone syscall</span>
+<span class="nf">ecall</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#220</span><span class="w"> </span><span class="c1">// clone syscall</span>
+<span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_create</span><span class="p">(</span><span class="s s-Atom">do_work</span><span class="p">,</span> <span class="nv">Id</span><span class="p">,</span> <span class="p">[]).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>new java/lang/Thread
+dup
+new MyRunnable
+dup
+invokespecial MyRunnable/&lt;init&gt;()V
+invokespecial java/lang/Thread/&lt;init&gt;(Ljava/lang/Runnable;)V
+invokevirtual java/lang/Thread/start()V
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Thread</span><span class="p">.</span><span class="n">create</span> <span class="n">do_work</span> <span class="bp">()</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SendMessage</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">tx</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">Pid</span><span class="w"> </span><span class="o">!</span><span class="w"> </span><span class="n">hello</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">push</span><span class="w"> </span><span class="nv">msg</span>
+<span class="nf">push</span><span class="w"> </span><span class="nv">thread_id</span>
+<span class="nf">call</span><span class="w"> </span><span class="nv">PostThreadMessage</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">139</span><span class="w"> </span><span class="c1"># rt_sigqueueinfo</span>
+<span class="nf">ecall</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#139</span><span class="w"> </span><span class="c1">// rt_sigqueueinfo</span>
+<span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_send_message</span><span class="p">(</span><span class="nv">Id</span><span class="p">,</span> <span class="s s-Atom">hello</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>aload_0 ; queue
+bipush 42
+invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Event</span><span class="p">.</span><span class="n">sync</span> <span class="o">(</span><span class="nn">Event</span><span class="p">.</span><span class="n">send</span> <span class="n">ch</span> <span class="mi">42</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">take</span><span class="p">();</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rx</span><span class="p">.</span><span class="n">recv</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="k">receive</span><span class="w"> </span><span class="n">hello</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">handle_hello</span><span class="p">()</span><span class="w"> </span><span class="k">end</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">call</span><span class="w"> </span><span class="nv">GetMessage</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="c1"># rt_sigtimedwait</span>
+<span class="nf">ecall</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#128</span><span class="w"> </span><span class="c1">// rt_sigtimedwait</span>
+<span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_get_message</span><span class="p">(</span><span class="s s-Atom">hello</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>aload_0 ; queue
+invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
+checkcast java/lang/Integer
+invokevirtual java/lang/Integer/intValue()I
+istore_1 ; msg
+iload_1
+invokestatic MyClass/handle(I)V
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">msg</span> <span class="o">=</span> <span class="nn">Event</span><span class="p">.</span><span class="n">sync</span> <span class="o">(</span><span class="nn">Event</span><span class="p">.</span><span class="n">receive</span> <span class="n">ch</span><span class="o">)</span> <span class="k">in</span> <span class="n">handle</span> <span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">REM comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="c">% comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: comment :)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="c1">% comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>; comment
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* comment *)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot; line 1</span>
+<span class="sd">    line 2 &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/* line 1</span>
+<span class="x">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;# line 1</span>
+<span class="cm">   line 2 #&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="cm">#| line 1</span>
+<span class="cm">   line 2 |#</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: line 1</span>
+<span class="c">   line 2 :)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* line 1</span>
+<span class="c">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="c">(* line 1</span>
+<span class="c">   line 2 *)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">echo &quot;Hello, World!&quot;;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Write-Host</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">echo Hello, World!</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nn">io</span><span class="p">:</span><span class="nf">format</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="si">~n</span><span class="s">&quot;</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;Hello, World!~%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">element</span><span class="p">::</span><span class="nd">before</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">content</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">push</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">hello_msg</span>
+<span class="nf">call</span><span class="w"> </span><span class="nv">printf</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">la</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">hello_msg</span>
+<span class="nf">call</span><span class="w"> </span><span class="no">printf</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">adrp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">hello_msg</span>
+<span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="no">lo12</span><span class="p">:</span><span class="no">hello_msg</span>
+<span class="nf">bl</span><span class="w"> </span><span class="no">printf</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;Hello, World!&#39;</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>getstatic java/lang/System/out Ljava/io/PrintStream;
+ldc &quot;Hello, World!&quot;
+invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">print_endline</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">use</span><span class="w"> </span><span class="n">std</span><span class="p">::</span><span class="n">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">require &#39;utils.php&#39;;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>utils.sh
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Import-Module</span> <span class="n">ActiveDirectory</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">call other.cmd</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">-</span><span class="ni">include</span><span class="p">(</span><span class="s">&quot;header.hrl&quot;</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">use-package</span><span class="w"> </span><span class="ss">:iter</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">import</span><span class="w"> </span><span class="s2">&quot;base.css&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cuda_runtime.h&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">include</span><span class="w"> </span><span class="s">&#39;macros.inc&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.include</span><span class="w"> </span><span class="s">&quot;macros.s&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.include</span><span class="w"> </span><span class="s">&quot;macros.s&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">math</span><span class="p">)).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>Ljava/util/List;
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nc">List</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SwitchCase</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">match</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">x</span><span class="p">:</span>
+    <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">2</span>
+    <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">switch ($x) {</span>
+<span class="x">    case 1:</span>
+<span class="x">        return 1;</span>
+<span class="x">    case 2:</span>
+<span class="x">        return 2;</span>
+<span class="x">    default:</span>
+<span class="x">        return 0;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">in</span>
+<span class="w">    </span><span class="m">1</span><span class="o">)</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span><span class="m">2</span><span class="o">)</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="w">    </span>*<span class="o">)</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">        </span><span class="p">;;</span>
+<span class="k">esac</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">1</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span> <span class="p">}</span>
+    <span class="n">2</span> <span class="p">{</span> <span class="s2">&quot;two&quot;</span> <span class="p">}</span>
+    <span class="k">default</span> <span class="p">{</span> <span class="s2">&quot;none&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if &quot;%x%&quot;==&quot;1&quot; (goto :one) else if &quot;%x%&quot;==&quot;2&quot; (goto :two) else (goto :none)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="k">of</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">one</span><span class="p">;</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">two</span><span class="p">;</span>
+<span class="w">    </span><span class="p">_</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">none</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">case</span><span class="w"> </span><span class="nv">x</span>
+<span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="no">t</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
+<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nf">je</span><span class="w"> </span><span class="nv">.case1</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="nf">je</span><span class="w"> </span><span class="nv">.case2</span>
+<span class="w">    </span><span class="nf">jmp</span><span class="w"> </span><span class="nv">.default</span>
+<span class="nl">.case1:</span>
+<span class="w">    </span><span class="c1">; ...</span>
+<span class="nl">.case2:</span>
+<span class="w">    </span><span class="c1">; ...</span>
+<span class="nl">.default:</span>
+<span class="w">    </span><span class="c1">; ...</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case1</span>
+<span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case2</span>
+<span class="nf">j</span><span class="w"> </span><span class="no">.default</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">.case1</span>
+<span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">.case2</span>
+<span class="nf">b</span><span class="w"> </span><span class="no">.default</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="nv">X</span> <span class="o">=</span> <span class="mi">1</span> <span class="s s-Atom">-&gt;</span> <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;one&#39;</span><span class="p">)</span>
+<span class="p">;</span>   <span class="nv">X</span> <span class="o">=</span> <span class="mi">2</span> <span class="s s-Atom">-&gt;</span> <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;two&#39;</span><span class="p">)</span>
+<span class="p">;</span>   <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;none&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>    getstatic MyClass/x I
+    lookupswitch
+        1: Label1
+        2: Label2
+        default: LabelDefault
+Label1:
+    ; ...
+Label2:
+    ; ...
+LabelDefault:
+    ; ...
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">match</span> <span class="n">x</span> <span class="k">with</span>
+<span class="o">|</span> <span class="mi">1</span> <span class="o">-&gt;</span> <span class="mi">1</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">-&gt;</span> <span class="mi">2</span>
+<span class="o">|</span> <span class="o">_</span> <span class="o">-&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Constant</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">MAX</span><span class="p">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAX</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">define(&#39;MAX&#39;, 100);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">readonly</span><span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="m">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Set-Variable</span> <span class="n">-Name</span> <span class="n">MAX</span> <span class="n">-Value</span> <span class="n">100</span> <span class="n">-Option</span> <span class="n">ReadOnly</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set MAX=100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">-</span><span class="ni">define</span><span class="p">(</span><span class="no">MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defconstant</span><span class="w"> </span><span class="nv">+max+</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">variable</span><span class="w"> </span><span class="nv">$</span><span class="n">MAX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">--MAX</span><span class="o">:</span><span class="w"> </span><span class="nt">100</span><span class="o">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">__constant__</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="no">MAX</span><span class="w"> </span><span class="kd">equ</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equiv</span><span class="w"> </span><span class="no">MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equiv</span><span class="w"> </span><span class="no">MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.field public static final MAX I = 100
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Addition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a + b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>+<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a+b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">+</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iadd
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Subtraction</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a - b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>-<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a-b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">b</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">sub</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">sub</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">sub</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">-</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>isub
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a * b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>*<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a*b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">b</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">imul</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mul</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mul</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">*</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>imul
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a / b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>/<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a/b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">div</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nt">b</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">idiv</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">div</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">sdiv</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">/</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>idiv
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Remainder</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a % b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>%<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">%</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a%%b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">rem</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">mod</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">mod</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">mod</span><span class="o">(</span><span class="nt">a</span><span class="o">,</span><span class="w"> </span><span class="nt">b</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">rem</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">mod</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>irem
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">mod</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Floor</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="na">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">.</span><span class="n">floor</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">floor(a)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;a / 1&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[Math]</span><span class="p">::</span><span class="n">Floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">floor</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nf">floor</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Rounding</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="na">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">.</span><span class="n">round</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">round(a)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%.0f&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="no">[Math]</span><span class="p">::</span><span class="n">Round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">round</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">round</span><span class="o">(</span><span class="nt">a</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nf">round</span><span class="p">(</span><span class="nv">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Float</span><span class="p">.</span><span class="n">round</span> <span class="n">a</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Increment</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a++<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a a+=1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">1+</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">1</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">inc</span><span class="w"> </span><span class="nb">eax</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iinc index, 1
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Decrement</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a--<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a a-=1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">1-</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">calc</span><span class="o">(</span><span class="nt">a</span><span class="w"> </span><span class="nt">-</span><span class="w"> </span><span class="nt">1</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">dec</span><span class="w"> </span><span class="nb">eax</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">sub</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iinc index, -1
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LeftShift</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a &lt;&lt; b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>&lt;&lt;<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">-shl</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=a&lt;&lt;b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">bsl</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">ash</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">shl</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">cl</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">sll</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">lsl</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">&lt;&lt;</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishl
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">lsl</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>RightShift</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a &gt;&gt; b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span>&gt;&gt;<span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">-shr</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">set /a res=a&gt;</span><span class="p">&gt;</span>b
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">bsr</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">ash</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">-b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">shr</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">cl</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">srl</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">lsr</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">&gt;&gt;</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishr
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">lsr</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bitwise</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a &amp; b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">((</span>a<span class="w"> </span><span class="p">&amp;</span><span class="w"> </span>b<span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-band</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a &amp; b&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span><span class="w"> </span><span class="ow">band</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">logand</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">and</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">and</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">and</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">/\</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iand
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">land</span> <span class="n">b</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-formats">
+<h2>Data Formats<a class="headerlink" href="#data-formats" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern</p></th>
+<th class="head"><p>JSON</p></th>
+<th class="head"><p>XML</p></th>
+<th class="head"><p>YAML</p></th>
+<th class="head"><p>TOML</p></th>
+<th class="head"><p>CSV</p></th>
+<th class="head"><p>Fixlength</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BasicTypes</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>Hello<span class="nt">&lt;/tag&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Hello or &#39;Hello&#39; or &quot;Hello&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hello or &quot;Hello&quot;
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fixed width string (e.g., &#39;Hello     &#39;)
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Collection</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;list&gt;</span>
+<span class="w">  </span><span class="nt">&lt;item&gt;</span>1<span class="nt">&lt;/item&gt;</span>
+<span class="w">  </span><span class="nt">&lt;item&gt;</span>2<span class="nt">&lt;/item&gt;</span>
+<span class="nt">&lt;/list&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[1</span><span class="err">,</span><span class="w"> </span><span class="k">2</span><span class="err">,</span><span class="w"> </span><span class="k">3]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1,two,true
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Field1Field2Field3
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Mapping</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;value&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;num&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;object&gt;</span>
+<span class="w">  </span><span class="nt">&lt;key&gt;</span>value<span class="nt">&lt;/key&gt;</span>
+<span class="w">  </span><span class="nt">&lt;num&gt;</span>42<span class="nt">&lt;/num&gt;</span>
+<span class="nt">&lt;/object&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<span class="nt">num</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;value&quot;</span>
+<span class="n">num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name,Age
+Alice,30
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Pos 1-10: Name, 11-15: Age
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Metadata</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;element</span><span class="w"> </span><span class="na">attr=</span><span class="s">&quot;value&quot;</span><span class="nt">&gt;</span>Content<span class="nt">&lt;/element&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="kt">!!str</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">or !custom { key</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val }</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- comment --&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!--</span>
+<span class="cm">  line 1</span>
+<span class="cm">  line 2</span>
+<span class="cm">--&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># line 1</span>
+<span class="c1"># line 2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="c1"># line 1</span>
+<span class="c1"># line 2</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SchemaLink</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;\$schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://json-schema.org/draft-07/schema#&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;root</span><span class="w"> </span><span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="w">      </span><span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://example.com schema.xsd&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># yaml-language-server: \$schema=&lt;url_or_path&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Header</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span><span class="w"> </span><span class="m">1.2</span>
+<span class="nn">---</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Name,Age,City
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>H2026052400001
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_formats.html" class="btn btn-neutral float-left" title="Data Format Patterns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coverage.html" class="btn btn-neutral float-right" title="Language and Format Coverage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, chatelao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

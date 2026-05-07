@@ -1,0 +1,476 @@
+Data Format Patterns
+====================
+
+
+
+BasicTypes
+----------
+
+
+:description: Representation of fundamental data types: Strings, Numbers, and Booleans.
+
+
+Parameters:
+
+* string_val: String
+
+* number_val: String
+
+* boolean_val: String
+
+* notes: String
+
+
+
+.. list-table:: BasicTypes Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - String val
+     - Number val
+     - Boolean val
+     - Notes
+   * - JsonBasic
+     - .. code-block:: json
+
+           "Hello"
+     - .. code-block:: json
+
+           42 or 3.14
+     - .. code-block:: json
+
+           true / false
+     - Standard JSON types; strings must be double-quoted.
+   * - XmlBasic
+     - .. code-block:: xml
+
+           <tag>Hello</tag>
+     - .. code-block:: xml
+
+           <tag>42</tag>
+     - .. code-block:: xml
+
+           <tag>true</tag>
+     - XML is text-based; types are typically inferred or defined by a schema (XSD).
+   * - YamlBasic
+     - .. code-block:: yaml
+
+           Hello or 'Hello' or "Hello"
+     - .. code-block:: yaml
+
+           42 or 3.14
+     - .. code-block:: yaml
+
+           true / false (or yes/no, on/off in YAML 1.1)
+     - YAML supports plain, single-quoted, and double-quoted strings.
+   * - TomlBasic
+     - .. code-block:: toml
+
+           "Hello"
+     - .. code-block:: toml
+
+           42 or 3.14
+     - .. code-block:: toml
+
+           true / false
+     - TOML is strictly typed; strings must be double-quoted.
+   * - CsvBasic
+     - .. code-block:: text
+
+           Hello or "Hello"
+     - .. code-block:: text
+
+           42 or 3.14
+     - .. code-block:: text
+
+           true / false
+     - CSV values are typically plain text; quoting is used for values containing delimiters or newlines.
+   * - FixlengthBasic
+     - .. code-block:: text
+
+           Fixed width string (e.g., 'Hello     ')
+     - .. code-block:: text
+
+           Fixed width number (e.g., '00042')
+     - .. code-block:: text
+
+           Fixed width indicator (e.g., 'Y' / 'N')
+     - Data is defined by fixed positions and lengths rather than delimiters.
+
+
+
+Collection
+----------
+
+
+:description: Ordered sequence of elements (Arrays, Lists, or Sequences).
+
+
+Parameters:
+
+* elements: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Collection Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonCollection
+     - .. code-block:: json
+
+           [1, "two", true]
+     - Elements are comma-separated and enclosed in square brackets.
+   * - XmlCollection
+     - .. code-block:: xml
+
+           <list>
+             <item>1</item>
+             <item>2</item>
+           </list>
+     - Collections are typically represented by repeating elements under a parent.
+   * - YamlCollection
+     - .. code-block:: yaml
+
+           - 1
+           - two
+           - true
+     - Uses a dash followed by a space for each element.
+   * - TomlCollection
+     - .. code-block:: toml
+
+           [1, 2, 3]
+     - Arrays can contain values of different types since TOML 1.0.0.
+   * - CsvCollection
+     - .. code-block:: text
+
+           1,two,true
+     - A single row represents a collection of fields.
+   * - FixlengthCollection
+     - .. code-block:: text
+
+           Field1Field2Field3
+     - Collections are typically represented by a sequence of fields with pre-defined lengths.
+
+
+
+Mapping
+-------
+
+
+:description: Unordered collection of key-value pairs (Objects, Maps, or Dictionaries).
+
+
+Parameters:
+
+* entries: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Mapping Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonMapping
+     - .. code-block:: json
+
+           {"key": "value", "num": 42}
+     - Keys must be double-quoted strings.
+   * - XmlMapping
+     - .. code-block:: xml
+
+           <object>
+             <key>value</key>
+             <num>42</num>
+           </object>
+     - Mappings are represented as nested elements.
+   * - YamlMapping
+     - .. code-block:: yaml
+
+           key: value
+           num: 42
+     - Uses a colon followed by a space to separate key and value.
+   * - TomlMapping
+     - .. code-block:: toml
+
+           key = "value"
+           num = 42
+     - Top-level or grouped using [headers].
+   * - CsvMapping
+     - .. code-block:: text
+
+           Name,Age
+           Alice,30
+     - Mappings are established by associating header names with column values.
+   * - FixlengthMapping
+     - .. code-block:: text
+
+           Pos 1-10: Name, 11-15: Age
+     - Mappings are established by a schema defining which positions correspond to which fields.
+
+
+
+Metadata
+--------
+
+
+:description: Way to attach metadata or attributes to data elements.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Metadata Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonMetadata
+     - N/A
+     - JSON does not support metadata or attributes on elements; often simulated using underscore-prefixed keys (e.g., "_metadata": { ... }).
+   * - XmlMetadata
+     - .. code-block:: xml
+
+           <element attr="value">Content</element>
+     - XML has native support for attributes on elements.
+   * - YamlMetadata
+     - .. code-block:: yaml
+
+           !!str "value" or !custom { key: val }
+     - YAML supports tags to specify types or attach metadata to nodes.
+   * - TomlMetadata
+     - N/A
+     - TOML does not support per-element metadata, though it uses headers for grouping.
+   * - CsvMetadata
+     - N/A
+     - Standard CSV (RFC 4180) does not support metadata or attributes.
+   * - FixlengthMetadata
+     - N/A
+     - Fixed-length formats do not natively support metadata or attributes within the data records.
+
+
+
+SingleLineComment
+-----------------
+
+
+:description: Way to add non-executable explanatory text to the data on a single line.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SingleLineComment Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonSingleLineComment
+     - N/A
+     - JSON does not natively support comments.
+   * - XmlSingleLineComment
+     - .. code-block:: xml
+
+           <!-- comment -->
+     - XML uses <!-- --> for comments.
+   * - YamlSingleLineComment
+     - .. code-block:: yaml
+
+           # comment
+     - YAML uses # for single-line comments.
+   * - TomlSingleLineComment
+     - .. code-block:: toml
+
+           # comment
+     - TOML uses # for single-line comments.
+   * - CsvSingleLineComment
+     - N/A
+     - Standard CSV does not natively support comments; some variations use #.
+   * - FixlengthSingleLineComment
+     - N/A
+     - Fixed-length formats generally do not support comments.
+
+
+
+MultiLineComment
+----------------
+
+
+:description: Way to add non-executable explanatory text to the data spanning multiple lines.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MultiLineComment Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonMultiLineComment
+     - N/A
+     - JSON does not natively support comments.
+   * - XmlMultiLineComment
+     - .. code-block:: xml
+
+           <!--
+             line 1
+             line 2
+           -->
+     - XML uses the same syntax for single and multi-line comments.
+   * - YamlMultiLineComment
+     - .. code-block:: yaml
+
+           # line 1
+           # line 2
+     - YAML does not have a native block comment; it uses multiple single-line comments.
+   * - TomlMultiLineComment
+     - .. code-block:: toml
+
+           # line 1
+           # line 2
+     - TOML only supports single-line comments starting with #.
+   * - CsvMultiLineComment
+     - N/A
+     - Standard CSV does not support multi-line comments.
+   * - FixlengthMultiLineComment
+     - N/A
+     - Fixed-length formats generally do not support comments.
+
+
+
+SchemaLink
+----------
+
+
+:description: Linking a data file to a schema for validation (e.g., JSON Schema, XSD).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SchemaLink Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonSchemaLink
+     - .. code-block:: json
+
+           "\$schema": "http://json-schema.org/draft-07/schema#"
+     - JSON uses the \$schema keyword to point to a JSON Schema file.
+   * - XmlSchemaLink
+     - .. code-block:: xml
+
+           <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://example.com schema.xsd">
+     - XML uses the xsi:schemaLocation attribute to link to an XSD.
+   * - YamlSchemaLink
+     - .. code-block:: yaml
+
+           # yaml-language-server: \$schema=<url_or_path>
+     - YAML often relies on editor-specific comments (like VS Code's language server) for schema linking.
+   * - TomlSchemaLink
+     - N/A
+     - TOML does not have a native or widely standardized way to link to a schema within the file.
+   * - CsvSchemaLink
+     - N/A
+     - CSV does not have a native schema linking mechanism; often defined in a sidecar file (e.g., CSVW metadata).
+   * - FixlengthSchemaLink
+     - N/A
+     - Schema definition is usually external (e.g., a Copybook or a COBOL file descriptor).
+
+
+
+Header
+------
+
+
+:description: Standardized header or declaration at the beginning of a file or document.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Header Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonHeader
+     - N/A
+     - JSON files do not have a standardized header; they start directly with the data (object or array).
+   * - XmlHeader
+     - .. code-block:: xml
+
+           <?xml version="1.0" encoding="UTF-8"?>
+     - XML declaration specifies the version and encoding of the document.
+   * - YamlHeader
+     - .. code-block:: yaml
+
+           %YAML 1.2
+           ---
+     - The %YAML directive (optional) specifies the version, and the triple dash (---) marks the start of a document.
+   * - TomlHeader
+     - N/A
+     - TOML does not have a native file-level header or declaration.
+   * - CsvHeader
+     - .. code-block:: text
+
+           Name,Age,City
+     - The first row of a CSV file often contains the column names (headers).
+   * - FixlengthHeader
+     - .. code-block:: text
+
+           H2026052400001
+     - Fixed-length formats often use a 'Header' record (e.g., starting with 'H') containing metadata like date or batch ID.

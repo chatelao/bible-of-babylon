@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSL Specification: Source Patterns &mdash; Bible of Babylon  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DSL Examples" href="dsl_examples.html" />
+    <link rel="prev" title="Welcome to the Bible of Babylon Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bible of Babylon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DSL Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DSL Specification: Source Patterns</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">1. Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#syntax-v1-0">2. Syntax (v1.0)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pattern-definition">Pattern Definition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pattern-instance">Pattern Instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#types">Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#blocks-and-instructions">Blocks and Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#supported-instructions">Supported Instructions:</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#anonymous-instances-and-collections">Anonymous Instances and Collections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#metadata">3. Metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix-decision-evaluation">Appendix: Decision Evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#code-block-representation-options">Code Block Representation Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#instruction-set-for-structural-blocks">Instruction Set for Structural Blocks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dsl_examples.html">DSL Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_pivot.html">Java Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust_pivot.html">Rust Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erlang_pivot.html">Erlang Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lisp_pivot.html">Lisp Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_pivot.html">Bash Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmd_pivot.html">Cmd Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powershell_pivot.html">PowerShell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_pivot.html">Python Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php_pivot.html">PHP Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="css_pivot.html">CSS Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_pivot.html">CUDA Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x86_pivot.html">x86 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="riscv_pivot.html">RISC-V Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prolog_pivot.html">Prolog Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_bytecode_pivot.html">Java Bytecode Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arm_pivot.html">ARM AArch64 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camel_pivot.html">Camel Pivot View</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bible of Babylon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">DSL Specification: Source Patterns</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dsl_specification.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="dsl-specification-source-patterns">
+<h1>DSL Specification: Source Patterns<a class="headerlink" href="#dsl-specification-source-patterns" title="Link to this heading"></a></h1>
+<p>This document defines the requirements and syntax for the Domain-Specific Language (DSL) used to define source patterns in the comparative book project.</p>
+<section id="requirements">
+<h2>1. Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Semantic Intent</strong>: The DSL must capture the <em>what</em> (the meaning of the pattern) rather than the <em>how</em> (the syntax of a specific language).</p></li>
+<li><p><strong>Structure</strong>: It should be easy to define patterns with parameters (e.g., variable name, type, value).</p></li>
+<li><p><strong>Extensibility</strong>: It must allow adding new pattern types and properties without breaking existing definitions.</p></li>
+<li><p><strong>Parseability</strong>: The syntax must be compatible with ANTLR4 for generating a parser.</p></li>
+<li><p><strong>Readability</strong>: It should be human-readable to facilitate contributions.</p></li>
+</ul>
+</section>
+<section id="syntax-v1-0">
+<h2>2. Syntax (v1.0)<a class="headerlink" href="#syntax-v1-0" title="Link to this heading"></a></h2>
+<p>The DSL uses a block-based structure.</p>
+<section id="pattern-definition">
+<h3>Pattern Definition<a class="headerlink" href="#pattern-definition" title="Link to this heading"></a></h3>
+<p>A pattern definition describes the structure of a common programming or data concept.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
+    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">&quot;Declares a variable.&quot;</span>
+    <span class="n">parameter</span> <span class="n">name</span><span class="p">:</span> <span class="n">Identifier</span>
+    <span class="n">parameter</span> <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span>
+    <span class="n">parameter</span> <span class="n">initial_value</span><span class="p">:</span> <span class="n">Expression</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="pattern-instance">
+<h3>Pattern Instance<a class="headerlink" href="#pattern-instance" title="Link to this heading"></a></h3>
+<p>An instance provides the specific values for a pattern to be compared across languages.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="n">VarDec1</span> <span class="n">of</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;Integer&quot;</span>
+    <span class="n">initial_value</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Identifier</strong>: A standard name (e.g., variable or function name).</p></li>
+<li><p><strong>Type</strong>: A logical type name (e.g., “Integer”, “String”).</p></li>
+<li><p><strong>Expression</strong>: A value or simple operation (represented as a string literal or number).</p></li>
+<li><p><strong>Block</strong>: A sequence of instructions enclosed in <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></li>
+<li><p><strong>List<T></strong>: A collection of items of type T, represented by <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p></li>
+</ul>
+</section>
+<section id="blocks-and-instructions">
+<h3>Blocks and Instructions<a class="headerlink" href="#blocks-and-instructions" title="Link to this heading"></a></h3>
+<p>Blocks are used for control flow or procedural patterns. They contain a sequence of instructions.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="n">CheckBalance</span> <span class="n">of</span> <span class="n">IfElse</span> <span class="p">{</span>
+    <span class="n">then_branch</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">call</span> <span class="n">charge_fee</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="supported-instructions">
+<h4>Supported Instructions:<a class="headerlink" href="#supported-instructions" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">&lt;name&gt;(&lt;args&gt;)</span></code>: Invokes a function or procedure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assign</span> <span class="pre">&lt;target&gt;</span> <span class="pre">=</span> <span class="pre">&lt;expression&gt;</span></code>: Assigns a value to a variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">&lt;expression&gt;</span></code>: Returns a value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">&quot;&lt;snippet&gt;&quot;</span></code>: Fallback for language-specific code that doesn’t fit the DSL model.</p></li>
+</ul>
+</section>
+</section>
+<section id="anonymous-instances-and-collections">
+<h3>Anonymous Instances and Collections<a class="headerlink" href="#anonymous-instances-and-collections" title="Link to this heading"></a></h3>
+<p>Used for nesting complex structures without requiring a top-level name for every sub-component.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="n">UserProfile</span> <span class="n">of</span> <span class="n">DataMap</span> <span class="p">{</span>
+    <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">true</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="metadata">
+<h2>3. Metadata<a class="headerlink" href="#metadata" title="Link to this heading"></a></h2>
+<p>Patterns and instances can include metadata such as descriptions and notes using the <code class="docutils literal notranslate"><span class="pre">meta</span></code> keyword.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
+    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">&quot;The act of naming a value and optionally specifying its type.&quot;</span>
+    <span class="n">parameter</span> <span class="n">name</span><span class="p">:</span> <span class="n">Identifier</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="appendix-decision-evaluation">
+<h2>Appendix: Decision Evaluation<a class="headerlink" href="#appendix-decision-evaluation" title="Link to this heading"></a></h2>
+<section id="code-block-representation-options">
+<h3>Code Block Representation Options<a class="headerlink" href="#code-block-representation-options" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pros</p></th>
+<th class="head"><p>Cons</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A: Opaque Strings</strong></p></td>
+<td><p>Represent blocks as single string literals.</p></td>
+<td><p>Extremely simple to parse.</p></td>
+<td><p>No semantic validation; generator must do all the heavy lifting.</p></td>
+<td><p>Discarded</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>B: Structural Blocks</strong></p></td>
+<td><p>Define a set of logical instructions (call, assign, return) inside <code class="docutils literal notranslate"><span class="pre">{}</span></code>.</p></td>
+<td><p>Captures semantic intent; allows structured transformation.</p></td>
+<td><p>Increases grammar complexity.</p></td>
+<td><p><strong>Selected</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C: External References</strong></p></td>
+<td><p>Link to external snippets in files.</p></td>
+<td><p>Keeps DSL clean.</p></td>
+<td><p>Fragmented source; harder to maintain.</p></td>
+<td><p>Discarded</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="instruction-set-for-structural-blocks">
+<h3>Instruction Set for Structural Blocks<a class="headerlink" href="#instruction-set-for-structural-blocks" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Pros</p></th>
+<th class="head"><p>Cons</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A: Minimal Set</strong></p></td>
+<td><p>Only <code class="docutils literal notranslate"><span class="pre">call</span></code>, <code class="docutils literal notranslate"><span class="pre">assign</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p></td>
+<td><p>Simple to implement; covers 90% of cases.</p></td>
+<td><p>Might lack expressiveness for complex patterns.</p></td>
+<td><p>Discarded</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>B: Extended Set</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">call</span></code>, <code class="docutils literal notranslate"><span class="pre">assign</span></code>, <code class="docutils literal notranslate"><span class="pre">return</span></code> + <code class="docutils literal notranslate"><span class="pre">raw</span></code>.</p></td>
+<td><p>High flexibility; <code class="docutils literal notranslate"><span class="pre">raw</span></code> provides an escape hatch.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">raw</span></code> might be overused, defeating the purpose of the DSL.</p></td>
+<td><p><strong>Selected</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C: Full AST</strong></p></td>
+<td><p>Replicate a full programming language AST.</p></td>
+<td><p>Can represent anything.</p></td>
+<td><p>Extremely complex to design and implement.</p></td>
+<td><p>Discarded</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p><em>Evaluated on 2026-05-01</em></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the Bible of Babylon Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dsl_examples.html" class="btn btn-neutral float-right" title="DSL Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, chatelao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

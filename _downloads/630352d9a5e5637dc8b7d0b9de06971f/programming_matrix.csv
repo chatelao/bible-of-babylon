@@ -1,0 +1,397 @@
+Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,SwitchCase,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,Bitwise
+"C","int x = 42;","void log_message(const char *msg) {
+    printf(""%s\n"", msg);
+}","int add(int a, int b) {
+    return a + b;
+}","if (x > 0) {
+    return 1;
+} else {
+    return 0;
+}","while (x > 0) {
+    x = x - 1;
+}","N/A","exit(1);","N/A","N/A","N/A","// comment","/* line 1
+   line 2 */","printf(""Hello, World!\n"");","#include <stdio.h>","switch (x) {
+    case 1:
+        return 1;
+    case 2:
+        return 2;
+    default:
+        return 0;
+}","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b"
+"Java","int x = 42;","public void logMessage(String msg) {
+    System.out.println(msg);
+}","public int add(int a, int b) {
+    return a + b;
+}","if (x > 0) {
+    return 1;
+} else {
+    return 0;
+}","while (x > 0) {
+    x = x - 1;
+}","try {
+    do_something();
+} catch (Exception e) {
+    handle(e);
+}","throw new RuntimeException(""Error"");","new Thread(() -> { do_work(); }).start();","queue.put(42);","int msg = queue.take(); handle(msg);","// comment","/* line 1
+   line 2 */","System.out.println(""Hello, World!"");","import java.util.List;","switch (x) {
+    case 1:
+        return 1;
+    case 2:
+        return 2;
+    default:
+        return 0;
+}","public static final int MAX = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b"
+"Rust","let x: i32 = 42;","fn log_message(msg: &str) {
+    println!(""{}"", msg);
+}","fn add(a: i32, b: i32) -> i32 {
+    a + b
+}","if x > 0 {
+    1
+} else {
+    0
+}","while x > 0 {
+    x -= 1;
+}","match do_something() {
+    Ok(v) => v,
+    Err(e) => handle(e)
+}","panic!(""Error"");","thread::spawn(|| { do_work(); });","tx.send(42).unwrap();","let msg = rx.recv().unwrap(); handle(msg);","// comment","/* line 1
+   line 2 */","println!(""Hello, World!"");","use std::collections::HashMap;","match x {
+    1 => 1,
+    2 => 2,
+    _ => 0,
+}","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","a % b","a.floor()","a.round()","a += 1","a -= 1","a << b","a >> b","a & b"
+"Python","x = 42","def log_message(msg):
+    print(msg)","def add(a, b):
+    return a + b","1 if x > 0 else 0","while x > 0: x = x - 1","try:
+    do_something()
+except Exception as e:
+    handle(e)","raise Exception(""Error"")","N/A","N/A","N/A","# comment",""""""" line 1
+    line 2 """"""","print(""Hello, World!"")","import math","match x:
+    case 1:
+        return 1
+    case 2:
+        return 2
+    case _:
+        return 0","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b"
+"PHP","$x = 42;","function log_message(string $msg): void {
+    echo $msg;
+}","function add(int $a, int $b): int {
+    return $a + $b;
+}","if ($x > 0) {
+    return 1;
+} else {
+    return 0;
+}","while ($x > 0) {
+    $x = $x - 1;
+}","try {
+    do_something();
+} catch (Exception $e) {
+    handle($e);
+}","throw new Exception(""Error"");","N/A","N/A","N/A","// comment","/* line 1
+   line 2 */","echo ""Hello, World!"";","require 'utils.php';","switch ($x) {
+    case 1:
+        return 1;
+    case 2:
+        return 2;
+    default:
+        return 0;
+}","define('MAX', 100);","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b"
+"Bash","x=42","log_message() {
+    echo ""$1""
+}","add() {
+    echo $(($1 + $2))
+}","if [ $x -gt 0 ]; then
+    exit 1
+else
+    exit 0
+fi","while [ $x -gt 0 ]; do
+    x=$((x-1))
+done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","case $x in
+    1)
+        echo ""one""
+        ;;
+    2)
+        echo ""two""
+        ;;
+    *)
+        echo ""none""
+        ;;
+esac","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))"
+"PowerShell","$x = 42","function log-message($msg) {
+    Write-Host $msg
+}","function add($a, $b) {
+    return $a + $b
+}","if ($x -gt 0) {
+    return 1
+} else {
+    return 0
+}","while ($x -gt 0) {
+    $x = $x - 1
+}","try {
+    do_something
+} catch {
+    handle_error($_)
+}","throw ""Error""","N/A","N/A","N/A","# comment","<# line 1
+   line 2 #>","Write-Host ""Hello, World!""","Import-Module ActiveDirectory","switch ($x) {
+    1 { ""one"" }
+    2 { ""two"" }
+    default { ""none"" }
+}","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b"
+"Cmd","set x=42",":log_message
+echo %~1
+goto :eof",":add
+set /a res=%~1+%~2
+exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)",":loop
+if %x% GTR 0 (set /a x=x-1 & goto loop)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b"""
+"SQL","DECLARE @x INT = 42;","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
+AS
+BEGIN
+    PRINT @msg;
+END","CREATE FUNCTION add(@a INT, @b INT)
+RETURNS INT AS
+BEGIN
+    RETURN @a + @b
+END","IF @x > 0
+BEGIN
+    RETURN 1
+END
+ELSE
+BEGIN
+    RETURN 0
+END","WHILE @x > 0
+BEGIN
+    SET @x = @x - 1
+END","BEGIN TRY
+    EXEC do_something;
+END TRY
+BEGIN CATCH
+    EXEC handle_error;
+END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
+   line 2 */","PRINT 'Hello, World!';","N/A","CASE @x
+    WHEN 1 THEN 'one'
+    WHEN 2 THEN 'two'
+    ELSE 'none'
+END","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b"
+"Erlang","X = 42.","log_message(Msg) ->
+    io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","try
+    do_something()
+catch
+    error:Reason -> handle(Reason)
+end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","case X of
+    1 -> one;
+    2 -> two;
+    _ -> none
+end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B"
+"Lisp","(defparameter x 42)","(defun log-message (msg)
+  (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(loop while (> x 0) do (setq x (1- x)))","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
+   line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(case x
+  (1 ""one"")
+  (2 ""two"")
+  (t ""none""))","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)"
+"XQuery","let $x := 42","declare function local:log-message(
+    $msg as xs:string
+) as empty-sequence() {
+    (); (: side effects in XQuery are implementation-defined or via extensions :)
+};","declare function local:add(
+    $a as xs:integer,
+    $b as xs:integer
+) as xs:integer {
+    $a + $b
+};","if ($x > 0) then 1 else 0","for $i in 1 to $x return $i","try {
+    do_something()
+} catch * {
+    handle($err)
+}","fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')","N/A","N/A","N/A","(: comment :)","(: line 1
+   line 2 :)","""Hello, World!""","import module namespace utils = ""http://example.com/utils"";","switch ($x)
+  case 1 return ""one""
+  case 2 return ""two""
+  default return ""none""","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A"
+"CSS","--x: 42;","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
+   line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","N/A","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A"
+"CUDA","__device__ int x = 42;","__device__ void log_message(const char *msg) {
+    printf(""%s\n"", msg);
+}","__device__ int add(int a, int b) {
+    return a + b;
+}","if (x > 0) {
+    return 1;
+} else {
+    return 0;
+}","while (x > 0) {
+    x = x - 1;
+}","N/A","N/A","kernel<<<grid, block>>>();","N/A","N/A","// comment","/* line 1
+   line 2 */","printf(""Hello, World!\n"");","#include <cuda_runtime.h>","switch (x) {
+    case 1:
+        return 1;
+    case 2:
+        return 2;
+    default:
+        return 0;
+}","__constant__ int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b"
+"x86 Assembler","x   dd 42","log_message:
+    push edx
+    call printf
+    add esp, 4
+    ret","add_func:
+    add eax, ebx
+    ret","    cmp eax, 0
+    jle .else
+    mov eax, 1
+    jmp .end
+.else:
+    mov eax, 0
+.end:",".loop:
+    cmp ecx, 0
+    jle .end
+    dec ecx
+    jmp .loop
+.end:","N/A","    int 3","    push offset do_work
+    call CreateThread","    push msg
+    push thread_id
+    call PostThreadMessage","    call GetMessage","; comment","N/A","push offset hello_msg
+call printf","include 'macros.inc'","    cmp eax, 1
+    je .case1
+    cmp eax, 2
+    je .case2
+    jmp .default
+.case1:
+    ; ...
+.case2:
+    ; ...
+.default:
+    ; ...","MAX equ 100","add eax, ebx","sub eax, ebx","imul eax, ebx","idiv ebx","N/A","N/A","N/A","inc eax","dec eax","shl eax, cl","shr eax, cl","and eax, ebx"
+"RISC-V Assembler","x:  .word 42","log_message:
+    addi sp, sp, -16
+    sd ra, 8(sp)
+    call printf
+    ld ra, 8(sp)
+    addi sp, sp, 16
+    ret","add:
+    add a0, a0, a1
+    ret","    blez t0, .else
+    li a0, 1
+    j .end
+.else:
+    li a0, 0
+.end:",".loop:
+    blez t0, .end
+    addi t0, t0, -1
+    j .loop
+.end:","N/A","    ebreak","    li a7, 220 # clone syscall
+    ecall","    li a7, 139 # rt_sigqueueinfo
+    ecall","    li a7, 128 # rt_sigtimedwait
+    ecall","# comment","N/A","    la a0, hello_msg
+    call printf",".include ""macros.s""","    li t1, 1
+    beq t0, t1, .case1
+    li t1, 2
+    beq t0, t1, .case2
+    j .default",".equiv MAX, 100","add t0, t1, t2","sub t0, t1, t2","mul t0, t1, t2","div t0, t1, t2","rem t0, t1, t2","N/A","N/A","addi t0, t0, 1","addi t0, t0, -1","sll t0, t1, t2","srl t0, t1, t2","and t0, t1, t2"
+"ARM AArch64 Assembler","x:  .quad 42","log_message:
+    stp x29, x30, [sp, -16]!
+    mov x29, sp
+    bl printf
+    ldp x29, x30, [sp], 16
+    ret","add:
+    add x0, x0, x1
+    ret","    cmp x0, #0
+    ble .else
+    mov x0, #1
+    b .end
+.else:
+    mov x0, #0
+.end:",".loop:
+    cmp x0, #0
+    ble .end
+    sub x0, x0, #1
+    b .loop
+.end:","N/A","    brk #0","    mov x8, #220 // clone syscall
+    svc #0","    mov x8, #139 // rt_sigqueueinfo
+    svc #0","    mov x8, #128 // rt_sigtimedwait
+    svc #0","// comment","N/A","    adrp x0, hello_msg
+    add x0, x0, :lo12:hello_msg
+    bl printf",".include ""macros.s""","    cmp x0, #1
+    beq .case1
+    cmp x0, #2
+    beq .case2
+    b .default",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2"
+"Prolog","X = 42.","log_message(Msg) :- writeln(Msg).","add(A, B, Res) :- Res is A + B.","(X > 0 -> Result = 1 ; Result = 0)","loop(0) :- !.
+loop(X) :- X > 0, X1 is X - 1, loop(X1).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","% comment","/* line 1
+   line 2 */","writeln('Hello, World!').","use_module(library(math)).","(   X = 1 -> writeln('one')
+;   X = 2 -> writeln('two')
+;   writeln('none')
+)","max(100).","Res is A + B","Res is A - B","Res is A * B","Res is A / B","Res is A mod B","Res is floor(A)","Res is round(A)","Res is A + 1","Res is A - 1","Res is A << B","Res is A >> B","Res is A /\ B"
+"Java Bytecode",".field private static x I = 42",".method public static logMessage(Ljava/lang/String;)V
+    .limit stack 2
+    .limit locals 1
+    getstatic java/lang/System/out Ljava/io/PrintStream;
+    aload_0
+    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+    return
+.end method",".method public static add(II)I
+    .limit stack 2
+    .limit locals 2
+    iload_0
+    iload_1
+    iadd
+    ireturn
+.end method","    getstatic MyClass/x I
+    ifgt LabelThen
+    iconst_0
+    ireturn
+LabelThen:
+    iconst_1
+    ireturn","LoopStart:
+    getstatic MyClass/x I
+    ifle LoopEnd
+    getstatic MyClass/x I
+    iconst_1
+    isub
+    putstatic MyClass/x I
+    goto LoopStart
+LoopEnd:",".catch java/lang/Exception from TryStart to TryEnd using CatchHandler
+TryStart:
+    invokestatic MyClass/do_something()V
+TryEnd:
+    goto Done
+CatchHandler:
+    astore_1
+    aload_1
+    invokestatic MyClass/handle(Ljava/lang/Exception;)V
+Done:","    new java/lang/RuntimeException
+    dup
+    ldc ""Error""
+    invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V
+    athrow","    new java/lang/Thread
+    dup
+    new MyRunnable
+    dup
+    invokespecial MyRunnable/<init>()V
+    invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V
+    invokevirtual java/lang/Thread/start()V","    aload_0 ; queue
+    bipush 42
+    invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+    invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V","    aload_0 ; queue
+    invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
+    checkcast java/lang/Integer
+    invokevirtual java/lang/Integer/intValue()I
+    istore_1 ; msg
+    iload_1
+    invokestatic MyClass/handle(I)V","; comment","N/A","    getstatic java/lang/System/out Ljava/io/PrintStream;
+    ldc ""Hello, World!""
+    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V","Ljava/util/List;","    getstatic MyClass/x I
+    lookupswitch
+        1: Label1
+        2: Label2
+        default: LabelDefault
+Label1:
+    ; ...
+Label2:
+    ; ...
+LabelDefault:
+    ; ...",".field public static final MAX I = 100","iadd","isub","imul","idiv","irem","N/A","N/A","iinc index, 1","iinc index, -1","ishl","ishr","iand"
+"Camel","let x = 42","let log_message msg = print_endline msg","let add a b = a + b","if x > 0 then 1 else 0","while !x > 0 do
+    x := !x - 1
+done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thread.create do_work ()","Event.sync (Event.send ch 42)","let msg = Event.sync (Event.receive ch) in handle msg","(* comment *)","(* line 1
+   line 2 *)","print_endline ""Hello, World!""","open List","match x with
+| 1 -> 1
+| 2 -> 2
+| _ -> 0","let max = 100","a + b","a - b","a * b","a / b","a mod b","floor a","Float.round a","a + 1","a - 1","a lsl b","a lsr b","a land b"
