@@ -54,7 +54,10 @@ This section compares languages based on common programming patterns.
 - Decrement
 - Left shift
 - Right shift
-- Bitwise operators
+- Bitwise AND
+- Bitwise OR
+- Bitwise XOR
+- Bitwise NOT
 - 4-float vector multiplication
 
 ### Part II: Data Formats
