@@ -58,6 +58,7 @@ This section compares languages based on common programming patterns.
 - Bitwise OR
 - Bitwise XOR
 - Bitwise NOT
+- 4-float vector multiplication
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
