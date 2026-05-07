@@ -147,19 +147,20 @@
 - [x] Generate Pivot Chapter for SQL <!-- issue #15.1 -->
 - [x] Generate Pivot Chapter for C <!-- issue #15.2 -->
 - [x] Generate Pivot Chapter for XQuery <!-- issue #15.3 -->
-- [ ] Generate Pivot Chapter for Java <!-- issue #15.4 -->
-- [ ] Generate Pivot Chapter for Rust <!-- issue #15.5 -->
-- [ ] Generate Pivot Chapter for Erlang <!-- issue #15.6 -->
-- [ ] Generate Pivot Chapter for Lisp <!-- issue #15.7 -->
-- [ ] Generate Pivot Chapter for Bash <!-- issue #15.8 -->
-- [ ] Generate Pivot Chapter for Cmd <!-- issue #15.9 -->
-- [ ] Generate Pivot Chapter for PowerShell <!-- issue #15.10 -->
-- [ ] Generate Pivot Chapter for Python <!-- issue #15.11 -->
+- [x] Generate Pivot Chapter for Java <!-- issue #15.4 -->
+- [x] Generate Pivot Chapter for Rust <!-- issue #15.5 -->
+- [x] Generate Pivot Chapter for Erlang <!-- issue #15.6 -->
+- [x] Generate Pivot Chapter for Lisp <!-- issue #15.7 -->
+- [x] Generate Pivot Chapter for Bash <!-- issue #15.8 -->
+- [x] Generate Pivot Chapter for Cmd <!-- issue #15.9 -->
+- [x] Generate Pivot Chapter for PowerShell <!-- issue #15.10 -->
+- [x] Generate Pivot Chapter for Python <!-- issue #15.11 -->
 - [x] Generate Pivot Chapter for PHP <!-- issue #15.16 -->
-- [ ] Generate Pivot Chapter for CSS <!-- issue #15.12 -->
-- [ ] Generate Pivot Chapter for CUDA <!-- issue #15.13 -->
-- [ ] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
+- [x] Generate Pivot Chapter for CSS <!-- issue #15.12 -->
+- [x] Generate Pivot Chapter for CUDA <!-- issue #15.13 -->
+- [x] Generate Pivot Chapter for x86 Assembler <!-- issue #15.14 -->
 - [x] Generate Pivot Chapter for RISC-V Assembler
 - [x] Generate Pivot Chapter for ARM AArch64 Assembler
 - [x] Generate Pivot Chapter for Prolog <!-- issue #15.15 -->
-- [ ] Generate Pivot Chapter for Java Bytecode
+- [x] Generate Pivot Chapter for Java Bytecode
+- [x] Generate Pivot Chapter for Camel

@@ -25,11 +25,23 @@ Welcome to the Bible of Babylon Documentation
    sql_pivot
    c_pivot
    xquery_pivot
+   java_pivot
+   rust_pivot
+   erlang_pivot
+   lisp_pivot
+   bash_pivot
+   cmd_pivot
+   powershell_pivot
+   python_pivot
    php_pivot
+   css_pivot
+   cuda_pivot
+   x86_pivot
    riscv_pivot
    prolog_pivot
    java_bytecode_pivot
    arm_pivot
+   camel_pivot
 
 Indices and tables
 ==================
