@@ -55,6 +55,7 @@ This section compares languages based on common programming patterns.
 - Left shift
 - Right shift
 - Bitwise operators
+- 4-float vector multiplication
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
