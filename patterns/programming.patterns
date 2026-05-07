@@ -7,6 +7,15 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern ProcedureDefinition {
+    meta description: "Declaration of a reusable block of code with parameters and no return value."
+    parameter name: String
+    parameter parameters: List<String>
+    parameter body: Block
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern FunctionDefinition {
     meta description: "Declaration of a reusable block of code with parameters and a return value."
     parameter name: String
@@ -576,6 +585,142 @@ instance PrologFunctionDefinition of FunctionDefinition {
     body = { raw "Res is A + B" }
     syntax = "add(A, B, Res) :- Res is A + B."
     notes = "Functions are predicates; return values are typically unified with an output argument."
+}
+
+instance CProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["const char *msg"]
+    body = { raw "printf(msg);" }
+    syntax = "void log_message(const char *msg) {\n    printf(\"%s\\n\", msg);\n}"
+    notes = "In C, a procedure is a function with a void return type."
+}
+
+instance JavaProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["String msg"]
+    body = { raw "System.out.println(msg);" }
+    syntax = "public void logMessage(String msg) {\n    System.out.println(msg);\n}"
+    notes = "Uses the 'void' keyword to indicate no return value."
+}
+
+instance RustProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["msg: &str"]
+    body = { raw "println!(\"{}\", msg);" }
+    syntax = "fn log_message(msg: &str) {\n    println!(\"{}\", msg);\n}"
+    notes = "Functions without a return type implicitly return the unit type ()."
+}
+
+instance PythonProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["msg"]
+    body = { call print(msg) }
+    syntax = "def log_message(msg):\n    print(msg)"
+    notes = "Procedures in Python are functions that don't return a value (implicitly return None)."
+}
+
+instance PhpProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["string $msg"]
+    body = { raw "echo $msg;" }
+    syntax = "function log_message(string $msg): void {\n    echo $msg;\n}"
+    notes = "Uses the 'void' return type hint (PHP 7.1+)."
+}
+
+instance BashProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["$1"]
+    body = { raw "echo \"$1\"" }
+    syntax = "log_message() {\n    echo \"$1\"\n}"
+    notes = "In Bash, all functions are effectively procedures; return values are exit codes."
+}
+
+instance PowerShellProcedure of ProcedureDefinition {
+    name = "log-message"
+    parameters = ["$msg"]
+    body = { raw "Write-Host $msg" }
+    syntax = "function log-message($msg) {\n    Write-Host $msg\n}"
+    notes = "Functions without a return statement output nothing to the pipeline."
+}
+
+instance CmdProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["%1"]
+    body = { raw "echo %~1" }
+    syntax = ":log_message\necho %~1\ngoto :eof"
+    notes = "Procedures are labels called with 'call'; they return using 'goto :eof' or 'exit /b'."
+}
+
+instance SqlProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["@msg NVARCHAR(MAX)"]
+    body = { raw "PRINT @msg" }
+    syntax = "CREATE PROCEDURE log_message @msg NVARCHAR(MAX)\nAS\nBEGIN\n    PRINT @msg;\nEND"
+    notes = "T-SQL uses CREATE PROCEDURE for blocks that perform actions."
+}
+
+instance ErlangProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["Msg"]
+    body = { raw "io:format(\"~p~n\", [Msg])" }
+    syntax = "log_message(Msg) ->\n    io:format(\"~p~n\", [Msg])."
+    notes = "In Erlang, every function returns a value; 'ok' is commonly used for procedures."
+}
+
+instance LispProcedure of ProcedureDefinition {
+    name = "log-message"
+    parameters = ["msg"]
+    body = { raw "(format t msg)" }
+    syntax = "(defun log-message (msg)\n  (format t \"~A~%\" msg))"
+    notes = "Lisp functions always return the value of the last expression; procedures return nil or some status."
+}
+
+instance XQueryProcedure of ProcedureDefinition {
+    name = "local:log-message"
+    parameters = ["$msg as xs:string"]
+    body = { raw "()" }
+    syntax = "declare function local:log-message(\n    $msg as xs:string\n) as empty-sequence() {\n    (); (: side effects in XQuery are implementation-defined or via extensions :)\n};"
+    notes = "XQuery functions return empty-sequence() to simulate procedures."
+}
+
+instance CssProcedure of ProcedureDefinition {
+    name = "N/A"
+    parameters = ["N/A"]
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "CSS does not support procedures."
+}
+
+instance CudaProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["const char *msg"]
+    body = { raw "printf(msg);" }
+    syntax = "__device__ void log_message(const char *msg) {\n    printf(\"%s\\n\", msg);\n}"
+    notes = "Similar to C, procedures use the void return type."
+}
+
+instance X86Procedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["edx"]
+    body = { raw "call printf" }
+    syntax = "log_message:\n    push edx\n    call printf\n    add esp, 4\n    ret"
+    notes = "Implemented as a label followed by code and a ret instruction."
+}
+
+instance RiscvProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["a0"]
+    body = { raw "call printf" }
+    syntax = "log_message:\n    addi sp, sp, -16\n    sd ra, 8(sp)\n    call printf\n    ld ra, 8(sp)\n    addi sp, sp, 16\n    ret"
+    notes = "Follows standard calling convention; must save/restore return address (ra) if calling other functions."
+}
+
+instance PrologProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["Msg"]
+    body = { raw "writeln(Msg)" }
+    syntax = "log_message(Msg) :- writeln(Msg)."
+    notes = "Predicates without an output argument act as procedures."
 }
 
 pattern TryCatch {
@@ -1789,6 +1934,14 @@ instance JavaBytecodeConstant of Constant {
     notes = "Constants are represented as static final fields."
 }
 
+instance JavaBytecodeProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["Ljava/lang/String;"]
+    body = { raw "invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V" }
+    syntax = ".method public static logMessage(Ljava/lang/String;)V\n    .limit stack 2\n    .limit locals 1\n    getstatic java/lang/System/out Ljava/io/PrintStream;\n    aload_0\n    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V\n    return\n.end method"
+    notes = "Methods with a 'V' return descriptor are procedures; 'return' instruction is used for void return."
+}
+
 pattern Arithmetic {
     meta description: "Standard mathematical operations for numeric values."
     parameter plus: String
@@ -2368,6 +2521,14 @@ instance CamelConstant of Constant {
     value = "100"
     syntax = "let max = 100"
     notes = "Top-level let bindings are effectively constant."
+}
+
+instance CamelProcedure of ProcedureDefinition {
+    name = "log_message"
+    parameters = ["msg"]
+    body = { raw "print_endline msg" }
+    syntax = "let log_message msg = print_endline msg"
+    notes = "Procedures in OCaml return the unit type ()."
 }
 
 instance CamelArithmetic of Arithmetic {
