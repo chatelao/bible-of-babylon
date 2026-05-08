@@ -84,7 +84,7 @@ class CodeGenerator:
         "ARM AArch64 Assembler": "asm",
         "Arm": "asm",
         "Prolog": "prolog",
-        "Java Bytecode": "jasm",
+        "Java Bytecode": "jasmin",
         "Camel": "ocaml",
         "OCaml": "ocaml",
         "Go": "go",

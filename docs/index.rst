@@ -1,6 +1,12 @@
 Welcome to the Bible of Babylon Documentation
 =============================================
 
+Downloads
+=========
+
+- **Programming Language Matrix:** :download:`CSV <programming_matrix.csv>` | :download:`Excel <programming_matrix.xlsx>`
+- **Data Format Matrix:** :download:`CSV <data_formats_matrix.csv>` | :download:`Excel <data_formats_matrix.xlsx>`
+
 .. toctree::
    :maxdepth: 2
    :caption: DSL Reference:
@@ -46,12 +52,6 @@ Welcome to the Bible of Babylon Documentation
    haskell_pivot
    typescript_pivot
    tcl_pivot
-
-Downloads
-=========
-
-- **Programming Language Matrix:** :download:`CSV <programming_matrix.csv>` | :download:`Excel <programming_matrix.xlsx>`
-- **Data Format Matrix:** :download:`CSV <data_formats_matrix.csv>` | :download:`Excel <data_formats_matrix.xlsx>`
 
 Indices and tables
 ==================
