@@ -22,7 +22,6 @@ Downloads
    data_formats
    matrices
    coverage
-   appendix
 
 .. toctree::
    :maxdepth: 2

@@ -52,10 +52,6 @@ jobs:
           python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl" --excel -o docs/programming_matrix.xlsx
           python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --excel -o docs/data_formats_matrix.xlsx
 
-          # Ensure appendix exists
-          echo "Appendix" > docs/appendix.rst
-          echo "========" >> docs/appendix.rst
-
       - name: Build Documentation
         run: |
           # Sphinx build
