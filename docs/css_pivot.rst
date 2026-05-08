@@ -109,6 +109,24 @@ CSS Pivot View
    * - RightShift
      - N/A
      - calc() function allows basic math; mod() and round() are in newer CSS specs.
-   * - Bitwise
+   * - BitAnd
      - N/A
      - CSS does not support bitwise operations.
+   * - BitOr
+     - N/A
+     - CSS does not support bitwise operations.
+   * - BitXor
+     - N/A
+     - CSS does not support bitwise operations.
+   * - BitNot
+     - N/A
+     - CSS does not support bitwise operations.
+   * - Float4VectorMultiplication
+     - N/A
+     - CSS does not support vector types or element-wise multiplication.
+   * - Float4VectorDotProduct
+     - N/A
+     - CSS does not support vector dot products.
+   * - Float4VectorCrossProduct
+     - N/A
+     - CSS does not support vector cross products.

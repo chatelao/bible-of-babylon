@@ -7,23 +7,11 @@ TypeScript Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
      - Notes
    * - VariableDeclaration
      - .. code-block:: typescript
 
            let x: number = 42;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Supports static typing on top of JavaScript.
    * - IfElse
      - .. code-block:: typescript
@@ -33,12 +21,6 @@ TypeScript Pivot View
            } else {
                return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style if-else statement.
    * - Loop
      - .. code-block:: typescript
@@ -46,12 +28,6 @@ TypeScript Pivot View
            while (x > 0) {
                x = x - 1;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard while loop.
    * - FunctionDefinition
      - .. code-block:: typescript
@@ -59,12 +35,6 @@ TypeScript Pivot View
            function add(a: number, b: number): number {
                return a + b;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Functions support typed parameters and return values.
    * - ProcedureDefinition
      - .. code-block:: typescript
@@ -72,12 +42,6 @@ TypeScript Pivot View
            function logMessage(msg: string): void {
                console.log(msg);
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Procedures use the 'void' return type.
    * - TryCatch
      - .. code-block:: typescript
@@ -87,101 +51,47 @@ TypeScript Pivot View
            } catch (e) {
                handle(e);
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript exception handling.
    * - Raise
      - .. code-block:: typescript
 
            throw new Error("Error");
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses 'throw' to raise an error.
    * - Thread
      - .. code-block:: typescript
 
            new Worker('worker.js');
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Concurrency is typically handled via Web Workers or asynchronous programming (Promises/async-await).
    * - SendMessage
      - .. code-block:: typescript
 
            worker.postMessage(42);
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Communicates with a Web Worker.
    * - ReceiveMessage
      - .. code-block:: typescript
 
            worker.onmessage = (e) => { handle(e.data); };
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Handles messages from a Web Worker.
    * - SingleLineComment
      - .. code-block:: typescript
 
            // comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard single-line comment.
    * - MultiLineComment
      - .. code-block:: typescript
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard block comment.
    * - Print
      - .. code-block:: typescript
 
            console.log("Hello, World!");
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Outputs to the console.
    * - Import
      - .. code-block:: typescript
 
            import { add } from './math';
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - ESM import syntax.
    * - SwitchCase
      - .. code-block:: typescript
@@ -194,163 +104,104 @@ TypeScript Pivot View
                default:
                    return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style switch statement.
    * - Constant
      - .. code-block:: typescript
 
            const MAX: number = 100;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses 'const' for immutable declarations.
    * - Addition
      - .. code-block:: typescript
 
            a + b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Subtraction
      - .. code-block:: typescript
 
            a - b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Multiplication
      - .. code-block:: typescript
 
            a * b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Division
      - .. code-block:: typescript
 
            a / b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Remainder
      - .. code-block:: typescript
 
            a % b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Floor
      - .. code-block:: typescript
 
            Math.floor(a)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Rounding
      - .. code-block:: typescript
 
            Math.round(a)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Increment
      - .. code-block:: typescript
 
            a++
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - Decrement
      - .. code-block:: typescript
 
            a--
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - LeftShift
      - .. code-block:: typescript
 
            a << b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
    * - RightShift
      - .. code-block:: typescript
 
            a >> b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard JavaScript operators.
-   * - Bitwise
-     - N/A
+   * - BitAnd
      - .. code-block:: typescript
 
            a & b
+     - Standard bitwise operators.
+   * - BitOr
      - .. code-block:: typescript
 
            a | b
+     - Standard bitwise operators.
+   * - BitXor
      - .. code-block:: typescript
 
            a ^ b
+     - Standard bitwise operators.
+   * - BitNot
      - .. code-block:: typescript
 
            ~a
-     - .. code-block:: typescript
-
-           a << b
-     - .. code-block:: typescript
-
-           a >> b
      - Standard bitwise operators.
+   * - Float4VectorMultiplication
+     - .. code-block:: typescript
+
+           const c = a.map((v, i) => v * b[i]);
+     - Uses the Array.map method with the index parameter.
+   * - Float4VectorDotProduct
+     - .. code-block:: typescript
+
+           const dot = a.reduce((acc, v, i) => acc + v * b[i], 0);
+     - Uses Array.reduce to accumulate the product of elements.
+   * - Float4VectorCrossProduct
+     - .. code-block:: typescript
+
+           const c = [
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0
+           ];
+     - Uses array indexing to compute the components.

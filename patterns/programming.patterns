@@ -2036,27 +2036,27 @@ pattern BitNot {
 
 instance CAddition of Addition {
     syntax = "a + b"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CSubtraction of Subtraction {
     syntax = "a - b"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CMultiplication of Multiplication {
     syntax = "a * b"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CDivision of Division {
     syntax = "a / b"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CRemainder of Remainder {
     syntax = "a % b"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CFloor of Floor {
@@ -2071,12 +2071,12 @@ instance CRounding of Rounding {
 
 instance CIncrement of Increment {
     syntax = "a++"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CDecrement of Decrement {
     syntax = "a--"
-    notes = "Standard C operators; floor and round require math.h."
+    notes = "Standard C operators."
 }
 
 instance CLeftShift of LeftShift {
@@ -3161,12 +3161,12 @@ instance X86BitNot of BitNot {
 
 instance RiscvAddition of Addition {
     syntax = "add t0, t1, t2"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvSubtraction of Subtraction {
     syntax = "sub t0, t1, t2"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvMultiplication of Multiplication {
@@ -3186,32 +3186,32 @@ instance RiscvRemainder of Remainder {
 
 instance RiscvFloor of Floor {
     syntax = "N/A"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvRounding of Rounding {
     syntax = "N/A"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvIncrement of Increment {
     syntax = "addi t0, t0, 1"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvDecrement of Decrement {
     syntax = "addi t0, t0, -1"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvLeftShift of LeftShift {
     syntax = "sll t0, t1, t2"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvRightShift of RightShift {
     syntax = "srl t0, t1, t2"
-    notes = "Standard RISC-V M-extension instructions."
+    notes = "Standard RISC-V instructions."
 }
 
 instance RiscvBitAnd of BitAnd {
@@ -3685,57 +3685,57 @@ instance ArmAarch64Constant of Constant {
 
 instance ArmAarch64Addition of Addition {
     syntax = "add x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Subtraction of Subtraction {
     syntax = "sub x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Multiplication of Multiplication {
     syntax = "mul x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Division of Division {
     syntax = "sdiv x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Remainder of Remainder {
     syntax = "N/A"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Modulo is typically calculated via sdiv and msub."
 }
 
 instance ArmAarch64Floor of Floor {
     syntax = "N/A"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Rounding of Rounding {
     syntax = "N/A"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Increment of Increment {
     syntax = "add x0, x0, #1"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64Decrement of Decrement {
     syntax = "sub x0, x0, #1"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64LeftShift of LeftShift {
     syntax = "lsl x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64RightShift of RightShift {
     syntax = "lsr x0, x1, x2"
-    notes = "Standard A64 instructions; modulo is typically calculated via sdiv and msub."
+    notes = "Standard A64 instructions."
 }
 
 instance ArmAarch64BitAnd of BitAnd {
