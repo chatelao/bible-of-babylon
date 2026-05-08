@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Variables start with a dollar sign.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -145,12 +133,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses PowerShell comparison operators (e.g., -gt).</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -160,12 +142,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard while loop with C-like block syntax.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -175,12 +151,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘function’ keyword; parameters are variables starting with $.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -190,12 +160,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Functions without a return statement output nothing to the pipeline.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -207,12 +171,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>PowerShell supports try-catch-finally blocks; $_ (or $PSItem) refers to the current error.</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -220,12 +178,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘throw’ to create a terminating error.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
@@ -233,12 +185,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard PowerShell single-line comment.</p></td>
 </tr>
 <tr class="row-even"><td><p>MultiLineComment</p></td>
@@ -247,12 +193,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses &lt;# and #&gt; for block comments.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Print</p></td>
@@ -260,12 +200,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Write-Host outputs directly to the console host.</p></td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
@@ -273,12 +207,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Loads a module into the current session.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
@@ -290,12 +218,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Versatile switch statement that supports multiple types and patterns.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
@@ -303,12 +225,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Using Set-Variable with the ReadOnly option; Constant option is even more restrictive.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Addition</p></td>
@@ -316,12 +232,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Subtraction</p></td>
@@ -329,12 +239,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Multiplication</p></td>
@@ -342,12 +246,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Division</p></td>
@@ -355,12 +253,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
@@ -368,12 +260,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
@@ -381,12 +267,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Rounding</p></td>
@@ -394,12 +274,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Increment</p></td>
@@ -407,12 +281,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Decrement</p></td>
@@ -420,12 +288,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>LeftShift</p></td>
@@ -433,12 +295,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>RightShift</p></td>
@@ -446,41 +302,56 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; uses .NET Math class for advanced functions.</p></td>
 </tr>
-<tr class="row-even"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-band</span> <span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Uses prefixed operators for bitwise logic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-bor</span> <span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Uses prefixed operators for bitwise logic.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">-bxor</span> <span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Uses prefixed operators for bitwise logic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="o">-bnot</span> <span class="n">a</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">-shl</span> <span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="n">-shr</span> <span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><p>Uses prefixed operators for bitwise logic.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$c</span> <span class="p">=</span> <span class="n">0</span><span class="p">..</span><span class="n">3</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nv">$a</span><span class="p">[</span><span class="nv">$_</span><span class="p">]</span> <span class="p">*</span> <span class="nv">$b</span><span class="p">[</span><span class="nv">$_</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a pipeline and ForEach-Object to iterate over indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$dot</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="n">0</span><span class="p">..</span><span class="n">3</span> <span class="p">|</span> <span class="k">ForEach</span><span class="n">-Object</span> <span class="p">{</span> <span class="nv">$dot</span> <span class="p">+=</span> <span class="nv">$a</span><span class="p">[</span><span class="nv">$_</span><span class="p">]</span> <span class="p">*</span> <span class="nv">$b</span><span class="p">[</span><span class="nv">$_</span><span class="p">]</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over indices and accumulates the product.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$c</span> <span class="p">=</span> <span class="p">@(</span><span class="nv">$a</span><span class="p">[</span><span class="n">1</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">2</span><span class="p">]</span> <span class="p">-</span> <span class="nv">$a</span><span class="p">[</span><span class="n">2</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">1</span><span class="p">],</span> <span class="nv">$a</span><span class="p">[</span><span class="n">2</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">0</span><span class="p">]</span> <span class="p">-</span> <span class="nv">$a</span><span class="p">[</span><span class="n">0</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">2</span><span class="p">],</span> <span class="nv">$a</span><span class="p">[</span><span class="n">0</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">1</span><span class="p">]</span> <span class="p">-</span> <span class="nv">$a</span><span class="p">[</span><span class="n">1</span><span class="p">]*</span><span class="nv">$b</span><span class="p">[</span><span class="n">0</span><span class="p">],</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses array literal syntax with expressions.</p></td>
 </tr>
 </tbody>
 </table>

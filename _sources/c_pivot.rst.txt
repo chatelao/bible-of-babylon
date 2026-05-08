@@ -7,23 +7,11 @@ C Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
      - Notes
    * - VariableDeclaration
      - .. code-block:: c
 
            int x = 42;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Static typing, terminated by semicolon.
    * - IfElse
      - .. code-block:: c
@@ -33,12 +21,6 @@ C Pivot View
            } else {
                return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C if-else statement.
    * - Loop
      - .. code-block:: c
@@ -46,12 +28,6 @@ C Pivot View
            while (x > 0) {
                x = x - 1;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C while loop.
    * - FunctionDefinition
      - .. code-block:: c
@@ -59,12 +35,6 @@ C Pivot View
            int add(int a, int b) {
                return a + b;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C function with static types and curly braces.
    * - ProcedureDefinition
      - .. code-block:: c
@@ -72,77 +42,35 @@ C Pivot View
            void log_message(const char *msg) {
                printf("%s\n", msg);
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - In C, a procedure is a function with a void return type.
    * - TryCatch
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - C does not have native try-catch blocks; error handling is usually manual.
    * - Raise
      - .. code-block:: c
 
            exit(1);
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - C uses exit() or signals for severe errors.
    * - SingleLineComment
      - .. code-block:: c
 
            // comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C single-line comment.
    * - MultiLineComment
      - .. code-block:: c
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C multi-line comment.
    * - Print
      - .. code-block:: c
 
            printf("Hello, World!\n");
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the standard library's printf function; requires stdio.h.
    * - Import
      - .. code-block:: c
 
            #include <stdio.h>
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C way to include header files.
    * - SwitchCase
      - .. code-block:: c
@@ -155,163 +83,102 @@ C Pivot View
                default:
                    return 0;
            }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C switch statement with case labels and default.
    * - Constant
      - .. code-block:: c
 
            const int MAX = 100;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The 'const' qualifier makes the variable immutable after initialization.
    * - Addition
      - .. code-block:: c
 
            a + b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Subtraction
      - .. code-block:: c
 
            a - b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Multiplication
      - .. code-block:: c
 
            a * b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Division
      - .. code-block:: c
 
            a / b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Remainder
      - .. code-block:: c
 
            a % b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Floor
      - .. code-block:: c
 
            floor(a)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C operators; floor and round require math.h.
    * - Rounding
      - .. code-block:: c
 
            round(a)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C operators; floor and round require math.h.
    * - Increment
      - .. code-block:: c
 
            a++
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - Decrement
      - .. code-block:: c
 
            a--
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - LeftShift
      - .. code-block:: c
 
            a << b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C operators; floor and round require math.h.
    * - RightShift
      - .. code-block:: c
 
            a >> b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C operators; floor and round require math.h.
-   * - Bitwise
-     - N/A
+   * - BitAnd
      - .. code-block:: c
 
            a & b
+     - Standard bitwise operators in C.
+   * - BitOr
      - .. code-block:: c
 
            a | b
+     - Standard bitwise operators in C.
+   * - BitXor
      - .. code-block:: c
 
            a ^ b
+     - Standard bitwise operators in C.
+   * - BitNot
      - .. code-block:: c
 
            ~a
-     - .. code-block:: c
-
-           a << b
-     - .. code-block:: c
-
-           a >> b
      - Standard bitwise operators in C.
+   * - Float4VectorMultiplication
+     - .. code-block:: c
+
+           for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - Standard C requires a loop for element-wise multiplication of arrays.
+   * - Float4VectorDotProduct
+     - .. code-block:: c
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - Standard C implementation using a loop and an accumulator.
+   * - Float4VectorCrossProduct
+     - .. code-block:: c
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0f;
+     - Calculated manually for the first three components.

@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Used in Windows Command Prompt.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -141,12 +129,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses GTR for ‘greater than’; blocks are enclosed in parentheses.</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -155,12 +137,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Loops are typically implemented using labels and goto.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -170,12 +146,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Functions are labels; called with ‘call :label’; arguments are %1, %2.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -185,12 +155,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Procedures are labels called with ‘call’; they return using ‘goto :eof’ or ‘exit /b’.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -198,12 +162,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Cmd uses || to execute a command if the previous one failed (non-zero errorlevel).</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -211,12 +169,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Sets the errorlevel and exits the current script or function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
@@ -224,21 +176,9 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses REM or :: (label hack) for comments.</p></td>
 </tr>
 <tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Command Prompt does not support multi-line comments.</p></td>
 </tr>
@@ -247,12 +187,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Echo displays messages in Windows Command Prompt.</p></td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
@@ -260,12 +194,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>The ‘call’ command is used to run another batch file from within one.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
@@ -273,12 +201,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Cmd does not have a native switch; it is typically simulated with if/else or goto.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
@@ -286,12 +208,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Cmd has no native support for constants; developers must manually ensure the value is not changed.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Addition</p></td>
@@ -299,12 +215,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-even"><td><p>Subtraction</p></td>
@@ -312,12 +222,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Multiplication</p></td>
@@ -325,12 +229,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-even"><td><p>Division</p></td>
@@ -338,12 +236,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
@@ -351,31 +243,13 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Rounding</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
@@ -384,12 +258,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Decrement</p></td>
@@ -397,12 +265,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-even"><td><p>LeftShift</p></td>
@@ -410,12 +272,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
 <tr class="row-odd"><td><p>RightShift</p></td>
@@ -423,41 +279,47 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses set /a for integer arithmetic; no native floating point support.</p></td>
 </tr>
-<tr class="row-even"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a &amp; b&quot;</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within set /a expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a | b&quot;</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within set /a expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a ^ b&quot;</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within set /a expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;~a&quot;</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set /a res=&quot;a &lt;&lt; b&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp">set /a res=&quot;a &gt;</span><span class="p">&gt;</span> b<span class="s2">&quot;</span>
-</pre></div>
-</div>
-</td>
 <td><p>Bitwise operators within set /a expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Cmd does not natively support floating-point arithmetic or vectors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Cmd has no native support for floating-point arithmetic.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Cmd does not support floating-point arithmetic.</p></td>
 </tr>
 </tbody>
 </table>

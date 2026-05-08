@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Strongly typed, similar to C.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -145,12 +133,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Identical to C.</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -160,12 +142,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Identical to C.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -175,12 +151,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Similar to C, but typically within a class with an access modifier.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -190,12 +160,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘void’ keyword to indicate no return value.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -207,12 +171,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard Java exception handling.</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -220,12 +178,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘throw’ to raise an exception.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
@@ -233,12 +185,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Spawns a new platform thread; virtual threads are available in newer versions.</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
@@ -246,12 +192,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Commonly implemented using BlockingQueue; put() may block if the queue is full.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
@@ -259,12 +199,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Using BlockingQueue.take(); blocks until an element becomes available.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
@@ -272,12 +206,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Identical to C.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
@@ -286,12 +214,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Identical to C.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
@@ -299,12 +221,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses System.out for standard output; includes a newline.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
@@ -312,12 +228,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Imports a specific class; can use * for all classes in a package.</p></td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
@@ -332,12 +242,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Identical to C; modern Java also supports switch expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
@@ -345,12 +249,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘final’ to prevent modification; typically combined with ‘static’ for class-level constants.</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
@@ -358,12 +256,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
@@ -371,12 +263,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
@@ -384,12 +270,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
@@ -397,12 +277,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
@@ -410,12 +284,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
@@ -423,12 +291,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
@@ -436,12 +298,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
@@ -449,12 +305,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
@@ -462,12 +312,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
@@ -475,12 +319,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
@@ -488,41 +326,59 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard operators; Math class provides rounding and floor functions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators in Java.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators in Java.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators in Java.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><p>Standard bitwise operators in Java.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Java uses loops; the Vector API (incubating) provides SIMD support.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Java implementation using a loop; Vector API provides optimized dot product.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="n">c</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">;</span>
+<span class="n">c</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">0</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="mi">1</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+<span class="n">c</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Java implementation using array indexing.</p></td>
 </tr>
 </tbody>
 </table>

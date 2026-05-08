@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Defined in the .data section (Intel syntax).</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -147,12 +135,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Implemented using comparison and jump instructions (Intel syntax).</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -165,12 +147,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Implemented using labels and conditional jumps.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -180,12 +156,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Functions are labels; parameters usually passed via registers or stack.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -197,21 +167,9 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Implemented as a label followed by code and a ret instruction.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>No high-level try-catch; requires OS-specific mechanisms like SEH.</p></td>
 </tr>
@@ -220,12 +178,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Software interrupts (like int 3) can be used to signal errors or breakpoints.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
@@ -234,12 +186,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Spawning threads requires calling OS-specific APIs (e.g., Win32 CreateThread).</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
@@ -249,12 +195,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Message passing is done via OS APIs.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
@@ -262,12 +202,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Message retrieval via OS APIs.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
@@ -275,21 +209,9 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Most assemblers use semicolon for single-line comments (Intel syntax).</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Most assemblers do not have a native multi-line comment syntax.</p></td>
 </tr>
@@ -299,12 +221,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Printing in assembler usually involves calling C library functions or OS-specific system calls.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
@@ -312,12 +228,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Includes another assembly file; syntax varies by assembler (e.g., FASM uses ‘include’).</p></td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
@@ -335,12 +245,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Implemented using a series of comparison and jump instructions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
@@ -348,12 +252,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the EQU directive to define a symbolic constant (Intel syntax).</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
@@ -361,12 +259,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
@@ -374,12 +266,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
@@ -387,12 +273,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
@@ -400,41 +280,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
@@ -443,12 +299,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
@@ -456,12 +306,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
@@ -469,12 +313,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
@@ -482,41 +320,64 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Operates on registers or memory.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">and</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise instructions for general-purpose registers.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">or</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise instructions for general-purpose registers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise instructions for general-purpose registers.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">not</span><span class="w"> </span><span class="nb">eax</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">shl</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">cl</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">shr</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">cl</span>
-</pre></div>
-</div>
-</td>
 <td><p>Bitwise instructions for general-purpose registers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">mulps</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm1</span>
+</pre></div>
+</div>
+</td>
+<td><p>SSE instruction for packed single-precision floating-point multiplication (4 floats).</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">dpps</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm1</span><span class="p">,</span><span class="w"> </span><span class="mh">0xF1</span>
+</pre></div>
+</div>
+</td>
+<td><p>SSE4.1 instruction for Dot Product of Packed Singles. 0xF1 mask controls input/output lanes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">movaps</span><span class="w"> </span><span class="nb">xmm2</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm0</span>
+<span class="nf">shufps</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="mh">0xC9</span><span class="w"> </span><span class="c1">; y z x w</span>
+<span class="nf">shufps</span><span class="w"> </span><span class="nb">xmm2</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm2</span><span class="p">,</span><span class="w"> </span><span class="mh">0xD2</span><span class="w"> </span><span class="c1">; z x y w</span>
+<span class="nf">movaps</span><span class="w"> </span><span class="nb">xmm3</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm1</span>
+<span class="nf">shufps</span><span class="w"> </span><span class="nb">xmm1</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm1</span><span class="p">,</span><span class="w"> </span><span class="mh">0xD2</span><span class="w"> </span><span class="c1">; z x y w</span>
+<span class="nf">shufps</span><span class="w"> </span><span class="nb">xmm3</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm3</span><span class="p">,</span><span class="w"> </span><span class="mh">0xC9</span><span class="w"> </span><span class="c1">; y z x w</span>
+<span class="nf">mulps</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm1</span>
+<span class="nf">mulps</span><span class="w"> </span><span class="nb">xmm2</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm3</span>
+<span class="nf">subps</span><span class="w"> </span><span class="nb">xmm0</span><span class="p">,</span><span class="w"> </span><span class="nb">xmm2</span>
+</pre></div>
+</div>
+</td>
+<td><p>A common SSE sequence for 3D cross product using shuffles and multiplications.</p></td>
 </tr>
 </tbody>
 </table>

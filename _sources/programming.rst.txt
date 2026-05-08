@@ -2665,7 +2665,7 @@ Parameters:
      - .. code-block:: c
 
            a + b
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaAddition
      - .. code-block:: java
 
@@ -2740,7 +2740,7 @@ Parameters:
      - .. code-block:: asm
 
            add t0, t1, t2
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologAddition
      - .. code-block:: prolog
 
@@ -2760,7 +2760,7 @@ Parameters:
      - .. code-block:: asm
 
            add x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoAddition
      - .. code-block:: go
 
@@ -2810,7 +2810,7 @@ Parameters:
      - .. code-block:: c
 
            a - b
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaSubtraction
      - .. code-block:: java
 
@@ -2885,7 +2885,7 @@ Parameters:
      - .. code-block:: asm
 
            sub t0, t1, t2
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologSubtraction
      - .. code-block:: prolog
 
@@ -2905,7 +2905,7 @@ Parameters:
      - .. code-block:: asm
 
            sub x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoSubtraction
      - .. code-block:: go
 
@@ -2955,7 +2955,7 @@ Parameters:
      - .. code-block:: c
 
            a * b
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaMultiplication
      - .. code-block:: java
 
@@ -3050,7 +3050,7 @@ Parameters:
      - .. code-block:: asm
 
            mul x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoMultiplication
      - .. code-block:: go
 
@@ -3100,7 +3100,7 @@ Parameters:
      - .. code-block:: c
 
            a / b
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaDivision
      - .. code-block:: java
 
@@ -3195,7 +3195,7 @@ Parameters:
      - .. code-block:: asm
 
            sdiv x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoDivision
      - .. code-block:: go
 
@@ -3245,7 +3245,7 @@ Parameters:
      - .. code-block:: c
 
            a % b
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaRemainder
      - .. code-block:: java
 
@@ -3336,7 +3336,7 @@ Parameters:
      - Standard operators; OCaml uses separate operators for floats (e.g., +.).
    * - ArmAarch64Remainder
      - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Modulo is typically calculated via sdiv and msub.
    * - GoRemainder
      - .. code-block:: go
 
@@ -3453,7 +3453,7 @@ Parameters:
      - Operates on registers or memory.
    * - RiscvFloor
      - N/A
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologFloor
      - .. code-block:: prolog
 
@@ -3469,7 +3469,7 @@ Parameters:
      - Standard operators; OCaml uses separate operators for floats (e.g., +.).
    * - ArmAarch64Floor
      - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoFloor
      - .. code-block:: go
 
@@ -3588,7 +3588,7 @@ Parameters:
      - Operates on registers or memory.
    * - RiscvRounding
      - N/A
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologRounding
      - .. code-block:: prolog
 
@@ -3604,7 +3604,7 @@ Parameters:
      - Standard operators; OCaml uses separate operators for floats (e.g., +.).
    * - ArmAarch64Rounding
      - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoRounding
      - .. code-block:: go
 
@@ -3654,7 +3654,7 @@ Parameters:
      - .. code-block:: c
 
            a++
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaIncrement
      - .. code-block:: java
 
@@ -3729,7 +3729,7 @@ Parameters:
      - .. code-block:: asm
 
            addi t0, t0, 1
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologIncrement
      - .. code-block:: prolog
 
@@ -3749,7 +3749,7 @@ Parameters:
      - .. code-block:: asm
 
            add x0, x0, #1
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoIncrement
      - .. code-block:: go
 
@@ -3799,7 +3799,7 @@ Parameters:
      - .. code-block:: c
 
            a--
-     - Standard C operators; floor and round require math.h.
+     - Standard C operators.
    * - JavaDecrement
      - .. code-block:: java
 
@@ -3874,7 +3874,7 @@ Parameters:
      - .. code-block:: asm
 
            addi t0, t0, -1
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologDecrement
      - .. code-block:: prolog
 
@@ -3894,7 +3894,7 @@ Parameters:
      - .. code-block:: asm
 
            sub x0, x0, #1
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoDecrement
      - .. code-block:: go
 
@@ -4013,7 +4013,7 @@ Parameters:
      - .. code-block:: asm
 
            sll t0, t1, t2
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologLeftShift
      - .. code-block:: prolog
 
@@ -4033,7 +4033,7 @@ Parameters:
      - .. code-block:: asm
 
            lsl x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoLeftShift
      - .. code-block:: go
 
@@ -4152,7 +4152,7 @@ Parameters:
      - .. code-block:: asm
 
            srl t0, t1, t2
-     - Standard RISC-V M-extension instructions.
+     - Standard RISC-V instructions.
    * - PrologRightShift
      - .. code-block:: prolog
 
@@ -4172,7 +4172,7 @@ Parameters:
      - .. code-block:: asm
 
            lsr x0, x1, x2
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - GoRightShift
      - .. code-block:: go
 

@@ -113,454 +113,332 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.field private static x I = 42
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">.field</span><span class="w"> </span><span class="kr">private</span><span class="w"> </span><span class="kr">static</span><span class="w"> </span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>In Jasmin syntax, static fields represent global-like variables.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>    getstatic MyClass/x I
-    ifgt LabelThen
-    iconst_0
-    ireturn
-LabelThen:
-    iconst_1
-    ireturn
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">ifgt</span><span class="w"> </span><span class="nl">LabelThen</span>
+<span class="w">    </span><span class="kr">iconst_0</span>
+<span class="w">    </span><span class="kr">ireturn</span>
+<span class="nl">LabelThen</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">iconst_1</span>
+<span class="w">    </span><span class="kr">ireturn</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Implemented using stack operations and branch instructions (ifgt).</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>LoopStart:
-    getstatic MyClass/x I
-    ifle LoopEnd
-    getstatic MyClass/x I
-    iconst_1
-    isub
-    putstatic MyClass/x I
-    goto LoopStart
-LoopEnd:
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="nl">LoopStart</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">ifle</span><span class="w"> </span><span class="nl">LoopEnd</span>
+<span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">iconst_1</span>
+<span class="w">    </span><span class="kr">isub</span>
+<span class="w">    </span><span class="kr">putstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">goto</span><span class="w"> </span><span class="nl">LoopStart</span>
+<span class="nl">LoopEnd</span><span class="p">:</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Loops are built with labels and jump instructions (goto, ifle).</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.method public static add(II)I
-    .limit stack 2
-    .limit locals 2
-    iload_0
-    iload_1
-    iadd
-    ireturn
-.end method
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">.method</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="kr">static</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">II</span><span class="p">)</span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">.limit</span><span class="w"> </span><span class="kr">stack</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kr">.limit</span><span class="w"> </span><span class="kr">locals</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kr">iload_0</span>
+<span class="w">    </span><span class="kr">iload_1</span>
+<span class="w">    </span><span class="kr">iadd</span>
+<span class="w">    </span><span class="kr">ireturn</span>
+<span class="kr">.end</span><span class="w"> </span><span class="kr">method</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Methods define stack and local variable limits; parameters are accessed by index.</p></td>
 </tr>
 <tr class="row-even"><td><p>TryCatch</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.catch java/lang/Exception from TryStart to TryEnd using CatchHandler
-TryStart:
-    invokestatic MyClass/do_something()V
-TryEnd:
-    goto Done
-CatchHandler:
-    astore_1
-    aload_1
-    invokestatic MyClass/handle(Ljava/lang/Exception;)V
-Done:
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">.catch</span><span class="w"> </span><span class="nn">java/lang/</span><span class="ne">Exception</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="nl">TryStart</span><span class="w"> </span><span class="kr">to</span><span class="w"> </span><span class="nl">TryEnd</span><span class="w"> </span><span class="kr">using</span><span class="w"> </span><span class="nl">CatchHandler</span>
+<span class="nl">TryStart</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">invokestatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="nf">do_something</span><span class="p">()</span><span class="kt">V</span>
+<span class="nl">TryEnd</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">goto</span><span class="w"> </span><span class="nl">Done</span>
+<span class="nl">CatchHandler</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">astore_1</span>
+<span class="w">    </span><span class="kr">aload_1</span>
+<span class="w">    </span><span class="kr">invokestatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="nf">handle</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">Exception</span><span class="p">;)</span><span class="kt">V</span>
+<span class="nl">Done</span><span class="p">:</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Exception handlers are defined via .catch directives for specific code ranges.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>new java/lang/RuntimeException
-dup
-ldc &quot;Error&quot;
-invokespecial java/lang/RuntimeException/&lt;init&gt;(Ljava/lang/String;)V
-athrow
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">new</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">RuntimeException</span>
+<span class="kr">dup</span>
+<span class="kr">ldc</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">RuntimeException/</span><span class="nf">&lt;init&gt;</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">String</span><span class="p">;)</span><span class="kt">V</span>
+<span class="kr">athrow</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Exceptions are instantiated and then thrown using the athrow instruction.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>getstatic java/lang/System/out Ljava/io/PrintStream;
-ldc &quot;Hello, World!&quot;
-invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">getstatic</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">System/</span><span class="vc">out</span><span class="w"> </span><span class="kt">L</span><span class="nn">java/io/</span><span class="nc">PrintStream</span><span class="p">;</span>
+<span class="kr">ldc</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+<span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/io/</span><span class="nc">PrintStream/</span><span class="nf">println</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">String</span><span class="p">;)</span><span class="kt">V</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Calls println on the static System.out field.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>new java/lang/Thread
-dup
-new MyRunnable
-dup
-invokespecial MyRunnable/&lt;init&gt;()V
-invokespecial java/lang/Thread/&lt;init&gt;(Ljava/lang/Runnable;)V
-invokevirtual java/lang/Thread/start()V
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">new</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Thread</span>
+<span class="kr">dup</span>
+<span class="kr">new</span><span class="w"> </span><span class="nc">MyRunnable</span>
+<span class="kr">dup</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nc">MyRunnable/</span><span class="nf">&lt;init&gt;</span><span class="p">()</span><span class="kt">V</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Thread/</span><span class="nf">&lt;init&gt;</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">Runnable</span><span class="p">;)</span><span class="kt">V</span>
+<span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Thread/</span><span class="nf">start</span><span class="p">()</span><span class="kt">V</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Involves instantiating a Thread object with a Runnable and calling start().</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>aload_0 ; queue
-bipush 42
-invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_0</span><span class="w"> </span><span class="c1">; queue</span>
+<span class="kr">bipush</span><span class="w"> </span><span class="mi">42</span>
+<span class="kr">invokestatic</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Integer/</span><span class="nf">valueOf</span><span class="p">(</span><span class="kt">I</span><span class="p">)</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">Integer</span><span class="p">;</span>
+<span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/util/concurrent/</span><span class="nc">BlockingQueue/</span><span class="nf">put</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">Object</span><span class="p">;)</span><span class="kt">V</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Typically uses standard Java concurrent collections like BlockingQueue.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>aload_0 ; queue
-invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
-checkcast java/lang/Integer
-invokevirtual java/lang/Integer/intValue()I
-istore_1 ; msg
-iload_1
-invokestatic MyClass/handle(I)V
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_0</span><span class="w"> </span><span class="c1">; queue</span>
+<span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/util/concurrent/</span><span class="nc">BlockingQueue/</span><span class="nf">take</span><span class="p">()</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">Object</span><span class="p">;</span>
+<span class="kr">checkcast</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Integer</span>
+<span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">Integer/</span><span class="nf">intValue</span><span class="p">()</span><span class="kt">I</span>
+<span class="kr">istore_1</span><span class="w"> </span><span class="c1">; msg</span>
+<span class="kr">iload_1</span>
+<span class="kr">invokestatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="nf">handle</span><span class="p">(</span><span class="kt">I</span><span class="p">)</span><span class="kt">V</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Blocking retrieval from a concurrent collection.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>; comment
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Jasmin uses semicolons for single-line comments.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Java Bitcode (Jasmin) does not have a native multi-line comment syntax; multiple semicolons are used.</p></td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>Ljava/util/List;
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="sx">Ljava/util/List;</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Internal descriptors are used to reference external classes.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>    getstatic MyClass/x I
-    lookupswitch
-        1: Label1
-        2: Label2
-        default: LabelDefault
-Label1:
-    ; ...
-Label2:
-    ; ...
-LabelDefault:
-    ; ...
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
+<span class="w">    </span><span class="kr">lookupswitch</span>
+<span class="w">        </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="nl">Label1</span>
+<span class="w">        </span><span class="mi">2</span><span class="p">:</span><span class="w"> </span><span class="nl">Label2</span>
+<span class="w">        </span><span class="kr">default</span><span class="p">:</span><span class="w"> </span><span class="nl">LabelDefault</span>
+<span class="nl">Label1</span><span class="p">:</span>
+<span class="w">    </span><span class="c1">; ...</span>
+<span class="nl">Label2</span><span class="p">:</span>
+<span class="w">    </span><span class="c1">; ...</span>
+<span class="nl">LabelDefault</span><span class="p">:</span>
+<span class="w">    </span><span class="c1">; ...</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses lookupswitch or tableswitch instructions for multi-way branching.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.field public static final MAX I = 100
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">.field</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="kr">static</span><span class="w"> </span><span class="kr">final</span><span class="w"> </span><span class="vc">MAX</span><span class="w"> </span><span class="kt">I</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Constants are represented as static final fields.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>.method public static logMessage(Ljava/lang/String;)V
-    .limit stack 2
-    .limit locals 1
-    getstatic java/lang/System/out Ljava/io/PrintStream;
-    aload_0
-    invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-    return
-.end method
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">.method</span><span class="w"> </span><span class="kr">public</span><span class="w"> </span><span class="kr">static</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">String</span><span class="p">;)</span><span class="kt">V</span>
+<span class="w">    </span><span class="kr">.limit</span><span class="w"> </span><span class="kr">stack</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">    </span><span class="kr">.limit</span><span class="w"> </span><span class="kr">locals</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nn">java/lang/</span><span class="nc">System/</span><span class="vc">out</span><span class="w"> </span><span class="kt">L</span><span class="nn">java/io/</span><span class="nc">PrintStream</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/io/</span><span class="nc">PrintStream/</span><span class="nf">println</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/lang/</span><span class="nc">String</span><span class="p">;)</span><span class="kt">V</span>
+<span class="w">    </span><span class="kr">return</span>
+<span class="kr">.end</span><span class="w"> </span><span class="kr">method</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Methods with a ‘V’ return descriptor are procedures; ‘return’ instruction is used for void return.</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iadd
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iadd</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>isub
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">isub</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>imul
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">imul</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>idiv
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">idiv</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>irem
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">irem</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iinc index, 1
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iinc</span><span class="w"> </span><span class="sx">index,</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iinc index, -1
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iinc</span><span class="w"> </span><span class="sx">index,</span><span class="w"> </span><span class="mi">-1</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishl
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">ishl</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishr
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">ishr</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Stack-based arithmetic instructions for integers.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iand
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ior
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ixor
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>iconst_m1
-ixor
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishl
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-jasm notranslate"><div class="highlight"><pre><span></span>ishr
+<tr class="row-odd"><td><p>BitAnd</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iand</span>
 </pre></div>
 </div>
 </td>
 <td><p>Stack-based bitwise instructions; NOT is implemented as XOR with -1.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">ior</span>
+</pre></div>
+</div>
+</td>
+<td><p>Stack-based bitwise instructions; NOT is implemented as XOR with -1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">ixor</span>
+</pre></div>
+</div>
+</td>
+<td><p>Stack-based bitwise instructions; NOT is implemented as XOR with -1.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iconst_m1</span>
+<span class="kr">ixor</span>
+</pre></div>
+</div>
+</td>
+<td><p>Stack-based bitwise instructions; NOT is implemented as XOR with -1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">fload_1</span>
+<span class="kr">fload_2</span>
+<span class="kr">fmul</span>
+</pre></div>
+</div>
+</td>
+<td><p>Java Bytecode uses fmul for individual floats; vectorization is typically handled by the JIT.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">fload_1</span><span class="w"> </span><span class="c1">; a[i]</span>
+<span class="kr">fload_2</span><span class="w"> </span><span class="c1">; b[i]</span>
+<span class="kr">fmul</span>
+<span class="kr">fadd</span>
+</pre></div>
+</div>
+</td>
+<td><p>Dot product is built by repeating fmul and fadd instructions on the stack.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">fload</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">; ay</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="c1">; bz</span>
+<span class="kr">fmul</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c1">; az</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1">; by</span>
+<span class="kr">fmul</span>
+<span class="kr">fsub</span><span class="w"> </span><span class="c1">; -&gt; cx</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="c1">; az</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1">; bx</span>
+<span class="kr">fmul</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">; ax</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="c1">; bz</span>
+<span class="kr">fmul</span>
+<span class="kr">fsub</span><span class="w"> </span><span class="c1">; -&gt; cy</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="c1">; ax</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1">; by</span>
+<span class="kr">fmul</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">; ay</span>
+<span class="kr">fload</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="c1">; bx</span>
+<span class="kr">fmul</span>
+<span class="kr">fsub</span><span class="w"> </span><span class="c1">; -&gt; cz</span>
+</pre></div>
+</div>
+</td>
+<td><p>Calculated component-wise using stack operations.</p></td>
 </tr>
 </tbody>
 </table>

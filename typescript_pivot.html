@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Supports static typing on top of JavaScript.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -145,12 +133,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard C-style if-else statement.</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -160,12 +142,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard while loop.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -175,12 +151,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Functions support typed parameters and return values.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -190,12 +160,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Procedures use the ‘void’ return type.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -207,12 +171,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript exception handling.</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -220,12 +178,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘throw’ to raise an error.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
@@ -233,12 +185,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Concurrency is typically handled via Web Workers or asynchronous programming (Promises/async-await).</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
@@ -246,12 +192,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Communicates with a Web Worker.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
@@ -259,12 +199,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Handles messages from a Web Worker.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
@@ -272,12 +206,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard single-line comment.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
@@ -286,12 +214,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard block comment.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
@@ -299,12 +221,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Outputs to the console.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
@@ -312,12 +228,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>ESM import syntax.</p></td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
@@ -332,12 +242,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard C-style switch statement.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
@@ -345,12 +249,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses ‘const’ for immutable declarations.</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
@@ -358,12 +256,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
@@ -371,12 +263,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
@@ -384,12 +270,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
@@ -397,12 +277,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
@@ -410,12 +284,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
@@ -423,12 +291,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
@@ -436,12 +298,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
@@ -449,12 +305,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
@@ -462,12 +312,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
@@ -475,12 +319,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
@@ -488,41 +326,61 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard JavaScript operators.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="nx">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nx">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Standard bitwise operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="nx">a</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
 <td><p>Standard bitwise operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Array.map method with the index parameter.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Array.reduce to accumulate the product of elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">a</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">a</span><span class="p">[</span><span class="mf">2</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">2</span><span class="p">],</span>
+<span class="w">    </span><span class="nx">a</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span><span class="o">*</span><span class="nx">b</span><span class="p">[</span><span class="mf">0</span><span class="p">],</span>
+<span class="w">    </span><span class="mf">0</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses array indexing to compute the components.</p></td>
 </tr>
 </tbody>
 </table>

@@ -296,9 +296,42 @@
 <td><p>N/A</p></td>
 <td><p>Uses ‘div’ for division and ‘idiv’ for integer division.</p></td>
 </tr>
-<tr class="row-even"><td><p>Bitwise</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><p>N/A</p></td>
 <td><p>Standard XQuery does not have native bitwise operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard XQuery does not have native bitwise operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard XQuery does not have native bitwise operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard XQuery does not have native bitwise operators.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a for expression to iterate over indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the built-in sum() function over a sequence of products.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses sequence indexing (1-indexed).</p></td>
 </tr>
 </tbody>
 </table>

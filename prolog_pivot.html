@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses unification for assignment; variables must start with an uppercase letter.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -141,12 +129,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the (Condition -&gt; Then ; Else) control construct.</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -155,12 +137,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Prolog uses recursion and tail-call optimization for looping.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -168,12 +144,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Functions are predicates; return values are typically unified with an output argument.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -181,12 +151,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Predicates without an output argument act as procedures.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -194,12 +158,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard Prolog error handling using the catch/3 predicate.</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -207,12 +165,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses throw/1 to raise an exception.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
@@ -220,12 +172,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog).</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
@@ -233,12 +179,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Sends a message to a thread’s message queue.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
@@ -246,12 +186,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Retrieves a matching message from the current thread’s queue.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
@@ -259,12 +193,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard Prolog single-line comment.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
@@ -273,12 +201,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard C-style block comment.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
@@ -286,12 +208,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Outputs text followed by a newline.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
@@ -299,12 +215,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Imports predicates from a library module.</p></td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
@@ -315,12 +225,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Usually implemented using nested (If -&gt; Then ; Else) or multiple clauses.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
@@ -328,12 +232,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment.</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
@@ -341,12 +239,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
@@ -354,12 +246,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
@@ -367,12 +253,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
@@ -380,12 +260,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
@@ -393,12 +267,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
@@ -406,12 +274,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
@@ -419,12 +281,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
@@ -432,12 +288,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
@@ -445,12 +295,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
@@ -458,12 +302,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
@@ -471,41 +309,59 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses the ‘is’ operator to evaluate arithmetic expressions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">/\</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within arithmetic expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">\/</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within arithmetic expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">xor</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
+<td><p>Bitwise operators within arithmetic expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="s s-Atom">\</span> <span class="nv">A</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">&lt;&lt;</span> <span class="nv">B</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="s s-Atom">&gt;&gt;</span> <span class="nv">B</span>
-</pre></div>
-</div>
-</td>
 <td><p>Bitwise operators within arithmetic expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">maplist</span><span class="p">(</span><span class="s s-Atom">multiply</span><span class="p">,</span> <span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">C</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses maplist to apply a predicate element-wise.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">dot_product</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">Dot</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">maplist</span><span class="p">(</span><span class="s s-Atom">multiply</span><span class="p">,</span> <span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">Products</span><span class="p">),</span> <span class="nf">sum_list</span><span class="p">(</span><span class="nv">Products</span><span class="p">,</span> <span class="nv">Dot</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Commonly implemented using maplist and sum_list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">cross_product</span><span class="p">([</span><span class="nv">A1</span><span class="p">,</span><span class="nv">A2</span><span class="p">,</span><span class="nv">A3</span><span class="p">|</span><span class="k">_</span><span class="p">],</span> <span class="p">[</span><span class="nv">B1</span><span class="p">,</span><span class="nv">B2</span><span class="p">,</span><span class="nv">B3</span><span class="p">|</span><span class="k">_</span><span class="p">],</span> <span class="p">[</span><span class="nv">C1</span><span class="p">,</span><span class="nv">C2</span><span class="p">,</span><span class="nv">C3</span><span class="p">,</span><span class="mf">0.0</span><span class="p">])</span> <span class="p">:-</span>
+    <span class="nv">C1</span> <span class="o">is</span> <span class="nv">A2</span><span class="o">*</span><span class="nv">B3</span> <span class="o">-</span> <span class="nv">A3</span><span class="o">*</span><span class="nv">B2</span><span class="p">,</span>
+    <span class="nv">C2</span> <span class="o">is</span> <span class="nv">A3</span><span class="o">*</span><span class="nv">B1</span> <span class="o">-</span> <span class="nv">A1</span><span class="o">*</span><span class="nv">B3</span><span class="p">,</span>
+    <span class="nv">C3</span> <span class="o">is</span> <span class="nv">A1</span><span class="o">*</span><span class="nv">B2</span> <span class="o">-</span> <span class="nv">A2</span><span class="o">*</span><span class="nv">B1</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using list pattern matching and arithmetic evaluation.</p></td>
 </tr>
 </tbody>
 </table>

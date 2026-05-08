@@ -141,6 +141,30 @@ XQuery Pivot View
    * - RightShift
      - N/A
      - Uses 'div' for division and 'idiv' for integer division.
-   * - Bitwise
+   * - BitAnd
      - N/A
      - Standard XQuery does not have native bitwise operators.
+   * - BitOr
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - BitXor
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - BitNot
+     - N/A
+     - Standard XQuery does not have native bitwise operators.
+   * - Float4VectorMultiplication
+     - .. code-block:: xquery
+
+           for $i in 1 to 4 return $a[$i] * $b[$i]
+     - Uses a for expression to iterate over indices.
+   * - Float4VectorDotProduct
+     - .. code-block:: xquery
+
+           sum(for $i in 1 to 4 return $a[$i] * $b[$i])
+     - Uses the built-in sum() function over a sequence of products.
+   * - Float4VectorCrossProduct
+     - .. code-block:: xquery
+
+           ($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)
+     - Uses sequence indexing (1-indexed).

@@ -7,19 +7,11 @@ SQL Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
      - Notes
    * - VariableDeclaration
      - .. code-block:: sql
 
            DECLARE @x INT = 42;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL syntax for variable declaration.
    * - IfElse
      - .. code-block:: sql
@@ -32,10 +24,6 @@ SQL Pivot View
            BEGIN
                RETURN 0
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses IF-ELSE with BEGIN-END blocks.
    * - Loop
      - .. code-block:: sql
@@ -44,10 +32,6 @@ SQL Pivot View
            BEGIN
                SET @x = @x - 1
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard WHILE loop in T-SQL.
    * - FunctionDefinition
      - .. code-block:: sql
@@ -57,10 +41,6 @@ SQL Pivot View
            BEGIN
                RETURN @a + @b
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL syntax for Scalar-Valued Functions.
    * - ProcedureDefinition
      - .. code-block:: sql
@@ -70,10 +50,6 @@ SQL Pivot View
            BEGIN
                PRINT @msg;
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL uses CREATE PROCEDURE for blocks that perform actions.
    * - TryCatch
      - .. code-block:: sql
@@ -84,53 +60,29 @@ SQL Pivot View
            BEGIN CATCH
                EXEC handle_error;
            END CATCH
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
    * - Raise
      - .. code-block:: sql
 
            THROW 50000, 'Error', 1;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The THROW statement raises an exception and transfers execution to a CATCH block.
    * - SingleLineComment
      - .. code-block:: sql
 
            -- comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL single-line comment.
    * - MultiLineComment
      - .. code-block:: sql
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL multi-line comment.
    * - Print
      - .. code-block:: sql
 
            PRINT 'Hello, World!';
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL PRINT statement outputs a message to the client.
    * - Import
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - Standard SQL does not have a native 'import' keyword for code; database objects are globally accessible or schema-qualified.
    * - SwitchCase
@@ -141,127 +93,95 @@ SQL Pivot View
                WHEN 2 THEN 'two'
                ELSE 'none'
            END
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The CASE expression is used for conditional logic in SQL.
    * - Constant
      - .. code-block:: sql
 
            DECLARE @MAX INT = 100;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.
    * - Addition
      - .. code-block:: sql
 
            a + b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Subtraction
      - .. code-block:: sql
 
            a - b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Multiplication
      - .. code-block:: sql
 
            a * b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Division
      - .. code-block:: sql
 
            a / b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Remainder
      - .. code-block:: sql
 
            a % b
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Floor
      - .. code-block:: sql
 
            FLOOR(a)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Rounding
      - .. code-block:: sql
 
            ROUND(a, 0)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Increment
      - .. code-block:: sql
 
            a + 1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - Decrement
      - .. code-block:: sql
 
            a - 1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
    * - LeftShift
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - Standard SQL arithmetic functions.
    * - RightShift
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard SQL arithmetic functions.
-   * - Bitwise
-     - N/A
+   * - BitAnd
      - .. code-block:: sql
 
            a & b
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - BitOr
      - .. code-block:: sql
 
            a | b
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - BitXor
      - .. code-block:: sql
 
            a ^ b
+     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - BitNot
      - .. code-block:: sql
 
            ~a
      - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+   * - Float4VectorMultiplication
+     - .. code-block:: sql
+
+           SELECT a1*b1, a2*b2, a3*b3, a4*b4
+     - SQL typically operates on columns; vector operations are dialect-specific.
+   * - Float4VectorDotProduct
+     - .. code-block:: sql
+
+           SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4
+     - Calculated by manually summing component-wise products.
+   * - Float4VectorCrossProduct
+     - .. code-block:: sql
+
+           SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0
+     - Computed using column-wise arithmetic.

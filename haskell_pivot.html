@@ -113,12 +113,6 @@
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
-<th class="head"><p>Bit and</p></th>
-<th class="head"><p>Bit or</p></th>
-<th class="head"><p>Bit xor</p></th>
-<th class="head"><p>Bit not</p></th>
-<th class="head"><p>Bit lshift</p></th>
-<th class="head"><p>Bit rshift</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
@@ -128,12 +122,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Immutable binding within a scope; part of let-in or where clause.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
@@ -141,12 +129,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>If-then-else is an expression; both branches must be present and have the same type.</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
@@ -154,12 +136,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Haskell uses recursion for iteration as it is a pure functional language.</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
@@ -168,12 +144,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Function types are usually declared explicitly; arguments are space-separated.</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
@@ -182,12 +152,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Procedures are functions that return an IO action.</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
@@ -195,12 +159,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Exception handling using the catch function from Control.Exception.</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
@@ -208,12 +166,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>The ‘error’ function stops execution and displays a message.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
@@ -221,12 +173,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>forkIO creates a lightweight thread (requires Control.Concurrent).</p></td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
@@ -234,12 +180,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Writes a value to a Chan (unbounded FIFO channel).</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
@@ -248,12 +188,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Reads a value from a Chan; blocks if the channel is empty.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
@@ -261,12 +195,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard single-line comment.</p></td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
@@ -275,12 +203,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard block comment; can be nested.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
@@ -288,12 +210,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Outputs a string followed by a newline in the IO monad.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
@@ -301,12 +217,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Imports symbols from a module into the current namespace.</p></td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
@@ -317,12 +227,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Uses pattern matching in a case expression.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
@@ -330,12 +234,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Top-level bindings are immutable and effectively constant.</p></td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
@@ -343,12 +241,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
@@ -356,12 +248,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
@@ -369,12 +255,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
@@ -382,12 +262,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Haskell uses / for floating-point and ‘div’ or ‘quot’ for integer division.</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
@@ -395,12 +269,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
@@ -408,12 +276,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
@@ -421,12 +283,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Standard mathematical operators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
@@ -434,12 +290,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>No native increment operator; use addition.</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
@@ -447,12 +297,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>No native decrement operator; use subtraction.</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
@@ -460,12 +304,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Requires Data.Bits.</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
@@ -473,41 +311,56 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><p>Requires Data.Bits.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Bitwise</p></td>
-<td><p>N/A</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.&amp;.</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">.|.</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">xor</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
+<td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">complement</span><span class="w"> </span><span class="n">a</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftL</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">shiftR</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><p>Requires Data.Bits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Applies multiplication element-wise to two lists.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">dot</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Pure functional approach using zipWith, multiplication, and sum.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">cross</span><span class="w"> </span><span class="p">[</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">,</span><span class="n">a3</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">b1</span><span class="p">,</span><span class="n">b2</span><span class="p">,</span><span class="n">b3</span><span class="p">,</span><span class="kr">_</span><span class="p">]</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Pure functional implementation using pattern matching.</p></td>
 </tr>
 </tbody>
 </table>
