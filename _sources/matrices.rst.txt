@@ -88,7 +88,7 @@ Programming Languages
      - .. code-block:: prolog
 
            X = 42.
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field private static x I = 42
      - .. code-block:: ocaml
@@ -201,7 +201,7 @@ Programming Languages
      - .. code-block:: prolog
 
            log_message(Msg) :- writeln(Msg).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static logMessage(Ljava/lang/String;)V
                .limit stack 2
@@ -318,7 +318,7 @@ Programming Languages
      - .. code-block:: prolog
 
            add(A, B, Res) :- Res is A + B.
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static add(II)I
                .limit stack 2
@@ -457,7 +457,7 @@ Programming Languages
      - .. code-block:: prolog
 
            (X > 0 -> Result = 1 ; Result = 0)
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                ifgt LabelThen
@@ -579,7 +579,7 @@ Programming Languages
 
            loop(0) :- !.
            loop(X) :- X > 0, X1 is X - 1, loop(X1).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            LoopStart:
                getstatic MyClass/x I
@@ -687,7 +687,7 @@ Programming Languages
      - .. code-block:: prolog
 
            catch(do_something, E, handle(E))
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .catch java/lang/Exception from TryStart to TryEnd using CatchHandler
            TryStart:
@@ -775,7 +775,7 @@ Programming Languages
      - .. code-block:: prolog
 
            throw(error(Error))
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/RuntimeException
                dup
@@ -835,7 +835,7 @@ Programming Languages
      - .. code-block:: prolog
 
            thread_create(do_work, Id, []).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/Thread
                dup
@@ -896,7 +896,7 @@ Programming Languages
      - .. code-block:: prolog
 
            thread_send_message(Id, hello).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                bipush 42
@@ -952,7 +952,7 @@ Programming Languages
      - .. code-block:: prolog
 
            thread_get_message(hello).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
@@ -1031,7 +1031,7 @@ Programming Languages
      - .. code-block:: prolog
 
            % comment
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ; comment
      - .. code-block:: ocaml
@@ -1181,7 +1181,7 @@ Programming Languages
      - .. code-block:: prolog
 
            writeln('Hello, World!').
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic java/lang/System/out Ljava/io/PrintStream;
                ldc "Hello, World!"
@@ -1254,7 +1254,7 @@ Programming Languages
      - .. code-block:: prolog
 
            use_module(library(math)).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            Ljava/util/List;
      - .. code-block:: ocaml
@@ -1412,7 +1412,7 @@ Programming Languages
            ;   X = 2 -> writeln('two')
            ;   writeln('none')
            )
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                lookupswitch
@@ -1525,7 +1525,7 @@ Programming Languages
      - .. code-block:: prolog
 
            max(100).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field public static final MAX I = 100
      - .. code-block:: ocaml
@@ -1598,7 +1598,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A + B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iadd
      - .. code-block:: ocaml
@@ -1671,7 +1671,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A - B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            isub
      - .. code-block:: ocaml
@@ -1744,7 +1744,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A * B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            imul
      - .. code-block:: ocaml
@@ -1817,7 +1817,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A / B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            idiv
      - .. code-block:: ocaml
@@ -1886,7 +1886,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A mod B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            irem
      - .. code-block:: ocaml
@@ -2083,7 +2083,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A + 1
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, 1
      - .. code-block:: ocaml
@@ -2156,7 +2156,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A - 1
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, -1
      - .. code-block:: ocaml
@@ -2223,7 +2223,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A << B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishl
      - .. code-block:: ocaml
@@ -2290,7 +2290,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A >> B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishr
      - .. code-block:: ocaml
@@ -2359,7 +2359,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A /\ B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iand
      - .. code-block:: ocaml
@@ -2428,7 +2428,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A \/ B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ior
      - .. code-block:: ocaml
@@ -2497,7 +2497,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is A xor B
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ixor
      - .. code-block:: ocaml
@@ -2566,7 +2566,7 @@ Programming Languages
      - .. code-block:: prolog
 
            Res is \ A
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iconst_m1
            ixor
@@ -2637,7 +2637,7 @@ Programming Languages
      - .. code-block:: prolog
 
            maplist(multiply, A, B, C).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            fload_1
            fload_2
@@ -2712,7 +2712,7 @@ Programming Languages
      - .. code-block:: prolog
 
            dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            fload_1 ; a[i]
            fload_2 ; b[i]

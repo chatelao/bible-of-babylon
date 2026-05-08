@@ -117,7 +117,7 @@ Parameters:
            X = 42.
      - Uses unification for assignment; variables must start with an uppercase letter.
    * - JavaBytecodeVar
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field private static x I = 42
      - In Jasmin syntax, static fields represent global-like variables.
@@ -303,7 +303,7 @@ Parameters:
            log_message(Msg) :- writeln(Msg).
      - Predicates without an output argument act as procedures.
    * - JavaBytecodeProcedure
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static logMessage(Ljava/lang/String;)V
                .limit stack 2
@@ -503,7 +503,7 @@ Parameters:
            add(A, B, Res) :- Res is A + B.
      - Functions are predicates; return values are typically unified with an output argument.
    * - JavaBytecodeFunction
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static add(II)I
                .limit stack 2
@@ -716,7 +716,7 @@ Parameters:
            (X > 0 -> Result = 1 ; Result = 0)
      - Uses the (Condition -> Then ; Else) control construct.
    * - JavaBytecodeIfElse
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                ifgt LabelThen
@@ -915,7 +915,7 @@ Parameters:
            loop(X) :- X > 0, X1 is X - 1, loop(X1).
      - Prolog uses recursion and tail-call optimization for looping.
    * - JavaBytecodeLoop
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            LoopStart:
                getstatic MyClass/x I
@@ -1110,7 +1110,7 @@ Parameters:
            catch(do_something, E, handle(E))
      - Standard Prolog error handling using the catch/3 predicate.
    * - JavaBytecodeTryCatch
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .catch java/lang/Exception from TryStart to TryEnd using CatchHandler
            TryStart:
@@ -1272,7 +1272,7 @@ Parameters:
            throw(error(Error))
      - Uses throw/1 to raise an exception.
    * - JavaBytecodeRaise
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/RuntimeException
                dup
@@ -1375,7 +1375,7 @@ Parameters:
            thread_create(do_work, Id, []).
      - Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog).
    * - JavaBytecodeThread
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/Thread
                dup
@@ -1482,7 +1482,7 @@ Parameters:
            thread_send_message(Id, hello).
      - Sends a message to a thread's message queue.
    * - JavaBytecodeSendMessage
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                bipush 42
@@ -1584,7 +1584,7 @@ Parameters:
            thread_get_message(hello).
      - Retrieves a matching message from the current thread's queue.
    * - JavaBytecodeReceiveMessage
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
@@ -1736,7 +1736,7 @@ Parameters:
            % comment
      - Standard Prolog single-line comment.
    * - JavaBytecodeSingleLineComment
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ; comment
      - Jasmin uses semicolons for single-line comments.
@@ -2030,7 +2030,7 @@ Parameters:
            writeln('Hello, World!').
      - Outputs text followed by a newline.
    * - JavaBytecodePrint
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic java/lang/System/out Ljava/io/PrintStream;
                ldc "Hello, World!"
@@ -2179,7 +2179,7 @@ Parameters:
            use_module(library(math)).
      - Imports predicates from a library module.
    * - JavaBytecodeImport
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            Ljava/util/List;
      - Internal descriptors are used to reference external classes.
@@ -2407,7 +2407,7 @@ Parameters:
            )
      - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
    * - JavaBytecodeSwitchCase
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                lookupswitch
@@ -2602,7 +2602,7 @@ Parameters:
            max(100).
      - Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment.
    * - JavaBytecodeConstant
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field public static final MAX I = 100
      - Constants are represented as static final fields.
@@ -2747,7 +2747,7 @@ Parameters:
            Res is A + B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeAddition
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iadd
      - Stack-based arithmetic instructions for integers.
@@ -2892,7 +2892,7 @@ Parameters:
            Res is A - B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeSubtraction
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            isub
      - Stack-based arithmetic instructions for integers.
@@ -3037,7 +3037,7 @@ Parameters:
            Res is A * B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeMultiplication
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            imul
      - Stack-based arithmetic instructions for integers.
@@ -3182,7 +3182,7 @@ Parameters:
            Res is A / B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeDivision
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            idiv
      - Stack-based arithmetic instructions for integers.
@@ -3325,7 +3325,7 @@ Parameters:
            Res is A mod B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeRemainder
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            irem
      - Stack-based arithmetic instructions for integers.
@@ -3736,7 +3736,7 @@ Parameters:
            Res is A + 1
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeIncrement
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, 1
      - Stack-based arithmetic instructions for integers.
@@ -3881,7 +3881,7 @@ Parameters:
            Res is A - 1
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeDecrement
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, -1
      - Stack-based arithmetic instructions for integers.
@@ -4020,7 +4020,7 @@ Parameters:
            Res is A << B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeLeftShift
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishl
      - Stack-based arithmetic instructions for integers.
@@ -4159,7 +4159,7 @@ Parameters:
            Res is A >> B
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - JavaBytecodeRightShift
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishr
      - Stack-based arithmetic instructions for integers.
@@ -4300,7 +4300,7 @@ Parameters:
            Res is A /\ B
      - Bitwise operators within arithmetic expressions.
    * - JavaBytecodeBitAnd
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iand
      - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
@@ -4441,7 +4441,7 @@ Parameters:
            Res is A \/ B
      - Bitwise operators within arithmetic expressions.
    * - JavaBytecodeBitOr
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ior
      - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
@@ -4582,7 +4582,7 @@ Parameters:
            Res is A xor B
      - Bitwise operators within arithmetic expressions.
    * - JavaBytecodeBitXor
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ixor
      - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
@@ -4723,7 +4723,7 @@ Parameters:
            Res is \ A
      - Bitwise operators within arithmetic expressions.
    * - JavaBytecodeBitNot
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iconst_m1
            ixor
@@ -4866,7 +4866,7 @@ Parameters:
            maplist(multiply, A, B, C).
      - Uses maplist to apply a predicate element-wise.
    * - JavaBytecodeFloat4VectorMultiplication
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            fload_1
            fload_2
@@ -5011,7 +5011,7 @@ Parameters:
            dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
      - Commonly implemented using maplist and sum_list.
    * - JavaBytecodeFloat4VectorDotProduct
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            fload_1 ; a[i]
            fload_2 ; b[i]
