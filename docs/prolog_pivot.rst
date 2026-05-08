@@ -7,168 +7,78 @@ Prolog Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
      - Notes
    * - VariableDeclaration
      - .. code-block:: prolog
 
            X = 42.
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses unification for assignment; variables must start with an uppercase letter.
    * - IfElse
      - .. code-block:: prolog
 
            (X > 0 -> Result = 1 ; Result = 0)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the (Condition -> Then ; Else) control construct.
    * - Loop
      - .. code-block:: prolog
 
            loop(0) :- !.
            loop(X) :- X > 0, X1 is X - 1, loop(X1).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Prolog uses recursion and tail-call optimization for looping.
    * - FunctionDefinition
      - .. code-block:: prolog
 
            add(A, B, Res) :- Res is A + B.
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Functions are predicates; return values are typically unified with an output argument.
    * - ProcedureDefinition
      - .. code-block:: prolog
 
            log_message(Msg) :- writeln(Msg).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Predicates without an output argument act as procedures.
    * - TryCatch
      - .. code-block:: prolog
 
            catch(do_something, E, handle(E))
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard Prolog error handling using the catch/3 predicate.
    * - Raise
      - .. code-block:: prolog
 
            throw(error(Error))
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses throw/1 to raise an exception.
    * - Thread
      - .. code-block:: prolog
 
            thread_create(do_work, Id, []).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog).
    * - SendMessage
      - .. code-block:: prolog
 
            thread_send_message(Id, hello).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Sends a message to a thread's message queue.
    * - ReceiveMessage
      - .. code-block:: prolog
 
            thread_get_message(hello).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Retrieves a matching message from the current thread's queue.
    * - SingleLineComment
      - .. code-block:: prolog
 
            % comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard Prolog single-line comment.
    * - MultiLineComment
      - .. code-block:: prolog
 
            /* line 1
               line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard C-style block comment.
    * - Print
      - .. code-block:: prolog
 
            writeln('Hello, World!').
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Outputs text followed by a newline.
    * - Import
      - .. code-block:: prolog
 
            use_module(library(math)).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Imports predicates from a library module.
    * - SwitchCase
      - .. code-block:: prolog
@@ -177,163 +87,102 @@ Prolog Pivot View
            ;   X = 2 -> writeln('two')
            ;   writeln('none')
            )
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
    * - Constant
      - .. code-block:: prolog
 
            max(100).
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Constants are represented as atomic values or facts; Prolog variables themselves are single-assignment.
    * - Addition
      - .. code-block:: prolog
 
            Res is A + B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Subtraction
      - .. code-block:: prolog
 
            Res is A - B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Multiplication
      - .. code-block:: prolog
 
            Res is A * B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Division
      - .. code-block:: prolog
 
            Res is A / B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Remainder
      - .. code-block:: prolog
 
            Res is A mod B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Floor
      - .. code-block:: prolog
 
            Res is floor(A)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Rounding
      - .. code-block:: prolog
 
            Res is round(A)
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Increment
      - .. code-block:: prolog
 
            Res is A + 1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - Decrement
      - .. code-block:: prolog
 
            Res is A - 1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - LeftShift
      - .. code-block:: prolog
 
            Res is A << B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
    * - RightShift
      - .. code-block:: prolog
 
            Res is A >> B
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the 'is' operator to evaluate arithmetic expressions.
-   * - Bitwise
-     - N/A
+   * - BitAnd
      - .. code-block:: prolog
 
            Res is A /\ B
+     - Bitwise operators within arithmetic expressions.
+   * - BitOr
      - .. code-block:: prolog
 
            Res is A \/ B
+     - Bitwise operators within arithmetic expressions.
+   * - BitXor
      - .. code-block:: prolog
 
            Res is A xor B
+     - Bitwise operators within arithmetic expressions.
+   * - BitNot
      - .. code-block:: prolog
 
            Res is \ A
-     - .. code-block:: prolog
-
-           Res is A << B
-     - .. code-block:: prolog
-
-           Res is A >> B
      - Bitwise operators within arithmetic expressions.
+   * - Float4VectorMultiplication
+     - .. code-block:: prolog
+
+           maplist(multiply, A, B, C).
+     - Uses maplist to apply a predicate element-wise.
+   * - Float4VectorDotProduct
+     - .. code-block:: prolog
+
+           dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
+     - Commonly implemented using maplist and sum_list.
+   * - Float4VectorCrossProduct
+     - .. code-block:: prolog
+
+           cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-
+               C1 is A2*B3 - A3*B2,
+               C2 is A3*B1 - A1*B3,
+               C3 is A1*B2 - A2*B1.
+     - Implemented using list pattern matching and arithmetic evaluation.

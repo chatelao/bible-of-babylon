@@ -7,26 +7,14 @@ Java Bytecode Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
      - Notes
    * - VariableDeclaration
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field private static x I = 42
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - In Jasmin syntax, static fields represent global-like variables.
    * - IfElse
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                ifgt LabelThen
@@ -35,15 +23,9 @@ Java Bytecode Pivot View
            LabelThen:
                iconst_1
                ireturn
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Implemented using stack operations and branch instructions (ifgt).
    * - Loop
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            LoopStart:
                getstatic MyClass/x I
@@ -54,15 +36,9 @@ Java Bytecode Pivot View
                putstatic MyClass/x I
                goto LoopStart
            LoopEnd:
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Loops are built with labels and jump instructions (goto, ifle).
    * - FunctionDefinition
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static add(II)I
                .limit stack 2
@@ -72,15 +48,9 @@ Java Bytecode Pivot View
                iadd
                ireturn
            .end method
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Methods define stack and local variable limits; parameters are accessed by index.
    * - TryCatch
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .catch java/lang/Exception from TryStart to TryEnd using CatchHandler
            TryStart:
@@ -92,43 +62,25 @@ Java Bytecode Pivot View
                aload_1
                invokestatic MyClass/handle(Ljava/lang/Exception;)V
            Done:
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Exception handlers are defined via .catch directives for specific code ranges.
    * - Raise
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/RuntimeException
                dup
                ldc "Error"
                invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V
                athrow
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Exceptions are instantiated and then thrown using the athrow instruction.
    * - Print
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic java/lang/System/out Ljava/io/PrintStream;
                ldc "Hello, World!"
                invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Calls println on the static System.out field.
    * - Thread
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                new java/lang/Thread
                dup
@@ -137,29 +89,17 @@ Java Bytecode Pivot View
                invokespecial MyRunnable/<init>()V
                invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V
                invokevirtual java/lang/Thread/start()V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Involves instantiating a Thread object with a Runnable and calling start().
    * - SendMessage
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                bipush 42
                invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
                invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Typically uses standard Java concurrent collections like BlockingQueue.
    * - ReceiveMessage
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                aload_0 ; queue
                invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
@@ -168,46 +108,22 @@ Java Bytecode Pivot View
                istore_1 ; msg
                iload_1
                invokestatic MyClass/handle(I)V
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Blocking retrieval from a concurrent collection.
    * - SingleLineComment
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ; comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Jasmin uses semicolons for single-line comments.
    * - MultiLineComment
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Java Bitcode (Jasmin) does not have a native multi-line comment syntax; multiple semicolons are used.
    * - Import
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            Ljava/util/List;
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Internal descriptors are used to reference external classes.
    * - SwitchCase
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
                getstatic MyClass/x I
                lookupswitch
@@ -220,26 +136,14 @@ Java Bytecode Pivot View
                ; ...
            LabelDefault:
                ; ...
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses lookupswitch or tableswitch instructions for multi-way branching.
    * - Constant
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .field public static final MAX I = 100
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Constants are represented as static final fields.
    * - ProcedureDefinition
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            .method public static logMessage(Ljava/lang/String;)V
                .limit stack 2
@@ -249,149 +153,116 @@ Java Bytecode Pivot View
                invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
                return
            .end method
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Methods with a 'V' return descriptor are procedures; 'return' instruction is used for void return.
    * - Addition
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iadd
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Subtraction
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            isub
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Multiplication
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            imul
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Division
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            idiv
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Remainder
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            irem
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Floor
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - Stack-based arithmetic instructions for integers.
    * - Rounding
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Increment
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, 1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - Decrement
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            iinc index, -1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - LeftShift
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishl
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
    * - RightShift
-     - .. code-block:: jasm
+     - .. code-block:: jasmin
 
            ishr
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Stack-based arithmetic instructions for integers.
-   * - Bitwise
-     - N/A
-     - .. code-block:: jasm
+   * - BitAnd
+     - .. code-block:: jasmin
 
            iand
-     - .. code-block:: jasm
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - BitOr
+     - .. code-block:: jasmin
 
            ior
-     - .. code-block:: jasm
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - BitXor
+     - .. code-block:: jasmin
 
            ixor
-     - .. code-block:: jasm
+     - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - BitNot
+     - .. code-block:: jasmin
 
            iconst_m1
            ixor
-     - .. code-block:: jasm
-
-           ishl
-     - .. code-block:: jasm
-
-           ishr
      - Stack-based bitwise instructions; NOT is implemented as XOR with -1.
+   * - Float4VectorMultiplication
+     - .. code-block:: jasmin
+
+           fload_1
+           fload_2
+           fmul
+     - Java Bytecode uses fmul for individual floats; vectorization is typically handled by the JIT.
+   * - Float4VectorDotProduct
+     - .. code-block:: jasmin
+
+           fload_1 ; a[i]
+           fload_2 ; b[i]
+           fmul
+           fadd
+     - Dot product is built by repeating fmul and fadd instructions on the stack.
+   * - Float4VectorCrossProduct
+     - .. code-block:: jasmin
+
+           fload 1 ; ay
+           fload 6 ; bz
+           fmul
+           fload 2 ; az
+           fload 5 ; by
+           fmul
+           fsub ; -> cx
+           fload 2 ; az
+           fload 4 ; bx
+           fmul
+           fload 0 ; ax
+           fload 6 ; bz
+           fmul
+           fsub ; -> cy
+           fload 0 ; ax
+           fload 5 ; by
+           fmul
+           fload 1 ; ay
+           fload 4 ; bx
+           fmul
+           fsub ; -> cz
+     - Calculated component-wise using stack operations.

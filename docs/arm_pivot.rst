@@ -7,23 +7,11 @@ ARM AArch64 Assembler Pivot View
 
    * - Pattern
      - Syntax
-     - Bit and
-     - Bit or
-     - Bit xor
-     - Bit not
-     - Bit lshift
-     - Bit rshift
      - Notes
    * - VariableDeclaration
      - .. code-block:: asm
 
            x:  .quad 42
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Defined in the .data section.
    * - IfElse
      - .. code-block:: asm
@@ -35,12 +23,6 @@ ARM AArch64 Assembler Pivot View
            .else:
                mov x0, #0
            .end:
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Implemented using comparison and branch instructions (ble).
    * - Loop
      - .. code-block:: asm
@@ -51,12 +33,6 @@ ARM AArch64 Assembler Pivot View
                sub x0, x0, #1
                b .loop
            .end:
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses conditional branches to implement loops.
    * - FunctionDefinition
      - .. code-block:: asm
@@ -64,12 +40,6 @@ ARM AArch64 Assembler Pivot View
            add:
                add x0, x0, x1
                ret
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Standard AArch64 calling convention; x0-x7 are argument registers, x0 is the return register.
    * - ProcedureDefinition
      - .. code-block:: asm
@@ -80,87 +50,39 @@ ARM AArch64 Assembler Pivot View
                bl printf
                ldp x29, x30, [sp], 16
                ret
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30).
    * - TryCatch
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - No native try-catch; relies on return codes or exception levels/traps for errors.
    * - Raise
      - .. code-block:: asm
 
                brk #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - The brk instruction triggers a breakpoint exception.
    * - Thread
      - .. code-block:: asm
 
                mov x8, #220 // clone syscall
                svc #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Thread creation typically involves invoking OS system calls (e.g., clone on Linux).
    * - SendMessage
      - .. code-block:: asm
 
                mov x8, #139 // rt_sigqueueinfo
                svc #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Inter-process/thread communication is managed via OS system calls.
    * - ReceiveMessage
      - .. code-block:: asm
 
                mov x8, #128 // rt_sigtimedwait
                svc #0
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Receiving signals or messages involves OS system calls.
    * - SingleLineComment
      - .. code-block:: asm
 
            // comment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - AArch64 assembly often uses // or ; for single-line comments.
    * - MultiLineComment
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - N/A
      - AArch64 assembly does not have a native multi-line comment syntax.
    * - Print
@@ -169,23 +91,11 @@ ARM AArch64 Assembler Pivot View
                adrp x0, hello_msg
                add x0, x0, :lo12:hello_msg
                bl printf
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Typically uses the C library printf; adrp/add are used for PC-relative addressing.
    * - Import
      - .. code-block:: asm
 
            .include "macros.s"
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the .include directive for external source files.
    * - SwitchCase
      - .. code-block:: asm
@@ -195,157 +105,100 @@ ARM AArch64 Assembler Pivot View
                cmp x0, #2
                beq .case2
                b .default
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Implemented using comparison and branch instructions.
    * - Constant
      - .. code-block:: asm
 
            .equiv MAX, 100
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - Uses the .equiv directive to define constants.
    * - Addition
      - .. code-block:: asm
 
            add x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Subtraction
      - .. code-block:: asm
 
            sub x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Multiplication
      - .. code-block:: asm
 
            mul x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Division
      - .. code-block:: asm
 
            sdiv x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Remainder
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Modulo is typically calculated via sdiv and msub.
    * - Floor
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Rounding
      - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Increment
      - .. code-block:: asm
 
            add x0, x0, #1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - Decrement
      - .. code-block:: asm
 
            sub x0, x0, #1
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - LeftShift
      - .. code-block:: asm
 
            lsl x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
+     - Standard A64 instructions.
    * - RightShift
      - .. code-block:: asm
 
            lsr x0, x1, x2
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - Standard A64 instructions; modulo is typically calculated via sdiv and msub.
-   * - Bitwise
-     - N/A
+     - Standard A64 instructions.
+   * - BitAnd
      - .. code-block:: asm
 
            and x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - BitOr
      - .. code-block:: asm
 
            orr x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - BitXor
      - .. code-block:: asm
 
            eor x0, x1, x2
+     - Core bitwise logical and shift instructions.
+   * - BitNot
      - .. code-block:: asm
 
            mvn x0, x1
-     - .. code-block:: asm
-
-           lsl x0, x1, x2
-     - .. code-block:: asm
-
-           lsr x0, x1, x2
      - Core bitwise logical and shift instructions.
+   * - Float4VectorMultiplication
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+     - NEON instruction for 4-lane single-precision floating-point multiplication.
+   * - Float4VectorDotProduct
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+           faddp v0.4s, v0.4s, v0.4s
+           faddp s0, v0.2s
+     - Uses fmul for component-wise multiplication and faddp for horizontal pairwise addition.
+   * - Float4VectorCrossProduct
+     - .. code-block:: asm
+
+           fmul s2, v0.s[1], v1.s[2]
+           fmls s2, v0.s[2], v1.s[1]
+           fmul s3, v0.s[2], v1.s[0]
+           fmls s3, v0.s[0], v1.s[2]
+           fmul s4, v0.s[0], v1.s[1]
+           fmls s4, v0.s[1], v1.s[0]
+     - Calculated component-wise using scalar NEON instructions.
