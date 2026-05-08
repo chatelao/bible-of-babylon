@@ -1,4 +1,4 @@
-Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,SwitchCase,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct
+Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,SwitchCase,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct
 "C","int x = 42;","void log_message(const char *msg) {
     printf(""%s\n"", msg);
 }","int add(int a, int b) {
@@ -9,6 +9,8 @@ Language,VariableDeclaration,ProcedureDefinition,FunctionDefinition,IfElse,Loop,
     return 0;
 }","while (x > 0) {
     x = x - 1;
+}","for (int i = 0; i < 10; i++) {
+    // body
 }","N/A","exit(1);","N/A","N/A","N/A","// comment","/* line 1
    line 2 */","printf(""Hello, World!\n"");","#include <stdio.h>","switch (x) {
     case 1:
@@ -31,6 +33,8 @@ c[3] = 0.0f;"
     return 0;
 }","while (x > 0) {
     x = x - 1;
+}","for (int i = 0; i < 10; i++) {
+    // body
 }","try {
     do_something();
 } catch (Exception e) {
@@ -57,6 +61,8 @@ c[3] = 0.0f;"
     0
 }","while x > 0 {
     x -= 1;
+}","for i in 0..10 {
+    // body
 }","match do_something() {
     Ok(v) => v,
     Err(e) => handle(e)
@@ -71,7 +77,8 @@ c[2] = a[0]*b[1] - a[1]*b[0];
 c[3] = 0.0;"
 "Python","x = 42","def log_message(msg):
     print(msg)","def add(a, b):
-    return a + b","1 if x > 0 else 0","while x > 0: x = x - 1","try:
+    return a + b","1 if x > 0 else 0","while x > 0: x = x - 1","for i in range(10):
+    # body","try:
     do_something()
 except Exception as e:
     handle(e)","raise Exception(""Error"")","N/A","N/A","N/A","# comment",""""""" line 1
@@ -92,6 +99,8 @@ except Exception as e:
     return 0;
 }","while ($x > 0) {
     $x = $x - 1;
+}","for ($i = 0; $i < 10; $i++) {
+    // body
 }","try {
     do_something();
 } catch (Exception $e) {
@@ -115,6 +124,8 @@ else
     exit 0
 fi","while [ $x -gt 0 ]; do
     x=$((x-1))
+done","for i in {0..9}; do
+    # body
 done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","case $x in
     1)
         echo ""one""
@@ -139,6 +150,8 @@ c[3]=0"
     return 0
 }","while ($x -gt 0) {
     $x = $x - 1
+}","for ($i = 0; $i -lt 10; $i++) {
+    # body
 }","try {
     do_something
 } catch {
@@ -154,7 +167,9 @@ echo %~1
 goto :eof",":add
 set /a res=%~1+%~2
 exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)",":loop
-if %x% GTR 0 (set /a x=x-1 & goto loop)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A"
+if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
+    rem body
+)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A"
 "SQL","DECLARE @x INT = 42;","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
 AS
 BEGIN
@@ -173,6 +188,11 @@ BEGIN
 END","WHILE @x > 0
 BEGIN
     SET @x = @x - 1
+END","DECLARE @i INT = 0;
+WHILE @i < 10
+BEGIN
+    -- body
+    SET @i = @i + 1;
 END","BEGIN TRY
     EXEC do_something;
 END TRY
@@ -185,7 +205,7 @@ END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
     ELSE 'none'
 END","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0"
 "Erlang","X = 42.","log_message(Msg) ->
-    io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","try
+    io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).","try
     do_something()
 catch
     error:Reason -> handle(Reason)
@@ -197,7 +217,8 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
      lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
      lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0]."
 "Lisp","(defparameter x 42)","(defun log-message (msg)
-  (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(loop while (> x 0) do (setq x (1- x)))","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
+  (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(loop while (> x 0) do (setq x (1- x)))","(loop for i from 0 to 9 do
+    #| body |#)","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
    line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(case x
   (1 ""one"")
   (2 ""two"")
@@ -214,7 +235,8 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
     $b as xs:integer
 ) as xs:integer {
     $a + $b
-};","if ($x > 0) then 1 else 0","for $i in 1 to $x return $i","try {
+};","if ($x > 0) then 1 else 0","for $i in 1 to $x return $i","for $i in 1 to 10
+return $i","try {
     do_something()
 } catch * {
     handle($err)
@@ -223,7 +245,7 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
   case 1 return ""one""
   case 2 return ""two""
   default return ""none""","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A","N/A","N/A","N/A","for $i in 1 to 4 return $a[$i] * $b[$i]","sum(for $i in 1 to 4 return $a[$i] * $b[$i])","($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)"
-"CSS","--x: 42;","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
+"CSS","--x: 42;","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
    line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","N/A","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A"
 "CUDA","__device__ int x = 42;","__device__ void log_message(const char *msg) {
     printf(""%s\n"", msg);
@@ -235,6 +257,8 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
     return 0;
 }","while (x > 0) {
     x = x - 1;
+}","for (int i = 0; i < 10; i++) {
+    // body
 }","N/A","N/A","kernel<<<grid, block>>>();","N/A","N/A","// comment","/* line 1
    line 2 */","printf(""Hello, World!\n"");","#include <cuda_runtime.h>","switch (x) {
     case 1:
@@ -261,7 +285,10 @@ end","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","
     jle .end
     dec ecx
     jmp .loop
-.end:","N/A","    int 3","    push offset do_work
+.end:","    mov ecx, 10
+.loop:
+    ; body
+    loop .loop","N/A","    int 3","    push offset do_work
     call CreateThread","    push msg
     push thread_id
     call PostThreadMessage","    call GetMessage","; comment","N/A","push offset hello_msg
@@ -301,6 +328,13 @@ subps xmm0, xmm2"
     blez t0, .end
     addi t0, t0, -1
     j .loop
+.end:","    li t0, 0
+    li t1, 10
+.loop:
+    bge t0, t1, .end
+    ; body
+    addi t0, t0, 1
+    j .loop
 .end:","N/A","    ebreak","    li a7, 220 # clone syscall
     ecall","    li a7, 139 # rt_sigqueueinfo
     ecall","    li a7, 128 # rt_sigtimedwait
@@ -331,6 +365,13 @@ vfredusum.vs v4, v1, v5","N/A"
     ble .end
     sub x0, x0, #1
     b .loop
+.end:","    mov x0, #0
+.loop:
+    cmp x0, #10
+    b.ge .end
+    ; body
+    add x0, x0, #1
+    b .loop
 .end:","N/A","    brk #0","    mov x8, #220 // clone syscall
     svc #0","    mov x8, #139 // rt_sigqueueinfo
     svc #0","    mov x8, #128 // rt_sigtimedwait
@@ -349,7 +390,7 @@ fmls s3, v0.s[0], v1.s[2]
 fmul s4, v0.s[0], v1.s[1]
 fmls s4, v0.s[1], v1.s[0]"
 "Prolog","X = 42.","log_message(Msg) :- writeln(Msg).","add(A, B, Res) :- Res is A + B.","(X > 0 -> Result = 1 ; Result = 0)","loop(0) :- !.
-loop(X) :- X > 0, X1 is X - 1, loop(X1).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","% comment","/* line 1
+loop(X) :- X > 0, X1 is X - 1, loop(X1).","forall(between(0, 9, I), do_something(I)).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","% comment","/* line 1
    line 2 */","writeln('Hello, World!').","use_module(library(math)).","(   X = 1 -> writeln('one')
 ;   X = 2 -> writeln('two')
 ;   writeln('none')
@@ -384,6 +425,15 @@ LabelThen:
     iconst_1
     isub
     putstatic MyClass/x I
+    goto LoopStart
+LoopEnd:","    iconst_0
+    istore_1 ; i = 0
+LoopStart:
+    iload_1
+    bipush 10
+    if_icmpge LoopEnd
+    ; body
+    iinc 1 1 ; i++
     goto LoopStart
 LoopEnd:",".catch java/lang/Exception from TryStart to TryEnd using CatchHandler
 TryStart:
@@ -454,6 +504,8 @@ fmul
 fsub ; -> cz"
 "Camel","let x = 42","let log_message msg = print_endline msg","let add a b = a + b","if x > 0 then 1 else 0","while !x > 0 do
     x := !x - 1
+done","for i = 0 to 9 do
+    (* body *)
 done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thread.create do_work ()","Event.sync (Event.send ch 42)","let msg = Event.sync (Event.receive ch) in handle msg","(* comment *)","(* line 1
    line 2 *)","print_endline ""Hello, World!""","open List","match x with
 | 1 -> 1
@@ -472,6 +524,8 @@ done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thre
     return 0
 }","for x > 0 {
     x = x - 1
+}","for i := 0; i < 10; i++ {
+    // body
 }","if err := do_something(); err != nil {
     handle(err)
 }","panic(""Error"")","go do_work()","ch <- 42","msg := <-ch
@@ -492,7 +546,7 @@ for i := range a { dot += a[i] * b[i] }","c := [4]float64{
 }"
 "Haskell","let x = 42","logMessage :: String -> IO ()
 logMessage msg = putStrLn msg","add :: Int -> Int -> Int
-add a b = a + b","if x > 0 then 1 else 0","loop x = if x > 0 then loop (x - 1) else return ()","do_something `catch` \(e :: SomeException) -> handle e","error ""Error""","forkIO (do_work)","writeChan chan 42","msg <- readChan chan
+add a b = a + b","if x > 0 then 1 else 0","loop x = if x > 0 then loop (x - 1) else return ()","mapM_ (\i -> return ()) [0..9]","do_something `catch` \(e :: SomeException) -> handle e","error ""Error""","forkIO (do_work)","writeChan chan 42","msg <- readChan chan
 handle msg","-- comment","{- line 1
    line 2 -}","putStrLn ""Hello, World!""","import Data.List","case x of
     1 -> 1
@@ -508,6 +562,8 @@ handle msg","-- comment","{- line 1
     return 0;
 }","while (x > 0) {
     x = x - 1;
+}","for (let i = 0; i < 10; i++) {
+    // body
 }","try {
     do_something();
 } catch (e) {
@@ -536,6 +592,8 @@ handle msg","-- comment","{- line 1
     return 0
 }","while {$x > 0} {
     set x [expr {$x - 1}]
+}","for {set i 0} {$i < 10} {incr i} {
+    # body
 }","try {
     do_something
 } on error {e} {
