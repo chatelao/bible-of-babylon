@@ -4757,3 +4757,129 @@ instance TclFloat4VectorDotProduct of Float4VectorDotProduct {
     syntax = "set dot 0\nforeach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }"
     notes = "Uses a multi-variable foreach loop to multiply and accumulate using expr."
 }
+
+pattern Float4VectorCrossProduct {
+    meta description: "3D cross product of two 4-component floating-point vectors (using the first three components)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance CFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c[0] = a[1]*b[2] - a[2]*b[1];\nc[1] = a[2]*b[0] - a[0]*b[2];\nc[2] = a[0]*b[1] - a[1]*b[0];\nc[3] = 0.0f;"
+    notes = "Calculated manually for the first three components."
+}
+
+instance JavaFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c[0] = a[1]*b[2] - a[2]*b[1];\nc[1] = a[2]*b[0] - a[0]*b[2];\nc[2] = a[0]*b[1] - a[1]*b[0];\nc[3] = 0.0f;"
+    notes = "Standard Java implementation using array indexing."
+}
+
+instance RustFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c[0] = a[1]*b[2] - a[2]*b[1];\nc[1] = a[2]*b[0] - a[0]*b[2];\nc[2] = a[0]*b[1] - a[1]*b[0];\nc[3] = 0.0;"
+    notes = "Direct implementation; libraries like glam provide a cross() method."
+}
+
+instance PythonFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]"
+    notes = "Uses list indexing; NumPy's np.cross is typically used for 3D vectors."
+}
+
+instance PhpFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "$c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];"
+    notes = "Calculated using array indexing and the cross product formula."
+}
+
+instance BashFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c[0]=$(echo \"${a[1]}*${b[2]} - ${a[2]}*${b[1]}\" | bc)\nc[1]=$(echo \"${a[2]}*${b[0]} - ${a[0]}*${b[2]}\" | bc)\nc[2]=$(echo \"${a[0]}*${b[1]} - ${a[1]}*${b[0]}\" | bc)\nc[3]=0"
+    notes = "Requires bc for floating-point calculations."
+}
+
+instance PowerShellFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "$c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)"
+    notes = "Uses array literal syntax with expressions."
+}
+
+instance CmdFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "N/A"
+    notes = "Cmd does not support floating-point arithmetic."
+}
+
+instance SqlFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0"
+    notes = "Computed using column-wise arithmetic."
+}
+
+instance ErlangFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),\n     lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),\n     lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0]."
+    notes = "Uses lists:nth (1-indexed) to access vector components."
+}
+
+instance LispFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "(list (- (* (nth 1 a) (nth 2 b)) (* (nth 2 a) (nth 1 b)))\n      (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))\n      (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))\n      0.0)"
+    notes = "Uses nth and basic arithmetic functions."
+}
+
+instance XQueryFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)"
+    notes = "Uses sequence indexing (1-indexed)."
+}
+
+instance CssFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "N/A"
+    notes = "CSS does not support vector cross products."
+}
+
+instance CudaFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c.x = a.y*b.z - a.z*b.y; c.y = a.z*b.x - a.x*b.z; c.z = a.x*b.y - a.y*b.x;"
+    notes = "Manually calculated using the components of the float4 struct."
+}
+
+instance X86Float4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "movaps xmm2, xmm0\nshufps xmm0, xmm0, 0xC9 ; y z x w\nshufps xmm2, xmm2, 0xD2 ; z x y w\nmovaps xmm3, xmm1\nshufps xmm1, xmm1, 0xD2 ; z x y w\nshufps xmm3, xmm3, 0xC9 ; y z x w\nmulps xmm0, xmm1\nmulps xmm2, xmm3\nsubps xmm0, xmm2"
+    notes = "A common SSE sequence for 3D cross product using shuffles and multiplications."
+}
+
+instance RiscvFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "N/A"
+    notes = "RISC-V Vector extension does not have a dedicated cross product instruction; requires multiple operations."
+}
+
+instance PrologFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-\n    C1 is A2*B3 - A3*B2,\n    C2 is A3*B1 - A1*B3,\n    C3 is A1*B2 - A2*B1."
+    notes = "Implemented using list pattern matching and arithmetic evaluation."
+}
+
+instance JavaBytecodeFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "fload 1 ; ay\nfload 6 ; bz\nfmul\nfload 2 ; az\nfload 5 ; by\nfmul\nfsub ; -> cx\nfload 2 ; az\nfload 4 ; bx\nfmul\nfload 0 ; ax\nfload 6 ; bz\nfmul\nfsub ; -> cy\nfload 0 ; ax\nfload 5 ; by\nfmul\nfload 1 ; ay\nfload 4 ; bx\nfmul\nfsub ; -> cz"
+    notes = "Calculated component-wise using stack operations."
+}
+
+instance CamelFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "[| a.(1) *. b.(2) -. a.(2) *. b.(1);\n   a.(2) *. b.(0) -. a.(0) *. b.(2);\n   a.(0) *. b.(1) -. a.(1) *. b.(0);\n   0.0 |]"
+    notes = "Uses array indexing and floating-point operators (*. and -.)."
+}
+
+instance ArmAarch64Float4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "fmul s2, v0.s[1], v1.s[2]\nfmls s2, v0.s[2], v1.s[1]\nfmul s3, v0.s[2], v1.s[0]\nfmls s3, v0.s[0], v1.s[2]\nfmul s4, v0.s[0], v1.s[1]\nfmls s4, v0.s[1], v1.s[0]"
+    notes = "Calculated component-wise using scalar NEON instructions."
+}
+
+instance GoFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c := [4]float64{\n    a[1]*b[2] - a[2]*b[1],\n    a[2]*b[0] - a[0]*b[2],\n    a[0]*b[1] - a[1]*b[0],\n    0,\n}"
+    notes = "Calculated using array indexing in a composite literal."
+}
+
+instance HaskellFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]"
+    notes = "Pure functional implementation using pattern matching."
+}
+
+instance TypeScriptFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "const c = [\n    a[1]*b[2] - a[2]*b[1],\n    a[2]*b[0] - a[0]*b[2],\n    a[0]*b[1] - a[1]*b[0],\n    0\n];"
+    notes = "Uses array indexing to compute the components."
+}
+
+instance TclFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \\\n            [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \\\n            [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]"
+    notes = "Uses expr and lindex for calculation."
+}
