@@ -2735,6 +2735,141 @@ Programming Languages
 
            set dot 0
            foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
+   * - Float4VectorCrossProduct
+     - .. code-block:: c
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0f;
+     - .. code-block:: java
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0f;
+     - .. code-block:: rust
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0;
+     - .. code-block:: python
+
+           c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]
+     - .. code-block:: php
+
+           $c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];
+     - .. code-block:: bash
+
+           c[0]=$(echo "${a[1]}*${b[2]} - ${a[2]}*${b[1]}" | bc)
+           c[1]=$(echo "${a[2]}*${b[0]} - ${a[0]}*${b[2]}" | bc)
+           c[2]=$(echo "${a[0]}*${b[1]} - ${a[1]}*${b[0]}" | bc)
+           c[3]=0
+     - .. code-block:: powershell
+
+           $c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)
+     - N/A
+     - .. code-block:: sql
+
+           SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0
+     - .. code-block:: erlang
+
+           C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
+                lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
+                lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0].
+     - .. code-block:: common-lisp
+
+           (list (- (* (nth 1 a) (nth 2 b)) (* (nth 2 a) (nth 1 b)))
+                 (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))
+                 (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
+                 0.0)
+     - .. code-block:: xquery
+
+           ($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)
+     - N/A
+     - .. code-block:: cpp
+
+           c.x = a.y*b.z - a.z*b.y; c.y = a.z*b.x - a.x*b.z; c.z = a.x*b.y - a.y*b.x;
+     - .. code-block:: nasm
+
+           movaps xmm2, xmm0
+           shufps xmm0, xmm0, 0xC9 ; y z x w
+           shufps xmm2, xmm2, 0xD2 ; z x y w
+           movaps xmm3, xmm1
+           shufps xmm1, xmm1, 0xD2 ; z x y w
+           shufps xmm3, xmm3, 0xC9 ; y z x w
+           mulps xmm0, xmm1
+           mulps xmm2, xmm3
+           subps xmm0, xmm2
+     - N/A
+     - .. code-block:: asm
+
+           fmul s2, v0.s[1], v1.s[2]
+           fmls s2, v0.s[2], v1.s[1]
+           fmul s3, v0.s[2], v1.s[0]
+           fmls s3, v0.s[0], v1.s[2]
+           fmul s4, v0.s[0], v1.s[1]
+           fmls s4, v0.s[1], v1.s[0]
+     - .. code-block:: prolog
+
+           cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-
+               C1 is A2*B3 - A3*B2,
+               C2 is A3*B1 - A1*B3,
+               C3 is A1*B2 - A2*B1.
+     - .. code-block:: jasmin
+
+           fload 1 ; ay
+           fload 6 ; bz
+           fmul
+           fload 2 ; az
+           fload 5 ; by
+           fmul
+           fsub ; -> cx
+           fload 2 ; az
+           fload 4 ; bx
+           fmul
+           fload 0 ; ax
+           fload 6 ; bz
+           fmul
+           fsub ; -> cy
+           fload 0 ; ax
+           fload 5 ; by
+           fmul
+           fload 1 ; ay
+           fload 4 ; bx
+           fmul
+           fsub ; -> cz
+     - .. code-block:: ocaml
+
+           [| a.(1) *. b.(2) -. a.(2) *. b.(1);
+              a.(2) *. b.(0) -. a.(0) *. b.(2);
+              a.(0) *. b.(1) -. a.(1) *. b.(0);
+              0.0 |]
+     - .. code-block:: go
+
+           c := [4]float64{
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0,
+           }
+     - .. code-block:: haskell
+
+           cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]
+     - .. code-block:: typescript
+
+           const c = [
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0
+           ];
+     - .. code-block:: tcl
+
+           set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
+                       [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
+                       [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]
 
 Data Formats
 ------------
