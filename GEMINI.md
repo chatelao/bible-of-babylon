@@ -31,8 +31,6 @@ by simply comparing the most often used patterns.
 - Use readthedocs.org to produce the documentation
 - Use reStructuredText  to document everything not markdown
 - Keep `src/install.sh` to install all tools and dependencies.
-- For every decision evaluate three options and archiv the discarded ones in a compressed way
-  in an appendix of the documentation.
 
 # Testing Locally & with Github Action Workflow
 - Maintain a CI/CD pipeline that runs on every commit and every push.
