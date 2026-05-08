@@ -3,6 +3,12 @@ from pathlib import Path
 from typing import List, Dict, Any
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import openpyxl
+from openpyxl.cell.rich_text import CellRichText, InlineFont, TextBlock
+from openpyxl.styles import Alignment, Font
+from pygments import lex
+from pygments.lexers import get_lexer_by_name
+from pygments.util import ClassNotFound
+from pygments.token import Token
 from .models import (
     Pattern, Program, Instance, AnonymousInstance, Block, ListLiteral, Identifier,
     CallInstruction, AssignInstruction, ReturnInstruction, RawInstruction
@@ -130,6 +136,54 @@ class CodeGenerator:
                     best_match = key
 
         return self.LEXER_MAP.get(best_match, "text")
+
+    def _get_rich_text(self, text: str, lexer_name: str) -> CellRichText:
+        """
+        Tokenizes the text using Pygments and returns an openpyxl CellRichText object
+        with colors approximating the ReadTheDocs (RTD) style.
+        """
+        try:
+            lexer = get_lexer_by_name(lexer_name)
+        except ClassNotFound:
+            return CellRichText([text])
+
+        # Color mapping (approximating RTD 'friendly' style)
+        COLOR_MAP = {
+            Token.Comment: "60a0b0",
+            Token.Keyword: "007020",
+            Token.Keyword.Type: "902000",
+            Token.Operator: "666666",
+            Token.Name.Builtin: "007020",
+            Token.Name.Function: "06287e",
+            Token.Name.Class: "0e84b5",
+            Token.Name.Namespace: "0e84b5",
+            Token.Name.Exception: "007020",
+            Token.Name.Variable: "bb60d5",
+            Token.Name.Constant: "60add5",
+            Token.Literal.String: "4070a0",
+            Token.Literal.Number: "40a070",
+        }
+
+        rich_text = CellRichText()
+        tokens = list(lex(text, lexer))
+
+        for ttype, value in tokens:
+            # Find the best color for the token type
+            color = None
+            temp_type = ttype
+            while temp_type is not Token:
+                if temp_type in COLOR_MAP:
+                    color = COLOR_MAP[temp_type]
+                    break
+                temp_type = temp_type.parent
+
+            if color:
+                font = InlineFont(color=color, rFont='Consolas')
+                rich_text.append(TextBlock(font, value))
+            else:
+                rich_text.append(TextBlock(InlineFont(rFont='Consolas'), value))
+
+        return rich_text
 
     def render_pattern(self, pattern: Pattern) -> str:
         template = self.env.get_template('pattern.rst.j2')
@@ -350,17 +404,28 @@ class CodeGenerator:
 
         # Write headers
         ws.append(headers)
+        for cell in ws[1]:
+            cell.font = Font(bold=True)
 
         # Write data
-        for row in matrix:
-            row_data = [row["label"]] + [cell["value"] for cell in row["cells"]]
-            # Convert all to strings and handle format_value if needed (already handled in _build_matrix_data for 'value')
-            # But wait, _build_matrix_data gives the raw value, format_value is a filter in Jinja2
-            # Let's ensure we use format_value here too.
-            formatted_row = [row["label"]]
-            for cell in row["cells"]:
-                formatted_row.append(format_value(cell["value"]))
-            ws.append(formatted_row)
+        for r_idx, row in enumerate(matrix, start=2):
+            # Label cell
+            label_cell = ws.cell(row=r_idx, column=1, value=row["label"])
+            label_cell.alignment = Alignment(vertical='top')
+
+            for c_idx, cell_data in enumerate(row["cells"], start=2):
+                value = cell_data["value"]
+                lexer = cell_data["lexer"]
+
+                cell = ws.cell(row=r_idx, column=c_idx)
+                formatted_value = format_value(value)
+
+                if formatted_value != "N/A":
+                    cell.value = self._get_rich_text(formatted_value, lexer)
+                else:
+                    cell.value = formatted_value
+
+                cell.alignment = Alignment(wrap_text=True, vertical='top')
 
         # Auto-adjust column widths
         for col in ws.columns:
@@ -368,11 +433,17 @@ class CodeGenerator:
             column = col[0].column_letter # Get the column name
             for cell in col:
                 try:
-                    if len(str(cell.value)) > max_length:
-                        max_length = len(str(cell.value))
+                    # For RichText, str(cell.value) gives the plain text
+                    val_str = str(cell.value)
+                    if val_str:
+                        lines = val_str.splitlines()
+                        curr_max = max(len(line) for line in lines) if lines else 0
+                        if curr_max > max_length:
+                            max_length = curr_max
                 except:
                     pass
-            adjusted_width = (max_length + 2)
+            # Set a reasonable max width
+            adjusted_width = min(max_length + 2, 50)
             ws.column_dimensions[column].width = adjusted_width
 
         output = io.BytesIO()
