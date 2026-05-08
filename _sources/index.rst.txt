@@ -51,6 +51,8 @@ Downloads
    haskell_pivot
    typescript_pivot
    tcl_pivot
+   cobol_pivot
+   fortran_pivot
 
 Indices and tables
 ==================

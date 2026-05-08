@@ -151,6 +151,16 @@ Parameters:
 
            set x 42
      - Variables are untyped strings; set is used for assignment.
+   * - CobolVariableDeclaration
+     - .. code-block:: cobol
+
+           01 X PIC 9(4) VALUE 42.
+     - Variables are defined in the DATA DIVISION; PIC (picture) clause specifies the data type and size.
+   * - FortranVariableDeclaration
+     - .. code-block:: fortran
+
+           integer :: x = 42
+     - Static typing; :: is used to separate attributes from the variable name.
 
 
 
@@ -356,6 +366,23 @@ Parameters:
                puts $msg
            }
      - Uses 'proc' to define a command.
+   * - CobolProcedure
+     - .. code-block:: cobol
+
+           IDENTIFICATION DIVISION.
+           PROGRAM-ID. LOG-MSG.
+           ... 
+           DISPLAY MSG.
+           EXIT PROGRAM.
+     - Procedures are typically implemented as separate programs or paragraphs.
+   * - FortranProcedure
+     - .. code-block:: fortran
+
+           subroutine log_msg(msg)
+               character(len=*), intent(in) :: msg
+               print *, msg
+           end subroutine log_msg
+     - Subroutines are used for procedures that do not return a value.
 
 
 
@@ -553,6 +580,24 @@ Parameters:
                return [expr {$a + $b}]
            }
      - Procedures can return values using the return command.
+   * - CobolFunctionDefinition
+     - .. code-block:: cobol
+
+           FUNCTION-ID. ADD-FUNC.
+           ... 
+           COMPUTE RESULT = A + B
+           ... 
+           END FUNCTION ADD-FUNC.
+     - User-defined functions were introduced in modern COBOL (COBOL 2002).
+   * - FortranFunction
+     - .. code-block:: fortran
+
+           function add(a, b) result(res)
+               integer, intent(in) :: a, b
+               integer :: res
+               res = a + b
+           end function add
+     - Functions return a value; 'intent(in)' specifies that parameters are read-only.
 
 
 
@@ -774,6 +819,24 @@ Parameters:
                return 0
            }
      - Uses braces for the condition and branches.
+   * - CobolIfElse
+     - .. code-block:: cobol
+
+           IF X > 0 THEN
+               MOVE 1 TO RESULT
+           ELSE
+               MOVE 0 TO RESULT
+           END-IF.
+     - Uses IF-THEN-ELSE-END-IF structure; periods are used to terminate sentences.
+   * - FortranIfElse
+     - .. code-block:: fortran
+
+           if (x > 0) then
+               res = 1
+           else
+               res = 0
+           end if
+     - Standard block if-then-else-end if.
 
 
 
@@ -970,6 +1033,20 @@ Parameters:
                set x [expr {$x - 1}]
            }
      - Standard while loop; expr is used for mathematical evaluation.
+   * - CobolLoop
+     - .. code-block:: cobol
+
+           PERFORM UNTIL X <= 0
+               SUBTRACT 1 FROM X
+           END-PERFORM.
+     - The PERFORM UNTIL construct is used for conditional looping.
+   * - FortranLoop
+     - .. code-block:: fortran
+
+           do while (x > 0)
+               x = x - 1
+           end do
+     - Standard do while loop.
 
 
 
@@ -1171,6 +1248,20 @@ Parameters:
                # body
            }
      - Standard for loop; all arguments are Tcl scripts.
+   * - CobolForLoop
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 10
+               *> body
+           END-PERFORM.
+     - PERFORM VARYING is the COBOL equivalent of a for loop.
+   * - FortranForLoop
+     - .. code-block:: fortran
+
+           do i = 1, 10
+               ! body
+           end do
+     - The do loop is used for iteration over ranges.
 
 
 
@@ -1362,6 +1453,16 @@ Parameters:
                handle $e
            }
      - The try command handles errors and exceptions (Tcl 8.6+).
+   * - CobolTryCatch
+     - .. code-block:: cobol
+
+           ADD A TO B ON SIZE ERROR
+               DISPLAY 'Arithmetic Overflow'
+           END-ADD.
+     - COBOL uses imperative 'ON ERROR' clauses for specific operations.
+   * - FortranTryCatch
+     - N/A
+     - Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.
 
 
 
@@ -1511,6 +1612,14 @@ Parameters:
 
            error "Error"
      - Signals an error condition.
+   * - CobolRaise
+     - N/A
+     - No standard mechanism to 'throw' exceptions; execution is managed via status codes.
+   * - FortranRaise
+     - .. code-block:: fortran
+
+           error stop "Error"
+     - The 'error stop' statement terminates execution with an error message (Fortran 2008+).
 
 
 
@@ -1617,6 +1726,12 @@ Parameters:
 
            thread::create { do_work }
      - Requires the Thread package.
+   * - CobolThread
+     - N/A
+     - Standard COBOL does not support multi-threading.
+   * - FortranThread
+     - N/A
+     - Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple 'thread spawn' primitive.
 
 
 
@@ -1721,6 +1836,14 @@ Parameters:
 
            thread::send $id $msg
      - Sends a message to a thread.
+   * - CobolSendMessage
+     - N/A
+     - Message passing is not a native COBOL feature.
+   * - FortranSendMessage
+     - .. code-block:: fortran
+
+           target_var[image] = data
+     - Coarrays use distributed memory and assignment to 'images' for communication.
 
 
 
@@ -1828,6 +1951,14 @@ Parameters:
 
            vwait msg; handle $msg
      - vwait blocks until a variable is written.
+   * - CobolReceiveMessage
+     - N/A
+     - Not supported natively.
+   * - FortranReceiveMessage
+     - .. code-block:: fortran
+
+           sync images(*)
+     - Synchronization is used to ensure data consistency in Coarrays.
 
 
 
@@ -1971,6 +2102,16 @@ Parameters:
 
            # comment
      - Hashes start comments; must be at the beginning of a command.
+   * - CobolSingleLineComment
+     - .. code-block:: cobol
+
+           *> comment
+     - *> is used for inline comments in free-format COBOL.
+   * - FortranSingleLineComment
+     - .. code-block:: fortran
+
+           ! comment
+     - Exclamation mark starts a comment to the end of the line.
 
 
 
@@ -2116,6 +2257,12 @@ Parameters:
    * - TclMultiLineComment
      - N/A
      - Tcl has no native multi-line comment syntax.
+   * - CobolMultiLineComment
+     - N/A
+     - No native multi-line comment syntax; multiple * or *> must be used.
+   * - FortranMultiLineComment
+     - N/A
+     - Fortran does not support multi-line comments natively.
 
 
 
@@ -2269,6 +2416,16 @@ Parameters:
 
            puts "Hello, World!"
      - Outputs a string to stdout followed by a newline.
+   * - CobolPrint
+     - .. code-block:: cobol
+
+           DISPLAY "Hello World".
+     - DISPLAY outputs data to the system console or standard output.
+   * - FortranPrint
+     - .. code-block:: fortran
+
+           print *, "Hello World"
+     - The print statement with * (default format) outputs to stdout.
 
 
 
@@ -2414,6 +2571,16 @@ Parameters:
 
            package require Tcl
      - Loads a package into the interpreter.
+   * - CobolImport
+     - .. code-block:: cobol
+
+           COPY DEFS.
+     - The COPY statement includes text from a library at compile time.
+   * - FortranImport
+     - .. code-block:: fortran
+
+           use math_mod
+     - The 'use' statement imports a module's public variables and procedures.
 
 
 
@@ -2686,6 +2853,30 @@ Parameters:
                }
            }
      - The switch command provides multi-way branching.
+   * - CobolSwitchCase
+     - .. code-block:: cobol
+
+           EVALUATE X
+               WHEN 1
+                   DISPLAY 'One'
+               WHEN 2
+                   DISPLAY 'Two'
+               WHEN OTHER
+                   DISPLAY 'Other'
+           END-EVALUATE.
+     - The EVALUATE statement is used for multi-way branching.
+   * - FortranSwitchCase
+     - .. code-block:: fortran
+
+           select case (x)
+           case (1)
+               res = 1
+           case (2)
+               res = 2
+           case default
+               res = 0
+           end select
+     - The select case construct is used for branching based on values.
 
 
 
@@ -2837,6 +3028,16 @@ Parameters:
 
            set MAX 100
      - Tcl does not have true constants; naming conventions are used.
+   * - CobolConstant
+     - .. code-block:: cobol
+
+           01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT.
+     - The CONSTANT keyword defines a symbolic constant (COBOL 2002).
+   * - FortranConstant
+     - .. code-block:: fortran
+
+           integer, parameter :: MAX = 100
+     - The 'parameter' attribute makes the variable a named constant.
 
 
 
@@ -2982,6 +3183,16 @@ Parameters:
 
            [expr {$a + $b}]
      - Math operations require the expr command.
+   * - CobolAddition
+     - .. code-block:: cobol
+
+           ADD A TO B.
+     - Adds the value of A to B and stores it in B.
+   * - FortranAddition
+     - .. code-block:: fortran
+
+           a + b
+     - Standard arithmetic operator.
 
 
 
@@ -3127,6 +3338,16 @@ Parameters:
 
            [expr {$a - $b}]
      - Math operations require the expr command.
+   * - CobolSubtraction
+     - .. code-block:: cobol
+
+           SUBTRACT A FROM B.
+     - Subtracts A from B and stores it in B.
+   * - FortranSubtraction
+     - .. code-block:: fortran
+
+           a - b
+     - Standard arithmetic operator.
 
 
 
@@ -3272,6 +3493,16 @@ Parameters:
 
            [expr {$a * $b}]
      - Math operations require the expr command.
+   * - CobolMultiplication
+     - .. code-block:: cobol
+
+           MULTIPLY A BY B.
+     - Multiplies A and B and stores the result in B.
+   * - FortranMultiplication
+     - .. code-block:: fortran
+
+           a * b
+     - Standard arithmetic operator.
 
 
 
@@ -3417,6 +3648,16 @@ Parameters:
 
            [expr {$a / $b}]
      - Math operations require the expr command.
+   * - CobolDivision
+     - .. code-block:: cobol
+
+           DIVIDE A BY B GIVING C.
+     - Divides A by B and stores the quotient in C.
+   * - FortranDivision
+     - .. code-block:: fortran
+
+           a / b
+     - Standard arithmetic operator.
 
 
 
@@ -3558,6 +3799,16 @@ Parameters:
 
            [expr {$a % $b}]
      - Math operations require the expr command.
+   * - CobolRemainder
+     - .. code-block:: cobol
+
+           DIVIDE A BY B GIVING Q REMAINDER R.
+     - Calculates both the quotient and the remainder.
+   * - FortranRemainder
+     - .. code-block:: fortran
+
+           mod(a, b)
+     - Built-in function for remainder.
 
 
 
@@ -3691,6 +3942,16 @@ Parameters:
 
            [expr {floor($a)}]
      - Math operations require the expr command.
+   * - CobolFloor
+     - .. code-block:: cobol
+
+           FUNCTION INTEGER(A)
+     - The INTEGER intrinsic function returns the greatest integer <= A.
+   * - FortranFloor
+     - .. code-block:: fortran
+
+           floor(a)
+     - Built-in function for the floor of a real number.
 
 
 
@@ -3826,6 +4087,16 @@ Parameters:
 
            [expr {round($a)}]
      - Math operations require the expr command.
+   * - CobolRounding
+     - .. code-block:: cobol
+
+           ADD A TO B ROUNDED.
+     - The ROUNDED phrase specifies that any fractional part should be rounded.
+   * - FortranRounding
+     - .. code-block:: fortran
+
+           nint(a)
+     - Built-in function for the nearest integer.
 
 
 
@@ -3971,6 +4242,16 @@ Parameters:
 
            incr a
      - The incr command increments an integer variable.
+   * - CobolIncrement
+     - .. code-block:: cobol
+
+           ADD 1 TO A.
+     - Increments the value of A by 1.
+   * - FortranIncrement
+     - .. code-block:: fortran
+
+           a = a + 1
+     - No native increment operator; uses assignment.
 
 
 
@@ -4116,6 +4397,16 @@ Parameters:
 
            incr a -1
      - The incr command can decrement if a negative value is provided.
+   * - CobolDecrement
+     - .. code-block:: cobol
+
+           SUBTRACT 1 FROM A.
+     - Decrements the value of A by 1.
+   * - FortranDecrement
+     - .. code-block:: fortran
+
+           a = a - 1
+     - No native decrement operator; uses assignment.
 
 
 
@@ -4255,6 +4546,14 @@ Parameters:
 
            [expr {$a << $b}]
      - Math operations require the expr command.
+   * - CobolLeftShift
+     - N/A
+     - COBOL does not have native bitwise shift operators.
+   * - FortranLeftShift
+     - .. code-block:: fortran
+
+           ishft(a, b)
+     - The ishft function performs a logical shift.
 
 
 
@@ -4394,6 +4693,14 @@ Parameters:
 
            [expr {$a >> $b}]
      - Math operations require the expr command.
+   * - CobolRightShift
+     - N/A
+     - COBOL does not have native bitwise shift operators.
+   * - FortranRightShift
+     - .. code-block:: fortran
+
+           ishft(a, -b)
+     - Negative shift counts in ishft perform a right shift.
 
 
 
@@ -4535,6 +4842,14 @@ Parameters:
 
            [expr {$a & $b}]
      - Math operations require the expr command.
+   * - CobolBitAnd
+     - N/A
+     - Not natively supported in standard COBOL.
+   * - FortranBitAnd
+     - .. code-block:: fortran
+
+           iand(a, b)
+     - Built-in function for bitwise AND.
 
 
 
@@ -4676,6 +4991,14 @@ Parameters:
 
            [expr {$a | $b}]
      - Math operations require the expr command.
+   * - CobolBitOr
+     - N/A
+     - Not natively supported in standard COBOL.
+   * - FortranBitOr
+     - .. code-block:: fortran
+
+           ior(a, b)
+     - Built-in function for bitwise OR.
 
 
 
@@ -4817,6 +5140,14 @@ Parameters:
 
            [expr {$a ^ $b}]
      - Math operations require the expr command.
+   * - CobolBitXor
+     - N/A
+     - Not natively supported in standard COBOL.
+   * - FortranBitXor
+     - .. code-block:: fortran
+
+           ieor(a, b)
+     - Built-in function for bitwise XOR.
 
 
 
@@ -4959,6 +5290,14 @@ Parameters:
 
            [expr {~$a}]
      - Math operations require the expr command.
+   * - CobolBitNot
+     - N/A
+     - Not natively supported in standard COBOL.
+   * - FortranBitNot
+     - .. code-block:: fortran
+
+           not(a)
+     - Built-in function for bitwise NOT.
 
 
 
@@ -5103,6 +5442,18 @@ Parameters:
 
            foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
      - Uses a multi-variable foreach loop to zip and multiply.
+   * - CobolFloat4VectorMultiplication
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+               COMPUTE C(I) = A(I) * B(I)
+           END-PERFORM.
+     - Requires a loop over the array elements.
+   * - FortranFloat4VectorMultiplication
+     - .. code-block:: fortran
+
+           c = a * b
+     - Fortran supports element-wise operations on arrays natively.
 
 
 
@@ -5253,6 +5604,19 @@ Parameters:
            set dot 0
            foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
      - Uses a multi-variable foreach loop to multiply and accumulate using expr.
+   * - CobolFloat4VectorDotProduct
+     - .. code-block:: cobol
+
+           MOVE 0 TO DOT-PRODUCT.
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+               COMPUTE DOT-PRODUCT = DOT-PRODUCT + (A(I) * B(I))
+           END-PERFORM.
+     - Calculated by accumulating products in a loop.
+   * - FortranFloat4VectorDotProduct
+     - .. code-block:: fortran
+
+           res = dot_product(a, b)
+     - The dot_product intrinsic function calculates the dot product of two vectors.
 
 
 
@@ -5460,3 +5824,17 @@ Parameters:
                        [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
                        [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]
      - Uses expr and lindex for calculation.
+   * - CobolFloat4VectorCrossProduct
+     - .. code-block:: cobol
+
+           COMPUTE C(1) = A(2) * B(3) - A(3) * B(2).
+           COMPUTE C(2) = A(3) * B(1) - A(1) * B(3).
+           COMPUTE C(3) = A(1) * B(2) - A(2) * B(1).
+     - Calculated component-wise using COMPUTE.
+   * - FortranFloat4VectorCrossProduct
+     - .. code-block:: fortran
+
+           c = [a(2)*b(3) - a(3)*b(2), &
+                a(3)*b(1) - a(1)*b(3), &
+                a(1)*b(2) - a(2)*b(1), 0.0]
+     - Calculated component-wise using an array constructor.
