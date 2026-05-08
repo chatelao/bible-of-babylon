@@ -1,6 +1,6 @@
-Language,BasicTypes,Collection,Mapping,Metadata,SingleLineComment,MultiLineComment,SchemaLink,Header
-"JSON","""Hello""","[1, ""two"", true]","{""key"": ""value"", ""num"": 42}","N/A","N/A","N/A","""\$schema"": ""http://json-schema.org/draft-07/schema#""","N/A"
-"XML","<tag>Hello</tag>","<list>
+Language,String,Number,Boolean,Date,Collection,Mapping,Metadata,SingleLineComment,MultiLineComment,SchemaLink,Header
+"JSON","""Hello""","42 or 3.14","true / false","""2026-05-24""","[1, ""two"", true]","{""key"": ""value"", ""num"": 42}","N/A","N/A","N/A","""\$schema"": ""http://json-schema.org/draft-07/schema#""","N/A"
+"XML","<tag>Hello</tag>","<tag>42</tag>","<tag>true</tag>","<tag>2026-05-24</tag>","<list>
   <item>1</item>
   <item>2</item>
 </list>","<object>
@@ -11,15 +11,15 @@ Language,BasicTypes,Collection,Mapping,Metadata,SingleLineComment,MultiLineComme
   line 2
 -->","<root xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
       xsi:schemaLocation=""http://example.com schema.xsd"">","<?xml version=""1.0"" encoding=""UTF-8""?>"
-"YAML","Hello or 'Hello' or ""Hello""","- 1
+"YAML","Hello or 'Hello' or ""Hello""","42 or 3.14","true / false","2026-05-24","- 1
 - two
 - true","key: value
 num: 42","!!str ""value"" or !custom { key: val }","# comment","# line 1
 # line 2","# yaml-language-server: \$schema=<url_or_path>","%YAML 1.2
 ---"
-"TOML","""Hello""","[1, 2, 3]","key = ""value""
+"TOML","""Hello""","42 or 3.14","true / false","2026-05-24","[1, 2, 3]","key = ""value""
 num = 42","N/A","# comment","# line 1
 # line 2","N/A","N/A"
-"CSV","Hello or ""Hello""","1,two,true","Name,Age
+"CSV","Hello or ""Hello""","42 or 3.14","true / false","2026-05-24","1,two,true","Name,Age
 Alice,30","N/A","N/A","N/A","N/A","Name,Age,City"
-"Fixlength","Fixed width string (e.g., 'Hello     ')","Field1Field2Field3","Pos 1-10: Name, 11-15: Age","N/A","N/A","N/A","N/A","H2026052400001"
+"Fixlength","Fixed width string (e.g., 'Hello     ')","Fixed width number (e.g., '00042')","Fixed width indicator (e.g., 'Y' / 'N')","Fixed width date (e.g., '20260524')","Field1Field2Field3","Pos 1-10: Name, 11-15: Age","N/A","N/A","N/A","N/A","H2026052400001"

@@ -3,99 +3,222 @@ Data Format Patterns
 
 
 
-BasicTypes
-----------
+String
+------
 
 
-:description: Representation of fundamental data types: Strings, Numbers, and Booleans.
+:description: Representation of text data.
 
 
 Parameters:
 
-* string_val: String
-
-* number_val: String
-
-* boolean_val: String
+* syntax: String
 
 * notes: String
 
 
 
-.. list-table:: BasicTypes Comparison
+.. list-table:: String Comparison
    :widths: auto
    :header-rows: 1
 
    * - Language
-     - String val
-     - Number val
-     - Boolean val
+     - Syntax
      - Notes
-   * - JsonBasic
+   * - JsonString
      - .. code-block:: json
 
            "Hello"
-     - .. code-block:: json
-
-           42 or 3.14
-     - .. code-block:: json
-
-           true / false
-     - Standard JSON types; strings must be double-quoted.
-   * - XmlBasic
+     - JSON strings must be enclosed in double quotes.
+   * - XmlString
      - .. code-block:: xml
 
            <tag>Hello</tag>
-     - .. code-block:: xml
-
-           <tag>42</tag>
-     - .. code-block:: xml
-
-           <tag>true</tag>
-     - XML is text-based; types are typically inferred or defined by a schema (XSD).
-   * - YamlBasic
+     - XML values are text-based.
+   * - YamlString
      - .. code-block:: yaml
 
            Hello or 'Hello' or "Hello"
-     - .. code-block:: yaml
-
-           42 or 3.14
-     - .. code-block:: yaml
-
-           true / false (or yes/no, on/off in YAML 1.1)
-     - YAML supports plain, single-quoted, and double-quoted strings.
-   * - TomlBasic
+     - Supports plain, single-quoted, and double-quoted strings.
+   * - TomlString
      - .. code-block:: toml
 
            "Hello"
-     - .. code-block:: toml
-
-           42 or 3.14
-     - .. code-block:: toml
-
-           true / false
-     - TOML is strictly typed; strings must be double-quoted.
-   * - CsvBasic
+     - TOML strings must be double-quoted.
+   * - CsvString
      - .. code-block:: text
 
            Hello or "Hello"
-     - .. code-block:: text
-
-           42 or 3.14
-     - .. code-block:: text
-
-           true / false
      - CSV values are typically plain text; quoting is used for values containing delimiters or newlines.
-   * - FixlengthBasic
+   * - FixlengthString
      - .. code-block:: text
 
            Fixed width string (e.g., 'Hello     ')
+     - Data is defined by fixed positions and lengths rather than delimiters.
+
+
+
+Number
+------
+
+
+:description: Representation of numeric data (integers or floating-point).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Number Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonNumber
+     - .. code-block:: json
+
+           42 or 3.14
+     - Supports integers and floating-point numbers.
+   * - XmlNumber
+     - .. code-block:: xml
+
+           <tag>42</tag>
+     - Numeric values are represented as text.
+   * - YamlNumber
+     - .. code-block:: yaml
+
+           42 or 3.14
+     - Standard numeric representations.
+   * - TomlNumber
+     - .. code-block:: toml
+
+           42 or 3.14
+     - Strictly typed numeric values.
+   * - CsvNumber
+     - .. code-block:: text
+
+           42 or 3.14
+     - Numeric values are typically plain text.
+   * - FixlengthNumber
      - .. code-block:: text
 
            Fixed width number (e.g., '00042')
+     - Data is defined by fixed positions and lengths rather than delimiters.
+
+
+
+Boolean
+-------
+
+
+:description: Representation of truth values (true or false).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Boolean Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonBoolean
+     - .. code-block:: json
+
+           true / false
+     - Standard boolean literals.
+   * - XmlBoolean
+     - .. code-block:: xml
+
+           <tag>true</tag>
+     - Boolean values are typically 'true' or 'false'.
+   * - YamlBoolean
+     - .. code-block:: yaml
+
+           true / false
+     - YAML 1.2 uses true/false; YAML 1.1 also supported yes/no, on/off.
+   * - TomlBoolean
+     - .. code-block:: toml
+
+           true / false
+     - Standard boolean literals.
+   * - CsvBoolean
+     - .. code-block:: text
+
+           true / false
+     - Represented as text literals.
+   * - FixlengthBoolean
      - .. code-block:: text
 
            Fixed width indicator (e.g., 'Y' / 'N')
+     - Data is defined by fixed positions and lengths rather than delimiters.
+
+
+
+Date
+----
+
+
+:description: Representation of date and time information.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Date Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JsonDate
+     - .. code-block:: json
+
+           "2026-05-24"
+     - JSON does not have a native date type; ISO 8601 strings are commonly used.
+   * - XmlDate
+     - .. code-block:: xml
+
+           <tag>2026-05-24</tag>
+     - ISO 8601 is the standard format for dates in XML (XSD date type).
+   * - YamlDate
+     - .. code-block:: yaml
+
+           2026-05-24
+     - YAML has native support for ISO 8601 dates (timestamp type).
+   * - TomlDate
+     - .. code-block:: toml
+
+           2026-05-24
+     - TOML has native support for RFC 3339 dates and times.
+   * - CsvDate
+     - .. code-block:: text
+
+           2026-05-24
+     - Usually represented as ISO 8601 strings.
+   * - FixlengthDate
+     - .. code-block:: text
+
+           Fixed width date (e.g., '20260524')
      - Data is defined by fixed positions and lengths rather than delimiters.
 
 

@@ -51,7 +51,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Data Format Patterns</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#basictypes">BasicTypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string">String</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#number">Number</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boolean">Boolean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date">Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#collection">Collection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mapping">Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#metadata">Metadata</a></li>
@@ -118,116 +121,262 @@
              
   <section id="data-format-patterns">
 <h1>Data Format Patterns<a class="headerlink" href="#data-format-patterns" title="Link to this heading"></a></h1>
-<section id="basictypes">
-<h2>BasicTypes<a class="headerlink" href="#basictypes" title="Link to this heading"></a></h2>
+<section id="string">
+<h2>String<a class="headerlink" href="#string" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
 <dt class="field-odd">description<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Representation of fundamental data types: Strings, Numbers, and Booleans.</p>
+<dd class="field-odd"><p>Representation of text data.</p>
 </dd>
 </dl>
 <p>Parameters:</p>
 <ul class="simple">
-<li><p>string_val: String</p></li>
-<li><p>number_val: String</p></li>
-<li><p>boolean_val: String</p></li>
+<li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">BasicTypes Comparison</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<caption><span class="caption-text">String Comparison</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
-<th class="head"><p>String val</p></th>
-<th class="head"><p>Number val</p></th>
-<th class="head"><p>Boolean val</p></th>
+<th class="head"><p>Syntax</p></th>
 <th class="head"><p>Notes</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>JsonBasic</p></td>
+<tr class="row-even"><td><p>JsonString</p></td>
 <td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello&quot;</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="mf">3.14</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="kc">false</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard JSON types; strings must be double-quoted.</p></td>
+<td><p>JSON strings must be enclosed in double quotes.</p></td>
 </tr>
-<tr class="row-odd"><td><p>XmlBasic</p></td>
+<tr class="row-odd"><td><p>XmlString</p></td>
 <td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>Hello<span class="nt">&lt;/tag&gt;</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>42<span class="nt">&lt;/tag&gt;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>true<span class="nt">&lt;/tag&gt;</span>
-</pre></div>
-</div>
-</td>
-<td><p>XML is text-based; types are typically inferred or defined by a schema (XSD).</p></td>
+<td><p>XML values are text-based.</p></td>
 </tr>
-<tr class="row-even"><td><p>YamlBasic</p></td>
+<tr class="row-even"><td><p>YamlString</p></td>
 <td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Hello or &#39;Hello&#39; or &quot;Hello&quot;</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">42 or 3.14</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">true / false (or yes/no, on/off in YAML 1.1)</span>
-</pre></div>
-</div>
-</td>
-<td><p>YAML supports plain, single-quoted, and double-quoted strings.</p></td>
+<td><p>Supports plain, single-quoted, and double-quoted strings.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TomlBasic</p></td>
+<tr class="row-odd"><td><p>TomlString</p></td>
 <td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello&quot;</span>
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">42</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">3</span><span class="p">.</span><span class="n">14</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">true</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="n">false</span>
-</pre></div>
-</div>
-</td>
-<td><p>TOML is strictly typed; strings must be double-quoted.</p></td>
+<td><p>TOML strings must be double-quoted.</p></td>
 </tr>
-<tr class="row-even"><td><p>CsvBasic</p></td>
+<tr class="row-even"><td><p>CsvString</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Hello or &quot;Hello&quot;
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42 or 3.14
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>true / false
 </pre></div>
 </div>
 </td>
 <td><p>CSV values are typically plain text; quoting is used for values containing delimiters or newlines.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FixlengthBasic</p></td>
+<tr class="row-odd"><td><p>FixlengthString</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fixed width string (e.g., &#39;Hello     &#39;)
 </pre></div>
 </div>
 </td>
+<td><p>Data is defined by fixed positions and lengths rather than delimiters.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="number">
+<h2>Number<a class="headerlink" href="#number" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Representation of numeric data (integers or floating-point).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Number Comparison</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>JsonNumber</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="mf">3.14</span>
+</pre></div>
+</div>
+</td>
+<td><p>Supports integers and floating-point numbers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XmlNumber</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>42<span class="nt">&lt;/tag&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Numeric values are represented as text.</p></td>
+</tr>
+<tr class="row-even"><td><p>YamlNumber</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">42 or 3.14</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard numeric representations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TomlNumber</p></td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">42</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">3</span><span class="p">.</span><span class="n">14</span>
+</pre></div>
+</div>
+</td>
+<td><p>Strictly typed numeric values.</p></td>
+</tr>
+<tr class="row-even"><td><p>CsvNumber</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42 or 3.14
+</pre></div>
+</div>
+</td>
+<td><p>Numeric values are typically plain text.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FixlengthNumber</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fixed width number (e.g., &#39;00042&#39;)
 </pre></div>
 </div>
 </td>
+<td><p>Data is defined by fixed positions and lengths rather than delimiters.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="boolean">
+<h2>Boolean<a class="headerlink" href="#boolean" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Representation of truth values (true or false).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Boolean Comparison</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>JsonBoolean</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="kc">true</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="kc">false</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard boolean literals.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XmlBoolean</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>true<span class="nt">&lt;/tag&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Boolean values are typically ‘true’ or ‘false’.</p></td>
+</tr>
+<tr class="row-even"><td><p>YamlBoolean</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">true / false</span>
+</pre></div>
+</div>
+</td>
+<td><p>YAML 1.2 uses true/false; YAML 1.1 also supported yes/no, on/off.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TomlBoolean</p></td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">true</span><span class="w"> </span><span class="err">/</span><span class="w"> </span><span class="n">false</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard boolean literals.</p></td>
+</tr>
+<tr class="row-even"><td><p>CsvBoolean</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>true / false
+</pre></div>
+</div>
+</td>
+<td><p>Represented as text literals.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FixlengthBoolean</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fixed width indicator (e.g., &#39;Y&#39; / &#39;N&#39;)
+</pre></div>
+</div>
+</td>
+<td><p>Data is defined by fixed positions and lengths rather than delimiters.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="date">
+<h2>Date<a class="headerlink" href="#date" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Representation of date and time information.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">Date Comparison</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>JsonDate</p></td>
+<td><div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;2026-05-24&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>JSON does not have a native date type; ISO 8601 strings are commonly used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XmlDate</p></td>
+<td><div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;tag&gt;</span>2026-05-24<span class="nt">&lt;/tag&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>ISO 8601 is the standard format for dates in XML (XSD date type).</p></td>
+</tr>
+<tr class="row-even"><td><p>YamlDate</p></td>
+<td><div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">2026-05-24</span>
+</pre></div>
+</div>
+</td>
+<td><p>YAML has native support for ISO 8601 dates (timestamp type).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TomlDate</p></td>
+<td><div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="n">2026-05-24</span>
+</pre></div>
+</div>
+</td>
+<td><p>TOML has native support for RFC 3339 dates and times.</p></td>
+</tr>
+<tr class="row-even"><td><p>CsvDate</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>2026-05-24
+</pre></div>
+</div>
+</td>
+<td><p>Usually represented as ISO 8601 strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FixlengthDate</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Fixed width date (e.g., &#39;20260524&#39;)
 </pre></div>
 </div>
 </td>
@@ -249,8 +398,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Collection Comparison</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text">Collection Comparison</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -321,8 +470,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id3">
-<caption><span class="caption-text">Mapping Comparison</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Mapping Comparison</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -393,8 +542,8 @@ Alice,30
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id4">
-<caption><span class="caption-text">Metadata Comparison</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Metadata Comparison</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -447,8 +596,8 @@ Alice,30
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id5">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -504,8 +653,8 @@ Alice,30
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id6">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -566,8 +715,8 @@ Alice,30
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id7">
-<caption><span class="caption-text">SchemaLink Comparison</span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text">SchemaLink Comparison</span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -624,8 +773,8 @@ Alice,30
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id8">
-<caption><span class="caption-text">Header Comparison</span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text">Header Comparison</span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>

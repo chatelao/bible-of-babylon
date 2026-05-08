@@ -3014,7 +3014,7 @@ Data Formats
      - CSV
      - Fixlength
      
-   * - BasicTypes
+   * - String
      - .. code-block:: json
 
            "Hello"
@@ -3033,6 +3033,63 @@ Data Formats
      - .. code-block:: text
 
            Fixed width string (e.g., 'Hello     ')
+   * - Number
+     - .. code-block:: json
+
+           42 or 3.14
+     - .. code-block:: xml
+
+           <tag>42</tag>
+     - .. code-block:: yaml
+
+           42 or 3.14
+     - .. code-block:: toml
+
+           42 or 3.14
+     - .. code-block:: text
+
+           42 or 3.14
+     - .. code-block:: text
+
+           Fixed width number (e.g., '00042')
+   * - Boolean
+     - .. code-block:: json
+
+           true / false
+     - .. code-block:: xml
+
+           <tag>true</tag>
+     - .. code-block:: yaml
+
+           true / false
+     - .. code-block:: toml
+
+           true / false
+     - .. code-block:: text
+
+           true / false
+     - .. code-block:: text
+
+           Fixed width indicator (e.g., 'Y' / 'N')
+   * - Date
+     - .. code-block:: json
+
+           "2026-05-24"
+     - .. code-block:: xml
+
+           <tag>2026-05-24</tag>
+     - .. code-block:: yaml
+
+           2026-05-24
+     - .. code-block:: toml
+
+           2026-05-24
+     - .. code-block:: text
+
+           2026-05-24
+     - .. code-block:: text
+
+           Fixed width date (e.g., '20260524')
    * - Collection
      - .. code-block:: json
 
