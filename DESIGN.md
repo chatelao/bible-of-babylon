@@ -35,7 +35,7 @@ This section compares languages based on common programming patterns.
 
 **Patterns to be compared:**
 - Variable declaration
-- Control flow (if/else, loops)
+- Control flow (if/else, loops, for loops)
 - Function/Procedure definition
 - Error handling
 - Concurrency models
