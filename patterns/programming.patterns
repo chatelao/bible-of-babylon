@@ -307,12 +307,11 @@ instance JavaLoop of Loop {
     body = { raw "x = x - 1;" }
     syntax = "while (x > 0) {\n    x = x - 1;\n}"
     notes = "Identical to C."
+}
 instance JavaSwitchCase of SwitchCase {
     expression = "x"
     syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
     notes = "Identical to C; modern Java also supports switch expressions."
-}
-
 }
 
 instance RustIfElse of IfElse {
@@ -327,12 +326,12 @@ instance RustLoop of Loop {
     condition = "x > 0"
     body = { raw "x -= 1;" }
     syntax = "while x > 0 {\n    x -= 1;\n}"
+    notes = "Condition does not require parentheses."
+}
 instance RustSwitchCase of SwitchCase {
     expression = "x"
     syntax = "match x {\n    1 => 1,\n    2 => 2,\n    _ => 0,\n}"
     notes = "Rust uses 'match' for pattern matching, which is exhaustive."
-}
-    notes = "Condition does not require parentheses."
 }
 
 instance PythonIfElse of IfElse {
@@ -347,13 +346,13 @@ instance PhpIfElse of IfElse {
     condition = "$x > 0"
     then_branch = { return 1 }
     else_branch = { return 0 }
+    syntax = "if ($x > 0) {\n    return 1;\n} else {\n    return 0;\n}"
+    notes = "Standard C-like if-else statement."
+}
 instance PythonSwitchCase of SwitchCase {
     expression = "x"
     syntax = "match x:\n    case 1:\n        return 1\n    case 2:\n        return 2\n    case _:\n        return 0"
     notes = "Introduced in Python 3.10 as structural pattern matching."
-}
-    syntax = "if ($x > 0) {\n    return 1;\n} else {\n    return 0;\n}"
-    notes = "Standard C-like if-else statement."
 }
 
 instance PythonLoop of Loop {
@@ -5422,4 +5421,211 @@ instance CobolFloat4VectorCrossProduct of Float4VectorCrossProduct {
 instance FortranFloat4VectorCrossProduct of Float4VectorCrossProduct {
     syntax = "c = [a(2)*b(3) - a(3)*b(2), &\n     a(3)*b(1) - a(1)*b(3), &\n     a(1)*b(2) - a(2)*b(1), 0.0]"
     notes = "Calculated component-wise using an array constructor."
+}
+
+instance CSharpVar of VariableDeclaration {
+    name = "x"
+    type = "int"
+    initial_value = 42
+    syntax = "int x = 42;"
+    notes = "Static typing, similar to C++ and Java."
+}
+
+instance CSharpIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) {\n    return 1;\n} else {\n    return 0;\n}"
+    notes = "Standard C-style if-else statement."
+}
+
+instance CSharpSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    case 1:\n        return 1;\n    case 2:\n        return 2;\n    default:\n        return 0;\n}"
+    notes = "Standard C-style switch; supports pattern matching in newer versions."
+}
+
+instance CSharpLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1;" }
+    syntax = "while (x > 0) {\n    x = x - 1;\n}"
+    notes = "Standard while loop."
+}
+
+instance CSharpForLoop of ForLoop {
+    syntax = "for (int i = 0; i < 10; i++) {\n    // body\n}"
+    notes = "Standard C-style for loop."
+}
+
+instance CSharpFunction of FunctionDefinition {
+    name = "Add"
+    parameters = ["int a", "int b"]
+    return_type = "int"
+    body = { raw "return a + b;" }
+    syntax = "public int Add(int a, int b) {\n    return a + b;\n}"
+    notes = "Methods are typically defined within classes."
+}
+
+instance CSharpProcedure of ProcedureDefinition {
+    name = "LogMessage"
+    parameters = ["string msg"]
+    body = { raw "Console.WriteLine(msg);" }
+    syntax = "public void LogMessage(string msg) {\n    Console.WriteLine(msg);\n}"
+    notes = "Uses the 'void' keyword for procedures."
+}
+
+instance CSharpTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Exception"
+    error_variable = "ex"
+    catch_body = { call handle(ex) }
+    syntax = "try {\n    do_something();\n} catch (Exception ex) {\n    handle(ex);\n}"
+    notes = "Standard try-catch block for exception handling."
+}
+
+instance CSharpRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "throw new Exception(\"Error\");"
+    notes = "Uses the 'throw' keyword to raise an exception."
+}
+
+instance CSharpThread of Thread {
+    body = { call do_work() }
+    syntax = "new Thread(() => { do_work(); }).start();"
+    notes = "Uses the System.Threading.Thread class; Task.Run is often preferred in modern C#."
+}
+
+instance CSharpSendMessage of SendMessage {
+    recipient = "channel"
+    message = "42"
+    syntax = "await channel.Writer.WriteAsync(42);"
+    notes = "Using System.Threading.Channels for asynchronous message passing."
+}
+
+instance CSharpReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "var msg = await channel.Reader.ReadAsync();\nhandle(msg);"
+    notes = "Using System.Threading.Channels for asynchronous message receiving."
+}
+
+instance CSharpSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard single-line comment."
+}
+
+instance CSharpMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard block comment."
+}
+
+instance CSharpPrint of Print {
+    value = "Hello, World!"
+    syntax = "Console.WriteLine(\"Hello, World!\");"
+    notes = "Outputs text to the console with a trailing newline."
+}
+
+instance CSharpImport of Import {
+    module_name = "System.Collections.Generic"
+    syntax = "using System.Collections.Generic;"
+    notes = "The 'using' directive imports namespaces."
+}
+
+instance CSharpConstant of Constant {
+    name = "Max"
+    type = "int"
+    value = "100"
+    syntax = "const int Max = 100;"
+    notes = "The 'const' keyword defines a compile-time constant."
+}
+
+instance CSharpAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CSharpSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CSharpMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CSharpDivision of Division {
+    syntax = "a / b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CSharpRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CSharpFloor of Floor {
+    syntax = "Math.Floor(a)"
+    notes = "Uses the System.Math class."
+}
+
+instance CSharpRounding of Rounding {
+    syntax = "Math.Round(a)"
+    notes = "Uses the System.Math class."
+}
+
+instance CSharpIncrement of Increment {
+    syntax = "a++"
+    notes = "Standard increment operator."
+}
+
+instance CSharpDecrement of Decrement {
+    syntax = "a--"
+    notes = "Standard decrement operator."
+}
+
+instance CSharpLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard bitwise shift operator."
+}
+
+instance CSharpRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Standard bitwise shift operator."
+}
+
+instance CSharpBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operator."
+}
+
+instance CSharpBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operator."
+}
+
+instance CSharpBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operator."
+}
+
+instance CSharpBitNot of BitNot {
+    syntax = "~a"
+    notes = "Standard bitwise operator."
+}
+
+instance CSharpFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "c = a * b;"
+    notes = "System.Numerics.Vector4 supports overloaded operators for element-wise multiplication."
+}
+
+instance CSharpFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "float dot = Vector4.Dot(a, b);"
+    notes = "System.Numerics.Vector4.Dot provides the scalar product."
+}
+
+instance CSharpFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));"
+    notes = "Cross product is defined for 3D vectors in System.Numerics.Vector3."
 }

@@ -34,6 +34,7 @@ This section compares languages based on common programming patterns.
 - Tcl
 - COBOL
 - Fortran
+- C#
 
 **Patterns to be compared:**
 - Variable declaration
