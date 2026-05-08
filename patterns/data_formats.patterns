@@ -1,50 +1,144 @@
-pattern BasicTypes {
-    meta description: "Representation of fundamental data types: Strings, Numbers, and Booleans."
-    parameter string_val: String
-    parameter number_val: String
-    parameter boolean_val: String
+pattern String {
+    meta description: "Representation of text data."
+    parameter syntax: String
     parameter notes: String
 }
 
-instance JsonBasic of BasicTypes {
-    string_val = "\"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
-    notes = "Standard JSON types; strings must be double-quoted."
+pattern Number {
+    meta description: "Representation of numeric data (integers or floating-point)."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance XmlBasic of BasicTypes {
-    string_val = "<tag>Hello</tag>"
-    number_val = "<tag>42</tag>"
-    boolean_val = "<tag>true</tag>"
-    notes = "XML is text-based; types are typically inferred or defined by a schema (XSD)."
+pattern Boolean {
+    meta description: "Representation of truth values (true or false)."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance YamlBasic of BasicTypes {
-    string_val = "Hello or 'Hello' or \"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false (or yes/no, on/off in YAML 1.1)"
-    notes = "YAML supports plain, single-quoted, and double-quoted strings."
+pattern Date {
+    meta description: "Representation of date and time information."
+    parameter syntax: String
+    parameter notes: String
 }
 
-instance TomlBasic of BasicTypes {
-    string_val = "\"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
-    notes = "TOML is strictly typed; strings must be double-quoted."
+instance JsonString of String {
+    syntax = "\"Hello\""
+    notes = "JSON strings must be enclosed in double quotes."
 }
 
-instance CsvBasic of BasicTypes {
-    string_val = "Hello or \"Hello\""
-    number_val = "42 or 3.14"
-    boolean_val = "true / false"
+instance JsonNumber of Number {
+    syntax = "42 or 3.14"
+    notes = "Supports integers and floating-point numbers."
+}
+
+instance JsonBoolean of Boolean {
+    syntax = "true / false"
+    notes = "Standard boolean literals."
+}
+
+instance JsonDate of Date {
+    syntax = "\"2026-05-24\""
+    notes = "JSON does not have a native date type; ISO 8601 strings are commonly used."
+}
+
+instance XmlString of String {
+    syntax = "<tag>Hello</tag>"
+    notes = "XML values are text-based."
+}
+
+instance XmlNumber of Number {
+    syntax = "<tag>42</tag>"
+    notes = "Numeric values are represented as text."
+}
+
+instance XmlBoolean of Boolean {
+    syntax = "<tag>true</tag>"
+    notes = "Boolean values are typically 'true' or 'false'."
+}
+
+instance XmlDate of Date {
+    syntax = "<tag>2026-05-24</tag>"
+    notes = "ISO 8601 is the standard format for dates in XML (XSD date type)."
+}
+
+instance YamlString of String {
+    syntax = "Hello or 'Hello' or \"Hello\""
+    notes = "Supports plain, single-quoted, and double-quoted strings."
+}
+
+instance YamlNumber of Number {
+    syntax = "42 or 3.14"
+    notes = "Standard numeric representations."
+}
+
+instance YamlBoolean of Boolean {
+    syntax = "true / false"
+    notes = "YAML 1.2 uses true/false; YAML 1.1 also supported yes/no, on/off."
+}
+
+instance YamlDate of Date {
+    syntax = "2026-05-24"
+    notes = "YAML has native support for ISO 8601 dates (timestamp type)."
+}
+
+instance TomlString of String {
+    syntax = "\"Hello\""
+    notes = "TOML strings must be double-quoted."
+}
+
+instance TomlNumber of Number {
+    syntax = "42 or 3.14"
+    notes = "Strictly typed numeric values."
+}
+
+instance TomlBoolean of Boolean {
+    syntax = "true / false"
+    notes = "Standard boolean literals."
+}
+
+instance TomlDate of Date {
+    syntax = "2026-05-24"
+    notes = "TOML has native support for RFC 3339 dates and times."
+}
+
+instance CsvString of String {
+    syntax = "Hello or \"Hello\""
     notes = "CSV values are typically plain text; quoting is used for values containing delimiters or newlines."
 }
 
-instance FixlengthBasic of BasicTypes {
-    string_val = "Fixed width string (e.g., 'Hello     ')"
-    number_val = "Fixed width number (e.g., '00042')"
-    boolean_val = "Fixed width indicator (e.g., 'Y' / 'N')"
+instance CsvNumber of Number {
+    syntax = "42 or 3.14"
+    notes = "Numeric values are typically plain text."
+}
+
+instance CsvBoolean of Boolean {
+    syntax = "true / false"
+    notes = "Represented as text literals."
+}
+
+instance CsvDate of Date {
+    syntax = "2026-05-24"
+    notes = "Usually represented as ISO 8601 strings."
+}
+
+instance FixlengthString of String {
+    syntax = "Fixed width string (e.g., 'Hello     ')"
+    notes = "Data is defined by fixed positions and lengths rather than delimiters."
+}
+
+instance FixlengthNumber of Number {
+    syntax = "Fixed width number (e.g., '00042')"
+    notes = "Data is defined by fixed positions and lengths rather than delimiters."
+}
+
+instance FixlengthBoolean of Boolean {
+    syntax = "Fixed width indicator (e.g., 'Y' / 'N')"
+    notes = "Data is defined by fixed positions and lengths rather than delimiters."
+}
+
+instance FixlengthDate of Date {
+    syntax = "Fixed width date (e.g., '20260524')"
     notes = "Data is defined by fixed positions and lengths rather than delimiters."
 }
 

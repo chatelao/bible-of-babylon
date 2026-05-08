@@ -35,13 +35,13 @@ This page provides an overview of the implementation status for all patterns acr
 
 ## Data Formats
 
-| Format | Basic | Coll | Map | Meta | S-Comm | M-Comm | Schema |
-|--------|:-----:|:----:|:---:|:----:|:------:|:------:|:------:|
-| JSON | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| XML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| YAML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| TOML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| CSV | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Fixlength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Format | Str | Num | Bool | Date | Coll | Map | Meta | S-Comm | M-Comm | Schema |
+|--------|:---:|:---:|:----:|:----:|:----:|:---:|:----:|:------:|:------:|:------:|
+| JSON | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| XML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| YAML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| TOML | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| CSV | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fixlength | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
 *Legend: ✅ = Implemented, ❌ = Not yet implemented.*

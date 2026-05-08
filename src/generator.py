@@ -190,9 +190,7 @@ class CodeGenerator:
         return template.render(pattern=pattern)
 
     def render_instance_table(self, pattern: Pattern, instances: List[Instance]) -> str:
-        syntax_params = {
-            "syntax", "string_val", "number_val", "boolean_val"
-        }
+        syntax_params = {"syntax"}
 
         display_parameters = [p for p in pattern.parameters if p.name in syntax_params]
         notes_param = next((p for p in pattern.parameters if p.name == "notes"), None)
@@ -233,10 +231,7 @@ class CodeGenerator:
 
     def render_pivot_table(self, program: Program, language: str) -> str:
         # Candidate parameters for columns in pivot table
-        candidates = [
-            "syntax", "string_val", "number_val", "boolean_val",
-            "notes"
-        ]
+        candidates = ["syntax", "notes"]
 
         normalized_lang = self._normalize(language)
         pivot_data = []
@@ -335,9 +330,8 @@ class CodeGenerator:
 
                     if instance:
                         syntax = "N/A"
-                        priority_params = [
-                            "syntax", "string_val", "number_val", "boolean_val"
-                        ]
+                        priority_params = ["syntax"]
+                        priority_params = ["syntax"]
                         for param in priority_params:
                             val = next((a.value for a in instance.assignments if a.name == param), None)
                             if val and val != "N/A":
@@ -370,9 +364,7 @@ class CodeGenerator:
 
                     if instance:
                         syntax = "N/A"
-                        priority_params = [
-                            "syntax", "string_val", "number_val", "boolean_val"
-                        ]
+                        priority_params = ["syntax"]
                         for param in priority_params:
                             val = next((a.value for a in instance.assignments if a.name == param), None)
                             if val and val != "N/A":
