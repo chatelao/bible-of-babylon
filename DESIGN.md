@@ -61,6 +61,7 @@ This section compares languages based on common programming patterns.
 - Bitwise NOT
 - 4-float vector multiplication
 - 4-float vector dot product
+- 4-float vector cross product
 
 ### Part II: Data Formats
 This section compares data structures and serialization formats.
