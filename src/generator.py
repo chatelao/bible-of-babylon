@@ -61,7 +61,7 @@ class CodeGenerator:
         "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
         "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel",
-        "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran"
+        "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran", "CSharp"
     ]
     DATA_FORMATS = [
         "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
@@ -99,6 +99,7 @@ class CodeGenerator:
         "Tcl": "tcl",
         "COBOL": "cobol",
         "Fortran": "fortran",
+        "CSharp": "csharp",
         "JSON": "json",
         "XML": "xml",
         "YAML": "yaml",

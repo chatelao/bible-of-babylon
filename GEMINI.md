@@ -5,7 +5,7 @@ by simply comparing the most often used patterns.
 # Areas to compare
 ## Programming 
 ### Pogramming languages
-- SQL, C, XQuery, Java, Rust, Erlang, Lisp, Bash, Cmd, PowerShell, CSS
+- SQL, C, XQuery, Java, Rust, Erlang, Lisp, Bash, Cmd, PowerShell, CSS, C#
 - (not yet) : https://madnight.github.io/githut/#/pull_requests/2024/1
 
 ### Pogramming patterns

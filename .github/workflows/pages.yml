@@ -36,7 +36,7 @@ jobs:
           echo "" >> docs/matrices.rst
           echo "Programming Languages" >> docs/matrices.rst
           echo "---------------------" >> docs/matrices.rst
-          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl" --pivot-matrix >> docs/matrices.rst
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --pivot-matrix >> docs/matrices.rst
           echo "" >> docs/matrices.rst
           echo "Data Formats" >> docs/matrices.rst
           echo "------------" >> docs/matrices.rst
@@ -46,10 +46,10 @@ jobs:
           # Sphinx expects these files to be in the source tree during build
           # By convention, we put them in docs/
           # CSV
-          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl" --csv > docs/programming_matrix.csv
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --csv > docs/programming_matrix.csv
           python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --csv > docs/data_formats_matrix.csv
           # Excel
-          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl" --excel -o docs/programming_matrix.xlsx
+          python3 -m src.main patterns/programming.patterns -m "C,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --excel -o docs/programming_matrix.xlsx
           python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --excel -o docs/data_formats_matrix.xlsx
 
       - name: Build Documentation
