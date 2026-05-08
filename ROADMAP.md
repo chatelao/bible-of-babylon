@@ -174,3 +174,5 @@
 - [x] Generate Pivot Chapter for Haskell
 - [x] Generate Pivot Chapter for TypeScript
 - [x] Generate Pivot Chapter for Tcl
+- [x] Generate Pivot Chapter for COBOL
+- [x] Generate Pivot Chapter for Fortran
