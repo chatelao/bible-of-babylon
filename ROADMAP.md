@@ -75,13 +75,9 @@
     - [x] 8.6 Single-line and Multi-line comments <!-- 2026-05-12, issue #8.6 -->
     - [x] 8.7 Print (Hello World) <!-- 2026-05-24, issue #8.7 -->
 - [x] Populate Data Format patterns <!-- 2026-05-11, issue #9 -->
-    - [x] 9.1 Basic data types (Strings, Numbers, Booleans) <!-- 2026-05-08, issue #9.1 -->
-        - [x] 9.1.1 Define `BasicTypes` pattern <!-- 2026-05-08, issue #9.1.1 -->
-        - [x] 9.1.2 Implement instances (JSON, XML, YAML, TOML) <!-- 2026-05-08, issue #9.1.2 -->
-            - [x] 9.1.2.1 JSON <!-- 2026-05-08, issue #9.1.2.1 -->
-            - [x] 9.1.2.2 XML <!-- 2026-05-08, issue #9.1.2.2 -->
-            - [x] 9.1.2.3 YAML <!-- 2026-05-08, issue #9.1.2.3 -->
-            - [x] 9.1.2.4 TOML <!-- 2026-05-08, issue #9.1.2.4 -->
+    - [x] 9.1 Atomic data types (Strings, Numbers, Booleans, Dates) <!-- 2026-05-08, issue #9.1 -->
+        - [x] 9.1.1 Define individual patterns <!-- 2026-05-08, issue #9.1.1 -->
+        - [x] 9.1.2 Implement instances (JSON, XML, YAML, TOML, CSV, Fixlength) <!-- 2026-05-08, issue #9.1.2 -->
     - [x] 9.2 Nested structures (Objects/Maps, Arrays/Lists) <!-- 2026-05-04, issue #9.2 -->
         - [x] 9.2.1 Define `Collection` and `Mapping` patterns <!-- 2026-05-04, issue #9.2.1 -->
         - [x] 9.2.2 Implement instances across formats <!-- 2026-05-04, issue #9.2.2 -->

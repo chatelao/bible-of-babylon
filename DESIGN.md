@@ -75,8 +75,12 @@ This section compares data structures and serialization formats.
 - TOML
 
 **Patterns to be compared:**
-- Basic data types (Strings, Numbers, Booleans)
-- Nested structures (Objects/Maps, Arrays/Lists)
+- Strings
+- Numbers
+- Booleans
+- Dates
+- Collections (Arrays/Lists)
+- Mappings (Objects/Maps)
 - Metadata/Attributes
 - Single-line comments
 - Multi-line comments
