@@ -32,6 +32,8 @@ This section compares languages based on common programming patterns.
 - Haskell
 - TypeScript
 - Tcl
+- COBOL
+- Fortran
 
 **Patterns to be compared:**
 - Variable declaration

@@ -5009,3 +5009,417 @@ instance TclForLoop of ForLoop {
     syntax = "for {set i 0} {$i < 10} {incr i} {\n    # body\n}"
     notes = "Standard for loop; all arguments are Tcl scripts."
 }
+
+instance CobolVariableDeclaration of VariableDeclaration {
+    name = "X"
+    type = "PIC 9(4)"
+    initial_value = 42
+    syntax = "01 X PIC 9(4) VALUE 42."
+    notes = "Variables are defined in the DATA DIVISION; PIC (picture) clause specifies the data type and size."
+}
+
+instance FortranVariableDeclaration of VariableDeclaration {
+    name = "x"
+    type = "integer"
+    initial_value = 42
+    syntax = "integer :: x = 42"
+    notes = "Static typing; :: is used to separate attributes from the variable name."
+}
+
+instance CobolIfElse of IfElse {
+    condition = "X > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "IF X > 0 THEN\n    MOVE 1 TO RESULT\nELSE\n    MOVE 0 TO RESULT\nEND-IF."
+    notes = "Uses IF-THEN-ELSE-END-IF structure; periods are used to terminate sentences."
+}
+
+instance FortranIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) then\n    res = 1\nelse\n    res = 0\nend if"
+    notes = "Standard block if-then-else-end if."
+}
+
+instance CobolLoop of Loop {
+    condition = "X > 0"
+    body = { raw "SUBTRACT 1 FROM X" }
+    syntax = "PERFORM UNTIL X <= 0\n    SUBTRACT 1 FROM X\nEND-PERFORM."
+    notes = "The PERFORM UNTIL construct is used for conditional looping."
+}
+
+instance FortranLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1" }
+    syntax = "do while (x > 0)\n    x = x - 1\nend do"
+    notes = "Standard do while loop."
+}
+
+instance CobolForLoop of ForLoop {
+    syntax = "PERFORM VARYING I FROM 1 BY 1 UNTIL I > 10\n    *> body\nEND-PERFORM."
+    notes = "PERFORM VARYING is the COBOL equivalent of a for loop."
+}
+
+instance FortranForLoop of ForLoop {
+    syntax = "do i = 1, 10\n    ! body\nend do"
+    notes = "The do loop is used for iteration over ranges."
+}
+
+instance CobolFunctionDefinition of FunctionDefinition {
+    name = "ADD-FUNC"
+    parameters = ["A", "B"]
+    return_type = "PIC 9(4)"
+    body = { raw "COMPUTE RESULT = A + B" }
+    syntax = "FUNCTION-ID. ADD-FUNC.\n... \nCOMPUTE RESULT = A + B\n... \nEND FUNCTION ADD-FUNC."
+    notes = "User-defined functions were introduced in modern COBOL (COBOL 2002)."
+}
+
+instance FortranFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "integer"
+    body = { raw "add = a + b" }
+    syntax = "function add(a, b) result(res)\n    integer, intent(in) :: a, b\n    integer :: res\n    res = a + b\nend function add"
+    notes = "Functions return a value; 'intent(in)' specifies that parameters are read-only."
+}
+
+instance CobolProcedure of ProcedureDefinition {
+    name = "LOG-MSG"
+    parameters = ["MSG"]
+    body = { raw "DISPLAY MSG" }
+    syntax = "IDENTIFICATION DIVISION.\nPROGRAM-ID. LOG-MSG.\n... \nDISPLAY MSG.\nEXIT PROGRAM."
+    notes = "Procedures are typically implemented as separate programs or paragraphs."
+}
+
+instance FortranProcedure of ProcedureDefinition {
+    name = "log_msg"
+    parameters = ["msg"]
+    body = { raw "print *, msg" }
+    syntax = "subroutine log_msg(msg)\n    character(len=*), intent(in) :: msg\n    print *, msg\nend subroutine log_msg"
+    notes = "Subroutines are used for procedures that do not return a value."
+}
+
+instance CobolTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "ON SIZE ERROR DISPLAY 'Error'" }
+    syntax = "ADD A TO B ON SIZE ERROR\n    DISPLAY 'Arithmetic Overflow'\nEND-ADD."
+    notes = "COBOL uses imperative 'ON ERROR' clauses for specific operations."
+}
+
+instance FortranTryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "/* N/A */" }
+    syntax = "N/A"
+    notes = "Fortran does not have high-level try-catch blocks; uses iostat for I/O errors."
+}
+
+instance CobolRaise of Raise {
+    exception_type = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "No standard mechanism to 'throw' exceptions; execution is managed via status codes."
+}
+
+instance FortranRaise of Raise {
+    exception_type = "Error Stop"
+    message = "Error"
+    syntax = "error stop \"Error\""
+    notes = "The 'error stop' statement terminates execution with an error message (Fortran 2008+)."
+}
+
+instance CobolThread of Thread {
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Standard COBOL does not support multi-threading."
+}
+
+instance FortranThread of Thread {
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple 'thread spawn' primitive."
+}
+
+instance CobolSendMessage of SendMessage {
+    recipient = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "Message passing is not a native COBOL feature."
+}
+
+instance FortranSendMessage of SendMessage {
+    recipient = "image"
+    message = "data"
+    syntax = "target_var[image] = data"
+    notes = "Coarrays use distributed memory and assignment to 'images' for communication."
+}
+
+instance CobolReceiveMessage of ReceiveMessage {
+    match_pattern = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance FortranReceiveMessage of ReceiveMessage {
+    match_pattern = "data"
+    body = { raw "sync images(*)" }
+    syntax = "sync images(*)"
+    notes = "Synchronization is used to ensure data consistency in Coarrays."
+}
+
+instance CobolSingleLineComment of SingleLineComment {
+    syntax = "*> comment"
+    notes = "*> is used for inline comments in free-format COBOL."
+}
+
+instance FortranSingleLineComment of SingleLineComment {
+    syntax = "! comment"
+    notes = "Exclamation mark starts a comment to the end of the line."
+}
+
+instance CobolMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "No native multi-line comment syntax; multiple * or *> must be used."
+}
+
+instance FortranMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Fortran does not support multi-line comments natively."
+}
+
+instance CobolPrint of Print {
+    value = "Hello World"
+    syntax = "DISPLAY \"Hello World\"."
+    notes = "DISPLAY outputs data to the system console or standard output."
+}
+
+instance FortranPrint of Print {
+    value = "Hello World"
+    syntax = "print *, \"Hello World\""
+    notes = "The print statement with * (default format) outputs to stdout."
+}
+
+instance CobolImport of Import {
+    module_name = "DEFS"
+    syntax = "COPY DEFS."
+    notes = "The COPY statement includes text from a library at compile time."
+}
+
+instance FortranImport of Import {
+    module_name = "math_mod"
+    syntax = "use math_mod"
+    notes = "The 'use' statement imports a module's public variables and procedures."
+}
+
+instance CobolSwitchCase of SwitchCase {
+    expression = "X"
+    syntax = "EVALUATE X\n    WHEN 1\n        DISPLAY 'One'\n    WHEN 2\n        DISPLAY 'Two'\n    WHEN OTHER\n        DISPLAY 'Other'\nEND-EVALUATE."
+    notes = "The EVALUATE statement is used for multi-way branching."
+}
+
+instance FortranSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "select case (x)\ncase (1)\n    res = 1\ncase (2)\n    res = 2\ncase default\n    res = 0\nend select"
+    notes = "The select case construct is used for branching based on values."
+}
+
+instance CobolConstant of Constant {
+    name = "MAX-VAL"
+    type = "PIC 9(3)"
+    value = "100"
+    syntax = "01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT."
+    notes = "The CONSTANT keyword defines a symbolic constant (COBOL 2002)."
+}
+
+instance FortranConstant of Constant {
+    name = "MAX"
+    type = "integer"
+    value = "100"
+    syntax = "integer, parameter :: MAX = 100"
+    notes = "The 'parameter' attribute makes the variable a named constant."
+}
+
+instance CobolAddition of Addition {
+    syntax = "ADD A TO B."
+    notes = "Adds the value of A to B and stores it in B."
+}
+
+instance FortranAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CobolSubtraction of Subtraction {
+    syntax = "SUBTRACT A FROM B."
+    notes = "Subtracts A from B and stores it in B."
+}
+
+instance FortranSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CobolMultiplication of Multiplication {
+    syntax = "MULTIPLY A BY B."
+    notes = "Multiplies A and B and stores the result in B."
+}
+
+instance FortranMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CobolDivision of Division {
+    syntax = "DIVIDE A BY B GIVING C."
+    notes = "Divides A by B and stores the quotient in C."
+}
+
+instance FortranDivision of Division {
+    syntax = "a / b"
+    notes = "Standard arithmetic operator."
+}
+
+instance CobolRemainder of Remainder {
+    syntax = "DIVIDE A BY B GIVING Q REMAINDER R."
+    notes = "Calculates both the quotient and the remainder."
+}
+
+instance FortranRemainder of Remainder {
+    syntax = "mod(a, b)"
+    notes = "Built-in function for remainder."
+}
+
+instance CobolFloor of Floor {
+    syntax = "FUNCTION INTEGER(A)"
+    notes = "The INTEGER intrinsic function returns the greatest integer <= A."
+}
+
+instance FortranFloor of Floor {
+    syntax = "floor(a)"
+    notes = "Built-in function for the floor of a real number."
+}
+
+instance CobolRounding of Rounding {
+    syntax = "ADD A TO B ROUNDED."
+    notes = "The ROUNDED phrase specifies that any fractional part should be rounded."
+}
+
+instance FortranRounding of Rounding {
+    syntax = "nint(a)"
+    notes = "Built-in function for the nearest integer."
+}
+
+instance CobolIncrement of Increment {
+    syntax = "ADD 1 TO A."
+    notes = "Increments the value of A by 1."
+}
+
+instance FortranIncrement of Increment {
+    syntax = "a = a + 1"
+    notes = "No native increment operator; uses assignment."
+}
+
+instance CobolDecrement of Decrement {
+    syntax = "SUBTRACT 1 FROM A."
+    notes = "Decrements the value of A by 1."
+}
+
+instance FortranDecrement of Decrement {
+    syntax = "a = a - 1"
+    notes = "No native decrement operator; uses assignment."
+}
+
+instance CobolLeftShift of LeftShift {
+    syntax = "N/A"
+    notes = "COBOL does not have native bitwise shift operators."
+}
+
+instance FortranLeftShift of LeftShift {
+    syntax = "ishft(a, b)"
+    notes = "The ishft function performs a logical shift."
+}
+
+instance CobolRightShift of RightShift {
+    syntax = "N/A"
+    notes = "COBOL does not have native bitwise shift operators."
+}
+
+instance FortranRightShift of RightShift {
+    syntax = "ishft(a, -b)"
+    notes = "Negative shift counts in ishft perform a right shift."
+}
+
+instance CobolBitAnd of BitAnd {
+    syntax = "N/A"
+    notes = "Not natively supported in standard COBOL."
+}
+
+instance FortranBitAnd of BitAnd {
+    syntax = "iand(a, b)"
+    notes = "Built-in function for bitwise AND."
+}
+
+instance CobolBitOr of BitOr {
+    syntax = "N/A"
+    notes = "Not natively supported in standard COBOL."
+}
+
+instance FortranBitOr of BitOr {
+    syntax = "ior(a, b)"
+    notes = "Built-in function for bitwise OR."
+}
+
+instance CobolBitXor of BitXor {
+    syntax = "N/A"
+    notes = "Not natively supported in standard COBOL."
+}
+
+instance FortranBitXor of BitXor {
+    syntax = "ieor(a, b)"
+    notes = "Built-in function for bitwise XOR."
+}
+
+instance CobolBitNot of BitNot {
+    syntax = "N/A"
+    notes = "Not natively supported in standard COBOL."
+}
+
+instance FortranBitNot of BitNot {
+    syntax = "not(a)"
+    notes = "Built-in function for bitwise NOT."
+}
+
+instance CobolFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4\n    COMPUTE C(I) = A(I) * B(I)\nEND-PERFORM."
+    notes = "Requires a loop over the array elements."
+}
+
+instance FortranFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "c = a * b"
+    notes = "Fortran supports element-wise operations on arrays natively."
+}
+
+instance CobolFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "MOVE 0 TO DOT-PRODUCT.\nPERFORM VARYING I FROM 1 BY 1 UNTIL I > 4\n    COMPUTE DOT-PRODUCT = DOT-PRODUCT + (A(I) * B(I))\nEND-PERFORM."
+    notes = "Calculated by accumulating products in a loop."
+}
+
+instance FortranFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "res = dot_product(a, b)"
+    notes = "The dot_product intrinsic function calculates the dot product of two vectors."
+}
+
+instance CobolFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "COMPUTE C(1) = A(2) * B(3) - A(3) * B(2).\nCOMPUTE C(2) = A(3) * B(1) - A(1) * B(3).\nCOMPUTE C(3) = A(1) * B(2) - A(2) * B(1)."
+    notes = "Calculated component-wise using COMPUTE."
+}
+
+instance FortranFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c = [a(2)*b(3) - a(3)*b(2), &\n     a(3)*b(1) - a(1)*b(3), &\n     a(1)*b(2) - a(2)*b(1), 0.0]"
+    notes = "Calculated component-wise using an array constructor."
+}
