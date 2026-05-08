@@ -161,6 +161,11 @@ Parameters:
 
            integer :: x = 42
      - Static typing; :: is used to separate attributes from the variable name.
+   * - CSharpVar
+     - .. code-block:: csharp
+
+           int x = 42;
+     - Static typing, similar to C++ and Java.
 
 
 
@@ -383,6 +388,13 @@ Parameters:
                print *, msg
            end subroutine log_msg
      - Subroutines are used for procedures that do not return a value.
+   * - CSharpProcedure
+     - .. code-block:: csharp
+
+           public void LogMessage(string msg) {
+               Console.WriteLine(msg);
+           }
+     - Uses the 'void' keyword for procedures.
 
 
 
@@ -598,6 +610,13 @@ Parameters:
                res = a + b
            end function add
      - Functions return a value; 'intent(in)' specifies that parameters are read-only.
+   * - CSharpFunction
+     - .. code-block:: csharp
+
+           public int Add(int a, int b) {
+               return a + b;
+           }
+     - Methods are typically defined within classes.
 
 
 
@@ -837,6 +856,323 @@ Parameters:
                res = 0
            end if
      - Standard block if-then-else-end if.
+   * - CSharpIfElse
+     - .. code-block:: csharp
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - Standard C-style if-else statement.
+
+
+
+SwitchCase
+----------
+
+
+:description: Multi-way branch based on the value of an expression.
+
+
+Parameters:
+
+* expression: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SwitchCase Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CSwitchCase
+     - .. code-block:: c
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C switch statement with case labels and default.
+   * - PhpSwitchCase
+     - .. code-block:: php
+
+           switch ($x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-like switch statement; match expression is also available in PHP 8.0+.
+   * - BashSwitchCase
+     - .. code-block:: bash
+
+           case $x in
+               1)
+                   echo "one"
+                   ;;
+               2)
+                   echo "two"
+                   ;;
+               *)
+                   echo "none"
+                   ;;
+           esac
+     - Uses case-in-esac structure; patterns end with ) and blocks end with ;;.
+   * - PowerShellSwitchCase
+     - .. code-block:: powershell
+
+           switch ($x) {
+               1 { "one" }
+               2 { "two" }
+               default { "none" }
+           }
+     - Versatile switch statement that supports multiple types and patterns.
+   * - CmdSwitchCase
+     - .. code-block:: doscon
+
+           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
+     - Cmd does not have a native switch; it is typically simulated with if/else or goto.
+   * - SqlSwitchCase
+     - .. code-block:: sql
+
+           CASE @x
+               WHEN 1 THEN 'one'
+               WHEN 2 THEN 'two'
+               ELSE 'none'
+           END
+     - The CASE expression is used for conditional logic in SQL.
+   * - ErlangSwitchCase
+     - .. code-block:: erlang
+
+           case X of
+               1 -> one;
+               2 -> two;
+               _ -> none
+           end
+     - Uses 'case' for pattern matching; _ is the catch-all pattern.
+   * - LispSwitchCase
+     - .. code-block:: common-lisp
+
+           (case x
+             (1 "one")
+             (2 "two")
+             (t "none"))
+     - Standard 'case' macro; 't' or 'otherwise' is the default branch.
+   * - XQuerySwitchCase
+     - .. code-block:: xquery
+
+           switch ($x)
+             case 1 return "one"
+             case 2 return "two"
+             default return "none"
+     - The 'switch' expression was introduced in XQuery 3.0.
+   * - CssSwitchCase
+     - N/A
+     - CSS does not support switch/case logic.
+   * - CudaSwitchCase
+     - .. code-block:: cpp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-like switch statement.
+   * - X86SwitchCase
+     - .. code-block:: nasm
+
+               cmp eax, 1
+               je .case1
+               cmp eax, 2
+               je .case2
+               jmp .default
+           .case1:
+               ; ...
+           .case2:
+               ; ...
+           .default:
+               ; ...
+     - Implemented using a series of comparison and jump instructions.
+   * - RiscvSwitchCase
+     - .. code-block:: asm
+
+               li t1, 1
+               beq t0, t1, .case1
+               li t1, 2
+               beq t0, t1, .case2
+               j .default
+     - Typically implemented using comparison and branch instructions.
+   * - PrologSwitchCase
+     - .. code-block:: prolog
+
+           (   X = 1 -> writeln('one')
+           ;   X = 2 -> writeln('two')
+           ;   writeln('none')
+           )
+     - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
+   * - JavaSwitchCase
+     - .. code-block:: java
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Identical to C; modern Java also supports switch expressions.
+   * - RustSwitchCase
+     - .. code-block:: rust
+
+           match x {
+               1 => 1,
+               2 => 2,
+               _ => 0,
+           }
+     - Rust uses 'match' for pattern matching, which is exhaustive.
+   * - PythonSwitchCase
+     - .. code-block:: python
+
+           match x:
+               case 1:
+                   return 1
+               case 2:
+                   return 2
+               case _:
+                   return 0
+     - Introduced in Python 3.10 as structural pattern matching.
+   * - JavaBytecodeSwitchCase
+     - .. code-block:: jasmin
+
+               getstatic MyClass/x I
+               lookupswitch
+                   1: Label1
+                   2: Label2
+                   default: LabelDefault
+           Label1:
+               ; ...
+           Label2:
+               ; ...
+           LabelDefault:
+               ; ...
+     - Uses lookupswitch or tableswitch instructions for multi-way branching.
+   * - CamelSwitchCase
+     - .. code-block:: ocaml
+
+           match x with
+           | 1 -> 1
+           | 2 -> 2
+           | _ -> 0
+     - Structural pattern matching using the match expression.
+   * - ArmAarch64SwitchCase
+     - .. code-block:: asm
+
+               cmp x0, #1
+               beq .case1
+               cmp x0, #2
+               beq .case2
+               b .default
+     - Implemented using comparison and branch instructions.
+   * - GoSwitchCase
+     - .. code-block:: go
+
+           switch x {
+           case 1:
+               return 1
+           case 2:
+               return 2
+           default:
+               return 0
+           }
+     - Switch cases do not fall through by default in Go.
+   * - HaskellSwitchCase
+     - .. code-block:: haskell
+
+           case x of
+               1 -> 1
+               2 -> 2
+               _ -> 0
+     - Uses pattern matching in a case expression.
+   * - TypeScriptSwitchCase
+     - .. code-block:: typescript
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch statement.
+   * - TclSwitchCase
+     - .. code-block:: tcl
+
+           switch $x {
+               1 {
+                   return 1
+               }
+               2 {
+                   return 2
+               }
+               default {
+                   return 0
+               }
+           }
+     - The switch command provides multi-way branching.
+   * - CobolSwitchCase
+     - .. code-block:: cobol
+
+           EVALUATE X
+               WHEN 1
+                   DISPLAY 'One'
+               WHEN 2
+                   DISPLAY 'Two'
+               WHEN OTHER
+                   DISPLAY 'Other'
+           END-EVALUATE.
+     - The EVALUATE statement is used for multi-way branching.
+   * - FortranSwitchCase
+     - .. code-block:: fortran
+
+           select case (x)
+           case (1)
+               res = 1
+           case (2)
+               res = 2
+           case default
+               res = 0
+           end select
+     - The select case construct is used for branching based on values.
+   * - CSharpSwitchCase
+     - .. code-block:: csharp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch; supports pattern matching in newer versions.
 
 
 
@@ -1047,6 +1383,13 @@ Parameters:
                x = x - 1
            end do
      - Standard do while loop.
+   * - CSharpLoop
+     - .. code-block:: csharp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - Standard while loop.
 
 
 
@@ -1262,6 +1605,13 @@ Parameters:
                ! body
            end do
      - The do loop is used for iteration over ranges.
+   * - CSharpForLoop
+     - .. code-block:: csharp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Standard C-style for loop.
 
 
 
@@ -1463,6 +1813,15 @@ Parameters:
    * - FortranTryCatch
      - N/A
      - Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.
+   * - CSharpTryCatch
+     - .. code-block:: csharp
+
+           try {
+               do_something();
+           } catch (Exception ex) {
+               handle(ex);
+           }
+     - Standard try-catch block for exception handling.
 
 
 
@@ -1620,6 +1979,11 @@ Parameters:
 
            error stop "Error"
      - The 'error stop' statement terminates execution with an error message (Fortran 2008+).
+   * - CSharpRaise
+     - .. code-block:: csharp
+
+           throw new Exception("Error");
+     - Uses the 'throw' keyword to raise an exception.
 
 
 
@@ -1732,6 +2096,11 @@ Parameters:
    * - FortranThread
      - N/A
      - Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple 'thread spawn' primitive.
+   * - CSharpThread
+     - .. code-block:: csharp
+
+           new Thread(() => { do_work(); }).start();
+     - Uses the System.Threading.Thread class; Task.Run is often preferred in modern C#.
 
 
 
@@ -1844,6 +2213,11 @@ Parameters:
 
            target_var[image] = data
      - Coarrays use distributed memory and assignment to 'images' for communication.
+   * - CSharpSendMessage
+     - .. code-block:: csharp
+
+           await channel.Writer.WriteAsync(42);
+     - Using System.Threading.Channels for asynchronous message passing.
 
 
 
@@ -1959,6 +2333,12 @@ Parameters:
 
            sync images(*)
      - Synchronization is used to ensure data consistency in Coarrays.
+   * - CSharpReceiveMessage
+     - .. code-block:: csharp
+
+           var msg = await channel.Reader.ReadAsync();
+           handle(msg);
+     - Using System.Threading.Channels for asynchronous message receiving.
 
 
 
@@ -2112,6 +2492,11 @@ Parameters:
 
            ! comment
      - Exclamation mark starts a comment to the end of the line.
+   * - CSharpSingleLineComment
+     - .. code-block:: csharp
+
+           // comment
+     - Standard single-line comment.
 
 
 
@@ -2263,6 +2648,12 @@ Parameters:
    * - FortranMultiLineComment
      - N/A
      - Fortran does not support multi-line comments natively.
+   * - CSharpMultiLineComment
+     - .. code-block:: csharp
+
+           /* line 1
+              line 2 */
+     - Standard block comment.
 
 
 
@@ -2426,6 +2817,11 @@ Parameters:
 
            print *, "Hello World"
      - The print statement with * (default format) outputs to stdout.
+   * - CSharpPrint
+     - .. code-block:: csharp
+
+           Console.WriteLine("Hello, World!");
+     - Outputs text to the console with a trailing newline.
 
 
 
@@ -2581,302 +2977,11 @@ Parameters:
 
            use math_mod
      - The 'use' statement imports a module's public variables and procedures.
+   * - CSharpImport
+     - .. code-block:: csharp
 
-
-
-SwitchCase
-----------
-
-
-:description: Multi-way branch based on the value of an expression.
-
-
-Parameters:
-
-* expression: String
-
-* syntax: String
-
-* notes: String
-
-
-
-.. list-table:: SwitchCase Comparison
-   :widths: auto
-   :header-rows: 1
-
-   * - Language
-     - Syntax
-     - Notes
-   * - CSwitchCase
-     - .. code-block:: c
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C switch statement with case labels and default.
-   * - JavaSwitchCase
-     - .. code-block:: java
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Identical to C; modern Java also supports switch expressions.
-   * - RustSwitchCase
-     - .. code-block:: rust
-
-           match x {
-               1 => 1,
-               2 => 2,
-               _ => 0,
-           }
-     - Rust uses 'match' for pattern matching, which is exhaustive.
-   * - PythonSwitchCase
-     - .. code-block:: python
-
-           match x:
-               case 1:
-                   return 1
-               case 2:
-                   return 2
-               case _:
-                   return 0
-     - Introduced in Python 3.10 as structural pattern matching.
-   * - PhpSwitchCase
-     - .. code-block:: php
-
-           switch ($x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-like switch statement; match expression is also available in PHP 8.0+.
-   * - BashSwitchCase
-     - .. code-block:: bash
-
-           case $x in
-               1)
-                   echo "one"
-                   ;;
-               2)
-                   echo "two"
-                   ;;
-               *)
-                   echo "none"
-                   ;;
-           esac
-     - Uses case-in-esac structure; patterns end with ) and blocks end with ;;.
-   * - PowerShellSwitchCase
-     - .. code-block:: powershell
-
-           switch ($x) {
-               1 { "one" }
-               2 { "two" }
-               default { "none" }
-           }
-     - Versatile switch statement that supports multiple types and patterns.
-   * - CmdSwitchCase
-     - .. code-block:: doscon
-
-           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
-     - Cmd does not have a native switch; it is typically simulated with if/else or goto.
-   * - SqlSwitchCase
-     - .. code-block:: sql
-
-           CASE @x
-               WHEN 1 THEN 'one'
-               WHEN 2 THEN 'two'
-               ELSE 'none'
-           END
-     - The CASE expression is used for conditional logic in SQL.
-   * - ErlangSwitchCase
-     - .. code-block:: erlang
-
-           case X of
-               1 -> one;
-               2 -> two;
-               _ -> none
-           end
-     - Uses 'case' for pattern matching; _ is the catch-all pattern.
-   * - LispSwitchCase
-     - .. code-block:: common-lisp
-
-           (case x
-             (1 "one")
-             (2 "two")
-             (t "none"))
-     - Standard 'case' macro; 't' or 'otherwise' is the default branch.
-   * - XQuerySwitchCase
-     - .. code-block:: xquery
-
-           switch ($x)
-             case 1 return "one"
-             case 2 return "two"
-             default return "none"
-     - The 'switch' expression was introduced in XQuery 3.0.
-   * - CssSwitchCase
-     - N/A
-     - CSS does not support switch/case logic.
-   * - CudaSwitchCase
-     - .. code-block:: cpp
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-like switch statement.
-   * - X86SwitchCase
-     - .. code-block:: nasm
-
-               cmp eax, 1
-               je .case1
-               cmp eax, 2
-               je .case2
-               jmp .default
-           .case1:
-               ; ...
-           .case2:
-               ; ...
-           .default:
-               ; ...
-     - Implemented using a series of comparison and jump instructions.
-   * - RiscvSwitchCase
-     - .. code-block:: asm
-
-               li t1, 1
-               beq t0, t1, .case1
-               li t1, 2
-               beq t0, t1, .case2
-               j .default
-     - Typically implemented using comparison and branch instructions.
-   * - PrologSwitchCase
-     - .. code-block:: prolog
-
-           (   X = 1 -> writeln('one')
-           ;   X = 2 -> writeln('two')
-           ;   writeln('none')
-           )
-     - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
-   * - JavaBytecodeSwitchCase
-     - .. code-block:: jasmin
-
-               getstatic MyClass/x I
-               lookupswitch
-                   1: Label1
-                   2: Label2
-                   default: LabelDefault
-           Label1:
-               ; ...
-           Label2:
-               ; ...
-           LabelDefault:
-               ; ...
-     - Uses lookupswitch or tableswitch instructions for multi-way branching.
-   * - CamelSwitchCase
-     - .. code-block:: ocaml
-
-           match x with
-           | 1 -> 1
-           | 2 -> 2
-           | _ -> 0
-     - Structural pattern matching using the match expression.
-   * - ArmAarch64SwitchCase
-     - .. code-block:: asm
-
-               cmp x0, #1
-               beq .case1
-               cmp x0, #2
-               beq .case2
-               b .default
-     - Implemented using comparison and branch instructions.
-   * - GoSwitchCase
-     - .. code-block:: go
-
-           switch x {
-           case 1:
-               return 1
-           case 2:
-               return 2
-           default:
-               return 0
-           }
-     - Switch cases do not fall through by default in Go.
-   * - HaskellSwitchCase
-     - .. code-block:: haskell
-
-           case x of
-               1 -> 1
-               2 -> 2
-               _ -> 0
-     - Uses pattern matching in a case expression.
-   * - TypeScriptSwitchCase
-     - .. code-block:: typescript
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-style switch statement.
-   * - TclSwitchCase
-     - .. code-block:: tcl
-
-           switch $x {
-               1 {
-                   return 1
-               }
-               2 {
-                   return 2
-               }
-               default {
-                   return 0
-               }
-           }
-     - The switch command provides multi-way branching.
-   * - CobolSwitchCase
-     - .. code-block:: cobol
-
-           EVALUATE X
-               WHEN 1
-                   DISPLAY 'One'
-               WHEN 2
-                   DISPLAY 'Two'
-               WHEN OTHER
-                   DISPLAY 'Other'
-           END-EVALUATE.
-     - The EVALUATE statement is used for multi-way branching.
-   * - FortranSwitchCase
-     - .. code-block:: fortran
-
-           select case (x)
-           case (1)
-               res = 1
-           case (2)
-               res = 2
-           case default
-               res = 0
-           end select
-     - The select case construct is used for branching based on values.
+           using System.Collections.Generic;
+     - The 'using' directive imports namespaces.
 
 
 
@@ -3038,6 +3143,11 @@ Parameters:
 
            integer, parameter :: MAX = 100
      - The 'parameter' attribute makes the variable a named constant.
+   * - CSharpConstant
+     - .. code-block:: csharp
+
+           const int Max = 100;
+     - The 'const' keyword defines a compile-time constant.
 
 
 
@@ -3190,6 +3300,11 @@ Parameters:
      - Adds the value of A to B and stores it in B.
    * - FortranAddition
      - .. code-block:: fortran
+
+           a + b
+     - Standard arithmetic operator.
+   * - CSharpAddition
+     - .. code-block:: csharp
 
            a + b
      - Standard arithmetic operator.
@@ -3348,6 +3463,11 @@ Parameters:
 
            a - b
      - Standard arithmetic operator.
+   * - CSharpSubtraction
+     - .. code-block:: csharp
+
+           a - b
+     - Standard arithmetic operator.
 
 
 
@@ -3500,6 +3620,11 @@ Parameters:
      - Multiplies A and B and stores the result in B.
    * - FortranMultiplication
      - .. code-block:: fortran
+
+           a * b
+     - Standard arithmetic operator.
+   * - CSharpMultiplication
+     - .. code-block:: csharp
 
            a * b
      - Standard arithmetic operator.
@@ -3658,6 +3783,11 @@ Parameters:
 
            a / b
      - Standard arithmetic operator.
+   * - CSharpDivision
+     - .. code-block:: csharp
+
+           a / b
+     - Standard arithmetic operator.
 
 
 
@@ -3809,6 +3939,11 @@ Parameters:
 
            mod(a, b)
      - Built-in function for remainder.
+   * - CSharpRemainder
+     - .. code-block:: csharp
+
+           a % b
+     - Standard arithmetic operator.
 
 
 
@@ -3952,6 +4087,11 @@ Parameters:
 
            floor(a)
      - Built-in function for the floor of a real number.
+   * - CSharpFloor
+     - .. code-block:: csharp
+
+           Math.Floor(a)
+     - Uses the System.Math class.
 
 
 
@@ -4097,6 +4237,11 @@ Parameters:
 
            nint(a)
      - Built-in function for the nearest integer.
+   * - CSharpRounding
+     - .. code-block:: csharp
+
+           Math.Round(a)
+     - Uses the System.Math class.
 
 
 
@@ -4252,6 +4397,11 @@ Parameters:
 
            a = a + 1
      - No native increment operator; uses assignment.
+   * - CSharpIncrement
+     - .. code-block:: csharp
+
+           a++
+     - Standard increment operator.
 
 
 
@@ -4407,6 +4557,11 @@ Parameters:
 
            a = a - 1
      - No native decrement operator; uses assignment.
+   * - CSharpDecrement
+     - .. code-block:: csharp
+
+           a--
+     - Standard decrement operator.
 
 
 
@@ -4554,6 +4709,11 @@ Parameters:
 
            ishft(a, b)
      - The ishft function performs a logical shift.
+   * - CSharpLeftShift
+     - .. code-block:: csharp
+
+           a << b
+     - Standard bitwise shift operator.
 
 
 
@@ -4701,6 +4861,11 @@ Parameters:
 
            ishft(a, -b)
      - Negative shift counts in ishft perform a right shift.
+   * - CSharpRightShift
+     - .. code-block:: csharp
+
+           a >> b
+     - Standard bitwise shift operator.
 
 
 
@@ -4850,6 +5015,11 @@ Parameters:
 
            iand(a, b)
      - Built-in function for bitwise AND.
+   * - CSharpBitAnd
+     - .. code-block:: csharp
+
+           a & b
+     - Standard bitwise operator.
 
 
 
@@ -4999,6 +5169,11 @@ Parameters:
 
            ior(a, b)
      - Built-in function for bitwise OR.
+   * - CSharpBitOr
+     - .. code-block:: csharp
+
+           a | b
+     - Standard bitwise operator.
 
 
 
@@ -5148,6 +5323,11 @@ Parameters:
 
            ieor(a, b)
      - Built-in function for bitwise XOR.
+   * - CSharpBitXor
+     - .. code-block:: csharp
+
+           a ^ b
+     - Standard bitwise operator.
 
 
 
@@ -5298,6 +5478,11 @@ Parameters:
 
            not(a)
      - Built-in function for bitwise NOT.
+   * - CSharpBitNot
+     - .. code-block:: csharp
+
+           ~a
+     - Standard bitwise operator.
 
 
 
@@ -5454,6 +5639,11 @@ Parameters:
 
            c = a * b
      - Fortran supports element-wise operations on arrays natively.
+   * - CSharpFloat4VectorMultiplication
+     - .. code-block:: csharp
+
+           c = a * b;
+     - System.Numerics.Vector4 supports overloaded operators for element-wise multiplication.
 
 
 
@@ -5617,6 +5807,11 @@ Parameters:
 
            res = dot_product(a, b)
      - The dot_product intrinsic function calculates the dot product of two vectors.
+   * - CSharpFloat4VectorDotProduct
+     - .. code-block:: csharp
+
+           float dot = Vector4.Dot(a, b);
+     - System.Numerics.Vector4.Dot provides the scalar product.
 
 
 
@@ -5838,3 +6033,8 @@ Parameters:
                 a(3)*b(1) - a(1)*b(3), &
                 a(1)*b(2) - a(2)*b(1), 0.0]
      - Calculated component-wise using an array constructor.
+   * - CSharpFloat4VectorCrossProduct
+     - .. code-block:: csharp
+
+           var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
+     - Cross product is defined for 3D vectors in System.Numerics.Vector3.

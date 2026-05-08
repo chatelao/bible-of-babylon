@@ -32,6 +32,7 @@ Programming Languages
      - Haskell
      - TypeScript
      - Tcl
+     - CSharp
      
    * - VariableDeclaration
      - .. code-block:: c
@@ -106,6 +107,9 @@ Programming Languages
      - .. code-block:: tcl
 
            set x 42
+     - .. code-block:: csharp
+
+           int x = 42;
    * - ProcedureDefinition
      - .. code-block:: c
 
@@ -233,6 +237,11 @@ Programming Languages
            proc logMessage {msg} {
                puts $msg
            }
+     - .. code-block:: csharp
+
+           public void LogMessage(string msg) {
+               Console.WriteLine(msg);
+           }
    * - FunctionDefinition
      - .. code-block:: c
 
@@ -349,6 +358,11 @@ Programming Languages
 
            proc add {a b} {
                return [expr {$a + $b}]
+           }
+     - .. code-block:: csharp
+
+           public int Add(int a, int b) {
+               return a + b;
            }
    * - IfElse
      - .. code-block:: c
@@ -493,914 +507,13 @@ Programming Languages
            } else {
                return 0
            }
-   * - Loop
-     - .. code-block:: c
+     - .. code-block:: csharp
 
-           while (x > 0) {
-               x = x - 1;
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
            }
-     - .. code-block:: java
-
-           while (x > 0) {
-               x = x - 1;
-           }
-     - .. code-block:: rust
-
-           while x > 0 {
-               x -= 1;
-           }
-     - .. code-block:: python
-
-           while x > 0: x = x - 1
-     - .. code-block:: php
-
-           while ($x > 0) {
-               $x = $x - 1;
-           }
-     - .. code-block:: bash
-
-           while [ $x -gt 0 ]; do
-               x=$((x-1))
-           done
-     - .. code-block:: powershell
-
-           while ($x -gt 0) {
-               $x = $x - 1
-           }
-     - .. code-block:: doscon
-
-           :loop
-           if %x% GTR 0 (set /a x=x-1 & goto loop)
-     - .. code-block:: sql
-
-           WHILE @x > 0
-           BEGIN
-               SET @x = @x - 1
-           END
-     - .. code-block:: erlang
-
-           loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).
-     - .. code-block:: common-lisp
-
-           (loop while (> x 0) do (setq x (1- x)))
-     - .. code-block:: xquery
-
-           for $i in 1 to $x return $i
-     - N/A
-     - .. code-block:: cpp
-
-           while (x > 0) {
-               x = x - 1;
-           }
-     - .. code-block:: nasm
-
-           .loop:
-               cmp ecx, 0
-               jle .end
-               dec ecx
-               jmp .loop
-           .end:
-     - .. code-block:: asm
-
-           .loop:
-               blez t0, .end
-               addi t0, t0, -1
-               j .loop
-           .end:
-     - .. code-block:: asm
-
-           .loop:
-               cmp x0, #0
-               ble .end
-               sub x0, x0, #1
-               b .loop
-           .end:
-     - .. code-block:: prolog
-
-           loop(0) :- !.
-           loop(X) :- X > 0, X1 is X - 1, loop(X1).
-     - .. code-block:: jasmin
-
-           LoopStart:
-               getstatic MyClass/x I
-               ifle LoopEnd
-               getstatic MyClass/x I
-               iconst_1
-               isub
-               putstatic MyClass/x I
-               goto LoopStart
-           LoopEnd:
-     - .. code-block:: ocaml
-
-           while !x > 0 do
-               x := !x - 1
-           done
-     - .. code-block:: go
-
-           for x > 0 {
-               x = x - 1
-           }
-     - .. code-block:: haskell
-
-           loop x = if x > 0 then loop (x - 1) else return ()
-     - .. code-block:: typescript
-
-           while (x > 0) {
-               x = x - 1;
-           }
-     - .. code-block:: tcl
-
-           while {$x > 0} {
-               set x [expr {$x - 1}]
-           }
-   * - ForLoop
-     - .. code-block:: c
-
-           for (int i = 0; i < 10; i++) {
-               // body
-           }
-     - .. code-block:: java
-
-           for (int i = 0; i < 10; i++) {
-               // body
-           }
-     - .. code-block:: rust
-
-           for i in 0..10 {
-               // body
-           }
-     - .. code-block:: python
-
-           for i in range(10):
-               # body
-     - .. code-block:: php
-
-           for ($i = 0; $i < 10; $i++) {
-               // body
-           }
-     - .. code-block:: bash
-
-           for i in {0..9}; do
-               # body
-           done
-     - .. code-block:: powershell
-
-           for ($i = 0; $i -lt 10; $i++) {
-               # body
-           }
-     - .. code-block:: doscon
-
-           for /L %%i in (0,1,9) do (
-               rem body
-           )
-     - .. code-block:: sql
-
-           DECLARE @i INT = 0;
-           WHILE @i < 10
-           BEGIN
-               -- body
-               SET @i = @i + 1;
-           END
-     - .. code-block:: erlang
-
-           lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
-     - .. code-block:: common-lisp
-
-           (loop for i from 0 to 9 do
-               #| body |#)
-     - .. code-block:: xquery
-
-           for $i in 1 to 10
-           return $i
-     - N/A
-     - .. code-block:: cpp
-
-           for (int i = 0; i < 10; i++) {
-               // body
-           }
-     - .. code-block:: nasm
-
-               mov ecx, 10
-           .loop:
-               ; body
-               loop .loop
-     - .. code-block:: asm
-
-               li t0, 0
-               li t1, 10
-           .loop:
-               bge t0, t1, .end
-               ; body
-               addi t0, t0, 1
-               j .loop
-           .end:
-     - .. code-block:: asm
-
-               mov x0, #0
-           .loop:
-               cmp x0, #10
-               b.ge .end
-               ; body
-               add x0, x0, #1
-               b .loop
-           .end:
-     - .. code-block:: prolog
-
-           forall(between(0, 9, I), do_something(I)).
-     - .. code-block:: jasmin
-
-               iconst_0
-               istore_1 ; i = 0
-           LoopStart:
-               iload_1
-               bipush 10
-               if_icmpge LoopEnd
-               ; body
-               iinc 1 1 ; i++
-               goto LoopStart
-           LoopEnd:
-     - .. code-block:: ocaml
-
-           for i = 0 to 9 do
-               (* body *)
-           done
-     - .. code-block:: go
-
-           for i := 0; i < 10; i++ {
-               // body
-           }
-     - .. code-block:: haskell
-
-           mapM_ (\i -> return ()) [0..9]
-     - .. code-block:: typescript
-
-           for (let i = 0; i < 10; i++) {
-               // body
-           }
-     - .. code-block:: tcl
-
-           for {set i 0} {$i < 10} {incr i} {
-               # body
-           }
-   * - TryCatch
-     - N/A
-     - .. code-block:: java
-
-           try {
-               do_something();
-           } catch (Exception e) {
-               handle(e);
-           }
-     - .. code-block:: rust
-
-           match do_something() {
-               Ok(v) => v,
-               Err(e) => handle(e)
-           }
-     - .. code-block:: python
-
-           try:
-               do_something()
-           except Exception as e:
-               handle(e)
-     - .. code-block:: php
-
-           try {
-               do_something();
-           } catch (Exception $e) {
-               handle($e);
-           }
-     - .. code-block:: bash
-
-           do_something || handle_error
-     - .. code-block:: powershell
-
-           try {
-               do_something
-           } catch {
-               handle_error($_)
-           }
-     - .. code-block:: doscon
-
-           do_something || call :handle_error
-     - .. code-block:: sql
-
-           BEGIN TRY
-               EXEC do_something;
-           END TRY
-           BEGIN CATCH
-               EXEC handle_error;
-           END CATCH
-     - .. code-block:: erlang
-
-           try
-               do_something()
-           catch
-               error:Reason -> handle(Reason)
-           end
-     - .. code-block:: common-lisp
-
-           (handler-case (do_something) (error (c) (handle c)))
-     - .. code-block:: xquery
-
-           try {
-               do_something()
-           } catch * {
-               handle($err)
-           }
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: prolog
-
-           catch(do_something, E, handle(E))
-     - .. code-block:: jasmin
-
-           .catch java/lang/Exception from TryStart to TryEnd using CatchHandler
-           TryStart:
-               invokestatic MyClass/do_something()V
-           TryEnd:
-               goto Done
-           CatchHandler:
-               astore_1
-               aload_1
-               invokestatic MyClass/handle(Ljava/lang/Exception;)V
-           Done:
-     - .. code-block:: ocaml
-
-           try do_something () with e -> handle e
-     - .. code-block:: go
-
-           if err := do_something(); err != nil {
-               handle(err)
-           }
-     - .. code-block:: haskell
-
-           do_something `catch` \(e :: SomeException) -> handle e
-     - .. code-block:: typescript
-
-           try {
-               do_something();
-           } catch (e) {
-               handle(e);
-           }
-     - .. code-block:: tcl
-
-           try {
-               do_something
-           } on error {e} {
-               handle $e
-           }
-   * - Raise
-     - .. code-block:: c
-
-           exit(1);
-     - .. code-block:: java
-
-           throw new RuntimeException("Error");
-     - .. code-block:: rust
-
-           panic!("Error");
-     - .. code-block:: python
-
-           raise Exception("Error")
-     - .. code-block:: php
-
-           throw new Exception("Error");
-     - .. code-block:: bash
-
-           exit 1
-     - .. code-block:: powershell
-
-           throw "Error"
-     - .. code-block:: doscon
-
-           exit /b 1
-     - .. code-block:: sql
-
-           THROW 50000, 'Error', 1;
-     - .. code-block:: erlang
-
-           error("Error")
-     - .. code-block:: common-lisp
-
-           (error "Error")
-     - .. code-block:: xquery
-
-           fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
-     - N/A
-     - N/A
-     - .. code-block:: nasm
-
-               int 3
-     - .. code-block:: asm
-
-               ebreak
-     - .. code-block:: asm
-
-               brk #0
-     - .. code-block:: prolog
-
-           throw(error(Error))
-     - .. code-block:: jasmin
-
-               new java/lang/RuntimeException
-               dup
-               ldc "Error"
-               invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V
-               athrow
-     - .. code-block:: ocaml
-
-           raise (Failure "Error")
-     - .. code-block:: go
-
-           panic("Error")
-     - .. code-block:: haskell
-
-           error "Error"
-     - .. code-block:: typescript
-
-           throw new Error("Error");
-     - .. code-block:: tcl
-
-           error "Error"
-   * - Thread
-     - N/A
-     - .. code-block:: java
-
-           new Thread(() -> { do_work(); }).start();
-     - .. code-block:: rust
-
-           thread::spawn(|| { do_work(); });
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: erlang
-
-           Pid = spawn(fun() -> do_work() end).
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: cpp
-
-           kernel<<<grid, block>>>();
-     - .. code-block:: nasm
-
-               push offset do_work
-               call CreateThread
-     - .. code-block:: asm
-
-               li a7, 220 # clone syscall
-               ecall
-     - .. code-block:: asm
-
-               mov x8, #220 // clone syscall
-               svc #0
-     - .. code-block:: prolog
-
-           thread_create(do_work, Id, []).
-     - .. code-block:: jasmin
-
-               new java/lang/Thread
-               dup
-               new MyRunnable
-               dup
-               invokespecial MyRunnable/<init>()V
-               invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V
-               invokevirtual java/lang/Thread/start()V
-     - .. code-block:: ocaml
-
-           Thread.create do_work ()
-     - .. code-block:: go
-
-           go do_work()
-     - .. code-block:: haskell
-
-           forkIO (do_work)
-     - .. code-block:: typescript
-
-           new Worker('worker.js');
-     - .. code-block:: tcl
-
-           thread::create { do_work }
-   * - SendMessage
-     - N/A
-     - .. code-block:: java
-
-           queue.put(42);
-     - .. code-block:: rust
-
-           tx.send(42).unwrap();
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: erlang
-
-           Pid ! hello.
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: nasm
-
-               push msg
-               push thread_id
-               call PostThreadMessage
-     - .. code-block:: asm
-
-               li a7, 139 # rt_sigqueueinfo
-               ecall
-     - .. code-block:: asm
-
-               mov x8, #139 // rt_sigqueueinfo
-               svc #0
-     - .. code-block:: prolog
-
-           thread_send_message(Id, hello).
-     - .. code-block:: jasmin
-
-               aload_0 ; queue
-               bipush 42
-               invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
-               invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
-     - .. code-block:: ocaml
-
-           Event.sync (Event.send ch 42)
-     - .. code-block:: go
-
-           ch <- 42
-     - .. code-block:: haskell
-
-           writeChan chan 42
-     - .. code-block:: typescript
-
-           worker.postMessage(42);
-     - .. code-block:: tcl
-
-           thread::send $id $msg
-   * - ReceiveMessage
-     - N/A
-     - .. code-block:: java
-
-           int msg = queue.take(); handle(msg);
-     - .. code-block:: rust
-
-           let msg = rx.recv().unwrap(); handle(msg);
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: erlang
-
-           receive hello -> handle_hello() end.
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: nasm
-
-               call GetMessage
-     - .. code-block:: asm
-
-               li a7, 128 # rt_sigtimedwait
-               ecall
-     - .. code-block:: asm
-
-               mov x8, #128 // rt_sigtimedwait
-               svc #0
-     - .. code-block:: prolog
-
-           thread_get_message(hello).
-     - .. code-block:: jasmin
-
-               aload_0 ; queue
-               invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
-               checkcast java/lang/Integer
-               invokevirtual java/lang/Integer/intValue()I
-               istore_1 ; msg
-               iload_1
-               invokestatic MyClass/handle(I)V
-     - .. code-block:: ocaml
-
-           let msg = Event.sync (Event.receive ch) in handle msg
-     - .. code-block:: go
-
-           msg := <-ch
-           handle(msg)
-     - .. code-block:: haskell
-
-           msg <- readChan chan
-           handle msg
-     - .. code-block:: typescript
-
-           worker.onmessage = (e) => { handle(e.data); };
-     - .. code-block:: tcl
-
-           vwait msg; handle $msg
-   * - SingleLineComment
-     - .. code-block:: c
-
-           // comment
-     - .. code-block:: java
-
-           // comment
-     - .. code-block:: rust
-
-           // comment
-     - .. code-block:: python
-
-           # comment
-     - .. code-block:: php
-
-           // comment
-     - .. code-block:: bash
-
-           # comment
-     - .. code-block:: powershell
-
-           # comment
-     - .. code-block:: doscon
-
-           REM comment
-     - .. code-block:: sql
-
-           -- comment
-     - .. code-block:: erlang
-
-           % comment
-     - .. code-block:: common-lisp
-
-           ; comment
-     - .. code-block:: xquery
-
-           (: comment :)
-     - N/A
-     - .. code-block:: cpp
-
-           // comment
-     - .. code-block:: nasm
-
-           ; comment
-     - .. code-block:: asm
-
-           # comment
-     - .. code-block:: asm
-
-           // comment
-     - .. code-block:: prolog
-
-           % comment
-     - .. code-block:: jasmin
-
-           ; comment
-     - .. code-block:: ocaml
-
-           (* comment *)
-     - .. code-block:: go
-
-           // comment
-     - .. code-block:: haskell
-
-           -- comment
-     - .. code-block:: typescript
-
-           // comment
-     - .. code-block:: tcl
-
-           # comment
-   * - MultiLineComment
-     - .. code-block:: c
-
-           /* line 1
-              line 2 */
-     - .. code-block:: java
-
-           /* line 1
-              line 2 */
-     - .. code-block:: rust
-
-           /* line 1
-              line 2 */
-     - .. code-block:: python
-
-           """ line 1
-               line 2 """
-     - .. code-block:: php
-
-           /* line 1
-              line 2 */
-     - N/A
-     - .. code-block:: powershell
-
-           <# line 1
-              line 2 #>
-     - N/A
-     - .. code-block:: sql
-
-           /* line 1
-              line 2 */
-     - N/A
-     - .. code-block:: common-lisp
-
-           #| line 1
-              line 2 |#
-     - .. code-block:: xquery
-
-           (: line 1
-              line 2 :)
-     - .. code-block:: css
-
-           /* line 1
-              line 2 */
-     - .. code-block:: cpp
-
-           /* line 1
-              line 2 */
-     - N/A
-     - N/A
-     - N/A
-     - .. code-block:: prolog
-
-           /* line 1
-              line 2 */
-     - N/A
-     - .. code-block:: ocaml
-
-           (* line 1
-              line 2 *)
-     - .. code-block:: go
-
-           /* line 1
-              line 2 */
-     - .. code-block:: haskell
-
-           {- line 1
-              line 2 -}
-     - .. code-block:: typescript
-
-           /* line 1
-              line 2 */
-     - N/A
-   * - Print
-     - .. code-block:: c
-
-           printf("Hello, World!\n");
-     - .. code-block:: java
-
-           System.out.println("Hello, World!");
-     - .. code-block:: rust
-
-           println!("Hello, World!");
-     - .. code-block:: python
-
-           print("Hello, World!")
-     - .. code-block:: php
-
-           echo "Hello, World!";
-     - .. code-block:: bash
-
-           echo "Hello, World!"
-     - .. code-block:: powershell
-
-           Write-Host "Hello, World!"
-     - .. code-block:: doscon
-
-           echo Hello, World!
-     - .. code-block:: sql
-
-           PRINT 'Hello, World!';
-     - .. code-block:: erlang
-
-           io:format("Hello, World!~n").
-     - .. code-block:: common-lisp
-
-           (format t "Hello, World!~%")
-     - .. code-block:: xquery
-
-           "Hello, World!"
-     - .. code-block:: css
-
-           .element::before { content: "Hello, World!"; }
-     - .. code-block:: cpp
-
-           printf("Hello, World!\n");
-     - .. code-block:: nasm
-
-           push offset hello_msg
-           call printf
-     - .. code-block:: asm
-
-               la a0, hello_msg
-               call printf
-     - .. code-block:: asm
-
-               adrp x0, hello_msg
-               add x0, x0, :lo12:hello_msg
-               bl printf
-     - .. code-block:: prolog
-
-           writeln('Hello, World!').
-     - .. code-block:: jasmin
-
-               getstatic java/lang/System/out Ljava/io/PrintStream;
-               ldc "Hello, World!"
-               invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-     - .. code-block:: ocaml
-
-           print_endline "Hello, World!"
-     - .. code-block:: go
-
-           fmt.Println("Hello, World!")
-     - .. code-block:: haskell
-
-           putStrLn "Hello, World!"
-     - .. code-block:: typescript
-
-           console.log("Hello, World!");
-     - .. code-block:: tcl
-
-           puts "Hello, World!"
-   * - Import
-     - .. code-block:: c
-
-           #include <stdio.h>
-     - .. code-block:: java
-
-           import java.util.List;
-     - .. code-block:: rust
-
-           use std::collections::HashMap;
-     - .. code-block:: python
-
-           import math
-     - .. code-block:: php
-
-           require 'utils.php';
-     - .. code-block:: bash
-
-           source utils.sh
-     - .. code-block:: powershell
-
-           Import-Module ActiveDirectory
-     - .. code-block:: doscon
-
-           call other.cmd
-     - N/A
-     - .. code-block:: erlang
-
-           -include("header.hrl").
-     - .. code-block:: common-lisp
-
-           (use-package :iter)
-     - .. code-block:: xquery
-
-           import module namespace utils = "http://example.com/utils";
-     - .. code-block:: css
-
-           @import "base.css";
-     - .. code-block:: cpp
-
-           #include <cuda_runtime.h>
-     - .. code-block:: nasm
-
-           include 'macros.inc'
-     - .. code-block:: asm
-
-           .include "macros.s"
-     - .. code-block:: asm
-
-           .include "macros.s"
-     - .. code-block:: prolog
-
-           use_module(library(math)).
-     - .. code-block:: jasmin
-
-           Ljava/util/List;
-     - .. code-block:: ocaml
-
-           open List
-     - .. code-block:: go
-
-           import "fmt"
-     - .. code-block:: haskell
-
-           import Data.List
-     - .. code-block:: typescript
-
-           import { add } from './math';
-     - .. code-block:: tcl
-
-           package require Tcl
    * - SwitchCase
      - .. code-block:: c
 
@@ -1599,6 +712,967 @@ Programming Languages
                    return 0
                }
            }
+     - .. code-block:: csharp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+   * - Loop
+     - .. code-block:: c
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - .. code-block:: java
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - .. code-block:: rust
+
+           while x > 0 {
+               x -= 1;
+           }
+     - .. code-block:: python
+
+           while x > 0: x = x - 1
+     - .. code-block:: php
+
+           while ($x > 0) {
+               $x = $x - 1;
+           }
+     - .. code-block:: bash
+
+           while [ $x -gt 0 ]; do
+               x=$((x-1))
+           done
+     - .. code-block:: powershell
+
+           while ($x -gt 0) {
+               $x = $x - 1
+           }
+     - .. code-block:: doscon
+
+           :loop
+           if %x% GTR 0 (set /a x=x-1 & goto loop)
+     - .. code-block:: sql
+
+           WHILE @x > 0
+           BEGIN
+               SET @x = @x - 1
+           END
+     - .. code-block:: erlang
+
+           loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).
+     - .. code-block:: common-lisp
+
+           (loop while (> x 0) do (setq x (1- x)))
+     - .. code-block:: xquery
+
+           for $i in 1 to $x return $i
+     - N/A
+     - .. code-block:: cpp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - .. code-block:: nasm
+
+           .loop:
+               cmp ecx, 0
+               jle .end
+               dec ecx
+               jmp .loop
+           .end:
+     - .. code-block:: asm
+
+           .loop:
+               blez t0, .end
+               addi t0, t0, -1
+               j .loop
+           .end:
+     - .. code-block:: asm
+
+           .loop:
+               cmp x0, #0
+               ble .end
+               sub x0, x0, #1
+               b .loop
+           .end:
+     - .. code-block:: prolog
+
+           loop(0) :- !.
+           loop(X) :- X > 0, X1 is X - 1, loop(X1).
+     - .. code-block:: jasmin
+
+           LoopStart:
+               getstatic MyClass/x I
+               ifle LoopEnd
+               getstatic MyClass/x I
+               iconst_1
+               isub
+               putstatic MyClass/x I
+               goto LoopStart
+           LoopEnd:
+     - .. code-block:: ocaml
+
+           while !x > 0 do
+               x := !x - 1
+           done
+     - .. code-block:: go
+
+           for x > 0 {
+               x = x - 1
+           }
+     - .. code-block:: haskell
+
+           loop x = if x > 0 then loop (x - 1) else return ()
+     - .. code-block:: typescript
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - .. code-block:: tcl
+
+           while {$x > 0} {
+               set x [expr {$x - 1}]
+           }
+     - .. code-block:: csharp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+   * - ForLoop
+     - .. code-block:: c
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - .. code-block:: java
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - .. code-block:: rust
+
+           for i in 0..10 {
+               // body
+           }
+     - .. code-block:: python
+
+           for i in range(10):
+               # body
+     - .. code-block:: php
+
+           for ($i = 0; $i < 10; $i++) {
+               // body
+           }
+     - .. code-block:: bash
+
+           for i in {0..9}; do
+               # body
+           done
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt 10; $i++) {
+               # body
+           }
+     - .. code-block:: doscon
+
+           for /L %%i in (0,1,9) do (
+               rem body
+           )
+     - .. code-block:: sql
+
+           DECLARE @i INT = 0;
+           WHILE @i < 10
+           BEGIN
+               -- body
+               SET @i = @i + 1;
+           END
+     - .. code-block:: erlang
+
+           lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
+     - .. code-block:: common-lisp
+
+           (loop for i from 0 to 9 do
+               #| body |#)
+     - .. code-block:: xquery
+
+           for $i in 1 to 10
+           return $i
+     - N/A
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - .. code-block:: nasm
+
+               mov ecx, 10
+           .loop:
+               ; body
+               loop .loop
+     - .. code-block:: asm
+
+               li t0, 0
+               li t1, 10
+           .loop:
+               bge t0, t1, .end
+               ; body
+               addi t0, t0, 1
+               j .loop
+           .end:
+     - .. code-block:: asm
+
+               mov x0, #0
+           .loop:
+               cmp x0, #10
+               b.ge .end
+               ; body
+               add x0, x0, #1
+               b .loop
+           .end:
+     - .. code-block:: prolog
+
+           forall(between(0, 9, I), do_something(I)).
+     - .. code-block:: jasmin
+
+               iconst_0
+               istore_1 ; i = 0
+           LoopStart:
+               iload_1
+               bipush 10
+               if_icmpge LoopEnd
+               ; body
+               iinc 1 1 ; i++
+               goto LoopStart
+           LoopEnd:
+     - .. code-block:: ocaml
+
+           for i = 0 to 9 do
+               (* body *)
+           done
+     - .. code-block:: go
+
+           for i := 0; i < 10; i++ {
+               // body
+           }
+     - .. code-block:: haskell
+
+           mapM_ (\i -> return ()) [0..9]
+     - .. code-block:: typescript
+
+           for (let i = 0; i < 10; i++) {
+               // body
+           }
+     - .. code-block:: tcl
+
+           for {set i 0} {$i < 10} {incr i} {
+               # body
+           }
+     - .. code-block:: csharp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+   * - TryCatch
+     - N/A
+     - .. code-block:: java
+
+           try {
+               do_something();
+           } catch (Exception e) {
+               handle(e);
+           }
+     - .. code-block:: rust
+
+           match do_something() {
+               Ok(v) => v,
+               Err(e) => handle(e)
+           }
+     - .. code-block:: python
+
+           try:
+               do_something()
+           except Exception as e:
+               handle(e)
+     - .. code-block:: php
+
+           try {
+               do_something();
+           } catch (Exception $e) {
+               handle($e);
+           }
+     - .. code-block:: bash
+
+           do_something || handle_error
+     - .. code-block:: powershell
+
+           try {
+               do_something
+           } catch {
+               handle_error($_)
+           }
+     - .. code-block:: doscon
+
+           do_something || call :handle_error
+     - .. code-block:: sql
+
+           BEGIN TRY
+               EXEC do_something;
+           END TRY
+           BEGIN CATCH
+               EXEC handle_error;
+           END CATCH
+     - .. code-block:: erlang
+
+           try
+               do_something()
+           catch
+               error:Reason -> handle(Reason)
+           end
+     - .. code-block:: common-lisp
+
+           (handler-case (do_something) (error (c) (handle c)))
+     - .. code-block:: xquery
+
+           try {
+               do_something()
+           } catch * {
+               handle($err)
+           }
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: prolog
+
+           catch(do_something, E, handle(E))
+     - .. code-block:: jasmin
+
+           .catch java/lang/Exception from TryStart to TryEnd using CatchHandler
+           TryStart:
+               invokestatic MyClass/do_something()V
+           TryEnd:
+               goto Done
+           CatchHandler:
+               astore_1
+               aload_1
+               invokestatic MyClass/handle(Ljava/lang/Exception;)V
+           Done:
+     - .. code-block:: ocaml
+
+           try do_something () with e -> handle e
+     - .. code-block:: go
+
+           if err := do_something(); err != nil {
+               handle(err)
+           }
+     - .. code-block:: haskell
+
+           do_something `catch` \(e :: SomeException) -> handle e
+     - .. code-block:: typescript
+
+           try {
+               do_something();
+           } catch (e) {
+               handle(e);
+           }
+     - .. code-block:: tcl
+
+           try {
+               do_something
+           } on error {e} {
+               handle $e
+           }
+     - .. code-block:: csharp
+
+           try {
+               do_something();
+           } catch (Exception ex) {
+               handle(ex);
+           }
+   * - Raise
+     - .. code-block:: c
+
+           exit(1);
+     - .. code-block:: java
+
+           throw new RuntimeException("Error");
+     - .. code-block:: rust
+
+           panic!("Error");
+     - .. code-block:: python
+
+           raise Exception("Error")
+     - .. code-block:: php
+
+           throw new Exception("Error");
+     - .. code-block:: bash
+
+           exit 1
+     - .. code-block:: powershell
+
+           throw "Error"
+     - .. code-block:: doscon
+
+           exit /b 1
+     - .. code-block:: sql
+
+           THROW 50000, 'Error', 1;
+     - .. code-block:: erlang
+
+           error("Error")
+     - .. code-block:: common-lisp
+
+           (error "Error")
+     - .. code-block:: xquery
+
+           fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
+     - N/A
+     - N/A
+     - .. code-block:: nasm
+
+               int 3
+     - .. code-block:: asm
+
+               ebreak
+     - .. code-block:: asm
+
+               brk #0
+     - .. code-block:: prolog
+
+           throw(error(Error))
+     - .. code-block:: jasmin
+
+               new java/lang/RuntimeException
+               dup
+               ldc "Error"
+               invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V
+               athrow
+     - .. code-block:: ocaml
+
+           raise (Failure "Error")
+     - .. code-block:: go
+
+           panic("Error")
+     - .. code-block:: haskell
+
+           error "Error"
+     - .. code-block:: typescript
+
+           throw new Error("Error");
+     - .. code-block:: tcl
+
+           error "Error"
+     - .. code-block:: csharp
+
+           throw new Exception("Error");
+   * - Thread
+     - N/A
+     - .. code-block:: java
+
+           new Thread(() -> { do_work(); }).start();
+     - .. code-block:: rust
+
+           thread::spawn(|| { do_work(); });
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: erlang
+
+           Pid = spawn(fun() -> do_work() end).
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           kernel<<<grid, block>>>();
+     - .. code-block:: nasm
+
+               push offset do_work
+               call CreateThread
+     - .. code-block:: asm
+
+               li a7, 220 # clone syscall
+               ecall
+     - .. code-block:: asm
+
+               mov x8, #220 // clone syscall
+               svc #0
+     - .. code-block:: prolog
+
+           thread_create(do_work, Id, []).
+     - .. code-block:: jasmin
+
+               new java/lang/Thread
+               dup
+               new MyRunnable
+               dup
+               invokespecial MyRunnable/<init>()V
+               invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V
+               invokevirtual java/lang/Thread/start()V
+     - .. code-block:: ocaml
+
+           Thread.create do_work ()
+     - .. code-block:: go
+
+           go do_work()
+     - .. code-block:: haskell
+
+           forkIO (do_work)
+     - .. code-block:: typescript
+
+           new Worker('worker.js');
+     - .. code-block:: tcl
+
+           thread::create { do_work }
+     - .. code-block:: csharp
+
+           new Thread(() => { do_work(); }).start();
+   * - SendMessage
+     - N/A
+     - .. code-block:: java
+
+           queue.put(42);
+     - .. code-block:: rust
+
+           tx.send(42).unwrap();
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: erlang
+
+           Pid ! hello.
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: nasm
+
+               push msg
+               push thread_id
+               call PostThreadMessage
+     - .. code-block:: asm
+
+               li a7, 139 # rt_sigqueueinfo
+               ecall
+     - .. code-block:: asm
+
+               mov x8, #139 // rt_sigqueueinfo
+               svc #0
+     - .. code-block:: prolog
+
+           thread_send_message(Id, hello).
+     - .. code-block:: jasmin
+
+               aload_0 ; queue
+               bipush 42
+               invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
+               invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
+     - .. code-block:: ocaml
+
+           Event.sync (Event.send ch 42)
+     - .. code-block:: go
+
+           ch <- 42
+     - .. code-block:: haskell
+
+           writeChan chan 42
+     - .. code-block:: typescript
+
+           worker.postMessage(42);
+     - .. code-block:: tcl
+
+           thread::send $id $msg
+     - .. code-block:: csharp
+
+           await channel.Writer.WriteAsync(42);
+   * - ReceiveMessage
+     - N/A
+     - .. code-block:: java
+
+           int msg = queue.take(); handle(msg);
+     - .. code-block:: rust
+
+           let msg = rx.recv().unwrap(); handle(msg);
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: erlang
+
+           receive hello -> handle_hello() end.
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: nasm
+
+               call GetMessage
+     - .. code-block:: asm
+
+               li a7, 128 # rt_sigtimedwait
+               ecall
+     - .. code-block:: asm
+
+               mov x8, #128 // rt_sigtimedwait
+               svc #0
+     - .. code-block:: prolog
+
+           thread_get_message(hello).
+     - .. code-block:: jasmin
+
+               aload_0 ; queue
+               invokevirtual java/util/concurrent/BlockingQueue/take()Ljava/lang/Object;
+               checkcast java/lang/Integer
+               invokevirtual java/lang/Integer/intValue()I
+               istore_1 ; msg
+               iload_1
+               invokestatic MyClass/handle(I)V
+     - .. code-block:: ocaml
+
+           let msg = Event.sync (Event.receive ch) in handle msg
+     - .. code-block:: go
+
+           msg := <-ch
+           handle(msg)
+     - .. code-block:: haskell
+
+           msg <- readChan chan
+           handle msg
+     - .. code-block:: typescript
+
+           worker.onmessage = (e) => { handle(e.data); };
+     - .. code-block:: tcl
+
+           vwait msg; handle $msg
+     - .. code-block:: csharp
+
+           var msg = await channel.Reader.ReadAsync();
+           handle(msg);
+   * - SingleLineComment
+     - .. code-block:: c
+
+           // comment
+     - .. code-block:: java
+
+           // comment
+     - .. code-block:: rust
+
+           // comment
+     - .. code-block:: python
+
+           # comment
+     - .. code-block:: php
+
+           // comment
+     - .. code-block:: bash
+
+           # comment
+     - .. code-block:: powershell
+
+           # comment
+     - .. code-block:: doscon
+
+           REM comment
+     - .. code-block:: sql
+
+           -- comment
+     - .. code-block:: erlang
+
+           % comment
+     - .. code-block:: common-lisp
+
+           ; comment
+     - .. code-block:: xquery
+
+           (: comment :)
+     - N/A
+     - .. code-block:: cpp
+
+           // comment
+     - .. code-block:: nasm
+
+           ; comment
+     - .. code-block:: asm
+
+           # comment
+     - .. code-block:: asm
+
+           // comment
+     - .. code-block:: prolog
+
+           % comment
+     - .. code-block:: jasmin
+
+           ; comment
+     - .. code-block:: ocaml
+
+           (* comment *)
+     - .. code-block:: go
+
+           // comment
+     - .. code-block:: haskell
+
+           -- comment
+     - .. code-block:: typescript
+
+           // comment
+     - .. code-block:: tcl
+
+           # comment
+     - .. code-block:: csharp
+
+           // comment
+   * - MultiLineComment
+     - .. code-block:: c
+
+           /* line 1
+              line 2 */
+     - .. code-block:: java
+
+           /* line 1
+              line 2 */
+     - .. code-block:: rust
+
+           /* line 1
+              line 2 */
+     - .. code-block:: python
+
+           """ line 1
+               line 2 """
+     - .. code-block:: php
+
+           /* line 1
+              line 2 */
+     - N/A
+     - .. code-block:: powershell
+
+           <# line 1
+              line 2 #>
+     - N/A
+     - .. code-block:: sql
+
+           /* line 1
+              line 2 */
+     - N/A
+     - .. code-block:: common-lisp
+
+           #| line 1
+              line 2 |#
+     - .. code-block:: xquery
+
+           (: line 1
+              line 2 :)
+     - .. code-block:: css
+
+           /* line 1
+              line 2 */
+     - .. code-block:: cpp
+
+           /* line 1
+              line 2 */
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: prolog
+
+           /* line 1
+              line 2 */
+     - N/A
+     - .. code-block:: ocaml
+
+           (* line 1
+              line 2 *)
+     - .. code-block:: go
+
+           /* line 1
+              line 2 */
+     - .. code-block:: haskell
+
+           {- line 1
+              line 2 -}
+     - .. code-block:: typescript
+
+           /* line 1
+              line 2 */
+     - N/A
+     - .. code-block:: csharp
+
+           /* line 1
+              line 2 */
+   * - Print
+     - .. code-block:: c
+
+           printf("Hello, World!\n");
+     - .. code-block:: java
+
+           System.out.println("Hello, World!");
+     - .. code-block:: rust
+
+           println!("Hello, World!");
+     - .. code-block:: python
+
+           print("Hello, World!")
+     - .. code-block:: php
+
+           echo "Hello, World!";
+     - .. code-block:: bash
+
+           echo "Hello, World!"
+     - .. code-block:: powershell
+
+           Write-Host "Hello, World!"
+     - .. code-block:: doscon
+
+           echo Hello, World!
+     - .. code-block:: sql
+
+           PRINT 'Hello, World!';
+     - .. code-block:: erlang
+
+           io:format("Hello, World!~n").
+     - .. code-block:: common-lisp
+
+           (format t "Hello, World!~%")
+     - .. code-block:: xquery
+
+           "Hello, World!"
+     - .. code-block:: css
+
+           .element::before { content: "Hello, World!"; }
+     - .. code-block:: cpp
+
+           printf("Hello, World!\n");
+     - .. code-block:: nasm
+
+           push offset hello_msg
+           call printf
+     - .. code-block:: asm
+
+               la a0, hello_msg
+               call printf
+     - .. code-block:: asm
+
+               adrp x0, hello_msg
+               add x0, x0, :lo12:hello_msg
+               bl printf
+     - .. code-block:: prolog
+
+           writeln('Hello, World!').
+     - .. code-block:: jasmin
+
+               getstatic java/lang/System/out Ljava/io/PrintStream;
+               ldc "Hello, World!"
+               invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+     - .. code-block:: ocaml
+
+           print_endline "Hello, World!"
+     - .. code-block:: go
+
+           fmt.Println("Hello, World!")
+     - .. code-block:: haskell
+
+           putStrLn "Hello, World!"
+     - .. code-block:: typescript
+
+           console.log("Hello, World!");
+     - .. code-block:: tcl
+
+           puts "Hello, World!"
+     - .. code-block:: csharp
+
+           Console.WriteLine("Hello, World!");
+   * - Import
+     - .. code-block:: c
+
+           #include <stdio.h>
+     - .. code-block:: java
+
+           import java.util.List;
+     - .. code-block:: rust
+
+           use std::collections::HashMap;
+     - .. code-block:: python
+
+           import math
+     - .. code-block:: php
+
+           require 'utils.php';
+     - .. code-block:: bash
+
+           source utils.sh
+     - .. code-block:: powershell
+
+           Import-Module ActiveDirectory
+     - .. code-block:: doscon
+
+           call other.cmd
+     - N/A
+     - .. code-block:: erlang
+
+           -include("header.hrl").
+     - .. code-block:: common-lisp
+
+           (use-package :iter)
+     - .. code-block:: xquery
+
+           import module namespace utils = "http://example.com/utils";
+     - .. code-block:: css
+
+           @import "base.css";
+     - .. code-block:: cpp
+
+           #include <cuda_runtime.h>
+     - .. code-block:: nasm
+
+           include 'macros.inc'
+     - .. code-block:: asm
+
+           .include "macros.s"
+     - .. code-block:: asm
+
+           .include "macros.s"
+     - .. code-block:: prolog
+
+           use_module(library(math)).
+     - .. code-block:: jasmin
+
+           Ljava/util/List;
+     - .. code-block:: ocaml
+
+           open List
+     - .. code-block:: go
+
+           import "fmt"
+     - .. code-block:: haskell
+
+           import Data.List
+     - .. code-block:: typescript
+
+           import { add } from './math';
+     - .. code-block:: tcl
+
+           package require Tcl
+     - .. code-block:: csharp
+
+           using System.Collections.Generic;
    * - Constant
      - .. code-block:: c
 
@@ -1672,6 +1746,9 @@ Programming Languages
      - .. code-block:: tcl
 
            set MAX 100
+     - .. code-block:: csharp
+
+           const int Max = 100;
    * - Addition
      - .. code-block:: c
 
@@ -1745,6 +1822,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a + $b}]
+     - .. code-block:: csharp
+
+           a + b
    * - Subtraction
      - .. code-block:: c
 
@@ -1818,6 +1898,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a - $b}]
+     - .. code-block:: csharp
+
+           a - b
    * - Multiplication
      - .. code-block:: c
 
@@ -1891,6 +1974,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a * $b}]
+     - .. code-block:: csharp
+
+           a * b
    * - Division
      - .. code-block:: c
 
@@ -1964,6 +2050,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a / $b}]
+     - .. code-block:: csharp
+
+           a / b
    * - Remainder
      - .. code-block:: c
 
@@ -2033,6 +2122,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a % $b}]
+     - .. code-block:: csharp
+
+           a % b
    * - Floor
      - .. code-block:: c
 
@@ -2094,6 +2186,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {floor($a)}]
+     - .. code-block:: csharp
+
+           Math.Floor(a)
    * - Rounding
      - .. code-block:: c
 
@@ -2157,6 +2252,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {round($a)}]
+     - .. code-block:: csharp
+
+           Math.Round(a)
    * - Increment
      - .. code-block:: c
 
@@ -2230,6 +2328,9 @@ Programming Languages
      - .. code-block:: tcl
 
            incr a
+     - .. code-block:: csharp
+
+           a++
    * - Decrement
      - .. code-block:: c
 
@@ -2303,6 +2404,9 @@ Programming Languages
      - .. code-block:: tcl
 
            incr a -1
+     - .. code-block:: csharp
+
+           a--
    * - LeftShift
      - .. code-block:: c
 
@@ -2370,6 +2474,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a << $b}]
+     - .. code-block:: csharp
+
+           a << b
    * - RightShift
      - .. code-block:: c
 
@@ -2437,6 +2544,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a >> $b}]
+     - .. code-block:: csharp
+
+           a >> b
    * - BitAnd
      - .. code-block:: c
 
@@ -2506,6 +2616,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a & $b}]
+     - .. code-block:: csharp
+
+           a & b
    * - BitOr
      - .. code-block:: c
 
@@ -2575,6 +2688,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a | $b}]
+     - .. code-block:: csharp
+
+           a | b
    * - BitXor
      - .. code-block:: c
 
@@ -2644,6 +2760,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a ^ $b}]
+     - .. code-block:: csharp
+
+           a ^ b
    * - BitNot
      - .. code-block:: c
 
@@ -2714,6 +2833,9 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {~$a}]
+     - .. code-block:: csharp
+
+           ~a
    * - Float4VectorMultiplication
      - .. code-block:: c
 
@@ -2786,6 +2908,9 @@ Programming Languages
      - .. code-block:: tcl
 
            foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
+     - .. code-block:: csharp
+
+           c = a * b;
    * - Float4VectorDotProduct
      - .. code-block:: c
 
@@ -2864,6 +2989,9 @@ Programming Languages
 
            set dot 0
            foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
+     - .. code-block:: csharp
+
+           float dot = Vector4.Dot(a, b);
    * - Float4VectorCrossProduct
      - .. code-block:: c
 
@@ -2999,6 +3127,9 @@ Programming Languages
            set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
                        [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
                        [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]
+     - .. code-block:: csharp
+
+           var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
 
 Data Formats
 ------------
