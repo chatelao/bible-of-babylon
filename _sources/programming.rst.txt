@@ -169,6 +169,486 @@ Parameters:
 
 
 
+Equal
+-----
+
+
+:description: Checks if two values are equal.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Equal Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CEqual
+     - .. code-block:: c
+
+           a == b
+     - Standard equality operator.
+   * - JavaEqual
+     - .. code-block:: java
+
+           a == b
+     - For primitives, == checks value equality; for objects, it checks reference equality.
+   * - RustEqual
+     - .. code-block:: rust
+
+           a == b
+     - Requires the PartialEq trait to be implemented.
+   * - PythonEqual
+     - .. code-block:: python
+
+           a == b
+     - Checks for value equality; 'is' is used for identity equality.
+   * - PhpEqual
+     - .. code-block:: php
+
+           a == b
+     - Loose equality; use === for strict (type-safe) equality.
+   * - BashEqual
+     - .. code-block:: bash
+
+           [ "$a" -eq "$b" ]
+     - Used for integer comparison; use = or == for strings.
+   * - PowerShellEqual
+     - .. code-block:: powershell
+
+           $a -eq $b
+     - PowerShell uses prefixed operators for comparison.
+   * - CmdEqual
+     - .. code-block:: doscon
+
+           if %a% EQU %b%
+     - Comparison operators are used within if statements.
+   * - SqlEqual
+     - .. code-block:: sql
+
+           a = b
+     - Standard SQL equality operator.
+   * - ErlangEqual
+     - .. code-block:: erlang
+
+           A == B
+     - Value equality; use =:= for exact (type-safe) equality.
+   * - LispEqual
+     - .. code-block:: common-lisp
+
+           (= a b)
+     - Numerical equality; use 'eq', 'eql', 'equal', or 'equalp' for other types.
+   * - XQueryEqual
+     - .. code-block:: xquery
+
+           $a = $b
+     - General comparison operator; use 'eq' for value comparison of single items.
+   * - CssEqual
+     - N/A
+     - CSS does not support general-purpose comparison operations.
+   * - CudaEqual
+     - .. code-block:: cpp
+
+           a == b
+     - Standard C operators supported in device code.
+   * - X86Equal
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           je .equal
+     - Comparison sets flags, then a conditional jump is used.
+   * - RiscvEqual
+     - .. code-block:: asm
+
+           beq t0, t1, .equal
+     - Branch if equal.
+   * - ArmAarch64Equal
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.eq .equal
+     - 
+   * - PrologEqual
+     - .. code-block:: prolog
+
+           A == B
+     - Checks if A and B are currently identical; use = for unification.
+   * - JavaBytecodeEqual
+     - .. code-block:: jasmin
+
+           if_icmpeq Label
+     - Pops two integers from the stack and branches if they are equal.
+   * - CamelEqual
+     - .. code-block:: ocaml
+
+           a = b
+     - Structural equality; use == for physical equality (identity).
+   * - GoEqual
+     - .. code-block:: go
+
+           a == b
+     - 
+   * - HaskellEqual
+     - .. code-block:: haskell
+
+           a == b
+     - Requires the Eq typeclass.
+   * - TypeScriptEqual
+     - .. code-block:: typescript
+
+           a == b
+     - Loose equality; === is preferred for strict equality.
+   * - TclEqual
+     - .. code-block:: tcl
+
+           [expr {$a == $b}]
+     - Comparisons are performed within the expr command.
+   * - CobolEqual
+     - .. code-block:: cobol
+
+           IF A = B
+     - 
+   * - FortranEqual
+     - .. code-block:: fortran
+
+           a == b
+     - Alternative syntax: a .eq. b
+   * - CSharpEqual
+     - .. code-block:: csharp
+
+           a == b
+     - 
+
+
+
+NotEqual
+--------
+
+
+:description: Checks if two values are not equal.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: NotEqual Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CNotEqual
+     - .. code-block:: c
+
+           a != b
+     - 
+   * - JavaNotEqual
+     - .. code-block:: java
+
+           a != b
+     - 
+   * - RustNotEqual
+     - .. code-block:: rust
+
+           a != b
+     - 
+   * - PythonNotEqual
+     - .. code-block:: python
+
+           a != b
+     - 
+   * - PhpNotEqual
+     - .. code-block:: php
+
+           a != b
+     - Loose inequality; use !== for strict inequality.
+   * - BashNotEqual
+     - .. code-block:: bash
+
+           [ "$a" -ne "$b" ]
+     - Used for integer comparison; use != for strings.
+   * - PowerShellNotEqual
+     - .. code-block:: powershell
+
+           $a -ne $b
+     - 
+   * - CmdNotEqual
+     - .. code-block:: doscon
+
+           if %a% NEQ %b%
+     - 
+   * - SqlNotEqual
+     - .. code-block:: sql
+
+           a <> b
+     - Standard SQL inequality operator; some dialects also support !=.
+   * - ErlangNotEqual
+     - .. code-block:: erlang
+
+           A /= B
+     - Value inequality; use =/= for exact inequality.
+   * - LispNotEqual
+     - .. code-block:: common-lisp
+
+           (/= a b)
+     - Returns true if all arguments are not equal to each other.
+   * - XQueryNotEqual
+     - .. code-block:: xquery
+
+           $a != $b
+     - General comparison operator; use 'ne' for value comparison of single items.
+   * - CssNotEqual
+     - N/A
+     - 
+   * - CudaNotEqual
+     - .. code-block:: cpp
+
+           a != b
+     - 
+   * - X86NotEqual
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jne .not_equal
+     - 
+   * - RiscvNotEqual
+     - .. code-block:: asm
+
+           bne t0, t1, .not_equal
+     - Branch if not equal.
+   * - ArmAarch64NotEqual
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.ne .not_equal
+     - 
+   * - PrologNotEqual
+     - .. code-block:: prolog
+
+           A \== B
+     - Checks if A and B are currently not identical.
+   * - JavaBytecodeNotEqual
+     - .. code-block:: jasmin
+
+           if_icmpne Label
+     - 
+   * - CamelNotEqual
+     - .. code-block:: ocaml
+
+           a <> b
+     - 
+   * - GoNotEqual
+     - .. code-block:: go
+
+           a != b
+     - 
+   * - HaskellNotEqual
+     - .. code-block:: haskell
+
+           a /= b
+     - 
+   * - TypeScriptNotEqual
+     - .. code-block:: typescript
+
+           a != b
+     - Loose inequality; !== is preferred for strict inequality.
+   * - TclNotEqual
+     - .. code-block:: tcl
+
+           [expr {$a != $b}]
+     - 
+   * - CobolNotEqual
+     - .. code-block:: cobol
+
+           IF A NOT = B
+     - 
+   * - FortranNotEqual
+     - .. code-block:: fortran
+
+           a /= b
+     - Alternative syntax: a .ne. b
+   * - CSharpNotEqual
+     - .. code-block:: csharp
+
+           a != b
+     - 
+
+
+
+GreaterThan
+-----------
+
+
+:description: Checks if the first value is greater than the second.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: GreaterThan Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CGreaterThan
+     - .. code-block:: c
+
+           a > b
+     - 
+   * - JavaGreaterThan
+     - .. code-block:: java
+
+           a > b
+     - 
+   * - RustGreaterThan
+     - .. code-block:: rust
+
+           a > b
+     - 
+   * - PythonGreaterThan
+     - .. code-block:: python
+
+           a > b
+     - 
+   * - PhpGreaterThan
+     - .. code-block:: php
+
+           a > b
+     - 
+   * - BashGreaterThan
+     - .. code-block:: bash
+
+           [ "$a" -gt "$b" ]
+     - Used for integer comparison; use > (within [[ ]]) or expr for strings.
+   * - PowerShellGreaterThan
+     - .. code-block:: powershell
+
+           $a -gt $b
+     - 
+   * - CmdGreaterThan
+     - .. code-block:: doscon
+
+           if %a% GTR %b%
+     - 
+   * - SqlGreaterThan
+     - .. code-block:: sql
+
+           a > b
+     - 
+   * - ErlangGreaterThan
+     - .. code-block:: erlang
+
+           A > B
+     - 
+   * - LispGreaterThan
+     - .. code-block:: common-lisp
+
+           (> a b)
+     - 
+   * - XQueryGreaterThan
+     - .. code-block:: xquery
+
+           $a > $b
+     - General comparison operator; use 'gt' for value comparison of single items.
+   * - CssGreaterThan
+     - N/A
+     - 
+   * - CudaGreaterThan
+     - .. code-block:: cpp
+
+           a > b
+     - 
+   * - X86GreaterThan
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jg .greater
+     - 
+   * - RiscvGreaterThan
+     - .. code-block:: asm
+
+           bgt t0, t1, .greater
+     - Pseudo-instruction that expands to blt with swapped operands.
+   * - ArmAarch64GreaterThan
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.gt .greater
+     - 
+   * - PrologGreaterThan
+     - .. code-block:: prolog
+
+           A > B
+     - Arithmetic comparison.
+   * - JavaBytecodeGreaterThan
+     - .. code-block:: jasmin
+
+           if_icmpgt Label
+     - 
+   * - CamelGreaterThan
+     - .. code-block:: ocaml
+
+           a > b
+     - 
+   * - GoGreaterThan
+     - .. code-block:: go
+
+           a > b
+     - 
+   * - HaskellGreaterThan
+     - .. code-block:: haskell
+
+           a > b
+     - Requires the Ord typeclass.
+   * - TypeScriptGreaterThan
+     - .. code-block:: typescript
+
+           a > b
+     - 
+   * - TclGreaterThan
+     - .. code-block:: tcl
+
+           [expr {$a > $b}]
+     - 
+   * - CobolGreaterThan
+     - .. code-block:: cobol
+
+           IF A > B
+     - 
+   * - FortranGreaterThan
+     - .. code-block:: fortran
+
+           a > b
+     - Alternative syntax: a .gt. b
+   * - CSharpGreaterThan
+     - .. code-block:: csharp
+
+           a > b
+     - 
+
+
+
 ProcedureDefinition
 -------------------
 

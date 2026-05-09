@@ -110,6 +110,234 @@ Programming Languages
      - .. code-block:: csharp
 
            int x = 42;
+   * - Equal
+     - .. code-block:: c
+
+           a == b
+     - .. code-block:: java
+
+           a == b
+     - .. code-block:: rust
+
+           a == b
+     - .. code-block:: python
+
+           a == b
+     - .. code-block:: php
+
+           a == b
+     - .. code-block:: bash
+
+           [ "$a" -eq "$b" ]
+     - .. code-block:: powershell
+
+           $a -eq $b
+     - .. code-block:: doscon
+
+           if %a% EQU %b%
+     - .. code-block:: sql
+
+           a = b
+     - .. code-block:: erlang
+
+           A == B
+     - .. code-block:: common-lisp
+
+           (= a b)
+     - .. code-block:: xquery
+
+           $a = $b
+     - N/A
+     - .. code-block:: cpp
+
+           a == b
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           je .equal
+     - .. code-block:: asm
+
+           beq t0, t1, .equal
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.eq .equal
+     - .. code-block:: prolog
+
+           A == B
+     - .. code-block:: jasmin
+
+           if_icmpeq Label
+     - .. code-block:: ocaml
+
+           a = b
+     - .. code-block:: go
+
+           a == b
+     - .. code-block:: haskell
+
+           a == b
+     - .. code-block:: typescript
+
+           a == b
+     - .. code-block:: tcl
+
+           [expr {$a == $b}]
+     - .. code-block:: csharp
+
+           a == b
+   * - NotEqual
+     - .. code-block:: c
+
+           a != b
+     - .. code-block:: java
+
+           a != b
+     - .. code-block:: rust
+
+           a != b
+     - .. code-block:: python
+
+           a != b
+     - .. code-block:: php
+
+           a != b
+     - .. code-block:: bash
+
+           [ "$a" -ne "$b" ]
+     - .. code-block:: powershell
+
+           $a -ne $b
+     - .. code-block:: doscon
+
+           if %a% NEQ %b%
+     - .. code-block:: sql
+
+           a <> b
+     - .. code-block:: erlang
+
+           A /= B
+     - .. code-block:: common-lisp
+
+           (/= a b)
+     - .. code-block:: xquery
+
+           $a != $b
+     - N/A
+     - .. code-block:: cpp
+
+           a != b
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jne .not_equal
+     - .. code-block:: asm
+
+           bne t0, t1, .not_equal
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.ne .not_equal
+     - .. code-block:: prolog
+
+           A \== B
+     - .. code-block:: jasmin
+
+           if_icmpne Label
+     - .. code-block:: ocaml
+
+           a <> b
+     - .. code-block:: go
+
+           a != b
+     - .. code-block:: haskell
+
+           a /= b
+     - .. code-block:: typescript
+
+           a != b
+     - .. code-block:: tcl
+
+           [expr {$a != $b}]
+     - .. code-block:: csharp
+
+           a != b
+   * - GreaterThan
+     - .. code-block:: c
+
+           a > b
+     - .. code-block:: java
+
+           a > b
+     - .. code-block:: rust
+
+           a > b
+     - .. code-block:: python
+
+           a > b
+     - .. code-block:: php
+
+           a > b
+     - .. code-block:: bash
+
+           [ "$a" -gt "$b" ]
+     - .. code-block:: powershell
+
+           $a -gt $b
+     - .. code-block:: doscon
+
+           if %a% GTR %b%
+     - .. code-block:: sql
+
+           a > b
+     - .. code-block:: erlang
+
+           A > B
+     - .. code-block:: common-lisp
+
+           (> a b)
+     - .. code-block:: xquery
+
+           $a > $b
+     - N/A
+     - .. code-block:: cpp
+
+           a > b
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jg .greater
+     - .. code-block:: asm
+
+           bgt t0, t1, .greater
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.gt .greater
+     - .. code-block:: prolog
+
+           A > B
+     - .. code-block:: jasmin
+
+           if_icmpgt Label
+     - .. code-block:: ocaml
+
+           a > b
+     - .. code-block:: go
+
+           a > b
+     - .. code-block:: haskell
+
+           a > b
+     - .. code-block:: typescript
+
+           a > b
+     - .. code-block:: tcl
+
+           [expr {$a > $b}]
+     - .. code-block:: csharp
+
+           a > b
    * - ProcedureDefinition
      - .. code-block:: c
 
