@@ -176,6 +176,11 @@ Parameters:
 
            var x: Int = 42
      - Variables are declared with 'var'; static typing with type inference.
+   * - CppVar
+     - .. code-block:: cpp
+
+           int x = 42;
+     - Static typing, similar to C.
 
 
 
@@ -346,6 +351,11 @@ Parameters:
 
            a == b
      - Checks for structural equality; calls equals().
+   * - CppEqual
+     - .. code-block:: cpp
+
+           a == b
+     - Standard equality operator.
 
 
 
@@ -516,6 +526,11 @@ Parameters:
 
            a != b
      - 
+   * - CppNotEqual
+     - .. code-block:: cpp
+
+           a != b
+     - Standard inequality operator.
 
 
 
@@ -686,6 +701,11 @@ Parameters:
 
            a > b
      - 
+   * - CppGreaterThan
+     - .. code-block:: cpp
+
+           a > b
+     - Standard greater than operator.
 
 
 
@@ -929,6 +949,13 @@ Parameters:
                println(msg)
            }
      - Procedures return Unit, which can be omitted.
+   * - CppProcedure
+     - .. code-block:: cpp
+
+           void logMessage(std::string msg) {
+               std::cout << msg << std::endl;
+           }
+     - Procedures use the 'void' return type.
 
 
 
@@ -1165,6 +1192,13 @@ Parameters:
                return a + b
            }
      - Uses 'fun' keyword; return type follows the parameter list.
+   * - CppFunction
+     - .. code-block:: cpp
+
+           int add(int a, int b) {
+               return a + b;
+           }
+     - Standard C-style function definition.
 
 
 
@@ -1427,6 +1461,15 @@ Parameters:
 
            if (x > 0) 1 else 0
      - If-else is an expression in Kotlin.
+   * - CppIfElse
+     - .. code-block:: cpp
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - Standard C-style if-else statement.
 
 
 
@@ -1756,6 +1799,18 @@ Parameters:
                else -> 0
            }
      - Kotlin uses 'when' instead of 'switch'.
+   * - CppSwitchCase
+     - .. code-block:: cpp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch statement.
 
 
 
@@ -1987,6 +2042,13 @@ Parameters:
                x -= 1
            }
      - Standard while loop.
+   * - CppLoop
+     - .. code-block:: cpp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - Standard C-style while loop.
 
 
 
@@ -2223,6 +2285,13 @@ Parameters:
                // body
            }
      - Iterates over a range; 'until' is exclusive of the upper bound.
+   * - CppForLoop
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Standard C-style for loop.
 
 
 
@@ -2451,6 +2520,15 @@ Parameters:
                handle(e)
            }
      - Standard try-catch block; similar to Java.
+   * - CppTryCatch
+     - .. code-block:: cpp
+
+           try {
+               do_something();
+           } catch (const std::exception& e) {
+               handle(e);
+           }
+     - Standard C++ exception handling using try-catch blocks.
 
 
 
@@ -2623,6 +2701,11 @@ Parameters:
 
            throw Exception("Error")
      - Uses 'throw' to raise an exception.
+   * - CppRaise
+     - .. code-block:: cpp
+
+           throw std::runtime_error("Error");
+     - Uses 'throw' to raise an exception.
 
 
 
@@ -2754,6 +2837,12 @@ Parameters:
                doWork()
            }
      - The thread function from kotlin.concurrent easily spawns a new thread.
+   * - CppThread
+     - .. code-block:: cpp
+
+           std::thread t(do_work);
+           t.join();
+     - Uses std::thread (C++11 and later).
 
 
 
@@ -2881,6 +2970,11 @@ Parameters:
 
            channel.send(42)
      - Kotlin coroutines use channels for message passing.
+   * - CppSendMessage
+     - .. code-block:: cpp
+
+           queue.push(42);
+     - Communication is typically handled via shared data structures and synchronization primitives.
 
 
 
@@ -3011,6 +3105,13 @@ Parameters:
            val msg = channel.receive()
            handle(msg)
      - Receives a value from a channel; suspends until data is available.
+   * - CppReceiveMessage
+     - .. code-block:: cpp
+
+           int msg = queue.front();
+           queue.pop();
+           handle(msg);
+     - Typically involves pulling from a thread-safe queue.
 
 
 
@@ -3179,6 +3280,11 @@ Parameters:
 
            // comment
      - Standard single-line comment.
+   * - CppSingleLineComment
+     - .. code-block:: cpp
+
+           // comment
+     - Standard C++ single-line comment.
 
 
 
@@ -3348,6 +3454,12 @@ Parameters:
            /* line 1
               line 2 */
      - Standard block comment; supports nesting.
+   * - CppMultiLineComment
+     - .. code-block:: cpp
+
+           /* line 1
+              line 2 */
+     - Standard C++ multi-line comment.
 
 
 
@@ -3526,6 +3638,11 @@ Parameters:
 
            println("Hello, World!")
      - Outputs to the console with a trailing newline.
+   * - CppPrint
+     - .. code-block:: cpp
+
+           std::cout << "Hello, World!" << std::endl;
+     - Uses std::cout for standard output; requires <iostream>.
 
 
 
@@ -3696,6 +3813,11 @@ Parameters:
 
            import kotlin.math.*
      - Imports packages or specific classes/functions.
+   * - CppImport
+     - .. code-block:: cpp
+
+           #include <iostream>
+     - Standard way to include headers.
 
 
 
@@ -3872,6 +3994,11 @@ Parameters:
 
            const val MAX = 100
      - Uses 'const val' for compile-time constants.
+   * - CppConstant
+     - .. code-block:: cpp
+
+           const int MAX = 100;
+     - The 'const' keyword defines an immutable value.
 
 
 
@@ -4042,6 +4169,11 @@ Parameters:
 
            a + b
      - 
+   * - CppAddition
+     - .. code-block:: cpp
+
+           a + b
+     - Standard arithmetic operator.
 
 
 
@@ -4212,6 +4344,11 @@ Parameters:
 
            a - b
      - 
+   * - CppSubtraction
+     - .. code-block:: cpp
+
+           a - b
+     - Standard arithmetic operator.
 
 
 
@@ -4382,6 +4519,11 @@ Parameters:
 
            a * b
      - 
+   * - CppMultiplication
+     - .. code-block:: cpp
+
+           a * b
+     - Standard arithmetic operator.
 
 
 
@@ -4552,6 +4694,11 @@ Parameters:
 
            a / b
      - 
+   * - CppDivision
+     - .. code-block:: cpp
+
+           a / b
+     - Standard arithmetic operator.
 
 
 
@@ -4718,6 +4865,11 @@ Parameters:
 
            a % b
      - 
+   * - CppRemainder
+     - .. code-block:: cpp
+
+           a % b
+     - Standard arithmetic operator.
 
 
 
@@ -4876,6 +5028,11 @@ Parameters:
 
            floor(a)
      - Requires kotlin.math.floor.
+   * - CppFloor
+     - .. code-block:: cpp
+
+           std::floor(a)
+     - Requires <cmath>.
 
 
 
@@ -5036,6 +5193,11 @@ Parameters:
 
            round(a)
      - Requires kotlin.math.round.
+   * - CppRounding
+     - .. code-block:: cpp
+
+           std::round(a)
+     - Requires <cmath>.
 
 
 
@@ -5206,6 +5368,11 @@ Parameters:
 
            a++
      - 
+   * - CppIncrement
+     - .. code-block:: cpp
+
+           a++
+     - Standard increment operator.
 
 
 
@@ -5376,6 +5543,11 @@ Parameters:
 
            a--
      - 
+   * - CppDecrement
+     - .. code-block:: cpp
+
+           a--
+     - Standard decrement operator.
 
 
 
@@ -5538,6 +5710,11 @@ Parameters:
 
            a shl b
      - Uses infix function 'shl'.
+   * - CppLeftShift
+     - .. code-block:: cpp
+
+           a << b
+     - Standard bitwise shift operator.
 
 
 
@@ -5700,6 +5877,11 @@ Parameters:
 
            a shr b
      - Uses infix function 'shr'.
+   * - CppRightShift
+     - .. code-block:: cpp
+
+           a >> b
+     - Standard bitwise shift operator.
 
 
 
@@ -5864,6 +6046,11 @@ Parameters:
 
            a and b
      - Uses infix function 'and'.
+   * - CppBitAnd
+     - .. code-block:: cpp
+
+           a & b
+     - Standard bitwise operator.
 
 
 
@@ -6028,6 +6215,11 @@ Parameters:
 
            a or b
      - Uses infix function 'or'.
+   * - CppBitOr
+     - .. code-block:: cpp
+
+           a | b
+     - Standard bitwise operator.
 
 
 
@@ -6192,6 +6384,11 @@ Parameters:
 
            a xor b
      - Uses infix function 'xor'.
+   * - CppBitXor
+     - .. code-block:: cpp
+
+           a ^ b
+     - Standard bitwise operator.
 
 
 
@@ -6357,6 +6554,11 @@ Parameters:
 
            a.inv()
      - Uses 'inv()' method.
+   * - CppBitNot
+     - .. code-block:: cpp
+
+           ~a
+     - Standard bitwise operator.
 
 
 
@@ -6528,6 +6730,11 @@ Parameters:
 
            val c = a.zip(b) { ai, bi -> ai * bi }
      - Uses zip with a transformation lambda.
+   * - CppFloat4VectorMultiplication
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - Standard C++ requires a loop or explicit component-wise multiplication for arrays.
 
 
 
@@ -6706,6 +6913,11 @@ Parameters:
 
            val dot = a.zip(b) { ai, bi -> ai * bi }.sum()
      - Uses zip followed by sum.
+   * - CppFloat4VectorDotProduct
+     - .. code-block:: cpp
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - Calculated by accumulating component-wise products in a loop.
 
 
 
@@ -6952,3 +7164,11 @@ Parameters:
                0.0f
            )
      - Manual calculation for 3D cross product.
+   * - CppFloat4VectorCrossProduct
+     - .. code-block:: cpp
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0f;
+     - Manual implementation for the first three components.

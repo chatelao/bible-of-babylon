@@ -98,6 +98,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="java_pivot.html">Java Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rust_pivot.html">Rust Pivot View</a></li>
@@ -380,6 +381,13 @@
 </td>
 <td><p>Variables are declared with ‘var’; static typing with type inference.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppVar</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Static typing, similar to C.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -605,6 +613,13 @@
 </div>
 </td>
 <td><p>Checks for structural equality; calls equals().</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppEqual</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard equality operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -832,6 +847,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppNotEqual</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard inequality operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1057,6 +1079,13 @@
 </div>
 </td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><p>CppGreaterThan</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard greater than operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1354,6 +1383,15 @@
 </td>
 <td><p>Procedures return Unit, which can be omitted.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppProcedure</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures use the ‘void’ return type.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1641,6 +1679,15 @@
 </div>
 </td>
 <td><p>Uses ‘fun’ keyword; return type follows the parameter list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppFunction</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style function definition.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1957,6 +2004,17 @@
 </div>
 </td>
 <td><p>If-else is an expression in Kotlin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppIfElse</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style if-else statement.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2342,6 +2400,20 @@
 </td>
 <td><p>Kotlin uses ‘when’ instead of ‘switch’.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppSwitchCase</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">default</span><span class="o">:</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style switch statement.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2626,6 +2698,15 @@
 </div>
 </td>
 <td><p>Standard while loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppLoop</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style while loop.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2919,6 +3000,15 @@
 </td>
 <td><p>Iterates over a range; ‘until’ is exclusive of the upper bound.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppForLoop</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style for loop.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3193,6 +3283,17 @@
 </td>
 <td><p>Standard try-catch block; similar to Java.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppTryCatch</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C++ exception handling using try-catch blocks.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3417,6 +3518,13 @@
 </td>
 <td><p>Uses ‘throw’ to raise an exception.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppRaise</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘throw’ to raise an exception.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3582,6 +3690,14 @@
 </td>
 <td><p>The thread function from kotlin.concurrent easily spawns a new thread.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppThread</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">do_work</span><span class="p">);</span>
+<span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std::thread (C++11 and later).</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3741,6 +3857,13 @@
 </div>
 </td>
 <td><p>Kotlin coroutines use channels for message passing.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppSendMessage</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Communication is typically handled via shared data structures and synchronization primitives.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3903,6 +4026,15 @@
 </div>
 </td>
 <td><p>Receives a value from a channel; suspends until data is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppReceiveMessage</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+<span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically involves pulling from a thread-safe queue.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4128,6 +4260,13 @@
 </td>
 <td><p>Standard single-line comment.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppSingleLineComment</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C++ single-line comment.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4343,6 +4482,14 @@
 </div>
 </td>
 <td><p>Standard block comment; supports nesting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppMultiLineComment</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C++ multi-line comment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4578,6 +4725,13 @@
 </td>
 <td><p>Outputs to the console with a trailing newline.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppPrint</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std::cout for standard output; requires &lt;iostream&gt;.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4802,6 +4956,13 @@
 </div>
 </td>
 <td><p>Imports packages or specific classes/functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppImport</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard way to include headers.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5033,6 +5194,13 @@
 </td>
 <td><p>Uses ‘const val’ for compile-time constants.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppConstant</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘const’ keyword defines an immutable value.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5259,6 +5427,13 @@
 </div>
 </td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><p>CppAddition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5487,6 +5662,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppSubtraction</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5713,6 +5895,13 @@
 </div>
 </td>
 <td></td>
+</tr>
+<tr class="row-odd"><td><p>CppMultiplication</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5941,6 +6130,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppDivision</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6162,6 +6358,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppRemainder</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard arithmetic operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6370,6 +6573,13 @@
 </div>
 </td>
 <td><p>Requires kotlin.math.floor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppFloor</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires &lt;cmath&gt;.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6582,6 +6792,13 @@
 </div>
 </td>
 <td><p>Requires kotlin.math.round.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppRounding</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires &lt;cmath&gt;.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6810,6 +7027,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppIncrement</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard increment operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7037,6 +7261,13 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>CppDecrement</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard decrement operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7252,6 +7483,13 @@
 </td>
 <td><p>Uses infix function ‘shl’.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppLeftShift</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise shift operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7466,6 +7704,13 @@
 </div>
 </td>
 <td><p>Uses infix function ‘shr’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppRightShift</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise shift operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7685,6 +7930,13 @@
 </td>
 <td><p>Uses infix function ‘and’.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppBitAnd</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7902,6 +8154,13 @@
 </div>
 </td>
 <td><p>Uses infix function ‘or’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppBitOr</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8121,6 +8380,13 @@
 </td>
 <td><p>Uses infix function ‘xor’.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CppBitXor</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8339,6 +8605,13 @@
 </div>
 </td>
 <td><p>Uses ‘inv()’ method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppBitNot</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8565,6 +8838,13 @@
 </div>
 </td>
 <td><p>Uses zip with a transformation lambda.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppFloat4VectorMultiplication</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C++ requires a loop or explicit component-wise multiplication for arrays.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8798,6 +9078,13 @@
 </div>
 </td>
 <td><p>Uses zip followed by sum.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppFloat4VectorDotProduct</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Calculated by accumulating component-wise products in a loop.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9098,6 +9385,16 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Manual calculation for 3D cross product.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppFloat4VectorCrossProduct</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual implementation for the first three components.</p></td>
 </tr>
 </tbody>
 </table>

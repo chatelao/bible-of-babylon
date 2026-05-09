@@ -29,6 +29,7 @@ Downloads
 
    sql_pivot
    c_pivot
+   cpp_pivot
    xquery_pivot
    java_pivot
    rust_pivot
