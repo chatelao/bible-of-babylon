@@ -15,4 +15,7 @@ pip install antlr4-python3-runtime==4.13.2
 echo "Installing openpyxl..."
 pip install openpyxl
 
+echo "Installing pygments..."
+pip install pygments
+
 echo "Development environment setup complete."

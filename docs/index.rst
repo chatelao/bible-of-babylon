@@ -62,6 +62,9 @@ Downloads
    csharp_pivot
    swift_pivot
    kotlin_pivot
+   graphql_pivot
+   sparql_pivot
+   overpass_pivot
 
 Indices and tables
 ==================
