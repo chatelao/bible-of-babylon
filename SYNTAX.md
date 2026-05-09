@@ -40,6 +40,9 @@ The transpiler maintains a mapping between internal instance names and Pygments-
 | C#            | `csharp`       |
 | Swift         | `swift`        |
 | Kotlin        | `kotlin`       |
+| GraphQL       | `graphql`      |
+| SPARQL        | `sparql`       |
+| Overpass Turbo| `text`         |
 | JSON          | `json`         |
 | XML           | `xml`          |
 | YAML          | `yaml`         |
