@@ -173,3 +173,5 @@
 - [x] Generate Pivot Chapter for COBOL
 - [x] Generate Pivot Chapter for Fortran
 - [x] Generate Pivot Chapter for C#
+- [x] Generate Pivot Chapter for Swift
+- [x] Generate Pivot Chapter for Kotlin

@@ -1,3 +1,6 @@
+Programming Language Patterns
+=============================
+
 
 
 VariableDeclaration
@@ -158,6 +161,531 @@ Parameters:
 
            integer :: x = 42
      - Static typing; :: is used to separate attributes from the variable name.
+   * - CSharpVar
+     - .. code-block:: csharp
+
+           int x = 42;
+     - Static typing, similar to C++ and Java.
+   * - SwiftVar
+     - .. code-block:: swift
+
+           var x: Int = 42
+     - Variables are declared with 'var'; supports type inference.
+   * - KotlinVar
+     - .. code-block:: kotlin
+
+           var x: Int = 42
+     - Variables are declared with 'var'; static typing with type inference.
+
+
+
+Equal
+-----
+
+
+:description: Checks if two values are equal.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Equal Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CEqual
+     - .. code-block:: c
+
+           a == b
+     - Standard equality operator.
+   * - JavaEqual
+     - .. code-block:: java
+
+           a == b
+     - For primitives, == checks value equality; for objects, it checks reference equality.
+   * - RustEqual
+     - .. code-block:: rust
+
+           a == b
+     - Requires the PartialEq trait to be implemented.
+   * - PythonEqual
+     - .. code-block:: python
+
+           a == b
+     - Checks for value equality; 'is' is used for identity equality.
+   * - PhpEqual
+     - .. code-block:: php
+
+           a == b
+     - Loose equality; use === for strict (type-safe) equality.
+   * - BashEqual
+     - .. code-block:: bash
+
+           [ "$a" -eq "$b" ]
+     - Used for integer comparison; use = or == for strings.
+   * - PowerShellEqual
+     - .. code-block:: powershell
+
+           $a -eq $b
+     - PowerShell uses prefixed operators for comparison.
+   * - CmdEqual
+     - .. code-block:: doscon
+
+           if %a% EQU %b%
+     - Comparison operators are used within if statements.
+   * - SqlEqual
+     - .. code-block:: sql
+
+           a = b
+     - Standard SQL equality operator.
+   * - ErlangEqual
+     - .. code-block:: erlang
+
+           A == B
+     - Value equality; use =:= for exact (type-safe) equality.
+   * - LispEqual
+     - .. code-block:: common-lisp
+
+           (= a b)
+     - Numerical equality; use 'eq', 'eql', 'equal', or 'equalp' for other types.
+   * - XQueryEqual
+     - .. code-block:: xquery
+
+           $a = $b
+     - General comparison operator; use 'eq' for value comparison of single items.
+   * - CssEqual
+     - N/A
+     - CSS does not support general-purpose comparison operations.
+   * - CudaEqual
+     - .. code-block:: cpp
+
+           a == b
+     - Standard C operators supported in device code.
+   * - X86Equal
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           je .equal
+     - Comparison sets flags, then a conditional jump is used.
+   * - RiscvEqual
+     - .. code-block:: asm
+
+           beq t0, t1, .equal
+     - Branch if equal.
+   * - ArmAarch64Equal
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.eq .equal
+     -
+   * - PrologEqual
+     - .. code-block:: prolog
+
+           A == B
+     - Checks if A and B are currently identical; use = for unification.
+   * - JavaBytecodeEqual
+     - .. code-block:: jasmin
+
+           if_icmpeq Label
+     - Pops two integers from the stack and branches if they are equal.
+   * - CamelEqual
+     - .. code-block:: ocaml
+
+           a = b
+     - Structural equality; use == for physical equality (identity).
+   * - GoEqual
+     - .. code-block:: go
+
+           a == b
+     -
+   * - HaskellEqual
+     - .. code-block:: haskell
+
+           a == b
+     - Requires the Eq typeclass.
+   * - TypeScriptEqual
+     - .. code-block:: typescript
+
+           a == b
+     - Loose equality; === is preferred for strict equality.
+   * - TclEqual
+     - .. code-block:: tcl
+
+           [expr {$a == $b}]
+     - Comparisons are performed within the expr command.
+   * - CobolEqual
+     - .. code-block:: cobol
+
+           IF A = B
+     -
+   * - FortranEqual
+     - .. code-block:: fortran
+
+           a == b
+     - Alternative syntax: a .eq. b
+   * - CSharpEqual
+     - .. code-block:: csharp
+
+           a == b
+     -
+   * - SwiftEqual
+     - .. code-block:: swift
+
+           a == b
+     - Checks for value equality.
+   * - KotlinEqual
+     - .. code-block:: kotlin
+
+           a == b
+     - Checks for structural equality; calls equals().
+
+
+
+NotEqual
+--------
+
+
+:description: Checks if two values are not equal.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: NotEqual Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CNotEqual
+     - .. code-block:: c
+
+           a != b
+     -
+   * - JavaNotEqual
+     - .. code-block:: java
+
+           a != b
+     -
+   * - RustNotEqual
+     - .. code-block:: rust
+
+           a != b
+     -
+   * - PythonNotEqual
+     - .. code-block:: python
+
+           a != b
+     -
+   * - PhpNotEqual
+     - .. code-block:: php
+
+           a != b
+     - Loose inequality; use !== for strict inequality.
+   * - BashNotEqual
+     - .. code-block:: bash
+
+           [ "$a" -ne "$b" ]
+     - Used for integer comparison; use != for strings.
+   * - PowerShellNotEqual
+     - .. code-block:: powershell
+
+           $a -ne $b
+     -
+   * - CmdNotEqual
+     - .. code-block:: doscon
+
+           if %a% NEQ %b%
+     -
+   * - SqlNotEqual
+     - .. code-block:: sql
+
+           a <> b
+     - Standard SQL inequality operator; some dialects also support !=.
+   * - ErlangNotEqual
+     - .. code-block:: erlang
+
+           A /= B
+     - Value inequality; use =/= for exact inequality.
+   * - LispNotEqual
+     - .. code-block:: common-lisp
+
+           (/= a b)
+     - Returns true if all arguments are not equal to each other.
+   * - XQueryNotEqual
+     - .. code-block:: xquery
+
+           $a != $b
+     - General comparison operator; use 'ne' for value comparison of single items.
+   * - CssNotEqual
+     - N/A
+     -
+   * - CudaNotEqual
+     - .. code-block:: cpp
+
+           a != b
+     -
+   * - X86NotEqual
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jne .not_equal
+     -
+   * - RiscvNotEqual
+     - .. code-block:: asm
+
+           bne t0, t1, .not_equal
+     - Branch if not equal.
+   * - ArmAarch64NotEqual
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.ne .not_equal
+     -
+   * - PrologNotEqual
+     - .. code-block:: prolog
+
+           A \== B
+     - Checks if A and B are currently not identical.
+   * - JavaBytecodeNotEqual
+     - .. code-block:: jasmin
+
+           if_icmpne Label
+     -
+   * - CamelNotEqual
+     - .. code-block:: ocaml
+
+           a <> b
+     -
+   * - GoNotEqual
+     - .. code-block:: go
+
+           a != b
+     -
+   * - HaskellNotEqual
+     - .. code-block:: haskell
+
+           a /= b
+     -
+   * - TypeScriptNotEqual
+     - .. code-block:: typescript
+
+           a != b
+     - Loose inequality; !== is preferred for strict inequality.
+   * - TclNotEqual
+     - .. code-block:: tcl
+
+           [expr {$a != $b}]
+     -
+   * - CobolNotEqual
+     - .. code-block:: cobol
+
+           IF A NOT = B
+     -
+   * - FortranNotEqual
+     - .. code-block:: fortran
+
+           a /= b
+     - Alternative syntax: a .ne. b
+   * - CSharpNotEqual
+     - .. code-block:: csharp
+
+           a != b
+     -
+   * - SwiftNotEqual
+     - .. code-block:: swift
+
+           a != b
+     -
+   * - KotlinNotEqual
+     - .. code-block:: kotlin
+
+           a != b
+     -
+
+
+
+GreaterThan
+-----------
+
+
+:description: Checks if the first value is greater than the second.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: GreaterThan Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CGreaterThan
+     - .. code-block:: c
+
+           a > b
+     -
+   * - JavaGreaterThan
+     - .. code-block:: java
+
+           a > b
+     -
+   * - RustGreaterThan
+     - .. code-block:: rust
+
+           a > b
+     -
+   * - PythonGreaterThan
+     - .. code-block:: python
+
+           a > b
+     -
+   * - PhpGreaterThan
+     - .. code-block:: php
+
+           a > b
+     -
+   * - BashGreaterThan
+     - .. code-block:: bash
+
+           [ "$a" -gt "$b" ]
+     - Used for integer comparison; use > (within [[ ]]) or expr for strings.
+   * - PowerShellGreaterThan
+     - .. code-block:: powershell
+
+           $a -gt $b
+     -
+   * - CmdGreaterThan
+     - .. code-block:: doscon
+
+           if %a% GTR %b%
+     -
+   * - SqlGreaterThan
+     - .. code-block:: sql
+
+           a > b
+     -
+   * - ErlangGreaterThan
+     - .. code-block:: erlang
+
+           A > B
+     -
+   * - LispGreaterThan
+     - .. code-block:: common-lisp
+
+           (> a b)
+     -
+   * - XQueryGreaterThan
+     - .. code-block:: xquery
+
+           $a > $b
+     - General comparison operator; use 'gt' for value comparison of single items.
+   * - CssGreaterThan
+     - N/A
+     -
+   * - CudaGreaterThan
+     - .. code-block:: cpp
+
+           a > b
+     -
+   * - X86GreaterThan
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jg .greater
+     -
+   * - RiscvGreaterThan
+     - .. code-block:: asm
+
+           bgt t0, t1, .greater
+     - Pseudo-instruction that expands to blt with swapped operands.
+   * - ArmAarch64GreaterThan
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.gt .greater
+     -
+   * - PrologGreaterThan
+     - .. code-block:: prolog
+
+           A > B
+     - Arithmetic comparison.
+   * - JavaBytecodeGreaterThan
+     - .. code-block:: jasmin
+
+           if_icmpgt Label
+     -
+   * - CamelGreaterThan
+     - .. code-block:: ocaml
+
+           a > b
+     -
+   * - GoGreaterThan
+     - .. code-block:: go
+
+           a > b
+     -
+   * - HaskellGreaterThan
+     - .. code-block:: haskell
+
+           a > b
+     - Requires the Ord typeclass.
+   * - TypeScriptGreaterThan
+     - .. code-block:: typescript
+
+           a > b
+     -
+   * - TclGreaterThan
+     - .. code-block:: tcl
+
+           [expr {$a > $b}]
+     -
+   * - CobolGreaterThan
+     - .. code-block:: cobol
+
+           IF A > B
+     -
+   * - FortranGreaterThan
+     - .. code-block:: fortran
+
+           a > b
+     - Alternative syntax: a .gt. b
+   * - CSharpGreaterThan
+     - .. code-block:: csharp
+
+           a > b
+     -
+   * - SwiftGreaterThan
+     - .. code-block:: swift
+
+           a > b
+     -
+   * - KotlinGreaterThan
+     - .. code-block:: kotlin
+
+           a > b
+     -
 
 
 
@@ -380,6 +908,27 @@ Parameters:
                print *, msg
            end subroutine log_msg
      - Subroutines are used for procedures that do not return a value.
+   * - CSharpProcedure
+     - .. code-block:: csharp
+
+           public void LogMessage(string msg) {
+               Console.WriteLine(msg);
+           }
+     - Uses the 'void' keyword for procedures.
+   * - SwiftProcedure
+     - .. code-block:: swift
+
+           func logMessage(msg: String) {
+               print(msg)
+           }
+     - Functions without a return value are effectively procedures.
+   * - KotlinProcedure
+     - .. code-block:: kotlin
+
+           fun logMessage(msg: String) {
+               println(msg)
+           }
+     - Procedures return Unit, which can be omitted.
 
 
 
@@ -595,6 +1144,27 @@ Parameters:
                res = a + b
            end function add
      - Functions return a value; 'intent(in)' specifies that parameters are read-only.
+   * - CSharpFunction
+     - .. code-block:: csharp
+
+           public int Add(int a, int b) {
+               return a + b;
+           }
+     - Methods are typically defined within classes.
+   * - SwiftFunction
+     - .. code-block:: swift
+
+           func add(a: Int, b: Int) -> Int {
+               return a + b
+           }
+     - Uses 'func' keyword; return type is specified with '->'.
+   * - KotlinFunction
+     - .. code-block:: kotlin
+
+           fun add(a: Int, b: Int): Int {
+               return a + b
+           }
+     - Uses 'fun' keyword; return type follows the parameter list.
 
 
 
@@ -834,6 +1404,29 @@ Parameters:
                res = 0
            end if
      - Standard block if-then-else-end if.
+   * - CSharpIfElse
+     - .. code-block:: csharp
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - Standard C-style if-else statement.
+   * - SwiftIfElse
+     - .. code-block:: swift
+
+           if x > 0 {
+               return 1
+           } else {
+               return 0
+           }
+     - Parentheses around condition are optional; braces are required.
+   * - KotlinIfElse
+     - .. code-block:: kotlin
+
+           if (x > 0) 1 else 0
+     - If-else is an expression in Kotlin.
 
 
 
@@ -873,38 +1466,6 @@ Parameters:
                    return 0;
            }
      - Standard C switch statement with case labels and default.
-   * - JavaSwitchCase
-     - .. code-block:: java
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Identical to C; modern Java also supports switch expressions.
-   * - RustSwitchCase
-     - .. code-block:: rust
-
-           match x {
-               1 => 1,
-               2 => 2,
-               _ => 0,
-           }
-     - Rust uses 'match' for pattern matching, which is exhaustive.
-   * - PythonSwitchCase
-     - .. code-block:: python
-
-           match x:
-               case 1:
-                   return 1
-               case 2:
-                   return 2
-               case _:
-                   return 0
-     - Introduced in Python 3.10 as structural pattern matching.
    * - PhpSwitchCase
      - .. code-block:: php
 
@@ -1027,6 +1588,38 @@ Parameters:
            ;   writeln('none')
            )
      - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
+   * - JavaSwitchCase
+     - .. code-block:: java
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Identical to C; modern Java also supports switch expressions.
+   * - RustSwitchCase
+     - .. code-block:: rust
+
+           match x {
+               1 => 1,
+               2 => 2,
+               _ => 0,
+           }
+     - Rust uses 'match' for pattern matching, which is exhaustive.
+   * - PythonSwitchCase
+     - .. code-block:: python
+
+           match x:
+               case 1:
+                   return 1
+               case 2:
+                   return 2
+               case _:
+                   return 0
+     - Introduced in Python 3.10 as structural pattern matching.
    * - JavaBytecodeSwitchCase
      - .. code-block:: jasmin
 
@@ -1130,6 +1723,39 @@ Parameters:
                res = 0
            end select
      - The select case construct is used for branching based on values.
+   * - CSharpSwitchCase
+     - .. code-block:: csharp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch; supports pattern matching in newer versions.
+   * - SwiftSwitchCase
+     - .. code-block:: swift
+
+           switch x {
+           case 1:
+               return 1
+           case 2:
+               return 2
+           default:
+               return 0
+           }
+     - Switch cases must be exhaustive and do not fall through by default.
+   * - KotlinSwitchCase
+     - .. code-block:: kotlin
+
+           when (x) {
+               1 -> 1
+               2 -> 2
+               else -> 0
+           }
+     - Kotlin uses 'when' instead of 'switch'.
 
 
 
@@ -1340,6 +1966,27 @@ Parameters:
                x = x - 1
            end do
      - Standard do while loop.
+   * - CSharpLoop
+     - .. code-block:: csharp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - Standard while loop.
+   * - SwiftLoop
+     - .. code-block:: swift
+
+           while x > 0 {
+               x -= 1
+           }
+     - Standard while loop; parentheses around condition are optional.
+   * - KotlinLoop
+     - .. code-block:: kotlin
+
+           while (x > 0) {
+               x -= 1
+           }
+     - Standard while loop.
 
 
 
@@ -1555,6 +2202,27 @@ Parameters:
                ! body
            end do
      - The do loop is used for iteration over ranges.
+   * - CSharpForLoop
+     - .. code-block:: csharp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Standard C-style for loop.
+   * - SwiftForLoop
+     - .. code-block:: swift
+
+           for i in 0..<10 {
+               // body
+           }
+     - Uses ranges; ..< is half-open (exclusive of upper bound).
+   * - KotlinForLoop
+     - .. code-block:: kotlin
+
+           for (i in 0 until 10) {
+               // body
+           }
+     - Iterates over a range; 'until' is exclusive of the upper bound.
 
 
 
@@ -1756,6 +2424,33 @@ Parameters:
    * - FortranTryCatch
      - N/A
      - Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.
+   * - CSharpTryCatch
+     - .. code-block:: csharp
+
+           try {
+               do_something();
+           } catch (Exception ex) {
+               handle(ex);
+           }
+     - Standard try-catch block for exception handling.
+   * - SwiftTryCatch
+     - .. code-block:: swift
+
+           do {
+               try doSomething()
+           } catch {
+               handle(error)
+           }
+     - Swift uses do-catch blocks for error handling; functions must be marked with 'throws'.
+   * - KotlinTryCatch
+     - .. code-block:: kotlin
+
+           try {
+               doSomething()
+           } catch (e: Exception) {
+               handle(e)
+           }
+     - Standard try-catch block; similar to Java.
 
 
 
@@ -1913,6 +2608,21 @@ Parameters:
 
            error stop "Error"
      - The 'error stop' statement terminates execution with an error message (Fortran 2008+).
+   * - CSharpRaise
+     - .. code-block:: csharp
+
+           throw new Exception("Error");
+     - Uses the 'throw' keyword to raise an exception.
+   * - SwiftRaise
+     - .. code-block:: swift
+
+           throw MyError.error
+     - Uses 'throw' to raise an error that conforms to the Error protocol.
+   * - KotlinRaise
+     - .. code-block:: kotlin
+
+           throw Exception("Error")
+     - Uses 'throw' to raise an exception.
 
 
 
@@ -2025,6 +2735,25 @@ Parameters:
    * - FortranThread
      - N/A
      - Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple 'thread spawn' primitive.
+   * - CSharpThread
+     - .. code-block:: csharp
+
+           new Thread(() => { do_work(); }).start();
+     - Uses the System.Threading.Thread class; Task.Run is often preferred in modern C#.
+   * - SwiftThread
+     - .. code-block:: swift
+
+           Thread.detachNewThread {
+               doWork()
+           }
+     - Spawns a new thread using the Foundation Thread class.
+   * - KotlinThread
+     - .. code-block:: kotlin
+
+           thread {
+               doWork()
+           }
+     - The thread function from kotlin.concurrent easily spawns a new thread.
 
 
 
@@ -2137,6 +2866,21 @@ Parameters:
 
            target_var[image] = data
      - Coarrays use distributed memory and assignment to 'images' for communication.
+   * - CSharpSendMessage
+     - .. code-block:: csharp
+
+           await channel.Writer.WriteAsync(42);
+     - Using System.Threading.Channels for asynchronous message passing.
+   * - SwiftSendMessage
+     - .. code-block:: swift
+
+           await actor.handle(msg)
+     - Swift actors use asynchronous method calls for communication.
+   * - KotlinSendMessage
+     - .. code-block:: kotlin
+
+           channel.send(42)
+     - Kotlin coroutines use channels for message passing.
 
 
 
@@ -2252,6 +2996,21 @@ Parameters:
 
            sync images(*)
      - Synchronization is used to ensure data consistency in Coarrays.
+   * - CSharpReceiveMessage
+     - .. code-block:: csharp
+
+           var msg = await channel.Reader.ReadAsync();
+           handle(msg);
+     - Using System.Threading.Channels for asynchronous message receiving.
+   * - SwiftReceiveMessage
+     - N/A
+     - Message receiving is handled implicitly by actor method execution.
+   * - KotlinReceiveMessage
+     - .. code-block:: kotlin
+
+           val msg = channel.receive()
+           handle(msg)
+     - Receives a value from a channel; suspends until data is available.
 
 
 
@@ -2405,6 +3164,21 @@ Parameters:
 
            ! comment
      - Exclamation mark starts a comment to the end of the line.
+   * - CSharpSingleLineComment
+     - .. code-block:: csharp
+
+           // comment
+     - Standard single-line comment.
+   * - SwiftSingleLineComment
+     - .. code-block:: swift
+
+           // comment
+     - Standard single-line comment.
+   * - KotlinSingleLineComment
+     - .. code-block:: kotlin
+
+           // comment
+     - Standard single-line comment.
 
 
 
@@ -2556,6 +3330,24 @@ Parameters:
    * - FortranMultiLineComment
      - N/A
      - Fortran does not support multi-line comments natively.
+   * - CSharpMultiLineComment
+     - .. code-block:: csharp
+
+           /* line 1
+              line 2 */
+     - Standard block comment.
+   * - SwiftMultiLineComment
+     - .. code-block:: swift
+
+           /* line 1
+              line 2 */
+     - Standard block comment; supports nesting.
+   * - KotlinMultiLineComment
+     - .. code-block:: kotlin
+
+           /* line 1
+              line 2 */
+     - Standard block comment; supports nesting.
 
 
 
@@ -2719,6 +3511,21 @@ Parameters:
 
            print *, "Hello World"
      - The print statement with * (default format) outputs to stdout.
+   * - CSharpPrint
+     - .. code-block:: csharp
+
+           Console.WriteLine("Hello, World!");
+     - Outputs text to the console with a trailing newline.
+   * - SwiftPrint
+     - .. code-block:: swift
+
+           print("Hello, World!")
+     - Outputs to the console with a trailing newline.
+   * - KotlinPrint
+     - .. code-block:: kotlin
+
+           println("Hello, World!")
+     - Outputs to the console with a trailing newline.
 
 
 
@@ -2874,6 +3681,21 @@ Parameters:
 
            use math_mod
      - The 'use' statement imports a module's public variables and procedures.
+   * - CSharpImport
+     - .. code-block:: csharp
+
+           using System.Collections.Generic;
+     - The 'using' directive imports namespaces.
+   * - SwiftImport
+     - .. code-block:: swift
+
+           import Foundation
+     - Imports a module or specific symbols from it.
+   * - KotlinImport
+     - .. code-block:: kotlin
+
+           import kotlin.math.*
+     - Imports packages or specific classes/functions.
 
 
 
@@ -3035,6 +3857,21 @@ Parameters:
 
            integer, parameter :: MAX = 100
      - The 'parameter' attribute makes the variable a named constant.
+   * - CSharpConstant
+     - .. code-block:: csharp
+
+           const int Max = 100;
+     - The 'const' keyword defines a compile-time constant.
+   * - SwiftConstant
+     - .. code-block:: swift
+
+           let MAX = 100
+     - Uses 'let' for immutable declarations.
+   * - KotlinConstant
+     - .. code-block:: kotlin
+
+           const val MAX = 100
+     - Uses 'const val' for compile-time constants.
 
 
 
@@ -3190,6 +4027,21 @@ Parameters:
 
            a + b
      - Standard arithmetic operator.
+   * - CSharpAddition
+     - .. code-block:: csharp
+
+           a + b
+     - Standard arithmetic operator.
+   * - SwiftAddition
+     - .. code-block:: swift
+
+           a + b
+     -
+   * - KotlinAddition
+     - .. code-block:: kotlin
+
+           a + b
+     -
 
 
 
@@ -3345,6 +4197,21 @@ Parameters:
 
            a - b
      - Standard arithmetic operator.
+   * - CSharpSubtraction
+     - .. code-block:: csharp
+
+           a - b
+     - Standard arithmetic operator.
+   * - SwiftSubtraction
+     - .. code-block:: swift
+
+           a - b
+     -
+   * - KotlinSubtraction
+     - .. code-block:: kotlin
+
+           a - b
+     -
 
 
 
@@ -3500,6 +4367,21 @@ Parameters:
 
            a * b
      - Standard arithmetic operator.
+   * - CSharpMultiplication
+     - .. code-block:: csharp
+
+           a * b
+     - Standard arithmetic operator.
+   * - SwiftMultiplication
+     - .. code-block:: swift
+
+           a * b
+     -
+   * - KotlinMultiplication
+     - .. code-block:: kotlin
+
+           a * b
+     -
 
 
 
@@ -3655,6 +4537,21 @@ Parameters:
 
            a / b
      - Standard arithmetic operator.
+   * - CSharpDivision
+     - .. code-block:: csharp
+
+           a / b
+     - Standard arithmetic operator.
+   * - SwiftDivision
+     - .. code-block:: swift
+
+           a / b
+     -
+   * - KotlinDivision
+     - .. code-block:: kotlin
+
+           a / b
+     -
 
 
 
@@ -3806,6 +4703,21 @@ Parameters:
 
            mod(a, b)
      - Built-in function for remainder.
+   * - CSharpRemainder
+     - .. code-block:: csharp
+
+           a % b
+     - Standard arithmetic operator.
+   * - SwiftRemainder
+     - .. code-block:: swift
+
+           a % b
+     -
+   * - KotlinRemainder
+     - .. code-block:: kotlin
+
+           a % b
+     -
 
 
 
@@ -3949,6 +4861,21 @@ Parameters:
 
            floor(a)
      - Built-in function for the floor of a real number.
+   * - CSharpFloor
+     - .. code-block:: csharp
+
+           Math.Floor(a)
+     - Uses the System.Math class.
+   * - SwiftFloor
+     - .. code-block:: swift
+
+           floor(a)
+     - Requires Foundation.
+   * - KotlinFloor
+     - .. code-block:: kotlin
+
+           floor(a)
+     - Requires kotlin.math.floor.
 
 
 
@@ -4094,6 +5021,21 @@ Parameters:
 
            nint(a)
      - Built-in function for the nearest integer.
+   * - CSharpRounding
+     - .. code-block:: csharp
+
+           Math.Round(a)
+     - Uses the System.Math class.
+   * - SwiftRounding
+     - .. code-block:: swift
+
+           round(a)
+     - Requires Foundation.
+   * - KotlinRounding
+     - .. code-block:: kotlin
+
+           round(a)
+     - Requires kotlin.math.round.
 
 
 
@@ -4249,6 +5191,21 @@ Parameters:
 
            a = a + 1
      - No native increment operator; uses assignment.
+   * - CSharpIncrement
+     - .. code-block:: csharp
+
+           a++
+     - Standard increment operator.
+   * - SwiftIncrement
+     - .. code-block:: swift
+
+           a += 1
+     - Swift does not support unary ++.
+   * - KotlinIncrement
+     - .. code-block:: kotlin
+
+           a++
+     -
 
 
 
@@ -4404,6 +5361,21 @@ Parameters:
 
            a = a - 1
      - No native decrement operator; uses assignment.
+   * - CSharpDecrement
+     - .. code-block:: csharp
+
+           a--
+     - Standard decrement operator.
+   * - SwiftDecrement
+     - .. code-block:: swift
+
+           a -= 1
+     - Swift does not support unary --.
+   * - KotlinDecrement
+     - .. code-block:: kotlin
+
+           a--
+     -
 
 
 
@@ -4551,6 +5523,21 @@ Parameters:
 
            ishft(a, b)
      - The ishft function performs a logical shift.
+   * - CSharpLeftShift
+     - .. code-block:: csharp
+
+           a << b
+     - Standard bitwise shift operator.
+   * - SwiftLeftShift
+     - .. code-block:: swift
+
+           a << b
+     -
+   * - KotlinLeftShift
+     - .. code-block:: kotlin
+
+           a shl b
+     - Uses infix function 'shl'.
 
 
 
@@ -4698,6 +5685,21 @@ Parameters:
 
            ishft(a, -b)
      - Negative shift counts in ishft perform a right shift.
+   * - CSharpRightShift
+     - .. code-block:: csharp
+
+           a >> b
+     - Standard bitwise shift operator.
+   * - SwiftRightShift
+     - .. code-block:: swift
+
+           a >> b
+     -
+   * - KotlinRightShift
+     - .. code-block:: kotlin
+
+           a shr b
+     - Uses infix function 'shr'.
 
 
 
@@ -4847,6 +5849,21 @@ Parameters:
 
            iand(a, b)
      - Built-in function for bitwise AND.
+   * - CSharpBitAnd
+     - .. code-block:: csharp
+
+           a & b
+     - Standard bitwise operator.
+   * - SwiftBitAnd
+     - .. code-block:: swift
+
+           a & b
+     -
+   * - KotlinBitAnd
+     - .. code-block:: kotlin
+
+           a and b
+     - Uses infix function 'and'.
 
 
 
@@ -4996,6 +6013,21 @@ Parameters:
 
            ior(a, b)
      - Built-in function for bitwise OR.
+   * - CSharpBitOr
+     - .. code-block:: csharp
+
+           a | b
+     - Standard bitwise operator.
+   * - SwiftBitOr
+     - .. code-block:: swift
+
+           a | b
+     -
+   * - KotlinBitOr
+     - .. code-block:: kotlin
+
+           a or b
+     - Uses infix function 'or'.
 
 
 
@@ -5145,6 +6177,21 @@ Parameters:
 
            ieor(a, b)
      - Built-in function for bitwise XOR.
+   * - CSharpBitXor
+     - .. code-block:: csharp
+
+           a ^ b
+     - Standard bitwise operator.
+   * - SwiftBitXor
+     - .. code-block:: swift
+
+           a ^ b
+     -
+   * - KotlinBitXor
+     - .. code-block:: kotlin
+
+           a xor b
+     - Uses infix function 'xor'.
 
 
 
@@ -5295,6 +6342,21 @@ Parameters:
 
            not(a)
      - Built-in function for bitwise NOT.
+   * - CSharpBitNot
+     - .. code-block:: csharp
+
+           ~a
+     - Standard bitwise operator.
+   * - SwiftBitNot
+     - .. code-block:: swift
+
+           ~a
+     -
+   * - KotlinBitNot
+     - .. code-block:: kotlin
+
+           a.inv()
+     - Uses 'inv()' method.
 
 
 
@@ -5451,6 +6513,21 @@ Parameters:
 
            c = a * b
      - Fortran supports element-wise operations on arrays natively.
+   * - CSharpFloat4VectorMultiplication
+     - .. code-block:: csharp
+
+           c = a * b;
+     - System.Numerics.Vector4 supports overloaded operators for element-wise multiplication.
+   * - SwiftFloat4VectorMultiplication
+     - .. code-block:: swift
+
+           let c = zip(a, b).map(*)
+     - Functional approach using zip and map.
+   * - KotlinFloat4VectorMultiplication
+     - .. code-block:: kotlin
+
+           val c = a.zip(b) { ai, bi -> ai * bi }
+     - Uses zip with a transformation lambda.
 
 
 
@@ -5614,6 +6691,21 @@ Parameters:
 
            res = dot_product(a, b)
      - The dot_product intrinsic function calculates the dot product of two vectors.
+   * - CSharpFloat4VectorDotProduct
+     - .. code-block:: csharp
+
+           float dot = Vector4.Dot(a, b);
+     - System.Numerics.Vector4.Dot provides the scalar product.
+   * - SwiftFloat4VectorDotProduct
+     - .. code-block:: swift
+
+           let dot = zip(a, b).map(*).reduce(0, +)
+     - Functional approach using zip, map, and reduce.
+   * - KotlinFloat4VectorDotProduct
+     - .. code-block:: kotlin
+
+           val dot = a.zip(b) { ai, bi -> ai * bi }.sum()
+     - Uses zip followed by sum.
 
 
 
@@ -5835,3 +6927,28 @@ Parameters:
                 a(3)*b(1) - a(1)*b(3), &
                 a(1)*b(2) - a(2)*b(1), 0.0]
      - Calculated component-wise using an array constructor.
+   * - CSharpFloat4VectorCrossProduct
+     - .. code-block:: csharp
+
+           var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
+     - Cross product is defined for 3D vectors in System.Numerics.Vector3.
+   * - SwiftFloat4VectorCrossProduct
+     - .. code-block:: swift
+
+           let c = [
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0.0
+           ]
+     - Manual calculation for 3D cross product.
+   * - KotlinFloat4VectorCrossProduct
+     - .. code-block:: kotlin
+
+           val c = floatArrayOf(
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0.0f
+           )
+     - Manual calculation for 3D cross product.
