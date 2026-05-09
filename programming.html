@@ -128,6 +128,9 @@
 <li class="toctree-l1"><a class="reference internal" href="csharp_pivot.html">CSharp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swift_pivot.html">Swift Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kotlin_pivot.html">Kotlin Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graphql_pivot.html">GraphQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sparql_pivot.html">SPARQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
 </ul>
 
         </div>
@@ -390,6 +393,27 @@
 </td>
 <td><p>Static typing, similar to C.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlVariableDeclaration</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$x:</span><span class="w"> </span><span class="err">Int</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Variables in GraphQL are prefixed with $ and used in operation definitions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlVariableDeclaration</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="mi">42</span> <span class="k">AS</span> <span class="nv">?x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The BIND clause assigns a value to a variable.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboVariableDeclaration</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
+</pre></div>
+</div>
+</td>
+<td><p>Overpass QL uses sets (prefixed with .) to store results.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -622,6 +646,24 @@
 </div>
 </td>
 <td><p>Standard equality operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlEqual</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL does not have a native equality operator in the query language itself.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlEqual</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Equality is checked within a FILTER or BIND expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboEqual</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
+<td><p>Equality is used in attribute filters.</p></td>
 </tr>
 </tbody>
 </table>
@@ -856,6 +898,24 @@
 </td>
 <td><p>Standard inequality operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlNotEqual</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlNotEqual</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">!=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Inequality check in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboNotEqual</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
+<td><p>Inequality in attribute filters.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1088,6 +1148,21 @@
 </div>
 </td>
 <td><p>Standard greater than operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlGreaterThan</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlGreaterThan</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">&gt;</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Greater than comparison in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboGreaterThan</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL has limited support for numeric comparisons in some implementations.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1394,6 +1469,18 @@
 </td>
 <td><p>Procedures use the ‘void’ return type.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlProcedureDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL does not support procedure definitions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlProcedureDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>SPARQL does not support procedure definitions.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboProcedureDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1690,6 +1777,25 @@
 </div>
 </td>
 <td><p>Standard C-style function definition.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlFunctionDefinition</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">name</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Operations (query, mutation, subscription) are the closest equivalent to functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlFunctionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>User-defined functions are implementation-dependent (e.g., via ARQ).</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboFunctionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -2017,6 +2123,27 @@
 </div>
 </td>
 <td><p>Standard C-style if-else statement.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlIfElse</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">@skip(if:</span><span class="w"> </span><span class="err">$condition)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">@include(if:</span><span class="w"> </span><span class="err">$condition)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Directives provide conditional inclusion of fields.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlIfElse</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?res</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The IF function returns one of two expressions based on a condition.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboIfElse</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
+</pre></div>
+</div>
+</td>
+<td><p>Control flow statements were added in recent versions of Overpass QL.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2416,6 +2543,21 @@
 </td>
 <td><p>Standard C-style switch statement.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlSwitchCase</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSwitchCase</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Multi-way branching can be simulated using nested IFs or COALESCE.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSwitchCase</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2709,6 +2851,21 @@
 </div>
 </td>
 <td><p>Standard C-style while loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL does not support loops in queries.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>SPARQL is a declarative query language and does not have loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboLoop</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
+</pre></div>
+</div>
+</td>
+<td><p>The foreach statement iterates over the elements of a set.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3011,6 +3168,21 @@
 </td>
 <td><p>Standard C-style for loop.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlForLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlForLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboForLoop</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for ( ... )
+</pre></div>
+</div>
+</td>
+<td><p>Overpass QL supports C-style for loops in recent versions.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3296,6 +3468,18 @@
 </td>
 <td><p>Standard C++ exception handling using try-catch blocks.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlTryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>Errors are returned in the ‘errors’ field of the response.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlTryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>Errors in expressions (like division by zero) result in the value being unbound.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboTryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3527,6 +3711,18 @@
 </td>
 <td><p>Uses ‘throw’ to raise an exception.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlRaise</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlRaise</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboRaise</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3700,6 +3896,18 @@
 </td>
 <td><p>Uses std::thread (C++11 and later).</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlThread</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlThread</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboThread</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3866,6 +4074,18 @@
 </div>
 </td>
 <td><p>Communication is typically handled via shared data structures and synchronization primitives.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlSendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -4037,6 +4257,21 @@
 </div>
 </td>
 <td><p>Typically involves pulling from a thread-safe queue.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlReceiveMessage</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Subscriptions allow receiving real-time updates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -4269,6 +4504,27 @@
 </td>
 <td><p>Standard C++ single-line comment.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlSingleLineComment</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard GraphQL comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSingleLineComment</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>SPARQL comments start with #.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSingleLineComment</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
+</pre></div>
+</div>
+</td>
+<td><p>C-style single-line comments.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4492,6 +4748,24 @@
 </div>
 </td>
 <td><p>Standard C++ multi-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlMultiLineComment</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Block strings can be used as multi-line descriptions/comments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlMultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>SPARQL does not support multi-line comments.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboMultiLineComment</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
+</pre></div>
+</div>
+</td>
+<td><p>C-style multi-line comments.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4734,6 +5008,21 @@
 </td>
 <td><p>Uses std::cout for standard output; requires &lt;iostream&gt;.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlPrint</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlPrint</p></td>
+<td><p>N/A</p></td>
+<td><p>Results are returned as bindings or a graph.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboPrint</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
+</pre></div>
+</div>
+</td>
+<td><p>The out statement produces the result of the query.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4965,6 +5254,24 @@
 </div>
 </td>
 <td><p>Standard way to include headers.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlImport</p></td>
+<td><p>N/A</p></td>
+<td><p>Schema stitching or federation is used to combine schemas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlImport</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">PREFIX</span> <span class="nn">dc</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/elements/1.1/&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>PREFIX defines a namespace prefix.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboImport</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
+</pre></div>
+</div>
+</td>
+<td><p>Settings (like output format) are specified at the beginning of the script.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5203,6 +5510,24 @@
 </td>
 <td><p>The ‘const’ keyword defines an immutable value.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlConstant</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlConstant</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?MAX</span> <span class="p">{</span> <span class="mi">100</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>VALUES can be used to provide constant values for variables.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboConstant</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
+</pre></div>
+</div>
+</td>
+<td><p>Overpass Turbo (the web interface) supports mustache-style constants.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5436,6 +5761,21 @@
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlAddition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlAddition</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arithmetic operators in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboAddition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -5671,6 +6011,21 @@
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlSubtraction</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSubtraction</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arithmetic operators in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSubtraction</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5904,6 +6259,21 @@
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlMultiplication</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">*</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arithmetic operators in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -6139,6 +6509,21 @@
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlDivision</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlDivision</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">/</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arithmetic operators in SPARQL.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboDivision</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6367,6 +6752,18 @@
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlRemainder</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlRemainder</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboRemainder</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6582,6 +6979,21 @@
 </div>
 </td>
 <td><p>Requires &lt;cmath&gt;.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlFloor</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlFloor</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard SPARQL function.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboFloor</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -6801,6 +7213,21 @@
 </div>
 </td>
 <td><p>Requires &lt;cmath&gt;.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlRounding</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlRounding</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard SPARQL function.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboRounding</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -7036,6 +7463,21 @@
 </td>
 <td><p>Standard increment operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlIncrement</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlIncrement</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboIncrement</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7270,6 +7712,21 @@
 </td>
 <td><p>Standard decrement operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlDecrement</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlDecrement</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboDecrement</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7492,6 +7949,18 @@
 </td>
 <td><p>Standard bitwise shift operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlLeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlLeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboLeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7713,6 +8182,18 @@
 </div>
 </td>
 <td><p>Standard bitwise shift operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlRightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlRightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboRightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -7939,6 +8420,18 @@
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlBitAnd</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlBitAnd</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboBitAnd</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8163,6 +8656,18 @@
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlBitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlBitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboBitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -8389,6 +8894,18 @@
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlBitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlBitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboBitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8614,6 +9131,18 @@
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlBitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlBitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboBitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -8847,6 +9376,18 @@
 </div>
 </td>
 <td><p>Standard C++ requires a loop or explicit component-wise multiplication for arrays.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlFloat4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlFloat4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboFloat4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -9087,6 +9628,18 @@
 </div>
 </td>
 <td><p>Calculated by accumulating component-wise products in a loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlFloat4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlFloat4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboFloat4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>
@@ -9398,6 +9951,18 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Manual implementation for the first three components.</p></td>
 </tr>
+<tr class="row-even"><td><p>GraphQlFloat4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlFloat4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboFloat4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9661,6 +10226,27 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Uses the filter extension function.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlSetFiltering</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user(id:</span><span class="w"> </span><span class="err">42)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Filtering is typically done via field arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSetFiltering</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The FILTER clause restricts the solutions.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSetFiltering</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
+</pre></div>
+</div>
+</td>
+<td><p>Filters elements by tags or location.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9931,6 +10517,27 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Uses flatMap and filter extension functions.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlSetJoin</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Joins are expressed through nested selection sets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSetJoin</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?s</span> <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span> <span class="nv">?s</span> <span class="nv">?p2</span> <span class="nv">?o2</span>
+</pre></div>
+</div>
+</td>
+<td><p>Joins are performed by using the same variable in different triple patterns.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSetJoin</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(node(area); way(area););
+</pre></div>
+</div>
+</td>
+<td><p>Unions and recursion (e.g., node(w)) are used to combine sets.</p></td>
 </tr>
 </tbody>
 </table>

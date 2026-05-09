@@ -181,6 +181,21 @@ Parameters:
 
            int x = 42;
      - Static typing, similar to C.
+   * - GraphQlVariableDeclaration
+     - .. code-block:: graphql
+
+           $x: Int = 42
+     - Variables in GraphQL are prefixed with $ and used in operation definitions.
+   * - SparqlVariableDeclaration
+     - .. code-block:: sparql
+
+           BIND(42 AS ?x)
+     - The BIND clause assigns a value to a variable.
+   * - OverpassTurboVariableDeclaration
+     - .. code-block:: text
+
+           .setname
+     - Overpass QL uses sets (prefixed with .) to store results.
 
 
 
@@ -356,6 +371,19 @@ Parameters:
 
            a == b
      - Standard equality operator.
+   * - GraphQlEqual
+     - N/A
+     - GraphQL does not have a native equality operator in the query language itself.
+   * - SparqlEqual
+     - .. code-block:: sparql
+
+           FILTER(?a = ?b)
+     - Equality is checked within a FILTER or BIND expression.
+   * - OverpassTurboEqual
+     - .. code-block:: text
+
+           ["name"="Berlin"]
+     - Equality is used in attribute filters.
 
 
 
@@ -531,6 +559,19 @@ Parameters:
 
            a != b
      - Standard inequality operator.
+   * - GraphQlNotEqual
+     - N/A
+     - N/A
+   * - SparqlNotEqual
+     - .. code-block:: sparql
+
+           FILTER(?a != ?b)
+     - Inequality check in SPARQL.
+   * - OverpassTurboNotEqual
+     - .. code-block:: text
+
+           ["name"!="Berlin"]
+     - Inequality in attribute filters.
 
 
 
@@ -706,6 +747,17 @@ Parameters:
 
            a > b
      - Standard greater than operator.
+   * - GraphQlGreaterThan
+     - N/A
+     - N/A
+   * - SparqlGreaterThan
+     - .. code-block:: sparql
+
+           FILTER(?a > ?b)
+     - Greater than comparison in SPARQL.
+   * - OverpassTurboGreaterThan
+     - N/A
+     - Overpass QL has limited support for numeric comparisons in some implementations.
 
 
 
@@ -956,6 +1008,15 @@ Parameters:
                std::cout << msg << std::endl;
            }
      - Procedures use the 'void' return type.
+   * - GraphQlProcedureDefinition
+     - N/A
+     - GraphQL does not support procedure definitions.
+   * - SparqlProcedureDefinition
+     - N/A
+     - SPARQL does not support procedure definitions.
+   * - OverpassTurboProcedureDefinition
+     - N/A
+     - N/A
 
 
 
@@ -1199,6 +1260,21 @@ Parameters:
                return a + b;
            }
      - Standard C-style function definition.
+   * - GraphQlFunctionDefinition
+     - .. code-block:: graphql
+
+           query getUser($id: ID) {
+               user(id: $id) {
+                   name
+               }
+           }
+     - Operations (query, mutation, subscription) are the closest equivalent to functions.
+   * - SparqlFunctionDefinition
+     - N/A
+     - User-defined functions are implementation-dependent (e.g., via ARQ).
+   * - OverpassTurboFunctionDefinition
+     - N/A
+     - N/A
 
 
 
@@ -1470,6 +1546,21 @@ Parameters:
                return 0;
            }
      - Standard C-style if-else statement.
+   * - GraphQlIfElse
+     - .. code-block:: graphql
+
+           @skip(if: $condition) or @include(if: $condition)
+     - Directives provide conditional inclusion of fields.
+   * - SparqlIfElse
+     - .. code-block:: sparql
+
+           BIND(IF(?x > 0, 1, 0) AS ?res)
+     - The IF function returns one of two expressions based on a condition.
+   * - OverpassTurboIfElse
+     - .. code-block:: text
+
+           if (condition) { ... } else { ... }
+     - Control flow statements were added in recent versions of Overpass QL.
 
 
 
@@ -1811,6 +1902,17 @@ Parameters:
                    return 0;
            }
      - Standard C-style switch statement.
+   * - GraphQlSwitchCase
+     - N/A
+     - N/A
+   * - SparqlSwitchCase
+     - .. code-block:: sparql
+
+           COALESCE(IF(?x=1, 'one', 1/0), IF(?x=2, 'two', 1/0), 'none')
+     - Multi-way branching can be simulated using nested IFs or COALESCE.
+   * - OverpassTurboSwitchCase
+     - N/A
+     - N/A
 
 
 
@@ -2049,6 +2151,17 @@ Parameters:
                x = x - 1;
            }
      - Standard C-style while loop.
+   * - GraphQlLoop
+     - N/A
+     - GraphQL does not support loops in queries.
+   * - SparqlLoop
+     - N/A
+     - SPARQL is a declarative query language and does not have loops.
+   * - OverpassTurboLoop
+     - .. code-block:: text
+
+           foreach .a ( ... )
+     - The foreach statement iterates over the elements of a set.
 
 
 
@@ -2292,6 +2405,17 @@ Parameters:
                // body
            }
      - Standard C-style for loop.
+   * - GraphQlForLoop
+     - N/A
+     - N/A
+   * - SparqlForLoop
+     - N/A
+     - N/A
+   * - OverpassTurboForLoop
+     - .. code-block:: text
+
+           for ( ... )
+     - Overpass QL supports C-style for loops in recent versions.
 
 
 
@@ -2529,6 +2653,15 @@ Parameters:
                handle(e);
            }
      - Standard C++ exception handling using try-catch blocks.
+   * - GraphQlTryCatch
+     - N/A
+     - Errors are returned in the 'errors' field of the response.
+   * - SparqlTryCatch
+     - N/A
+     - Errors in expressions (like division by zero) result in the value being unbound.
+   * - OverpassTurboTryCatch
+     - N/A
+     - N/A
 
 
 
@@ -2706,6 +2839,15 @@ Parameters:
 
            throw std::runtime_error("Error");
      - Uses 'throw' to raise an exception.
+   * - GraphQlRaise
+     - N/A
+     - N/A
+   * - SparqlRaise
+     - N/A
+     - N/A
+   * - OverpassTurboRaise
+     - N/A
+     - N/A
 
 
 
@@ -2843,6 +2985,15 @@ Parameters:
            std::thread t(do_work);
            t.join();
      - Uses std::thread (C++11 and later).
+   * - GraphQlThread
+     - N/A
+     - N/A
+   * - SparqlThread
+     - N/A
+     - N/A
+   * - OverpassTurboThread
+     - N/A
+     - N/A
 
 
 
@@ -2975,6 +3126,15 @@ Parameters:
 
            queue.push(42);
      - Communication is typically handled via shared data structures and synchronization primitives.
+   * - GraphQlSendMessage
+     - N/A
+     - N/A
+   * - SparqlSendMessage
+     - N/A
+     - N/A
+   * - OverpassTurboSendMessage
+     - N/A
+     - N/A
 
 
 
@@ -3112,6 +3272,17 @@ Parameters:
            queue.pop();
            handle(msg);
      - Typically involves pulling from a thread-safe queue.
+   * - GraphQlReceiveMessage
+     - .. code-block:: graphql
+
+           subscription { ... }
+     - Subscriptions allow receiving real-time updates.
+   * - SparqlReceiveMessage
+     - N/A
+     - N/A
+   * - OverpassTurboReceiveMessage
+     - N/A
+     - N/A
 
 
 
@@ -3285,6 +3456,21 @@ Parameters:
 
            // comment
      - Standard C++ single-line comment.
+   * - GraphQlSingleLineComment
+     - .. code-block:: graphql
+
+           # comment
+     - Standard GraphQL comment.
+   * - SparqlSingleLineComment
+     - .. code-block:: sparql
+
+           # comment
+     - SPARQL comments start with #.
+   * - OverpassTurboSingleLineComment
+     - .. code-block:: text
+
+           // comment
+     - C-style single-line comments.
 
 
 
@@ -3460,6 +3646,19 @@ Parameters:
            /* line 1
               line 2 */
      - Standard C++ multi-line comment.
+   * - GraphQlMultiLineComment
+     - .. code-block:: graphql
+
+           """ comment """
+     - Block strings can be used as multi-line descriptions/comments.
+   * - SparqlMultiLineComment
+     - N/A
+     - SPARQL does not support multi-line comments.
+   * - OverpassTurboMultiLineComment
+     - .. code-block:: text
+
+           /* comment */
+     - C-style multi-line comments.
 
 
 
@@ -3643,6 +3842,17 @@ Parameters:
 
            std::cout << "Hello, World!" << std::endl;
      - Uses std::cout for standard output; requires <iostream>.
+   * - GraphQlPrint
+     - N/A
+     - N/A
+   * - SparqlPrint
+     - N/A
+     - Results are returned as bindings or a graph.
+   * - OverpassTurboPrint
+     - .. code-block:: text
+
+           out;
+     - The out statement produces the result of the query.
 
 
 
@@ -3818,6 +4028,19 @@ Parameters:
 
            #include <iostream>
      - Standard way to include headers.
+   * - GraphQlImport
+     - N/A
+     - Schema stitching or federation is used to combine schemas.
+   * - SparqlImport
+     - .. code-block:: sparql
+
+           PREFIX dc: <http://purl.org/dc/elements/1.1/>
+     - PREFIX defines a namespace prefix.
+   * - OverpassTurboImport
+     - .. code-block:: text
+
+           [out:json];
+     - Settings (like output format) are specified at the beginning of the script.
 
 
 
@@ -3999,6 +4222,19 @@ Parameters:
 
            const int MAX = 100;
      - The 'const' keyword defines an immutable value.
+   * - GraphQlConstant
+     - N/A
+     - N/A
+   * - SparqlConstant
+     - .. code-block:: sparql
+
+           VALUES ?MAX { 100 }
+     - VALUES can be used to provide constant values for variables.
+   * - OverpassTurboConstant
+     - .. code-block:: text
+
+           {{key=value}}
+     - Overpass Turbo (the web interface) supports mustache-style constants.
 
 
 
@@ -4174,6 +4410,17 @@ Parameters:
 
            a + b
      - Standard arithmetic operator.
+   * - GraphQlAddition
+     - N/A
+     - N/A
+   * - SparqlAddition
+     - .. code-block:: sparql
+
+           ?a + ?b
+     - Arithmetic operators in SPARQL.
+   * - OverpassTurboAddition
+     - N/A
+     - N/A
 
 
 
@@ -4349,6 +4596,17 @@ Parameters:
 
            a - b
      - Standard arithmetic operator.
+   * - GraphQlSubtraction
+     - N/A
+     - N/A
+   * - SparqlSubtraction
+     - .. code-block:: sparql
+
+           ?a - ?b
+     - Arithmetic operators in SPARQL.
+   * - OverpassTurboSubtraction
+     - N/A
+     - N/A
 
 
 
@@ -4524,6 +4782,17 @@ Parameters:
 
            a * b
      - Standard arithmetic operator.
+   * - GraphQlMultiplication
+     - N/A
+     - N/A
+   * - SparqlMultiplication
+     - .. code-block:: sparql
+
+           ?a * ?b
+     - Arithmetic operators in SPARQL.
+   * - OverpassTurboMultiplication
+     - N/A
+     - N/A
 
 
 
@@ -4699,6 +4968,17 @@ Parameters:
 
            a / b
      - Standard arithmetic operator.
+   * - GraphQlDivision
+     - N/A
+     - N/A
+   * - SparqlDivision
+     - .. code-block:: sparql
+
+           ?a / ?b
+     - Arithmetic operators in SPARQL.
+   * - OverpassTurboDivision
+     - N/A
+     - N/A
 
 
 
@@ -4870,6 +5150,15 @@ Parameters:
 
            a % b
      - Standard arithmetic operator.
+   * - GraphQlRemainder
+     - N/A
+     - N/A
+   * - SparqlRemainder
+     - N/A
+     - N/A
+   * - OverpassTurboRemainder
+     - N/A
+     - N/A
 
 
 
@@ -5033,6 +5322,17 @@ Parameters:
 
            std::floor(a)
      - Requires <cmath>.
+   * - GraphQlFloor
+     - N/A
+     - N/A
+   * - SparqlFloor
+     - .. code-block:: sparql
+
+           floor(?a)
+     - Standard SPARQL function.
+   * - OverpassTurboFloor
+     - N/A
+     - N/A
 
 
 
@@ -5198,6 +5498,17 @@ Parameters:
 
            std::round(a)
      - Requires <cmath>.
+   * - GraphQlRounding
+     - N/A
+     - N/A
+   * - SparqlRounding
+     - .. code-block:: sparql
+
+           round(?a)
+     - Standard SPARQL function.
+   * - OverpassTurboRounding
+     - N/A
+     - N/A
 
 
 
@@ -5373,6 +5684,17 @@ Parameters:
 
            a++
      - Standard increment operator.
+   * - GraphQlIncrement
+     - N/A
+     - N/A
+   * - SparqlIncrement
+     - .. code-block:: sparql
+
+           ?a + 1
+     - N/A
+   * - OverpassTurboIncrement
+     - N/A
+     - N/A
 
 
 
@@ -5548,6 +5870,17 @@ Parameters:
 
            a--
      - Standard decrement operator.
+   * - GraphQlDecrement
+     - N/A
+     - N/A
+   * - SparqlDecrement
+     - .. code-block:: sparql
+
+           ?a - 1
+     - N/A
+   * - OverpassTurboDecrement
+     - N/A
+     - N/A
 
 
 
@@ -5715,6 +6048,15 @@ Parameters:
 
            a << b
      - Standard bitwise shift operator.
+   * - GraphQlLeftShift
+     - N/A
+     - N/A
+   * - SparqlLeftShift
+     - N/A
+     - N/A
+   * - OverpassTurboLeftShift
+     - N/A
+     - N/A
 
 
 
@@ -5882,6 +6224,15 @@ Parameters:
 
            a >> b
      - Standard bitwise shift operator.
+   * - GraphQlRightShift
+     - N/A
+     - N/A
+   * - SparqlRightShift
+     - N/A
+     - N/A
+   * - OverpassTurboRightShift
+     - N/A
+     - N/A
 
 
 
@@ -6051,6 +6402,15 @@ Parameters:
 
            a & b
      - Standard bitwise operator.
+   * - GraphQlBitAnd
+     - N/A
+     - N/A
+   * - SparqlBitAnd
+     - N/A
+     - N/A
+   * - OverpassTurboBitAnd
+     - N/A
+     - N/A
 
 
 
@@ -6220,6 +6580,15 @@ Parameters:
 
            a | b
      - Standard bitwise operator.
+   * - GraphQlBitOr
+     - N/A
+     - N/A
+   * - SparqlBitOr
+     - N/A
+     - N/A
+   * - OverpassTurboBitOr
+     - N/A
+     - N/A
 
 
 
@@ -6389,6 +6758,15 @@ Parameters:
 
            a ^ b
      - Standard bitwise operator.
+   * - GraphQlBitXor
+     - N/A
+     - N/A
+   * - SparqlBitXor
+     - N/A
+     - N/A
+   * - OverpassTurboBitXor
+     - N/A
+     - N/A
 
 
 
@@ -6559,6 +6937,15 @@ Parameters:
 
            ~a
      - Standard bitwise operator.
+   * - GraphQlBitNot
+     - N/A
+     - N/A
+   * - SparqlBitNot
+     - N/A
+     - N/A
+   * - OverpassTurboBitNot
+     - N/A
+     - N/A
 
 
 
@@ -6735,6 +7122,15 @@ Parameters:
 
            for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
      - Standard C++ requires a loop or explicit component-wise multiplication for arrays.
+   * - GraphQlFloat4VectorMultiplication
+     - N/A
+     - N/A
+   * - SparqlFloat4VectorMultiplication
+     - N/A
+     - N/A
+   * - OverpassTurboFloat4VectorMultiplication
+     - N/A
+     - N/A
 
 
 
@@ -6918,6 +7314,15 @@ Parameters:
 
            float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
      - Calculated by accumulating component-wise products in a loop.
+   * - GraphQlFloat4VectorDotProduct
+     - N/A
+     - N/A
+   * - SparqlFloat4VectorDotProduct
+     - N/A
+     - N/A
+   * - OverpassTurboFloat4VectorDotProduct
+     - N/A
+     - N/A
 
 
 
@@ -7172,6 +7577,15 @@ Parameters:
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
      - Manual implementation for the first three components.
+   * - GraphQlFloat4VectorCrossProduct
+     - N/A
+     - N/A
+   * - SparqlFloat4VectorCrossProduct
+     - N/A
+     - N/A
+   * - OverpassTurboFloat4VectorCrossProduct
+     - N/A
+     - N/A
 
 
 
@@ -7378,6 +7792,21 @@ Parameters:
 
            val b = a.filter { it > 0 }
      - Uses the filter extension function.
+   * - GraphQlSetFiltering
+     - .. code-block:: graphql
+
+           user(id: 42)
+     - Filtering is typically done via field arguments.
+   * - SparqlSetFiltering
+     - .. code-block:: sparql
+
+           FILTER(?x > 0)
+     - The FILTER clause restricts the solutions.
+   * - OverpassTurboSetFiltering
+     - .. code-block:: text
+
+           node["name"="Berlin"];
+     - Filters elements by tags or location.
 
 
 
@@ -7591,3 +8020,18 @@ Parameters:
 
            val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
      - Uses flatMap and filter extension functions.
+   * - GraphQlSetJoin
+     - .. code-block:: graphql
+
+           user { posts { title } }
+     - Joins are expressed through nested selection sets.
+   * - SparqlSetJoin
+     - .. code-block:: sparql
+
+           ?s ?p ?o . ?s ?p2 ?o2
+     - Joins are performed by using the same variable in different triple patterns.
+   * - OverpassTurboSetJoin
+     - .. code-block:: text
+
+           (node(area); way(area););
+     - Unions and recursion (e.g., node(w)) are used to combine sets.
