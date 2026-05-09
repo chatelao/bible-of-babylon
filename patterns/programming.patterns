@@ -7,6 +7,24 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern Equal {
+    meta description: "Checks if two values are equal."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern NotEqual {
+    meta description: "Checks if two values are not equal."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern GreaterThan {
+    meta description: "Checks if the first value is greater than the second."
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern ProcedureDefinition {
     meta description: "Declaration of a reusable block of code with parameters and no return value."
     parameter name: String
@@ -5628,4 +5646,410 @@ instance CSharpFloat4VectorDotProduct of Float4VectorDotProduct {
 instance CSharpFloat4VectorCrossProduct of Float4VectorCrossProduct {
     syntax = "var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));"
     notes = "Cross product is defined for 3D vectors in System.Numerics.Vector3."
+}
+
+
+instance CEqual of Equal {
+    syntax = "a == b"
+    notes = "Standard equality operator."
+}
+
+instance CNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance CGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance JavaEqual of Equal {
+    syntax = "a == b"
+    notes = "For primitives, == checks value equality; for objects, it checks reference equality."
+}
+
+instance JavaNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance JavaGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance RustEqual of Equal {
+    syntax = "a == b"
+    notes = "Requires the PartialEq trait to be implemented."
+}
+
+instance RustNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance RustGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance PythonEqual of Equal {
+    syntax = "a == b"
+    notes = "Checks for value equality; 'is' is used for identity equality."
+}
+
+instance PythonNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance PythonGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance PhpEqual of Equal {
+    syntax = "a == b"
+    notes = "Loose equality; use === for strict (type-safe) equality."
+}
+
+instance PhpNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = "Loose inequality; use !== for strict inequality."
+}
+
+instance PhpGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance BashEqual of Equal {
+    syntax = "[ \"$a\" -eq \"$b\" ]"
+    notes = "Used for integer comparison; use = or == for strings."
+}
+
+instance BashNotEqual of NotEqual {
+    syntax = "[ \"$a\" -ne \"$b\" ]"
+    notes = "Used for integer comparison; use != for strings."
+}
+
+instance BashGreaterThan of GreaterThan {
+    syntax = "[ \"$a\" -gt \"$b\" ]"
+    notes = "Used for integer comparison; use > (within [[ ]]) or expr for strings."
+}
+
+instance PowerShellEqual of Equal {
+    syntax = "$a -eq $b"
+    notes = "PowerShell uses prefixed operators for comparison."
+}
+
+instance PowerShellNotEqual of NotEqual {
+    syntax = "$a -ne $b"
+    notes = ""
+}
+
+instance PowerShellGreaterThan of GreaterThan {
+    syntax = "$a -gt $b"
+    notes = ""
+}
+
+instance CmdEqual of Equal {
+    syntax = "if %a% EQU %b%"
+    notes = "Comparison operators are used within if statements."
+}
+
+instance CmdNotEqual of NotEqual {
+    syntax = "if %a% NEQ %b%"
+    notes = ""
+}
+
+instance CmdGreaterThan of GreaterThan {
+    syntax = "if %a% GTR %b%"
+    notes = ""
+}
+
+instance SqlEqual of Equal {
+    syntax = "a = b"
+    notes = "Standard SQL equality operator."
+}
+
+instance SqlNotEqual of NotEqual {
+    syntax = "a <> b"
+    notes = "Standard SQL inequality operator; some dialects also support !=."
+}
+
+instance SqlGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance ErlangEqual of Equal {
+    syntax = "A == B"
+    notes = "Value equality; use =:= for exact (type-safe) equality."
+}
+
+instance ErlangNotEqual of NotEqual {
+    syntax = "A /= B"
+    notes = "Value inequality; use =/= for exact inequality."
+}
+
+instance ErlangGreaterThan of GreaterThan {
+    syntax = "A > B"
+    notes = ""
+}
+
+instance LispEqual of Equal {
+    syntax = "(= a b)"
+    notes = "Numerical equality; use 'eq', 'eql', 'equal', or 'equalp' for other types."
+}
+
+instance LispNotEqual of NotEqual {
+    syntax = "(/= a b)"
+    notes = "Returns true if all arguments are not equal to each other."
+}
+
+instance LispGreaterThan of GreaterThan {
+    syntax = "(> a b)"
+    notes = ""
+}
+
+instance XQueryEqual of Equal {
+    syntax = "$a = $b"
+    notes = "General comparison operator; use 'eq' for value comparison of single items."
+}
+
+instance XQueryNotEqual of NotEqual {
+    syntax = "$a != $b"
+    notes = "General comparison operator; use 'ne' for value comparison of single items."
+}
+
+instance XQueryGreaterThan of GreaterThan {
+    syntax = "$a > $b"
+    notes = "General comparison operator; use 'gt' for value comparison of single items."
+}
+
+instance CssEqual of Equal {
+    syntax = "N/A"
+    notes = "CSS does not support general-purpose comparison operations."
+}
+
+instance CssNotEqual of NotEqual {
+    syntax = "N/A"
+    notes = ""
+}
+
+instance CssGreaterThan of GreaterThan {
+    syntax = "N/A"
+    notes = ""
+}
+
+instance CudaEqual of Equal {
+    syntax = "a == b"
+    notes = "Standard C operators supported in device code."
+}
+
+instance CudaNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance CudaGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance X86Equal of Equal {
+    syntax = "cmp eax, ebx\nje .equal"
+    notes = "Comparison sets flags, then a conditional jump is used."
+}
+
+instance X86NotEqual of NotEqual {
+    syntax = "cmp eax, ebx\njne .not_equal"
+    notes = ""
+}
+
+instance X86GreaterThan of GreaterThan {
+    syntax = "cmp eax, ebx\njg .greater"
+    notes = ""
+}
+
+instance RiscvEqual of Equal {
+    syntax = "beq t0, t1, .equal"
+    notes = "Branch if equal."
+}
+
+instance RiscvNotEqual of NotEqual {
+    syntax = "bne t0, t1, .not_equal"
+    notes = "Branch if not equal."
+}
+
+instance RiscvGreaterThan of GreaterThan {
+    syntax = "bgt t0, t1, .greater"
+    notes = "Pseudo-instruction that expands to blt with swapped operands."
+}
+
+instance ArmAarch64Equal of Equal {
+    syntax = "cmp x0, x1\nb.eq .equal"
+    notes = ""
+}
+
+instance ArmAarch64NotEqual of NotEqual {
+    syntax = "cmp x0, x1\nb.ne .not_equal"
+    notes = ""
+}
+
+instance ArmAarch64GreaterThan of GreaterThan {
+    syntax = "cmp x0, x1\nb.gt .greater"
+    notes = ""
+}
+
+instance PrologEqual of Equal {
+    syntax = "A == B"
+    notes = "Checks if A and B are currently identical; use = for unification."
+}
+
+instance PrologNotEqual of NotEqual {
+    syntax = "A \== B"
+    notes = "Checks if A and B are currently not identical."
+}
+
+instance PrologGreaterThan of GreaterThan {
+    syntax = "A > B"
+    notes = "Arithmetic comparison."
+}
+
+instance JavaBytecodeEqual of Equal {
+    syntax = "if_icmpeq Label"
+    notes = "Pops two integers from the stack and branches if they are equal."
+}
+
+instance JavaBytecodeNotEqual of NotEqual {
+    syntax = "if_icmpne Label"
+    notes = ""
+}
+
+instance JavaBytecodeGreaterThan of GreaterThan {
+    syntax = "if_icmpgt Label"
+    notes = ""
+}
+
+instance CamelEqual of Equal {
+    syntax = "a = b"
+    notes = "Structural equality; use == for physical equality (identity)."
+}
+
+instance CamelNotEqual of NotEqual {
+    syntax = "a <> b"
+    notes = ""
+}
+
+instance CamelGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance GoEqual of Equal {
+    syntax = "a == b"
+    notes = ""
+}
+
+instance GoNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance GoGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance HaskellEqual of Equal {
+    syntax = "a == b"
+    notes = "Requires the Eq typeclass."
+}
+
+instance HaskellNotEqual of NotEqual {
+    syntax = "a /= b"
+    notes = ""
+}
+
+instance HaskellGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Requires the Ord typeclass."
+}
+
+instance TypeScriptEqual of Equal {
+    syntax = "a == b"
+    notes = "Loose equality; === is preferred for strict equality."
+}
+
+instance TypeScriptNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = "Loose inequality; !== is preferred for strict inequality."
+}
+
+instance TypeScriptGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
+}
+
+instance TclEqual of Equal {
+    syntax = "[expr {$a == $b}]"
+    notes = "Comparisons are performed within the expr command."
+}
+
+instance TclNotEqual of NotEqual {
+    syntax = "[expr {$a != $b}]"
+    notes = ""
+}
+
+instance TclGreaterThan of GreaterThan {
+    syntax = "[expr {$a > $b}]"
+    notes = ""
+}
+
+instance CobolEqual of Equal {
+    syntax = "IF A = B"
+    notes = ""
+}
+
+instance CobolNotEqual of NotEqual {
+    syntax = "IF A NOT = B"
+    notes = ""
+}
+
+instance CobolGreaterThan of GreaterThan {
+    syntax = "IF A > B"
+    notes = ""
+}
+
+instance FortranEqual of Equal {
+    syntax = "a == b"
+    notes = "Alternative syntax: a .eq. b"
+}
+
+instance FortranNotEqual of NotEqual {
+    syntax = "a /= b"
+    notes = "Alternative syntax: a .ne. b"
+}
+
+instance FortranGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Alternative syntax: a .gt. b"
+}
+
+instance CSharpEqual of Equal {
+    syntax = "a == b"
+    notes = ""
+}
+
+instance CSharpNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = ""
+}
+
+instance CSharpGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = ""
 }
