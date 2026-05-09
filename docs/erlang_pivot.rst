@@ -13,6 +13,15 @@ Erlang Pivot View
 
            X = 42.
      - Single assignment; must start with an uppercase letter.
+   * - SwitchCase
+     - .. code-block:: erlang
+
+           case X of
+               1 -> one;
+               2 -> two;
+               _ -> none
+           end
+     - Uses 'case' for pattern matching; _ is the catch-all pattern.
    * - IfElse
      - .. code-block:: erlang
 
@@ -81,15 +90,6 @@ Erlang Pivot View
 
            -include("header.hrl").
      - Includes header files; module functions are typically called using Module:Function syntax.
-   * - SwitchCase
-     - .. code-block:: erlang
-
-           case X of
-               1 -> one;
-               2 -> two;
-               _ -> none
-           end
-     - Uses 'case' for pattern matching; _ is the catch-all pattern.
    * - Constant
      - .. code-block:: erlang
 
@@ -187,3 +187,23 @@ Erlang Pivot View
                 lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
                 lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0].
      - Uses lists:nth (1-indexed) to access vector components.
+   * - ForLoop
+     - .. code-block:: erlang
+
+           lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
+     - Erlang uses recursion or library functions like lists:foreach for iteration.
+   * - Equal
+     - .. code-block:: erlang
+
+           A == B
+     - Value equality; use =:= for exact (type-safe) equality.
+   * - NotEqual
+     - .. code-block:: erlang
+
+           A /= B
+     - Value inequality; use =/= for exact inequality.
+   * - GreaterThan
+     - .. code-block:: erlang
+
+           A > B
+     -

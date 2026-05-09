@@ -13,6 +13,14 @@ XQuery Pivot View
 
            let $x := 42
      - XQuery uses 'let' for variable binding.
+   * - SwitchCase
+     - .. code-block:: xquery
+
+           switch ($x)
+             case 1 return "one"
+             case 2 return "two"
+             default return "none"
+     - The 'switch' expression was introduced in XQuery 3.0.
    * - IfElse
      - .. code-block:: xquery
 
@@ -77,14 +85,6 @@ XQuery Pivot View
 
            import module namespace utils = "http://example.com/utils";
      - Imports a library module by its namespace URI.
-   * - SwitchCase
-     - .. code-block:: xquery
-
-           switch ($x)
-             case 1 return "one"
-             case 2 return "two"
-             default return "none"
-     - The 'switch' expression was introduced in XQuery 3.0.
    * - Constant
      - .. code-block:: xquery
 
@@ -168,3 +168,24 @@ XQuery Pivot View
 
            ($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)
      - Uses sequence indexing (1-indexed).
+   * - ForLoop
+     - .. code-block:: xquery
+
+           for $i in 1 to 10
+           return $i
+     - Iterates over a sequence and returns a new sequence.
+   * - Equal
+     - .. code-block:: xquery
+
+           $a = $b
+     - General comparison operator; use 'eq' for value comparison of single items.
+   * - NotEqual
+     - .. code-block:: xquery
+
+           $a != $b
+     - General comparison operator; use 'ne' for value comparison of single items.
+   * - GreaterThan
+     - .. code-block:: xquery
+
+           $a > $b
+     - General comparison operator; use 'gt' for value comparison of single items.

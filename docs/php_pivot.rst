@@ -13,6 +13,18 @@ PHP Pivot View
 
            $x = 42;
      - Variables start with a dollar sign; dynamically typed but supports type declarations.
+   * - SwitchCase
+     - .. code-block:: php
+
+           switch ($x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-like switch statement; match expression is also available in PHP 8.0+.
    * - IfElse
      - .. code-block:: php
 
@@ -78,18 +90,6 @@ PHP Pivot View
 
            require 'utils.php';
      - Uses include, require, include_once, or require_once to include other files.
-   * - SwitchCase
-     - .. code-block:: php
-
-           switch ($x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-like switch statement; match expression is also available in PHP 8.0+.
    * - Constant
      - .. code-block:: php
 
@@ -185,3 +185,25 @@ PHP Pivot View
 
            $c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];
      - Calculated using array indexing and the cross product formula.
+   * - ForLoop
+     - .. code-block:: php
+
+           for ($i = 0; $i < 10; $i++) {
+               // body
+           }
+     - Standard C-style for loop.
+   * - Equal
+     - .. code-block:: php
+
+           a == b
+     - Loose equality; use === for strict (type-safe) equality.
+   * - NotEqual
+     - .. code-block:: php
+
+           a != b
+     - Loose inequality; use !== for strict inequality.
+   * - GreaterThan
+     - .. code-block:: php
+
+           a > b
+     -

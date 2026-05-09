@@ -13,6 +13,14 @@ Lisp Pivot View
 
            (defparameter x 42)
      - Dynamic typing; defined using defparameter or defvar.
+   * - SwitchCase
+     - .. code-block:: common-lisp
+
+           (case x
+             (1 "one")
+             (2 "two")
+             (t "none"))
+     - Standard 'case' macro; 't' or 'otherwise' is the default branch.
    * - IfElse
      - .. code-block:: common-lisp
 
@@ -65,14 +73,6 @@ Lisp Pivot View
 
            (use-package :iter)
      - Makes symbols from the specified package available in the current package.
-   * - SwitchCase
-     - .. code-block:: common-lisp
-
-           (case x
-             (1 "one")
-             (2 "two")
-             (t "none"))
-     - Standard 'case' macro; 't' or 'otherwise' is the default branch.
    * - Constant
      - .. code-block:: common-lisp
 
@@ -171,3 +171,24 @@ Lisp Pivot View
                  (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
                  0.0)
      - Uses nth and basic arithmetic functions.
+   * - ForLoop
+     - .. code-block:: common-lisp
+
+           (loop for i from 0 to 9 do
+               #| body |#)
+     - The loop macro provides a highly expressive way to iterate.
+   * - Equal
+     - .. code-block:: common-lisp
+
+           (= a b)
+     - Numerical equality; use 'eq', 'eql', 'equal', or 'equalp' for other types.
+   * - NotEqual
+     - .. code-block:: common-lisp
+
+           (/= a b)
+     - Returns true if all arguments are not equal to each other.
+   * - GreaterThan
+     - .. code-block:: common-lisp
+
+           (> a b)
+     -

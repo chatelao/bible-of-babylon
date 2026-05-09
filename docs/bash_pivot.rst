@@ -13,6 +13,21 @@ Bash Pivot View
 
            x=42
      - No spaces around the assignment operator.
+   * - SwitchCase
+     - .. code-block:: bash
+
+           case $x in
+               1)
+                   echo "one"
+                   ;;
+               2)
+                   echo "two"
+                   ;;
+               *)
+                   echo "none"
+                   ;;
+           esac
+     - Uses case-in-esac structure; patterns end with ) and blocks end with ;;.
    * - IfElse
      - .. code-block:: bash
 
@@ -71,21 +86,6 @@ Bash Pivot View
 
            source utils.sh
      - The 'source' (or .) command executes a script in the current shell context.
-   * - SwitchCase
-     - .. code-block:: bash
-
-           case $x in
-               1)
-                   echo "one"
-                   ;;
-               2)
-                   echo "two"
-                   ;;
-               *)
-                   echo "none"
-                   ;;
-           esac
-     - Uses case-in-esac structure; patterns end with ) and blocks end with ;;.
    * - Constant
      - .. code-block:: bash
 
@@ -184,3 +184,25 @@ Bash Pivot View
            c[2]=$(echo "${a[0]}*${b[1]} - ${a[1]}*${b[0]}" | bc)
            c[3]=0
      - Requires bc for floating-point calculations.
+   * - ForLoop
+     - .. code-block:: bash
+
+           for i in {0..9}; do
+               # body
+           done
+     - Uses brace expansion for ranges; also supports C-style for loops.
+   * - Equal
+     - .. code-block:: bash
+
+           [ "$a" -eq "$b" ]
+     - Used for integer comparison; use = or == for strings.
+   * - NotEqual
+     - .. code-block:: bash
+
+           [ "$a" -ne "$b" ]
+     - Used for integer comparison; use != for strings.
+   * - GreaterThan
+     - .. code-block:: bash
+
+           [ "$a" -gt "$b" ]
+     - Used for integer comparison; use > (within [[ ]]) or expr for strings.

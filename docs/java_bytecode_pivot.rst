@@ -24,6 +24,21 @@ Java Bytecode Pivot View
                iconst_1
                ireturn
      - Implemented using stack operations and branch instructions (ifgt).
+   * - SwitchCase
+     - .. code-block:: jasmin
+
+               getstatic MyClass/x I
+               lookupswitch
+                   1: Label1
+                   2: Label2
+                   default: LabelDefault
+           Label1:
+               ; ...
+           Label2:
+               ; ...
+           LabelDefault:
+               ; ...
+     - Uses lookupswitch or tableswitch instructions for multi-way branching.
    * - Loop
      - .. code-block:: jasmin
 
@@ -122,21 +137,6 @@ Java Bytecode Pivot View
 
            Ljava/util/List;
      - Internal descriptors are used to reference external classes.
-   * - SwitchCase
-     - .. code-block:: jasmin
-
-               getstatic MyClass/x I
-               lookupswitch
-                   1: Label1
-                   2: Label2
-                   default: LabelDefault
-           Label1:
-               ; ...
-           Label2:
-               ; ...
-           LabelDefault:
-               ; ...
-     - Uses lookupswitch or tableswitch instructions for multi-way branching.
    * - Constant
      - .. code-block:: jasmin
 
@@ -266,3 +266,32 @@ Java Bytecode Pivot View
            fmul
            fsub ; -> cz
      - Calculated component-wise using stack operations.
+   * - ForLoop
+     - .. code-block:: jasmin
+
+               iconst_0
+               istore_1 ; i = 0
+           LoopStart:
+               iload_1
+               bipush 10
+               if_icmpge LoopEnd
+               ; body
+               iinc 1 1 ; i++
+               goto LoopStart
+           LoopEnd:
+     - Built using labels, conditional jumps (if_icmpge), and iinc.
+   * - Equal
+     - .. code-block:: jasmin
+
+           if_icmpeq Label
+     - Pops two integers from the stack and branches if they are equal.
+   * - NotEqual
+     - .. code-block:: jasmin
+
+           if_icmpne Label
+     -
+   * - GreaterThan
+     - .. code-block:: jasmin
+
+           if_icmpgt Label
+     -

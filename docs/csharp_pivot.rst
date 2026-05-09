@@ -208,3 +208,18 @@ CSharp Pivot View
 
            var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
      - Cross product is defined for 3D vectors in System.Numerics.Vector3.
+   * - Equal
+     - .. code-block:: csharp
+
+           a == b
+     -
+   * - NotEqual
+     - .. code-block:: csharp
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: csharp
+
+           a > b
+     -
