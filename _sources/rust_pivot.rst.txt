@@ -29,6 +29,15 @@ Rust Pivot View
                x -= 1;
            }
      - Condition does not require parentheses.
+   * - SwitchCase
+     - .. code-block:: rust
+
+           match x {
+               1 => 1,
+               2 => 2,
+               _ => 0,
+           }
+     - Rust uses 'match' for pattern matching, which is exhaustive.
    * - FunctionDefinition
      - .. code-block:: rust
 
@@ -92,15 +101,6 @@ Rust Pivot View
 
            use std::collections::HashMap;
      - Brings a path into scope using the 'use' keyword.
-   * - SwitchCase
-     - .. code-block:: rust
-
-           match x {
-               1 => 1,
-               2 => 2,
-               _ => 0,
-           }
-     - Rust uses 'match' for pattern matching, which is exhaustive.
    * - Constant
      - .. code-block:: rust
 
@@ -199,3 +199,25 @@ Rust Pivot View
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0;
      - Direct implementation; libraries like glam provide a cross() method.
+   * - ForLoop
+     - .. code-block:: rust
+
+           for i in 0..10 {
+               // body
+           }
+     - Uses ranges; 0..10 is exclusive of the upper bound.
+   * - Equal
+     - .. code-block:: rust
+
+           a == b
+     - Requires the PartialEq trait to be implemented.
+   * - NotEqual
+     - .. code-block:: rust
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: rust
+
+           a > b
+     -

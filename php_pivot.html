@@ -130,91 +130,6 @@
 </td>
 <td><p>Variables start with a dollar sign; dynamically typed but supports type declarations.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">if ($x &gt; 0) {</span>
-<span class="x">    return 1;</span>
-<span class="x">} else {</span>
-<span class="x">    return 0;</span>
-<span class="x">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard C-like if-else statement.</p></td>
-</tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">while ($x &gt; 0) {</span>
-<span class="x">    $x = $x - 1;</span>
-<span class="x">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard C-like while loop.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function add(int $a, int $b): int {</span>
-<span class="x">    return $a + $b;</span>
-<span class="x">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses ‘function’ keyword; supports type hints for parameters and return values.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function log_message(string $msg): void {</span>
-<span class="x">    echo $msg;</span>
-<span class="x">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses the ‘void’ return type hint (PHP 7.1+).</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">try {</span>
-<span class="x">    do_something();</span>
-<span class="x">} catch (Exception $e) {</span>
-<span class="x">    handle($e);</span>
-<span class="x">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard PHP exception handling using try-catch blocks.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">throw new Exception(&quot;Error&quot;);</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses ‘throw’ to trigger an exception.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Supports // and # for single-line comments.</p></td>
-</tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/* line 1</span>
-<span class="x">   line 2 */</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard C-style block comments.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">echo &quot;Hello, World!&quot;;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The echo statement is used to output text.</p></td>
-</tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">require &#39;utils.php&#39;;</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses include, require, include_once, or require_once to include other files.</p></td>
-</tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">switch ($x) {</span>
 <span class="x">    case 1:</span>
@@ -228,6 +143,91 @@
 </div>
 </td>
 <td><p>Standard C-like switch statement; match expression is also available in PHP 8.0+.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">if ($x &gt; 0) {</span>
+<span class="x">    return 1;</span>
+<span class="x">} else {</span>
+<span class="x">    return 0;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-like if-else statement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">while ($x &gt; 0) {</span>
+<span class="x">    $x = $x - 1;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-like while loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function add(int $a, int $b): int {</span>
+<span class="x">    return $a + $b;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘function’ keyword; supports type hints for parameters and return values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">function log_message(string $msg): void {</span>
+<span class="x">    echo $msg;</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the ‘void’ return type hint (PHP 7.1+).</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">try {</span>
+<span class="x">    do_something();</span>
+<span class="x">} catch (Exception $e) {</span>
+<span class="x">    handle($e);</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard PHP exception handling using try-catch blocks.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">throw new Exception(&quot;Error&quot;);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘throw’ to trigger an exception.</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Supports // and # for single-line comments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">/* line 1</span>
+<span class="x">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style block comments.</p></td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">echo &quot;Hello, World!&quot;;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The echo statement is used to output text.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">require &#39;utils.php&#39;;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses include, require, include_once, or require_once to include other files.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">define(&#39;MAX&#39;, 100);</span>
@@ -361,6 +361,36 @@
 </div>
 </td>
 <td><p>Calculated using array indexing and the cross product formula.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">for ($i = 0; $i &lt; 10; $i++) {</span>
+<span class="x">    // body</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style for loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a == b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Loose equality; use === for strict (type-safe) equality.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a != b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Loose inequality; use !== for strict inequality.</p></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a &gt; b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

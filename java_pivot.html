@@ -150,93 +150,7 @@
 </td>
 <td><p>Identical to C.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Similar to C, but typically within a class with an access modifier.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses the ‘void’ keyword to indicate no return value.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard Java exception handling.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses ‘throw’ to raise an exception.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Thread</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
-</pre></div>
-</div>
-</td>
-<td><p>Spawns a new platform thread; virtual threads are available in newer versions.</p></td>
-</tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><p>Commonly implemented using BlockingQueue; put() may block if the queue is full.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">take</span><span class="p">();</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><p>Using BlockingQueue.take(); blocks until an element becomes available.</p></td>
-</tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Identical to C.</p></td>
-</tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
-<span class="cm">   line 2 */</span>
-</pre></div>
-</div>
-</td>
-<td><p>Identical to C.</p></td>
-</tr>
-<tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses System.out for standard output; includes a newline.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Import</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
-<td><p>Imports a specific class; can use * for all classes in a package.</p></td>
-</tr>
-<tr class="row-even"><td><p>SwitchCase</p></td>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -249,6 +163,92 @@
 </div>
 </td>
 <td><p>Identical to C; modern Java also supports switch expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Similar to C, but typically within a class with an access modifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the ‘void’ keyword to indicate no return value.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Java exception handling.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">RuntimeException</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘throw’ to raise an exception.</p></td>
+</tr>
+<tr class="row-even"><td><p>Thread</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Spawns a new platform thread; virtual threads are available in newer versions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SendMessage</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Commonly implemented using BlockingQueue; put() may block if the queue is full.</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">take</span><span class="p">();</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using BlockingQueue.take(); blocks until an element becomes available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Identical to C.</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Identical to C.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Print</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses System.out for standard output; includes a newline.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports a specific class; can use * for all classes in a package.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
@@ -385,6 +385,36 @@
 </div>
 </td>
 <td><p>Standard Java implementation using array indexing.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Identical to C; also supports enhanced for-each loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>For primitives, == checks value equality; for objects, it checks reference equality.</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

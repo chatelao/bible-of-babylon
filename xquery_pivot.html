@@ -130,21 +130,31 @@
 </td>
 <td><p>XQuery uses ‘let’ for variable binding.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
+<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘switch’ expression was introduced in XQuery 3.0.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 </td>
 <td><p>Functional if-then-else expression; both branches are required.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
 </pre></div>
 </div>
 </td>
 <td><p>XQuery uses ‘for’ expressions for iteration over sequences.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:add</span><span class="p">(</span>
 <span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="p">,</span>
 <span class="w">    </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span>
@@ -156,7 +166,7 @@
 </td>
 <td><p>Functions must be declared in a namespace (e.g., ‘local’).</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:log-message</span><span class="p">(</span>
 <span class="w">    </span><span class="nv">$</span><span class="n">msg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:string</span>
 <span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nt">empty-sequence</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -167,7 +177,7 @@
 </td>
 <td><p>XQuery functions return empty-sequence() to simulate procedures.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nf">do_something</span><span class="p">()</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="nt">*</span><span class="w"> </span><span class="p">{</span>
@@ -178,21 +188,21 @@
 </td>
 <td><p>XQuery 3.0+ supports try-catch; $err is a variable containing error information.</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">&#39;http://example.com/errors&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MY_ERROR&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The fn:error() function signals a dynamic error.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: comment :)</span>
 </pre></div>
 </div>
 </td>
 <td><p>XQuery uses (: :) for single-line comments.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: line 1</span>
 <span class="c">   line 2 :)</span>
 </pre></div>
@@ -200,29 +210,19 @@
 </td>
 <td><p>XQuery uses (: :) for multi-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>In XQuery, a string literal is often the result of an expression and is automatically serialized to output.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Imports a library module by its namespace URI.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
-<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ‘switch’ expression was introduced in XQuery 3.0.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">variable</span><span class="w"> </span><span class="nv">$</span><span class="n">MAX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
@@ -338,6 +338,35 @@
 </div>
 </td>
 <td><p>Uses sequence indexing (1-indexed).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over a sequence and returns a new sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>General comparison operator; use ‘eq’ for value comparison of single items.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>General comparison operator; use ‘ne’ for value comparison of single items.</p></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>General comparison operator; use ‘gt’ for value comparison of single items.</p></td>
 </tr>
 </tbody>
 </table>

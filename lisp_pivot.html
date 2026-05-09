@@ -130,78 +130,6 @@
 </td>
 <td><p>Dynamic typing; defined using defparameter or defvar.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ‘if’ expression evaluates the condition and returns the corresponding branch result.</p></td>
-</tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">while</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="nb">do</span><span class="w"> </span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">(</span><span class="nb">1-</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Common Lisp ‘loop’ macro provides a versatile way to iterate.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Functions are defined with ‘defun’; Lisp follows prefix notation.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">log-message</span><span class="w"> </span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;~A~%&quot;</span><span class="w"> </span><span class="nv">msg</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Lisp functions always return the value of the last expression; procedures return nil or some status.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">handler-case</span><span class="w"> </span><span class="p">(</span><span class="nv">do_something</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nv">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">handle</span><span class="w"> </span><span class="nv">c</span><span class="p">)))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Common Lisp uses handler-case for high-level error handling.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>Signals a continuous error that must be handled or it enters the debugger.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard Lisp single-line comment using semicolon.</p></td>
-</tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="cm">#| line 1</span>
-<span class="cm">   line 2 |#</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses <code class="docutils literal notranslate"><span class="pre">#|</span></code> and <code class="docutils literal notranslate"><span class="pre">|#</span></code> for block comments.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;Hello, World!~%&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>The format function with ‘t’ outputs to standard output; ~% is a newline.</p></td>
-</tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">use-package</span><span class="w"> </span><span class="ss">:iter</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>Makes symbols from the specified package available in the current package.</p></td>
-</tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">case</span><span class="w"> </span><span class="nv">x</span>
 <span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span><span class="p">)</span>
@@ -211,6 +139,78 @@
 </div>
 </td>
 <td><p>Standard ‘case’ macro; ‘t’ or ‘otherwise’ is the default branch.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘if’ expression evaluates the condition and returns the corresponding branch result.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">while</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="nb">do</span><span class="w"> </span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">(</span><span class="nb">1-</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Common Lisp ‘loop’ macro provides a versatile way to iterate.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions are defined with ‘defun’; Lisp follows prefix notation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">log-message</span><span class="w"> </span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;~A~%&quot;</span><span class="w"> </span><span class="nv">msg</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lisp functions always return the value of the last expression; procedures return nil or some status.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">handler-case</span><span class="w"> </span><span class="p">(</span><span class="nv">do_something</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="p">(</span><span class="nv">c</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">handle</span><span class="w"> </span><span class="nv">c</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Common Lisp uses handler-case for high-level error handling.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Signals a continuous error that must be handled or it enters the debugger.</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Lisp single-line comment using semicolon.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="cm">#| line 1</span>
+<span class="cm">   line 2 |#</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses <code class="docutils literal notranslate"><span class="pre">#|</span></code> and <code class="docutils literal notranslate"><span class="pre">|#</span></code> for block comments.</p></td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;Hello, World!~%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The format function with ‘t’ outputs to standard output; ~% is a newline.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">use-package</span><span class="w"> </span><span class="ss">:iter</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Makes symbols from the specified package available in the current package.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defconstant</span><span class="w"> </span><span class="nv">+max+</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span>
@@ -347,6 +347,35 @@
 </div>
 </td>
 <td><p>Uses nth and basic arithmetic functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="nb">do</span>
+<span class="w">    </span><span class="cm">#| body |#</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The loop macro provides a highly expressive way to iterate.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Numerical equality; use ‘eq’, ‘eql’, ‘equal’, or ‘equalp’ for other types.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns true if all arguments are not equal to each other.</p></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

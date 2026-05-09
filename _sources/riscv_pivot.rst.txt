@@ -13,6 +13,15 @@ RISC-V Assembler Pivot View
 
            x:  .word 42
      - Defined in the .data section.
+   * - SwitchCase
+     - .. code-block:: asm
+
+               li t1, 1
+               beq t0, t1, .case1
+               li t1, 2
+               beq t0, t1, .case2
+               j .default
+     - Typically implemented using comparison and branch instructions.
    * - IfElse
      - .. code-block:: asm
 
@@ -95,15 +104,6 @@ RISC-V Assembler Pivot View
 
            .include "macros.s"
      - Uses the .include directive to include external source files.
-   * - SwitchCase
-     - .. code-block:: asm
-
-               li t1, 1
-               beq t0, t1, .case1
-               li t1, 2
-               beq t0, t1, .case2
-               j .default
-     - Typically implemented using comparison and branch instructions.
    * - Constant
      - .. code-block:: asm
 
@@ -196,3 +196,30 @@ RISC-V Assembler Pivot View
    * - Float4VectorCrossProduct
      - N/A
      - RISC-V Vector extension does not have a dedicated cross product instruction; requires multiple operations.
+   * - ForLoop
+     - .. code-block:: asm
+
+               li t0, 0
+               li t1, 10
+           .loop:
+               bge t0, t1, .end
+               ; body
+               addi t0, t0, 1
+               j .loop
+           .end:
+     - Implemented using a counter register and conditional branches.
+   * - Equal
+     - .. code-block:: asm
+
+           beq t0, t1, .equal
+     - Branch if equal.
+   * - NotEqual
+     - .. code-block:: asm
+
+           bne t0, t1, .not_equal
+     - Branch if not equal.
+   * - GreaterThan
+     - .. code-block:: asm
+
+           bgt t0, t1, .greater
+     - Pseudo-instruction that expands to blt with swapped operands.

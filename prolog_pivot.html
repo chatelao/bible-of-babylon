@@ -130,100 +130,7 @@
 </td>
 <td><p>Uses unification for assignment; variables must start with an uppercase letter.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="s s-Atom">-&gt;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses the (Condition -&gt; Then ; Else) control construct.</p></td>
-</tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">:-</span> <span class="p">!.</span>
-<span class="nf">loop</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">X1</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">loop</span><span class="p">(</span><span class="nv">X1</span><span class="p">).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Prolog uses recursion and tail-call optimization for looping.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">Res</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">+</span> <span class="nv">B</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>Functions are predicates; return values are typically unified with an output argument.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">log_message</span><span class="p">(</span><span class="nv">Msg</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">writeln</span><span class="p">(</span><span class="nv">Msg</span><span class="p">).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Predicates without an output argument act as procedures.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">catch</span><span class="p">(</span><span class="s s-Atom">do_something</span><span class="p">,</span> <span class="nv">E</span><span class="p">,</span> <span class="nf">handle</span><span class="p">(</span><span class="nv">E</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard Prolog error handling using the catch/3 predicate.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">throw</span><span class="p">(</span><span class="nf">error</span><span class="p">(</span><span class="nv">Error</span><span class="p">))</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses throw/1 to raise an exception.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Thread</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_create</span><span class="p">(</span><span class="s s-Atom">do_work</span><span class="p">,</span> <span class="nv">Id</span><span class="p">,</span> <span class="p">[]).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog).</p></td>
-</tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_send_message</span><span class="p">(</span><span class="nv">Id</span><span class="p">,</span> <span class="s s-Atom">hello</span><span class="p">).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Sends a message to a thread’s message queue.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_get_message</span><span class="p">(</span><span class="s s-Atom">hello</span><span class="p">).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Retrieves a matching message from the current thread’s queue.</p></td>
-</tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="c1">% comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard Prolog single-line comment.</p></td>
-</tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
-<span class="cm">   line 2 */</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard C-style block comment.</p></td>
-</tr>
-<tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;Hello, World!&#39;</span><span class="p">).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Outputs text followed by a newline.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Import</p></td>
-<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">math</span><span class="p">)).</span>
-</pre></div>
-</div>
-</td>
-<td><p>Imports predicates from a library module.</p></td>
-</tr>
-<tr class="row-even"><td><p>SwitchCase</p></td>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="nv">X</span> <span class="o">=</span> <span class="mi">1</span> <span class="s s-Atom">-&gt;</span> <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;one&#39;</span><span class="p">)</span>
 <span class="p">;</span>   <span class="nv">X</span> <span class="o">=</span> <span class="mi">2</span> <span class="s s-Atom">-&gt;</span> <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;two&#39;</span><span class="p">)</span>
 <span class="p">;</span>   <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;none&#39;</span><span class="p">)</span>
@@ -232,6 +139,99 @@
 </div>
 </td>
 <td><p>Usually implemented using nested (If -&gt; Then ; Else) or multiple clauses.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="s s-Atom">-&gt;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span> <span class="nv">Result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the (Condition -&gt; Then ; Else) control construct.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">:-</span> <span class="p">!.</span>
+<span class="nf">loop</span><span class="p">(</span><span class="nv">X</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">X1</span> <span class="o">is</span> <span class="nv">X</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nf">loop</span><span class="p">(</span><span class="nv">X1</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Prolog uses recursion and tail-call optimization for looping.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">Res</span><span class="p">)</span> <span class="p">:-</span> <span class="nv">Res</span> <span class="o">is</span> <span class="nv">A</span> <span class="o">+</span> <span class="nv">B</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions are predicates; return values are typically unified with an output argument.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">log_message</span><span class="p">(</span><span class="nv">Msg</span><span class="p">)</span> <span class="p">:-</span> <span class="nf">writeln</span><span class="p">(</span><span class="nv">Msg</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Predicates without an output argument act as procedures.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">catch</span><span class="p">(</span><span class="s s-Atom">do_something</span><span class="p">,</span> <span class="nv">E</span><span class="p">,</span> <span class="nf">handle</span><span class="p">(</span><span class="nv">E</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Prolog error handling using the catch/3 predicate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">throw</span><span class="p">(</span><span class="nf">error</span><span class="p">(</span><span class="nv">Error</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses throw/1 to raise an exception.</p></td>
+</tr>
+<tr class="row-even"><td><p>Thread</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_create</span><span class="p">(</span><span class="s s-Atom">do_work</span><span class="p">,</span> <span class="nv">Id</span><span class="p">,</span> <span class="p">[]).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Creates a new thread using thread_create/3 (ISO Prolog / SWI-Prolog).</p></td>
+</tr>
+<tr class="row-odd"><td><p>SendMessage</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_send_message</span><span class="p">(</span><span class="nv">Id</span><span class="p">,</span> <span class="s s-Atom">hello</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sends a message to a thread’s message queue.</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">thread_get_message</span><span class="p">(</span><span class="s s-Atom">hello</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Retrieves a matching message from the current thread’s queue.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="c1">% comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Prolog single-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style block comment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Print</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;Hello, World!&#39;</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs text followed by a newline.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">use_module</span><span class="p">(</span><span class="nf">library</span><span class="p">(</span><span class="s s-Atom">math</span><span class="p">)).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports predicates from a library module.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">max</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span>
@@ -368,6 +368,34 @@
 </div>
 </td>
 <td><p>Implemented using list pattern matching and arithmetic evaluation.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">forall</span><span class="p">(</span><span class="nf">between</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="nv">I</span><span class="p">),</span> <span class="nf">do_something</span><span class="p">(</span><span class="nv">I</span><span class="p">)).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses between/3 to generate values and forall/2 to iterate over them.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="o">==</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><p>Checks if A and B are currently identical; use = for unification.</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="s s-Atom">\==</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><p>Checks if A and B are currently not identical.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="o">&gt;</span> <span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arithmetic comparison.</p></td>
 </tr>
 </tbody>
 </table>

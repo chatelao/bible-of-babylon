@@ -22,6 +22,18 @@ Fortran Pivot View
                res = 0
            end if
      - Standard block if-then-else-end if.
+   * - SwitchCase
+     - .. code-block:: fortran
+
+           select case (x)
+           case (1)
+               res = 1
+           case (2)
+               res = 2
+           case default
+               res = 0
+           end select
+     - The select case construct is used for branching based on values.
    * - Loop
      - .. code-block:: fortran
 
@@ -92,18 +104,6 @@ Fortran Pivot View
 
            use math_mod
      - The 'use' statement imports a module's public variables and procedures.
-   * - SwitchCase
-     - .. code-block:: fortran
-
-           select case (x)
-           case (1)
-               res = 1
-           case (2)
-               res = 2
-           case default
-               res = 0
-           end select
-     - The select case construct is used for branching based on values.
    * - Constant
      - .. code-block:: fortran
 
@@ -201,3 +201,18 @@ Fortran Pivot View
                 a(3)*b(1) - a(1)*b(3), &
                 a(1)*b(2) - a(2)*b(1), 0.0]
      - Calculated component-wise using an array constructor.
+   * - Equal
+     - .. code-block:: fortran
+
+           a == b
+     - Alternative syntax: a .eq. b
+   * - NotEqual
+     - .. code-block:: fortran
+
+           a /= b
+     - Alternative syntax: a .ne. b
+   * - GreaterThan
+     - .. code-block:: fortran
+
+           a > b
+     - Alternative syntax: a .gt. b

@@ -141,97 +141,7 @@
 </td>
 <td><p>Uses IF-THEN-ELSE-END-IF structure; periods are used to terminate sentences.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
-<span class="mi">    </span><span class="kr">SUBTRACT</span><span class="w"> </span><span class="mi">1 </span><span class="kp">FROM</span><span class="w"> </span><span class="nv">X</span>
-<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>The PERFORM UNTIL construct is used for conditional looping.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="mi">    </span><span class="c">*&gt; body</span>
-<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>PERFORM VARYING is the COBOL equivalent of a for loop.</p></td>
-</tr>
-<tr class="row-even"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">FUNCTI</span><span class="nv">ON-ID</span><span class="p">.</span><span class="w"> </span><span class="nv">ADD-FUNC</span><span class="p">.</span>
-<span class="p">...</span>
-<span class="c">COMPUT</span><span class="nv">E</span><span class="w"> </span><span class="nv">RESULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">B</span>
-<span class="p">...</span>
-<span class="c">END FU</span><span class="nv">NCTION</span><span class="w"> </span><span class="nv">ADD-FUNC</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>User-defined functions were introduced in modern COBOL (COBOL 2002).</p></td>
-</tr>
-<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">IDENTI</span><span class="nv">FICATION</span><span class="w"> </span><span class="kr">DIVISION</span><span class="p">.</span>
-<span class="c">PROGRA</span><span class="nv">M-ID</span><span class="p">.</span><span class="w"> </span><span class="nv">LOG-MSG</span><span class="p">.</span>
-<span class="p">...</span>
-<span class="c">DISPLA</span><span class="nv">Y</span><span class="w"> </span><span class="nv">MSG</span><span class="p">.</span>
-<span class="c">EXIT P</span><span class="nv">ROGRAM</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>Procedures are typically implemented as separate programs or paragraphs.</p></td>
-</tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">ADD A </span><span class="kp">TO</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="kp">ON</span><span class="w"> </span><span class="kp">SIZE</span><span class="w"> </span><span class="kp">ERROR</span>
-<span class="kp">   </span><span class="w"> </span><span class="kr">DISPLAY </span><span class="s1">&#39;Arithmetic Overflow&#39;</span>
-<span class="c">END-AD</span><span class="nv">D</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>COBOL uses imperative ‘ON ERROR’ clauses for specific operations.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Raise</p></td>
-<td><p>N/A</p></td>
-<td><p>No standard mechanism to ‘throw’ exceptions; execution is managed via status codes.</p></td>
-</tr>
-<tr class="row-even"><td><p>Thread</p></td>
-<td><p>N/A</p></td>
-<td><p>Standard COBOL does not support multi-threading.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
-<td><p>N/A</p></td>
-<td><p>Message passing is not a native COBOL feature.</p></td>
-</tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
-<td><p>N/A</p></td>
-<td><p>Not supported natively.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">*&gt; com</span><span class="nv">ment</span>
-</pre></div>
-</div>
-</td>
-<td><p><a href="#id1"><span class="problematic" id="id2">*</span></a>&gt; is used for inline comments in free-format COBOL.</p></td>
-</tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>No native multi-line comment syntax; multiple * or <a href="#id3"><span class="problematic" id="id4">*</span></a>&gt; must be used.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">DISPLA</span><span class="nv">Y</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>DISPLAY outputs data to the system console or standard output.</p></td>
-</tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">COPY D</span><span class="nv">EFS</span><span class="p">.</span>
-</pre></div>
-</div>
-</td>
-<td><p>The COPY statement includes text from a library at compile time.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">EVALUA</span><span class="nv">TE</span><span class="w"> </span><span class="nv">X</span>
 <span class="c">    WH</span><span class="nv">EN</span><span class="w"> </span><span class="mi">1</span>
 <span class="mi">        </span><span class="kr">DISPLAY </span><span class="s1">&#39;One&#39;</span>
@@ -244,6 +154,96 @@
 </div>
 </td>
 <td><p>The EVALUATE statement is used for multi-way branching.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">    </span><span class="kr">SUBTRACT</span><span class="w"> </span><span class="mi">1 </span><span class="kp">FROM</span><span class="w"> </span><span class="nv">X</span>
+<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>The PERFORM UNTIL construct is used for conditional looping.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="mi">    </span><span class="c">*&gt; body</span>
+<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>PERFORM VARYING is the COBOL equivalent of a for loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">FUNCTI</span><span class="nv">ON-ID</span><span class="p">.</span><span class="w"> </span><span class="nv">ADD-FUNC</span><span class="p">.</span>
+<span class="p">...</span>
+<span class="c">COMPUT</span><span class="nv">E</span><span class="w"> </span><span class="nv">RESULT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">B</span>
+<span class="p">...</span>
+<span class="c">END FU</span><span class="nv">NCTION</span><span class="w"> </span><span class="nv">ADD-FUNC</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>User-defined functions were introduced in modern COBOL (COBOL 2002).</p></td>
+</tr>
+<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">IDENTI</span><span class="nv">FICATION</span><span class="w"> </span><span class="kr">DIVISION</span><span class="p">.</span>
+<span class="c">PROGRA</span><span class="nv">M-ID</span><span class="p">.</span><span class="w"> </span><span class="nv">LOG-MSG</span><span class="p">.</span>
+<span class="p">...</span>
+<span class="c">DISPLA</span><span class="nv">Y</span><span class="w"> </span><span class="nv">MSG</span><span class="p">.</span>
+<span class="c">EXIT P</span><span class="nv">ROGRAM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures are typically implemented as separate programs or paragraphs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">ADD A </span><span class="kp">TO</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="kp">ON</span><span class="w"> </span><span class="kp">SIZE</span><span class="w"> </span><span class="kp">ERROR</span>
+<span class="kp">   </span><span class="w"> </span><span class="kr">DISPLAY </span><span class="s1">&#39;Arithmetic Overflow&#39;</span>
+<span class="c">END-AD</span><span class="nv">D</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>COBOL uses imperative ‘ON ERROR’ clauses for specific operations.</p></td>
+</tr>
+<tr class="row-even"><td><p>Raise</p></td>
+<td><p>N/A</p></td>
+<td><p>No standard mechanism to ‘throw’ exceptions; execution is managed via status codes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thread</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard COBOL does not support multi-threading.</p></td>
+</tr>
+<tr class="row-even"><td><p>SendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>Message passing is not a native COBOL feature.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">*&gt; com</span><span class="nv">ment</span>
+</pre></div>
+</div>
+</td>
+<td><p><a href="#id1"><span class="problematic" id="id2">*</span></a>&gt; is used for inline comments in free-format COBOL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>No native multi-line comment syntax; multiple * or <a href="#id3"><span class="problematic" id="id4">*</span></a>&gt; must be used.</p></td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">DISPLA</span><span class="nv">Y</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>DISPLAY outputs data to the system console or standard output.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">COPY D</span><span class="nv">EFS</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>The COPY statement includes text from a library at compile time.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">01 MAX</span><span class="o">-</span><span class="nv">VAL</span><span class="w"> </span><span class="kt">PIC 9(3)</span><span class="w"> </span><span class="kp">VALUE</span><span class="w"> </span><span class="mi">100 </span><span class="kp">CONSTANT</span><span class="p">.</span>
@@ -366,6 +366,27 @@
 </div>
 </td>
 <td><p>Calculated component-wise using COMPUTE.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">IF A =</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">IF A N</span><span class="nv">OT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">IF A &gt;</span><span class="w"> </span><span class="nv">B</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -22,6 +22,18 @@ TypeScript Pivot View
                return 0;
            }
      - Standard C-style if-else statement.
+   * - SwitchCase
+     - .. code-block:: typescript
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-style switch statement.
    * - Loop
      - .. code-block:: typescript
 
@@ -93,18 +105,6 @@ TypeScript Pivot View
 
            import { add } from './math';
      - ESM import syntax.
-   * - SwitchCase
-     - .. code-block:: typescript
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-style switch statement.
    * - Constant
      - .. code-block:: typescript
 
@@ -205,3 +205,25 @@ TypeScript Pivot View
                0
            ];
      - Uses array indexing to compute the components.
+   * - ForLoop
+     - .. code-block:: typescript
+
+           for (let i = 0; i < 10; i++) {
+               // body
+           }
+     - Identical to JavaScript; supports typed loop variables.
+   * - Equal
+     - .. code-block:: typescript
+
+           a == b
+     - Loose equality; === is preferred for strict equality.
+   * - NotEqual
+     - .. code-block:: typescript
+
+           a != b
+     - Loose inequality; !== is preferred for strict inequality.
+   * - GreaterThan
+     - .. code-block:: typescript
+
+           a > b
+     -

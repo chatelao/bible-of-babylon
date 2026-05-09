@@ -130,83 +130,6 @@
 </td>
 <td><p>No spaces around the assignment operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-<span class="k">else</span>
-<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
-<span class="k">fi</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses if-then-else-fi structure; brackets are for test command.</p></td>
-</tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nv">x</span><span class="o">=</span><span class="k">$((</span><span class="nv">x</span><span class="o">-</span><span class="m">1</span><span class="k">))</span>
-<span class="k">done</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses while-do-done structure.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>add<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$2</span><span class="k">))</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Parameters are accessed via $1, $2, etc.; return values are typically exit codes or printed to stdout.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>log_message<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="o">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>In Bash, all functions are effectively procedures; return values are exit codes.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>do_something<span class="w"> </span><span class="o">||</span><span class="w"> </span>handle_error
-</pre></div>
-</div>
-</td>
-<td><p>Shells often use command chaining (||) for basic error handling based on exit codes; $? stores the exit status.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
-</pre></div>
-</div>
-</td>
-<td><p>Terminates the script or subshell with a non-zero exit code.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Bash only supports single-line comments starting with #.</p></td>
-</tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>Bash does not have a native multi-line comment syntax; multiple single-line comments are used.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The echo command outputs text followed by a newline.</p></td>
-</tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>utils.sh
-</pre></div>
-</div>
-</td>
-<td><p>The ‘source’ (or .) command executes a script in the current shell context.</p></td>
-</tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">in</span>
 <span class="w">    </span><span class="m">1</span><span class="o">)</span>
@@ -223,6 +146,83 @@
 </div>
 </td>
 <td><p>Uses case-in-esac structure; patterns end with ) and blocks end with ;;.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+<span class="k">else</span>
+<span class="w">    </span><span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
+<span class="k">fi</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses if-then-else-fi structure; brackets are for test command.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="nv">x</span><span class="o">=</span><span class="k">$((</span><span class="nv">x</span><span class="o">-</span><span class="m">1</span><span class="k">))</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses while-do-done structure.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>add<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="k">$((</span><span class="nv">$1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$2</span><span class="k">))</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parameters are accessed via $1, $2, etc.; return values are typically exit codes or printed to stdout.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>log_message<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>In Bash, all functions are effectively procedures; return values are exit codes.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>do_something<span class="w"> </span><span class="o">||</span><span class="w"> </span>handle_error
+</pre></div>
+</div>
+</td>
+<td><p>Shells often use command chaining (||) for basic error handling based on exit codes; $? stores the exit status.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Terminates the script or subshell with a non-zero exit code.</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bash only supports single-line comments starting with #.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>Bash does not have a native multi-line comment syntax; multiple single-line comments are used.</p></td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The echo command outputs text followed by a newline.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>utils.sh
+</pre></div>
+</div>
+</td>
+<td><p>The ‘source’ (or .) command executes a script in the current shell context.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">readonly</span><span class="w"> </span><span class="nv">MAX</span><span class="o">=</span><span class="m">100</span>
@@ -359,6 +359,36 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Requires bc for floating-point calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..9<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># body</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses brace expansion for ranges; also supports C-style for loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Used for integer comparison; use = or == for strings.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Used for integer comparison; use != for strings.</p></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Used for integer comparison; use &gt; (within [[ ]]) or expr for strings.</p></td>
 </tr>
 </tbody>
 </table>

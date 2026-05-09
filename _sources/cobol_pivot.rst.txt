@@ -22,6 +22,18 @@ COBOL Pivot View
                MOVE 0 TO RESULT
            END-IF.
      - Uses IF-THEN-ELSE-END-IF structure; periods are used to terminate sentences.
+   * - SwitchCase
+     - .. code-block:: cobol
+
+           EVALUATE X
+               WHEN 1
+                   DISPLAY 'One'
+               WHEN 2
+                   DISPLAY 'Two'
+               WHEN OTHER
+                   DISPLAY 'Other'
+           END-EVALUATE.
+     - The EVALUATE statement is used for multi-way branching.
    * - Loop
      - .. code-block:: cobol
 
@@ -91,18 +103,6 @@ COBOL Pivot View
 
            COPY DEFS.
      - The COPY statement includes text from a library at compile time.
-   * - SwitchCase
-     - .. code-block:: cobol
-
-           EVALUATE X
-               WHEN 1
-                   DISPLAY 'One'
-               WHEN 2
-                   DISPLAY 'Two'
-               WHEN OTHER
-                   DISPLAY 'Other'
-           END-EVALUATE.
-     - The EVALUATE statement is used for multi-way branching.
    * - Constant
      - .. code-block:: cobol
 
@@ -193,3 +193,18 @@ COBOL Pivot View
            COMPUTE C(2) = A(3) * B(1) - A(1) * B(3).
            COMPUTE C(3) = A(1) * B(2) - A(2) * B(1).
      - Calculated component-wise using COMPUTE.
+   * - Equal
+     - .. code-block:: cobol
+
+           IF A = B
+     -
+   * - NotEqual
+     - .. code-block:: cobol
+
+           IF A NOT = B
+     -
+   * - GreaterThan
+     - .. code-block:: cobol
+
+           IF A > B
+     -

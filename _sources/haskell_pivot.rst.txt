@@ -18,6 +18,14 @@ Haskell Pivot View
 
            if x > 0 then 1 else 0
      - If-then-else is an expression; both branches must be present and have the same type.
+   * - SwitchCase
+     - .. code-block:: haskell
+
+           case x of
+               1 -> 1
+               2 -> 2
+               _ -> 0
+     - Uses pattern matching in a case expression.
    * - Loop
      - .. code-block:: haskell
 
@@ -82,14 +90,6 @@ Haskell Pivot View
 
            import Data.List
      - Imports symbols from a module into the current namespace.
-   * - SwitchCase
-     - .. code-block:: haskell
-
-           case x of
-               1 -> 1
-               2 -> 2
-               _ -> 0
-     - Uses pattern matching in a case expression.
    * - Constant
      - .. code-block:: haskell
 
@@ -185,3 +185,23 @@ Haskell Pivot View
 
            cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]
      - Pure functional implementation using pattern matching.
+   * - ForLoop
+     - .. code-block:: haskell
+
+           mapM_ (\i -> return ()) [0..9]
+     - Haskell uses mapM_ or forM_ (Control.Monad) for imperative-style iteration.
+   * - Equal
+     - .. code-block:: haskell
+
+           a == b
+     - Requires the Eq typeclass.
+   * - NotEqual
+     - .. code-block:: haskell
+
+           a /= b
+     -
+   * - GreaterThan
+     - .. code-block:: haskell
+
+           a > b
+     - Requires the Ord typeclass.

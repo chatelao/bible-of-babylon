@@ -1,4 +1,38 @@
 Language,VariableDeclaration,Equal,NotEqual,GreaterThan,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct
+"SQL","DECLARE @x INT = 42;","a = b","a <> b","a > b","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
+AS
+BEGIN
+    PRINT @msg;
+END","CREATE FUNCTION add(@a INT, @b INT)
+RETURNS INT AS
+BEGIN
+    RETURN @a + @b
+END","IF @x > 0
+BEGIN
+    RETURN 1
+END
+ELSE
+BEGIN
+    RETURN 0
+END","CASE @x
+    WHEN 1 THEN 'one'
+    WHEN 2 THEN 'two'
+    ELSE 'none'
+END","WHILE @x > 0
+BEGIN
+    SET @x = @x - 1
+END","DECLARE @i INT = 0;
+WHILE @i < 10
+BEGIN
+    -- body
+    SET @i = @i + 1;
+END","BEGIN TRY
+    EXEC do_something;
+END TRY
+BEGIN CATCH
+    EXEC handle_error;
+END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
+   line 2 */","PRINT 'Hello, World!';","N/A","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0"
 "C","int x = 42;","a == b","a != b","a > b","void log_message(const char *msg) {
     printf(""%s\n"", msg);
 }","int add(int a, int b) {
@@ -23,6 +57,56 @@ Language,VariableDeclaration,Equal,NotEqual,GreaterThan,ProcedureDefinition,Func
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
 c[3] = 0.0f;"
+"Cpp","int x = 42;","a == b","a != b","a > b","void logMessage(std::string msg) {
+    std::cout << msg << std::endl;
+}","int add(int a, int b) {
+    return a + b;
+}","if (x > 0) {
+    return 1;
+} else {
+    return 0;
+}","switch (x) {
+    case 1:
+        return 1;
+    case 2:
+        return 2;
+    default:
+        return 0;
+}","while (x > 0) {
+    x = x - 1;
+}","for (int i = 0; i < 10; i++) {
+    // body
+}","try {
+    do_something();
+} catch (const std::exception& e) {
+    handle(e);
+}","throw std::runtime_error(""Error"");","std::thread t(do_work);
+t.join();","queue.push(42);","int msg = queue.front();
+queue.pop();
+handle(msg);","// comment","/* line 1
+   line 2 */","std::cout << ""Hello, World!"" << std::endl;","#include <iostream>","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","std::floor(a)","std::round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
+c[1] = a[2]*b[0] - a[0]*b[2];
+c[2] = a[0]*b[1] - a[1]*b[0];
+c[3] = 0.0f;"
+"XQuery","let $x := 42","$a = $b","$a != $b","$a > $b","declare function local:log-message(
+    $msg as xs:string
+) as empty-sequence() {
+    (); (: side effects in XQuery are implementation-defined or via extensions :)
+};","declare function local:add(
+    $a as xs:integer,
+    $b as xs:integer
+) as xs:integer {
+    $a + $b
+};","if ($x > 0) then 1 else 0","switch ($x)
+  case 1 return ""one""
+  case 2 return ""two""
+  default return ""none""","for $i in 1 to $x return $i","for $i in 1 to 10
+return $i","try {
+    do_something()
+} catch * {
+    handle($err)
+}","fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')","N/A","N/A","N/A","(: comment :)","(: line 1
+   line 2 :)","""Hello, World!""","import module namespace utils = ""http://example.com/utils"";","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A","N/A","N/A","N/A","for $i in 1 to 4 return $a[$i] * $b[$i]","sum(for $i in 1 to 4 return $a[$i] * $b[$i])","($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)"
 "Java","int x = 42;","a == b","a != b","a > b","public void logMessage(String msg) {
     System.out.println(msg);
 }","public int add(int a, int b) {
@@ -75,6 +159,84 @@ c[3] = 0.0f;"
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
 c[3] = 0.0;"
+"Erlang","X = 42.","A == B","A /= B","A > B","log_message(Msg) ->
+    io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","case X of
+    1 -> one;
+    2 -> two;
+    _ -> none
+end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).","try
+    do_something()
+catch
+    error:Reason -> handle(Reason)
+end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].","Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).","C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
+     lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
+     lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0]."
+"Lisp","(defparameter x 42)","(= a b)","(/= a b)","(> a b)","(defun log-message (msg)
+  (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(case x
+  (1 ""one"")
+  (2 ""two"")
+  (t ""none""))","(loop while (> x 0) do (setq x (1- x)))","(loop for i from 0 to 9 do
+    #| body |#)","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
+   line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)","(logior a b)","(logxor a b)","(lognot a)","(mapcar #'* a b)","(reduce #'+ (mapcar #'* a b))","(list (- (* (nth 1 a) (nth 2 b)) (* (nth 2 a) (nth 1 b)))
+      (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))
+      (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
+      0.0)"
+"Bash","x=42","[ ""$a"" -eq ""$b"" ]","[ ""$a"" -ne ""$b"" ]","[ ""$a"" -gt ""$b"" ]","log_message() {
+    echo ""$1""
+}","add() {
+    echo $(($1 + $2))
+}","if [ $x -gt 0 ]; then
+    exit 1
+else
+    exit 0
+fi","case $x in
+    1)
+        echo ""one""
+        ;;
+    2)
+        echo ""two""
+        ;;
+    *)
+        echo ""none""
+        ;;
+esac","while [ $x -gt 0 ]; do
+    x=$((x-1))
+done","for i in {0..9}; do
+    # body
+done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","((a | b))","((a ^ b))","((~a))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done","dot=0; for i in {0..3}; do dot=$(echo ""$dot + (${a[$i]} * ${b[$i]})"" | bc); done","c[0]=$(echo ""${a[1]}*${b[2]} - ${a[2]}*${b[1]}"" | bc)
+c[1]=$(echo ""${a[2]}*${b[0]} - ${a[0]}*${b[2]}"" | bc)
+c[2]=$(echo ""${a[0]}*${b[1]} - ${a[1]}*${b[0]}"" | bc)
+c[3]=0"
+"Cmd","set x=42","if %a% EQU %b%","if %a% NEQ %b%","if %a% GTR %b%",":log_message
+echo %~1
+goto :eof",":add
+set /a res=%~1+%~2
+exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)",":loop
+if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
+    rem body
+)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A"
+"PowerShell","$x = 42","$a -eq $b","$a -ne $b","$a -gt $b","function log-message($msg) {
+    Write-Host $msg
+}","function add($a, $b) {
+    return $a + $b
+}","if ($x -gt 0) {
+    return 1
+} else {
+    return 0
+}","switch ($x) {
+    1 { ""one"" }
+    2 { ""two"" }
+    default { ""none"" }
+}","while ($x -gt 0) {
+    $x = $x - 1
+}","for ($i = 0; $i -lt 10; $i++) {
+    # body
+}","try {
+    do_something
+} catch {
+    handle_error($_)
+}","throw ""Error""","N/A","N/A","N/A","# comment","<# line 1
+   line 2 #>","Write-Host ""Hello, World!""","Import-Module ActiveDirectory","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b","a -bor b","a -bxor b","-bnot a","$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }","$dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }","$c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)"
 "Python","x = 42","a == b","a != b","a > b","def log_message(msg):
     print(msg)","def add(a, b):
     return a + b","1 if x > 0 else 0","match x:
@@ -114,137 +276,6 @@ except Exception as e:
     handle($e);
 }","throw new Exception(""Error"");","N/A","N/A","N/A","// comment","/* line 1
    line 2 */","echo ""Hello, World!"";","require 'utils.php';","define('MAX', 100);","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","$c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);","$dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));","$c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];"
-"Bash","x=42","[ ""$a"" -eq ""$b"" ]","[ ""$a"" -ne ""$b"" ]","[ ""$a"" -gt ""$b"" ]","log_message() {
-    echo ""$1""
-}","add() {
-    echo $(($1 + $2))
-}","if [ $x -gt 0 ]; then
-    exit 1
-else
-    exit 0
-fi","case $x in
-    1)
-        echo ""one""
-        ;;
-    2)
-        echo ""two""
-        ;;
-    *)
-        echo ""none""
-        ;;
-esac","while [ $x -gt 0 ]; do
-    x=$((x-1))
-done","for i in {0..9}; do
-    # body
-done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","((a | b))","((a ^ b))","((~a))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done","dot=0; for i in {0..3}; do dot=$(echo ""$dot + (${a[$i]} * ${b[$i]})"" | bc); done","c[0]=$(echo ""${a[1]}*${b[2]} - ${a[2]}*${b[1]}"" | bc)
-c[1]=$(echo ""${a[2]}*${b[0]} - ${a[0]}*${b[2]}"" | bc)
-c[2]=$(echo ""${a[0]}*${b[1]} - ${a[1]}*${b[0]}"" | bc)
-c[3]=0"
-"PowerShell","$x = 42","$a -eq $b","$a -ne $b","$a -gt $b","function log-message($msg) {
-    Write-Host $msg
-}","function add($a, $b) {
-    return $a + $b
-}","if ($x -gt 0) {
-    return 1
-} else {
-    return 0
-}","switch ($x) {
-    1 { ""one"" }
-    2 { ""two"" }
-    default { ""none"" }
-}","while ($x -gt 0) {
-    $x = $x - 1
-}","for ($i = 0; $i -lt 10; $i++) {
-    # body
-}","try {
-    do_something
-} catch {
-    handle_error($_)
-}","throw ""Error""","N/A","N/A","N/A","# comment","<# line 1
-   line 2 #>","Write-Host ""Hello, World!""","Import-Module ActiveDirectory","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b","a -bor b","a -bxor b","-bnot a","$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }","$dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }","$c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)"
-"Cmd","set x=42","if %a% EQU %b%","if %a% NEQ %b%","if %a% GTR %b%",":log_message
-echo %~1
-goto :eof",":add
-set /a res=%~1+%~2
-exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)",":loop
-if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
-    rem body
-)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A"
-"SQL","DECLARE @x INT = 42;","a = b","a <> b","a > b","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
-AS
-BEGIN
-    PRINT @msg;
-END","CREATE FUNCTION add(@a INT, @b INT)
-RETURNS INT AS
-BEGIN
-    RETURN @a + @b
-END","IF @x > 0
-BEGIN
-    RETURN 1
-END
-ELSE
-BEGIN
-    RETURN 0
-END","CASE @x
-    WHEN 1 THEN 'one'
-    WHEN 2 THEN 'two'
-    ELSE 'none'
-END","WHILE @x > 0
-BEGIN
-    SET @x = @x - 1
-END","DECLARE @i INT = 0;
-WHILE @i < 10
-BEGIN
-    -- body
-    SET @i = @i + 1;
-END","BEGIN TRY
-    EXEC do_something;
-END TRY
-BEGIN CATCH
-    EXEC handle_error;
-END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
-   line 2 */","PRINT 'Hello, World!';","N/A","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0"
-"Erlang","X = 42.","A == B","A /= B","A > B","log_message(Msg) ->
-    io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","case X of
-    1 -> one;
-    2 -> two;
-    _ -> none
-end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).","try
-    do_something()
-catch
-    error:Reason -> handle(Reason)
-end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].","Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).","C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
-     lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
-     lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0]."
-"Lisp","(defparameter x 42)","(= a b)","(/= a b)","(> a b)","(defun log-message (msg)
-  (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(case x
-  (1 ""one"")
-  (2 ""two"")
-  (t ""none""))","(loop while (> x 0) do (setq x (1- x)))","(loop for i from 0 to 9 do
-    #| body |#)","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
-   line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)","(logior a b)","(logxor a b)","(lognot a)","(mapcar #'* a b)","(reduce #'+ (mapcar #'* a b))","(list (- (* (nth 1 a) (nth 2 b)) (* (nth 2 a) (nth 1 b)))
-      (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))
-      (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
-      0.0)"
-"XQuery","let $x := 42","$a = $b","$a != $b","$a > $b","declare function local:log-message(
-    $msg as xs:string
-) as empty-sequence() {
-    (); (: side effects in XQuery are implementation-defined or via extensions :)
-};","declare function local:add(
-    $a as xs:integer,
-    $b as xs:integer
-) as xs:integer {
-    $a + $b
-};","if ($x > 0) then 1 else 0","switch ($x)
-  case 1 return ""one""
-  case 2 return ""two""
-  default return ""none""","for $i in 1 to $x return $i","for $i in 1 to 10
-return $i","try {
-    do_something()
-} catch * {
-    handle($err)
-}","fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')","N/A","N/A","N/A","(: comment :)","(: line 1
-   line 2 :)","""Hello, World!""","import module namespace utils = ""http://example.com/utils"";","declare variable $MAX as xs:integer := 100;","a + b","a - b","a * b","a div b","a mod b","floor(a)","round(a)","a + 1","a - 1","N/A","N/A","N/A","N/A","N/A","N/A","for $i in 1 to 4 return $a[$i] * $b[$i]","sum(for $i in 1 to 4 return $a[$i] * $b[$i])","($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)"
 "CSS","--x: 42;","N/A","N/A","N/A","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
    line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A"
 "CUDA","__device__ int x = 42;","a == b","a != b","a > b","__device__ void log_message(const char *msg) {
@@ -350,51 +381,6 @@ subps xmm0, xmm2"
 vfmul.vv v1, v2, v3","vsetvli t0, x0, e32, m1
 vfmul.vv v1, v2, v3
 vfredusum.vs v4, v1, v5","N/A"
-"ARM AArch64 Assembler","x:  .quad 42","cmp x0, x1
-b.eq .equal","cmp x0, x1
-b.ne .not_equal","cmp x0, x1
-b.gt .greater","log_message:
-    stp x29, x30, [sp, -16]!
-    mov x29, sp
-    bl printf
-    ldp x29, x30, [sp], 16
-    ret","add:
-    add x0, x0, x1
-    ret","    cmp x0, #0
-    ble .else
-    mov x0, #1
-    b .end
-.else:
-    mov x0, #0
-.end:","    cmp x0, #1
-    beq .case1
-    cmp x0, #2
-    beq .case2
-    b .default",".loop:
-    cmp x0, #0
-    ble .end
-    sub x0, x0, #1
-    b .loop
-.end:","    mov x0, #0
-.loop:
-    cmp x0, #10
-    b.ge .end
-    ; body
-    add x0, x0, #1
-    b .loop
-.end:","N/A","    brk #0","    mov x8, #220 // clone syscall
-    svc #0","    mov x8, #139 // rt_sigqueueinfo
-    svc #0","    mov x8, #128 // rt_sigtimedwait
-    svc #0","// comment","N/A","    adrp x0, hello_msg
-    add x0, x0, :lo12:hello_msg
-    bl printf",".include ""macros.s""",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2","orr x0, x1, x2","eor x0, x1, x2","mvn x0, x1","fmul v0.4s, v1.4s, v2.4s","fmul v0.4s, v1.4s, v2.4s
-faddp v0.4s, v0.4s, v0.4s
-faddp s0, v0.2s","fmul s2, v0.s[1], v1.s[2]
-fmls s2, v0.s[2], v1.s[1]
-fmul s3, v0.s[2], v1.s[0]
-fmls s3, v0.s[0], v1.s[2]
-fmul s4, v0.s[0], v1.s[1]
-fmls s4, v0.s[1], v1.s[0]"
 "Prolog","X = 42.","A == B","A \== B","A > B","log_message(Msg) :- writeln(Msg).","add(A, B, Res) :- Res is A + B.","(X > 0 -> Result = 1 ; Result = 0)","(   X = 1 -> writeln('one')
 ;   X = 2 -> writeln('two')
 ;   writeln('none')
@@ -508,6 +494,51 @@ fload 1 ; ay
 fload 4 ; bx
 fmul
 fsub ; -> cz"
+"ARM AArch64 Assembler","x:  .quad 42","cmp x0, x1
+b.eq .equal","cmp x0, x1
+b.ne .not_equal","cmp x0, x1
+b.gt .greater","log_message:
+    stp x29, x30, [sp, -16]!
+    mov x29, sp
+    bl printf
+    ldp x29, x30, [sp], 16
+    ret","add:
+    add x0, x0, x1
+    ret","    cmp x0, #0
+    ble .else
+    mov x0, #1
+    b .end
+.else:
+    mov x0, #0
+.end:","    cmp x0, #1
+    beq .case1
+    cmp x0, #2
+    beq .case2
+    b .default",".loop:
+    cmp x0, #0
+    ble .end
+    sub x0, x0, #1
+    b .loop
+.end:","    mov x0, #0
+.loop:
+    cmp x0, #10
+    b.ge .end
+    ; body
+    add x0, x0, #1
+    b .loop
+.end:","N/A","    brk #0","    mov x8, #220 // clone syscall
+    svc #0","    mov x8, #139 // rt_sigqueueinfo
+    svc #0","    mov x8, #128 // rt_sigtimedwait
+    svc #0","// comment","N/A","    adrp x0, hello_msg
+    add x0, x0, :lo12:hello_msg
+    bl printf",".include ""macros.s""",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2","orr x0, x1, x2","eor x0, x1, x2","mvn x0, x1","fmul v0.4s, v1.4s, v2.4s","fmul v0.4s, v1.4s, v2.4s
+faddp v0.4s, v0.4s, v0.4s
+faddp s0, v0.2s","fmul s2, v0.s[1], v1.s[2]
+fmls s2, v0.s[2], v1.s[1]
+fmul s3, v0.s[2], v1.s[0]
+fmls s3, v0.s[0], v1.s[2]
+fmul s4, v0.s[0], v1.s[1]
+fmls s4, v0.s[1], v1.s[0]"
 "Camel","let x = 42","a = b","a <> b","a > b","let log_message msg = print_endline msg","let add a b = a + b","if x > 0 then 1 else 0","match x with
 | 1 -> 1
 | 2 -> 2
@@ -618,6 +649,64 @@ handle msg","-- comment","{- line 1
 foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }","set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
             [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
             [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]"
+"COBOL","01 X PIC 9(4) VALUE 42.","IF A = B","IF A NOT = B","IF A > B","IDENTIFICATION DIVISION.
+PROGRAM-ID. LOG-MSG.
+... 
+DISPLAY MSG.
+EXIT PROGRAM.","FUNCTION-ID. ADD-FUNC.
+... 
+COMPUTE RESULT = A + B
+... 
+END FUNCTION ADD-FUNC.","IF X > 0 THEN
+    MOVE 1 TO RESULT
+ELSE
+    MOVE 0 TO RESULT
+END-IF.","EVALUATE X
+    WHEN 1
+        DISPLAY 'One'
+    WHEN 2
+        DISPLAY 'Two'
+    WHEN OTHER
+        DISPLAY 'Other'
+END-EVALUATE.","PERFORM UNTIL X <= 0
+    SUBTRACT 1 FROM X
+END-PERFORM.","PERFORM VARYING I FROM 1 BY 1 UNTIL I > 10
+    *> body
+END-PERFORM.","ADD A TO B ON SIZE ERROR
+    DISPLAY 'Arithmetic Overflow'
+END-ADD.","N/A","N/A","N/A","N/A","*> comment","N/A","DISPLAY ""Hello World"".","COPY DEFS.","01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT.","ADD A TO B.","SUBTRACT A FROM B.","MULTIPLY A BY B.","DIVIDE A BY B GIVING C.","DIVIDE A BY B GIVING Q REMAINDER R.","FUNCTION INTEGER(A)","ADD A TO B ROUNDED.","ADD 1 TO A.","SUBTRACT 1 FROM A.","N/A","N/A","N/A","N/A","N/A","N/A","PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+    COMPUTE C(I) = A(I) * B(I)
+END-PERFORM.","MOVE 0 TO DOT-PRODUCT.
+PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+    COMPUTE DOT-PRODUCT = DOT-PRODUCT + (A(I) * B(I))
+END-PERFORM.","COMPUTE C(1) = A(2) * B(3) - A(3) * B(2).
+COMPUTE C(2) = A(3) * B(1) - A(1) * B(3).
+COMPUTE C(3) = A(1) * B(2) - A(2) * B(1)."
+"Fortran","integer :: x = 42","a == b","a /= b","a > b","subroutine log_msg(msg)
+    character(len=*), intent(in) :: msg
+    print *, msg
+end subroutine log_msg","function add(a, b) result(res)
+    integer, intent(in) :: a, b
+    integer :: res
+    res = a + b
+end function add","if (x > 0) then
+    res = 1
+else
+    res = 0
+end if","select case (x)
+case (1)
+    res = 1
+case (2)
+    res = 2
+case default
+    res = 0
+end select","do while (x > 0)
+    x = x - 1
+end do","do i = 1, 10
+    ! body
+end do","N/A","error stop ""Error""","N/A","target_var[image] = data","sync images(*)","! comment","N/A","print *, ""Hello World""","use math_mod","integer, parameter :: MAX = 100","a + b","a - b","a * b","a / b","mod(a, b)","floor(a)","nint(a)","a = a + 1","a = a - 1","ishft(a, b)","ishft(a, -b)","iand(a, b)","ior(a, b)","ieor(a, b)","not(a)","c = a * b","res = dot_product(a, b)","c = [a(2)*b(3) - a(3)*b(2), &
+     a(3)*b(1) - a(1)*b(3), &
+     a(1)*b(2) - a(2)*b(1), 0.0]"
 "CSharp","int x = 42;","a == b","a != b","a > b","public void LogMessage(string msg) {
     Console.WriteLine(msg);
 }","public int Add(int a, int b) {

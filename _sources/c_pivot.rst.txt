@@ -22,6 +22,18 @@ C Pivot View
                return 0;
            }
      - Standard C if-else statement.
+   * - SwitchCase
+     - .. code-block:: c
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C switch statement with case labels and default.
    * - Loop
      - .. code-block:: c
 
@@ -72,18 +84,6 @@ C Pivot View
 
            #include <stdio.h>
      - Standard C way to include header files.
-   * - SwitchCase
-     - .. code-block:: c
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C switch statement with case labels and default.
    * - Constant
      - .. code-block:: c
 
@@ -182,3 +182,25 @@ C Pivot View
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
      - Calculated manually for the first three components.
+   * - ForLoop
+     - .. code-block:: c
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Standard C for loop with initialization, condition, and increment.
+   * - Equal
+     - .. code-block:: c
+
+           a == b
+     - Standard equality operator.
+   * - NotEqual
+     - .. code-block:: c
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: c
+
+           a > b
+     -

@@ -8,71 +8,77 @@ Programming Languages
    :header-rows: 1
 
    * - Pattern
+     - SQL
      - C
+     - Cpp
+     - XQuery
      - Java
      - Rust
-     - Python
-     - PHP
-     - Bash
-     - PowerShell
-     - Cmd
-     - SQL
      - Erlang
      - Lisp
-     - XQuery
+     - Bash
+     - Cmd
+     - PowerShell
+     - Python
+     - PHP
      - CSS
      - CUDA
      - x86 Assembler
      - RISC-V Assembler
-     - ARM AArch64 Assembler
      - Prolog
      - Java Bytecode
+     - ARM AArch64 Assembler
      - Camel
      - Go
      - Haskell
      - TypeScript
      - Tcl
+     - COBOL
+     - Fortran
      - CSharp
      - Swift
      - Kotlin
      
    * - VariableDeclaration
+     - .. code-block:: sql
+
+           DECLARE @x INT = 42;
      - .. code-block:: c
 
            int x = 42;
+     - .. code-block:: cpp
+
+           int x = 42;
+     - .. code-block:: xquery
+
+           let $x := 42
      - .. code-block:: java
 
            int x = 42;
      - .. code-block:: rust
 
            let x: i32 = 42;
-     - .. code-block:: python
-
-           x = 42
-     - .. code-block:: php
-
-           $x = 42;
-     - .. code-block:: bash
-
-           x=42
-     - .. code-block:: powershell
-
-           $x = 42
-     - .. code-block:: doscon
-
-           set x=42
-     - .. code-block:: sql
-
-           DECLARE @x INT = 42;
      - .. code-block:: erlang
 
            X = 42.
      - .. code-block:: common-lisp
 
            (defparameter x 42)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           let $x := 42
+           x=42
+     - .. code-block:: doscon
+
+           set x=42
+     - .. code-block:: powershell
+
+           $x = 42
+     - .. code-block:: python
+
+           x = 42
+     - .. code-block:: php
+
+           $x = 42;
      - .. code-block:: css
 
            --x: 42;
@@ -85,15 +91,15 @@ Programming Languages
      - .. code-block:: asm
 
            x:  .word 42
-     - .. code-block:: asm
-
-           x:  .quad 42
      - .. code-block:: prolog
 
            X = 42.
      - .. code-block:: jasmin
 
            .field private static x I = 42
+     - .. code-block:: asm
+
+           x:  .quad 42
      - .. code-block:: ocaml
 
            let x = 42
@@ -109,6 +115,12 @@ Programming Languages
      - .. code-block:: tcl
 
            set x 42
+     - .. code-block:: cobol
+
+           01 X PIC 9(4) VALUE 42.
+     - .. code-block:: fortran
+
+           integer :: x = 42
      - .. code-block:: csharp
 
            int x = 42;
@@ -119,42 +131,45 @@ Programming Languages
 
            var x: Int = 42
    * - Equal
+     - .. code-block:: sql
+
+           a = b
      - .. code-block:: c
 
            a == b
+     - .. code-block:: cpp
+
+           a == b
+     - .. code-block:: xquery
+
+           $a = $b
      - .. code-block:: java
 
            a == b
      - .. code-block:: rust
 
            a == b
-     - .. code-block:: python
-
-           a == b
-     - .. code-block:: php
-
-           a == b
-     - .. code-block:: bash
-
-           [ "$a" -eq "$b" ]
-     - .. code-block:: powershell
-
-           $a -eq $b
-     - .. code-block:: doscon
-
-           if %a% EQU %b%
-     - .. code-block:: sql
-
-           a = b
      - .. code-block:: erlang
 
            A == B
      - .. code-block:: common-lisp
 
            (= a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           $a = $b
+           [ "$a" -eq "$b" ]
+     - .. code-block:: doscon
+
+           if %a% EQU %b%
+     - .. code-block:: powershell
+
+           $a -eq $b
+     - .. code-block:: python
+
+           a == b
+     - .. code-block:: php
+
+           a == b
      - N/A
      - .. code-block:: cpp
 
@@ -166,16 +181,16 @@ Programming Languages
      - .. code-block:: asm
 
            beq t0, t1, .equal
-     - .. code-block:: asm
-
-           cmp x0, x1
-           b.eq .equal
      - .. code-block:: prolog
 
            A == B
      - .. code-block:: jasmin
 
            if_icmpeq Label
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.eq .equal
      - .. code-block:: ocaml
 
            a = b
@@ -191,6 +206,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a == $b}]
+     - .. code-block:: cobol
+
+           IF A = B
+     - .. code-block:: fortran
+
+           a == b
      - .. code-block:: csharp
 
            a == b
@@ -201,42 +222,45 @@ Programming Languages
 
            a == b
    * - NotEqual
+     - .. code-block:: sql
+
+           a <> b
      - .. code-block:: c
 
            a != b
+     - .. code-block:: cpp
+
+           a != b
+     - .. code-block:: xquery
+
+           $a != $b
      - .. code-block:: java
 
            a != b
      - .. code-block:: rust
 
            a != b
-     - .. code-block:: python
-
-           a != b
-     - .. code-block:: php
-
-           a != b
-     - .. code-block:: bash
-
-           [ "$a" -ne "$b" ]
-     - .. code-block:: powershell
-
-           $a -ne $b
-     - .. code-block:: doscon
-
-           if %a% NEQ %b%
-     - .. code-block:: sql
-
-           a <> b
      - .. code-block:: erlang
 
            A /= B
      - .. code-block:: common-lisp
 
            (/= a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           $a != $b
+           [ "$a" -ne "$b" ]
+     - .. code-block:: doscon
+
+           if %a% NEQ %b%
+     - .. code-block:: powershell
+
+           $a -ne $b
+     - .. code-block:: python
+
+           a != b
+     - .. code-block:: php
+
+           a != b
      - N/A
      - .. code-block:: cpp
 
@@ -248,16 +272,16 @@ Programming Languages
      - .. code-block:: asm
 
            bne t0, t1, .not_equal
-     - .. code-block:: asm
-
-           cmp x0, x1
-           b.ne .not_equal
      - .. code-block:: prolog
 
            A \== B
      - .. code-block:: jasmin
 
            if_icmpne Label
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.ne .not_equal
      - .. code-block:: ocaml
 
            a <> b
@@ -273,6 +297,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a != $b}]
+     - .. code-block:: cobol
+
+           IF A NOT = B
+     - .. code-block:: fortran
+
+           a /= b
      - .. code-block:: csharp
 
            a != b
@@ -283,31 +313,22 @@ Programming Languages
 
            a != b
    * - GreaterThan
+     - .. code-block:: sql
+
+           a > b
      - .. code-block:: c
 
            a > b
+     - .. code-block:: cpp
+
+           a > b
+     - .. code-block:: xquery
+
+           $a > $b
      - .. code-block:: java
 
            a > b
      - .. code-block:: rust
-
-           a > b
-     - .. code-block:: python
-
-           a > b
-     - .. code-block:: php
-
-           a > b
-     - .. code-block:: bash
-
-           [ "$a" -gt "$b" ]
-     - .. code-block:: powershell
-
-           $a -gt $b
-     - .. code-block:: doscon
-
-           if %a% GTR %b%
-     - .. code-block:: sql
 
            a > b
      - .. code-block:: erlang
@@ -316,9 +337,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (> a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           $a > $b
+           [ "$a" -gt "$b" ]
+     - .. code-block:: doscon
+
+           if %a% GTR %b%
+     - .. code-block:: powershell
+
+           $a -gt $b
+     - .. code-block:: python
+
+           a > b
+     - .. code-block:: php
+
+           a > b
      - N/A
      - .. code-block:: cpp
 
@@ -330,16 +363,16 @@ Programming Languages
      - .. code-block:: asm
 
            bgt t0, t1, .greater
-     - .. code-block:: asm
-
-           cmp x0, x1
-           b.gt .greater
      - .. code-block:: prolog
 
            A > B
      - .. code-block:: jasmin
 
            if_icmpgt Label
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.gt .greater
      - .. code-block:: ocaml
 
            a > b
@@ -355,6 +388,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a > $b}]
+     - .. code-block:: cobol
+
+           IF A > B
+     - .. code-block:: fortran
+
+           a > b
      - .. code-block:: csharp
 
            a > b
@@ -365,11 +404,30 @@ Programming Languages
 
            a > b
    * - ProcedureDefinition
+     - .. code-block:: sql
+
+           CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
+           AS
+           BEGIN
+               PRINT @msg;
+           END
      - .. code-block:: c
 
            void log_message(const char *msg) {
                printf("%s\n", msg);
            }
+     - .. code-block:: cpp
+
+           void logMessage(std::string msg) {
+               std::cout << msg << std::endl;
+           }
+     - .. code-block:: xquery
+
+           declare function local:log-message(
+               $msg as xs:string
+           ) as empty-sequence() {
+               (); (: side effects in XQuery are implementation-defined or via extensions :)
+           };
      - .. code-block:: java
 
            public void logMessage(String msg) {
@@ -380,6 +438,29 @@ Programming Languages
            fn log_message(msg: &str) {
                println!("{}", msg);
            }
+     - .. code-block:: erlang
+
+           log_message(Msg) ->
+               io:format("~p~n", [Msg]).
+     - .. code-block:: common-lisp
+
+           (defun log-message (msg)
+             (format t "~A~%" msg))
+     - .. code-block:: bash
+
+           log_message() {
+               echo "$1"
+           }
+     - .. code-block:: doscon
+
+           :log_message
+           echo %~1
+           goto :eof
+     - .. code-block:: powershell
+
+           function log-message($msg) {
+               Write-Host $msg
+           }
      - .. code-block:: python
 
            def log_message(msg):
@@ -389,43 +470,6 @@ Programming Languages
            function log_message(string $msg): void {
                echo $msg;
            }
-     - .. code-block:: bash
-
-           log_message() {
-               echo "$1"
-           }
-     - .. code-block:: powershell
-
-           function log-message($msg) {
-               Write-Host $msg
-           }
-     - .. code-block:: doscon
-
-           :log_message
-           echo %~1
-           goto :eof
-     - .. code-block:: sql
-
-           CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
-           AS
-           BEGIN
-               PRINT @msg;
-           END
-     - .. code-block:: erlang
-
-           log_message(Msg) ->
-               io:format("~p~n", [Msg]).
-     - .. code-block:: common-lisp
-
-           (defun log-message (msg)
-             (format t "~A~%" msg))
-     - .. code-block:: xquery
-
-           declare function local:log-message(
-               $msg as xs:string
-           ) as empty-sequence() {
-               (); (: side effects in XQuery are implementation-defined or via extensions :)
-           };
      - N/A
      - .. code-block:: cpp
 
@@ -448,14 +492,6 @@ Programming Languages
                ld ra, 8(sp)
                addi sp, sp, 16
                ret
-     - .. code-block:: asm
-
-           log_message:
-               stp x29, x30, [sp, -16]!
-               mov x29, sp
-               bl printf
-               ldp x29, x30, [sp], 16
-               ret
      - .. code-block:: prolog
 
            log_message(Msg) :- writeln(Msg).
@@ -469,6 +505,14 @@ Programming Languages
                invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
                return
            .end method
+     - .. code-block:: asm
+
+           log_message:
+               stp x29, x30, [sp, -16]!
+               mov x29, sp
+               bl printf
+               ldp x29, x30, [sp], 16
+               ret
      - .. code-block:: ocaml
 
            let log_message msg = print_endline msg
@@ -491,6 +535,19 @@ Programming Languages
            proc logMessage {msg} {
                puts $msg
            }
+     - .. code-block:: cobol
+
+           IDENTIFICATION DIVISION.
+           PROGRAM-ID. LOG-MSG.
+           ... 
+           DISPLAY MSG.
+           EXIT PROGRAM.
+     - .. code-block:: fortran
+
+           subroutine log_msg(msg)
+               character(len=*), intent(in) :: msg
+               print *, msg
+           end subroutine log_msg
      - .. code-block:: csharp
 
            public void LogMessage(string msg) {
@@ -507,11 +564,31 @@ Programming Languages
                println(msg)
            }
    * - FunctionDefinition
+     - .. code-block:: sql
+
+           CREATE FUNCTION add(@a INT, @b INT)
+           RETURNS INT AS
+           BEGIN
+               RETURN @a + @b
+           END
      - .. code-block:: c
 
            int add(int a, int b) {
                return a + b;
            }
+     - .. code-block:: cpp
+
+           int add(int a, int b) {
+               return a + b;
+           }
+     - .. code-block:: xquery
+
+           declare function local:add(
+               $a as xs:integer,
+               $b as xs:integer
+           ) as xs:integer {
+               $a + $b
+           };
      - .. code-block:: java
 
            public int add(int a, int b) {
@@ -522,6 +599,27 @@ Programming Languages
            fn add(a: i32, b: i32) -> i32 {
                a + b
            }
+     - .. code-block:: erlang
+
+           add(A, B) -> A + B.
+     - .. code-block:: common-lisp
+
+           (defun add (a b) (+ a b))
+     - .. code-block:: bash
+
+           add() {
+               echo $(($1 + $2))
+           }
+     - .. code-block:: doscon
+
+           :add
+           set /a res=%~1+%~2
+           exit /b %res%
+     - .. code-block:: powershell
+
+           function add($a, $b) {
+               return $a + $b
+           }
      - .. code-block:: python
 
            def add(a, b):
@@ -531,42 +629,6 @@ Programming Languages
            function add(int $a, int $b): int {
                return $a + $b;
            }
-     - .. code-block:: bash
-
-           add() {
-               echo $(($1 + $2))
-           }
-     - .. code-block:: powershell
-
-           function add($a, $b) {
-               return $a + $b
-           }
-     - .. code-block:: doscon
-
-           :add
-           set /a res=%~1+%~2
-           exit /b %res%
-     - .. code-block:: sql
-
-           CREATE FUNCTION add(@a INT, @b INT)
-           RETURNS INT AS
-           BEGIN
-               RETURN @a + @b
-           END
-     - .. code-block:: erlang
-
-           add(A, B) -> A + B.
-     - .. code-block:: common-lisp
-
-           (defun add (a b) (+ a b))
-     - .. code-block:: xquery
-
-           declare function local:add(
-               $a as xs:integer,
-               $b as xs:integer
-           ) as xs:integer {
-               $a + $b
-           };
      - N/A
      - .. code-block:: cpp
 
@@ -583,11 +645,6 @@ Programming Languages
            add:
                add a0, a0, a1
                ret
-     - .. code-block:: asm
-
-           add:
-               add x0, x0, x1
-               ret
      - .. code-block:: prolog
 
            add(A, B, Res) :- Res is A + B.
@@ -601,6 +658,11 @@ Programming Languages
                iadd
                ireturn
            .end method
+     - .. code-block:: asm
+
+           add:
+               add x0, x0, x1
+               ret
      - .. code-block:: ocaml
 
            let add a b = a + b
@@ -623,6 +685,20 @@ Programming Languages
            proc add {a b} {
                return [expr {$a + $b}]
            }
+     - .. code-block:: cobol
+
+           FUNCTION-ID. ADD-FUNC.
+           ... 
+           COMPUTE RESULT = A + B
+           ... 
+           END FUNCTION ADD-FUNC.
+     - .. code-block:: fortran
+
+           function add(a, b) result(res)
+               integer, intent(in) :: a, b
+               integer :: res
+               res = a + b
+           end function add
      - .. code-block:: csharp
 
            public int Add(int a, int b) {
@@ -639,6 +715,16 @@ Programming Languages
                return a + b
            }
    * - IfElse
+     - .. code-block:: sql
+
+           IF @x > 0
+           BEGIN
+               RETURN 1
+           END
+           ELSE
+           BEGIN
+               RETURN 0
+           END
      - .. code-block:: c
 
            if (x > 0) {
@@ -646,6 +732,16 @@ Programming Languages
            } else {
                return 0;
            }
+     - .. code-block:: cpp
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - .. code-block:: xquery
+
+           if ($x > 0) then 1 else 0
      - .. code-block:: java
 
            if (x > 0) {
@@ -660,6 +756,29 @@ Programming Languages
            } else {
                0
            }
+     - .. code-block:: erlang
+
+           if X > 0 -> 1; true -> 0 end
+     - .. code-block:: common-lisp
+
+           (if (> x 0) 1 0)
+     - .. code-block:: bash
+
+           if [ $x -gt 0 ]; then
+               exit 1
+           else
+               exit 0
+           fi
+     - .. code-block:: doscon
+
+           if %x% GTR 0 (exit /b 1) else (exit /b 0)
+     - .. code-block:: powershell
+
+           if ($x -gt 0) {
+               return 1
+           } else {
+               return 0
+           }
      - .. code-block:: python
 
            1 if x > 0 else 0
@@ -670,42 +789,6 @@ Programming Languages
            } else {
                return 0;
            }
-     - .. code-block:: bash
-
-           if [ $x -gt 0 ]; then
-               exit 1
-           else
-               exit 0
-           fi
-     - .. code-block:: powershell
-
-           if ($x -gt 0) {
-               return 1
-           } else {
-               return 0
-           }
-     - .. code-block:: doscon
-
-           if %x% GTR 0 (exit /b 1) else (exit /b 0)
-     - .. code-block:: sql
-
-           IF @x > 0
-           BEGIN
-               RETURN 1
-           END
-           ELSE
-           BEGIN
-               RETURN 0
-           END
-     - .. code-block:: erlang
-
-           if X > 0 -> 1; true -> 0 end
-     - .. code-block:: common-lisp
-
-           (if (> x 0) 1 0)
-     - .. code-block:: xquery
-
-           if ($x > 0) then 1 else 0
      - .. code-block:: css
 
            @media (min-width: 0px) { .element { color: red; } }
@@ -733,15 +816,6 @@ Programming Languages
            .else:
                li a0, 0
            .end:
-     - .. code-block:: asm
-
-               cmp x0, #0
-               ble .else
-               mov x0, #1
-               b .end
-           .else:
-               mov x0, #0
-           .end:
      - .. code-block:: prolog
 
            (X > 0 -> Result = 1 ; Result = 0)
@@ -754,6 +828,15 @@ Programming Languages
            LabelThen:
                iconst_1
                ireturn
+     - .. code-block:: asm
+
+               cmp x0, #0
+               ble .else
+               mov x0, #1
+               b .end
+           .else:
+               mov x0, #0
+           .end:
      - .. code-block:: ocaml
 
            if x > 0 then 1 else 0
@@ -781,6 +864,20 @@ Programming Languages
            } else {
                return 0
            }
+     - .. code-block:: cobol
+
+           IF X > 0 THEN
+               MOVE 1 TO RESULT
+           ELSE
+               MOVE 0 TO RESULT
+           END-IF.
+     - .. code-block:: fortran
+
+           if (x > 0) then
+               res = 1
+           else
+               res = 0
+           end if
      - .. code-block:: csharp
 
            if (x > 0) {
@@ -799,6 +896,13 @@ Programming Languages
 
            if (x > 0) 1 else 0
    * - SwitchCase
+     - .. code-block:: sql
+
+           CASE @x
+               WHEN 1 THEN 'one'
+               WHEN 2 THEN 'two'
+               ELSE 'none'
+           END
      - .. code-block:: c
 
            switch (x) {
@@ -809,6 +913,22 @@ Programming Languages
                default:
                    return 0;
            }
+     - .. code-block:: cpp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - .. code-block:: xquery
+
+           switch ($x)
+             case 1 return "one"
+             case 2 return "two"
+             default return "none"
      - .. code-block:: java
 
            switch (x) {
@@ -825,6 +945,42 @@ Programming Languages
                1 => 1,
                2 => 2,
                _ => 0,
+           }
+     - .. code-block:: erlang
+
+           case X of
+               1 -> one;
+               2 -> two;
+               _ -> none
+           end
+     - .. code-block:: common-lisp
+
+           (case x
+             (1 "one")
+             (2 "two")
+             (t "none"))
+     - .. code-block:: bash
+
+           case $x in
+               1)
+                   echo "one"
+                   ;;
+               2)
+                   echo "two"
+                   ;;
+               *)
+                   echo "none"
+                   ;;
+           esac
+     - .. code-block:: doscon
+
+           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
+     - .. code-block:: powershell
+
+           switch ($x) {
+               1 { "one" }
+               2 { "two" }
+               default { "none" }
            }
      - .. code-block:: python
 
@@ -845,55 +1001,6 @@ Programming Languages
                default:
                    return 0;
            }
-     - .. code-block:: bash
-
-           case $x in
-               1)
-                   echo "one"
-                   ;;
-               2)
-                   echo "two"
-                   ;;
-               *)
-                   echo "none"
-                   ;;
-           esac
-     - .. code-block:: powershell
-
-           switch ($x) {
-               1 { "one" }
-               2 { "two" }
-               default { "none" }
-           }
-     - .. code-block:: doscon
-
-           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
-     - .. code-block:: sql
-
-           CASE @x
-               WHEN 1 THEN 'one'
-               WHEN 2 THEN 'two'
-               ELSE 'none'
-           END
-     - .. code-block:: erlang
-
-           case X of
-               1 -> one;
-               2 -> two;
-               _ -> none
-           end
-     - .. code-block:: common-lisp
-
-           (case x
-             (1 "one")
-             (2 "two")
-             (t "none"))
-     - .. code-block:: xquery
-
-           switch ($x)
-             case 1 return "one"
-             case 2 return "two"
-             default return "none"
      - N/A
      - .. code-block:: cpp
 
@@ -925,13 +1032,6 @@ Programming Languages
                li t1, 2
                beq t0, t1, .case2
                j .default
-     - .. code-block:: asm
-
-               cmp x0, #1
-               beq .case1
-               cmp x0, #2
-               beq .case2
-               b .default
      - .. code-block:: prolog
 
            (   X = 1 -> writeln('one')
@@ -951,6 +1051,13 @@ Programming Languages
                ; ...
            LabelDefault:
                ; ...
+     - .. code-block:: asm
+
+               cmp x0, #1
+               beq .case1
+               cmp x0, #2
+               beq .case2
+               b .default
      - .. code-block:: ocaml
 
            match x with
@@ -996,6 +1103,26 @@ Programming Languages
                    return 0
                }
            }
+     - .. code-block:: cobol
+
+           EVALUATE X
+               WHEN 1
+                   DISPLAY 'One'
+               WHEN 2
+                   DISPLAY 'Two'
+               WHEN OTHER
+                   DISPLAY 'Other'
+           END-EVALUATE.
+     - .. code-block:: fortran
+
+           select case (x)
+           case (1)
+               res = 1
+           case (2)
+               res = 2
+           case default
+               res = 0
+           end select
      - .. code-block:: csharp
 
            switch (x) {
@@ -1024,11 +1151,25 @@ Programming Languages
                else -> 0
            }
    * - Loop
+     - .. code-block:: sql
+
+           WHILE @x > 0
+           BEGIN
+               SET @x = @x - 1
+           END
      - .. code-block:: c
 
            while (x > 0) {
                x = x - 1;
            }
+     - .. code-block:: cpp
+
+           while (x > 0) {
+               x = x - 1;
+           }
+     - .. code-block:: xquery
+
+           for $i in 1 to $x return $i
      - .. code-block:: java
 
            while (x > 0) {
@@ -1039,6 +1180,26 @@ Programming Languages
            while x > 0 {
                x -= 1;
            }
+     - .. code-block:: erlang
+
+           loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).
+     - .. code-block:: common-lisp
+
+           (loop while (> x 0) do (setq x (1- x)))
+     - .. code-block:: bash
+
+           while [ $x -gt 0 ]; do
+               x=$((x-1))
+           done
+     - .. code-block:: doscon
+
+           :loop
+           if %x% GTR 0 (set /a x=x-1 & goto loop)
+     - .. code-block:: powershell
+
+           while ($x -gt 0) {
+               $x = $x - 1
+           }
      - .. code-block:: python
 
            while x > 0: x = x - 1
@@ -1047,35 +1208,6 @@ Programming Languages
            while ($x > 0) {
                $x = $x - 1;
            }
-     - .. code-block:: bash
-
-           while [ $x -gt 0 ]; do
-               x=$((x-1))
-           done
-     - .. code-block:: powershell
-
-           while ($x -gt 0) {
-               $x = $x - 1
-           }
-     - .. code-block:: doscon
-
-           :loop
-           if %x% GTR 0 (set /a x=x-1 & goto loop)
-     - .. code-block:: sql
-
-           WHILE @x > 0
-           BEGIN
-               SET @x = @x - 1
-           END
-     - .. code-block:: erlang
-
-           loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).
-     - .. code-block:: common-lisp
-
-           (loop while (> x 0) do (setq x (1- x)))
-     - .. code-block:: xquery
-
-           for $i in 1 to $x return $i
      - N/A
      - .. code-block:: cpp
 
@@ -1097,14 +1229,6 @@ Programming Languages
                addi t0, t0, -1
                j .loop
            .end:
-     - .. code-block:: asm
-
-           .loop:
-               cmp x0, #0
-               ble .end
-               sub x0, x0, #1
-               b .loop
-           .end:
      - .. code-block:: prolog
 
            loop(0) :- !.
@@ -1120,6 +1244,14 @@ Programming Languages
                putstatic MyClass/x I
                goto LoopStart
            LoopEnd:
+     - .. code-block:: asm
+
+           .loop:
+               cmp x0, #0
+               ble .end
+               sub x0, x0, #1
+               b .loop
+           .end:
      - .. code-block:: ocaml
 
            while !x > 0 do
@@ -1143,6 +1275,16 @@ Programming Languages
            while {$x > 0} {
                set x [expr {$x - 1}]
            }
+     - .. code-block:: cobol
+
+           PERFORM UNTIL X <= 0
+               SUBTRACT 1 FROM X
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           do while (x > 0)
+               x = x - 1
+           end do
      - .. code-block:: csharp
 
            while (x > 0) {
@@ -1159,11 +1301,28 @@ Programming Languages
                x -= 1
            }
    * - ForLoop
+     - .. code-block:: sql
+
+           DECLARE @i INT = 0;
+           WHILE @i < 10
+           BEGIN
+               -- body
+               SET @i = @i + 1;
+           END
      - .. code-block:: c
 
            for (int i = 0; i < 10; i++) {
                // body
            }
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - .. code-block:: xquery
+
+           for $i in 1 to 10
+           return $i
      - .. code-block:: java
 
            for (int i = 0; i < 10; i++) {
@@ -1174,6 +1333,28 @@ Programming Languages
            for i in 0..10 {
                // body
            }
+     - .. code-block:: erlang
+
+           lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
+     - .. code-block:: common-lisp
+
+           (loop for i from 0 to 9 do
+               #| body |#)
+     - .. code-block:: bash
+
+           for i in {0..9}; do
+               # body
+           done
+     - .. code-block:: doscon
+
+           for /L %%i in (0,1,9) do (
+               rem body
+           )
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt 10; $i++) {
+               # body
+           }
      - .. code-block:: python
 
            for i in range(10):
@@ -1183,40 +1364,6 @@ Programming Languages
            for ($i = 0; $i < 10; $i++) {
                // body
            }
-     - .. code-block:: bash
-
-           for i in {0..9}; do
-               # body
-           done
-     - .. code-block:: powershell
-
-           for ($i = 0; $i -lt 10; $i++) {
-               # body
-           }
-     - .. code-block:: doscon
-
-           for /L %%i in (0,1,9) do (
-               rem body
-           )
-     - .. code-block:: sql
-
-           DECLARE @i INT = 0;
-           WHILE @i < 10
-           BEGIN
-               -- body
-               SET @i = @i + 1;
-           END
-     - .. code-block:: erlang
-
-           lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
-     - .. code-block:: common-lisp
-
-           (loop for i from 0 to 9 do
-               #| body |#)
-     - .. code-block:: xquery
-
-           for $i in 1 to 10
-           return $i
      - N/A
      - .. code-block:: cpp
 
@@ -1239,16 +1386,6 @@ Programming Languages
                addi t0, t0, 1
                j .loop
            .end:
-     - .. code-block:: asm
-
-               mov x0, #0
-           .loop:
-               cmp x0, #10
-               b.ge .end
-               ; body
-               add x0, x0, #1
-               b .loop
-           .end:
      - .. code-block:: prolog
 
            forall(between(0, 9, I), do_something(I)).
@@ -1264,6 +1401,16 @@ Programming Languages
                iinc 1 1 ; i++
                goto LoopStart
            LoopEnd:
+     - .. code-block:: asm
+
+               mov x0, #0
+           .loop:
+               cmp x0, #10
+               b.ge .end
+               ; body
+               add x0, x0, #1
+               b .loop
+           .end:
      - .. code-block:: ocaml
 
            for i = 0 to 9 do
@@ -1287,6 +1434,16 @@ Programming Languages
            for {set i 0} {$i < 10} {incr i} {
                # body
            }
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 10
+               *> body
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           do i = 1, 10
+               ! body
+           end do
      - .. code-block:: csharp
 
            for (int i = 0; i < 10; i++) {
@@ -1303,7 +1460,29 @@ Programming Languages
                // body
            }
    * - TryCatch
+     - .. code-block:: sql
+
+           BEGIN TRY
+               EXEC do_something;
+           END TRY
+           BEGIN CATCH
+               EXEC handle_error;
+           END CATCH
      - N/A
+     - .. code-block:: cpp
+
+           try {
+               do_something();
+           } catch (const std::exception& e) {
+               handle(e);
+           }
+     - .. code-block:: xquery
+
+           try {
+               do_something()
+           } catch * {
+               handle($err)
+           }
      - .. code-block:: java
 
            try {
@@ -1316,6 +1495,29 @@ Programming Languages
            match do_something() {
                Ok(v) => v,
                Err(e) => handle(e)
+           }
+     - .. code-block:: erlang
+
+           try
+               do_something()
+           catch
+               error:Reason -> handle(Reason)
+           end
+     - .. code-block:: common-lisp
+
+           (handler-case (do_something) (error (c) (handle c)))
+     - .. code-block:: bash
+
+           do_something || handle_error
+     - .. code-block:: doscon
+
+           do_something || call :handle_error
+     - .. code-block:: powershell
+
+           try {
+               do_something
+           } catch {
+               handle_error($_)
            }
      - .. code-block:: python
 
@@ -1330,45 +1532,6 @@ Programming Languages
            } catch (Exception $e) {
                handle($e);
            }
-     - .. code-block:: bash
-
-           do_something || handle_error
-     - .. code-block:: powershell
-
-           try {
-               do_something
-           } catch {
-               handle_error($_)
-           }
-     - .. code-block:: doscon
-
-           do_something || call :handle_error
-     - .. code-block:: sql
-
-           BEGIN TRY
-               EXEC do_something;
-           END TRY
-           BEGIN CATCH
-               EXEC handle_error;
-           END CATCH
-     - .. code-block:: erlang
-
-           try
-               do_something()
-           catch
-               error:Reason -> handle(Reason)
-           end
-     - .. code-block:: common-lisp
-
-           (handler-case (do_something) (error (c) (handle c)))
-     - .. code-block:: xquery
-
-           try {
-               do_something()
-           } catch * {
-               handle($err)
-           }
-     - N/A
      - N/A
      - N/A
      - N/A
@@ -1388,6 +1551,7 @@ Programming Languages
                aload_1
                invokestatic MyClass/handle(Ljava/lang/Exception;)V
            Done:
+     - N/A
      - .. code-block:: ocaml
 
            try do_something () with e -> handle e
@@ -1413,6 +1577,12 @@ Programming Languages
            } on error {e} {
                handle $e
            }
+     - .. code-block:: cobol
+
+           ADD A TO B ON SIZE ERROR
+               DISPLAY 'Arithmetic Overflow'
+           END-ADD.
+     - N/A
      - .. code-block:: csharp
 
            try {
@@ -1435,42 +1605,45 @@ Programming Languages
                handle(e)
            }
    * - Raise
+     - .. code-block:: sql
+
+           THROW 50000, 'Error', 1;
      - .. code-block:: c
 
            exit(1);
+     - .. code-block:: cpp
+
+           throw std::runtime_error("Error");
+     - .. code-block:: xquery
+
+           fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
      - .. code-block:: java
 
            throw new RuntimeException("Error");
      - .. code-block:: rust
 
            panic!("Error");
-     - .. code-block:: python
-
-           raise Exception("Error")
-     - .. code-block:: php
-
-           throw new Exception("Error");
-     - .. code-block:: bash
-
-           exit 1
-     - .. code-block:: powershell
-
-           throw "Error"
-     - .. code-block:: doscon
-
-           exit /b 1
-     - .. code-block:: sql
-
-           THROW 50000, 'Error', 1;
      - .. code-block:: erlang
 
            error("Error")
      - .. code-block:: common-lisp
 
            (error "Error")
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
+           exit 1
+     - .. code-block:: doscon
+
+           exit /b 1
+     - .. code-block:: powershell
+
+           throw "Error"
+     - .. code-block:: python
+
+           raise Exception("Error")
+     - .. code-block:: php
+
+           throw new Exception("Error");
      - N/A
      - N/A
      - .. code-block:: nasm
@@ -1479,9 +1652,6 @@ Programming Languages
      - .. code-block:: asm
 
                ebreak
-     - .. code-block:: asm
-
-               brk #0
      - .. code-block:: prolog
 
            throw(error(Error))
@@ -1492,6 +1662,9 @@ Programming Languages
                ldc "Error"
                invokespecial java/lang/RuntimeException/<init>(Ljava/lang/String;)V
                athrow
+     - .. code-block:: asm
+
+               brk #0
      - .. code-block:: ocaml
 
            raise (Failure "Error")
@@ -1507,6 +1680,10 @@ Programming Languages
      - .. code-block:: tcl
 
            error "Error"
+     - N/A
+     - .. code-block:: fortran
+
+           error stop "Error"
      - .. code-block:: csharp
 
            throw new Exception("Error");
@@ -1518,21 +1695,25 @@ Programming Languages
            throw Exception("Error")
    * - Thread
      - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           std::thread t(do_work);
+           t.join();
+     - N/A
      - .. code-block:: java
 
            new Thread(() -> { do_work(); }).start();
      - .. code-block:: rust
 
            thread::spawn(|| { do_work(); });
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - .. code-block:: erlang
 
            Pid = spawn(fun() -> do_work() end).
+     - N/A
+     - N/A
+     - N/A
+     - N/A
      - N/A
      - N/A
      - N/A
@@ -1547,10 +1728,6 @@ Programming Languages
 
                li a7, 220 # clone syscall
                ecall
-     - .. code-block:: asm
-
-               mov x8, #220 // clone syscall
-               svc #0
      - .. code-block:: prolog
 
            thread_create(do_work, Id, []).
@@ -1563,6 +1740,10 @@ Programming Languages
                invokespecial MyRunnable/<init>()V
                invokespecial java/lang/Thread/<init>(Ljava/lang/Runnable;)V
                invokevirtual java/lang/Thread/start()V
+     - .. code-block:: asm
+
+               mov x8, #220 // clone syscall
+               svc #0
      - .. code-block:: ocaml
 
            Thread.create do_work ()
@@ -1578,6 +1759,8 @@ Programming Languages
      - .. code-block:: tcl
 
            thread::create { do_work }
+     - N/A
+     - N/A
      - .. code-block:: csharp
 
            new Thread(() => { do_work(); }).start();
@@ -1593,21 +1776,24 @@ Programming Languages
            }
    * - SendMessage
      - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           queue.push(42);
+     - N/A
      - .. code-block:: java
 
            queue.put(42);
      - .. code-block:: rust
 
            tx.send(42).unwrap();
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - .. code-block:: erlang
 
            Pid ! hello.
+     - N/A
+     - N/A
+     - N/A
+     - N/A
      - N/A
      - N/A
      - N/A
@@ -1621,10 +1807,6 @@ Programming Languages
 
                li a7, 139 # rt_sigqueueinfo
                ecall
-     - .. code-block:: asm
-
-               mov x8, #139 // rt_sigqueueinfo
-               svc #0
      - .. code-block:: prolog
 
            thread_send_message(Id, hello).
@@ -1634,6 +1816,10 @@ Programming Languages
                bipush 42
                invokestatic java/lang/Integer/valueOf(I)Ljava/lang/Integer;
                invokevirtual java/util/concurrent/BlockingQueue/put(Ljava/lang/Object;)V
+     - .. code-block:: asm
+
+               mov x8, #139 // rt_sigqueueinfo
+               svc #0
      - .. code-block:: ocaml
 
            Event.sync (Event.send ch 42)
@@ -1649,6 +1835,10 @@ Programming Languages
      - .. code-block:: tcl
 
            thread::send $id $msg
+     - N/A
+     - .. code-block:: fortran
+
+           target_var[image] = data
      - .. code-block:: csharp
 
            await channel.Writer.WriteAsync(42);
@@ -1660,21 +1850,26 @@ Programming Languages
            channel.send(42)
    * - ReceiveMessage
      - N/A
+     - N/A
+     - .. code-block:: cpp
+
+           int msg = queue.front();
+           queue.pop();
+           handle(msg);
+     - N/A
      - .. code-block:: java
 
            int msg = queue.take(); handle(msg);
      - .. code-block:: rust
 
            let msg = rx.recv().unwrap(); handle(msg);
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
-     - N/A
      - .. code-block:: erlang
 
            receive hello -> handle_hello() end.
+     - N/A
+     - N/A
+     - N/A
+     - N/A
      - N/A
      - N/A
      - N/A
@@ -1686,10 +1881,6 @@ Programming Languages
 
                li a7, 128 # rt_sigtimedwait
                ecall
-     - .. code-block:: asm
-
-               mov x8, #128 // rt_sigtimedwait
-               svc #0
      - .. code-block:: prolog
 
            thread_get_message(hello).
@@ -1702,6 +1893,10 @@ Programming Languages
                istore_1 ; msg
                iload_1
                invokestatic MyClass/handle(I)V
+     - .. code-block:: asm
+
+               mov x8, #128 // rt_sigtimedwait
+               svc #0
      - .. code-block:: ocaml
 
            let msg = Event.sync (Event.receive ch) in handle msg
@@ -1719,6 +1914,10 @@ Programming Languages
      - .. code-block:: tcl
 
            vwait msg; handle $msg
+     - N/A
+     - .. code-block:: fortran
+
+           sync images(*)
      - .. code-block:: csharp
 
            var msg = await channel.Reader.ReadAsync();
@@ -1729,42 +1928,45 @@ Programming Languages
            val msg = channel.receive()
            handle(msg)
    * - SingleLineComment
+     - .. code-block:: sql
+
+           -- comment
      - .. code-block:: c
 
            // comment
+     - .. code-block:: cpp
+
+           // comment
+     - .. code-block:: xquery
+
+           (: comment :)
      - .. code-block:: java
 
            // comment
      - .. code-block:: rust
 
            // comment
-     - .. code-block:: python
-
-           # comment
-     - .. code-block:: php
-
-           // comment
-     - .. code-block:: bash
-
-           # comment
-     - .. code-block:: powershell
-
-           # comment
-     - .. code-block:: doscon
-
-           REM comment
-     - .. code-block:: sql
-
-           -- comment
      - .. code-block:: erlang
 
            % comment
      - .. code-block:: common-lisp
 
            ; comment
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           (: comment :)
+           # comment
+     - .. code-block:: doscon
+
+           REM comment
+     - .. code-block:: powershell
+
+           # comment
+     - .. code-block:: python
+
+           # comment
+     - .. code-block:: php
+
+           // comment
      - N/A
      - .. code-block:: cpp
 
@@ -1775,15 +1977,15 @@ Programming Languages
      - .. code-block:: asm
 
            # comment
-     - .. code-block:: asm
-
-           // comment
      - .. code-block:: prolog
 
            % comment
      - .. code-block:: jasmin
 
            ; comment
+     - .. code-block:: asm
+
+           // comment
      - .. code-block:: ocaml
 
            (* comment *)
@@ -1799,6 +2001,12 @@ Programming Languages
      - .. code-block:: tcl
 
            # comment
+     - .. code-block:: cobol
+
+           *> comment
+     - .. code-block:: fortran
+
+           ! comment
      - .. code-block:: csharp
 
            // comment
@@ -1809,10 +2017,22 @@ Programming Languages
 
            // comment
    * - MultiLineComment
+     - .. code-block:: sql
+
+           /* line 1
+              line 2 */
      - .. code-block:: c
 
            /* line 1
               line 2 */
+     - .. code-block:: cpp
+
+           /* line 1
+              line 2 */
+     - .. code-block:: xquery
+
+           (: line 1
+              line 2 :)
      - .. code-block:: java
 
            /* line 1
@@ -1821,6 +2041,17 @@ Programming Languages
 
            /* line 1
               line 2 */
+     - N/A
+     - .. code-block:: common-lisp
+
+           #| line 1
+              line 2 |#
+     - N/A
+     - N/A
+     - .. code-block:: powershell
+
+           <# line 1
+              line 2 #>
      - .. code-block:: python
 
            """ line 1
@@ -1829,25 +2060,6 @@ Programming Languages
 
            /* line 1
               line 2 */
-     - N/A
-     - .. code-block:: powershell
-
-           <# line 1
-              line 2 #>
-     - N/A
-     - .. code-block:: sql
-
-           /* line 1
-              line 2 */
-     - N/A
-     - .. code-block:: common-lisp
-
-           #| line 1
-              line 2 |#
-     - .. code-block:: xquery
-
-           (: line 1
-              line 2 :)
      - .. code-block:: css
 
            /* line 1
@@ -1858,11 +2070,11 @@ Programming Languages
               line 2 */
      - N/A
      - N/A
-     - N/A
      - .. code-block:: prolog
 
            /* line 1
               line 2 */
+     - N/A
      - N/A
      - .. code-block:: ocaml
 
@@ -1881,6 +2093,8 @@ Programming Languages
            /* line 1
               line 2 */
      - N/A
+     - N/A
+     - N/A
      - .. code-block:: csharp
 
            /* line 1
@@ -1894,42 +2108,45 @@ Programming Languages
            /* line 1
               line 2 */
    * - Print
+     - .. code-block:: sql
+
+           PRINT 'Hello, World!';
      - .. code-block:: c
 
            printf("Hello, World!\n");
+     - .. code-block:: cpp
+
+           std::cout << "Hello, World!" << std::endl;
+     - .. code-block:: xquery
+
+           "Hello, World!"
      - .. code-block:: java
 
            System.out.println("Hello, World!");
      - .. code-block:: rust
 
            println!("Hello, World!");
-     - .. code-block:: python
-
-           print("Hello, World!")
-     - .. code-block:: php
-
-           echo "Hello, World!";
-     - .. code-block:: bash
-
-           echo "Hello, World!"
-     - .. code-block:: powershell
-
-           Write-Host "Hello, World!"
-     - .. code-block:: doscon
-
-           echo Hello, World!
-     - .. code-block:: sql
-
-           PRINT 'Hello, World!';
      - .. code-block:: erlang
 
            io:format("Hello, World!~n").
      - .. code-block:: common-lisp
 
            (format t "Hello, World!~%")
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           "Hello, World!"
+           echo "Hello, World!"
+     - .. code-block:: doscon
+
+           echo Hello, World!
+     - .. code-block:: powershell
+
+           Write-Host "Hello, World!"
+     - .. code-block:: python
+
+           print("Hello, World!")
+     - .. code-block:: php
+
+           echo "Hello, World!";
      - .. code-block:: css
 
            .element::before { content: "Hello, World!"; }
@@ -1944,11 +2161,6 @@ Programming Languages
 
                la a0, hello_msg
                call printf
-     - .. code-block:: asm
-
-               adrp x0, hello_msg
-               add x0, x0, :lo12:hello_msg
-               bl printf
      - .. code-block:: prolog
 
            writeln('Hello, World!').
@@ -1957,6 +2169,11 @@ Programming Languages
                getstatic java/lang/System/out Ljava/io/PrintStream;
                ldc "Hello, World!"
                invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+     - .. code-block:: asm
+
+               adrp x0, hello_msg
+               add x0, x0, :lo12:hello_msg
+               bl printf
      - .. code-block:: ocaml
 
            print_endline "Hello, World!"
@@ -1972,6 +2189,12 @@ Programming Languages
      - .. code-block:: tcl
 
            puts "Hello, World!"
+     - .. code-block:: cobol
+
+           DISPLAY "Hello World".
+     - .. code-block:: fortran
+
+           print *, "Hello World"
      - .. code-block:: csharp
 
            Console.WriteLine("Hello, World!");
@@ -1982,40 +2205,43 @@ Programming Languages
 
            println("Hello, World!")
    * - Import
+     - N/A
      - .. code-block:: c
 
            #include <stdio.h>
+     - .. code-block:: cpp
+
+           #include <iostream>
+     - .. code-block:: xquery
+
+           import module namespace utils = "http://example.com/utils";
      - .. code-block:: java
 
            import java.util.List;
      - .. code-block:: rust
 
            use std::collections::HashMap;
-     - .. code-block:: python
-
-           import math
-     - .. code-block:: php
-
-           require 'utils.php';
-     - .. code-block:: bash
-
-           source utils.sh
-     - .. code-block:: powershell
-
-           Import-Module ActiveDirectory
-     - .. code-block:: doscon
-
-           call other.cmd
-     - N/A
      - .. code-block:: erlang
 
            -include("header.hrl").
      - .. code-block:: common-lisp
 
            (use-package :iter)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           import module namespace utils = "http://example.com/utils";
+           source utils.sh
+     - .. code-block:: doscon
+
+           call other.cmd
+     - .. code-block:: powershell
+
+           Import-Module ActiveDirectory
+     - .. code-block:: python
+
+           import math
+     - .. code-block:: php
+
+           require 'utils.php';
      - .. code-block:: css
 
            @import "base.css";
@@ -2028,15 +2254,15 @@ Programming Languages
      - .. code-block:: asm
 
            .include "macros.s"
-     - .. code-block:: asm
-
-           .include "macros.s"
      - .. code-block:: prolog
 
            use_module(library(math)).
      - .. code-block:: jasmin
 
            Ljava/util/List;
+     - .. code-block:: asm
+
+           .include "macros.s"
      - .. code-block:: ocaml
 
            open List
@@ -2052,6 +2278,12 @@ Programming Languages
      - .. code-block:: tcl
 
            package require Tcl
+     - .. code-block:: cobol
+
+           COPY DEFS.
+     - .. code-block:: fortran
+
+           use math_mod
      - .. code-block:: csharp
 
            using System.Collections.Generic;
@@ -2062,42 +2294,45 @@ Programming Languages
 
            import kotlin.math.*
    * - Constant
+     - .. code-block:: sql
+
+           DECLARE @MAX INT = 100;
      - .. code-block:: c
 
            const int MAX = 100;
+     - .. code-block:: cpp
+
+           const int MAX = 100;
+     - .. code-block:: xquery
+
+           declare variable $MAX as xs:integer := 100;
      - .. code-block:: java
 
            public static final int MAX = 100;
      - .. code-block:: rust
 
            const MAX: i32 = 100;
-     - .. code-block:: python
-
-           MAX = 100
-     - .. code-block:: php
-
-           define('MAX', 100);
-     - .. code-block:: bash
-
-           readonly MAX=100
-     - .. code-block:: powershell
-
-           Set-Variable -Name MAX -Value 100 -Option ReadOnly
-     - .. code-block:: doscon
-
-           set MAX=100
-     - .. code-block:: sql
-
-           DECLARE @MAX INT = 100;
      - .. code-block:: erlang
 
            -define(MAX, 100).
      - .. code-block:: common-lisp
 
            (defconstant +max+ 100)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           declare variable $MAX as xs:integer := 100;
+           readonly MAX=100
+     - .. code-block:: doscon
+
+           set MAX=100
+     - .. code-block:: powershell
+
+           Set-Variable -Name MAX -Value 100 -Option ReadOnly
+     - .. code-block:: python
+
+           MAX = 100
+     - .. code-block:: php
+
+           define('MAX', 100);
      - .. code-block:: css
 
            --MAX: 100;
@@ -2110,15 +2345,15 @@ Programming Languages
      - .. code-block:: asm
 
            .equiv MAX, 100
-     - .. code-block:: asm
-
-           .equiv MAX, 100
      - .. code-block:: prolog
 
            max(100).
      - .. code-block:: jasmin
 
            .field public static final MAX I = 100
+     - .. code-block:: asm
+
+           .equiv MAX, 100
      - .. code-block:: ocaml
 
            let max = 100
@@ -2134,6 +2369,12 @@ Programming Languages
      - .. code-block:: tcl
 
            set MAX 100
+     - .. code-block:: cobol
+
+           01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT.
+     - .. code-block:: fortran
+
+           integer, parameter :: MAX = 100
      - .. code-block:: csharp
 
            const int Max = 100;
@@ -2144,7 +2385,16 @@ Programming Languages
 
            const val MAX = 100
    * - Addition
+     - .. code-block:: sql
+
+           a + b
      - .. code-block:: c
+
+           a + b
+     - .. code-block:: cpp
+
+           a + b
+     - .. code-block:: xquery
 
            a + b
      - .. code-block:: java
@@ -2153,31 +2403,25 @@ Programming Languages
      - .. code-block:: rust
 
            a + b
-     - .. code-block:: python
-
-           a + b
-     - .. code-block:: php
-
-           a + b
-     - .. code-block:: bash
-
-           ((a + b))
-     - .. code-block:: powershell
-
-           a + b
-     - .. code-block:: doscon
-
-           set /a res=a+b
-     - .. code-block:: sql
-
-           a + b
      - .. code-block:: erlang
 
            A + B
      - .. code-block:: common-lisp
 
            (+ a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
+
+           ((a + b))
+     - .. code-block:: doscon
+
+           set /a res=a+b
+     - .. code-block:: powershell
+
+           a + b
+     - .. code-block:: python
+
+           a + b
+     - .. code-block:: php
 
            a + b
      - .. code-block:: css
@@ -2192,15 +2436,15 @@ Programming Languages
      - .. code-block:: asm
 
            add t0, t1, t2
-     - .. code-block:: asm
-
-           add x0, x1, x2
      - .. code-block:: prolog
 
            Res is A + B
      - .. code-block:: jasmin
 
            iadd
+     - .. code-block:: asm
+
+           add x0, x1, x2
      - .. code-block:: ocaml
 
            a + b
@@ -2216,6 +2460,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a + $b}]
+     - .. code-block:: cobol
+
+           ADD A TO B.
+     - .. code-block:: fortran
+
+           a + b
      - .. code-block:: csharp
 
            a + b
@@ -2226,7 +2476,16 @@ Programming Languages
 
            a + b
    * - Subtraction
+     - .. code-block:: sql
+
+           a - b
      - .. code-block:: c
+
+           a - b
+     - .. code-block:: cpp
+
+           a - b
+     - .. code-block:: xquery
 
            a - b
      - .. code-block:: java
@@ -2235,31 +2494,25 @@ Programming Languages
      - .. code-block:: rust
 
            a - b
-     - .. code-block:: python
-
-           a - b
-     - .. code-block:: php
-
-           a - b
-     - .. code-block:: bash
-
-           ((a - b))
-     - .. code-block:: powershell
-
-           a - b
-     - .. code-block:: doscon
-
-           set /a res=a-b
-     - .. code-block:: sql
-
-           a - b
      - .. code-block:: erlang
 
            A - B
      - .. code-block:: common-lisp
 
            (- a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
+
+           ((a - b))
+     - .. code-block:: doscon
+
+           set /a res=a-b
+     - .. code-block:: powershell
+
+           a - b
+     - .. code-block:: python
+
+           a - b
+     - .. code-block:: php
 
            a - b
      - .. code-block:: css
@@ -2274,15 +2527,15 @@ Programming Languages
      - .. code-block:: asm
 
            sub t0, t1, t2
-     - .. code-block:: asm
-
-           sub x0, x1, x2
      - .. code-block:: prolog
 
            Res is A - B
      - .. code-block:: jasmin
 
            isub
+     - .. code-block:: asm
+
+           sub x0, x1, x2
      - .. code-block:: ocaml
 
            a - b
@@ -2298,6 +2551,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a - $b}]
+     - .. code-block:: cobol
+
+           SUBTRACT A FROM B.
+     - .. code-block:: fortran
+
+           a - b
      - .. code-block:: csharp
 
            a - b
@@ -2308,7 +2567,16 @@ Programming Languages
 
            a - b
    * - Multiplication
+     - .. code-block:: sql
+
+           a * b
      - .. code-block:: c
+
+           a * b
+     - .. code-block:: cpp
+
+           a * b
+     - .. code-block:: xquery
 
            a * b
      - .. code-block:: java
@@ -2317,31 +2585,25 @@ Programming Languages
      - .. code-block:: rust
 
            a * b
-     - .. code-block:: python
-
-           a * b
-     - .. code-block:: php
-
-           a * b
-     - .. code-block:: bash
-
-           ((a * b))
-     - .. code-block:: powershell
-
-           a * b
-     - .. code-block:: doscon
-
-           set /a res=a*b
-     - .. code-block:: sql
-
-           a * b
      - .. code-block:: erlang
 
            A * B
      - .. code-block:: common-lisp
 
            (* a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
+
+           ((a * b))
+     - .. code-block:: doscon
+
+           set /a res=a*b
+     - .. code-block:: powershell
+
+           a * b
+     - .. code-block:: python
+
+           a * b
+     - .. code-block:: php
 
            a * b
      - .. code-block:: css
@@ -2356,15 +2618,15 @@ Programming Languages
      - .. code-block:: asm
 
            mul t0, t1, t2
-     - .. code-block:: asm
-
-           mul x0, x1, x2
      - .. code-block:: prolog
 
            Res is A * B
      - .. code-block:: jasmin
 
            imul
+     - .. code-block:: asm
+
+           mul x0, x1, x2
      - .. code-block:: ocaml
 
            a * b
@@ -2380,6 +2642,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a * $b}]
+     - .. code-block:: cobol
+
+           MULTIPLY A BY B.
+     - .. code-block:: fortran
+
+           a * b
      - .. code-block:: csharp
 
            a * b
@@ -2390,31 +2658,22 @@ Programming Languages
 
            a * b
    * - Division
+     - .. code-block:: sql
+
+           a / b
      - .. code-block:: c
 
            a / b
+     - .. code-block:: cpp
+
+           a / b
+     - .. code-block:: xquery
+
+           a div b
      - .. code-block:: java
 
            a / b
      - .. code-block:: rust
-
-           a / b
-     - .. code-block:: python
-
-           a / b
-     - .. code-block:: php
-
-           a / b
-     - .. code-block:: bash
-
-           ((a / b))
-     - .. code-block:: powershell
-
-           a / b
-     - .. code-block:: doscon
-
-           set /a res=a/b
-     - .. code-block:: sql
 
            a / b
      - .. code-block:: erlang
@@ -2423,9 +2682,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (/ a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           a div b
+           ((a / b))
+     - .. code-block:: doscon
+
+           set /a res=a/b
+     - .. code-block:: powershell
+
+           a / b
+     - .. code-block:: python
+
+           a / b
+     - .. code-block:: php
+
+           a / b
      - .. code-block:: css
 
            calc(a / b)
@@ -2438,15 +2709,15 @@ Programming Languages
      - .. code-block:: asm
 
            div t0, t1, t2
-     - .. code-block:: asm
-
-           sdiv x0, x1, x2
      - .. code-block:: prolog
 
            Res is A / B
      - .. code-block:: jasmin
 
            idiv
+     - .. code-block:: asm
+
+           sdiv x0, x1, x2
      - .. code-block:: ocaml
 
            a / b
@@ -2462,6 +2733,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a / $b}]
+     - .. code-block:: cobol
+
+           DIVIDE A BY B GIVING C.
+     - .. code-block:: fortran
+
+           a / b
      - .. code-block:: csharp
 
            a / b
@@ -2472,31 +2749,22 @@ Programming Languages
 
            a / b
    * - Remainder
+     - .. code-block:: sql
+
+           a % b
      - .. code-block:: c
 
            a % b
+     - .. code-block:: cpp
+
+           a % b
+     - .. code-block:: xquery
+
+           a mod b
      - .. code-block:: java
 
            a % b
      - .. code-block:: rust
-
-           a % b
-     - .. code-block:: python
-
-           a % b
-     - .. code-block:: php
-
-           a % b
-     - .. code-block:: bash
-
-           ((a % b))
-     - .. code-block:: powershell
-
-           a % b
-     - .. code-block:: doscon
-
-           set /a res=a%%b
-     - .. code-block:: sql
 
            a % b
      - .. code-block:: erlang
@@ -2505,9 +2773,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (mod a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           a mod b
+           ((a % b))
+     - .. code-block:: doscon
+
+           set /a res=a%%b
+     - .. code-block:: powershell
+
+           a % b
+     - .. code-block:: python
+
+           a % b
+     - .. code-block:: php
+
+           a % b
      - .. code-block:: css
 
            mod(a, b)
@@ -2518,13 +2798,13 @@ Programming Languages
      - .. code-block:: asm
 
            rem t0, t1, t2
-     - N/A
      - .. code-block:: prolog
 
            Res is A mod B
      - .. code-block:: jasmin
 
            irem
+     - N/A
      - .. code-block:: ocaml
 
            a mod b
@@ -2540,6 +2820,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a % $b}]
+     - .. code-block:: cobol
+
+           DIVIDE A BY B GIVING Q REMAINDER R.
+     - .. code-block:: fortran
+
+           mod(a, b)
      - .. code-block:: csharp
 
            a % b
@@ -2550,7 +2836,16 @@ Programming Languages
 
            a % b
    * - Floor
+     - .. code-block:: sql
+
+           FLOOR(a)
      - .. code-block:: c
+
+           floor(a)
+     - .. code-block:: cpp
+
+           std::floor(a)
+     - .. code-block:: xquery
 
            floor(a)
      - .. code-block:: java
@@ -2559,29 +2854,23 @@ Programming Languages
      - .. code-block:: rust
 
            a.floor()
-     - .. code-block:: python
-
-           math.floor(a)
-     - .. code-block:: php
-
-           floor(a)
-     - .. code-block:: bash
-
-           echo "a / 1" | bc
-     - .. code-block:: powershell
-
-           [Math]::Floor(a)
-     - N/A
-     - .. code-block:: sql
-
-           FLOOR(a)
      - .. code-block:: erlang
 
            floor(A)
      - .. code-block:: common-lisp
 
            (floor a)
-     - .. code-block:: xquery
+     - .. code-block:: bash
+
+           echo "a / 1" | bc
+     - N/A
+     - .. code-block:: powershell
+
+           [Math]::Floor(a)
+     - .. code-block:: python
+
+           math.floor(a)
+     - .. code-block:: php
 
            floor(a)
      - N/A
@@ -2590,10 +2879,10 @@ Programming Languages
            floor(a)
      - N/A
      - N/A
-     - N/A
      - .. code-block:: prolog
 
            Res is floor(A)
+     - N/A
      - N/A
      - .. code-block:: ocaml
 
@@ -2610,6 +2899,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {floor($a)}]
+     - .. code-block:: cobol
+
+           FUNCTION INTEGER(A)
+     - .. code-block:: fortran
+
+           floor(a)
      - .. code-block:: csharp
 
            Math.Floor(a)
@@ -2620,7 +2915,16 @@ Programming Languages
 
            floor(a)
    * - Rounding
+     - .. code-block:: sql
+
+           ROUND(a, 0)
      - .. code-block:: c
+
+           round(a)
+     - .. code-block:: cpp
+
+           std::round(a)
+     - .. code-block:: xquery
 
            round(a)
      - .. code-block:: java
@@ -2629,29 +2933,23 @@ Programming Languages
      - .. code-block:: rust
 
            a.round()
-     - .. code-block:: python
-
-           round(a)
-     - .. code-block:: php
-
-           round(a)
-     - .. code-block:: bash
-
-           printf "%.0f" "$a"
-     - .. code-block:: powershell
-
-           [Math]::Round(a)
-     - N/A
-     - .. code-block:: sql
-
-           ROUND(a, 0)
      - .. code-block:: erlang
 
            round(A)
      - .. code-block:: common-lisp
 
            (round a)
-     - .. code-block:: xquery
+     - .. code-block:: bash
+
+           printf "%.0f" "$a"
+     - N/A
+     - .. code-block:: powershell
+
+           [Math]::Round(a)
+     - .. code-block:: python
+
+           round(a)
+     - .. code-block:: php
 
            round(a)
      - .. code-block:: css
@@ -2662,10 +2960,10 @@ Programming Languages
            round(a)
      - N/A
      - N/A
-     - N/A
      - .. code-block:: prolog
 
            Res is round(A)
+     - N/A
      - N/A
      - .. code-block:: ocaml
 
@@ -2682,6 +2980,12 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {round($a)}]
+     - .. code-block:: cobol
+
+           ADD A TO B ROUNDED.
+     - .. code-block:: fortran
+
+           nint(a)
      - .. code-block:: csharp
 
            Math.Round(a)
@@ -2692,42 +2996,45 @@ Programming Languages
 
            round(a)
    * - Increment
+     - .. code-block:: sql
+
+           a + 1
      - .. code-block:: c
 
            a++
+     - .. code-block:: cpp
+
+           a++
+     - .. code-block:: xquery
+
+           a + 1
      - .. code-block:: java
 
            a++
      - .. code-block:: rust
 
            a += 1
-     - .. code-block:: python
-
-           a += 1
-     - .. code-block:: php
-
-           a++
-     - .. code-block:: bash
-
-           ((a++))
-     - .. code-block:: powershell
-
-           a++
-     - .. code-block:: doscon
-
-           set /a a+=1
-     - .. code-block:: sql
-
-           a + 1
      - .. code-block:: erlang
 
            A + 1
      - .. code-block:: common-lisp
 
            (1+ a)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           a + 1
+           ((a++))
+     - .. code-block:: doscon
+
+           set /a a+=1
+     - .. code-block:: powershell
+
+           a++
+     - .. code-block:: python
+
+           a += 1
+     - .. code-block:: php
+
+           a++
      - .. code-block:: css
 
            calc(a + 1)
@@ -2740,15 +3047,15 @@ Programming Languages
      - .. code-block:: asm
 
            addi t0, t0, 1
-     - .. code-block:: asm
-
-           add x0, x0, #1
      - .. code-block:: prolog
 
            Res is A + 1
      - .. code-block:: jasmin
 
            iinc index, 1
+     - .. code-block:: asm
+
+           add x0, x0, #1
      - .. code-block:: ocaml
 
            a + 1
@@ -2764,6 +3071,12 @@ Programming Languages
      - .. code-block:: tcl
 
            incr a
+     - .. code-block:: cobol
+
+           ADD 1 TO A.
+     - .. code-block:: fortran
+
+           a = a + 1
      - .. code-block:: csharp
 
            a++
@@ -2774,42 +3087,45 @@ Programming Languages
 
            a++
    * - Decrement
+     - .. code-block:: sql
+
+           a - 1
      - .. code-block:: c
 
            a--
+     - .. code-block:: cpp
+
+           a--
+     - .. code-block:: xquery
+
+           a - 1
      - .. code-block:: java
 
            a--
      - .. code-block:: rust
 
            a -= 1
-     - .. code-block:: python
-
-           a -= 1
-     - .. code-block:: php
-
-           a--
-     - .. code-block:: bash
-
-           ((a--))
-     - .. code-block:: powershell
-
-           a--
-     - .. code-block:: doscon
-
-           set /a a-=1
-     - .. code-block:: sql
-
-           a - 1
      - .. code-block:: erlang
 
            A - 1
      - .. code-block:: common-lisp
 
            (1- a)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           a - 1
+           ((a--))
+     - .. code-block:: doscon
+
+           set /a a-=1
+     - .. code-block:: powershell
+
+           a--
+     - .. code-block:: python
+
+           a -= 1
+     - .. code-block:: php
+
+           a--
      - .. code-block:: css
 
            calc(a - 1)
@@ -2822,15 +3138,15 @@ Programming Languages
      - .. code-block:: asm
 
            addi t0, t0, -1
-     - .. code-block:: asm
-
-           sub x0, x0, #1
      - .. code-block:: prolog
 
            Res is A - 1
      - .. code-block:: jasmin
 
            iinc index, -1
+     - .. code-block:: asm
+
+           sub x0, x0, #1
      - .. code-block:: ocaml
 
            a - 1
@@ -2846,6 +3162,12 @@ Programming Languages
      - .. code-block:: tcl
 
            incr a -1
+     - .. code-block:: cobol
+
+           SUBTRACT 1 FROM A.
+     - .. code-block:: fortran
+
+           a = a - 1
      - .. code-block:: csharp
 
            a--
@@ -2856,38 +3178,41 @@ Programming Languages
 
            a--
    * - LeftShift
+     - N/A
      - .. code-block:: c
 
            a << b
+     - .. code-block:: cpp
+
+           a << b
+     - N/A
      - .. code-block:: java
 
            a << b
      - .. code-block:: rust
 
            a << b
-     - .. code-block:: python
-
-           a << b
-     - .. code-block:: php
-
-           a << b
-     - .. code-block:: bash
-
-           ((a << b))
-     - .. code-block:: powershell
-
-           a -shl b
-     - .. code-block:: doscon
-
-           set /a res=a<<b
-     - N/A
      - .. code-block:: erlang
 
            A bsl B
      - .. code-block:: common-lisp
 
            (ash a b)
-     - N/A
+     - .. code-block:: bash
+
+           ((a << b))
+     - .. code-block:: doscon
+
+           set /a res=a<<b
+     - .. code-block:: powershell
+
+           a -shl b
+     - .. code-block:: python
+
+           a << b
+     - .. code-block:: php
+
+           a << b
      - N/A
      - .. code-block:: cpp
 
@@ -2898,15 +3223,15 @@ Programming Languages
      - .. code-block:: asm
 
            sll t0, t1, t2
-     - .. code-block:: asm
-
-           lsl x0, x1, x2
      - .. code-block:: prolog
 
            Res is A << B
      - .. code-block:: jasmin
 
            ishl
+     - .. code-block:: asm
+
+           lsl x0, x1, x2
      - .. code-block:: ocaml
 
            a lsl b
@@ -2922,6 +3247,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a << $b}]
+     - N/A
+     - .. code-block:: fortran
+
+           ishft(a, b)
      - .. code-block:: csharp
 
            a << b
@@ -2932,38 +3261,41 @@ Programming Languages
 
            a shl b
    * - RightShift
+     - N/A
      - .. code-block:: c
 
            a >> b
+     - .. code-block:: cpp
+
+           a >> b
+     - N/A
      - .. code-block:: java
 
            a >> b
      - .. code-block:: rust
 
            a >> b
-     - .. code-block:: python
-
-           a >> b
-     - .. code-block:: php
-
-           a >> b
-     - .. code-block:: bash
-
-           ((a >> b))
-     - .. code-block:: powershell
-
-           a -shr b
-     - .. code-block:: doscon
-
-           set /a res=a>>b
-     - N/A
      - .. code-block:: erlang
 
            A bsr B
      - .. code-block:: common-lisp
 
            (ash a -b)
-     - N/A
+     - .. code-block:: bash
+
+           ((a >> b))
+     - .. code-block:: doscon
+
+           set /a res=a>>b
+     - .. code-block:: powershell
+
+           a -shr b
+     - .. code-block:: python
+
+           a >> b
+     - .. code-block:: php
+
+           a >> b
      - N/A
      - .. code-block:: cpp
 
@@ -2974,15 +3306,15 @@ Programming Languages
      - .. code-block:: asm
 
            srl t0, t1, t2
-     - .. code-block:: asm
-
-           lsr x0, x1, x2
      - .. code-block:: prolog
 
            Res is A >> B
      - .. code-block:: jasmin
 
            ishr
+     - .. code-block:: asm
+
+           lsr x0, x1, x2
      - .. code-block:: ocaml
 
            a lsr b
@@ -2998,6 +3330,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a >> $b}]
+     - N/A
+     - .. code-block:: fortran
+
+           ishft(a, -b)
      - .. code-block:: csharp
 
            a >> b
@@ -3008,31 +3344,20 @@ Programming Languages
 
            a shr b
    * - BitAnd
+     - .. code-block:: sql
+
+           a & b
      - .. code-block:: c
 
            a & b
+     - .. code-block:: cpp
+
+           a & b
+     - N/A
      - .. code-block:: java
 
            a & b
      - .. code-block:: rust
-
-           a & b
-     - .. code-block:: python
-
-           a & b
-     - .. code-block:: php
-
-           a & b
-     - .. code-block:: bash
-
-           ((a & b))
-     - .. code-block:: powershell
-
-           a -band b
-     - .. code-block:: doscon
-
-           set /a res="a & b"
-     - .. code-block:: sql
 
            a & b
      - .. code-block:: erlang
@@ -3041,7 +3366,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (logand a b)
-     - N/A
+     - .. code-block:: bash
+
+           ((a & b))
+     - .. code-block:: doscon
+
+           set /a res="a & b"
+     - .. code-block:: powershell
+
+           a -band b
+     - .. code-block:: python
+
+           a & b
+     - .. code-block:: php
+
+           a & b
      - N/A
      - .. code-block:: cpp
 
@@ -3052,15 +3391,15 @@ Programming Languages
      - .. code-block:: asm
 
            and t0, t1, t2
-     - .. code-block:: asm
-
-           and x0, x1, x2
      - .. code-block:: prolog
 
            Res is A /\ B
      - .. code-block:: jasmin
 
            iand
+     - .. code-block:: asm
+
+           and x0, x1, x2
      - .. code-block:: ocaml
 
            a land b
@@ -3076,6 +3415,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a & $b}]
+     - N/A
+     - .. code-block:: fortran
+
+           iand(a, b)
      - .. code-block:: csharp
 
            a & b
@@ -3086,31 +3429,20 @@ Programming Languages
 
            a and b
    * - BitOr
+     - .. code-block:: sql
+
+           a | b
      - .. code-block:: c
 
            a | b
+     - .. code-block:: cpp
+
+           a | b
+     - N/A
      - .. code-block:: java
 
            a | b
      - .. code-block:: rust
-
-           a | b
-     - .. code-block:: python
-
-           a | b
-     - .. code-block:: php
-
-           a | b
-     - .. code-block:: bash
-
-           ((a | b))
-     - .. code-block:: powershell
-
-           a -bor b
-     - .. code-block:: doscon
-
-           set /a res="a | b"
-     - .. code-block:: sql
 
            a | b
      - .. code-block:: erlang
@@ -3119,7 +3451,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (logior a b)
-     - N/A
+     - .. code-block:: bash
+
+           ((a | b))
+     - .. code-block:: doscon
+
+           set /a res="a | b"
+     - .. code-block:: powershell
+
+           a -bor b
+     - .. code-block:: python
+
+           a | b
+     - .. code-block:: php
+
+           a | b
      - N/A
      - .. code-block:: cpp
 
@@ -3130,15 +3476,15 @@ Programming Languages
      - .. code-block:: asm
 
            or t0, t1, t2
-     - .. code-block:: asm
-
-           orr x0, x1, x2
      - .. code-block:: prolog
 
            Res is A \/ B
      - .. code-block:: jasmin
 
            ior
+     - .. code-block:: asm
+
+           orr x0, x1, x2
      - .. code-block:: ocaml
 
            a lor b
@@ -3154,6 +3500,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a | $b}]
+     - N/A
+     - .. code-block:: fortran
+
+           ior(a, b)
      - .. code-block:: csharp
 
            a | b
@@ -3164,31 +3514,20 @@ Programming Languages
 
            a or b
    * - BitXor
+     - .. code-block:: sql
+
+           a ^ b
      - .. code-block:: c
 
            a ^ b
+     - .. code-block:: cpp
+
+           a ^ b
+     - N/A
      - .. code-block:: java
 
            a ^ b
      - .. code-block:: rust
-
-           a ^ b
-     - .. code-block:: python
-
-           a ^ b
-     - .. code-block:: php
-
-           a ^ b
-     - .. code-block:: bash
-
-           ((a ^ b))
-     - .. code-block:: powershell
-
-           a -bxor b
-     - .. code-block:: doscon
-
-           set /a res="a ^ b"
-     - .. code-block:: sql
 
            a ^ b
      - .. code-block:: erlang
@@ -3197,7 +3536,21 @@ Programming Languages
      - .. code-block:: common-lisp
 
            (logxor a b)
-     - N/A
+     - .. code-block:: bash
+
+           ((a ^ b))
+     - .. code-block:: doscon
+
+           set /a res="a ^ b"
+     - .. code-block:: powershell
+
+           a -bxor b
+     - .. code-block:: python
+
+           a ^ b
+     - .. code-block:: php
+
+           a ^ b
      - N/A
      - .. code-block:: cpp
 
@@ -3208,15 +3561,15 @@ Programming Languages
      - .. code-block:: asm
 
            xor t0, t1, t2
-     - .. code-block:: asm
-
-           eor x0, x1, x2
      - .. code-block:: prolog
 
            Res is A xor B
      - .. code-block:: jasmin
 
            ixor
+     - .. code-block:: asm
+
+           eor x0, x1, x2
      - .. code-block:: ocaml
 
            a lxor b
@@ -3232,6 +3585,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {$a ^ $b}]
+     - N/A
+     - .. code-block:: fortran
+
+           ieor(a, b)
      - .. code-block:: csharp
 
            a ^ b
@@ -3242,40 +3599,43 @@ Programming Languages
 
            a xor b
    * - BitNot
+     - .. code-block:: sql
+
+           ~a
      - .. code-block:: c
 
            ~a
+     - .. code-block:: cpp
+
+           ~a
+     - N/A
      - .. code-block:: java
 
            ~a
      - .. code-block:: rust
 
            !a
-     - .. code-block:: python
-
-           ~a
-     - .. code-block:: php
-
-           ~a
-     - .. code-block:: bash
-
-           ((~a))
-     - .. code-block:: powershell
-
-           -bnot a
-     - .. code-block:: doscon
-
-           set /a res="~a"
-     - .. code-block:: sql
-
-           ~a
      - .. code-block:: erlang
 
            bnot A
      - .. code-block:: common-lisp
 
            (lognot a)
-     - N/A
+     - .. code-block:: bash
+
+           ((~a))
+     - .. code-block:: doscon
+
+           set /a res="~a"
+     - .. code-block:: powershell
+
+           -bnot a
+     - .. code-block:: python
+
+           ~a
+     - .. code-block:: php
+
+           ~a
      - N/A
      - .. code-block:: cpp
 
@@ -3286,9 +3646,6 @@ Programming Languages
      - .. code-block:: asm
 
            not t0, t1
-     - .. code-block:: asm
-
-           mvn x0, x1
      - .. code-block:: prolog
 
            Res is \ A
@@ -3296,6 +3653,9 @@ Programming Languages
 
            iconst_m1
            ixor
+     - .. code-block:: asm
+
+           mvn x0, x1
      - .. code-block:: ocaml
 
            lnot a
@@ -3311,6 +3671,10 @@ Programming Languages
      - .. code-block:: tcl
 
            [expr {~$a}]
+     - N/A
+     - .. code-block:: fortran
+
+           not(a)
      - .. code-block:: csharp
 
            ~a
@@ -3321,40 +3685,43 @@ Programming Languages
 
            a.inv()
    * - Float4VectorMultiplication
+     - .. code-block:: sql
+
+           SELECT a1*b1, a2*b2, a3*b3, a4*b4
      - .. code-block:: c
 
            for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
+     - .. code-block:: xquery
+
+           for $i in 1 to 4 return $a[$i] * $b[$i]
      - .. code-block:: java
 
            for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];
      - .. code-block:: rust
 
            for i in 0..4 { c[i] = a[i] * b[i]; }
-     - .. code-block:: python
-
-           c = [ai * bi for ai, bi in zip(a, b)]
-     - .. code-block:: php
-
-           $c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);
-     - .. code-block:: bash
-
-           for i in {0..3}; do c[$i]=$(echo "${a[$i]} * ${b[$i]}" | bc); done
-     - .. code-block:: powershell
-
-           $c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }
-     - N/A
-     - .. code-block:: sql
-
-           SELECT a1*b1, a2*b2, a3*b3, a4*b4
      - .. code-block:: erlang
 
            [Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].
      - .. code-block:: common-lisp
 
            (mapcar #'* a b)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           for $i in 1 to 4 return $a[$i] * $b[$i]
+           for i in {0..3}; do c[$i]=$(echo "${a[$i]} * ${b[$i]}" | bc); done
+     - N/A
+     - .. code-block:: powershell
+
+           $c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }
+     - .. code-block:: python
+
+           c = [ai * bi for ai, bi in zip(a, b)]
+     - .. code-block:: php
+
+           $c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);
      - N/A
      - .. code-block:: cpp
 
@@ -3366,9 +3733,6 @@ Programming Languages
 
            vsetvli t0, x0, e32, m1
            vfmul.vv v1, v2, v3
-     - .. code-block:: asm
-
-           fmul v0.4s, v1.4s, v2.4s
      - .. code-block:: prolog
 
            maplist(multiply, A, B, C).
@@ -3377,6 +3741,9 @@ Programming Languages
            fload_1
            fload_2
            fmul
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
      - .. code-block:: ocaml
 
            Array.map2 (fun ai bi -> ai *. bi) a b
@@ -3392,6 +3759,14 @@ Programming Languages
      - .. code-block:: tcl
 
            foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+               COMPUTE C(I) = A(I) * B(I)
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           c = a * b
      - .. code-block:: csharp
 
            c = a * b;
@@ -3402,40 +3777,43 @@ Programming Languages
 
            val c = a.zip(b) { ai, bi -> ai * bi }
    * - Float4VectorDotProduct
+     - .. code-block:: sql
+
+           SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4
      - .. code-block:: c
 
            float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - .. code-block:: cpp
+
+           float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
+     - .. code-block:: xquery
+
+           sum(for $i in 1 to 4 return $a[$i] * $b[$i])
      - .. code-block:: java
 
            float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];
      - .. code-block:: rust
 
            let dot: f32 = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();
-     - .. code-block:: python
-
-           dot = sum(ai * bi for ai, bi in zip(a, b))
-     - .. code-block:: php
-
-           $dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));
-     - .. code-block:: bash
-
-           dot=0; for i in {0..3}; do dot=$(echo "$dot + (${a[$i]} * ${b[$i]})" | bc); done
-     - .. code-block:: powershell
-
-           $dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }
-     - N/A
-     - .. code-block:: sql
-
-           SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4
      - .. code-block:: erlang
 
            Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).
      - .. code-block:: common-lisp
 
            (reduce #'+ (mapcar #'* a b))
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           sum(for $i in 1 to 4 return $a[$i] * $b[$i])
+           dot=0; for i in {0..3}; do dot=$(echo "$dot + (${a[$i]} * ${b[$i]})" | bc); done
+     - N/A
+     - .. code-block:: powershell
+
+           $dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }
+     - .. code-block:: python
+
+           dot = sum(ai * bi for ai, bi in zip(a, b))
+     - .. code-block:: php
+
+           $dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));
      - N/A
      - .. code-block:: cpp
 
@@ -3448,11 +3826,6 @@ Programming Languages
            vsetvli t0, x0, e32, m1
            vfmul.vv v1, v2, v3
            vfredusum.vs v4, v1, v5
-     - .. code-block:: asm
-
-           fmul v0.4s, v1.4s, v2.4s
-           faddp v0.4s, v0.4s, v0.4s
-           faddp s0, v0.2s
      - .. code-block:: prolog
 
            dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).
@@ -3462,6 +3835,11 @@ Programming Languages
            fload_2 ; b[i]
            fmul
            fadd
+     - .. code-block:: asm
+
+           fmul v0.4s, v1.4s, v2.4s
+           faddp v0.4s, v0.4s, v0.4s
+           faddp s0, v0.2s
      - .. code-block:: ocaml
 
            let dot = List.fold_left2 (fun acc ai bi -> acc +. ai *. bi) 0.0 a b
@@ -3479,6 +3857,15 @@ Programming Languages
 
            set dot 0
            foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }
+     - .. code-block:: cobol
+
+           MOVE 0 TO DOT-PRODUCT.
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+               COMPUTE DOT-PRODUCT = DOT-PRODUCT + (A(I) * B(I))
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           res = dot_product(a, b)
      - .. code-block:: csharp
 
            float dot = Vector4.Dot(a, b);
@@ -3489,12 +3876,24 @@ Programming Languages
 
            val dot = a.zip(b) { ai, bi -> ai * bi }.sum()
    * - Float4VectorCrossProduct
+     - .. code-block:: sql
+
+           SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0
      - .. code-block:: c
 
            c[0] = a[1]*b[2] - a[2]*b[1];
            c[1] = a[2]*b[0] - a[0]*b[2];
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
+     - .. code-block:: cpp
+
+           c[0] = a[1]*b[2] - a[2]*b[1];
+           c[1] = a[2]*b[0] - a[0]*b[2];
+           c[2] = a[0]*b[1] - a[1]*b[0];
+           c[3] = 0.0f;
+     - .. code-block:: xquery
+
+           ($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)
      - .. code-block:: java
 
            c[0] = a[1]*b[2] - a[2]*b[1];
@@ -3507,25 +3906,6 @@ Programming Languages
            c[1] = a[2]*b[0] - a[0]*b[2];
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0;
-     - .. code-block:: python
-
-           c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]
-     - .. code-block:: php
-
-           $c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];
-     - .. code-block:: bash
-
-           c[0]=$(echo "${a[1]}*${b[2]} - ${a[2]}*${b[1]}" | bc)
-           c[1]=$(echo "${a[2]}*${b[0]} - ${a[0]}*${b[2]}" | bc)
-           c[2]=$(echo "${a[0]}*${b[1]} - ${a[1]}*${b[0]}" | bc)
-           c[3]=0
-     - .. code-block:: powershell
-
-           $c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)
-     - N/A
-     - .. code-block:: sql
-
-           SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0
      - .. code-block:: erlang
 
            C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
@@ -3537,9 +3917,22 @@ Programming Languages
                  (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))
                  (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
                  0.0)
-     - .. code-block:: xquery
+     - .. code-block:: bash
 
-           ($a[2]*$b[3] - $a[3]*$b[2], $a[3]*$b[1] - $a[1]*$b[3], $a[1]*$b[2] - $a[2]*$b[1], 0.0)
+           c[0]=$(echo "${a[1]}*${b[2]} - ${a[2]}*${b[1]}" | bc)
+           c[1]=$(echo "${a[2]}*${b[0]} - ${a[0]}*${b[2]}" | bc)
+           c[2]=$(echo "${a[0]}*${b[1]} - ${a[1]}*${b[0]}" | bc)
+           c[3]=0
+     - N/A
+     - .. code-block:: powershell
+
+           $c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)
+     - .. code-block:: python
+
+           c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]
+     - .. code-block:: php
+
+           $c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];
      - N/A
      - .. code-block:: cpp
 
@@ -3556,14 +3949,6 @@ Programming Languages
            mulps xmm2, xmm3
            subps xmm0, xmm2
      - N/A
-     - .. code-block:: asm
-
-           fmul s2, v0.s[1], v1.s[2]
-           fmls s2, v0.s[2], v1.s[1]
-           fmul s3, v0.s[2], v1.s[0]
-           fmls s3, v0.s[0], v1.s[2]
-           fmul s4, v0.s[0], v1.s[1]
-           fmls s4, v0.s[1], v1.s[0]
      - .. code-block:: prolog
 
            cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-
@@ -3593,6 +3978,14 @@ Programming Languages
            fload 4 ; bx
            fmul
            fsub ; -> cz
+     - .. code-block:: asm
+
+           fmul s2, v0.s[1], v1.s[2]
+           fmls s2, v0.s[2], v1.s[1]
+           fmul s3, v0.s[2], v1.s[0]
+           fmls s3, v0.s[0], v1.s[2]
+           fmul s4, v0.s[0], v1.s[1]
+           fmls s4, v0.s[1], v1.s[0]
      - .. code-block:: ocaml
 
            [| a.(1) *. b.(2) -. a.(2) *. b.(1);
@@ -3623,6 +4016,16 @@ Programming Languages
            set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
                        [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
                        [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]
+     - .. code-block:: cobol
+
+           COMPUTE C(1) = A(2) * B(3) - A(3) * B(2).
+           COMPUTE C(2) = A(3) * B(1) - A(1) * B(3).
+           COMPUTE C(3) = A(1) * B(2) - A(2) * B(1).
+     - .. code-block:: fortran
+
+           c = [a(2)*b(3) - a(3)*b(2), &
+                a(3)*b(1) - a(1)*b(3), &
+                a(1)*b(2) - a(2)*b(1), 0.0]
      - .. code-block:: csharp
 
            var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));

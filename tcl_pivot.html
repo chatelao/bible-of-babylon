@@ -141,97 +141,6 @@
 </td>
 <td><p>Uses braces for the condition and branches.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
-<span class="w">    </span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="mi">1</span><span class="k">}]</span>
-<span class="k">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard while loop; expr is used for mathematical evaluation.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>add<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span>b<span class="k">}</span><span class="w"> </span><span class="k">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
-<span class="k">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Procedures can return values using the return command.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>logMessage<span class="w"> </span><span class="k">{</span><span class="nv">msg</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
-<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="nv">$msg</span>
-<span class="k">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Uses ‘proc’ to define a command.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">try</span><span class="w"> </span><span class="k">{</span>
-<span class="w">    </span><span class="nv">do_something</span>
-<span class="k">}</span><span class="w"> </span>on<span class="w"> </span>error<span class="w"> </span><span class="k">{</span><span class="nv">e</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
-<span class="w">    </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$e</span>
-<span class="k">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>The try command handles errors and exceptions (Tcl 8.6+).</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">error</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>Signals an error condition.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Thread</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>create<span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">do_work</span><span class="w"> </span><span class="k">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Requires the Thread package.</p></td>
-</tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>send<span class="w"> </span><span class="nv">$id</span><span class="w"> </span><span class="nv">$msg</span>
-</pre></div>
-</div>
-</td>
-<td><p>Sends a message to a thread.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">vwait</span><span class="w"> </span>msg<span class="k">;</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$msg</span>
-</pre></div>
-</div>
-</td>
-<td><p>vwait blocks until a variable is written.</p></td>
-</tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Hashes start comments; must be at the beginning of a command.</p></td>
-</tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>Tcl has no native multi-line comment syntax.</p></td>
-</tr>
-<tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>Outputs a string to stdout followed by a newline.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Import</p></td>
-<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">package</span><span class="w"> </span>require<span class="w"> </span>Tcl
-</pre></div>
-</div>
-</td>
-<td><p>Loads a package into the interpreter.</p></td>
-</tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">{</span>
 <span class="w">    </span><span class="nv">1</span><span class="w"> </span><span class="k">{</span>
@@ -248,6 +157,97 @@
 </div>
 </td>
 <td><p>The switch command provides multi-way branching.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>x<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="nv">-</span><span class="w"> </span><span class="mi">1</span><span class="k">}]</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard while loop; expr is used for mathematical evaluation.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>add<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span>b<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures can return values using the return command.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>logMessage<span class="w"> </span><span class="k">{</span><span class="nv">msg</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nb">puts</span><span class="w"> </span><span class="nv">$msg</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘proc’ to define a command.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">try</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">do_something</span>
+<span class="k">}</span><span class="w"> </span>on<span class="w"> </span>error<span class="w"> </span><span class="k">{</span><span class="nv">e</span><span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$e</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The try command handles errors and exceptions (Tcl 8.6+).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">error</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Signals an error condition.</p></td>
+</tr>
+<tr class="row-even"><td><p>Thread</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>create<span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">do_work</span><span class="w"> </span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the Thread package.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SendMessage</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">thread</span><span class="o">::</span>send<span class="w"> </span><span class="nv">$id</span><span class="w"> </span><span class="nv">$msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sends a message to a thread.</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">vwait</span><span class="w"> </span>msg<span class="k">;</span><span class="w"> </span><span class="nv">handle</span><span class="w"> </span><span class="nv">$msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>vwait blocks until a variable is written.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Hashes start comments; must be at the beginning of a command.</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>Tcl has no native multi-line comment syntax.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Print</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs a string to stdout followed by a newline.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">package</span><span class="w"> </span>require<span class="w"> </span>Tcl
+</pre></div>
+</div>
+</td>
+<td><p>Loads a package into the interpreter.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>MAX<span class="w"> </span><span class="mi">100</span>
@@ -384,6 +384,36 @@
 </div>
 </td>
 <td><p>Uses expr and lindex for calculation.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>i<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">10</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>i<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="c"># body</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard for loop; all arguments are Tcl scripts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Comparisons are performed within the expr command.</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$b</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

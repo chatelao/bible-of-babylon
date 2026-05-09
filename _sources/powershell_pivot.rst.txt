@@ -13,6 +13,15 @@ PowerShell Pivot View
 
            $x = 42
      - Variables start with a dollar sign.
+   * - SwitchCase
+     - .. code-block:: powershell
+
+           switch ($x) {
+               1 { "one" }
+               2 { "two" }
+               default { "none" }
+           }
+     - Versatile switch statement that supports multiple types and patterns.
    * - IfElse
      - .. code-block:: powershell
 
@@ -78,15 +87,6 @@ PowerShell Pivot View
 
            Import-Module ActiveDirectory
      - Loads a module into the current session.
-   * - SwitchCase
-     - .. code-block:: powershell
-
-           switch ($x) {
-               1 { "one" }
-               2 { "two" }
-               default { "none" }
-           }
-     - Versatile switch statement that supports multiple types and patterns.
    * - Constant
      - .. code-block:: powershell
 
@@ -182,3 +182,25 @@ PowerShell Pivot View
 
            $c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)
      - Uses array literal syntax with expressions.
+   * - ForLoop
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt 10; $i++) {
+               # body
+           }
+     - Standard C-style for loop with PowerShell comparison operators.
+   * - Equal
+     - .. code-block:: powershell
+
+           $a -eq $b
+     - PowerShell uses prefixed operators for comparison.
+   * - NotEqual
+     - .. code-block:: powershell
+
+           $a -ne $b
+     -
+   * - GreaterThan
+     - .. code-block:: powershell
+
+           $a -gt $b
+     -

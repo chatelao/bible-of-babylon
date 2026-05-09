@@ -143,7 +143,18 @@
 </td>
 <td><p>Implemented using comparison and branch instructions (ble).</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">.case1</span>
+<span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">.case2</span>
+<span class="nf">b</span><span class="w"> </span><span class="no">.default</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using comparison and branch instructions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">.loop:</span>
 <span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
 <span class="w">    </span><span class="nf">ble</span><span class="w"> </span><span class="no">.end</span>
@@ -155,7 +166,7 @@
 </td>
 <td><p>Uses conditional branches to implement loops.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">add:</span>
 <span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
 <span class="w">    </span><span class="nf">ret</span>
@@ -164,7 +175,7 @@
 </td>
 <td><p>Standard AArch64 calling convention; x0-x7 are argument registers, x0 is the return register.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">log_message:</span>
 <span class="w">    </span><span class="nf">stp</span><span class="w"> </span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">x30</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">-16</span><span class="p">]!</span>
 <span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x29</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span>
@@ -176,18 +187,18 @@
 </td>
 <td><p>Uses stp/ldp to save and restore the frame pointer (x29) and link register (x30).</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>No native try-catch; relies on return codes or exception levels/traps for errors.</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">brk</span><span class="w"> </span><span class="mi">#0</span>
 </pre></div>
 </div>
 </td>
 <td><p>The brk instruction triggers a breakpoint exception.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Thread</p></td>
+<tr class="row-even"><td><p>Thread</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#220</span><span class="w"> </span><span class="c1">// clone syscall</span>
 <span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
 </pre></div>
@@ -195,7 +206,7 @@
 </td>
 <td><p>Thread creation typically involves invoking OS system calls (e.g., clone on Linux).</p></td>
 </tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
+<tr class="row-odd"><td><p>SendMessage</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#139</span><span class="w"> </span><span class="c1">// rt_sigqueueinfo</span>
 <span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
 </pre></div>
@@ -203,7 +214,7 @@
 </td>
 <td><p>Inter-process/thread communication is managed via OS system calls.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">mov</span><span class="w"> </span><span class="no">x8</span><span class="p">,</span><span class="w"> </span><span class="mi">#128</span><span class="w"> </span><span class="c1">// rt_sigtimedwait</span>
 <span class="nf">svc</span><span class="w"> </span><span class="mi">#0</span>
 </pre></div>
@@ -211,18 +222,18 @@
 </td>
 <td><p>Receiving signals or messages involves OS system calls.</p></td>
 </tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>AArch64 assembly often uses // or ; for single-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>AArch64 assembly does not have a native multi-line comment syntax.</p></td>
 </tr>
-<tr class="row-even"><td><p>Print</p></td>
+<tr class="row-odd"><td><p>Print</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">adrp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">hello_msg</span>
 <span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="no">lo12</span><span class="p">:</span><span class="no">hello_msg</span>
 <span class="nf">bl</span><span class="w"> </span><span class="no">printf</span>
@@ -231,23 +242,12 @@
 </td>
 <td><p>Typically uses the C library printf; adrp/add are used for PC-relative addressing.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Import</p></td>
+<tr class="row-even"><td><p>Import</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.include</span><span class="w"> </span><span class="s">&quot;macros.s&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the .include directive for external source files.</p></td>
-</tr>
-<tr class="row-even"><td><p>SwitchCase</p></td>
-<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
-<span class="nf">beq</span><span class="w"> </span><span class="no">.case1</span>
-<span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#2</span>
-<span class="nf">beq</span><span class="w"> </span><span class="no">.case2</span>
-<span class="nf">b</span><span class="w"> </span><span class="no">.default</span>
-</pre></div>
-</div>
-</td>
-<td><p>Implemented using comparison and branch instructions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equiv</span><span class="w"> </span><span class="no">MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
@@ -379,6 +379,44 @@
 </div>
 </td>
 <td><p>Calculated component-wise using scalar NEON instructions.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#10</span>
+<span class="w">    </span><span class="nf">b.ge</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="c1">; body</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a register for the counter and conditional branches.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
+<span class="nf">b.eq</span><span class="w"> </span><span class="no">.equal</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
+<span class="nf">b.ne</span><span class="w"> </span><span class="no">.not_equal</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span>
+<span class="nf">b.gt</span><span class="w"> </span><span class="no">.greater</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

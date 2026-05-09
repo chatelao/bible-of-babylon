@@ -24,6 +24,15 @@ ARM AArch64 Assembler Pivot View
                mov x0, #0
            .end:
      - Implemented using comparison and branch instructions (ble).
+   * - SwitchCase
+     - .. code-block:: asm
+
+               cmp x0, #1
+               beq .case1
+               cmp x0, #2
+               beq .case2
+               b .default
+     - Implemented using comparison and branch instructions.
    * - Loop
      - .. code-block:: asm
 
@@ -97,15 +106,6 @@ ARM AArch64 Assembler Pivot View
 
            .include "macros.s"
      - Uses the .include directive for external source files.
-   * - SwitchCase
-     - .. code-block:: asm
-
-               cmp x0, #1
-               beq .case1
-               cmp x0, #2
-               beq .case2
-               b .default
-     - Implemented using comparison and branch instructions.
    * - Constant
      - .. code-block:: asm
 
@@ -202,3 +202,33 @@ ARM AArch64 Assembler Pivot View
            fmul s4, v0.s[0], v1.s[1]
            fmls s4, v0.s[1], v1.s[0]
      - Calculated component-wise using scalar NEON instructions.
+   * - ForLoop
+     - .. code-block:: asm
+
+               mov x0, #0
+           .loop:
+               cmp x0, #10
+               b.ge .end
+               ; body
+               add x0, x0, #1
+               b .loop
+           .end:
+     - Uses a register for the counter and conditional branches.
+   * - Equal
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.eq .equal
+     -
+   * - NotEqual
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.ne .not_equal
+     -
+   * - GreaterThan
+     - .. code-block:: asm
+
+           cmp x0, x1
+           b.gt .greater
+     -

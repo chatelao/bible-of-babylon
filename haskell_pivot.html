@@ -137,94 +137,6 @@
 </td>
 <td><p>If-then-else is an expression; both branches must be present and have the same type.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span>
-</pre></div>
-</div>
-</td>
-<td><p>Haskell uses recursion for iteration as it is a pure functional language.</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
-<span class="nf">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Function types are usually declared explicitly; arguments are space-separated.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">logMessage</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
-<span class="nf">logMessage</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">msg</span>
-</pre></div>
-</div>
-</td>
-<td><p>Procedures are functions that return an IO action.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">do_something</span><span class="w"> </span><span class="p">`</span><span class="n">catch</span><span class="p">`</span><span class="w"> </span><span class="nf">\</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">SomeException</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">e</span>
-</pre></div>
-</div>
-</td>
-<td><p>Exception handling using the catch function from Control.Exception.</p></td>
-</tr>
-<tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="ne">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ‘error’ function stops execution and displays a message.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Thread</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">forkIO</span><span class="w"> </span><span class="p">(</span><span class="n">do_work</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>forkIO creates a lightweight thread (requires Control.Concurrent).</p></td>
-</tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">writeChan</span><span class="w"> </span><span class="n">chan</span><span class="w"> </span><span class="mi">42</span>
-</pre></div>
-</div>
-</td>
-<td><p>Writes a value to a Chan (unbounded FIFO channel).</p></td>
-</tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">msg</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readChan</span><span class="w"> </span><span class="n">chan</span>
-<span class="nf">handle</span><span class="w"> </span><span class="n">msg</span>
-</pre></div>
-</div>
-</td>
-<td><p>Reads a value from a Chan; blocks if the channel is empty.</p></td>
-</tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard single-line comment.</p></td>
-</tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="cm">{- line 1</span>
-<span class="cm">   line 2 -}</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard block comment; can be nested.</p></td>
-</tr>
-<tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">putStrLn</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>Outputs a string followed by a newline in the IO monad.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Import</p></td>
-<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.List</span>
-</pre></div>
-</div>
-</td>
-<td><p>Imports symbols from a module into the current namespace.</p></td>
-</tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">case</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="kr">of</span>
 <span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="mi">1</span>
@@ -234,6 +146,94 @@
 </div>
 </td>
 <td><p>Uses pattern matching in a case expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">loop</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kr">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="kr">then</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="kr">else</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Haskell uses recursion for iteration as it is a pure functional language.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">add</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">Int</span>
+<span class="nf">add</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Function types are usually declared explicitly; arguments are space-separated.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">logMessage</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="kt">IO</span><span class="w"> </span><span class="nb">()</span>
+<span class="nf">logMessage</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">putStrLn</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures are functions that return an IO action.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">do_something</span><span class="w"> </span><span class="p">`</span><span class="n">catch</span><span class="p">`</span><span class="w"> </span><span class="nf">\</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="ow">::</span><span class="w"> </span><span class="kt">SomeException</span><span class="p">)</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">handle</span><span class="w"> </span><span class="n">e</span>
+</pre></div>
+</div>
+</td>
+<td><p>Exception handling using the catch function from Control.Exception.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="ne">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘error’ function stops execution and displays a message.</p></td>
+</tr>
+<tr class="row-even"><td><p>Thread</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">forkIO</span><span class="w"> </span><span class="p">(</span><span class="n">do_work</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>forkIO creates a lightweight thread (requires Control.Concurrent).</p></td>
+</tr>
+<tr class="row-odd"><td><p>SendMessage</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">writeChan</span><span class="w"> </span><span class="n">chan</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Writes a value to a Chan (unbounded FIFO channel).</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">msg</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">readChan</span><span class="w"> </span><span class="n">chan</span>
+<span class="nf">handle</span><span class="w"> </span><span class="n">msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Reads a value from a Chan; blocks if the channel is empty.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="cm">{- line 1</span>
+<span class="cm">   line 2 -}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard block comment; can be nested.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Print</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">putStrLn</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs a string followed by a newline in the IO monad.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span><span class="w"> </span><span class="nn">Data.List</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports symbols from a module into the current namespace.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">maxVal</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="mi">100</span>
@@ -367,6 +367,34 @@
 </div>
 </td>
 <td><p>Pure functional implementation using pattern matching.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">mapM_</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">i</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span><span class="p">)</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">9</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Haskell uses <a href="#id2"><span class="problematic" id="id3">mapM_</span></a> or <a href="#id4"><span class="problematic" id="id5">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the Eq typeclass.</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the Ord typeclass.</p></td>
 </tr>
 </tbody>
 </table>

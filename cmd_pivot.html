@@ -130,14 +130,21 @@
 </td>
 <td><p>Used in Windows Command Prompt.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if &quot;%x%&quot;==&quot;1&quot; (goto :one) else if &quot;%x%&quot;==&quot;2&quot; (goto :two) else (goto :none)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Cmd does not have a native switch; it is typically simulated with if/else or goto.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %x% GTR 0 (exit /b 1) else (exit /b 0)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses GTR for ‘greater than’; blocks are enclosed in parentheses.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:loop</span>
 <span class="go">if %x% GTR 0 (set /a x=x-1 &amp; goto loop)</span>
 </pre></div>
@@ -145,7 +152,7 @@
 </td>
 <td><p>Loops are typically implemented using labels and goto.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:add</span>
 <span class="go">set /a res=%~1+%~2</span>
 <span class="go">exit /b %res%</span>
@@ -154,7 +161,7 @@
 </td>
 <td><p>Functions are labels; called with ‘call :label’; arguments are %1, %2.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">:log_message</span>
 <span class="go">echo %~1</span>
 <span class="go">goto :eof</span>
@@ -163,51 +170,44 @@
 </td>
 <td><p>Procedures are labels called with ‘call’; they return using ‘goto :eof’ or ‘exit /b’.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">do_something || call :handle_error</span>
 </pre></div>
 </div>
 </td>
 <td><p>Cmd uses || to execute a command if the previous one failed (non-zero errorlevel).</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">exit /b 1</span>
 </pre></div>
 </div>
 </td>
 <td><p>Sets the errorlevel and exits the current script or function.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">REM comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses REM or :: (label hack) for comments.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>Command Prompt does not support multi-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">echo Hello, World!</span>
 </pre></div>
 </div>
 </td>
 <td><p>Echo displays messages in Windows Command Prompt.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">call other.cmd</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘call’ command is used to run another batch file from within one.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if &quot;%x%&quot;==&quot;1&quot; (goto :one) else if &quot;%x%&quot;==&quot;2&quot; (goto :two) else (goto :none)</span>
-</pre></div>
-</div>
-</td>
-<td><p>Cmd does not have a native switch; it is typically simulated with if/else or goto.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set MAX=100</span>
@@ -326,6 +326,36 @@
 <tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>Cmd does not support floating-point arithmetic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for /L %%i in (0,1,9) do (</span>
+<span class="go">    rem body</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The /L switch is used for iterative loops (start, step, end).</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% EQU %b%</span>
+</pre></div>
+</div>
+</td>
+<td><p>Comparison operators are used within if statements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% NEQ %b%</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% GTR %b%</span>
+</pre></div>
+</div>
+</td>
+<td></td>
 </tr>
 </tbody>
 </table>

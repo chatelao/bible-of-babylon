@@ -141,100 +141,7 @@
 </td>
 <td><p>Standard block if-then-else-end if.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">end do</span>
-</pre></div>
-</div>
-</td>
-<td><p>Standard do while loop.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
-<span class="w">    </span><span class="c">! body</span>
-<span class="k">end do</span>
-</pre></div>
-</div>
-</td>
-<td><p>The do loop is used for iteration over ranges.</p></td>
-</tr>
-<tr class="row-even"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
-<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">res</span>
-<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
-<span class="k">end function </span><span class="n">add</span>
-</pre></div>
-</div>
-</td>
-<td><p>Functions return a value; ‘intent(in)’ specifies that parameters are read-only.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
-<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
-<span class="k">end subroutine </span><span class="n">log_msg</span>
-</pre></div>
-</div>
-</td>
-<td><p>Subroutines are used for procedures that do not return a value.</p></td>
-</tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
-<td><p>N/A</p></td>
-<td><p>Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">error stop</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ‘error stop’ statement terminates execution with an error message (Fortran 2008+).</p></td>
-</tr>
-<tr class="row-even"><td><p>Thread</p></td>
-<td><p>N/A</p></td>
-<td><p>Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple ‘thread spawn’ primitive.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">target_var</span><span class="p">[</span><span class="n">image</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">data</span>
-</pre></div>
-</div>
-</td>
-<td><p>Coarrays use distributed memory and assignment to ‘images’ for communication.</p></td>
-</tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">sync images</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>Synchronization is used to ensure data consistency in Coarrays.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! comment</span>
-</pre></div>
-</div>
-</td>
-<td><p>Exclamation mark starts a comment to the end of the line.</p></td>
-</tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><p>N/A</p></td>
-<td><p>Fortran does not support multi-line comments natively.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>The print statement with * (default format) outputs to stdout.</p></td>
-</tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">math_mod</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ‘use’ statement imports a module’s public variables and procedures.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
@@ -247,6 +154,99 @@
 </div>
 </td>
 <td><p>The select case construct is used for branching based on values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">end do</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard do while loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="c">! body</span>
+<span class="k">end do</span>
+</pre></div>
+</div>
+</td>
+<td><p>The do loop is used for iteration over ranges.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
+<span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">res</span>
+<span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="k">end function </span><span class="n">add</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions return a value; ‘intent(in)’ specifies that parameters are read-only.</p></td>
+</tr>
+<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
+<span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
+<span class="k">end subroutine </span><span class="n">log_msg</span>
+</pre></div>
+</div>
+</td>
+<td><p>Subroutines are used for procedures that do not return a value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.</p></td>
+</tr>
+<tr class="row-even"><td><p>Raise</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">error stop</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘error stop’ statement terminates execution with an error message (Fortran 2008+).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thread</p></td>
+<td><p>N/A</p></td>
+<td><p>Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple ‘thread spawn’ primitive.</p></td>
+</tr>
+<tr class="row-even"><td><p>SendMessage</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">target_var</span><span class="p">[</span><span class="n">image</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">data</span>
+</pre></div>
+</div>
+</td>
+<td><p>Coarrays use distributed memory and assignment to ‘images’ for communication.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">sync images</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Synchronization is used to ensure data consistency in Coarrays.</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Exclamation mark starts a comment to the end of the line.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>Fortran does not support multi-line comments natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The print statement with * (default format) outputs to stdout.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">math_mod</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘use’ statement imports a module’s public variables and procedures.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
@@ -382,6 +382,27 @@
 </div>
 </td>
 <td><p>Calculated component-wise using an array constructor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Alternative syntax: a .eq. b</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Alternative syntax: a .ne. b</p></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Alternative syntax: a .gt. b</p></td>
 </tr>
 </tbody>
 </table>

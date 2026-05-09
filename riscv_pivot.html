@@ -130,7 +130,18 @@
 </td>
 <td><p>Defined in the .data section.</p></td>
 </tr>
-<tr class="row-odd"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case1</span>
+<span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case2</span>
+<span class="nf">j</span><span class="w"> </span><span class="no">.default</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using comparison and branch instructions.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.else</span>
 <span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.end</span>
@@ -142,7 +153,7 @@
 </td>
 <td><p>Uses branch instructions like blez (branch if less than or equal to zero).</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">.loop:</span>
 <span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
 <span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
@@ -153,7 +164,7 @@
 </td>
 <td><p>Uses conditional branches and jumps to implement loops.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">add:</span>
 <span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">a1</span>
 <span class="w">    </span><span class="nf">ret</span>
@@ -162,7 +173,7 @@
 </td>
 <td><p>Functions follow the RISC-V calling convention; a0-a7 are argument registers.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">log_message:</span>
 <span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="no">sp</span><span class="p">,</span><span class="w"> </span><span class="mi">-16</span>
 <span class="w">    </span><span class="nf">sd</span><span class="w"> </span><span class="no">ra</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">(</span><span class="no">sp</span><span class="p">)</span>
@@ -175,18 +186,18 @@
 </td>
 <td><p>Follows standard calling convention; must save/restore return address (ra) if calling other functions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>No native try-catch; relies on return codes or trap handlers for errors.</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">ebreak</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ebreak instruction triggers a debug trap; ecall can be used for system calls.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Thread</p></td>
+<tr class="row-even"><td><p>Thread</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="w"> </span><span class="c1"># clone syscall</span>
 <span class="nf">ecall</span>
 </pre></div>
@@ -194,7 +205,7 @@
 </td>
 <td><p>Thread creation typically involves invoking OS system calls (e.g., clone in Linux).</p></td>
 </tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
+<tr class="row-odd"><td><p>SendMessage</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">139</span><span class="w"> </span><span class="c1"># rt_sigqueueinfo</span>
 <span class="nf">ecall</span>
 </pre></div>
@@ -202,7 +213,7 @@
 </td>
 <td><p>Inter-process/thread communication is managed by the OS.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">a7</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="c1"># rt_sigtimedwait</span>
 <span class="nf">ecall</span>
 </pre></div>
@@ -210,18 +221,18 @@
 </td>
 <td><p>Receiving signals or messages involves OS system calls.</p></td>
 </tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>RISC-V assembly typically uses the hash character for single-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>RISC-V assembly does not have a native multi-line comment syntax.</p></td>
 </tr>
-<tr class="row-even"><td><p>Print</p></td>
+<tr class="row-odd"><td><p>Print</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">la</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">hello_msg</span>
 <span class="nf">call</span><span class="w"> </span><span class="no">printf</span>
 </pre></div>
@@ -229,23 +240,12 @@
 </td>
 <td><p>Typically uses the C library printf or writes to stdout via system calls.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Import</p></td>
+<tr class="row-even"><td><p>Import</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.include</span><span class="w"> </span><span class="s">&quot;macros.s&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the .include directive to include external source files.</p></td>
-</tr>
-<tr class="row-even"><td><p>SwitchCase</p></td>
-<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
-<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case1</span>
-<span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
-<span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.case2</span>
-<span class="nf">j</span><span class="w"> </span><span class="no">.default</span>
-</pre></div>
-</div>
-</td>
-<td><p>Typically implemented using comparison and branch instructions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="na">.equiv</span><span class="w"> </span><span class="no">MAX</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span>
@@ -373,6 +373,41 @@
 <tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>RISC-V Vector extension does not have a dedicated cross product instruction; requires multiple operations.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">bge</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="c1">; body</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using a counter register and conditional branches.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">beq</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.equal</span>
+</pre></div>
+</div>
+</td>
+<td><p>Branch if equal.</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">bne</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.not_equal</span>
+</pre></div>
+</div>
+</td>
+<td><p>Branch if not equal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nf">bgt</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.greater</span>
+</pre></div>
+</div>
+</td>
+<td><p>Pseudo-instruction that expands to blt with swapped operands.</p></td>
 </tr>
 </tbody>
 </table>
