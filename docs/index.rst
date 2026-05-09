@@ -1,6 +1,11 @@
 Welcome to the Bible of Babylon Documentation
 =============================================
 
+Project Links
+=============
+
+- **GitHub Repository:** `https://github.com/chatelao/bible-of-babylon <https://github.com/chatelao/bible-of-babylon>`_
+
 Downloads
 =========
 
