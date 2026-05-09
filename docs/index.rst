@@ -54,6 +54,7 @@ Downloads
    cobol_pivot
    fortran_pivot
    csharp_pivot
+   cpp_pivot
 
 Indices and tables
 ==================
