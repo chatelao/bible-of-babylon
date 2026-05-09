@@ -417,6 +417,20 @@
 </td>
 <td><p>Manual calculation for 3D cross product.</p></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="bp">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the filter method with a closure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">listA</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="bp">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">}.</span><span class="bp">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flatMap and filter for a functional join.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

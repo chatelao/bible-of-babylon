@@ -7172,3 +7172,422 @@ Parameters:
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
      - Manual implementation for the first three components.
+
+
+
+SetFiltering
+------------
+
+
+:description: Filtering elements from a collection based on a condition (e.g., WHERE clause).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SetFiltering Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSetFiltering
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE condition;
+     - The WHERE clause is used to filter records.
+   * - CSetFiltering
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               if (condition(a[i])) {
+                   result[j++] = a[i];
+               }
+           }
+     - Manual filtering using a loop and a condition.
+   * - CppSetFiltering
+     - .. code-block:: cpp
+
+           std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);
+     - Uses the standard library algorithm copy_if.
+   * - XQuerySetFiltering
+     - .. code-block:: xquery
+
+           for $x in $collection
+           where $x/condition
+           return $x
+     - The where clause in a FLWOR expression filters sequences.
+   * - JavaSetFiltering
+     - .. code-block:: java
+
+           list.stream().filter(x -> x > 0).collect(Collectors.toList());
+     - Uses the Stream API and a predicate for filtering.
+   * - RustSetFiltering
+     - .. code-block:: rust
+
+           let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();
+     - Uses iterators and the filter method.
+   * - ErlangSetFiltering
+     - .. code-block:: erlang
+
+           [X || X <- List, X > 0].
+     - Uses list comprehensions with guards for filtering.
+   * - LispSetFiltering
+     - .. code-block:: common-lisp
+
+           (remove-if-not #'evenp list)
+     - Common Lisp uses remove-if-not or filter-like functions.
+   * - BashSetFiltering
+     - .. code-block:: bash
+
+           for x in "${a[@]}"; do
+               if [[ $x -gt 0 ]]; then
+                   b+=("$x")
+               fi
+           done
+     - Iterates through an array and conditionally appends to another.
+   * - CmdSetFiltering
+     - .. code-block:: doscon
+
+           for %%x in (%a%) do (
+               if %%x GTR 0 (set b=!b! %%x)
+           )
+     - Filters a space-separated list of values.
+   * - PowerShellSetFiltering
+     - .. code-block:: powershell
+
+           $b = $a | Where-Object { $_ -gt 0 }
+     - Uses the Where-Object cmdlet (alias ?) in a pipeline.
+   * - PythonSetFiltering
+     - .. code-block:: python
+
+           b = [x for x in a if x > 0]
+     - Uses list comprehensions for concise filtering.
+   * - PhpSetFiltering
+     - .. code-block:: php
+
+           $b = array_filter($a, fn($x) => $x > 0);
+     - Uses array_filter with an arrow function.
+   * - CssSetFiltering
+     - N/A
+     - CSS does not support set filtering in the traditional programming sense.
+   * - CudaSetFiltering
+     - .. code-block:: cpp
+
+           if (condition(data[idx])) {
+               result[output_idx] = data[idx];
+           }
+     - Filtering on GPU often requires a prefix sum (stream compaction) to determine output indices.
+   * - X86SetFiltering
+     - .. code-block:: nasm
+
+               cmp eax, 0
+               jle .skip
+               mov [edi], eax
+               add edi, 4
+           .skip:
+     - Conditional move or branch to skip elements that don't meet the criteria.
+   * - RiscvSetFiltering
+     - .. code-block:: asm
+
+               blez t0, .skip
+               sw t0, 0(t1)
+               addi t1, t1, 4
+           .skip:
+     - Uses conditional branches to selectively store elements.
+   * - ArmAarch64SetFiltering
+     - .. code-block:: asm
+
+               cmp x0, #0
+               b.le .skip
+               str x0, [x1], #8
+           .skip:
+     - Uses comparison and conditional branch to skip elements.
+   * - PrologSetFiltering
+     - .. code-block:: prolog
+
+           include(Condition, List, Filtered).
+     - The include/3 predicate filters a list based on a goal.
+   * - JavaBytecodeSetFiltering
+     - .. code-block:: jasmin
+
+               invokestatic java/util/stream/Stream/filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     - Uses Stream API filter method via invokedynamic or invokestatic.
+   * - CamelSetFiltering
+     - .. code-block:: ocaml
+
+           List.filter (fun x -> x > 0) list
+     - Standard library function for filtering lists.
+   * - GoSetFiltering
+     - .. code-block:: go
+
+           for _, x := range a {
+               if x > 0 {
+                   b = append(b, x)
+               }
+           }
+     - Iterates and appends to a slice based on a condition.
+   * - HaskellSetFiltering
+     - .. code-block:: haskell
+
+           filter (> 0) list
+     - Higher-order function for filtering lists.
+   * - TypeScriptSetFiltering
+     - .. code-block:: typescript
+
+           const b = a.filter(x => x > 0);
+     - Uses the Array.prototype.filter method.
+   * - TclSetFiltering
+     - .. code-block:: tcl
+
+           lmap x $a {if {$x > 0} {set x} else continue}
+     - The lmap command can be used for filtering by skipping elements.
+   * - CobolSetFiltering
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               IF A(I) > 0
+                   MOVE A(I) TO B(J)
+                   ADD 1 TO J
+               END-IF
+           END-PERFORM.
+     - Manual filtering using a loop and conditional MOVE.
+   * - FortranSetFiltering
+     - .. code-block:: fortran
+
+           b = pack(a, a > 0)
+     - The pack intrinsic function filters an array based on a mask.
+   * - CSharpSetFiltering
+     - .. code-block:: csharp
+
+           var b = a.Where(x => x > 0).ToList();
+     - Uses LINQ (Language Integrated Query) for filtering.
+   * - SwiftSetFiltering
+     - .. code-block:: swift
+
+           let b = a.filter { $0 > 0 }
+     - Uses the filter method with a closure.
+   * - KotlinSetFiltering
+     - .. code-block:: kotlin
+
+           val b = a.filter { it > 0 }
+     - Uses the filter extension function.
+
+
+
+SetJoin
+-------
+
+
+:description: Combining elements from two collections based on a related column or condition (e.g., JOIN ... ON).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SetJoin Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSetJoin
+     - .. code-block:: sql
+
+           SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;
+     - Standard SQL INNER JOIN.
+   * - CSetJoin
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               for (int j = 0; j < m; j++) {
+                   if (a[i].id == b[j].id) {
+                       // Join logic
+                   }
+               }
+           }
+     - Implemented using nested loops (Nested Loop Join).
+   * - CppSetJoin
+     - .. code-block:: cpp
+
+           std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));
+     - Uses set_intersection for sorted ranges; otherwise uses nested loops.
+   * - XQuerySetJoin
+     - .. code-block:: xquery
+
+           for $a in $colA, $b in $colB
+           where $a/id = $b/id
+           return <res>{$a, $b}</res>
+     - Join is performed using multiple 'for' clauses and a 'where' filter.
+   * - JavaSetJoin
+     - .. code-block:: java
+
+           listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());
+     - Can be implemented using flatMap and filter on streams.
+   * - RustSetJoin
+     - .. code-block:: rust
+
+           list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));
+     - Implemented using flat_map and filter.
+   * - ErlangSetJoin
+     - .. code-block:: erlang
+
+           [{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].
+     - Uses list comprehensions for joins.
+   * - LispSetJoin
+     - .. code-block:: common-lisp
+
+           (loop for a in list-a append
+             (loop for b in list-b
+               when (= (getf a :id) (getf b :id))
+               collect (list a b)))
+     - Uses nested loops to join lists of property lists or objects.
+   * - BashSetJoin
+     - .. code-block:: bash
+
+           join file1 file2
+     - The join command joins lines of two files on a common field.
+   * - CmdSetJoin
+     - N/A
+     - Joining sets is not natively supported in Cmd and is complex to implement.
+   * - PowerShellSetJoin
+     - .. code-block:: powershell
+
+           foreach ($a in $listA) {
+               foreach ($b in $listB) {
+                   if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }
+               }
+           }
+     - Typically implemented using nested foreach loops.
+   * - PythonSetJoin
+     - .. code-block:: python
+
+           res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]
+     - Uses nested list comprehensions.
+   * - PhpSetJoin
+     - .. code-block:: php
+
+           foreach ($a as $itemA) {
+               foreach ($b as $itemB) {
+                   if ($itemA['id'] == $itemB['id']) {
+                       $res[] = array_merge($itemA, $itemB);
+                   }
+               }
+           }
+     - Implemented using nested foreach loops.
+   * - CssSetJoin
+     - N/A
+     - CSS does not support set joins.
+   * - CudaSetJoin
+     - .. code-block:: cpp
+
+           if (a[i].id == b[j].id) {
+               result[idx] = join(a[i], b[j]);
+           }
+     - Joins on GPU are typically implemented using hash joins or nested loops across threads.
+   * - X86SetJoin
+     - .. code-block:: nasm
+
+               ; Nested loops with comparisons in assembly
+     - Requires manual implementation of nested loops and equality checks.
+   * - RiscvSetJoin
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons in assembly
+     - Requires manual implementation of nested loops and equality checks.
+   * - ArmAarch64SetJoin
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons
+     - Requires manual implementation of nested loops and equality checks.
+   * - PrologSetJoin
+     - .. code-block:: prolog
+
+           join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.
+     - Joins are naturally expressed using member/2 and unification.
+   * - JavaBytecodeSetJoin
+     - .. code-block:: jasmin
+
+               ; Nested loops using labels and jumps
+     - Implemented by manually coding nested loops.
+   * - CamelSetJoin
+     - .. code-block:: ocaml
+
+           List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)
+     - Uses nested map and filter operations.
+   * - GoSetJoin
+     - .. code-block:: go
+
+           for _, a := range listA {
+               for _, b := range listB {
+                   if a.Id == b.Id {
+                       res = append(res, Result{a, b})
+                   }
+               }
+           }
+     - Standard imperative nested loop join.
+   * - HaskellSetJoin
+     - .. code-block:: haskell
+
+           [(a, b) | a <- listA, b <- listB, idA a == idB b]
+     - Uses list comprehensions to express joins.
+   * - TypeScriptSetJoin
+     - .. code-block:: typescript
+
+           const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));
+     - Uses flatMap and filter for a functional approach.
+   * - TclSetJoin
+     - .. code-block:: tcl
+
+           foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }
+     - Uses nested foreach loops and dict operations.
+   * - CobolSetJoin
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > M
+                   IF ID-A(I) = ID-B(J)
+                       MOVE TABLE-A(I) TO JOIN-RESULT(K)
+                       ... 
+                   END-IF
+               END-PERFORM
+           END-PERFORM.
+     - Implemented using nested PERFORM VARYING loops.
+   * - FortranSetJoin
+     - .. code-block:: fortran
+
+           do i = 1, n
+               do j = 1, m
+                   if (a(i)%id == b(j)%id) then
+                       ! Join logic
+                   end if
+               end do
+           end do
+     - Standard nested DO loops for joining arrays of types.
+   * - CSharpSetJoin
+     - .. code-block:: csharp
+
+           var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };
+     - LINQ provides a native 'join' keyword.
+   * - SwiftSetJoin
+     - .. code-block:: swift
+
+           let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }
+     - Uses flatMap and filter for a functional join.
+   * - KotlinSetJoin
+     - .. code-block:: kotlin
+
+           val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
+     - Uses flatMap and filter extension functions.

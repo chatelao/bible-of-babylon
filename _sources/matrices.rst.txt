@@ -4045,6 +4045,257 @@ Programming Languages
                a[0]*b[1] - a[1]*b[0],
                0.0f
            )
+   * - SetFiltering
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE condition;
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               if (condition(a[i])) {
+                   result[j++] = a[i];
+               }
+           }
+     - .. code-block:: cpp
+
+           std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);
+     - .. code-block:: xquery
+
+           for $x in $collection
+           where $x/condition
+           return $x
+     - .. code-block:: java
+
+           list.stream().filter(x -> x > 0).collect(Collectors.toList());
+     - .. code-block:: rust
+
+           let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();
+     - .. code-block:: erlang
+
+           [X || X <- List, X > 0].
+     - .. code-block:: common-lisp
+
+           (remove-if-not #'evenp list)
+     - .. code-block:: bash
+
+           for x in "${a[@]}"; do
+               if [[ $x -gt 0 ]]; then
+                   b+=("$x")
+               fi
+           done
+     - .. code-block:: doscon
+
+           for %%x in (%a%) do (
+               if %%x GTR 0 (set b=!b! %%x)
+           )
+     - .. code-block:: powershell
+
+           $b = $a | Where-Object { $_ -gt 0 }
+     - .. code-block:: python
+
+           b = [x for x in a if x > 0]
+     - .. code-block:: php
+
+           $b = array_filter($a, fn($x) => $x > 0);
+     - N/A
+     - .. code-block:: cpp
+
+           if (condition(data[idx])) {
+               result[output_idx] = data[idx];
+           }
+     - .. code-block:: nasm
+
+               cmp eax, 0
+               jle .skip
+               mov [edi], eax
+               add edi, 4
+           .skip:
+     - .. code-block:: asm
+
+               blez t0, .skip
+               sw t0, 0(t1)
+               addi t1, t1, 4
+           .skip:
+     - .. code-block:: prolog
+
+           include(Condition, List, Filtered).
+     - .. code-block:: jasmin
+
+               invokestatic java/util/stream/Stream/filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     - .. code-block:: asm
+
+               cmp x0, #0
+               b.le .skip
+               str x0, [x1], #8
+           .skip:
+     - .. code-block:: ocaml
+
+           List.filter (fun x -> x > 0) list
+     - .. code-block:: go
+
+           for _, x := range a {
+               if x > 0 {
+                   b = append(b, x)
+               }
+           }
+     - .. code-block:: haskell
+
+           filter (> 0) list
+     - .. code-block:: typescript
+
+           const b = a.filter(x => x > 0);
+     - .. code-block:: tcl
+
+           lmap x $a {if {$x > 0} {set x} else continue}
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               IF A(I) > 0
+                   MOVE A(I) TO B(J)
+                   ADD 1 TO J
+               END-IF
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           b = pack(a, a > 0)
+     - .. code-block:: csharp
+
+           var b = a.Where(x => x > 0).ToList();
+     - .. code-block:: swift
+
+           let b = a.filter { $0 > 0 }
+     - .. code-block:: kotlin
+
+           val b = a.filter { it > 0 }
+   * - SetJoin
+     - .. code-block:: sql
+
+           SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               for (int j = 0; j < m; j++) {
+                   if (a[i].id == b[j].id) {
+                       // Join logic
+                   }
+               }
+           }
+     - .. code-block:: cpp
+
+           std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));
+     - .. code-block:: xquery
+
+           for $a in $colA, $b in $colB
+           where $a/id = $b/id
+           return <res>{$a, $b}</res>
+     - .. code-block:: java
+
+           listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());
+     - .. code-block:: rust
+
+           list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));
+     - .. code-block:: erlang
+
+           [{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].
+     - .. code-block:: common-lisp
+
+           (loop for a in list-a append
+             (loop for b in list-b
+               when (= (getf a :id) (getf b :id))
+               collect (list a b)))
+     - .. code-block:: bash
+
+           join file1 file2
+     - N/A
+     - .. code-block:: powershell
+
+           foreach ($a in $listA) {
+               foreach ($b in $listB) {
+                   if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }
+               }
+           }
+     - .. code-block:: python
+
+           res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]
+     - .. code-block:: php
+
+           foreach ($a as $itemA) {
+               foreach ($b as $itemB) {
+                   if ($itemA['id'] == $itemB['id']) {
+                       $res[] = array_merge($itemA, $itemB);
+                   }
+               }
+           }
+     - N/A
+     - .. code-block:: cpp
+
+           if (a[i].id == b[j].id) {
+               result[idx] = join(a[i], b[j]);
+           }
+     - .. code-block:: nasm
+
+               ; Nested loops with comparisons in assembly
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons in assembly
+     - .. code-block:: prolog
+
+           join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.
+     - .. code-block:: jasmin
+
+               ; Nested loops using labels and jumps
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons
+     - .. code-block:: ocaml
+
+           List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)
+     - .. code-block:: go
+
+           for _, a := range listA {
+               for _, b := range listB {
+                   if a.Id == b.Id {
+                       res = append(res, Result{a, b})
+                   }
+               }
+           }
+     - .. code-block:: haskell
+
+           [(a, b) | a <- listA, b <- listB, idA a == idB b]
+     - .. code-block:: typescript
+
+           const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));
+     - .. code-block:: tcl
+
+           foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > M
+                   IF ID-A(I) = ID-B(J)
+                       MOVE TABLE-A(I) TO JOIN-RESULT(K)
+                       ... 
+                   END-IF
+               END-PERFORM
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           do i = 1, n
+               do j = 1, m
+                   if (a(i)%id == b(j)%id) then
+                       ! Join logic
+                   end if
+               end do
+           end do
+     - .. code-block:: csharp
+
+           var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };
+     - .. code-block:: swift
+
+           let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }
+     - .. code-block:: kotlin
+
+           val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
 
 Data Formats
 ------------

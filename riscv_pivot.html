@@ -409,6 +409,23 @@
 </td>
 <td><p>Pseudo-instruction that expands to blt with swapped operands.</p></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.skip</span>
+<span class="w">    </span><span class="nf">sw</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t1</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="nl">.skip:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses conditional branches to selectively store elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons in assembly</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires manual implementation of nested loops and equality checks.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

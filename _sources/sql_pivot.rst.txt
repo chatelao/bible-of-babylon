@@ -210,3 +210,13 @@ SQL Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE condition;
+     - The WHERE clause is used to filter records.
+   * - SetJoin
+     - .. code-block:: sql
+
+           SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;
+     - Standard SQL INNER JOIN.

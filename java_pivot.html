@@ -416,6 +416,20 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Stream API and a predicate for filtering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">listA</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">flatMap</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">id</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">))).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can be implemented using flatMap and filter on streams.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

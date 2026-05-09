@@ -392,6 +392,26 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$b = array_filter($a, fn($x) =&gt; $x &gt; 0);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses array_filter with an arrow function.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($a as $itemA) {</span>
+<span class="x">    foreach ($b as $itemB) {</span>
+<span class="x">        if ($itemA[&#39;id&#39;] == $itemB[&#39;id&#39;]) {</span>
+<span class="x">            $res[] = array_merge($itemA, $itemB);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested foreach loops.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

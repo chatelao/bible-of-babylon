@@ -206,3 +206,13 @@ Prolog Pivot View
 
            A > B
      - Arithmetic comparison.
+   * - SetFiltering
+     - .. code-block:: prolog
+
+           include(Condition, List, Filtered).
+     - The include/3 predicate filters a list based on a goal.
+   * - SetJoin
+     - .. code-block:: prolog
+
+           join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.
+     - Joins are naturally expressed using member/2 and unification.

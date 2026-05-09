@@ -368,6 +368,24 @@
 </td>
 <td><p>General comparison operator; use ‘gt’ for value comparison of single items.</p></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="p">/</span><span class="nt">condition</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
+</pre></div>
+</div>
+</td>
+<td><p>The where clause in a FLWOR expression filters sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colA</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colB</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">/</span><span class="nt">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">/</span><span class="nt">id</span>
+<span class="k">return</span><span class="w"> </span><span class="nt">&lt;res&gt;</span><span class="p">{</span><span class="nv">$</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">}</span><span class="nt">&lt;/res&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Join is performed using multiple ‘for’ clauses and a ‘where’ filter.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

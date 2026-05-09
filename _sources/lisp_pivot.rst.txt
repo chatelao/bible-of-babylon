@@ -192,3 +192,16 @@ Lisp Pivot View
 
            (> a b)
      -
+   * - SetFiltering
+     - .. code-block:: common-lisp
+
+           (remove-if-not #'evenp list)
+     - Common Lisp uses remove-if-not or filter-like functions.
+   * - SetJoin
+     - .. code-block:: common-lisp
+
+           (loop for a in list-a append
+             (loop for b in list-b
+               when (= (getf a :id) (getf b :id))
+               collect (list a b)))
+     - Uses nested loops to join lists of property lists or objects.

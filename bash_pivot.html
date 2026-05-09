@@ -390,6 +390,24 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Used for integer comparison; use &gt; (within [[ ]]) or expr for strings.</p></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">b</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$x</span><span class="s2">&quot;</span><span class="o">)</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates through an array and conditionally appends to another.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>join<span class="w"> </span>file1<span class="w"> </span>file2
+</pre></div>
+</div>
+</td>
+<td><p>The join command joins lines of two files on a common field.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

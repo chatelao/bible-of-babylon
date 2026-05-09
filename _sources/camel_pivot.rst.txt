@@ -209,3 +209,13 @@ Camel Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: ocaml
+
+           List.filter (fun x -> x > 0) list
+     - Standard library function for filtering lists.
+   * - SetJoin
+     - .. code-block:: ocaml
+
+           List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)
+     - Uses nested map and filter operations.

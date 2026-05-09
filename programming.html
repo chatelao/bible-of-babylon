@@ -88,6 +88,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#float4vectormultiplication">Float4VectorMultiplication</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#float4vectordotproduct">Float4VectorDotProduct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#float4vectorcrossproduct">Float4VectorCrossProduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setfiltering">SetFiltering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setjoin">SetJoin</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
@@ -2935,7 +2937,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id57"><span class="problematic" id="id58">mapM_</span></a> or <a href="#id59"><span class="problematic" id="id60">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id59"><span class="problematic" id="id60">mapM_</span></a> or <a href="#id61"><span class="problematic" id="id62">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -9395,6 +9397,540 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Manual implementation for the first three components.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setfiltering">
+<h2>SetFiltering<a class="headerlink" href="#setfiltering" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Filtering elements from a collection based on a condition (e.g., WHERE clause).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlSetFiltering</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The WHERE clause is used to filter records.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSetFiltering</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">result</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual filtering using a loop and a condition.</p></td>
+</tr>
+<tr class="row-even"><td><p>CppSetFiltering</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">copy_if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">res</span><span class="p">),</span><span class="w"> </span><span class="n">condition</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the standard library algorithm copy_if.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQuerySetFiltering</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="p">/</span><span class="nt">condition</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
+</pre></div>
+</div>
+</td>
+<td><p>The where clause in a FLWOR expression filters sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSetFiltering</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Stream API and a predicate for filtering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSetFiltering</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">filtered</span><span class="p">:</span><span class="w"> </span><span class="nb">Vec</span><span class="o">&lt;</span><span class="n">_</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">into_iter</span><span class="p">().</span><span class="n">filter</span><span class="p">(</span><span class="o">|&amp;</span><span class="n">x</span><span class="o">|</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="n">collect</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses iterators and the filter method.</p></td>
+</tr>
+<tr class="row-even"><td><p>ErlangSetFiltering</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nv">X</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">List</span><span class="p">,</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions with guards for filtering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LispSetFiltering</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-if-not</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">evenp</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Common Lisp uses remove-if-not or filter-like functions.</p></td>
+</tr>
+<tr class="row-even"><td><p>BashSetFiltering</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">b</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$x</span><span class="s2">&quot;</span><span class="o">)</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates through an array and conditionally appends to another.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CmdSetFiltering</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%x in (%a%) do (</span>
+<span class="go">    if %%x GTR 0 (set b=!b! %%x)</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Filters a space-separated list of values.</p></td>
+</tr>
+<tr class="row-even"><td><p>PowerShellSetFiltering</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$b</span> <span class="p">=</span> <span class="nv">$a</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span> <span class="o">-gt</span> <span class="n">0</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Where-Object cmdlet (alias ?) in a pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonSetFiltering</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions for concise filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSetFiltering</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$b = array_filter($a, fn($x) =&gt; $x &gt; 0);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses array_filter with an arrow function.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CssSetFiltering</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not support set filtering in the traditional programming sense.</p></td>
+</tr>
+<tr class="row-even"><td><p>CudaSetFiltering</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result</span><span class="p">[</span><span class="n">output_idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Filtering on GPU often requires a prefix sum (stream compaction) to determine output indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>X86SetFiltering</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="nf">jle</span><span class="w"> </span><span class="nv">.skip</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="nb">edi</span><span class="p">],</span><span class="w"> </span><span class="nb">eax</span>
+<span class="w">    </span><span class="nf">add</span><span class="w"> </span><span class="nb">edi</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="nl">.skip:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Conditional move or branch to skip elements that don’t meet the criteria.</p></td>
+</tr>
+<tr class="row-even"><td><p>RiscvSetFiltering</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">blez</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">.skip</span>
+<span class="w">    </span><span class="nf">sw</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t1</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="nl">.skip:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses conditional branches to selectively store elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArmAarch64SetFiltering</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="w">    </span><span class="nf">b.le</span><span class="w"> </span><span class="no">.skip</span>
+<span class="w">    </span><span class="nf">str</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x1</span><span class="p">],</span><span class="w"> </span><span class="mi">#8</span>
+<span class="nl">.skip:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses comparison and conditional branch to skip elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>PrologSetFiltering</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">include</span><span class="p">(</span><span class="nv">Condition</span><span class="p">,</span> <span class="nv">List</span><span class="p">,</span> <span class="nv">Filtered</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>The include/3 predicate filters a list based on a goal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaBytecodeSetFiltering</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">invokestatic</span><span class="w"> </span><span class="nn">java/util/stream/</span><span class="nc">Stream/</span><span class="nf">filter</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/util/function/</span><span class="nc">Predicate</span><span class="p">;)</span><span class="kt">L</span><span class="nn">java/util/stream/</span><span class="nc">Stream</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Stream API filter method via invokedynamic or invokestatic.</p></td>
+</tr>
+<tr class="row-even"><td><p>CamelSetFiltering</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="kt">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard library function for filtering lists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSetFiltering</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates and appends to a slice based on a condition.</p></td>
+</tr>
+<tr class="row-even"><td><p>HaskellSetFiltering</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">filter</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Higher-order function for filtering lists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TypeScriptSetFiltering</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Array.prototype.filter method.</p></td>
+</tr>
+<tr class="row-even"><td><p>TclSetFiltering</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">lmap</span><span class="w"> </span>x<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="k">{if</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>x<span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span>continue<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The lmap command can be used for filtering by skipping elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CobolSetFiltering</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">N</span>
+<span class="c">    IF</span><span class="w"> </span><span class="nv">A</span><span class="p">(</span><span class="nv">I</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="mi">        </span><span class="kr">MOVE</span><span class="w"> </span><span class="nv">A</span><span class="p">(</span><span class="nv">I</span><span class="p">)</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nv">B</span><span class="p">(</span><span class="nv">J</span><span class="p">)</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">ADD</span><span class="w"> </span><span class="mi">1 </span><span class="kp">TO</span><span class="w"> </span><span class="nv">J</span>
+<span class="c">    EN</span><span class="nv">D-IF</span>
+<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual filtering using a loop and conditional MOVE.</p></td>
+</tr>
+<tr class="row-even"><td><p>FortranSetFiltering</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The pack intrinsic function filters an array based on a mask.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSharpSetFiltering</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Where</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">).</span><span class="n">ToList</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses LINQ (Language Integrated Query) for filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>SwiftSetFiltering</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="bp">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">$0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the filter method with a closure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>KotlinSetFiltering</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the filter extension function.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="setjoin">
+<h2>SetJoin<a class="headerlink" href="#setjoin" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Combining elements from two collections based on a related column or condition (e.g., JOIN … ON).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlSetJoin</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tableA</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tableB</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tableA</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tableB</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard SQL INNER JOIN.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSetJoin</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Join logic</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested loops (Nested Loop Join).</p></td>
+</tr>
+<tr class="row-even"><td><p>CppSetJoin</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set_intersection</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">res</span><span class="p">));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses set_intersection for sorted ranges; otherwise uses nested loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQuerySetJoin</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colA</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colB</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">/</span><span class="nt">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">/</span><span class="nt">id</span>
+<span class="k">return</span><span class="w"> </span><span class="nt">&lt;res&gt;</span><span class="p">{</span><span class="nv">$</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">}</span><span class="nt">&lt;/res&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Join is performed using multiple ‘for’ clauses and a ‘where’ filter.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSetJoin</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">listA</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">flatMap</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">filter</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">id</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Result</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">))).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can be implemented using flatMap and filter on streams.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSetJoin</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">list_a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">flat_map</span><span class="p">(</span><span class="o">|</span><span class="n">a</span><span class="o">|</span><span class="w"> </span><span class="n">list_b</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">filter</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">).</span><span class="n">map</span><span class="p">(</span><span class="k">move</span><span class="w"> </span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using flat_map and filter.</p></td>
+</tr>
+<tr class="row-even"><td><p>ErlangSetJoin</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nv">A</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="p">}</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">ListA</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">ListB</span><span class="p">,</span><span class="w"> </span><span class="nb">element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">A</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="p">)].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions for joins.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LispSetJoin</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-a</span><span class="w"> </span><span class="nb">append</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-b</span>
+<span class="w">    </span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="ss">:id</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="ss">:id</span><span class="p">))</span>
+<span class="w">    </span><span class="nv">collect</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops to join lists of property lists or objects.</p></td>
+</tr>
+<tr class="row-even"><td><p>BashSetJoin</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>join<span class="w"> </span>file1<span class="w"> </span>file2
+</pre></div>
+</div>
+</td>
+<td><p>The join command joins lines of two files on a common field.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CmdSetJoin</p></td>
+<td><p>N/A</p></td>
+<td><p>Joining sets is not natively supported in Cmd and is complex to implement.</p></td>
+</tr>
+<tr class="row-even"><td><p>PowerShellSetJoin</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span> <span class="k">in</span> <span class="nv">$listA</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$b</span> <span class="k">in</span> <span class="nv">$listB</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$a</span><span class="p">.</span><span class="n">id</span> <span class="o">-eq</span> <span class="nv">$b</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="no">[PSCustomObject]</span><span class="p">@{</span><span class="n">A</span><span class="p">=</span><span class="nv">$a</span><span class="p">;</span> <span class="n">B</span><span class="p">=</span><span class="nv">$b</span><span class="p">}</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using nested foreach loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonSetJoin</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="p">[{</span><span class="o">**</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">b</span><span class="p">}</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">list_a</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">list_b</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested list comprehensions.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSetJoin</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($a as $itemA) {</span>
+<span class="x">    foreach ($b as $itemB) {</span>
+<span class="x">        if ($itemA[&#39;id&#39;] == $itemB[&#39;id&#39;]) {</span>
+<span class="x">            $res[] = array_merge($itemA, $itemB);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested foreach loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CssSetJoin</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not support set joins.</p></td>
+</tr>
+<tr class="row-even"><td><p>CudaSetJoin</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">result</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">join</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Joins on GPU are typically implemented using hash joins or nested loops across threads.</p></td>
+</tr>
+<tr class="row-odd"><td><p>X86SetJoin</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons in assembly</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires manual implementation of nested loops and equality checks.</p></td>
+</tr>
+<tr class="row-even"><td><p>RiscvSetJoin</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons in assembly</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires manual implementation of nested loops and equality checks.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArmAarch64SetJoin</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires manual implementation of nested loops and equality checks.</p></td>
+</tr>
+<tr class="row-even"><td><p>PrologSetJoin</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">join</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">member</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">A</span><span class="p">),</span> <span class="nf">member</span><span class="p">(</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">B</span><span class="p">),</span> <span class="nv">X</span><span class="p">.</span><span class="s s-Atom">id</span> <span class="o">=</span> <span class="nv">Y</span><span class="p">.</span><span class="s s-Atom">id</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Joins are naturally expressed using member/2 and unification.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaBytecodeSetJoin</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops using labels and jumps</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented by manually coding nested loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>CamelSetJoin</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">concat</span> <span class="o">(</span><span class="nn">List</span><span class="p">.</span><span class="n">map</span> <span class="o">(</span><span class="k">fun</span> <span class="n">a</span> <span class="o">-&gt;</span> <span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">id</span><span class="o">)</span> <span class="n">listB</span> <span class="o">|&gt;</span> <span class="nn">List</span><span class="p">.</span><span class="n">map</span> <span class="o">(</span><span class="k">fun</span> <span class="n">b</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">)))</span> <span class="n">listA</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested map and filter operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSetJoin</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">listA</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">listB</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">Id</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">Result</span><span class="p">{</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">})</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard imperative nested loop join.</p></td>
+</tr>
+<tr class="row-even"><td><p>HaskellSetJoin</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">listA</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">listB</span><span class="p">,</span><span class="w"> </span><span class="n">idA</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">idB</span><span class="w"> </span><span class="n">b</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions to express joins.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TypeScriptSetJoin</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({...</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">y</span><span class="p">})));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flatMap and filter for a functional approach.</p></td>
+</tr>
+<tr class="row-even"><td><p>TclSetJoin</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span>a<span class="w"> </span><span class="nv">$listA</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">foreach</span><span class="w"> </span>b<span class="w"> </span><span class="nv">$listB</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">{[</span><span class="nb">dict</span><span class="w"> </span>get<span class="w"> </span><span class="nv">$a</span><span class="w"> </span>id<span class="k">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">[</span><span class="nb">dict</span><span class="w"> </span>get<span class="w"> </span><span class="nv">$b</span><span class="w"> </span>id<span class="k">]}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">lappend</span><span class="w"> </span>res<span class="w"> </span><span class="k">[</span><span class="nb">dict</span><span class="w"> </span>merge<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$b</span><span class="k">]</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested foreach loops and dict operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CobolSetJoin</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">N</span>
+<span class="c">    PE</span><span class="nv">RFORM</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">J</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">J</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">M</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">IF</span><span class="w"> </span><span class="nv">ID-A</span><span class="p">(</span><span class="nv">I</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">ID-B</span><span class="p">(</span><span class="nv">J</span><span class="p">)</span>
+<span class="c">      </span><span class="w">      </span><span class="kr">MOVE</span><span class="w"> </span><span class="nv">TABLE-A</span><span class="p">(</span><span class="nv">I</span><span class="p">)</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nv">JOIN-RESULT</span><span class="p">(</span><span class="nv">K</span><span class="p">)</span>
+<span class="c">      </span><span class="w">      </span><span class="p">...</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">END-IF</span>
+<span class="kr">   </span><span class="w"> </span><span class="kr">END-PERFORM</span>
+<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested PERFORM VARYING loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>FortranSetJoin</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
+<span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">! Join logic</span>
+<span class="w">        </span><span class="k">end if</span>
+<span class="k">    end do</span>
+<span class="k">end do</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested DO loops for joining arrays of types.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSharpSetJoin</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">listA</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">listB</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="k">equals</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Id</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>LINQ provides a native ‘join’ keyword.</p></td>
+</tr>
+<tr class="row-even"><td><p>SwiftSetJoin</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">listA</span><span class="p">.</span><span class="n">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="bp">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="p">}.</span><span class="bp">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flatMap and filter for a functional join.</p></td>
+</tr>
+<tr class="row-odd"><td><p>KotlinSetJoin</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listA</span><span class="p">.</span><span class="na">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="p">}.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flatMap and filter extension functions.</p></td>
 </tr>
 </tbody>
 </table>

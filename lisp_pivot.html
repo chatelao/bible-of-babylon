@@ -377,6 +377,23 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-if-not</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">evenp</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Common Lisp uses remove-if-not or filter-like functions.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-a</span><span class="w"> </span><span class="nb">append</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-b</span>
+<span class="w">    </span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="ss">:id</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="ss">:id</span><span class="p">))</span>
+<span class="w">    </span><span class="nv">collect</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops to join lists of property lists or objects.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

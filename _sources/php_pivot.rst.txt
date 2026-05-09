@@ -207,3 +207,19 @@ PHP Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: php
+
+           $b = array_filter($a, fn($x) => $x > 0);
+     - Uses array_filter with an arrow function.
+   * - SetJoin
+     - .. code-block:: php
+
+           foreach ($a as $itemA) {
+               foreach ($b as $itemB) {
+                   if ($itemA['id'] == $itemB['id']) {
+                       $res[] = array_merge($itemA, $itemB);
+                   }
+               }
+           }
+     - Implemented using nested foreach loops.

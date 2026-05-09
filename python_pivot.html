@@ -381,6 +381,20 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">a</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions for concise filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="p">[{</span><span class="o">**</span><span class="n">a</span><span class="p">,</span> <span class="o">**</span><span class="n">b</span><span class="p">}</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">list_a</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">list_b</span> <span class="k">if</span> <span class="n">a</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested list comprehensions.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

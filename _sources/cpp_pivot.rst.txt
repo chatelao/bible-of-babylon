@@ -228,3 +228,13 @@ Cpp Pivot View
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
      - Manual implementation for the first three components.
+   * - SetFiltering
+     - .. code-block:: cpp
+
+           std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);
+     - Uses the standard library algorithm copy_if.
+   * - SetJoin
+     - .. code-block:: cpp
+
+           std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));
+     - Uses set_intersection for sorted ranges; otherwise uses nested loops.

@@ -389,6 +389,24 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$b</span> <span class="p">=</span> <span class="nv">$a</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span> <span class="o">-gt</span> <span class="n">0</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Where-Object cmdlet (alias ?) in a pipeline.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span> <span class="k">in</span> <span class="nv">$listA</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$b</span> <span class="k">in</span> <span class="nv">$listB</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$a</span><span class="p">.</span><span class="n">id</span> <span class="o">-eq</span> <span class="nv">$b</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="no">[PSCustomObject]</span><span class="p">@{</span><span class="n">A</span><span class="p">=</span><span class="nv">$a</span><span class="p">;</span> <span class="n">B</span><span class="p">=</span><span class="nv">$b</span><span class="p">}</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using nested foreach loops.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

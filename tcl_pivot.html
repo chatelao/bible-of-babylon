@@ -415,6 +415,20 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nv">lmap</span><span class="w"> </span>x<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="k">{if</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>x<span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span>continue<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The lmap command can be used for filtering by skipping elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span>a<span class="w"> </span><span class="nv">$listA</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">foreach</span><span class="w"> </span>b<span class="w"> </span><span class="nv">$listB</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">{[</span><span class="nb">dict</span><span class="w"> </span>get<span class="w"> </span><span class="nv">$a</span><span class="w"> </span>id<span class="k">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">[</span><span class="nb">dict</span><span class="w"> </span>get<span class="w"> </span><span class="nv">$b</span><span class="w"> </span>id<span class="k">]}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">lappend</span><span class="w"> </span>res<span class="w"> </span><span class="k">[</span><span class="nb">dict</span><span class="w"> </span>merge<span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$b</span><span class="k">]</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested foreach loops and dict operations.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -397,6 +397,20 @@
 </td>
 <td><p>Arithmetic comparison.</p></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">include</span><span class="p">(</span><span class="nv">Condition</span><span class="p">,</span> <span class="nv">List</span><span class="p">,</span> <span class="nv">Filtered</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>The include/3 predicate filters a list based on a goal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">join</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">member</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">A</span><span class="p">),</span> <span class="nf">member</span><span class="p">(</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">B</span><span class="p">),</span> <span class="nv">X</span><span class="p">.</span><span class="s s-Atom">id</span> <span class="o">=</span> <span class="nv">Y</span><span class="p">.</span><span class="s s-Atom">id</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Joins are naturally expressed using member/2 and unification.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

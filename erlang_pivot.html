@@ -397,6 +397,20 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nv">X</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">List</span><span class="p">,</span><span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions with guards for filtering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="nv">A</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="p">}</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">ListA</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">ListB</span><span class="p">,</span><span class="w"> </span><span class="nb">element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">A</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">element</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nv">B</span><span class="p">)].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses list comprehensions for joins.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

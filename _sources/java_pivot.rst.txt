@@ -225,3 +225,13 @@ Java Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: java
+
+           list.stream().filter(x -> x > 0).collect(Collectors.toList());
+     - Uses the Stream API and a predicate for filtering.
+   * - SetJoin
+     - .. code-block:: java
+
+           listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());
+     - Can be implemented using flatMap and filter on streams.

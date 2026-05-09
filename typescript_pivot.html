@@ -418,6 +418,20 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Array.prototype.filter method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">flatMap</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="p">.</span><span class="nx">id</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">y</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">y</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">({...</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="nx">y</span><span class="p">})));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flatMap and filter for a functional approach.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

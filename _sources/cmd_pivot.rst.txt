@@ -178,3 +178,13 @@ Cmd Pivot View
 
            if %a% GTR %b%
      -
+   * - SetFiltering
+     - .. code-block:: doscon
+
+           for %%x in (%a%) do (
+               if %%x GTR 0 (set b=!b! %%x)
+           )
+     - Filters a space-separated list of values.
+   * - SetJoin
+     - N/A
+     - Joining sets is not natively supported in Cmd and is complex to implement.

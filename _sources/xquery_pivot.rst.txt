@@ -189,3 +189,17 @@ XQuery Pivot View
 
            $a > $b
      - General comparison operator; use 'gt' for value comparison of single items.
+   * - SetFiltering
+     - .. code-block:: xquery
+
+           for $x in $collection
+           where $x/condition
+           return $x
+     - The where clause in a FLWOR expression filters sequences.
+   * - SetJoin
+     - .. code-block:: xquery
+
+           for $a in $colA, $b in $colB
+           where $a/id = $b/id
+           return <res>{$a, $b}</res>
+     - Join is performed using multiple 'for' clauses and a 'where' filter.

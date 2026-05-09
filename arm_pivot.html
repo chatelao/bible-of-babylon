@@ -418,6 +418,23 @@
 </td>
 <td></td>
 </tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="mi">#0</span>
+<span class="w">    </span><span class="nf">b.le</span><span class="w"> </span><span class="no">.skip</span>
+<span class="w">    </span><span class="nf">str</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x1</span><span class="p">],</span><span class="w"> </span><span class="mi">#8</span>
+<span class="nl">.skip:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses comparison and conditional branch to skip elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires manual implementation of nested loops and equality checks.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
