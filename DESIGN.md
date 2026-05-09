@@ -35,6 +35,8 @@ This section compares languages based on common programming patterns.
 - COBOL
 - Fortran
 - C#
+- Swift
+- Kotlin
 
 **Patterns to be compared:**
 - Variable declaration
