@@ -12,6 +12,7 @@ The transpiler must maintain a mapping between the internal instance names (e.g.
 |---------------|----------------|
 | SQL           | `sql`          |
 | C             | `c`            |
+| Cpp           | `cpp`          |
 | XQuery        | `xquery`       |
 | Java          | `java`         |
 | Rust          | `rust`         |

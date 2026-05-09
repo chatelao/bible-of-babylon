@@ -10,6 +10,7 @@ This section compares languages based on common programming patterns.
 **Languages:**
 - SQL
 - C
+- C++
 - XQuery
 - Java
 - Rust
