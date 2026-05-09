@@ -173,3 +173,4 @@
 - [x] Generate Pivot Chapter for COBOL
 - [x] Generate Pivot Chapter for Fortran
 - [x] Generate Pivot Chapter for C#
+- [x] Generate Pivot Chapter for C++ <!-- issue #15.17 -->
