@@ -13,6 +13,18 @@ CUDA Pivot View
 
            __device__ int x = 42;
      - Uses __device__ qualifier for GPU memory.
+   * - SwitchCase
+     - .. code-block:: cpp
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Standard C-like switch statement.
    * - IfElse
      - .. code-block:: cpp
 
@@ -81,18 +93,6 @@ CUDA Pivot View
 
            #include <cuda_runtime.h>
      - Same as C; used to include CUDA runtime headers.
-   * - SwitchCase
-     - .. code-block:: cpp
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Standard C-like switch statement.
    * - Constant
      - .. code-block:: cpp
 
@@ -188,3 +188,25 @@ CUDA Pivot View
 
            c.x = a.y*b.z - a.z*b.y; c.y = a.z*b.x - a.x*b.z; c.z = a.x*b.y - a.y*b.x;
      - Manually calculated using the components of the float4 struct.
+   * - ForLoop
+     - .. code-block:: cpp
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Standard C for loop, usable within kernels.
+   * - Equal
+     - .. code-block:: cpp
+
+           a == b
+     - Standard C operators supported in device code.
+   * - NotEqual
+     - .. code-block:: cpp
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: cpp
+
+           a > b
+     -

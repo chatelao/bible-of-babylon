@@ -13,6 +13,11 @@ Cmd Pivot View
 
            set x=42
      - Used in Windows Command Prompt.
+   * - SwitchCase
+     - .. code-block:: doscon
+
+           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
+     - Cmd does not have a native switch; it is typically simulated with if/else or goto.
    * - IfElse
      - .. code-block:: doscon
 
@@ -66,11 +71,6 @@ Cmd Pivot View
 
            call other.cmd
      - The 'call' command is used to run another batch file from within one.
-   * - SwitchCase
-     - .. code-block:: doscon
-
-           if "%x%"=="1" (goto :one) else if "%x%"=="2" (goto :two) else (goto :none)
-     - Cmd does not have a native switch; it is typically simulated with if/else or goto.
    * - Constant
      - .. code-block:: doscon
 
@@ -156,3 +156,25 @@ Cmd Pivot View
    * - Float4VectorCrossProduct
      - N/A
      - Cmd does not support floating-point arithmetic.
+   * - ForLoop
+     - .. code-block:: doscon
+
+           for /L %%i in (0,1,9) do (
+               rem body
+           )
+     - The /L switch is used for iterative loops (start, step, end).
+   * - Equal
+     - .. code-block:: doscon
+
+           if %a% EQU %b%
+     - Comparison operators are used within if statements.
+   * - NotEqual
+     - .. code-block:: doscon
+
+           if %a% NEQ %b%
+     -
+   * - GreaterThan
+     - .. code-block:: doscon
+
+           if %a% GTR %b%
+     -

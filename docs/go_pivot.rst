@@ -22,6 +22,18 @@ Go Pivot View
                return 0
            }
      - Parentheses around condition are not required; braces are mandatory.
+   * - SwitchCase
+     - .. code-block:: go
+
+           switch x {
+           case 1:
+               return 1
+           case 2:
+               return 2
+           default:
+               return 0
+           }
+     - Switch cases do not fall through by default in Go.
    * - Loop
      - .. code-block:: go
 
@@ -92,18 +104,6 @@ Go Pivot View
 
            import "fmt"
      - Imports a package by its path.
-   * - SwitchCase
-     - .. code-block:: go
-
-           switch x {
-           case 1:
-               return 1
-           case 2:
-               return 2
-           default:
-               return 0
-           }
-     - Switch cases do not fall through by default in Go.
    * - Constant
      - .. code-block:: go
 
@@ -205,3 +205,25 @@ Go Pivot View
                0,
            }
      - Calculated using array indexing in a composite literal.
+   * - ForLoop
+     - .. code-block:: go
+
+           for i := 0; i < 10; i++ {
+               // body
+           }
+     - Go's only looping construct is 'for'.
+   * - Equal
+     - .. code-block:: go
+
+           a == b
+     -
+   * - NotEqual
+     - .. code-block:: go
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: go
+
+           a > b
+     -

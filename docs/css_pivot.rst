@@ -13,6 +13,9 @@ CSS Pivot View
 
            --x: 42;
      - CSS custom properties (variables).
+   * - SwitchCase
+     - N/A
+     - CSS does not support switch/case logic.
    * - IfElse
      - .. code-block:: css
 
@@ -52,9 +55,6 @@ CSS Pivot View
 
            @import "base.css";
      - Imports styles from another stylesheet.
-   * - SwitchCase
-     - N/A
-     - CSS does not support switch/case logic.
    * - Constant
      - .. code-block:: css
 
@@ -130,3 +130,15 @@ CSS Pivot View
    * - Float4VectorCrossProduct
      - N/A
      - CSS does not support vector cross products.
+   * - ForLoop
+     - N/A
+     - CSS does not support for loops natively.
+   * - Equal
+     - N/A
+     - CSS does not support general-purpose comparison operations.
+   * - NotEqual
+     - N/A
+     -
+   * - GreaterThan
+     - N/A
+     -

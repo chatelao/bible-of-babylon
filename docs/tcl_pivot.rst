@@ -22,6 +22,21 @@ Tcl Pivot View
                return 0
            }
      - Uses braces for the condition and branches.
+   * - SwitchCase
+     - .. code-block:: tcl
+
+           switch $x {
+               1 {
+                   return 1
+               }
+               2 {
+                   return 2
+               }
+               default {
+                   return 0
+               }
+           }
+     - The switch command provides multi-way branching.
    * - Loop
      - .. code-block:: tcl
 
@@ -90,21 +105,6 @@ Tcl Pivot View
 
            package require Tcl
      - Loads a package into the interpreter.
-   * - SwitchCase
-     - .. code-block:: tcl
-
-           switch $x {
-               1 {
-                   return 1
-               }
-               2 {
-                   return 2
-               }
-               default {
-                   return 0
-               }
-           }
-     - The switch command provides multi-way branching.
    * - Constant
      - .. code-block:: tcl
 
@@ -203,3 +203,25 @@ Tcl Pivot View
                        [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
                        [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]
      - Uses expr and lindex for calculation.
+   * - ForLoop
+     - .. code-block:: tcl
+
+           for {set i 0} {$i < 10} {incr i} {
+               # body
+           }
+     - Standard for loop; all arguments are Tcl scripts.
+   * - Equal
+     - .. code-block:: tcl
+
+           [expr {$a == $b}]
+     - Comparisons are performed within the expr command.
+   * - NotEqual
+     - .. code-block:: tcl
+
+           [expr {$a != $b}]
+     -
+   * - GreaterThan
+     - .. code-block:: tcl
+
+           [expr {$a > $b}]
+     -

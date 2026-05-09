@@ -18,6 +18,14 @@ Camel Pivot View
 
            if x > 0 then 1 else 0
      - If-then-else is an expression; both branches must return the same type.
+   * - SwitchCase
+     - .. code-block:: ocaml
+
+           match x with
+           | 1 -> 1
+           | 2 -> 2
+           | _ -> 0
+     - Structural pattern matching using the match expression.
    * - Loop
      - .. code-block:: ocaml
 
@@ -76,14 +84,6 @@ Camel Pivot View
 
            open List
      - Opens a module namespace.
-   * - SwitchCase
-     - .. code-block:: ocaml
-
-           match x with
-           | 1 -> 1
-           | 2 -> 2
-           | _ -> 0
-     - Structural pattern matching using the match expression.
    * - Constant
      - .. code-block:: ocaml
 
@@ -187,3 +187,25 @@ Camel Pivot View
               a.(0) *. b.(1) -. a.(1) *. b.(0);
               0.0 |]
      - Uses array indexing and floating-point operators (*. and -.).
+   * - ForLoop
+     - .. code-block:: ocaml
+
+           for i = 0 to 9 do
+               (* body *)
+           done
+     - OCaml provides a simple for loop for integer ranges.
+   * - Equal
+     - .. code-block:: ocaml
+
+           a = b
+     - Structural equality; use == for physical equality (identity).
+   * - NotEqual
+     - .. code-block:: ocaml
+
+           a <> b
+     -
+   * - GreaterThan
+     - .. code-block:: ocaml
+
+           a > b
+     -

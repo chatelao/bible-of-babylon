@@ -13,6 +13,21 @@ x86 Assembler Pivot View
 
            x   dd 42
      - Defined in the .data section (Intel syntax).
+   * - SwitchCase
+     - .. code-block:: nasm
+
+               cmp eax, 1
+               je .case1
+               cmp eax, 2
+               je .case2
+               jmp .default
+           .case1:
+               ; ...
+           .case2:
+               ; ...
+           .default:
+               ; ...
+     - Implemented using a series of comparison and jump instructions.
    * - IfElse
      - .. code-block:: nasm
 
@@ -95,21 +110,6 @@ x86 Assembler Pivot View
 
            include 'macros.inc'
      - Includes another assembly file; syntax varies by assembler (e.g., FASM uses 'include').
-   * - SwitchCase
-     - .. code-block:: nasm
-
-               cmp eax, 1
-               je .case1
-               cmp eax, 2
-               je .case2
-               jmp .default
-           .case1:
-               ; ...
-           .case2:
-               ; ...
-           .default:
-               ; ...
-     - Implemented using a series of comparison and jump instructions.
    * - Constant
      - .. code-block:: nasm
 
@@ -207,3 +207,29 @@ x86 Assembler Pivot View
            mulps xmm2, xmm3
            subps xmm0, xmm2
      - A common SSE sequence for 3D cross product using shuffles and multiplications.
+   * - ForLoop
+     - .. code-block:: nasm
+
+               mov ecx, 10
+           .loop:
+               ; body
+               loop .loop
+     - The loop instruction uses the ECX register as a counter.
+   * - Equal
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           je .equal
+     - Comparison sets flags, then a conditional jump is used.
+   * - NotEqual
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jne .not_equal
+     -
+   * - GreaterThan
+     - .. code-block:: nasm
+
+           cmp eax, ebx
+           jg .greater
+     -

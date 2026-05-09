@@ -29,6 +29,18 @@ Java Pivot View
                x = x - 1;
            }
      - Identical to C.
+   * - SwitchCase
+     - .. code-block:: java
+
+           switch (x) {
+               case 1:
+                   return 1;
+               case 2:
+                   return 2;
+               default:
+                   return 0;
+           }
+     - Identical to C; modern Java also supports switch expressions.
    * - FunctionDefinition
      - .. code-block:: java
 
@@ -93,18 +105,6 @@ Java Pivot View
 
            import java.util.List;
      - Imports a specific class; can use * for all classes in a package.
-   * - SwitchCase
-     - .. code-block:: java
-
-           switch (x) {
-               case 1:
-                   return 1;
-               case 2:
-                   return 2;
-               default:
-                   return 0;
-           }
-     - Identical to C; modern Java also supports switch expressions.
    * - Constant
      - .. code-block:: java
 
@@ -203,3 +203,25 @@ Java Pivot View
            c[2] = a[0]*b[1] - a[1]*b[0];
            c[3] = 0.0f;
      - Standard Java implementation using array indexing.
+   * - ForLoop
+     - .. code-block:: java
+
+           for (int i = 0; i < 10; i++) {
+               // body
+           }
+     - Identical to C; also supports enhanced for-each loops.
+   * - Equal
+     - .. code-block:: java
+
+           a == b
+     - For primitives, == checks value equality; for objects, it checks reference equality.
+   * - NotEqual
+     - .. code-block:: java
+
+           a != b
+     -
+   * - GreaterThan
+     - .. code-block:: java
+
+           a > b
+     -

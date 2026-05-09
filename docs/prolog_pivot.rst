@@ -13,6 +13,14 @@ Prolog Pivot View
 
            X = 42.
      - Uses unification for assignment; variables must start with an uppercase letter.
+   * - SwitchCase
+     - .. code-block:: prolog
+
+           (   X = 1 -> writeln('one')
+           ;   X = 2 -> writeln('two')
+           ;   writeln('none')
+           )
+     - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
    * - IfElse
      - .. code-block:: prolog
 
@@ -80,14 +88,6 @@ Prolog Pivot View
 
            use_module(library(math)).
      - Imports predicates from a library module.
-   * - SwitchCase
-     - .. code-block:: prolog
-
-           (   X = 1 -> writeln('one')
-           ;   X = 2 -> writeln('two')
-           ;   writeln('none')
-           )
-     - Usually implemented using nested (If -> Then ; Else) or multiple clauses.
    * - Constant
      - .. code-block:: prolog
 
@@ -186,3 +186,23 @@ Prolog Pivot View
                C2 is A3*B1 - A1*B3,
                C3 is A1*B2 - A2*B1.
      - Implemented using list pattern matching and arithmetic evaluation.
+   * - ForLoop
+     - .. code-block:: prolog
+
+           forall(between(0, 9, I), do_something(I)).
+     - Uses between/3 to generate values and forall/2 to iterate over them.
+   * - Equal
+     - .. code-block:: prolog
+
+           A == B
+     - Checks if A and B are currently identical; use = for unification.
+   * - NotEqual
+     - .. code-block:: prolog
+
+           A \== B
+     - Checks if A and B are currently not identical.
+   * - GreaterThan
+     - .. code-block:: prolog
+
+           A > B
+     - Arithmetic comparison.

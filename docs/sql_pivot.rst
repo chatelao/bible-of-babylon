@@ -13,6 +13,15 @@ SQL Pivot View
 
            DECLARE @x INT = 42;
      - T-SQL syntax for variable declaration.
+   * - SwitchCase
+     - .. code-block:: sql
+
+           CASE @x
+               WHEN 1 THEN 'one'
+               WHEN 2 THEN 'two'
+               ELSE 'none'
+           END
+     - The CASE expression is used for conditional logic in SQL.
    * - IfElse
      - .. code-block:: sql
 
@@ -85,15 +94,6 @@ SQL Pivot View
    * - Import
      - N/A
      - Standard SQL does not have a native 'import' keyword for code; database objects are globally accessible or schema-qualified.
-   * - SwitchCase
-     - .. code-block:: sql
-
-           CASE @x
-               WHEN 1 THEN 'one'
-               WHEN 2 THEN 'two'
-               ELSE 'none'
-           END
-     - The CASE expression is used for conditional logic in SQL.
    * - Constant
      - .. code-block:: sql
 
@@ -185,3 +185,28 @@ SQL Pivot View
 
            SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0
      - Computed using column-wise arithmetic.
+   * - ForLoop
+     - .. code-block:: sql
+
+           DECLARE @i INT = 0;
+           WHILE @i < 10
+           BEGIN
+               -- body
+               SET @i = @i + 1;
+           END
+     - T-SQL uses WHILE loops; there is no native FOR loop for ranges.
+   * - Equal
+     - .. code-block:: sql
+
+           a = b
+     - Standard SQL equality operator.
+   * - NotEqual
+     - .. code-block:: sql
+
+           a <> b
+     - Standard SQL inequality operator; some dialects also support !=.
+   * - GreaterThan
+     - .. code-block:: sql
+
+           a > b
+     -
