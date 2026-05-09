@@ -58,7 +58,7 @@ def format_value(value) -> str:
 class CodeGenerator:
     # Centralized lists of supported languages and formats
     PROGRAMMING_LANGUAGES = [
-        "SQL", "C", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
+        "SQL", "C", "Cpp", "XQuery", "Java", "Rust", "Erlang", "Lisp", "Bash", "Cmd",
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
         "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel",
         "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran", "CSharp", "Swift", "Kotlin"
@@ -71,6 +71,7 @@ class CodeGenerator:
     LEXER_MAP = {
         "SQL": "sql",
         "C": "c",
+        "Cpp": "cpp",
         "XQuery": "xquery",
         "Java": "java",
         "Rust": "rust",

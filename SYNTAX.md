@@ -12,6 +12,7 @@ The transpiler maintains a mapping between internal instance names and Pygments-
 |---------------|----------------|
 | SQL           | `sql`          |
 | C             | `c`            |
+| Cpp           | `cpp`          |
 | XQuery        | `xquery`       |
 | Java          | `java`         |
 | Rust          | `rust`         |
