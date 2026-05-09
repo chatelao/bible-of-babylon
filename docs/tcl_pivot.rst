@@ -225,3 +225,13 @@ Tcl Pivot View
 
            [expr {$a > $b}]
      -
+   * - SetFiltering
+     - .. code-block:: tcl
+
+           lmap x $a {if {$x > 0} {set x} else continue}
+     - The lmap command can be used for filtering by skipping elements.
+   * - SetJoin
+     - .. code-block:: tcl
+
+           foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }
+     - Uses nested foreach loops and dict operations.

@@ -210,3 +210,17 @@ CUDA Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: cpp
+
+           if (condition(data[idx])) {
+               result[output_idx] = data[idx];
+           }
+     - Filtering on GPU often requires a prefix sum (stream compaction) to determine output indices.
+   * - SetJoin
+     - .. code-block:: cpp
+
+           if (a[i].id == b[j].id) {
+               result[idx] = join(a[i], b[j]);
+           }
+     - Joins on GPU are typically implemented using hash joins or nested loops across threads.

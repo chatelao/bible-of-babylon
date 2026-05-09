@@ -295,3 +295,13 @@ Java Bytecode Pivot View
 
            if_icmpgt Label
      -
+   * - SetFiltering
+     - .. code-block:: jasmin
+
+               invokestatic java/util/stream/Stream/filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+     - Uses Stream API filter method via invokedynamic or invokestatic.
+   * - SetJoin
+     - .. code-block:: jasmin
+
+               ; Nested loops using labels and jumps
+     - Implemented by manually coding nested loops.

@@ -68,6 +68,8 @@ This section compares languages based on common programming patterns.
 - Bitwise OR
 - Bitwise XOR
 - Bitwise NOT
+- Set filtering
+- Set join
 - 4-float vector multiplication
 - 4-float vector dot product
 - 4-float vector cross product

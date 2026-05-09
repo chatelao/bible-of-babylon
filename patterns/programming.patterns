@@ -6719,3 +6719,315 @@ instance CppFloat4VectorCrossProduct of Float4VectorCrossProduct {
     syntax = "c[0] = a[1]*b[2] - a[2]*b[1];\nc[1] = a[2]*b[0] - a[0]*b[2];\nc[2] = a[0]*b[1] - a[1]*b[0];\nc[3] = 0.0f;"
     notes = "Manual implementation for the first three components."
 }
+
+pattern SetFiltering {
+    meta description: "Filtering elements from a collection based on a condition (e.g., WHERE clause)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern SetJoin {
+    meta description: "Combining elements from two collections based on a related column or condition (e.g., JOIN ... ON)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance SqlSetFiltering of SetFiltering {
+    syntax = "SELECT * FROM table WHERE condition;"
+    notes = "The WHERE clause is used to filter records."
+}
+
+instance CSetFiltering of SetFiltering {
+    syntax = "for (int i = 0; i < n; i++) {\n    if (condition(a[i])) {\n        result[j++] = a[i];\n    }\n}"
+    notes = "Manual filtering using a loop and a condition."
+}
+
+instance CppSetFiltering of SetFiltering {
+    syntax = "std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);"
+    notes = "Uses the standard library algorithm copy_if."
+}
+
+instance XQuerySetFiltering of SetFiltering {
+    syntax = "for $x in $collection\nwhere $x/condition\nreturn $x"
+    notes = "The where clause in a FLWOR expression filters sequences."
+}
+
+instance JavaSetFiltering of SetFiltering {
+    syntax = "list.stream().filter(x -> x > 0).collect(Collectors.toList());"
+    notes = "Uses the Stream API and a predicate for filtering."
+}
+
+instance RustSetFiltering of SetFiltering {
+    syntax = "let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();"
+    notes = "Uses iterators and the filter method."
+}
+
+instance ErlangSetFiltering of SetFiltering {
+    syntax = "[X || X <- List, X > 0]."
+    notes = "Uses list comprehensions with guards for filtering."
+}
+
+instance LispSetFiltering of SetFiltering {
+    syntax = "(remove-if-not #'evenp list)"
+    notes = "Common Lisp uses remove-if-not or filter-like functions."
+}
+
+instance BashSetFiltering of SetFiltering {
+    syntax = "for x in \"${a[@]}\"; do\n    if [[ $x -gt 0 ]]; then\n        b+=(\"$x\")\n    fi\ndone"
+    notes = "Iterates through an array and conditionally appends to another."
+}
+
+instance CmdSetFiltering of SetFiltering {
+    syntax = "for %%x in (%a%) do (\n    if %%x GTR 0 (set b=!b! %%x)\n)"
+    notes = "Filters a space-separated list of values."
+}
+
+instance PowerShellSetFiltering of SetFiltering {
+    syntax = "$b = $a | Where-Object { $_ -gt 0 }"
+    notes = "Uses the Where-Object cmdlet (alias ?) in a pipeline."
+}
+
+instance PythonSetFiltering of SetFiltering {
+    syntax = "b = [x for x in a if x > 0]"
+    notes = "Uses list comprehensions for concise filtering."
+}
+
+instance PhpSetFiltering of SetFiltering {
+    syntax = "$b = array_filter($a, fn($x) => $x > 0);"
+    notes = "Uses array_filter with an arrow function."
+}
+
+instance CssSetFiltering of SetFiltering {
+    syntax = "N/A"
+    notes = "CSS does not support set filtering in the traditional programming sense."
+}
+
+instance CudaSetFiltering of SetFiltering {
+    syntax = "if (condition(data[idx])) {\n    result[output_idx] = data[idx];\n}"
+    notes = "Filtering on GPU often requires a prefix sum (stream compaction) to determine output indices."
+}
+
+instance X86SetFiltering of SetFiltering {
+    syntax = "    cmp eax, 0\n    jle .skip\n    mov [edi], eax\n    add edi, 4\n.skip:"
+    notes = "Conditional move or branch to skip elements that don't meet the criteria."
+}
+
+instance RiscvSetFiltering of SetFiltering {
+    syntax = "    blez t0, .skip\n    sw t0, 0(t1)\n    addi t1, t1, 4\n.skip:"
+    notes = "Uses conditional branches to selectively store elements."
+}
+
+instance ArmAarch64SetFiltering of SetFiltering {
+    syntax = "    cmp x0, #0\n    b.le .skip\n    str x0, [x1], #8\n.skip:"
+    notes = "Uses comparison and conditional branch to skip elements."
+}
+
+instance PrologSetFiltering of SetFiltering {
+    syntax = "include(Condition, List, Filtered)."
+    notes = "The include/3 predicate filters a list based on a goal."
+}
+
+instance JavaBytecodeSetFiltering of SetFiltering {
+    syntax = "    invokestatic java/util/stream/Stream/filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;"
+    notes = "Uses Stream API filter method via invokedynamic or invokestatic."
+}
+
+instance CamelSetFiltering of SetFiltering {
+    syntax = "List.filter (fun x -> x > 0) list"
+    notes = "Standard library function for filtering lists."
+}
+
+instance GoSetFiltering of SetFiltering {
+    syntax = "for _, x := range a {\n    if x > 0 {\n        b = append(b, x)\n    }\n}"
+    notes = "Iterates and appends to a slice based on a condition."
+}
+
+instance HaskellSetFiltering of SetFiltering {
+    syntax = "filter (> 0) list"
+    notes = "Higher-order function for filtering lists."
+}
+
+instance TypeScriptSetFiltering of SetFiltering {
+    syntax = "const b = a.filter(x => x > 0);"
+    notes = "Uses the Array.prototype.filter method."
+}
+
+instance TclSetFiltering of SetFiltering {
+    syntax = "lmap x $a {if {$x > 0} {set x} else continue}"
+    notes = "The lmap command can be used for filtering by skipping elements."
+}
+
+instance CobolSetFiltering of SetFiltering {
+    syntax = "PERFORM VARYING I FROM 1 BY 1 UNTIL I > N\n    IF A(I) > 0\n        MOVE A(I) TO B(J)\n        ADD 1 TO J\n    END-IF\nEND-PERFORM."
+    notes = "Manual filtering using a loop and conditional MOVE."
+}
+
+instance FortranSetFiltering of SetFiltering {
+    syntax = "b = pack(a, a > 0)"
+    notes = "The pack intrinsic function filters an array based on a mask."
+}
+
+instance CSharpSetFiltering of SetFiltering {
+    syntax = "var b = a.Where(x => x > 0).ToList();"
+    notes = "Uses LINQ (Language Integrated Query) for filtering."
+}
+
+instance SwiftSetFiltering of SetFiltering {
+    syntax = "let b = a.filter { $0 > 0 }"
+    notes = "Uses the filter method with a closure."
+}
+
+instance KotlinSetFiltering of SetFiltering {
+    syntax = "val b = a.filter { it > 0 }"
+    notes = "Uses the filter extension function."
+}
+
+instance SqlSetJoin of SetJoin {
+    syntax = "SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;"
+    notes = "Standard SQL INNER JOIN."
+}
+
+instance CSetJoin of SetJoin {
+    syntax = "for (int i = 0; i < n; i++) {\n    for (int j = 0; j < m; j++) {\n        if (a[i].id == b[j].id) {\n            // Join logic\n        }\n    }\n}"
+    notes = "Implemented using nested loops (Nested Loop Join)."
+}
+
+instance CppSetJoin of SetJoin {
+    syntax = "std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));"
+    notes = "Uses set_intersection for sorted ranges; otherwise uses nested loops."
+}
+
+instance XQuerySetJoin of SetJoin {
+    syntax = "for $a in $colA, $b in $colB\nwhere $a/id = $b/id\nreturn <res>{$a, $b}</res>"
+    notes = "Join is performed using multiple 'for' clauses and a 'where' filter."
+}
+
+instance JavaSetJoin of SetJoin {
+    syntax = "listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());"
+    notes = "Can be implemented using flatMap and filter on streams."
+}
+
+instance RustSetJoin of SetJoin {
+    syntax = "list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));"
+    notes = "Implemented using flat_map and filter."
+}
+
+instance ErlangSetJoin of SetJoin {
+    syntax = "[{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)]."
+    notes = "Uses list comprehensions for joins."
+}
+
+instance LispSetJoin of SetJoin {
+    syntax = "(loop for a in list-a append\n  (loop for b in list-b\n    when (= (getf a :id) (getf b :id))\n    collect (list a b)))"
+    notes = "Uses nested loops to join lists of property lists or objects."
+}
+
+instance BashSetJoin of SetJoin {
+    syntax = "join file1 file2"
+    notes = "The join command joins lines of two files on a common field."
+}
+
+instance CmdSetJoin of SetJoin {
+    syntax = "N/A"
+    notes = "Joining sets is not natively supported in Cmd and is complex to implement."
+}
+
+instance PowerShellSetJoin of SetJoin {
+    syntax = "foreach ($a in $listA) {\n    foreach ($b in $listB) {\n        if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }\n    }\n}"
+    notes = "Typically implemented using nested foreach loops."
+}
+
+instance PythonSetJoin of SetJoin {
+    syntax = "res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]"
+    notes = "Uses nested list comprehensions."
+}
+
+instance PhpSetJoin of SetJoin {
+    syntax = "foreach ($a as $itemA) {\n    foreach ($b as $itemB) {\n        if ($itemA['id'] == $itemB['id']) {\n            $res[] = array_merge($itemA, $itemB);\n        }\n    }\n}"
+    notes = "Implemented using nested foreach loops."
+}
+
+instance CssSetJoin of SetJoin {
+    syntax = "N/A"
+    notes = "CSS does not support set joins."
+}
+
+instance CudaSetJoin of SetJoin {
+    syntax = "if (a[i].id == b[j].id) {\n    result[idx] = join(a[i], b[j]);\n}"
+    notes = "Joins on GPU are typically implemented using hash joins or nested loops across threads."
+}
+
+instance X86SetJoin of SetJoin {
+    syntax = "    ; Nested loops with comparisons in assembly"
+    notes = "Requires manual implementation of nested loops and equality checks."
+}
+
+instance RiscvSetJoin of SetJoin {
+    syntax = "    ; Nested loops with comparisons in assembly"
+    notes = "Requires manual implementation of nested loops and equality checks."
+}
+
+instance ArmAarch64SetJoin of SetJoin {
+    syntax = "    ; Nested loops with comparisons"
+    notes = "Requires manual implementation of nested loops and equality checks."
+}
+
+instance PrologSetJoin of SetJoin {
+    syntax = "join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id."
+    notes = "Joins are naturally expressed using member/2 and unification."
+}
+
+instance JavaBytecodeSetJoin of SetJoin {
+    syntax = "    ; Nested loops using labels and jumps"
+    notes = "Implemented by manually coding nested loops."
+}
+
+instance CamelSetJoin of SetJoin {
+    syntax = "List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)"
+    notes = "Uses nested map and filter operations."
+}
+
+instance GoSetJoin of SetJoin {
+    syntax = "for _, a := range listA {\n    for _, b := range listB {\n        if a.Id == b.Id {\n            res = append(res, Result{a, b})\n        }\n    }\n}"
+    notes = "Standard imperative nested loop join."
+}
+
+instance HaskellSetJoin of SetJoin {
+    syntax = "[(a, b) | a <- listA, b <- listB, idA a == idB b]"
+    notes = "Uses list comprehensions to express joins."
+}
+
+instance TypeScriptSetJoin of SetJoin {
+    syntax = "const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));"
+    notes = "Uses flatMap and filter for a functional approach."
+}
+
+instance TclSetJoin of SetJoin {
+    syntax = "foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }"
+    notes = "Uses nested foreach loops and dict operations."
+}
+
+instance CobolSetJoin of SetJoin {
+    syntax = "PERFORM VARYING I FROM 1 BY 1 UNTIL I > N\n    PERFORM VARYING J FROM 1 BY 1 UNTIL J > M\n        IF ID-A(I) = ID-B(J)\n            MOVE TABLE-A(I) TO JOIN-RESULT(K)\n            ... \n        END-IF\n    END-PERFORM\nEND-PERFORM."
+    notes = "Implemented using nested PERFORM VARYING loops."
+}
+
+instance FortranSetJoin of SetJoin {
+    syntax = "do i = 1, n\n    do j = 1, m\n        if (a(i)%id == b(j)%id) then\n            ! Join logic\n        end if\n    end do\nend do"
+    notes = "Standard nested DO loops for joining arrays of types."
+}
+
+instance CSharpSetJoin of SetJoin {
+    syntax = "var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };"
+    notes = "LINQ provides a native 'join' keyword."
+}
+
+instance SwiftSetJoin of SetJoin {
+    syntax = "let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }"
+    notes = "Uses flatMap and filter for a functional join."
+}
+
+instance KotlinSetJoin of SetJoin {
+    syntax = "val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }"
+    notes = "Uses flatMap and filter extension functions."
+}

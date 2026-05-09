@@ -204,3 +204,23 @@ C Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               if (condition(a[i])) {
+                   result[j++] = a[i];
+               }
+           }
+     - Manual filtering using a loop and a condition.
+   * - SetJoin
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               for (int j = 0; j < m; j++) {
+                   if (a[i].id == b[j].id) {
+                       // Join logic
+                   }
+               }
+           }
+     - Implemented using nested loops (Nested Loop Join).

@@ -223,3 +223,13 @@ CSharp Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: csharp
+
+           var b = a.Where(x => x > 0).ToList();
+     - Uses LINQ (Language Integrated Query) for filtering.
+   * - SetJoin
+     - .. code-block:: csharp
+
+           var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };
+     - LINQ provides a native 'join' keyword.

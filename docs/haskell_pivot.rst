@@ -205,3 +205,13 @@ Haskell Pivot View
 
            a > b
      - Requires the Ord typeclass.
+   * - SetFiltering
+     - .. code-block:: haskell
+
+           filter (> 0) list
+     - Higher-order function for filtering lists.
+   * - SetJoin
+     - .. code-block:: haskell
+
+           [(a, b) | a <- listA, b <- listB, idA a == idB b]
+     - Uses list comprehensions to express joins.

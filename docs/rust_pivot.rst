@@ -221,3 +221,13 @@ Rust Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: rust
+
+           let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();
+     - Uses iterators and the filter method.
+   * - SetJoin
+     - .. code-block:: rust
+
+           list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));
+     - Implemented using flat_map and filter.

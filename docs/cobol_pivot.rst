@@ -208,3 +208,25 @@ COBOL Pivot View
 
            IF A > B
      -
+   * - SetFiltering
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               IF A(I) > 0
+                   MOVE A(I) TO B(J)
+                   ADD 1 TO J
+               END-IF
+           END-PERFORM.
+     - Manual filtering using a loop and conditional MOVE.
+   * - SetJoin
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > M
+                   IF ID-A(I) = ID-B(J)
+                       MOVE TABLE-A(I) TO JOIN-RESULT(K)
+                       ...
+                   END-IF
+               END-PERFORM
+           END-PERFORM.
+     - Implemented using nested PERFORM VARYING loops.

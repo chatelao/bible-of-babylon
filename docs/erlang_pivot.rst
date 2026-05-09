@@ -207,3 +207,13 @@ Erlang Pivot View
 
            A > B
      -
+   * - SetFiltering
+     - .. code-block:: erlang
+
+           [X || X <- List, X > 0].
+     - Uses list comprehensions with guards for filtering.
+   * - SetJoin
+     - .. code-block:: erlang
+
+           [{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].
+     - Uses list comprehensions for joins.
