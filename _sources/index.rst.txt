@@ -54,6 +54,8 @@ Downloads
    cobol_pivot
    fortran_pivot
    csharp_pivot
+   swift_pivot
+   kotlin_pivot
 
 Indices and tables
 ==================

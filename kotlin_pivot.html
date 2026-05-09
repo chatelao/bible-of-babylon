@@ -1,0 +1,449 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotlin Pivot View &mdash; Bible of Babylon  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Swift Pivot View" href="swift_pivot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Bible of Babylon
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">DSL Reference:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dsl_specification.html">DSL Specification: Source Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dsl_examples.html">DSL Examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_pivot.html">Java Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rust_pivot.html">Rust Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="erlang_pivot.html">Erlang Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lisp_pivot.html">Lisp Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_pivot.html">Bash Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cmd_pivot.html">Cmd Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="powershell_pivot.html">PowerShell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_pivot.html">Python Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="php_pivot.html">PHP Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="css_pivot.html">CSS Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cuda_pivot.html">CUDA Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x86_pivot.html">x86 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="riscv_pivot.html">RISC-V Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prolog_pivot.html">Prolog Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="java_bytecode_pivot.html">Java Bytecode Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="arm_pivot.html">ARM AArch64 Assembler Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camel_pivot.html">Camel Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="go_pivot.html">Go Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="haskell_pivot.html">Haskell Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typescript_pivot.html">TypeScript Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tcl_pivot.html">Tcl Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cobol_pivot.html">COBOL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_pivot.html">Fortran Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csharp_pivot.html">CSharp Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swift_pivot.html">Swift Pivot View</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kotlin Pivot View</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Bible of Babylon</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Kotlin Pivot View</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/kotlin_pivot.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="kotlin-pivot-view">
+<h1>Kotlin Pivot View<a class="headerlink" href="#kotlin-pivot-view" title="Link to this heading"></a></h1>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Kotlin Pivot Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VariableDeclaration</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">42</span>
+</pre></div>
+</div>
+</td>
+<td><p>Variables are declared with ‘var’; static typing with type inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Checks for structural equality; calls equals().</p></td>
+</tr>
+<tr class="row-even"><td><p>NotEqual</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">fun</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures return Unit, which can be omitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">fun</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘fun’ keyword; return type follows the parameter list.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</td>
+<td><p>If-else is an expression in Kotlin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="m">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="m">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">2</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">0</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Kotlin uses ‘when’ instead of ‘switch’.</p></td>
+</tr>
+<tr class="row-even"><td><p>Loop</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="m">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard while loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForLoop</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over a range; ‘until’ is exclusive of the upper bound.</p></td>
+</tr>
+<tr class="row-even"><td><p>TryCatch</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">doSomething</span><span class="p">()</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="w"> </span><span class="n">Exception</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard try-catch block; similar to Java.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Raise</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="n">Exception</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘throw’ to raise an exception.</p></td>
+</tr>
+<tr class="row-even"><td><p>Thread</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">thread</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">doWork</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The thread function from kotlin.concurrent easily spawns a new thread.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SendMessage</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">channel</span><span class="p">.</span><span class="na">send</span><span class="p">(</span><span class="m">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Kotlin coroutines use channels for message passing.</p></td>
+</tr>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="na">receive</span><span class="p">()</span>
+<span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Receives a value from a channel; suspends until data is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard block comment; supports nesting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Print</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs to the console with a trailing newline.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.*</span>
+</pre></div>
+</div>
+</td>
+<td><p>Imports packages or specific classes/functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constant</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘const val’ for compile-time constants.</p></td>
+</tr>
+<tr class="row-even"><td><p>Addition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Subtraction</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Remainder</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Floor</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlin.math.floor.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rounding</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlin.math.round.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Increment</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Decrement</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
+</pre></div>
+</div>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>LeftShift</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">shl</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses infix function ‘shl’.</p></td>
+</tr>
+<tr class="row-even"><td><p>RightShift</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">shr</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses infix function ‘shr’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitAnd</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses infix function ‘and’.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">or</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses infix function ‘or’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">xor</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses infix function ‘xor’.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">.</span><span class="na">inv</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses ‘inv()’ method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">zip</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ai</span><span class="p">,</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses zip with a transformation lambda.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">zip</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ai</span><span class="p">,</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ai</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">bi</span><span class="w"> </span><span class="p">}.</span><span class="na">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses zip followed by sum.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">floatArrayOf</span><span class="p">(</span>
+<span class="w">    </span><span class="n">a</span><span class="o">[</span><span class="m">1</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="m">2</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="n">a</span><span class="o">[</span><span class="m">2</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="m">0</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="n">a</span><span class="o">[</span><span class="m">0</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="m">1</span><span class="o">]*</span><span class="n">b</span><span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="p">,</span>
+<span class="w">    </span><span class="m">0.0f</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual calculation for 3D cross product.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="swift_pivot.html" class="btn btn-neutral float-left" title="Swift Pivot View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, chatelao.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

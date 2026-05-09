@@ -644,3 +644,61 @@ foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }","set c [list [expr 
 }","throw new Exception(""Error"");","new Thread(() => { do_work(); }).start();","await channel.Writer.WriteAsync(42);","var msg = await channel.Reader.ReadAsync();
 handle(msg);","// comment","/* line 1
    line 2 */","Console.WriteLine(""Hello, World!"");","using System.Collections.Generic;","const int Max = 100;","a + b","a - b","a * b","a / b","a % b","Math.Floor(a)","Math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c = a * b;","float dot = Vector4.Dot(a, b);","var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));"
+"Swift","var x: Int = 42","a == b","a != b","a > b","func logMessage(msg: String) {
+    print(msg)
+}","func add(a: Int, b: Int) -> Int {
+    return a + b
+}","if x > 0 {
+    return 1
+} else {
+    return 0
+}","switch x {
+case 1:
+    return 1
+case 2:
+    return 2
+default:
+    return 0
+}","while x > 0 {
+    x -= 1
+}","for i in 0..<10 {
+    // body
+}","do {
+    try doSomething()
+} catch {
+    handle(error)
+}","throw MyError.error","Thread.detachNewThread {
+    doWork()
+}","await actor.handle(msg)","N/A","// comment","/* line 1
+   line 2 */","print(""Hello, World!"")","import Foundation","let MAX = 100","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","let c = zip(a, b).map(*)","let dot = zip(a, b).map(*).reduce(0, +)","let c = [
+    a[1]*b[2] - a[2]*b[1],
+    a[2]*b[0] - a[0]*b[2],
+    a[0]*b[1] - a[1]*b[0],
+    0.0
+]"
+"Kotlin","var x: Int = 42","a == b","a != b","a > b","fun logMessage(msg: String) {
+    println(msg)
+}","fun add(a: Int, b: Int): Int {
+    return a + b
+}","if (x > 0) 1 else 0","when (x) {
+    1 -> 1
+    2 -> 2
+    else -> 0
+}","while (x > 0) {
+    x -= 1
+}","for (i in 0 until 10) {
+    // body
+}","try {
+    doSomething()
+} catch (e: Exception) {
+    handle(e)
+}","throw Exception(""Error"")","thread {
+    doWork()
+}","channel.send(42)","val msg = channel.receive()
+handle(msg)","// comment","/* line 1
+   line 2 */","println(""Hello, World!"")","import kotlin.math.*","const val MAX = 100","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a shl b","a shr b","a and b","a or b","a xor b","a.inv()","val c = a.zip(b) { ai, bi -> ai * bi }","val dot = a.zip(b) { ai, bi -> ai * bi }.sum()","val c = floatArrayOf(
+    a[1]*b[2] - a[2]*b[1],
+    a[2]*b[0] - a[0]*b[2],
+    a[0]*b[1] - a[1]*b[0],
+    0.0f
+)"

@@ -166,6 +166,16 @@ Parameters:
 
            int x = 42;
      - Static typing, similar to C++ and Java.
+   * - SwiftVar
+     - .. code-block:: swift
+
+           var x: Int = 42
+     - Variables are declared with 'var'; supports type inference.
+   * - KotlinVar
+     - .. code-block:: kotlin
+
+           var x: Int = 42
+     - Variables are declared with 'var'; static typing with type inference.
 
 
 
@@ -326,6 +336,16 @@ Parameters:
 
            a == b
      - 
+   * - SwiftEqual
+     - .. code-block:: swift
+
+           a == b
+     - Checks for value equality.
+   * - KotlinEqual
+     - .. code-block:: kotlin
+
+           a == b
+     - Checks for structural equality; calls equals().
 
 
 
@@ -486,6 +506,16 @@ Parameters:
 
            a != b
      - 
+   * - SwiftNotEqual
+     - .. code-block:: swift
+
+           a != b
+     - 
+   * - KotlinNotEqual
+     - .. code-block:: kotlin
+
+           a != b
+     - 
 
 
 
@@ -643,6 +673,16 @@ Parameters:
      - Alternative syntax: a .gt. b
    * - CSharpGreaterThan
      - .. code-block:: csharp
+
+           a > b
+     - 
+   * - SwiftGreaterThan
+     - .. code-block:: swift
+
+           a > b
+     - 
+   * - KotlinGreaterThan
+     - .. code-block:: kotlin
 
            a > b
      - 
@@ -875,6 +915,20 @@ Parameters:
                Console.WriteLine(msg);
            }
      - Uses the 'void' keyword for procedures.
+   * - SwiftProcedure
+     - .. code-block:: swift
+
+           func logMessage(msg: String) {
+               print(msg)
+           }
+     - Functions without a return value are effectively procedures.
+   * - KotlinProcedure
+     - .. code-block:: kotlin
+
+           fun logMessage(msg: String) {
+               println(msg)
+           }
+     - Procedures return Unit, which can be omitted.
 
 
 
@@ -1097,6 +1151,20 @@ Parameters:
                return a + b;
            }
      - Methods are typically defined within classes.
+   * - SwiftFunction
+     - .. code-block:: swift
+
+           func add(a: Int, b: Int) -> Int {
+               return a + b
+           }
+     - Uses 'func' keyword; return type is specified with '->'.
+   * - KotlinFunction
+     - .. code-block:: kotlin
+
+           fun add(a: Int, b: Int): Int {
+               return a + b
+           }
+     - Uses 'fun' keyword; return type follows the parameter list.
 
 
 
@@ -1345,6 +1413,20 @@ Parameters:
                return 0;
            }
      - Standard C-style if-else statement.
+   * - SwiftIfElse
+     - .. code-block:: swift
+
+           if x > 0 {
+               return 1
+           } else {
+               return 0
+           }
+     - Parentheses around condition are optional; braces are required.
+   * - KotlinIfElse
+     - .. code-block:: kotlin
+
+           if (x > 0) 1 else 0
+     - If-else is an expression in Kotlin.
 
 
 
@@ -1653,6 +1735,27 @@ Parameters:
                    return 0;
            }
      - Standard C-style switch; supports pattern matching in newer versions.
+   * - SwiftSwitchCase
+     - .. code-block:: swift
+
+           switch x {
+           case 1:
+               return 1
+           case 2:
+               return 2
+           default:
+               return 0
+           }
+     - Switch cases must be exhaustive and do not fall through by default.
+   * - KotlinSwitchCase
+     - .. code-block:: kotlin
+
+           when (x) {
+               1 -> 1
+               2 -> 2
+               else -> 0
+           }
+     - Kotlin uses 'when' instead of 'switch'.
 
 
 
@@ -1868,6 +1971,20 @@ Parameters:
 
            while (x > 0) {
                x = x - 1;
+           }
+     - Standard while loop.
+   * - SwiftLoop
+     - .. code-block:: swift
+
+           while x > 0 {
+               x -= 1
+           }
+     - Standard while loop; parentheses around condition are optional.
+   * - KotlinLoop
+     - .. code-block:: kotlin
+
+           while (x > 0) {
+               x -= 1
            }
      - Standard while loop.
 
@@ -2092,6 +2209,20 @@ Parameters:
                // body
            }
      - Standard C-style for loop.
+   * - SwiftForLoop
+     - .. code-block:: swift
+
+           for i in 0..<10 {
+               // body
+           }
+     - Uses ranges; ..< is half-open (exclusive of upper bound).
+   * - KotlinForLoop
+     - .. code-block:: kotlin
+
+           for (i in 0 until 10) {
+               // body
+           }
+     - Iterates over a range; 'until' is exclusive of the upper bound.
 
 
 
@@ -2302,6 +2433,24 @@ Parameters:
                handle(ex);
            }
      - Standard try-catch block for exception handling.
+   * - SwiftTryCatch
+     - .. code-block:: swift
+
+           do {
+               try doSomething()
+           } catch {
+               handle(error)
+           }
+     - Swift uses do-catch blocks for error handling; functions must be marked with 'throws'.
+   * - KotlinTryCatch
+     - .. code-block:: kotlin
+
+           try {
+               doSomething()
+           } catch (e: Exception) {
+               handle(e)
+           }
+     - Standard try-catch block; similar to Java.
 
 
 
@@ -2464,6 +2613,16 @@ Parameters:
 
            throw new Exception("Error");
      - Uses the 'throw' keyword to raise an exception.
+   * - SwiftRaise
+     - .. code-block:: swift
+
+           throw MyError.error
+     - Uses 'throw' to raise an error that conforms to the Error protocol.
+   * - KotlinRaise
+     - .. code-block:: kotlin
+
+           throw Exception("Error")
+     - Uses 'throw' to raise an exception.
 
 
 
@@ -2581,6 +2740,20 @@ Parameters:
 
            new Thread(() => { do_work(); }).start();
      - Uses the System.Threading.Thread class; Task.Run is often preferred in modern C#.
+   * - SwiftThread
+     - .. code-block:: swift
+
+           Thread.detachNewThread {
+               doWork()
+           }
+     - Spawns a new thread using the Foundation Thread class.
+   * - KotlinThread
+     - .. code-block:: kotlin
+
+           thread {
+               doWork()
+           }
+     - The thread function from kotlin.concurrent easily spawns a new thread.
 
 
 
@@ -2698,6 +2871,16 @@ Parameters:
 
            await channel.Writer.WriteAsync(42);
      - Using System.Threading.Channels for asynchronous message passing.
+   * - SwiftSendMessage
+     - .. code-block:: swift
+
+           await actor.handle(msg)
+     - Swift actors use asynchronous method calls for communication.
+   * - KotlinSendMessage
+     - .. code-block:: kotlin
+
+           channel.send(42)
+     - Kotlin coroutines use channels for message passing.
 
 
 
@@ -2819,6 +3002,15 @@ Parameters:
            var msg = await channel.Reader.ReadAsync();
            handle(msg);
      - Using System.Threading.Channels for asynchronous message receiving.
+   * - SwiftReceiveMessage
+     - N/A
+     - Message receiving is handled implicitly by actor method execution.
+   * - KotlinReceiveMessage
+     - .. code-block:: kotlin
+
+           val msg = channel.receive()
+           handle(msg)
+     - Receives a value from a channel; suspends until data is available.
 
 
 
@@ -2974,6 +3166,16 @@ Parameters:
      - Exclamation mark starts a comment to the end of the line.
    * - CSharpSingleLineComment
      - .. code-block:: csharp
+
+           // comment
+     - Standard single-line comment.
+   * - SwiftSingleLineComment
+     - .. code-block:: swift
+
+           // comment
+     - Standard single-line comment.
+   * - KotlinSingleLineComment
+     - .. code-block:: kotlin
 
            // comment
      - Standard single-line comment.
@@ -3134,6 +3336,18 @@ Parameters:
            /* line 1
               line 2 */
      - Standard block comment.
+   * - SwiftMultiLineComment
+     - .. code-block:: swift
+
+           /* line 1
+              line 2 */
+     - Standard block comment; supports nesting.
+   * - KotlinMultiLineComment
+     - .. code-block:: kotlin
+
+           /* line 1
+              line 2 */
+     - Standard block comment; supports nesting.
 
 
 
@@ -3302,6 +3516,16 @@ Parameters:
 
            Console.WriteLine("Hello, World!");
      - Outputs text to the console with a trailing newline.
+   * - SwiftPrint
+     - .. code-block:: swift
+
+           print("Hello, World!")
+     - Outputs to the console with a trailing newline.
+   * - KotlinPrint
+     - .. code-block:: kotlin
+
+           println("Hello, World!")
+     - Outputs to the console with a trailing newline.
 
 
 
@@ -3462,6 +3686,16 @@ Parameters:
 
            using System.Collections.Generic;
      - The 'using' directive imports namespaces.
+   * - SwiftImport
+     - .. code-block:: swift
+
+           import Foundation
+     - Imports a module or specific symbols from it.
+   * - KotlinImport
+     - .. code-block:: kotlin
+
+           import kotlin.math.*
+     - Imports packages or specific classes/functions.
 
 
 
@@ -3628,6 +3862,16 @@ Parameters:
 
            const int Max = 100;
      - The 'const' keyword defines a compile-time constant.
+   * - SwiftConstant
+     - .. code-block:: swift
+
+           let MAX = 100
+     - Uses 'let' for immutable declarations.
+   * - KotlinConstant
+     - .. code-block:: kotlin
+
+           const val MAX = 100
+     - Uses 'const val' for compile-time constants.
 
 
 
@@ -3788,6 +4032,16 @@ Parameters:
 
            a + b
      - Standard arithmetic operator.
+   * - SwiftAddition
+     - .. code-block:: swift
+
+           a + b
+     - 
+   * - KotlinAddition
+     - .. code-block:: kotlin
+
+           a + b
+     - 
 
 
 
@@ -3948,6 +4202,16 @@ Parameters:
 
            a - b
      - Standard arithmetic operator.
+   * - SwiftSubtraction
+     - .. code-block:: swift
+
+           a - b
+     - 
+   * - KotlinSubtraction
+     - .. code-block:: kotlin
+
+           a - b
+     - 
 
 
 
@@ -4108,6 +4372,16 @@ Parameters:
 
            a * b
      - Standard arithmetic operator.
+   * - SwiftMultiplication
+     - .. code-block:: swift
+
+           a * b
+     - 
+   * - KotlinMultiplication
+     - .. code-block:: kotlin
+
+           a * b
+     - 
 
 
 
@@ -4268,6 +4542,16 @@ Parameters:
 
            a / b
      - Standard arithmetic operator.
+   * - SwiftDivision
+     - .. code-block:: swift
+
+           a / b
+     - 
+   * - KotlinDivision
+     - .. code-block:: kotlin
+
+           a / b
+     - 
 
 
 
@@ -4424,6 +4708,16 @@ Parameters:
 
            a % b
      - Standard arithmetic operator.
+   * - SwiftRemainder
+     - .. code-block:: swift
+
+           a % b
+     - 
+   * - KotlinRemainder
+     - .. code-block:: kotlin
+
+           a % b
+     - 
 
 
 
@@ -4572,6 +4866,16 @@ Parameters:
 
            Math.Floor(a)
      - Uses the System.Math class.
+   * - SwiftFloor
+     - .. code-block:: swift
+
+           floor(a)
+     - Requires Foundation.
+   * - KotlinFloor
+     - .. code-block:: kotlin
+
+           floor(a)
+     - Requires kotlin.math.floor.
 
 
 
@@ -4722,6 +5026,16 @@ Parameters:
 
            Math.Round(a)
      - Uses the System.Math class.
+   * - SwiftRounding
+     - .. code-block:: swift
+
+           round(a)
+     - Requires Foundation.
+   * - KotlinRounding
+     - .. code-block:: kotlin
+
+           round(a)
+     - Requires kotlin.math.round.
 
 
 
@@ -4882,6 +5196,16 @@ Parameters:
 
            a++
      - Standard increment operator.
+   * - SwiftIncrement
+     - .. code-block:: swift
+
+           a += 1
+     - Swift does not support unary ++.
+   * - KotlinIncrement
+     - .. code-block:: kotlin
+
+           a++
+     - 
 
 
 
@@ -5042,6 +5366,16 @@ Parameters:
 
            a--
      - Standard decrement operator.
+   * - SwiftDecrement
+     - .. code-block:: swift
+
+           a -= 1
+     - Swift does not support unary --.
+   * - KotlinDecrement
+     - .. code-block:: kotlin
+
+           a--
+     - 
 
 
 
@@ -5194,6 +5528,16 @@ Parameters:
 
            a << b
      - Standard bitwise shift operator.
+   * - SwiftLeftShift
+     - .. code-block:: swift
+
+           a << b
+     - 
+   * - KotlinLeftShift
+     - .. code-block:: kotlin
+
+           a shl b
+     - Uses infix function 'shl'.
 
 
 
@@ -5346,6 +5690,16 @@ Parameters:
 
            a >> b
      - Standard bitwise shift operator.
+   * - SwiftRightShift
+     - .. code-block:: swift
+
+           a >> b
+     - 
+   * - KotlinRightShift
+     - .. code-block:: kotlin
+
+           a shr b
+     - Uses infix function 'shr'.
 
 
 
@@ -5500,6 +5854,16 @@ Parameters:
 
            a & b
      - Standard bitwise operator.
+   * - SwiftBitAnd
+     - .. code-block:: swift
+
+           a & b
+     - 
+   * - KotlinBitAnd
+     - .. code-block:: kotlin
+
+           a and b
+     - Uses infix function 'and'.
 
 
 
@@ -5654,6 +6018,16 @@ Parameters:
 
            a | b
      - Standard bitwise operator.
+   * - SwiftBitOr
+     - .. code-block:: swift
+
+           a | b
+     - 
+   * - KotlinBitOr
+     - .. code-block:: kotlin
+
+           a or b
+     - Uses infix function 'or'.
 
 
 
@@ -5808,6 +6182,16 @@ Parameters:
 
            a ^ b
      - Standard bitwise operator.
+   * - SwiftBitXor
+     - .. code-block:: swift
+
+           a ^ b
+     - 
+   * - KotlinBitXor
+     - .. code-block:: kotlin
+
+           a xor b
+     - Uses infix function 'xor'.
 
 
 
@@ -5963,6 +6347,16 @@ Parameters:
 
            ~a
      - Standard bitwise operator.
+   * - SwiftBitNot
+     - .. code-block:: swift
+
+           ~a
+     - 
+   * - KotlinBitNot
+     - .. code-block:: kotlin
+
+           a.inv()
+     - Uses 'inv()' method.
 
 
 
@@ -6124,6 +6518,16 @@ Parameters:
 
            c = a * b;
      - System.Numerics.Vector4 supports overloaded operators for element-wise multiplication.
+   * - SwiftFloat4VectorMultiplication
+     - .. code-block:: swift
+
+           let c = zip(a, b).map(*)
+     - Functional approach using zip and map.
+   * - KotlinFloat4VectorMultiplication
+     - .. code-block:: kotlin
+
+           val c = a.zip(b) { ai, bi -> ai * bi }
+     - Uses zip with a transformation lambda.
 
 
 
@@ -6292,6 +6696,16 @@ Parameters:
 
            float dot = Vector4.Dot(a, b);
      - System.Numerics.Vector4.Dot provides the scalar product.
+   * - SwiftFloat4VectorDotProduct
+     - .. code-block:: swift
+
+           let dot = zip(a, b).map(*).reduce(0, +)
+     - Functional approach using zip, map, and reduce.
+   * - KotlinFloat4VectorDotProduct
+     - .. code-block:: kotlin
+
+           val dot = a.zip(b) { ai, bi -> ai * bi }.sum()
+     - Uses zip followed by sum.
 
 
 
@@ -6518,3 +6932,23 @@ Parameters:
 
            var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
      - Cross product is defined for 3D vectors in System.Numerics.Vector3.
+   * - SwiftFloat4VectorCrossProduct
+     - .. code-block:: swift
+
+           let c = [
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0.0
+           ]
+     - Manual calculation for 3D cross product.
+   * - KotlinFloat4VectorCrossProduct
+     - .. code-block:: kotlin
+
+           val c = floatArrayOf(
+               a[1]*b[2] - a[2]*b[1],
+               a[2]*b[0] - a[0]*b[2],
+               a[0]*b[1] - a[1]*b[0],
+               0.0f
+           )
+     - Manual calculation for 3D cross product.
