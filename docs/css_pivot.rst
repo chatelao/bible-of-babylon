@@ -142,3 +142,9 @@ CSS Pivot View
    * - GreaterThan
      - N/A
      -
+   * - SetFiltering
+     - N/A
+     - CSS does not support set filtering in the traditional programming sense.
+   * - SetJoin
+     - N/A
+     - CSS does not support set joins.

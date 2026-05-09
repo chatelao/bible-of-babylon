@@ -227,3 +227,23 @@ Go Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: go
+
+           for _, x := range a {
+               if x > 0 {
+                   b = append(b, x)
+               }
+           }
+     - Iterates and appends to a slice based on a condition.
+   * - SetJoin
+     - .. code-block:: go
+
+           for _, a := range listA {
+               for _, b := range listB {
+                   if a.Id == b.Id {
+                       res = append(res, Result{a, b})
+                   }
+               }
+           }
+     - Standard imperative nested loop join.

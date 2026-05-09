@@ -227,3 +227,13 @@ Swift Pivot View
                0.0
            ]
      - Manual calculation for 3D cross product.
+   * - SetFiltering
+     - .. code-block:: swift
+
+           let b = a.filter { $0 > 0 }
+     - Uses the filter method with a closure.
+   * - SetJoin
+     - .. code-block:: swift
+
+           let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }
+     - Uses flatMap and filter for a functional join.

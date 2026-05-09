@@ -196,3 +196,13 @@ Python Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: python
+
+           b = [x for x in a if x > 0]
+     - Uses list comprehensions for concise filtering.
+   * - SetJoin
+     - .. code-block:: python
+
+           res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]
+     - Uses nested list comprehensions.

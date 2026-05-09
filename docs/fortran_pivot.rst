@@ -216,3 +216,19 @@ Fortran Pivot View
 
            a > b
      - Alternative syntax: a .gt. b
+   * - SetFiltering
+     - .. code-block:: fortran
+
+           b = pack(a, a > 0)
+     - The pack intrinsic function filters an array based on a mask.
+   * - SetJoin
+     - .. code-block:: fortran
+
+           do i = 1, n
+               do j = 1, m
+                   if (a(i)%id == b(j)%id) then
+                       ! Join logic
+                   end if
+               end do
+           end do
+     - Standard nested DO loops for joining arrays of types.

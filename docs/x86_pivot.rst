@@ -233,3 +233,17 @@ x86 Assembler Pivot View
            cmp eax, ebx
            jg .greater
      -
+   * - SetFiltering
+     - .. code-block:: nasm
+
+               cmp eax, 0
+               jle .skip
+               mov [edi], eax
+               add edi, 4
+           .skip:
+     - Conditional move or branch to skip elements that don't meet the criteria.
+   * - SetJoin
+     - .. code-block:: nasm
+
+               ; Nested loops with comparisons in assembly
+     - Requires manual implementation of nested loops and equality checks.

@@ -204,3 +204,17 @@ PowerShell Pivot View
 
            $a -gt $b
      -
+   * - SetFiltering
+     - .. code-block:: powershell
+
+           $b = $a | Where-Object { $_ -gt 0 }
+     - Uses the Where-Object cmdlet (alias ?) in a pipeline.
+   * - SetJoin
+     - .. code-block:: powershell
+
+           foreach ($a in $listA) {
+               foreach ($b in $listB) {
+                   if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }
+               }
+           }
+     - Typically implemented using nested foreach loops.

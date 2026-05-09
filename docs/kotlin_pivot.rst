@@ -223,3 +223,13 @@ Kotlin Pivot View
                0.0f
            )
      - Manual calculation for 3D cross product.
+   * - SetFiltering
+     - .. code-block:: kotlin
+
+           val b = a.filter { it > 0 }
+     - Uses the filter extension function.
+   * - SetJoin
+     - .. code-block:: kotlin
+
+           val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
+     - Uses flatMap and filter extension functions.

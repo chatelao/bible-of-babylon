@@ -232,3 +232,16 @@ ARM AArch64 Assembler Pivot View
            cmp x0, x1
            b.gt .greater
      -
+   * - SetFiltering
+     - .. code-block:: asm
+
+               cmp x0, #0
+               b.le .skip
+               str x0, [x1], #8
+           .skip:
+     - Uses comparison and conditional branch to skip elements.
+   * - SetJoin
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons
+     - Requires manual implementation of nested loops and equality checks.

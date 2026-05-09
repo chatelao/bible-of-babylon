@@ -206,3 +206,17 @@ Bash Pivot View
 
            [ "$a" -gt "$b" ]
      - Used for integer comparison; use > (within [[ ]]) or expr for strings.
+   * - SetFiltering
+     - .. code-block:: bash
+
+           for x in "${a[@]}"; do
+               if [[ $x -gt 0 ]]; then
+                   b+=("$x")
+               fi
+           done
+     - Iterates through an array and conditionally appends to another.
+   * - SetJoin
+     - .. code-block:: bash
+
+           join file1 file2
+     - The join command joins lines of two files on a common field.

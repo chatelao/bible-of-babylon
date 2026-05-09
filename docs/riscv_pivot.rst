@@ -223,3 +223,16 @@ RISC-V Assembler Pivot View
 
            bgt t0, t1, .greater
      - Pseudo-instruction that expands to blt with swapped operands.
+   * - SetFiltering
+     - .. code-block:: asm
+
+               blez t0, .skip
+               sw t0, 0(t1)
+               addi t1, t1, 4
+           .skip:
+     - Uses conditional branches to selectively store elements.
+   * - SetJoin
+     - .. code-block:: asm
+
+               ; Nested loops with comparisons in assembly
+     - Requires manual implementation of nested loops and equality checks.

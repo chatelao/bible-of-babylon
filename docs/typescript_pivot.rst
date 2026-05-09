@@ -227,3 +227,13 @@ TypeScript Pivot View
 
            a > b
      -
+   * - SetFiltering
+     - .. code-block:: typescript
+
+           const b = a.filter(x => x > 0);
+     - Uses the Array.prototype.filter method.
+   * - SetJoin
+     - .. code-block:: typescript
+
+           const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));
+     - Uses flatMap and filter for a functional approach.
