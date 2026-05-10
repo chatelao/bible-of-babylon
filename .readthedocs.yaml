@@ -13,17 +13,17 @@ build:
       - echo "" >> docs/matrices.rst
       - echo "Programming Languages" >> docs/matrices.rst
       - echo "---------------------" >> docs/matrices.rst
-      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Cpp,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --pivot-matrix >> docs/matrices.rst
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "SQL,C,Cpp,XQuery,Java,Rust,Erlang,Lisp,Bash,Cmd,PowerShell,Python,PHP,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog,Java Bytecode,ARM AArch64 Assembler,Camel,Go,Haskell,TypeScript,Tcl,COBOL,Fortran,CSharp,Swift,Kotlin,GraphQL,SPARQL,Overpass Turbo" --pivot-matrix >> docs/matrices.rst
       - echo "" >> docs/matrices.rst
       - echo "Data Formats" >> docs/matrices.rst
       - echo "------------" >> docs/matrices.rst
       - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --pivot-matrix >> docs/matrices.rst
       # Generate Downloadable Matrices for Sphinx :download: role
       # CSV
-      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Cpp,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --csv > docs/programming_matrix.csv
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "SQL,C,Cpp,XQuery,Java,Rust,Erlang,Lisp,Bash,Cmd,PowerShell,Python,PHP,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog,Java Bytecode,ARM AArch64 Assembler,Camel,Go,Haskell,TypeScript,Tcl,COBOL,Fortran,CSharp,Swift,Kotlin,GraphQL,SPARQL,Overpass Turbo" --csv > docs/programming_matrix.csv
       - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --csv > docs/data_formats_matrix.csv
       # Excel
-      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "C,Cpp,Java,Rust,Python,PHP,Bash,PowerShell,Cmd,SQL,Erlang,Lisp,XQuery,CSS,CUDA,x86 Assembler,RISC-V Assembler,ARM AArch64 Assembler,Prolog,Java Bytecode,Camel,Go,Haskell,TypeScript,Tcl,CSharp" --excel -o docs/programming_matrix.xlsx
+      - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/programming.patterns -m "SQL,C,Cpp,XQuery,Java,Rust,Erlang,Lisp,Bash,Cmd,PowerShell,Python,PHP,CSS,CUDA,x86 Assembler,RISC-V Assembler,Prolog,Java Bytecode,ARM AArch64 Assembler,Camel,Go,Haskell,TypeScript,Tcl,COBOL,Fortran,CSharp,Swift,Kotlin,GraphQL,SPARQL,Overpass Turbo" --excel -o docs/programming_matrix.xlsx
       - export PYTHONPATH=$PYTHONPATH:. && python3 -m src.main patterns/data_formats.patterns -m "JSON,XML,YAML,TOML,CSV,Fixlength" --excel -o docs/data_formats_matrix.xlsx
 
 python:

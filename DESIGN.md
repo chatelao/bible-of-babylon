@@ -41,6 +41,8 @@ This section compares languages based on common programming patterns.
 
 **Patterns to be compared:**
 - Variable declaration
+- Collection definition
+- Associative array definition
 - Control flow (if/else, loops, for loops)
 - Function/Procedure definition
 - Error handling

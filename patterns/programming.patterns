@@ -7,6 +7,21 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern CollectionDefinition {
+    meta description: "Declaring and optionally initializing an ordered sequence of elements."
+    parameter name: String
+    parameter type: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern AssociativeArrayDefinition {
+    meta description: "Declaring and optionally initializing a collection of key-value pairs."
+    parameter name: String
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern Equal {
     meta description: "Checks if two values are equal."
     parameter syntax: String
@@ -82,12 +97,38 @@ instance CVar of VariableDeclaration {
     notes = "Static typing, terminated by semicolon."
 }
 
+instance CCollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = "int[]"
+    syntax = "int arr[] = {1, 2, 3};"
+    notes = "Standard C array definition with initializer list."
+}
+
+instance CAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "C does not have a native associative array type; typically implemented via libraries or custom hash tables."
+}
+
 instance JavaVar of VariableDeclaration {
     name = "x"
     type = "int"
     initial_value = 42
     syntax = "int x = 42;"
     notes = "Strongly typed, similar to C."
+}
+
+instance JavaCollectionDefinition of CollectionDefinition {
+    name = "list"
+    type = "List<Integer>"
+    syntax = "List<Integer> list = List.of(1, 2, 3);"
+    notes = "Using the immutable List.of method (Java 9+)."
+}
+
+instance JavaAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "map"
+    syntax = "Map<String, Integer> map = Map.of(\"a\", 1, \"b\", 2);"
+    notes = "Using the immutable Map.of method (Java 9+)."
 }
 
 instance RustVar of VariableDeclaration {
@@ -98,12 +139,38 @@ instance RustVar of VariableDeclaration {
     notes = "Immutable by default; supports type inference."
 }
 
+instance RustCollectionDefinition of CollectionDefinition {
+    name = "v"
+    type = "Vec<i32>"
+    syntax = "let v = vec![1, 2, 3];"
+    notes = "Using the vec! macro for dynamic array creation."
+}
+
+instance RustAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "let m = HashMap::from([(\"a\", 1), (\"b\", 2)]);"
+    notes = "Requires importing std::collections::HashMap."
+}
+
 instance PythonVar of VariableDeclaration {
     name = "x"
     type = "None"
     initial_value = 42
     syntax = "x = 42"
     notes = "Dynamically typed, no explicit type declaration needed."
+}
+
+instance PythonCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "None"
+    syntax = "l = [1, 2, 3]"
+    notes = "Lists are the primary collection type in Python."
+}
+
+instance PythonAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "d"
+    syntax = "d = {\"a\": 1, \"b\": 2}"
+    notes = "Dictionaries are Python's native associative array type."
 }
 
 instance PhpVar of VariableDeclaration {
@@ -114,12 +181,38 @@ instance PhpVar of VariableDeclaration {
     notes = "Variables start with a dollar sign; dynamically typed but supports type declarations."
 }
 
+instance PhpCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "array"
+    syntax = "$a = [1, 2, 3];"
+    notes = "PHP arrays can act as both indexed collections and associative maps."
+}
+
+instance PhpAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "d"
+    syntax = "$d = ['a' => 1, 'b' => 2];"
+    notes = "Associative arrays use the 'key => value' syntax."
+}
+
 instance ErlangVar of VariableDeclaration {
     name = "X"
     type = "Dynamic"
     initial_value = 42
     syntax = "X = 42."
     notes = "Single assignment; must start with an uppercase letter."
+}
+
+instance ErlangCollectionDefinition of CollectionDefinition {
+    name = "L"
+    type = "list()"
+    syntax = "L = [1, 2, 3]."
+    notes = "Lists are the standard linked-list structure in Erlang."
+}
+
+instance ErlangAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "M"
+    syntax = "M = #{a => 1, b => 2}."
+    notes = "Maps are used for key-value pairs in Erlang."
 }
 
 instance LispVar of VariableDeclaration {
@@ -130,12 +223,38 @@ instance LispVar of VariableDeclaration {
     notes = "Dynamic typing; defined using defparameter or defvar."
 }
 
+instance LispCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "list"
+    syntax = "(setf l '(1 2 3))"
+    notes = "Lists in Lisp are typically quoted literals or created with (list ...)."
+}
+
+instance LispAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "(setf m (pairlis '(a b) '(1 2)))"
+    notes = "Association lists (alists) or property lists (plists) are common in Lisp."
+}
+
 instance BashVar of VariableDeclaration {
     name = "x"
     type = "Untyped"
     initial_value = 42
     syntax = "x=42"
     notes = "No spaces around the assignment operator."
+}
+
+instance BashCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "Array"
+    syntax = "a=(1 2 3)"
+    notes = "Bash supports indexed arrays using parentheses."
+}
+
+instance BashAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "declare -A m=([a]=1 [b]=2)"
+    notes = "Associative arrays require explicit declaration with 'declare -A'."
 }
 
 instance CmdVar of VariableDeclaration {
@@ -146,12 +265,38 @@ instance CmdVar of VariableDeclaration {
     notes = "Used in Windows Command Prompt."
 }
 
+instance CmdCollectionDefinition of CollectionDefinition {
+    name = "N/A"
+    type = "N/A"
+    syntax = "set a=1 2 3"
+    notes = "Cmd does not have real arrays; strings with delimiters are used for iteration."
+}
+
+instance CmdAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "set m_a=1\nset m_b=2"
+    notes = "Associative arrays are simulated using variable naming conventions (e.g., prefixing)."
+}
+
 instance PowerShellVar of VariableDeclaration {
     name = "x"
     type = "Dynamic"
     initial_value = 42
     syntax = "$x = 42"
     notes = "Variables start with a dollar sign."
+}
+
+instance PowerShellCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "Object[]"
+    syntax = "$a = 1, 2, 3"
+    notes = "The comma operator creates an array in PowerShell."
+}
+
+instance PowerShellAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "h"
+    syntax = "$h = @{ a = 1; b = 2 }"
+    notes = "Hashtables are created using the @{ } syntax."
 }
 
 instance SqlVar of VariableDeclaration {
@@ -162,12 +307,38 @@ instance SqlVar of VariableDeclaration {
     notes = "T-SQL syntax for variable declaration."
 }
 
+instance SqlCollectionDefinition of CollectionDefinition {
+    name = "N/A"
+    type = "Table"
+    syntax = "DECLARE @t TABLE (val INT);\nINSERT INTO @t VALUES (1), (2), (3);"
+    notes = "Collections are typically represented as table variables or temporary tables."
+}
+
+instance SqlAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "DECLARE @t TABLE (key_name NVARCHAR(10), val INT);\nINSERT INTO @t VALUES ('a', 1), ('b', 2);"
+    notes = "Associative mapping is achieved through table structures with key/value columns."
+}
+
 instance XQueryVar of VariableDeclaration {
     name = "x"
     type = "xs:integer"
     initial_value = 42
     syntax = "let $x := 42"
     notes = "XQuery uses 'let' for variable binding."
+}
+
+instance XQueryCollectionDefinition of CollectionDefinition {
+    name = "s"
+    type = "item()*"
+    syntax = "let $s := (1, 2, 3)"
+    notes = "Sequences are the primary collection type in XQuery, created using parentheses and commas."
+}
+
+instance XQueryAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "let $m := map { \"a\": 1, \"b\": 2 }"
+    notes = "Maps were introduced in XQuery 3.1."
 }
 
 instance CssVar of VariableDeclaration {
@@ -178,12 +349,38 @@ instance CssVar of VariableDeclaration {
     notes = "CSS custom properties (variables)."
 }
 
+instance CssCollectionDefinition of CollectionDefinition {
+    name = "N/A"
+    type = "N/A"
+    syntax = "N/A"
+    notes = "CSS does not have a native collection type."
+}
+
+instance CssAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "CSS does not have a native associative array type."
+}
+
 instance CudaVar of VariableDeclaration {
     name = "x"
     type = "int"
     initial_value = 42
     syntax = "__device__ int x = 42;"
     notes = "Uses __device__ qualifier for GPU memory."
+}
+
+instance CudaCollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = "int[3]"
+    syntax = "int arr[] = {1, 2, 3};"
+    notes = "Standard C-style arrays are used within CUDA kernels."
+}
+
+instance CudaAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "CUDA does not have a native associative array type in device code."
 }
 
 instance X86Var of VariableDeclaration {
@@ -194,6 +391,19 @@ instance X86Var of VariableDeclaration {
     notes = "Defined in the .data section (Intel syntax)."
 }
 
+instance X86CollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = "DD"
+    syntax = "arr dd 1, 2, 3"
+    notes = "A collection is defined as a sequence of data values in the data section."
+}
+
+instance X86AssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Associative arrays are not a native concept in assembly; they must be implemented manually via hashing or search algorithms."
+}
+
 instance RiscvVar of VariableDeclaration {
     name = "x"
     type = ".word"
@@ -202,12 +412,38 @@ instance RiscvVar of VariableDeclaration {
     notes = "Defined in the .data section."
 }
 
+instance RiscvCollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = ".word"
+    syntax = "arr: .word 1, 2, 3"
+    notes = "A collection is defined as a series of data directives in the data section."
+}
+
+instance RiscvAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Associative arrays are typically implemented via pointers and memory structures."
+}
+
 instance PrologVariableDeclaration of VariableDeclaration {
     name = "X"
     type = "Dynamic"
     initial_value = 42
     syntax = "X = 42."
     notes = "Uses unification for assignment; variables must start with an uppercase letter."
+}
+
+instance PrologCollectionDefinition of CollectionDefinition {
+    name = "L"
+    type = "list"
+    syntax = "L = [1, 2, 3]."
+    notes = "Lists are the primary collection type in Prolog, represented with square brackets."
+}
+
+instance PrologAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Prolog does not have a native associative array; association is typically achieved through facts or association lists."
 }
 
 instance CIfElse of IfElse {
@@ -1861,6 +2097,19 @@ instance JavaBytecodeVar of VariableDeclaration {
     notes = "In Jasmin syntax, static fields represent global-like variables."
 }
 
+instance JavaBytecodeCollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = "[I"
+    syntax = "iconst_3\nnewarray int\nastore_1"
+    notes = "In Java Bytecode, arrays are created using instructions like newarray or anewarray."
+}
+
+instance JavaBytecodeAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "map"
+    syntax = "new java/util/HashMap\ndup\ninvokespecial java/util/HashMap/<init>()V\nastore_1"
+    notes = "Associative arrays involve instantiating a Map class like HashMap."
+}
+
 instance JavaBytecodeIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -3415,6 +3664,19 @@ instance CamelVar of VariableDeclaration {
     notes = "Immutable binding by default; type inference is used."
 }
 
+instance CamelCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "int list"
+    syntax = "let l = [1; 2; 3]"
+    notes = "Lists in OCaml use semicolons as separators and square brackets."
+}
+
+instance CamelAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "let m = Map.empty |> Map.add \"a\" 1 |> Map.add \"b\" 2"
+    notes = "OCaml's Map module provides an immutable associative structure."
+}
+
 instance CamelIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -3600,6 +3862,19 @@ instance ArmAarch64Var of VariableDeclaration {
     initial_value = 42
     syntax = "x:  .quad 42"
     notes = "Defined in the .data section."
+}
+
+instance ArmAarch64CollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = ".quad"
+    syntax = "arr: .quad 1, 2, 3"
+    notes = "Defined as a sequence of values in the .data section."
+}
+
+instance ArmAarch64AssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Not natively supported in assembly."
 }
 
 instance ArmAarch64IfElse of IfElse {
@@ -3789,6 +4064,19 @@ instance GoVar of VariableDeclaration {
     notes = "Static typing with optional type inference."
 }
 
+instance GoCollectionDefinition of CollectionDefinition {
+    name = "s"
+    type = "[]int"
+    syntax = "s := []int{1, 2, 3}"
+    notes = "Slices are the primary collection type in Go."
+}
+
+instance GoAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "m := map[string]int{\"a\": 1, \"b\": 2}"
+    notes = "Maps are used for associative storage in Go."
+}
+
 instance GoIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -3974,6 +4262,19 @@ instance HaskellVar of VariableDeclaration {
     initial_value = 42
     syntax = "let x = 42"
     notes = "Immutable binding within a scope; part of let-in or where clause."
+}
+
+instance HaskellCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "[Int]"
+    syntax = "let l = [1, 2, 3]"
+    notes = "Lists in Haskell are homogeneous linked lists."
+}
+
+instance HaskellAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "let m = Data.Map.fromList [(\"a\", 1), (\"b\", 2)]"
+    notes = "Requires importing Data.Map."
 }
 
 instance HaskellIfElse of IfElse {
@@ -4163,6 +4464,19 @@ instance TypeScriptVar of VariableDeclaration {
     notes = "Supports static typing on top of JavaScript."
 }
 
+instance TypeScriptCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "number[]"
+    syntax = "const a: number[] = [1, 2, 3];"
+    notes = "Arrays are the primary collection type in TypeScript."
+}
+
+instance TypeScriptAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "const m: Map<string, number> = new Map([['a', 1], ['b', 2]]);"
+    notes = "The Map object provides associative mapping."
+}
+
 instance TypeScriptIfElse of IfElse {
     condition = "x > 0"
     then_branch = { return 1 }
@@ -4348,6 +4662,19 @@ instance TclVar of VariableDeclaration {
     initial_value = 42
     syntax = "set x 42"
     notes = "Variables are untyped strings; set is used for assignment."
+}
+
+instance TclCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "list"
+    syntax = "set l [list 1 2 3]"
+    notes = "Lists are a fundamental data type in Tcl."
+}
+
+instance TclAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "array set m {a 1 b 2}"
+    notes = "Tcl supports associative arrays with the 'array' command."
 }
 
 instance TclIfElse of IfElse {
@@ -5035,12 +5362,38 @@ instance CobolVariableDeclaration of VariableDeclaration {
     notes = "Variables are defined in the DATA DIVISION; PIC (picture) clause specifies the data type and size."
 }
 
+instance CobolCollectionDefinition of CollectionDefinition {
+    name = "ARR"
+    type = "OCCURS"
+    syntax = "01 ARR.\n   05 ITEM PIC 9(2) OCCURS 3 TIMES."
+    notes = "Collections are defined using the OCCURS clause in the DATA DIVISION."
+}
+
+instance CobolAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Standard COBOL does not have native associative arrays; often simulated with indexed tables and SEARCH ALL."
+}
+
 instance FortranVariableDeclaration of VariableDeclaration {
     name = "x"
     type = "integer"
     initial_value = 42
     syntax = "integer :: x = 42"
     notes = "Static typing; :: is used to separate attributes from the variable name."
+}
+
+instance FortranCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "integer, dimension(3)"
+    syntax = "integer, dimension(3) :: a = (/1, 2, 3/)"
+    notes = "Arrays are defined using the dimension attribute or parentheses."
+}
+
+instance FortranAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Standard Fortran does not have a native associative array type."
 }
 
 instance CobolIfElse of IfElse {
@@ -5447,6 +5800,19 @@ instance CSharpVar of VariableDeclaration {
     initial_value = 42
     syntax = "int x = 42;"
     notes = "Static typing, similar to C++ and Java."
+}
+
+instance CSharpCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "List<int>"
+    syntax = "var l = new List<int> { 1, 2, 3 };"
+    notes = "Generic lists are the standard collection type in C#."
+}
+
+instance CSharpAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "d"
+    syntax = "var d = new Dictionary<string, int> { {\"a\", 1}, {\"b\", 2} };"
+    notes = "Dictionaries provide associative mapping in C#."
 }
 
 instance CSharpIfElse of IfElse {
@@ -6062,12 +6428,38 @@ instance SwiftVar of VariableDeclaration {
     notes = "Variables are declared with 'var'; supports type inference."
 }
 
+instance SwiftCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "[Int]"
+    syntax = "var a = [1, 2, 3]"
+    notes = "Arrays are defined using square brackets in Swift."
+}
+
+instance SwiftAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "d"
+    syntax = "var d = [\"a\": 1, \"b\": 2]"
+    notes = "Dictionaries use the 'key: value' syntax within square brackets."
+}
+
 instance KotlinVar of VariableDeclaration {
     name = "x"
     type = "Int"
     initial_value = 42
     syntax = "var x: Int = 42"
     notes = "Variables are declared with 'var'; static typing with type inference."
+}
+
+instance KotlinCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "List<Int>"
+    syntax = "val l = listOf(1, 2, 3)"
+    notes = "The listOf function creates an immutable list in Kotlin."
+}
+
+instance KotlinAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "val m = mapOf(\"a\" to 1, \"b\" to 2)"
+    notes = "The mapOf function creates an immutable map."
 }
 
 instance SwiftEqual of Equal {
@@ -6504,6 +6896,19 @@ instance CppVar of VariableDeclaration {
     initial_value = 42
     syntax = "int x = 42;"
     notes = "Static typing, similar to C."
+}
+
+instance CppCollectionDefinition of CollectionDefinition {
+    name = "v"
+    type = "std::vector<int>"
+    syntax = "std::vector<int> v = {1, 2, 3};"
+    notes = "Standard vectors are the common dynamic collection in C++."
+}
+
+instance CppAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "std::map<std::string, int> m = {{\"a\", 1}, {\"b\", 2}};"
+    notes = "The map or unordered_map classes provide associative storage."
 }
 
 instance CppEqual of Equal {
@@ -7039,6 +7444,19 @@ instance GraphQlVariableDeclaration of VariableDeclaration {
     notes = "Variables in GraphQL are prefixed with $ and used in operation definitions."
 }
 
+instance GraphQlCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "[Int]"
+    syntax = "$l: [Int] = [1, 2, 3]"
+    notes = "Lists in GraphQL are defined with square brackets."
+}
+
+instance GraphQlAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "GraphQL does not have a native associative array type for variables."
+}
+
 instance GraphQlEqual of Equal {
     syntax = "N/A"
     notes = "GraphQL does not have a native equality operator in the query language itself."
@@ -7271,6 +7689,19 @@ instance SparqlVariableDeclaration of VariableDeclaration {
     notes = "The BIND clause assigns a value to a variable."
 }
 
+instance SparqlCollectionDefinition of CollectionDefinition {
+    name = "N/A"
+    type = "N/A"
+    syntax = "VALUES ?x { 1 2 3 }"
+    notes = "VALUES can be used to define a set of values for a variable."
+}
+
+instance SparqlAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "SPARQL does not have a native associative array type."
+}
+
 instance SparqlEqual of Equal {
     syntax = "FILTER(?a = ?b)"
     notes = "Equality is checked within a FILTER or BIND expression."
@@ -7501,6 +7932,19 @@ instance OverpassTurboVariableDeclaration of VariableDeclaration {
     initial_value = 0
     syntax = ".setname"
     notes = "Overpass QL uses sets (prefixed with .) to store results."
+}
+
+instance OverpassTurboCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "Set"
+    syntax = ".a"
+    notes = "Collections are represented by sets, which store OSM elements."
+}
+
+instance OverpassTurboAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Overpass QL does not support associative arrays."
 }
 
 instance OverpassTurboEqual of Equal {
