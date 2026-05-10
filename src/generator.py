@@ -218,7 +218,27 @@ class CodeGenerator:
             display_parameters=display_parameters
         )
 
-    def render_program(self, program: Program, title: str = None) -> str:
+    def _get_language_for_instance(self, instance_name: str) -> str:
+        best_match = None
+        best_len = -1
+        for lang in self.ALL_SUPPORTED:
+            nl = self._normalize(lang)
+            matches = False
+            if len(nl) <= 2:
+                if instance_name.lower().startswith(nl) and \
+                   (len(instance_name) == len(nl) or not instance_name[len(nl)].islower()):
+                    matches = True
+            else:
+                if instance_name.lower().startswith(nl) or instance_name.lower().startswith(lang.lower()):
+                    matches = True
+
+            if matches:
+                if len(nl) > best_len:
+                    best_len = len(nl)
+                    best_match = lang
+        return best_match
+
+    def render_program(self, program: Program, title: str = None, filter_languages: List[str] = None) -> str:
         results = []
 
         if title:
@@ -230,6 +250,11 @@ class CodeGenerator:
         # Group instances by pattern
         instances_by_pattern: Dict[str, List[Instance]] = {}
         for instance in program.instances:
+            if filter_languages:
+                lang = self._get_language_for_instance(instance.name)
+                if lang not in filter_languages:
+                    continue
+
             if instance.pattern_name not in instances_by_pattern:
                 instances_by_pattern[instance.pattern_name] = []
             instances_by_pattern[instance.pattern_name].append(instance)
