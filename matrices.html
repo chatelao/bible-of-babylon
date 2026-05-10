@@ -303,7 +303,205 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
+<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="c1">-- body</span>
+<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nn">lists</span><span class="p">:</span><span class="nf">foreach</span><span class="p">(</span><span class="k">fun</span><span class="p">(</span><span class="nv">Item</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="nv">Collection</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dolist</span><span class="w"> </span><span class="p">(</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">)</span>
+<span class="w">  </span><span class="cm">#| body |#</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">collection</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># body</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%i in (%collection%) do (</span>
+<span class="go">    rem body</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$collection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c"># body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="c1"># body</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($collection as $item) {</span>
+<span class="x">    // body</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">esi</span><span class="p">,</span><span class="w"> </span><span class="nv">collection</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">lodsd</span><span class="w"> </span><span class="c1">; load [ESI] into EAX and increment ESI</span>
+<span class="w">    </span><span class="c1">; body (use EAX)</span>
+<span class="w">    </span><span class="nf">loop</span><span class="w"> </span><span class="nv">.loop</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">la</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">collection</span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">beqz</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">lw</span><span class="w"> </span><span class="no">t2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t0</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">; body (use t2)</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">member</span><span class="p">(</span><span class="nv">Item</span><span class="p">,</span> <span class="nv">Collection</span><span class="p">),</span> <span class="nf">do_something</span><span class="p">(</span><span class="nv">Item</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">aload_0</span><span class="w"> </span><span class="c1">; collection (as Iterator)</span>
+<span class="nl">LoopStart</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">hasNext</span><span class="p">()</span><span class="kt">Z</span>
+<span class="w">    </span><span class="kr">ifeq</span><span class="w"> </span><span class="nl">LoopEnd</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">next</span><span class="p">()</span><span class="kt">L</span><span class="nc">Object</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">astore_1</span><span class="w"> </span><span class="c1">; item</span>
+<span class="w">    </span><span class="c1">; body</span>
+<span class="w">    </span><span class="kr">goto</span><span class="w"> </span><span class="nl">LoopStart</span>
+<span class="nl">LoopEnd</span><span class="p">:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">adr</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">collection</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="c1">#count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">cbz</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">ldr</span><span class="w"> </span><span class="no">x2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x0</span><span class="p">],</span><span class="w"> </span><span class="mi">#4</span>
+<span class="w">    </span><span class="c1">; body (use x2)</span>
+<span class="w">    </span><span class="nf">sub</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">iter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">item</span> <span class="o">-&gt;</span> <span class="c">(* body *)</span><span class="o">)</span> <span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">mapM_</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">item</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span><span class="p">)</span><span class="w"> </span><span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span>item<span class="w"> </span><span class="nv">$collection</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="c"># body</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .item ( ... )
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">item</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>CollectionDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
@@ -442,7 +640,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
 <span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
@@ -549,7 +747,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -683,7 +881,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -817,7 +1015,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -948,7 +1146,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
 <span class="k">AS</span>
 <span class="k">BEGIN</span>
@@ -1146,7 +1344,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
 <span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
 <span class="k">BEGIN</span>
@@ -1342,7 +1540,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">BEGIN</span>
 <span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
@@ -1570,7 +1768,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
@@ -1868,7 +2066,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
 <span class="k">BEGIN</span>
 <span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
@@ -2061,7 +2259,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
+<tr class="row-even"><td><p>ForLoop</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
 <span class="k">BEGIN</span>
@@ -2261,7 +2459,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
 <span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
 <span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
@@ -2440,7 +2638,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -2564,7 +2762,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">do_work</span><span class="p">);</span>
@@ -2671,7 +2869,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
@@ -2771,7 +2969,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
@@ -2878,7 +3076,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
 </pre></div>
 </div>
@@ -3013,7 +3211,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
 </pre></div>
@@ -3139,7 +3337,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -3277,7 +3475,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </pre></div>
@@ -3409,7 +3607,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -3544,7 +3742,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -3676,7 +3874,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -3808,7 +4006,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -3940,7 +4138,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4072,7 +4270,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4195,7 +4393,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4309,7 +4507,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4426,7 +4624,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
@@ -4558,7 +4756,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
@@ -4690,7 +4888,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
@@ -4807,7 +5005,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
@@ -4924,7 +5122,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5044,7 +5242,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5164,7 +5362,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5284,7 +5482,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -5405,7 +5603,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
 </pre></div>
 </div>
@@ -5533,7 +5731,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
 </pre></div>
 </div>
@@ -5668,7 +5866,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
@@ -5878,7 +6076,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -6046,7 +6244,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tableA</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tableB</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tableA</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tableB</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 </pre></div>
 </div>

@@ -51,6 +51,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Programming Language Patterns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#variabledeclaration">VariableDeclaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#foreach">ForEach</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#collectiondefinition">CollectionDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#associativearraydefinition">AssociativeArrayDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#equal">Equal</a></li>
@@ -427,6 +428,328 @@
 </tbody>
 </table>
 </section>
+<section id="foreach">
+<h2>ForEach<a class="headerlink" href="#foreach" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterating over the elements of a collection.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">ForEach Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CForEach</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C does not have a native for-each loop; typically implemented via index access.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaForEach</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘enhanced’ for loop introduced in Java 5.</p></td>
+</tr>
+<tr class="row-even"><td><p>RustForEach</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over an iterator provided by the collection.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonForEach</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="c1"># body</span>
+</pre></div>
+</div>
+</td>
+<td><p>Python’s standard for loop is naturally a for-each loop.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpForEach</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($collection as $item) {</span>
+<span class="x">    // body</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The foreach construct is the standard way to iterate over arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangForEach</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nn">lists</span><span class="p">:</span><span class="nf">foreach</span><span class="p">(</span><span class="k">fun</span><span class="p">(</span><span class="nv">Item</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="k">end</span><span class="p">,</span><span class="w"> </span><span class="nv">Collection</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over a list using the lists:foreach function.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispForEach</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dolist</span><span class="w"> </span><span class="p">(</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">)</span>
+<span class="w">  </span><span class="cm">#| body |#</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The dolist macro iterates over each element of a list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashForEach</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">collection</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># body</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over the elements of an array.</p></td>
+</tr>
+<tr class="row-even"><td><p>CmdForEach</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%i in (%collection%) do (</span>
+<span class="go">    rem body</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The standard for loop in CMD iterates over a space-separated set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PowerShellForEach</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$collection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c"># body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Powershell’s foreach statement iterates over a collection of objects.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlForEach</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
+<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="c1">-- body</span>
+<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><p>SQL typically uses cursors for row-by-row iteration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQueryForEach</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span>
+</pre></div>
+</div>
+</td>
+<td><p>The FLWOR ‘for’ clause naturally iterates over items in a sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p>CssForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not support iteration constructs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CudaForEach</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Like C, CUDA typically uses index-based iteration within threads.</p></td>
+</tr>
+<tr class="row-even"><td><p>X86ForEach</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">esi</span><span class="p">,</span><span class="w"> </span><span class="nv">collection</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">lodsd</span><span class="w"> </span><span class="c1">; load [ESI] into EAX and increment ESI</span>
+<span class="w">    </span><span class="c1">; body (use EAX)</span>
+<span class="w">    </span><span class="nf">loop</span><span class="w"> </span><span class="nv">.loop</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using pointer increment (like lods) and a counter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RiscvForEach</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">la</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">collection</span>
+<span class="w">    </span><span class="nf">li</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">beqz</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">lw</span><span class="w"> </span><span class="no">t2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t0</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">; body (use t2)</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span>
+<span class="w">    </span><span class="nf">j</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over an array using a pointer and a countdown.</p></td>
+</tr>
+<tr class="row-even"><td><p>PrologForEach</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">member</span><span class="p">(</span><span class="nv">Item</span><span class="p">,</span> <span class="nv">Collection</span><span class="p">),</span> <span class="nf">do_something</span><span class="p">(</span><span class="nv">Item</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses member/2 to non-deterministically unify with each element.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaBytecodeForEach</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">aload_0</span><span class="w"> </span><span class="c1">; collection (as Iterator)</span>
+<span class="nl">LoopStart</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">hasNext</span><span class="p">()</span><span class="kt">Z</span>
+<span class="w">    </span><span class="kr">ifeq</span><span class="w"> </span><span class="nl">LoopEnd</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">next</span><span class="p">()</span><span class="kt">L</span><span class="nc">Object</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">astore_1</span><span class="w"> </span><span class="c1">; item</span>
+<span class="w">    </span><span class="c1">; body</span>
+<span class="w">    </span><span class="kr">goto</span><span class="w"> </span><span class="nl">LoopStart</span>
+<span class="nl">LoopEnd</span><span class="p">:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using Iterator.hasNext() and Iterator.next().</p></td>
+</tr>
+<tr class="row-even"><td><p>CamelForEach</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">iter</span> <span class="o">(</span><span class="k">fun</span> <span class="n">item</span> <span class="o">-&gt;</span> <span class="c">(* body *)</span><span class="o">)</span> <span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><p>Higher-order functions like List.iter are the idiomatic way to iterate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArmAarch64ForEach</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">adr</span><span class="w"> </span><span class="no">x0</span><span class="p">,</span><span class="w"> </span><span class="no">collection</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="c1">#count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">cbz</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">.end</span>
+<span class="w">    </span><span class="nf">ldr</span><span class="w"> </span><span class="no">x2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x0</span><span class="p">],</span><span class="w"> </span><span class="mi">#4</span>
+<span class="w">    </span><span class="c1">; body (use x2)</span>
+<span class="w">    </span><span class="nf">sub</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="no">x1</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b</span><span class="w"> </span><span class="no">.loop</span>
+<span class="nl">.end:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses base register with post-index increment for iteration.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoForEach</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The range clause is Go’s way to iterate over slices or maps.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellForEach</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">mapM_</span><span class="w"> </span><span class="p">(</span><span class="nf">\</span><span class="n">item</span><span class="w"> </span><span class="ow">-&gt;</span><span class="w"> </span><span class="n">return</span><span class="w"> </span><span class="nb">()</span><span class="p">)</span><span class="w"> </span><span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions like <a href="#id62"><span class="problematic" id="id63">mapM_</span></a> or <a href="#id64"><span class="problematic" id="id65">forM_</span></a> are used to apply actions to elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptForEach</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘for…of’ loop is the modern way to iterate over iterables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclForEach</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span>item<span class="w"> </span><span class="nv">$collection</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="c"># body</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The foreach command iterates over elements of one or more lists.</p></td>
+</tr>
+<tr class="row-even"><td><p>CobolForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard COBOL doesn’t have a direct for-each; typically done via PERFORM VARYING over table indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FortranForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Fortran doesn’t have a direct for-each; iteration is usually index-based.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpForEach</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The foreach statement iterates over any type that implements IEnumerable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftForEach</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Swift for-in loop for iterating over sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinForEach</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Kotlin for loop for iterating over anything that provides an iterator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppForEach</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The range-based for loop introduced in C++11.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboForEach</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .item ( ... )
+</pre></div>
+</div>
+</td>
+<td><p>The foreach statement iterates over the elements of a set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureForEach</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">item</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘doseq’ macro is also the standard way to iterate over collections.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="collectiondefinition">
 <h2>CollectionDefinition<a class="headerlink" href="#collectiondefinition" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -441,8 +764,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">CollectionDefinition Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">CollectionDefinition Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -705,8 +1028,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-text">AssociativeArrayDefinition Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">AssociativeArrayDefinition Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -936,8 +1259,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1194,8 +1517,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1452,8 +1775,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1710,8 +2033,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2036,8 +2359,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2359,8 +2682,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2712,8 +3035,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3136,8 +3459,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3453,8 +3776,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3665,7 +3988,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id61"><span class="problematic" id="id62">mapM_</span></a> or <a href="#id63"><span class="problematic" id="id64">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id66"><span class="problematic" id="id67">mapM_</span></a> or <a href="#id68"><span class="problematic" id="id69">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3781,8 +4104,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4086,8 +4409,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4335,8 +4658,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4528,8 +4851,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4714,8 +5037,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4905,8 +5228,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5164,8 +5487,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5415,8 +5738,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5678,8 +6001,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5937,8 +6260,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6196,8 +6519,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6452,8 +6775,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6708,8 +7031,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6964,8 +7287,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7220,8 +7543,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7467,8 +7790,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7705,8 +8028,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7946,8 +8269,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8202,8 +8525,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8458,8 +8781,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8699,8 +9022,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8940,8 +9263,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id52">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9184,8 +9507,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id53">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9428,8 +9751,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id54">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9672,8 +9995,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id55">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9917,8 +10240,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id56">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10169,8 +10492,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id57">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10428,8 +10751,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id58">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id59">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10762,8 +11085,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id59">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id60">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11054,8 +11377,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id60">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id61">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>

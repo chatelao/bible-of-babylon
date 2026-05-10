@@ -204,6 +204,266 @@ Parameters:
 
 
 
+ForEach
+-------
+
+
+:description: Iterating over the elements of a collection.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ForEach Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CForEach
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - Standard C does not have a native for-each loop; typically implemented via index access.
+   * - JavaForEach
+     - .. code-block:: java
+
+           for (int item : collection) {
+               // body
+           }
+     - The 'enhanced' for loop introduced in Java 5.
+   * - RustForEach
+     - .. code-block:: rust
+
+           for item in &collection {
+               // body
+           }
+     - Iterates over an iterator provided by the collection.
+   * - PythonForEach
+     - .. code-block:: python
+
+           for item in collection:
+               # body
+     - Python's standard for loop is naturally a for-each loop.
+   * - PhpForEach
+     - .. code-block:: php
+
+           foreach ($collection as $item) {
+               // body
+           }
+     - The foreach construct is the standard way to iterate over arrays.
+   * - ErlangForEach
+     - .. code-block:: erlang
+
+           lists:foreach(fun(Item) -> ok end, Collection).
+     - Iterates over a list using the lists:foreach function.
+   * - LispForEach
+     - .. code-block:: common-lisp
+
+           (dolist (item collection)
+             #| body |#)
+     - The dolist macro iterates over each element of a list.
+   * - BashForEach
+     - .. code-block:: bash
+
+           for item in "${collection[@]}"; do
+               # body
+           done
+     - Iterates over the elements of an array.
+   * - CmdForEach
+     - .. code-block:: doscon
+
+           for %%i in (%collection%) do (
+               rem body
+           )
+     - The standard for loop in CMD iterates over a space-separated set.
+   * - PowerShellForEach
+     - .. code-block:: powershell
+
+           foreach ($item in $collection) {
+               # body
+           }
+     - Powershell's foreach statement iterates over a collection of objects.
+   * - SqlForEach
+     - .. code-block:: sql
+
+           DECLARE cursor_name CURSOR FOR SELECT col FROM table;
+           OPEN cursor_name;
+           FETCH NEXT FROM cursor_name INTO @item;
+           WHILE @@FETCH_STATUS = 0
+           BEGIN
+               -- body
+               FETCH NEXT FROM cursor_name INTO @item;
+           END
+     - SQL typically uses cursors for row-by-row iteration.
+   * - XQueryForEach
+     - .. code-block:: xquery
+
+           for $item in $collection
+           return $item
+     - The FLWOR 'for' clause naturally iterates over items in a sequence.
+   * - CssForEach
+     - N/A
+     - CSS does not support iteration constructs.
+   * - CudaForEach
+     - .. code-block:: cpp
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - Like C, CUDA typically uses index-based iteration within threads.
+   * - X86ForEach
+     - .. code-block:: nasm
+
+               mov esi, collection
+               mov ecx, count
+           .loop:
+               lodsd ; load [ESI] into EAX and increment ESI
+               ; body (use EAX)
+               loop .loop
+     - Implemented using pointer increment (like lods) and a counter.
+   * - RiscvForEach
+     - .. code-block:: asm
+
+               la t0, collection
+               li t1, count
+           .loop:
+               beqz t1, .end
+               lw t2, 0(t0)
+               ; body (use t2)
+               addi t0, t0, 4
+               addi t1, t1, -1
+               j .loop
+           .end:
+     - Iterates over an array using a pointer and a countdown.
+   * - PrologForEach
+     - .. code-block:: prolog
+
+           member(Item, Collection), do_something(Item).
+     - Uses member/2 to non-deterministically unify with each element.
+   * - JavaBytecodeForEach
+     - .. code-block:: jasmin
+
+               aload_0 ; collection (as Iterator)
+           LoopStart:
+               aload_0
+               invokeinterface Iterator.hasNext()Z
+               ifeq LoopEnd
+               aload_0
+               invokeinterface Iterator.next()LObject;
+               astore_1 ; item
+               ; body
+               goto LoopStart
+           LoopEnd:
+     - Typically implemented using Iterator.hasNext() and Iterator.next().
+   * - CamelForEach
+     - .. code-block:: ocaml
+
+           List.iter (fun item -> (* body *)) collection
+     - Higher-order functions like List.iter are the idiomatic way to iterate.
+   * - ArmAarch64ForEach
+     - .. code-block:: asm
+
+               adr x0, collection
+               mov x1, #count
+           .loop:
+               cbz x1, .end
+               ldr x2, [x0], #4
+               ; body (use x2)
+               sub x1, x1, #1
+               b .loop
+           .end:
+     - Uses base register with post-index increment for iteration.
+   * - GoForEach
+     - .. code-block:: go
+
+           for index, item := range collection {
+               // body
+           }
+     - The range clause is Go's way to iterate over slices or maps.
+   * - HaskellForEach
+     - .. code-block:: haskell
+
+           mapM_ (\item -> return ()) collection
+     - Functions like mapM_ or forM_ are used to apply actions to elements.
+   * - TypeScriptForEach
+     - .. code-block:: typescript
+
+           for (const item of collection) {
+               // body
+           }
+     - The 'for...of' loop is the modern way to iterate over iterables.
+   * - TclForEach
+     - .. code-block:: tcl
+
+           foreach item $collection {
+               # body
+           }
+     - The foreach command iterates over elements of one or more lists.
+   * - CobolForEach
+     - N/A
+     - Standard COBOL doesn't have a direct for-each; typically done via PERFORM VARYING over table indices.
+   * - FortranForEach
+     - N/A
+     - Standard Fortran doesn't have a direct for-each; iteration is usually index-based.
+   * - CSharpForEach
+     - .. code-block:: csharp
+
+           foreach (var item in collection) {
+               // body
+           }
+     - The foreach statement iterates over any type that implements IEnumerable.
+   * - SwiftForEach
+     - .. code-block:: swift
+
+           for item in collection {
+               // body
+           }
+     - Standard Swift for-in loop for iterating over sequences.
+   * - KotlinForEach
+     - .. code-block:: kotlin
+
+           for (item in collection) {
+               // body
+           }
+     - Standard Kotlin for loop for iterating over anything that provides an iterator.
+   * - CppForEach
+     - .. code-block:: cpp
+
+           for (const auto& item : collection) {
+               // body
+           }
+     - The range-based for loop introduced in C++11.
+   * - GraphQlForEach
+     - N/A
+     - N/A
+   * - SparqlForEach
+     - N/A
+     - N/A
+   * - OverpassTurboForEach
+     - .. code-block:: text
+
+           foreach .item ( ... )
+     - The foreach statement iterates over the elements of a set.
+   * - ClojureForEach
+     - .. code-block:: clojure
+
+           (doseq [item collection]
+             (println item))
+     - The 'doseq' macro is also the standard way to iterate over collections.
+
+
+
 CollectionDefinition
 --------------------
 

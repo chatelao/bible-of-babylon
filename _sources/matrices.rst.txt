@@ -146,6 +146,174 @@ Programming Languages
      - .. code-block:: clojure
 
            (def x 42)
+   * - ForEach
+     - .. code-block:: sql
+
+           DECLARE cursor_name CURSOR FOR SELECT col FROM table;
+           OPEN cursor_name;
+           FETCH NEXT FROM cursor_name INTO @item;
+           WHILE @@FETCH_STATUS = 0
+           BEGIN
+               -- body
+               FETCH NEXT FROM cursor_name INTO @item;
+           END
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - .. code-block:: cpp
+
+           for (const auto& item : collection) {
+               // body
+           }
+     - .. code-block:: xquery
+
+           for $item in $collection
+           return $item
+     - .. code-block:: java
+
+           for (int item : collection) {
+               // body
+           }
+     - .. code-block:: rust
+
+           for item in &collection {
+               // body
+           }
+     - .. code-block:: erlang
+
+           lists:foreach(fun(Item) -> ok end, Collection).
+     - .. code-block:: common-lisp
+
+           (dolist (item collection)
+             #| body |#)
+     - .. code-block:: bash
+
+           for item in "${collection[@]}"; do
+               # body
+           done
+     - .. code-block:: doscon
+
+           for %%i in (%collection%) do (
+               rem body
+           )
+     - .. code-block:: powershell
+
+           foreach ($item in $collection) {
+               # body
+           }
+     - .. code-block:: python
+
+           for item in collection:
+               # body
+     - .. code-block:: php
+
+           foreach ($collection as $item) {
+               // body
+           }
+     - N/A
+     - .. code-block:: cpp
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - .. code-block:: nasm
+
+               mov esi, collection
+               mov ecx, count
+           .loop:
+               lodsd ; load [ESI] into EAX and increment ESI
+               ; body (use EAX)
+               loop .loop
+     - .. code-block:: asm
+
+               la t0, collection
+               li t1, count
+           .loop:
+               beqz t1, .end
+               lw t2, 0(t0)
+               ; body (use t2)
+               addi t0, t0, 4
+               addi t1, t1, -1
+               j .loop
+           .end:
+     - .. code-block:: prolog
+
+           member(Item, Collection), do_something(Item).
+     - .. code-block:: jasmin
+
+               aload_0 ; collection (as Iterator)
+           LoopStart:
+               aload_0
+               invokeinterface Iterator.hasNext()Z
+               ifeq LoopEnd
+               aload_0
+               invokeinterface Iterator.next()LObject;
+               astore_1 ; item
+               ; body
+               goto LoopStart
+           LoopEnd:
+     - .. code-block:: asm
+
+               adr x0, collection
+               mov x1, #count
+           .loop:
+               cbz x1, .end
+               ldr x2, [x0], #4
+               ; body (use x2)
+               sub x1, x1, #1
+               b .loop
+           .end:
+     - .. code-block:: ocaml
+
+           List.iter (fun item -> (* body *)) collection
+     - .. code-block:: go
+
+           for index, item := range collection {
+               // body
+           }
+     - .. code-block:: haskell
+
+           mapM_ (\item -> return ()) collection
+     - .. code-block:: typescript
+
+           for (const item of collection) {
+               // body
+           }
+     - .. code-block:: tcl
+
+           foreach item $collection {
+               # body
+           }
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           foreach (var item in collection) {
+               // body
+           }
+     - .. code-block:: swift
+
+           for item in collection {
+               // body
+           }
+     - .. code-block:: kotlin
+
+           for (item in collection) {
+               // body
+           }
+     - N/A
+     - N/A
+     - .. code-block:: text
+
+           foreach .item ( ... )
+     - .. code-block:: clojure
+
+           (doseq [item collection]
+             (println item))
    * - CollectionDefinition
      - .. code-block:: sql
 
