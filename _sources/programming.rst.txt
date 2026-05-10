@@ -196,6 +196,11 @@ Parameters:
 
            .setname
      - Overpass QL uses sets (prefixed with .) to store results.
+   * - ClojureVariableDeclaration
+     - .. code-block:: clojure
+
+           (def x 42)
+     - Variables are defined using 'def'; they are immutable by default in the sense of 'binding'.
 
 
 
@@ -392,6 +397,11 @@ Parameters:
 
            .a
      - Collections are represented by sets, which store OSM elements.
+   * - ClojureCollectionDefinition
+     - .. code-block:: clojure
+
+           (def l [1 2 3])
+     - Vectors are the standard ordered collection in Clojure.
 
 
 
@@ -565,6 +575,11 @@ Parameters:
    * - OverpassTurboAssociativeArrayDefinition
      - N/A
      - Overpass QL does not support associative arrays.
+   * - ClojureAssociativeArrayDefinition
+     - .. code-block:: clojure
+
+           (def m {:a 1 :b 2})
+     - Maps are used for key-value pairs.
 
 
 
@@ -753,6 +768,11 @@ Parameters:
 
            ["name"="Berlin"]
      - Equality is used in attribute filters.
+   * - ClojureEqual
+     - .. code-block:: clojure
+
+           (= a b)
+     - Structural equality.
 
 
 
@@ -941,6 +961,11 @@ Parameters:
 
            ["name"!="Berlin"]
      - Inequality in attribute filters.
+   * - ClojureNotEqual
+     - .. code-block:: clojure
+
+           (not= a b)
+     - Negated equality.
 
 
 
@@ -1127,6 +1152,11 @@ Parameters:
    * - OverpassTurboGreaterThan
      - N/A
      - Overpass QL has limited support for numeric comparisons in some implementations.
+   * - ClojureGreaterThan
+     - .. code-block:: clojure
+
+           (> a b)
+     - Standard comparison.
 
 
 
@@ -1386,6 +1416,12 @@ Parameters:
    * - OverpassTurboProcedureDefinition
      - N/A
      - N/A
+   * - ClojureProcedure
+     - .. code-block:: clojure
+
+           (defn my-proc [args]
+             (println args))
+     - Procedures in Clojure are functions that return nil.
 
 
 
@@ -1644,6 +1680,12 @@ Parameters:
    * - OverpassTurboFunctionDefinition
      - N/A
      - N/A
+   * - ClojureFunction
+     - .. code-block:: clojure
+
+           (defn my-func [x]
+             (+ x 1))
+     - Functions return the result of the last expression.
 
 
 
@@ -1930,6 +1972,11 @@ Parameters:
 
            if (condition) { ... } else { ... }
      - Control flow statements were added in recent versions of Overpass QL.
+   * - ClojureIfElse
+     - .. code-block:: clojure
+
+           (if (> x 0) 1 0)
+     - Standard if-then-else.
 
 
 
@@ -2282,6 +2329,14 @@ Parameters:
    * - OverpassTurboSwitchCase
      - N/A
      - N/A
+   * - ClojureSwitchCase
+     - .. code-block:: clojure
+
+           (case x
+             1 "one"
+             2 "two"
+             "default")
+     - The 'case' macro provides constant-time dispatch.
 
 
 
@@ -2531,6 +2586,14 @@ Parameters:
 
            foreach .a ( ... )
      - The foreach statement iterates over the elements of a set.
+   * - ClojureLoop
+     - .. code-block:: clojure
+
+           (loop [i 0]
+             (when (< i 10)
+               (println i)
+               (recur (inc i))))
+     - The 'loop/recur' form is the standard way to perform recursion in constant stack space.
 
 
 
@@ -2785,6 +2848,12 @@ Parameters:
 
            for ( ... )
      - Overpass QL supports C-style for loops in recent versions.
+   * - ClojureForLoop
+     - .. code-block:: clojure
+
+           (doseq [i (range 10)]
+             (println i))
+     - The 'doseq' macro is used for side-effecting iterations.
 
 
 
@@ -3031,6 +3100,14 @@ Parameters:
    * - OverpassTurboTryCatch
      - N/A
      - N/A
+   * - ClojureTryCatch
+     - .. code-block:: clojure
+
+           (try
+             (/ 1 0)
+             (catch Exception e
+               (println (.getMessage e))))
+     - Clojure's error handling interops with Java's exceptions.
 
 
 
@@ -3217,6 +3294,11 @@ Parameters:
    * - OverpassTurboRaise
      - N/A
      - N/A
+   * - ClojureRaise
+     - .. code-block:: clojure
+
+           (throw (Exception. "Error"))
+     - Throws a Java exception.
 
 
 
@@ -3363,6 +3445,11 @@ Parameters:
    * - OverpassTurboThread
      - N/A
      - N/A
+   * - ClojureThread
+     - .. code-block:: clojure
+
+           (future (println "Hello from thread"))
+     - Futures are a simple way to run code on another thread.
 
 
 
@@ -3504,6 +3591,11 @@ Parameters:
    * - OverpassTurboSendMessage
      - N/A
      - N/A
+   * - ClojureSendMessage
+     - .. code-block:: clojure
+
+           (send my-agent (fn [state] (inc state)))
+     - Agents provide a way to manage asynchronous state updates.
 
 
 
@@ -3652,6 +3744,11 @@ Parameters:
    * - OverpassTurboReceiveMessage
      - N/A
      - N/A
+   * - ClojureReceiveMessage
+     - .. code-block:: clojure
+
+           @my-agent
+     - The '@' or 'deref' function is used to get the current state of an agent or the result of a future.
 
 
 
@@ -3840,6 +3937,11 @@ Parameters:
 
            // comment
      - C-style single-line comments.
+   * - ClojureSingleLineComment
+     - .. code-block:: clojure
+
+           ; comment
+     - Semicolon starts a single-line comment.
 
 
 
@@ -4028,6 +4130,12 @@ Parameters:
 
            /* comment */
      - C-style multi-line comments.
+   * - ClojureMultiLineComment
+     - .. code-block:: clojure
+
+           (comment
+             (some code))
+     - The 'comment' macro ignores its body, effectively serving as a multi-line comment.
 
 
 
@@ -4222,6 +4330,11 @@ Parameters:
 
            out;
      - The out statement produces the result of the query.
+   * - ClojurePrint
+     - .. code-block:: clojure
+
+           (println "Hello, World!")
+     - Standard output with a newline.
 
 
 
@@ -4410,6 +4523,11 @@ Parameters:
 
            [out:json];
      - Settings (like output format) are specified at the beginning of the script.
+   * - ClojureImport
+     - .. code-block:: clojure
+
+           (require '[clojure.string :as str])
+     - The 'require' form is used to load namespaces.
 
 
 
@@ -4604,6 +4722,11 @@ Parameters:
 
            {{key=value}}
      - Overpass Turbo (the web interface) supports mustache-style constants.
+   * - ClojureConstant
+     - .. code-block:: clojure
+
+           (def ^:const my-const 10)
+     - Constants are defined with the ^:const metadata for compiler optimization.
 
 
 
@@ -4790,6 +4913,11 @@ Parameters:
    * - OverpassTurboAddition
      - N/A
      - N/A
+   * - ClojureAddition
+     - .. code-block:: clojure
+
+           (+ a b)
+     - Prefix notation for addition.
 
 
 
@@ -4976,6 +5104,11 @@ Parameters:
    * - OverpassTurboSubtraction
      - N/A
      - N/A
+   * - ClojureSubtraction
+     - .. code-block:: clojure
+
+           (- a b)
+     - Prefix notation for subtraction.
 
 
 
@@ -5162,6 +5295,11 @@ Parameters:
    * - OverpassTurboMultiplication
      - N/A
      - N/A
+   * - ClojureMultiplication
+     - .. code-block:: clojure
+
+           (* a b)
+     - Prefix notation for multiplication.
 
 
 
@@ -5348,6 +5486,11 @@ Parameters:
    * - OverpassTurboDivision
      - N/A
      - N/A
+   * - ClojureDivision
+     - .. code-block:: clojure
+
+           (/ a b)
+     - Prefix notation for division.
 
 
 
@@ -5528,6 +5671,11 @@ Parameters:
    * - OverpassTurboRemainder
      - N/A
      - N/A
+   * - ClojureRemainder
+     - .. code-block:: clojure
+
+           (rem a b)
+     - Returns the remainder of division.
 
 
 
@@ -5702,6 +5850,11 @@ Parameters:
    * - OverpassTurboFloor
      - N/A
      - N/A
+   * - ClojureFloor
+     - .. code-block:: clojure
+
+           (Math/floor x)
+     - Uses Java interop for floor.
 
 
 
@@ -5878,6 +6031,11 @@ Parameters:
    * - OverpassTurboRounding
      - N/A
      - N/A
+   * - ClojureRounding
+     - .. code-block:: clojure
+
+           (Math/round x)
+     - Uses Java interop for rounding.
 
 
 
@@ -6064,6 +6222,11 @@ Parameters:
    * - OverpassTurboIncrement
      - N/A
      - N/A
+   * - ClojureIncrement
+     - .. code-block:: clojure
+
+           (inc x)
+     - Increments the value by 1.
 
 
 
@@ -6250,6 +6413,11 @@ Parameters:
    * - OverpassTurboDecrement
      - N/A
      - N/A
+   * - ClojureDecrement
+     - .. code-block:: clojure
+
+           (dec x)
+     - Decrements the value by 1.
 
 
 
@@ -6426,6 +6594,11 @@ Parameters:
    * - OverpassTurboLeftShift
      - N/A
      - N/A
+   * - ClojureLeftShift
+     - .. code-block:: clojure
+
+           (bit-shift-left x n)
+     - Bitwise left shift.
 
 
 
@@ -6602,6 +6775,11 @@ Parameters:
    * - OverpassTurboRightShift
      - N/A
      - N/A
+   * - ClojureRightShift
+     - .. code-block:: clojure
+
+           (bit-shift-right x n)
+     - Bitwise right shift.
 
 
 
@@ -6780,6 +6958,11 @@ Parameters:
    * - OverpassTurboBitAnd
      - N/A
      - N/A
+   * - ClojureBitAnd
+     - .. code-block:: clojure
+
+           (bit-and a b)
+     - Bitwise AND.
 
 
 
@@ -6958,6 +7141,11 @@ Parameters:
    * - OverpassTurboBitOr
      - N/A
      - N/A
+   * - ClojureBitOr
+     - .. code-block:: clojure
+
+           (bit-or a b)
+     - Bitwise OR.
 
 
 
@@ -7136,6 +7324,11 @@ Parameters:
    * - OverpassTurboBitXor
      - N/A
      - N/A
+   * - ClojureBitXor
+     - .. code-block:: clojure
+
+           (bit-xor a b)
+     - Bitwise XOR.
 
 
 
@@ -7315,6 +7508,11 @@ Parameters:
    * - OverpassTurboBitNot
      - N/A
      - N/A
+   * - ClojureBitNot
+     - .. code-block:: clojure
+
+           (bit-not x)
+     - Bitwise NOT.
 
 
 
@@ -7500,6 +7698,11 @@ Parameters:
    * - OverpassTurboFloat4VectorMultiplication
      - N/A
      - N/A
+   * - ClojureFloat4VectorMultiplication
+     - .. code-block:: clojure
+
+           (mapv * a b)
+     - Element-wise multiplication of vectors.
 
 
 
@@ -7692,6 +7895,11 @@ Parameters:
    * - OverpassTurboFloat4VectorDotProduct
      - N/A
      - N/A
+   * - ClojureFloat4VectorDotProduct
+     - .. code-block:: clojure
+
+           (reduce + (map * a b))
+     - Standard dot product implementation.
 
 
 
@@ -7955,6 +8163,16 @@ Parameters:
    * - OverpassTurboFloat4VectorCrossProduct
      - N/A
      - N/A
+   * - ClojureFloat4VectorCrossProduct
+     - .. code-block:: clojure
+
+           (let [[ax ay az] a
+                 [bx by bz] b]
+             [(- (* ay bz) (* az by))
+              (- (* az bx) (* ax bz))
+              (- (* ax by) (* ay bx))
+              0.0])
+     - Uses destructuring and vector literal.
 
 
 
@@ -8176,6 +8394,11 @@ Parameters:
 
            node["name"="Berlin"];
      - Filters elements by tags or location.
+   * - ClojureSetFiltering
+     - .. code-block:: clojure
+
+           (filter #(= % :val) my-set)
+     - Higher-order function for filtering.
 
 
 
@@ -8404,3 +8627,8 @@ Parameters:
 
            (node(area); way(area););
      - Unions and recursion (e.g., node(w)) are used to combine sets.
+   * - ClojureSetJoin
+     - .. code-block:: clojure
+
+           (clojure.set/join set-a set-b)
+     - Relational join operation from the clojure.set namespace.

@@ -133,6 +133,7 @@
 <li class="toctree-l1"><a class="reference internal" href="graphql_pivot.html">GraphQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sparql_pivot.html">SPARQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
 </ul>
 
         </div>
@@ -416,6 +417,13 @@
 </td>
 <td><p>Overpass QL uses sets (prefixed with .) to store results.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureVariableDeclaration</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">x</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Variables are defined using ‘def’; they are immutable by default in the sense of ‘binding’.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -674,6 +682,13 @@
 </td>
 <td><p>Collections are represented by sets, which store OSM elements.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureCollectionDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">l</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>Vectors are the standard ordered collection in Clojure.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -898,6 +913,13 @@
 <tr class="row-even"><td><p>OverpassTurboAssociativeArrayDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>Overpass QL does not support associative arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureAssociativeArrayDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">m</span><span class="w"> </span><span class="p">{</span><span class="ss">:a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">:b</span><span class="w"> </span><span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</td>
+<td><p>Maps are used for key-value pairs.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1150,6 +1172,13 @@
 </td>
 <td><p>Equality is used in attribute filters.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureEqual</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Structural equality.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1401,6 +1430,13 @@
 </td>
 <td><p>Inequality in attribute filters.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureNotEqual</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">not= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Negated equality.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1648,6 +1684,13 @@
 <tr class="row-even"><td><p>OverpassTurboGreaterThan</p></td>
 <td><p>N/A</p></td>
 <td><p>Overpass QL has limited support for numeric comparisons in some implementations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureGreaterThan</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard comparison.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1966,6 +2009,14 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureProcedure</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-proc</span><span class="w"> </span><span class="p">[</span><span class="nv">args</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">args</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures in Clojure are functions that return nil.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2281,6 +2332,14 @@
 <tr class="row-even"><td><p>OverpassTurboFunctionDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureFunction</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-func</span><span class="w"> </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">+ </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions return the result of the last expression.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2629,6 +2688,13 @@
 </div>
 </td>
 <td><p>Control flow statements were added in recent versions of Overpass QL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureIfElse</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard if-then-else.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3043,6 +3109,16 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureSwitchCase</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">case</span><span class="w"> </span><span class="nv">x</span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
+<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="s">&quot;two&quot;</span>
+<span class="w">  </span><span class="s">&quot;default&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘case’ macro provides constant-time dispatch.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3351,6 +3427,16 @@
 </div>
 </td>
 <td><p>The foreach statement iterates over the elements of a set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureLoop</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">when </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">i</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">i</span><span class="p">))))</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘loop/recur’ form is the standard way to perform recursion in constant stack space.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3668,6 +3754,14 @@
 </td>
 <td><p>Overpass QL supports C-style for loops in recent versions.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureForLoop</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">10</span><span class="p">)]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘doseq’ macro is used for side-effecting iterations.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3965,6 +4059,16 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureTryCatch</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">try</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">e</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">.getMessage</span><span class="w"> </span><span class="nv">e</span><span class="p">))))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Clojure’s error handling interops with Java’s exceptions.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4208,6 +4312,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureRaise</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">Exception.</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Throws a Java exception.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4393,6 +4504,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureThread</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">future</span><span class="w"> </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello from thread&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Futures are a simple way to run code on another thread.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4571,6 +4689,13 @@
 <tr class="row-even"><td><p>OverpassTurboSendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSendMessage</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">send </span><span class="nv">my-agent</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">state</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Agents provide a way to manage asynchronous state updates.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4757,6 +4882,13 @@
 <tr class="row-even"><td><p>OverpassTurboReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureReceiveMessage</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="nv">my-agent</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘&#64;’ or ‘deref’ function is used to get the current state of an agent or the result of a future.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5010,6 +5142,13 @@
 </td>
 <td><p>C-style single-line comments.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureSingleLineComment</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Semicolon starts a single-line comment.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5251,6 +5390,14 @@
 </div>
 </td>
 <td><p>C-style multi-line comments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMultiLineComment</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">comment</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">some </span><span class="nv">code</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘comment’ macro ignores its body, effectively serving as a multi-line comment.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5508,6 +5655,13 @@
 </td>
 <td><p>The out statement produces the result of the query.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojurePrint</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard output with a newline.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5757,6 +5911,13 @@
 </div>
 </td>
 <td><p>Settings (like output format) are specified at the beginning of the script.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureImport</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.string</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">str</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘require’ form is used to load namespaces.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6013,6 +6174,13 @@
 </td>
 <td><p>Overpass Turbo (the web interface) supports mustache-style constants.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureConstant</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:const</span><span class="w"> </span><span class="nv">my-const</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Constants are defined with the ^:const metadata for compiler optimization.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6261,6 +6429,13 @@
 <tr class="row-even"><td><p>OverpassTurboAddition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureAddition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Prefix notation for addition.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6511,6 +6686,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureSubtraction</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">- </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Prefix notation for subtraction.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6759,6 +6941,13 @@
 <tr class="row-even"><td><p>OverpassTurboMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMultiplication</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Prefix notation for multiplication.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7009,6 +7198,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureDivision</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Prefix notation for division.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7249,6 +7445,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureRemainder</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">rem </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns the remainder of division.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7479,6 +7682,13 @@
 <tr class="row-even"><td><p>OverpassTurboFloor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureFloor</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/floor</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Java interop for floor.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7713,6 +7923,13 @@
 <tr class="row-even"><td><p>OverpassTurboRounding</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureRounding</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/round</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Java interop for rounding.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7963,6 +8180,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureIncrement</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">inc </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the value by 1.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8212,6 +8436,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureDecrement</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dec </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the value by 1.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8446,6 +8677,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureLeftShift</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-left </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise left shift.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8679,6 +8917,13 @@
 <tr class="row-even"><td><p>OverpassTurboRightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureRightShift</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-right </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise right shift.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8917,6 +9162,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureBitAnd</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-and </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise AND.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9153,6 +9405,13 @@
 <tr class="row-even"><td><p>OverpassTurboBitOr</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureBitOr</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-or </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise OR.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9391,6 +9650,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureBitXor</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-xor </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise XOR.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9628,6 +9894,13 @@
 <tr class="row-even"><td><p>OverpassTurboBitNot</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureBitNot</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-not </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise NOT.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9873,6 +10146,13 @@
 <tr class="row-even"><td><p>OverpassTurboFloat4VectorMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureFloat4VectorMultiplication</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Element-wise multiplication of vectors.</p></td>
 </tr>
 </tbody>
 </table>
@@ -10125,6 +10405,13 @@
 <tr class="row-even"><td><p>OverpassTurboFloat4VectorDotProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureFloat4VectorDotProduct</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard dot product implementation.</p></td>
 </tr>
 </tbody>
 </table>
@@ -10448,6 +10735,18 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ClojureFloat4VectorCrossProduct</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">[[</span><span class="nv">ax</span><span class="w"> </span><span class="nv">ay</span><span class="w"> </span><span class="nv">az</span><span class="p">]</span><span class="w"> </span><span class="nv">a</span>
+<span class="w">      </span><span class="p">[</span><span class="nv">bx</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">bz</span><span class="p">]</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bz</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">by</span><span class="p">))</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">bx</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">ax</span><span class="w"> </span><span class="nv">bz</span><span class="p">))</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ax</span><span class="w"> </span><span class="nv">by</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bx</span><span class="p">))</span>
+<span class="w">   </span><span class="mf">0.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses destructuring and vector literal.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10732,6 +11031,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Filters elements by tags or location.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSetFiltering</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="ss">:val</span><span class="p">)</span><span class="w"> </span><span class="nv">my-set</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Higher-order function for filtering.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11023,6 +11329,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Unions and recursion (e.g., node(w)) are used to combine sets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSetJoin</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Relational join operation from the clojure.set namespace.</p></td>
 </tr>
 </tbody>
 </table>

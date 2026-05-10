@@ -41,6 +41,7 @@ Programming Languages
      - GraphQL
      - SPARQL
      - Overpass Turbo
+     - Clojure
      
    * - VariableDeclaration
      - .. code-block:: sql
@@ -142,6 +143,9 @@ Programming Languages
      - .. code-block:: text
 
            .setname
+     - .. code-block:: clojure
+
+           (def x 42)
    * - CollectionDefinition
      - .. code-block:: sql
 
@@ -244,6 +248,9 @@ Programming Languages
      - .. code-block:: text
 
            .a
+     - .. code-block:: clojure
+
+           (def l [1 2 3])
    * - AssociativeArrayDefinition
      - .. code-block:: sql
 
@@ -325,6 +332,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (def m {:a 1 :b 2})
    * - Equal
      - .. code-block:: sql
 
@@ -423,6 +433,9 @@ Programming Languages
      - .. code-block:: text
 
            ["name"="Berlin"]
+     - .. code-block:: clojure
+
+           (= a b)
    * - NotEqual
      - .. code-block:: sql
 
@@ -521,6 +534,9 @@ Programming Languages
      - .. code-block:: text
 
            ["name"!="Berlin"]
+     - .. code-block:: clojure
+
+           (not= a b)
    * - GreaterThan
      - .. code-block:: sql
 
@@ -617,6 +633,9 @@ Programming Languages
 
            FILTER(?a > ?b)
      - N/A
+     - .. code-block:: clojure
+
+           (> a b)
    * - ProcedureDefinition
      - .. code-block:: sql
 
@@ -780,6 +799,10 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (defn my-proc [args]
+             (println args))
    * - FunctionDefinition
      - .. code-block:: sql
 
@@ -940,6 +963,10 @@ Programming Languages
            }
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (defn my-func [x]
+             (+ x 1))
    * - IfElse
      - .. code-block:: sql
 
@@ -1130,6 +1157,9 @@ Programming Languages
      - .. code-block:: text
 
            if (condition) { ... } else { ... }
+     - .. code-block:: clojure
+
+           (if (> x 0) 1 0)
    * - SwitchCase
      - .. code-block:: sql
 
@@ -1390,6 +1420,12 @@ Programming Languages
 
            COALESCE(IF(?x=1, 'one', 1/0), IF(?x=2, 'two', 1/0), 'none')
      - N/A
+     - .. code-block:: clojure
+
+           (case x
+             1 "one"
+             2 "two"
+             "default")
    * - Loop
      - .. code-block:: sql
 
@@ -1545,6 +1581,12 @@ Programming Languages
      - .. code-block:: text
 
            foreach .a ( ... )
+     - .. code-block:: clojure
+
+           (loop [i 0]
+             (when (< i 10)
+               (println i)
+               (recur (inc i))))
    * - ForLoop
      - .. code-block:: sql
 
@@ -1709,6 +1751,10 @@ Programming Languages
      - .. code-block:: text
 
            for ( ... )
+     - .. code-block:: clojure
+
+           (doseq [i (range 10)]
+             (println i))
    * - TryCatch
      - .. code-block:: sql
 
@@ -1857,6 +1903,12 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (try
+             (/ 1 0)
+             (catch Exception e
+               (println (.getMessage e))))
    * - Raise
      - .. code-block:: sql
 
@@ -1949,6 +2001,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (throw (Exception. "Error"))
    * - Thread
      - N/A
      - N/A
@@ -2033,6 +2088,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (future (println "Hello from thread"))
    * - SendMessage
      - N/A
      - N/A
@@ -2110,6 +2168,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (send my-agent (fn [state] (inc state)))
    * - ReceiveMessage
      - N/A
      - N/A
@@ -2194,6 +2255,9 @@ Programming Languages
            subscription { ... }
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           @my-agent
    * - SingleLineComment
      - .. code-block:: sql
 
@@ -2292,6 +2356,9 @@ Programming Languages
      - .. code-block:: text
 
            // comment
+     - .. code-block:: clojure
+
+           ; comment
    * - MultiLineComment
      - .. code-block:: sql
 
@@ -2390,6 +2457,10 @@ Programming Languages
      - .. code-block:: text
 
            /* comment */
+     - .. code-block:: clojure
+
+           (comment
+             (some code))
    * - Print
      - .. code-block:: sql
 
@@ -2492,6 +2563,9 @@ Programming Languages
      - .. code-block:: text
 
            out;
+     - .. code-block:: clojure
+
+           (println "Hello, World!")
    * - Import
      - N/A
      - .. code-block:: c
@@ -2588,6 +2662,9 @@ Programming Languages
      - .. code-block:: text
 
            [out:json];
+     - .. code-block:: clojure
+
+           (require '[clojure.string :as str])
    * - Constant
      - .. code-block:: sql
 
@@ -2686,6 +2763,9 @@ Programming Languages
      - .. code-block:: text
 
            {{key=value}}
+     - .. code-block:: clojure
+
+           (def ^:const my-const 10)
    * - Addition
      - .. code-block:: sql
 
@@ -2782,6 +2862,9 @@ Programming Languages
 
            ?a + ?b
      - N/A
+     - .. code-block:: clojure
+
+           (+ a b)
    * - Subtraction
      - .. code-block:: sql
 
@@ -2878,6 +2961,9 @@ Programming Languages
 
            ?a - ?b
      - N/A
+     - .. code-block:: clojure
+
+           (- a b)
    * - Multiplication
      - .. code-block:: sql
 
@@ -2974,6 +3060,9 @@ Programming Languages
 
            ?a * ?b
      - N/A
+     - .. code-block:: clojure
+
+           (* a b)
    * - Division
      - .. code-block:: sql
 
@@ -3070,6 +3159,9 @@ Programming Languages
 
            ?a / ?b
      - N/A
+     - .. code-block:: clojure
+
+           (/ a b)
    * - Remainder
      - .. code-block:: sql
 
@@ -3160,6 +3252,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (rem a b)
    * - Floor
      - .. code-block:: sql
 
@@ -3244,6 +3339,9 @@ Programming Languages
 
            floor(?a)
      - N/A
+     - .. code-block:: clojure
+
+           (Math/floor x)
    * - Rounding
      - .. code-block:: sql
 
@@ -3330,6 +3428,9 @@ Programming Languages
 
            round(?a)
      - N/A
+     - .. code-block:: clojure
+
+           (Math/round x)
    * - Increment
      - .. code-block:: sql
 
@@ -3426,6 +3527,9 @@ Programming Languages
 
            ?a + 1
      - N/A
+     - .. code-block:: clojure
+
+           (inc x)
    * - Decrement
      - .. code-block:: sql
 
@@ -3522,6 +3626,9 @@ Programming Languages
 
            ?a - 1
      - N/A
+     - .. code-block:: clojure
+
+           (dec x)
    * - LeftShift
      - N/A
      - .. code-block:: c
@@ -3608,6 +3715,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-shift-left x n)
    * - RightShift
      - N/A
      - .. code-block:: c
@@ -3694,6 +3804,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-shift-right x n)
    * - BitAnd
      - .. code-block:: sql
 
@@ -3782,6 +3895,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-and a b)
    * - BitOr
      - .. code-block:: sql
 
@@ -3870,6 +3986,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-or a b)
    * - BitXor
      - .. code-block:: sql
 
@@ -3958,6 +4077,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-xor a b)
    * - BitNot
      - .. code-block:: sql
 
@@ -4047,6 +4169,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (bit-not x)
    * - Float4VectorMultiplication
      - .. code-block:: sql
 
@@ -4142,6 +4267,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (mapv * a b)
    * - Float4VectorDotProduct
      - .. code-block:: sql
 
@@ -4244,6 +4372,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (reduce + (map * a b))
    * - Float4VectorCrossProduct
      - .. code-block:: sql
 
@@ -4417,6 +4548,14 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: clojure
+
+           (let [[ax ay az] a
+                 [bx by bz] b]
+             [(- (* ay bz) (* az by))
+              (- (* az bx) (* ax bz))
+              (- (* ax by) (* ay bx))
+              0.0])
    * - SetFiltering
      - .. code-block:: sql
 
@@ -4548,6 +4687,9 @@ Programming Languages
      - .. code-block:: text
 
            node["name"="Berlin"];
+     - .. code-block:: clojure
+
+           (filter #(= % :val) my-set)
    * - SetJoin
      - .. code-block:: sql
 
@@ -4686,6 +4828,9 @@ Programming Languages
      - .. code-block:: text
 
            (node(area); way(area););
+     - .. code-block:: clojure
+
+           (clojure.set/join set-a set-b)
 
 Data Formats
 ------------

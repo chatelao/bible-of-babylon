@@ -93,6 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="graphql_pivot.html">GraphQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sparql_pivot.html">SPARQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
 </ul>
 
         </div>
@@ -160,6 +161,7 @@
 <th class="head"><p>GraphQL</p></th>
 <th class="head"><p>SPARQL</p></th>
 <th class="head"><p>Overpass Turbo</p></th>
+<th class="head"><p>Clojure</p></th>
 </tr>
 </thead>
 <tbody>
@@ -293,6 +295,10 @@
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">x</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -431,6 +437,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">l</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
@@ -534,6 +544,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">m</span><span class="w"> </span><span class="p">{</span><span class="ss">:a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">:b</span><span class="w"> </span><span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
@@ -661,6 +675,10 @@
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -794,6 +812,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">not= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
@@ -921,6 +943,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
@@ -1114,6 +1140,11 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-proc</span><span class="w"> </span><span class="p">[</span><span class="nv">args</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">args</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
@@ -1305,6 +1336,11 @@
 </td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-func</span><span class="w"> </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">+ </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>IfElse</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
@@ -1526,6 +1562,10 @@
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -1820,6 +1860,13 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">case</span><span class="w"> </span><span class="nv">x</span>
+<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
+<span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="s">&quot;two&quot;</span>
+<span class="w">  </span><span class="s">&quot;default&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
@@ -2003,6 +2050,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">when </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">i</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">)</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">i</span><span class="p">))))</span>
 </pre></div>
 </div>
 </td>
@@ -2201,6 +2255,11 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">10</span><span class="p">)]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
@@ -2373,6 +2432,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">try</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">e</span>
+<span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="p">(</span><span class="nf">.getMessage</span><span class="w"> </span><span class="nv">e</span><span class="p">))))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -2493,6 +2559,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">Exception.</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
@@ -2596,6 +2666,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">future</span><span class="w"> </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello from thread&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
@@ -2692,6 +2766,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">send </span><span class="nv">my-agent</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">state</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
@@ -2795,6 +2873,10 @@
 </td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="nv">my-agent</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
@@ -2926,6 +3008,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
@@ -3044,6 +3130,11 @@
 </td>
 <td><p>N/A</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">comment</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">some </span><span class="nv">code</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
@@ -3181,6 +3272,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
 <td><p>N/A</p></td>
@@ -3306,6 +3401,10 @@
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.string</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">str</span><span class="p">])</span>
 </pre></div>
 </div>
 </td>
@@ -3440,6 +3539,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:const</span><span class="w"> </span><span class="nv">my-const</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
@@ -3568,6 +3671,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
@@ -3696,6 +3803,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">- </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
@@ -3824,6 +3935,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
@@ -3952,6 +4067,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
@@ -4071,6 +4190,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">rem </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -4181,6 +4304,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/floor</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -4294,6 +4421,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/round</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
@@ -4422,6 +4553,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">inc </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
@@ -4550,6 +4685,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dec </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
@@ -4663,6 +4802,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-left </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
@@ -4776,6 +4919,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-right </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
@@ -4892,6 +5039,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-and </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
@@ -5008,6 +5159,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-or </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
@@ -5124,6 +5279,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-xor </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
@@ -5241,6 +5400,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-not </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
@@ -5365,6 +5528,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
@@ -5496,6 +5663,10 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
@@ -5697,6 +5868,15 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">[[</span><span class="nv">ax</span><span class="w"> </span><span class="nv">ay</span><span class="w"> </span><span class="nv">az</span><span class="p">]</span><span class="w"> </span><span class="nv">a</span>
+<span class="w">      </span><span class="p">[</span><span class="nv">bx</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">bz</span><span class="p">]</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
+<span class="w">  </span><span class="p">[(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bz</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">by</span><span class="p">))</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">bx</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">ax</span><span class="w"> </span><span class="nv">bz</span><span class="p">))</span>
+<span class="w">   </span><span class="p">(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ax</span><span class="w"> </span><span class="nv">by</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bx</span><span class="p">))</span>
+<span class="w">   </span><span class="mf">0.0</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
@@ -5858,6 +6038,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="ss">:val</span><span class="p">)</span><span class="w"> </span><span class="nv">my-set</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -6028,6 +6212,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(node(area); way(area););
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
