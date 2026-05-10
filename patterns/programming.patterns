@@ -7726,3 +7726,235 @@ instance OverpassTurboSetJoin of SetJoin {
     syntax = "(node(area); way(area););"
     notes = "Unions and recursion (e.g., node(w)) are used to combine sets."
 }
+
+instance ClojureVar of VariableDeclaration {
+    name = "x"
+    type = "Dynamic"
+    initial_value = 42
+    syntax = "(def x 42)"
+    notes = "Global var definition; for local bindings, 'let' is used."
+}
+
+instance ClojureIfElse of IfElse {
+    condition = "(> x 0)"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "(if (> x 0) 1 0)"
+    notes = "Standard functional if-expression."
+}
+
+instance ClojureSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "(case x\n  1 1\n  2 2\n  0)"
+    notes = "The case macro dispatches on constant values."
+}
+
+instance ClojureLoop of Loop {
+    condition = "(> x 0)"
+    body = { raw "(println x)" }
+    syntax = "(while (> x 0)\n  (println x))"
+    notes = "While macro for side-effecting loops."
+}
+
+instance ClojureForLoop of ForLoop {
+    syntax = "(doseq [i (range 10)]\n  (println i))"
+    notes = "Iterates over a sequence for side effects."
+}
+
+instance ClojureFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a", "b"]
+    return_type = "Dynamic"
+    body = { raw "(+ a b)" }
+    syntax = "(defn add [a b]\n  (+ a b))"
+    notes = "Standard function definition; the last expression is returned."
+}
+
+instance ClojureProcedure of ProcedureDefinition {
+    name = "log-message"
+    parameters = ["msg"]
+    body = { call println(msg) }
+    syntax = "(defn log-message [msg]\n  (println msg))"
+    notes = "Procedures are functions that typically return nil."
+}
+
+instance ClojureTryCatch of TryCatch {
+    try_body = { raw "(do-something)" }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { raw "(handle e)" }
+    syntax = "(try\n  (do-something)\n  (catch Exception e\n    (handle e)))"
+    notes = "Standard exception handling using try-catch blocks."
+}
+
+instance ClojureRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "(throw (Exception. \"Error\"))"
+    notes = "Uses 'throw' to raise an exception object."
+}
+
+instance ClojureThread of Thread {
+    body = { raw "(do-work)" }
+    syntax = "(future (do-work))"
+    notes = "The future macro runs code in another thread and returns a handle to the result."
+}
+
+instance ClojureSendMessage of SendMessage {
+    recipient = "a"
+    message = "42"
+    syntax = "(send a + 42)"
+    notes = "Asynchronous message passing using agents."
+}
+
+instance ClojureReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "(let [msg @c] (handle msg))"
+    notes = "Dereferencing a promise or future (using @) blocks until the value is available."
+}
+
+instance ClojureSingleLineComment of SingleLineComment {
+    syntax = "; comment"
+    notes = "Standard Clojure single-line comment."
+}
+
+instance ClojureMultiLineComment of MultiLineComment {
+    syntax = "(comment\n  line 1\n  line 2)"
+    notes = "The comment macro is used for multi-line blocks; they are treated as code that returns nil."
+}
+
+instance ClojurePrint of Print {
+    value = "Hello, World!"
+    syntax = "(println \"Hello, World!\")"
+    notes = "Prints to stdout with a newline."
+}
+
+instance ClojureImport of Import {
+    module_name = "clojure.string"
+    syntax = "(:require [clojure.string :as str])"
+    notes = "Imports a namespace; usually within an ns macro."
+}
+
+instance ClojureConstant of Constant {
+    name = "MAX"
+    type = "int"
+    value = "100"
+    syntax = "(def ^:const MAX 100)"
+    notes = "Defines a constant value."
+}
+
+instance ClojureAddition of Addition {
+    syntax = "(+ a b)"
+    notes = "Standard prefix arithmetic operator."
+}
+
+instance ClojureSubtraction of Subtraction {
+    syntax = "(- a b)"
+    notes = "Standard prefix arithmetic operator."
+}
+
+instance ClojureMultiplication of Multiplication {
+    syntax = "(* a b)"
+    notes = "Standard prefix arithmetic operator."
+}
+
+instance ClojureDivision of Division {
+    syntax = "(/ a b)"
+    notes = "Standard prefix arithmetic operator."
+}
+
+instance ClojureRemainder of Remainder {
+    syntax = "(rem a b)"
+    notes = "Standard prefix arithmetic operator."
+}
+
+instance ClojureEqual of Equal {
+    syntax = "(= a b)"
+    notes = "Standard equality operator."
+}
+
+instance ClojureNotEqual of NotEqual {
+    syntax = "(not= a b)"
+    notes = "Standard inequality operator."
+}
+
+instance ClojureGreaterThan of GreaterThan {
+    syntax = "(> a b)"
+    notes = "Standard greater than operator."
+}
+
+instance ClojureBitAnd of BitAnd {
+    syntax = "(bit-and a b)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureBitOr of BitOr {
+    syntax = "(bit-or a b)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureBitXor of BitXor {
+    syntax = "(bit-xor a b)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureBitNot of BitNot {
+    syntax = "(bit-not a)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureLeftShift of LeftShift {
+    syntax = "(bit-shift-left a b)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureRightShift of RightShift {
+    syntax = "(bit-shift-right a b)"
+    notes = "Standard bitwise operators."
+}
+
+instance ClojureFloor of Floor {
+    syntax = "(Math/floor a)"
+    notes = "Uses Java interop for floor."
+}
+
+instance ClojureRounding of Rounding {
+    syntax = "(Math/round a)"
+    notes = "Uses Java interop for rounding."
+}
+
+instance ClojureIncrement of Increment {
+    syntax = "(inc a)"
+    notes = "Standard increment function."
+}
+
+instance ClojureDecrement of Decrement {
+    syntax = "(dec a)"
+    notes = "Standard decrement function."
+}
+
+instance ClojureSetFiltering of SetFiltering {
+    syntax = "(filter #(> % 0) a)"
+    notes = "Uses the higher-order filter function with a predicate."
+}
+
+instance ClojureSetJoin of SetJoin {
+    syntax = "(clojure.set/join list-a list-b {:id :id})"
+    notes = "The clojure.set namespace provides a join function for sets of maps."
+}
+
+instance ClojureFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "(mapv * a b)"
+    notes = "Applies multiplication element-wise to vectors and returns a new vector."
+}
+
+instance ClojureFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "(reduce + (map * a b))"
+    notes = "Functional approach using map and reduce."
+}
+
+instance ClojureFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "[( - (* (a 1) (b 2)) (* (a 2) (b 1)))\n ( - (* (a 2) (b 0)) (* (a 0) (b 2)))\n ( - (* (a 0) (b 1)) (* (a 1) (b 0)))\n 0.0]"
+    notes = "Manual implementation for 3D cross product using vector indexing."
+}

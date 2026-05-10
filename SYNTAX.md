@@ -40,6 +40,7 @@ The transpiler maintains a mapping between internal instance names and Pygments-
 | C#            | `csharp`       |
 | Swift         | `swift`        |
 | Kotlin        | `kotlin`       |
+| Clojure       | `clojure`      |
 | JSON          | `json`         |
 | XML           | `xml`          |
 | YAML          | `yaml`         |

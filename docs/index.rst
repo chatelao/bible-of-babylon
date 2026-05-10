@@ -65,6 +65,7 @@ Downloads
    graphql_pivot
    sparql_pivot
    overpass_turbo_pivot
+   clojure_pivot
 
 Indices and tables
 ==================

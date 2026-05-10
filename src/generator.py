@@ -62,7 +62,7 @@ class CodeGenerator:
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
         "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel",
         "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran", "CSharp", "Swift", "Kotlin",
-        "GraphQL", "SPARQL", "Overpass Turbo"
+        "GraphQL", "SPARQL", "Overpass Turbo", "Clojure"
     ]
     DATA_FORMATS = [
         "JSON", "XML", "YAML", "TOML", "CSV", "Fixlength"
@@ -104,6 +104,7 @@ class CodeGenerator:
         "CSharp": "csharp",
         "Swift": "swift",
         "Kotlin": "kotlin",
+        "Clojure": "clojure",
         "GraphQL": "graphql",
         "SPARQL": "sparql",
         "Overpass Turbo": "text",

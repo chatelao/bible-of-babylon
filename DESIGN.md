@@ -38,6 +38,7 @@ This section compares languages based on common programming patterns.
 - C#
 - Swift
 - Kotlin
+- Clojure
 
 **Patterns to be compared:**
 - Variable declaration
