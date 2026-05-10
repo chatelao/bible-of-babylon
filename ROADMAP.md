@@ -143,6 +143,10 @@
     - [x] Define pattern and implement instances across all 24 languages
 - [x] Implement `Float4VectorCrossProduct` pattern
     - [x] Define pattern and implement instances across all 24 languages
+- [x] Implement `CollectionDefinition` pattern
+    - [x] Define pattern and implement instances across all 33 languages
+- [x] Implement `AssociativeArrayDefinition` pattern
+    - [x] Define pattern and implement instances across all 33 languages
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->
