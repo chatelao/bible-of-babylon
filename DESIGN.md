@@ -43,7 +43,7 @@ This section compares languages based on common programming patterns.
 - Variable declaration
 - Collection definition
 - Associative array definition
-- Control flow (if/else, loops, for loops)
+- Control flow (if/else, loops, for loops, for-each loops)
 - Function/Procedure definition
 - Error handling
 - Concurrency models
