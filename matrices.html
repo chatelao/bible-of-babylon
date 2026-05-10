@@ -53,6 +53,7 @@
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pattern Comparison Matrices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#programming-languages">Programming Languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-query-languages">Data Query Languages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-formats">Data Formats</a></li>
 </ul>
 </li>
@@ -128,10 +129,8 @@
 <caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
-<th class="head"><p>SQL</p></th>
 <th class="head"><p>C</p></th>
 <th class="head"><p>Cpp</p></th>
-<th class="head"><p>XQuery</p></th>
 <th class="head"><p>Java</p></th>
 <th class="head"><p>Rust</p></th>
 <th class="head"><p>Erlang</p></th>
@@ -158,27 +157,16 @@
 <th class="head"><p>CSharp</p></th>
 <th class="head"><p>Swift</p></th>
 <th class="head"><p>Kotlin</p></th>
-<th class="head"><p>GraphQL</p></th>
-<th class="head"><p>SPARQL</p></th>
-<th class="head"><p>Overpass Turbo</p></th>
 <th class="head"><p>Clojure</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">42</span>
 </pre></div>
 </div>
 </td>
@@ -286,35 +274,12 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$x:</span><span class="w"> </span><span class="err">Int</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">42</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="mi">42</span> <span class="k">AS</span> <span class="nv">?x</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">x</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ForEach</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
-<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
-<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 <span class="w">    </span><span class="c1">// body</span>
@@ -325,11 +290,6 @@
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// body</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
-<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span>
 </pre></div>
 </div>
 </td>
@@ -489,12 +449,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .item ( ... )
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">item</span><span class="p">))</span>
 </pre></div>
@@ -502,20 +456,11 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>CollectionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -623,35 +568,14 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$l:</span><span class="w"> </span><span class="err">[Int]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">[1</span><span class="p">,</span><span class="w"> </span><span class="err">2</span><span class="p">,</span><span class="w"> </span><span class="err">3]</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?x</span> <span class="p">{</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.a
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">l</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}};</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -739,28 +663,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">m</span><span class="w"> </span><span class="p">{</span><span class="ss">:a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">:b</span><span class="w"> </span><span class="mi">2</span><span class="p">})</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Equal</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -867,34 +780,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">=</span> <span class="nv">?b</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>NotEqual</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -1001,34 +897,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">!=</span> <span class="nv">?b</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">not= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>GreaterThan</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -1135,26 +1014,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">&gt;</span> <span class="nv">?b</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-<span class="k">AS</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="p">;</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span>
 <span class="p">}</span>
@@ -1164,14 +1029,6 @@
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:log-message</span><span class="p">(</span>
-<span class="w">    </span><span class="nv">$</span><span class="n">msg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:string</span>
-<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nt">empty-sequence</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="p">();</span><span class="w"> </span><span class="c">(: side effects in XQuery are implementation-defined or via extensions :)</span>
-<span class="p">};</span>
 </pre></div>
 </div>
 </td>
@@ -1335,9 +1192,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-proc</span><span class="w"> </span><span class="p">[</span><span class="nv">args</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">args</span><span class="p">))</span>
 </pre></div>
@@ -1345,14 +1199,6 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
-<span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">b</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1362,15 +1208,6 @@
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:add</span><span class="p">(</span>
-<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="p">,</span>
-<span class="w">    </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span>
-<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
-<span class="p">};</span>
 </pre></div>
 </div>
 </td>
@@ -1524,16 +1361,6 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">name</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-func</span><span class="w"> </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">+ </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
@@ -1541,17 +1368,6 @@
 </td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
-<span class="k">ELSE</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
@@ -1565,10 +1381,6 @@
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span>
 </pre></div>
 </div>
 </td>
@@ -1751,32 +1563,12 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">@skip(if:</span><span class="w"> </span><span class="err">$condition)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">@include(if:</span><span class="w"> </span><span class="err">$condition)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?res</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>SwitchCase</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
-<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -1796,13 +1588,6 @@
 <span class="w">    </span><span class="k">default</span><span class="o">:</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
-<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
 </pre></div>
 </div>
 </td>
@@ -2052,12 +1837,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">case</span><span class="w"> </span><span class="nv">x</span>
 <span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span>
 <span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="s">&quot;two&quot;</span>
@@ -2067,13 +1846,6 @@
 </td>
 </tr>
 <tr class="row-odd"><td><p>Loop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
@@ -2083,10 +1855,6 @@
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
 </pre></div>
 </div>
 </td>
@@ -2245,12 +2013,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">loop </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">when </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">i</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">)</span>
@@ -2260,15 +2022,6 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>ForLoop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">END</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// body</span>
 <span class="p">}</span>
@@ -2278,11 +2031,6 @@
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// body</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span>
-<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
 </pre></div>
 </div>
 </td>
@@ -2447,12 +2195,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for ( ... )
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">i</span><span class="w"> </span><span class="p">(</span><span class="nb">range </span><span class="mi">10</span><span class="p">)]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">))</span>
 </pre></div>
@@ -2460,28 +2202,11 @@
 </td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
-<span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">handle_error</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
-</pre></div>
-</div>
-</td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">do_something</span><span class="p">()</span>
-<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="nt">*</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nf">handle</span><span class="p">(</span><span class="nv">$</span><span class="n">err</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -2627,9 +2352,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">try</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">e</span>
@@ -2639,19 +2361,11 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">&#39;http://example.com/errors&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MY_ERROR&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -2754,9 +2468,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">Exception.</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -2764,13 +2475,11 @@
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">do_work</span><span class="p">);</span>
 <span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">}).</span><span class="na">start</span><span class="p">();</span>
 </pre></div>
 </div>
@@ -2861,9 +2570,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">future</span><span class="w"> </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello from thread&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -2871,12 +2577,10 @@
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="na">put</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -2961,9 +2665,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">send </span><span class="nv">my-agent</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">state</span><span class="p">)))</span>
 </pre></div>
 </div>
@@ -2971,14 +2672,12 @@
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
 <span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="na">take</span><span class="p">();</span><span class="w"> </span><span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3065,31 +2764,17 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="nv">my-agent</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: comment :)</span>
 </pre></div>
 </div>
 </td>
@@ -3194,29 +2879,12 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
-<span class="cm">   line 2 */</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
 </pre></div>
@@ -3224,11 +2892,6 @@
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: line 1</span>
-<span class="c">   line 2 :)</span>
 </pre></div>
 </div>
 </td>
@@ -3322,15 +2985,6 @@
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">comment</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">some </span><span class="nv">code</span><span class="p">))</span>
 </pre></div>
@@ -3338,19 +2992,11 @@
 </td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello, World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 </td>
@@ -3464,28 +3110,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -3593,34 +3228,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">PREFIX</span> <span class="nn">dc</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/elements/1.1/&gt;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.string</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">str</span><span class="p">])</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">variable</span><span class="w"> </span><span class="nv">$</span><span class="n">MAX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -3728,34 +3346,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?MAX</span> <span class="p">{</span> <span class="mi">100</span> <span class="p">}</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:const</span><span class="w"> </span><span class="nv">my-const</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Addition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span>
 </pre></div>
 </div>
 </td>
@@ -3863,31 +3464,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="nv">?b</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Subtraction</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nt">b</span>
 </pre></div>
 </div>
 </td>
@@ -3995,31 +3582,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="nv">?b</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">- </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Multiplication</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">b</span>
 </pre></div>
 </div>
 </td>
@@ -4127,31 +3700,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">*</span> <span class="nv">?b</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Division</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">div</span><span class="w"> </span><span class="nt">b</span>
 </pre></div>
 </div>
 </td>
@@ -4259,31 +3818,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">/</span> <span class="nv">?b</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">mod</span><span class="w"> </span><span class="nt">b</span>
 </pre></div>
 </div>
 </td>
@@ -4385,28 +3930,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">rem </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -4496,31 +4030,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/floor</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Rounding</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -4613,31 +4133,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/round</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Increment</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 </td>
@@ -4745,31 +4251,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">inc </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Decrement</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 </td>
@@ -4877,19 +4369,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dec </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>LeftShift</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4898,7 +4383,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4997,16 +4481,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-left </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>RightShift</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5015,7 +4495,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5114,19 +4593,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-right </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>BitAnd</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5135,7 +4607,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5234,19 +4705,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-and </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>BitOr</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5255,7 +4719,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5354,19 +4817,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-or </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>BitXor</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5375,7 +4831,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5474,19 +4929,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-xor </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>BitNot</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -5495,7 +4943,6 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -5595,28 +5042,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-not </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </td>
@@ -5723,28 +5159,17 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </pre></div>
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 </div>
 </td>
@@ -5858,19 +5283,12 @@
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -5882,10 +5300,6 @@
 <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -6063,9 +5477,6 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">[[</span><span class="nv">ax</span><span class="w"> </span><span class="nv">ay</span><span class="w"> </span><span class="nv">az</span><span class="p">]</span><span class="w"> </span><span class="nv">a</span>
 <span class="w">      </span><span class="p">[</span><span class="nv">bx</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">bz</span><span class="p">]</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
 <span class="w">  </span><span class="p">[(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bz</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">by</span><span class="p">))</span>
@@ -6077,10 +5488,6 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-odd"><td><p>SetFiltering</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">result</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -6090,12 +5497,6 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">copy_if</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">res</span><span class="p">),</span><span class="w"> </span><span class="n">condition</span><span class="p">);</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
-<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="p">/</span><span class="nt">condition</span>
-<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
 </pre></div>
 </div>
 </td>
@@ -6227,28 +5628,12 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user(id:</span><span class="w"> </span><span class="err">42)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="ss">:val</span><span class="p">)</span><span class="w"> </span><span class="nv">my-set</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 </tr>
 <tr class="row-even"><td><p>SetJoin</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tableA</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tableB</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tableA</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tableB</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
-</pre></div>
-</div>
-</td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6260,12 +5645,6 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">set_intersection</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v2</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">back_inserter</span><span class="p">(</span><span class="n">res</span><span class="p">));</span>
-</pre></div>
-</div>
-</td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colA</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colB</span>
-<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">/</span><span class="nt">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">/</span><span class="nt">id</span>
-<span class="k">return</span><span class="w"> </span><span class="nt">&lt;res&gt;</span><span class="p">{</span><span class="nv">$</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">}</span><span class="nt">&lt;/res&gt;</span>
 </pre></div>
 </div>
 </td>
@@ -6401,6 +5780,730 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data-query-languages">
+<h2>Data Query Languages<a class="headerlink" href="#data-query-languages" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Pattern</p></th>
+<th class="head"><p>SQL</p></th>
+<th class="head"><p>XQuery</p></th>
+<th class="head"><p>GraphQL</p></th>
+<th class="head"><p>SPARQL</p></th>
+<th class="head"><p>Overpass Turbo</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VariableDeclaration</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$x:</span><span class="w"> </span><span class="err">Int</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="mi">42</span> <span class="k">AS</span> <span class="nv">?x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
+<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="c1">-- body</span>
+<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">item</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .item ( ... )
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$l:</span><span class="w"> </span><span class="err">[Int]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">[1</span><span class="p">,</span><span class="w"> </span><span class="err">2</span><span class="p">,</span><span class="w"> </span><span class="err">3]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?x</span> <span class="p">{</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.a
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">!=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">&gt;</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:log-message</span><span class="p">(</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">msg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:string</span>
+<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nt">empty-sequence</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="p">();</span><span class="w"> </span><span class="c">(: side effects in XQuery are implementation-defined or via extensions :)</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
+<span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">b</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nf">local:add</span><span class="p">(</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="p">,</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span>
+<span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">name</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>IfElse</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">END</span>
+<span class="k">ELSE</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">@skip(if:</span><span class="w"> </span><span class="err">$condition)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">@include(if:</span><span class="w"> </span><span class="err">$condition)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?res</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SwitchCase</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
+<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="c1">-- body</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">10</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for ( ... )
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
+<span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">handle_error</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">do_something</span><span class="p">()</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="nt">*</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nf">handle</span><span class="p">(</span><span class="nv">$</span><span class="n">err</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Raise</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">&#39;http://example.com/errors&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MY_ERROR&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thread</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: comment :)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
+<span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="c">(: line 1</span>
+<span class="c">   line 2 :)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Import</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">PREFIX</span> <span class="nn">dc</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/elements/1.1/&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Constant</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kd">declare</span><span class="w"> </span><span class="kd">variable</span><span class="w"> </span><span class="nv">$</span><span class="n">MAX</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">xs:integer</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?MAX</span> <span class="p">{</span> <span class="mi">100</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Addition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Subtraction</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multiplication</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">*</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Division</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">div</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">/</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Remainder</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="k">mod</span><span class="w"> </span><span class="nt">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Floor</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Rounding</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nt">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Increment</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Decrement</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nt">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>RightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>BitAnd</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitOr</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>BitXor</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitNot</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">sum</span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="nv">$</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">collection</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="p">/</span><span class="nt">condition</span>
+<span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user(id:</span><span class="w"> </span><span class="err">42)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SetJoin</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tableA</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tableB</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tableA</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tableB</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colA</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">colB</span>
+<span class="k">where</span><span class="w"> </span><span class="nv">$</span><span class="n">a</span><span class="p">/</span><span class="nt">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">/</span><span class="nt">id</span>
+<span class="k">return</span><span class="w"> </span><span class="nt">&lt;res&gt;</span><span class="p">{</span><span class="nv">$</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nv">$</span><span class="n">b</span><span class="p">}</span><span class="nt">&lt;/res&gt;</span>
+</pre></div>
+</div>
+</td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
@@ -6413,18 +6516,14 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
-<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
-</pre></div>
-</div>
-</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="data-formats">
 <h2>Data Formats<a class="headerlink" href="#data-formats" title="Link to this heading"></a></h2>
-<table class="docutils align-default" id="id2">
-<caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text">Pattern Comparison Matrix</span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>JSON</p></th>
