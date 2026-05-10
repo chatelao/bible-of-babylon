@@ -10,6 +10,7 @@ Downloads
 =========
 
 - **Programming Language Matrix:** :download:`CSV <programming_matrix.csv>` | :download:`Excel <programming_matrix.xlsx>`
+- **Data Query Matrix:** :download:`CSV <data_query_matrix.csv>` | :download:`Excel <data_query_matrix.xlsx>`
 - **Data Format Matrix:** :download:`CSV <data_formats_matrix.csv>` | :download:`Excel <data_formats_matrix.xlsx>`
 
 .. toctree::

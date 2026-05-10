@@ -2,16 +2,14 @@
 
 ## Book Structure
 
-The comparative book is divided into two main parts: Programming Languages and Data Formats.
+The comparative book is divided into three main parts: Programming Languages, Data Query Languages, and Data Formats.
 
 ### Part I: Programming Languages
 This section compares languages based on common programming patterns.
 
 **Languages:**
-- SQL
 - C
 - C++
-- XQuery
 - Java
 - Rust
 - Erlang
@@ -38,6 +36,7 @@ This section compares languages based on common programming patterns.
 - C#
 - Swift
 - Kotlin
+- Clojure
 
 **Patterns to be compared:**
 - Variable declaration
@@ -76,7 +75,20 @@ This section compares languages based on common programming patterns.
 - 4-float vector dot product
 - 4-float vector cross product
 
-### Part II: Data Formats
+### Part II: Data Query Languages
+This section compares languages specifically designed for querying data.
+
+**Languages:**
+- SQL
+- XQuery
+- GraphQL
+- SPARQL
+- Overpass Turbo
+
+**Patterns to be compared:**
+- Same as Programming Languages
+
+### Part III: Data Formats
 This section compares data structures and serialization formats.
 
 **Formats:**
