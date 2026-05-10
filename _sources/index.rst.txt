@@ -25,6 +25,7 @@ Downloads
    :caption: Pattern Comparison:
 
    programming
+   data_query
    data_formats
    matrices
    coverage
