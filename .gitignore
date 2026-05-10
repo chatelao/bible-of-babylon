@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 docs/_build/
 docs/programming.rst
+docs/data_query.rst
 docs/data_formats.rst
 docs/matrices.rst
 docs/*.csv
