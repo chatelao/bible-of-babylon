@@ -179,3 +179,4 @@
 - [x] Generate Pivot Chapter for C#
 - [x] Generate Pivot Chapter for Swift
 - [x] Generate Pivot Chapter for Kotlin
+- [x] Generate Pivot Chapter for Clojure
