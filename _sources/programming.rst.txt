@@ -199,6 +199,375 @@ Parameters:
 
 
 
+CollectionDefinition
+--------------------
+
+
+:description: Declaring and optionally initializing an ordered sequence of elements.
+
+
+Parameters:
+
+* name: String
+
+* type: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: CollectionDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CCollectionDefinition
+     - .. code-block:: c
+
+           int arr[] = {1, 2, 3};
+     - Standard C array definition with initializer list.
+   * - JavaCollectionDefinition
+     - .. code-block:: java
+
+           List<Integer> list = List.of(1, 2, 3);
+     - Using the immutable List.of method (Java 9+).
+   * - RustCollectionDefinition
+     - .. code-block:: rust
+
+           let v = vec![1, 2, 3];
+     - Using the vec! macro for dynamic array creation.
+   * - PythonCollectionDefinition
+     - .. code-block:: python
+
+           l = [1, 2, 3]
+     - Lists are the primary collection type in Python.
+   * - PhpCollectionDefinition
+     - .. code-block:: php
+
+           $a = [1, 2, 3];
+     - PHP arrays can act as both indexed collections and associative maps.
+   * - ErlangCollectionDefinition
+     - .. code-block:: erlang
+
+           L = [1, 2, 3].
+     - Lists are the standard linked-list structure in Erlang.
+   * - LispCollectionDefinition
+     - .. code-block:: common-lisp
+
+           (setf l '(1 2 3))
+     - Lists in Lisp are typically quoted literals or created with (list ...).
+   * - BashCollectionDefinition
+     - .. code-block:: bash
+
+           a=(1 2 3)
+     - Bash supports indexed arrays using parentheses.
+   * - CmdCollectionDefinition
+     - .. code-block:: doscon
+
+           set a=1 2 3
+     - Cmd does not have real arrays; strings with delimiters are used for iteration.
+   * - PowerShellCollectionDefinition
+     - .. code-block:: powershell
+
+           $a = 1, 2, 3
+     - The comma operator creates an array in PowerShell.
+   * - SqlCollectionDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (val INT);
+           INSERT INTO @t VALUES (1), (2), (3);
+     - Collections are typically represented as table variables or temporary tables.
+   * - XQueryCollectionDefinition
+     - .. code-block:: xquery
+
+           let $s := (1, 2, 3)
+     - Sequences are the primary collection type in XQuery, created using parentheses and commas.
+   * - CssCollectionDefinition
+     - N/A
+     - CSS does not have a native collection type.
+   * - CudaCollectionDefinition
+     - .. code-block:: cpp
+
+           int arr[] = {1, 2, 3};
+     - Standard C-style arrays are used within CUDA kernels.
+   * - X86CollectionDefinition
+     - .. code-block:: nasm
+
+           arr dd 1, 2, 3
+     - A collection is defined as a sequence of data values in the data section.
+   * - RiscvCollectionDefinition
+     - .. code-block:: asm
+
+           arr: .word 1, 2, 3
+     - A collection is defined as a series of data directives in the data section.
+   * - PrologCollectionDefinition
+     - .. code-block:: prolog
+
+           L = [1, 2, 3].
+     - Lists are the primary collection type in Prolog, represented with square brackets.
+   * - JavaBytecodeCollectionDefinition
+     - .. code-block:: jasmin
+
+           iconst_3
+           newarray int
+           astore_1
+     - In Java Bytecode, arrays are created using instructions like newarray or anewarray.
+   * - CamelCollectionDefinition
+     - .. code-block:: ocaml
+
+           let l = [1; 2; 3]
+     - Lists in OCaml use semicolons as separators and square brackets.
+   * - ArmAarch64CollectionDefinition
+     - .. code-block:: asm
+
+           arr: .quad 1, 2, 3
+     - Defined as a sequence of values in the .data section.
+   * - GoCollectionDefinition
+     - .. code-block:: go
+
+           s := []int{1, 2, 3}
+     - Slices are the primary collection type in Go.
+   * - HaskellCollectionDefinition
+     - .. code-block:: haskell
+
+           let l = [1, 2, 3]
+     - Lists in Haskell are homogeneous linked lists.
+   * - TypeScriptCollectionDefinition
+     - .. code-block:: typescript
+
+           const a: number[] = [1, 2, 3];
+     - Arrays are the primary collection type in TypeScript.
+   * - TclCollectionDefinition
+     - .. code-block:: tcl
+
+           set l [list 1 2 3]
+     - Lists are a fundamental data type in Tcl.
+   * - CobolCollectionDefinition
+     - .. code-block:: cobol
+
+           01 ARR.
+              05 ITEM PIC 9(2) OCCURS 3 TIMES.
+     - Collections are defined using the OCCURS clause in the DATA DIVISION.
+   * - FortranCollectionDefinition
+     - .. code-block:: fortran
+
+           integer, dimension(3) :: a = (/1, 2, 3/)
+     - Arrays are defined using the dimension attribute or parentheses.
+   * - CSharpCollectionDefinition
+     - .. code-block:: csharp
+
+           var l = new List<int> { 1, 2, 3 };
+     - Generic lists are the standard collection type in C#.
+   * - SwiftCollectionDefinition
+     - .. code-block:: swift
+
+           var a = [1, 2, 3]
+     - Arrays are defined using square brackets in Swift.
+   * - KotlinCollectionDefinition
+     - .. code-block:: kotlin
+
+           val l = listOf(1, 2, 3)
+     - The listOf function creates an immutable list in Kotlin.
+   * - CppCollectionDefinition
+     - .. code-block:: cpp
+
+           std::vector<int> v = {1, 2, 3};
+     - Standard vectors are the common dynamic collection in C++.
+   * - GraphQlCollectionDefinition
+     - .. code-block:: graphql
+
+           $l: [Int] = [1, 2, 3]
+     - Lists in GraphQL are defined with square brackets.
+   * - SparqlCollectionDefinition
+     - .. code-block:: sparql
+
+           VALUES ?x { 1 2 3 }
+     - VALUES can be used to define a set of values for a variable.
+   * - OverpassTurboCollectionDefinition
+     - .. code-block:: text
+
+           .a
+     - Collections are represented by sets, which store OSM elements.
+
+
+
+AssociativeArrayDefinition
+--------------------------
+
+
+:description: Declaring and optionally initializing a collection of key-value pairs.
+
+
+Parameters:
+
+* name: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: AssociativeArrayDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CAssociativeArrayDefinition
+     - N/A
+     - C does not have a native associative array type; typically implemented via libraries or custom hash tables.
+   * - JavaAssociativeArrayDefinition
+     - .. code-block:: java
+
+           Map<String, Integer> map = Map.of("a", 1, "b", 2);
+     - Using the immutable Map.of method (Java 9+).
+   * - RustAssociativeArrayDefinition
+     - .. code-block:: rust
+
+           let m = HashMap::from([("a", 1), ("b", 2)]);
+     - Requires importing std::collections::HashMap.
+   * - PythonAssociativeArrayDefinition
+     - .. code-block:: python
+
+           d = {"a": 1, "b": 2}
+     - Dictionaries are Python's native associative array type.
+   * - PhpAssociativeArrayDefinition
+     - .. code-block:: php
+
+           $d = ['a' => 1, 'b' => 2];
+     - Associative arrays use the 'key => value' syntax.
+   * - ErlangAssociativeArrayDefinition
+     - .. code-block:: erlang
+
+           M = #{a => 1, b => 2}.
+     - Maps are used for key-value pairs in Erlang.
+   * - LispAssociativeArrayDefinition
+     - .. code-block:: common-lisp
+
+           (setf m (pairlis '(a b) '(1 2)))
+     - Association lists (alists) or property lists (plists) are common in Lisp.
+   * - BashAssociativeArrayDefinition
+     - .. code-block:: bash
+
+           declare -A m=([a]=1 [b]=2)
+     - Associative arrays require explicit declaration with 'declare -A'.
+   * - CmdAssociativeArrayDefinition
+     - .. code-block:: doscon
+
+           set m_a=1
+           set m_b=2
+     - Associative arrays are simulated using variable naming conventions (e.g., prefixing).
+   * - PowerShellAssociativeArrayDefinition
+     - .. code-block:: powershell
+
+           $h = @{ a = 1; b = 2 }
+     - Hashtables are created using the @{ } syntax.
+   * - SqlAssociativeArrayDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
+           INSERT INTO @t VALUES ('a', 1), ('b', 2);
+     - Associative mapping is achieved through table structures with key/value columns.
+   * - XQueryAssociativeArrayDefinition
+     - .. code-block:: xquery
+
+           let $m := map { "a": 1, "b": 2 }
+     - Maps were introduced in XQuery 3.1.
+   * - CssAssociativeArrayDefinition
+     - N/A
+     - CSS does not have a native associative array type.
+   * - CudaAssociativeArrayDefinition
+     - N/A
+     - CUDA does not have a native associative array type in device code.
+   * - X86AssociativeArrayDefinition
+     - N/A
+     - Associative arrays are not a native concept in assembly; they must be implemented manually via hashing or search algorithms.
+   * - RiscvAssociativeArrayDefinition
+     - N/A
+     - Associative arrays are typically implemented via pointers and memory structures.
+   * - PrologAssociativeArrayDefinition
+     - N/A
+     - Prolog does not have a native associative array; association is typically achieved through facts or association lists.
+   * - JavaBytecodeAssociativeArrayDefinition
+     - .. code-block:: jasmin
+
+           new java/util/HashMap
+           dup
+           invokespecial java/util/HashMap/<init>()V
+           astore_1
+     - Associative arrays involve instantiating a Map class like HashMap.
+   * - CamelAssociativeArrayDefinition
+     - .. code-block:: ocaml
+
+           let m = Map.empty |> Map.add "a" 1 |> Map.add "b" 2
+     - OCaml's Map module provides an immutable associative structure.
+   * - ArmAarch64AssociativeArrayDefinition
+     - N/A
+     - Not natively supported in assembly.
+   * - GoAssociativeArrayDefinition
+     - .. code-block:: go
+
+           m := map[string]int{"a": 1, "b": 2}
+     - Maps are used for associative storage in Go.
+   * - HaskellAssociativeArrayDefinition
+     - .. code-block:: haskell
+
+           let m = Data.Map.fromList [("a", 1), ("b", 2)]
+     - Requires importing Data.Map.
+   * - TypeScriptAssociativeArrayDefinition
+     - .. code-block:: typescript
+
+           const m: Map<string, number> = new Map([['a', 1], ['b', 2]]);
+     - The Map object provides associative mapping.
+   * - TclAssociativeArrayDefinition
+     - .. code-block:: tcl
+
+           array set m {a 1 b 2}
+     - Tcl supports associative arrays with the 'array' command.
+   * - CobolAssociativeArrayDefinition
+     - N/A
+     - Standard COBOL does not have native associative arrays; often simulated with indexed tables and SEARCH ALL.
+   * - FortranAssociativeArrayDefinition
+     - N/A
+     - Standard Fortran does not have a native associative array type.
+   * - CSharpAssociativeArrayDefinition
+     - .. code-block:: csharp
+
+           var d = new Dictionary<string, int> { {"a", 1}, {"b", 2} };
+     - Dictionaries provide associative mapping in C#.
+   * - SwiftAssociativeArrayDefinition
+     - .. code-block:: swift
+
+           var d = ["a": 1, "b": 2]
+     - Dictionaries use the 'key: value' syntax within square brackets.
+   * - KotlinAssociativeArrayDefinition
+     - .. code-block:: kotlin
+
+           val m = mapOf("a" to 1, "b" to 2)
+     - The mapOf function creates an immutable map.
+   * - CppAssociativeArrayDefinition
+     - .. code-block:: cpp
+
+           std::map<std::string, int> m = {{"a", 1}, {"b", 2}};
+     - The map or unordered_map classes provide associative storage.
+   * - GraphQlAssociativeArrayDefinition
+     - N/A
+     - GraphQL does not have a native associative array type for variables.
+   * - SparqlAssociativeArrayDefinition
+     - N/A
+     - SPARQL does not have a native associative array type.
+   * - OverpassTurboAssociativeArrayDefinition
+     - N/A
+     - Overpass QL does not support associative arrays.
+
+
+
 Equal
 -----
 

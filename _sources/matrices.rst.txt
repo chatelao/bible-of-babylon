@@ -38,6 +38,9 @@ Programming Languages
      - CSharp
      - Swift
      - Kotlin
+     - GraphQL
+     - SPARQL
+     - Overpass Turbo
      
    * - VariableDeclaration
      - .. code-block:: sql
@@ -130,6 +133,198 @@ Programming Languages
      - .. code-block:: kotlin
 
            var x: Int = 42
+     - .. code-block:: graphql
+
+           $x: Int = 42
+     - .. code-block:: sparql
+
+           BIND(42 AS ?x)
+     - .. code-block:: text
+
+           .setname
+   * - CollectionDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (val INT);
+           INSERT INTO @t VALUES (1), (2), (3);
+     - .. code-block:: c
+
+           int arr[] = {1, 2, 3};
+     - .. code-block:: cpp
+
+           std::vector<int> v = {1, 2, 3};
+     - .. code-block:: xquery
+
+           let $s := (1, 2, 3)
+     - .. code-block:: java
+
+           List<Integer> list = List.of(1, 2, 3);
+     - .. code-block:: rust
+
+           let v = vec![1, 2, 3];
+     - .. code-block:: erlang
+
+           L = [1, 2, 3].
+     - .. code-block:: common-lisp
+
+           (setf l '(1 2 3))
+     - .. code-block:: bash
+
+           a=(1 2 3)
+     - .. code-block:: doscon
+
+           set a=1 2 3
+     - .. code-block:: powershell
+
+           $a = 1, 2, 3
+     - .. code-block:: python
+
+           l = [1, 2, 3]
+     - .. code-block:: php
+
+           $a = [1, 2, 3];
+     - N/A
+     - .. code-block:: cpp
+
+           int arr[] = {1, 2, 3};
+     - .. code-block:: nasm
+
+           arr dd 1, 2, 3
+     - .. code-block:: asm
+
+           arr: .word 1, 2, 3
+     - .. code-block:: prolog
+
+           L = [1, 2, 3].
+     - .. code-block:: jasmin
+
+           iconst_3
+           newarray int
+           astore_1
+     - .. code-block:: asm
+
+           arr: .quad 1, 2, 3
+     - .. code-block:: ocaml
+
+           let l = [1; 2; 3]
+     - .. code-block:: go
+
+           s := []int{1, 2, 3}
+     - .. code-block:: haskell
+
+           let l = [1, 2, 3]
+     - .. code-block:: typescript
+
+           const a: number[] = [1, 2, 3];
+     - .. code-block:: tcl
+
+           set l [list 1 2 3]
+     - .. code-block:: cobol
+
+           01 ARR.
+              05 ITEM PIC 9(2) OCCURS 3 TIMES.
+     - .. code-block:: fortran
+
+           integer, dimension(3) :: a = (/1, 2, 3/)
+     - .. code-block:: csharp
+
+           var l = new List<int> { 1, 2, 3 };
+     - .. code-block:: swift
+
+           var a = [1, 2, 3]
+     - .. code-block:: kotlin
+
+           val l = listOf(1, 2, 3)
+     - .. code-block:: graphql
+
+           $l: [Int] = [1, 2, 3]
+     - .. code-block:: sparql
+
+           VALUES ?x { 1 2 3 }
+     - .. code-block:: text
+
+           .a
+   * - AssociativeArrayDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
+           INSERT INTO @t VALUES ('a', 1), ('b', 2);
+     - N/A
+     - .. code-block:: cpp
+
+           std::map<std::string, int> m = {{"a", 1}, {"b", 2}};
+     - .. code-block:: xquery
+
+           let $m := map { "a": 1, "b": 2 }
+     - .. code-block:: java
+
+           Map<String, Integer> map = Map.of("a", 1, "b", 2);
+     - .. code-block:: rust
+
+           let m = HashMap::from([("a", 1), ("b", 2)]);
+     - .. code-block:: erlang
+
+           M = #{a => 1, b => 2}.
+     - .. code-block:: common-lisp
+
+           (setf m (pairlis '(a b) '(1 2)))
+     - .. code-block:: bash
+
+           declare -A m=([a]=1 [b]=2)
+     - .. code-block:: doscon
+
+           set m_a=1
+           set m_b=2
+     - .. code-block:: powershell
+
+           $h = @{ a = 1; b = 2 }
+     - .. code-block:: python
+
+           d = {"a": 1, "b": 2}
+     - .. code-block:: php
+
+           $d = ['a' => 1, 'b' => 2];
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: jasmin
+
+           new java/util/HashMap
+           dup
+           invokespecial java/util/HashMap/<init>()V
+           astore_1
+     - N/A
+     - .. code-block:: ocaml
+
+           let m = Map.empty |> Map.add "a" 1 |> Map.add "b" 2
+     - .. code-block:: go
+
+           m := map[string]int{"a": 1, "b": 2}
+     - .. code-block:: haskell
+
+           let m = Data.Map.fromList [("a", 1), ("b", 2)]
+     - .. code-block:: typescript
+
+           const m: Map<string, number> = new Map([['a', 1], ['b', 2]]);
+     - .. code-block:: tcl
+
+           array set m {a 1 b 2}
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           var d = new Dictionary<string, int> { {"a", 1}, {"b", 2} };
+     - .. code-block:: swift
+
+           var d = ["a": 1, "b": 2]
+     - .. code-block:: kotlin
+
+           val m = mapOf("a" to 1, "b" to 2)
+     - N/A
+     - N/A
+     - N/A
    * - Equal
      - .. code-block:: sql
 
@@ -221,6 +416,13 @@ Programming Languages
      - .. code-block:: kotlin
 
            a == b
+     - N/A
+     - .. code-block:: sparql
+
+           FILTER(?a = ?b)
+     - .. code-block:: text
+
+           ["name"="Berlin"]
    * - NotEqual
      - .. code-block:: sql
 
@@ -312,6 +514,13 @@ Programming Languages
      - .. code-block:: kotlin
 
            a != b
+     - N/A
+     - .. code-block:: sparql
+
+           FILTER(?a != ?b)
+     - .. code-block:: text
+
+           ["name"!="Berlin"]
    * - GreaterThan
      - .. code-block:: sql
 
@@ -403,6 +612,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a > b
+     - N/A
+     - .. code-block:: sparql
+
+           FILTER(?a > ?b)
+     - N/A
    * - ProcedureDefinition
      - .. code-block:: sql
 
@@ -563,6 +777,9 @@ Programming Languages
            fun logMessage(msg: String) {
                println(msg)
            }
+     - N/A
+     - N/A
+     - N/A
    * - FunctionDefinition
      - .. code-block:: sql
 
@@ -714,6 +931,15 @@ Programming Languages
            fun add(a: Int, b: Int): Int {
                return a + b
            }
+     - .. code-block:: graphql
+
+           query getUser($id: ID) {
+               user(id: $id) {
+                   name
+               }
+           }
+     - N/A
+     - N/A
    * - IfElse
      - .. code-block:: sql
 
@@ -895,6 +1121,15 @@ Programming Languages
      - .. code-block:: kotlin
 
            if (x > 0) 1 else 0
+     - .. code-block:: graphql
+
+           @skip(if: $condition) or @include(if: $condition)
+     - .. code-block:: sparql
+
+           BIND(IF(?x > 0, 1, 0) AS ?res)
+     - .. code-block:: text
+
+           if (condition) { ... } else { ... }
    * - SwitchCase
      - .. code-block:: sql
 
@@ -1150,6 +1385,11 @@ Programming Languages
                2 -> 2
                else -> 0
            }
+     - N/A
+     - .. code-block:: sparql
+
+           COALESCE(IF(?x=1, 'one', 1/0), IF(?x=2, 'two', 1/0), 'none')
+     - N/A
    * - Loop
      - .. code-block:: sql
 
@@ -1300,6 +1540,11 @@ Programming Languages
            while (x > 0) {
                x -= 1
            }
+     - N/A
+     - N/A
+     - .. code-block:: text
+
+           foreach .a ( ... )
    * - ForLoop
      - .. code-block:: sql
 
@@ -1459,6 +1704,11 @@ Programming Languages
            for (i in 0 until 10) {
                // body
            }
+     - N/A
+     - N/A
+     - .. code-block:: text
+
+           for ( ... )
    * - TryCatch
      - .. code-block:: sql
 
@@ -1604,6 +1854,9 @@ Programming Languages
            } catch (e: Exception) {
                handle(e)
            }
+     - N/A
+     - N/A
+     - N/A
    * - Raise
      - .. code-block:: sql
 
@@ -1693,6 +1946,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            throw Exception("Error")
+     - N/A
+     - N/A
+     - N/A
    * - Thread
      - N/A
      - N/A
@@ -1774,6 +2030,9 @@ Programming Languages
            thread {
                doWork()
            }
+     - N/A
+     - N/A
+     - N/A
    * - SendMessage
      - N/A
      - N/A
@@ -1848,6 +2107,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            channel.send(42)
+     - N/A
+     - N/A
+     - N/A
    * - ReceiveMessage
      - N/A
      - N/A
@@ -1927,6 +2189,11 @@ Programming Languages
 
            val msg = channel.receive()
            handle(msg)
+     - .. code-block:: graphql
+
+           subscription { ... }
+     - N/A
+     - N/A
    * - SingleLineComment
      - .. code-block:: sql
 
@@ -2014,6 +2281,15 @@ Programming Languages
 
            // comment
      - .. code-block:: kotlin
+
+           // comment
+     - .. code-block:: graphql
+
+           # comment
+     - .. code-block:: sparql
+
+           # comment
+     - .. code-block:: text
 
            // comment
    * - MultiLineComment
@@ -2107,6 +2383,13 @@ Programming Languages
 
            /* line 1
               line 2 */
+     - .. code-block:: graphql
+
+           """ comment """
+     - N/A
+     - .. code-block:: text
+
+           /* comment */
    * - Print
      - .. code-block:: sql
 
@@ -2204,6 +2487,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            println("Hello, World!")
+     - N/A
+     - N/A
+     - .. code-block:: text
+
+           out;
    * - Import
      - N/A
      - .. code-block:: c
@@ -2293,6 +2581,13 @@ Programming Languages
      - .. code-block:: kotlin
 
            import kotlin.math.*
+     - N/A
+     - .. code-block:: sparql
+
+           PREFIX dc: <http://purl.org/dc/elements/1.1/>
+     - .. code-block:: text
+
+           [out:json];
    * - Constant
      - .. code-block:: sql
 
@@ -2384,6 +2679,13 @@ Programming Languages
      - .. code-block:: kotlin
 
            const val MAX = 100
+     - N/A
+     - .. code-block:: sparql
+
+           VALUES ?MAX { 100 }
+     - .. code-block:: text
+
+           {{key=value}}
    * - Addition
      - .. code-block:: sql
 
@@ -2475,6 +2777,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a + b
+     - N/A
+     - .. code-block:: sparql
+
+           ?a + ?b
+     - N/A
    * - Subtraction
      - .. code-block:: sql
 
@@ -2566,6 +2873,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a - b
+     - N/A
+     - .. code-block:: sparql
+
+           ?a - ?b
+     - N/A
    * - Multiplication
      - .. code-block:: sql
 
@@ -2657,6 +2969,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a * b
+     - N/A
+     - .. code-block:: sparql
+
+           ?a * ?b
+     - N/A
    * - Division
      - .. code-block:: sql
 
@@ -2748,6 +3065,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a / b
+     - N/A
+     - .. code-block:: sparql
+
+           ?a / ?b
+     - N/A
    * - Remainder
      - .. code-block:: sql
 
@@ -2835,6 +3157,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a % b
+     - N/A
+     - N/A
+     - N/A
    * - Floor
      - .. code-block:: sql
 
@@ -2914,6 +3239,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            floor(a)
+     - N/A
+     - .. code-block:: sparql
+
+           floor(?a)
+     - N/A
    * - Rounding
      - .. code-block:: sql
 
@@ -2995,6 +3325,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            round(a)
+     - N/A
+     - .. code-block:: sparql
+
+           round(?a)
+     - N/A
    * - Increment
      - .. code-block:: sql
 
@@ -3086,6 +3421,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a++
+     - N/A
+     - .. code-block:: sparql
+
+           ?a + 1
+     - N/A
    * - Decrement
      - .. code-block:: sql
 
@@ -3177,6 +3517,11 @@ Programming Languages
      - .. code-block:: kotlin
 
            a--
+     - N/A
+     - .. code-block:: sparql
+
+           ?a - 1
+     - N/A
    * - LeftShift
      - N/A
      - .. code-block:: c
@@ -3260,6 +3605,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a shl b
+     - N/A
+     - N/A
+     - N/A
    * - RightShift
      - N/A
      - .. code-block:: c
@@ -3343,6 +3691,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a shr b
+     - N/A
+     - N/A
+     - N/A
    * - BitAnd
      - .. code-block:: sql
 
@@ -3428,6 +3779,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a and b
+     - N/A
+     - N/A
+     - N/A
    * - BitOr
      - .. code-block:: sql
 
@@ -3513,6 +3867,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a or b
+     - N/A
+     - N/A
+     - N/A
    * - BitXor
      - .. code-block:: sql
 
@@ -3598,6 +3955,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a xor b
+     - N/A
+     - N/A
+     - N/A
    * - BitNot
      - .. code-block:: sql
 
@@ -3684,6 +4044,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            a.inv()
+     - N/A
+     - N/A
+     - N/A
    * - Float4VectorMultiplication
      - .. code-block:: sql
 
@@ -3776,6 +4139,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            val c = a.zip(b) { ai, bi -> ai * bi }
+     - N/A
+     - N/A
+     - N/A
    * - Float4VectorDotProduct
      - .. code-block:: sql
 
@@ -3875,6 +4241,9 @@ Programming Languages
      - .. code-block:: kotlin
 
            val dot = a.zip(b) { ai, bi -> ai * bi }.sum()
+     - N/A
+     - N/A
+     - N/A
    * - Float4VectorCrossProduct
      - .. code-block:: sql
 
@@ -4045,6 +4414,9 @@ Programming Languages
                a[0]*b[1] - a[1]*b[0],
                0.0f
            )
+     - N/A
+     - N/A
+     - N/A
    * - SetFiltering
      - .. code-block:: sql
 
@@ -4167,6 +4539,15 @@ Programming Languages
      - .. code-block:: kotlin
 
            val b = a.filter { it > 0 }
+     - .. code-block:: graphql
+
+           user(id: 42)
+     - .. code-block:: sparql
+
+           FILTER(?x > 0)
+     - .. code-block:: text
+
+           node["name"="Berlin"];
    * - SetJoin
      - .. code-block:: sql
 
@@ -4296,6 +4677,15 @@ Programming Languages
      - .. code-block:: kotlin
 
            val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
+     - .. code-block:: graphql
+
+           user { posts { title } }
+     - .. code-block:: sparql
+
+           ?s ?p ?o . ?s ?p2 ?o2
+     - .. code-block:: text
+
+           (node(area); way(area););
 
 Data Formats
 ------------

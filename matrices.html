@@ -157,6 +157,9 @@
 <th class="head"><p>CSharp</p></th>
 <th class="head"><p>Swift</p></th>
 <th class="head"><p>Kotlin</p></th>
+<th class="head"><p>GraphQL</p></th>
+<th class="head"><p>SPARQL</p></th>
+<th class="head"><p>Overpass Turbo</p></th>
 </tr>
 </thead>
 <tbody>
@@ -281,6 +284,256 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$x:</span><span class="w"> </span><span class="err">Int</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">42</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="mi">42</span> <span class="k">AS</span> <span class="nv">?x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set a=1 2 3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="p">=</span> <span class="n">1</span><span class="p">,</span> <span class="n">2</span><span class="p">,</span> <span class="n">3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a = [1, 2, 3];</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">arr</span><span class="w"> </span><span class="nv">dd</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">arr:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iconst_3</span>
+<span class="kr">newarray</span><span class="w"> </span><span class="kt">int</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">arr:</span><span class="w"> </span><span class="na">.quad</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">l</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="o">;</span> <span class="mi">2</span><span class="o">;</span> <span class="mi">3</span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>l<span class="w"> </span><span class="k">[</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">01 ARR</span><span class="p">.</span>
+<span class="c">   05 </span><span class="nv">ITEM</span><span class="w"> </span><span class="kt">PIC 9(2)</span><span class="w"> </span><span class="kp">OCCURS</span><span class="w"> </span><span class="mi">3 </span><span class="kp">TIMES</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$l:</span><span class="w"> </span><span class="err">[Int]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">[1</span><span class="p">,</span><span class="w"> </span><span class="err">2</span><span class="p">,</span><span class="w"> </span><span class="err">3]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?x</span> <span class="p">{</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.a
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">from</span><span class="p">([(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)]);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">#{</span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">}.</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nb">pairlis</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">m</span><span class="o">=([</span>a<span class="o">]=</span><span class="m">1</span><span class="w"> </span><span class="o">[</span>b<span class="o">]=</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set m_a=1</span>
+<span class="go">set m_b=2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$h</span> <span class="p">=</span> <span class="p">@{</span> <span class="n">a</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="n">b</span> <span class="p">=</span> <span class="n">2</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$d = [&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2];</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">new</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap</span>
+<span class="kr">dup</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap/</span><span class="nf">&lt;init&gt;</span><span class="p">()</span><span class="kt">V</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">m</span> <span class="o">=</span> <span class="nn">Map</span><span class="p">.</span><span class="n">empty</span> <span class="o">|&gt;</span> <span class="nn">Map</span><span class="p">.</span><span class="n">add</span> <span class="s2">&quot;a&quot;</span> <span class="mi">1</span> <span class="o">|&gt;</span> <span class="nn">Map</span><span class="p">.</span><span class="n">add</span> <span class="s2">&quot;b&quot;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Data</span><span class="o">.</span><span class="kt">Map</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="p">[(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">array</span><span class="w"> </span>set<span class="w"> </span>m<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>b<span class="w"> </span><span class="mi">2</span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
@@ -399,6 +652,15 @@
 </div>
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
 </pre></div>
 </div>
 </td>
@@ -523,6 +785,15 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">!=</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
@@ -644,6 +915,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">&gt;</span> <span class="nv">?b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
@@ -834,6 +1111,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
@@ -1015,6 +1295,16 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">name</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>IfElse</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
@@ -1224,6 +1514,18 @@
 </div>
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">@skip(if:</span><span class="w"> </span><span class="err">$condition)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">@include(if:</span><span class="w"> </span><span class="err">$condition)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?res</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
 </pre></div>
 </div>
 </td>
@@ -1512,6 +1814,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
@@ -1689,6 +1997,12 @@
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="m">1</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
 </pre></div>
 </div>
 </td>
@@ -1881,6 +2195,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for ( ... )
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
@@ -2050,6 +2370,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
@@ -2167,6 +2490,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
@@ -2267,6 +2593,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
@@ -2360,6 +2689,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
@@ -2457,6 +2789,12 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
@@ -2576,6 +2914,18 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
@@ -2685,6 +3035,15 @@
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
 </pre></div>
 </div>
 </td>
@@ -2816,6 +3175,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
 <td><p>N/A</p></td>
@@ -2932,6 +3297,15 @@
 </div>
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="nn">kotlin.math.*</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">PREFIX</span> <span class="nn">dc</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/elements/1.1/&gt;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
 </pre></div>
 </div>
 </td>
@@ -3057,6 +3431,15 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?MAX</span> <span class="p">{</span> <span class="mi">100</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Addition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
@@ -3179,6 +3562,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Subtraction</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
@@ -3301,6 +3690,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Multiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
@@ -3423,6 +3818,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">*</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Division</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
@@ -3545,6 +3946,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">/</span> <span class="nv">?b</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Remainder</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
@@ -3661,6 +4068,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Floor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -3765,6 +4175,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Rounding</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
@@ -3872,6 +4288,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Increment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
@@ -3994,6 +4416,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Decrement</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
@@ -4116,6 +4544,12 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
@@ -4226,6 +4660,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
@@ -4336,6 +4773,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
@@ -4449,6 +4889,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
@@ -4562,6 +5005,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
@@ -4675,6 +5121,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
@@ -4789,6 +5238,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
@@ -4910,6 +5362,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
@@ -5038,6 +5493,9 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
@@ -5236,6 +5694,9 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
@@ -5385,6 +5846,18 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nb">it</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user(id:</span><span class="w"> </span><span class="err">42)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
 </pre></div>
 </div>
 </td>
@@ -5543,6 +6016,18 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listA</span><span class="p">.</span><span class="na">flatMap</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">listB</span><span class="p">.</span><span class="na">filter</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="na">id</span><span class="w"> </span><span class="p">}.</span><span class="na">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?s</span> <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span> <span class="nv">?s</span> <span class="nv">?p2</span> <span class="nv">?o2</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(node(area); way(area););
 </pre></div>
 </div>
 </td>

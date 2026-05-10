@@ -51,6 +51,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Programming Language Patterns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#variabledeclaration">VariableDeclaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collectiondefinition">CollectionDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#associativearraydefinition">AssociativeArrayDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#equal">Equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notequal">NotEqual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#greaterthan">GreaterThan</a></li>
@@ -417,6 +419,489 @@
 </tbody>
 </table>
 </section>
+<section id="collectiondefinition">
+<h2>CollectionDefinition<a class="headerlink" href="#collectiondefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and optionally initializing an ordered sequence of elements.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>type: String</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">CollectionDefinition Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CCollectionDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C array definition with initializer list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaCollectionDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the immutable List.of method (Java 9+).</p></td>
+</tr>
+<tr class="row-even"><td><p>RustCollectionDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the vec! macro for dynamic array creation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonCollectionDefinition</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists are the primary collection type in Python.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpCollectionDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a = [1, 2, 3];</span>
+</pre></div>
+</div>
+</td>
+<td><p>PHP arrays can act as both indexed collections and associative maps.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangCollectionDefinition</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists are the standard linked-list structure in Erlang.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispCollectionDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in Lisp are typically quoted literals or created with (list …).</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashCollectionDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bash supports indexed arrays using parentheses.</p></td>
+</tr>
+<tr class="row-even"><td><p>CmdCollectionDefinition</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set a=1 2 3</span>
+</pre></div>
+</div>
+</td>
+<td><p>Cmd does not have real arrays; strings with delimiters are used for iteration.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PowerShellCollectionDefinition</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="p">=</span> <span class="n">1</span><span class="p">,</span> <span class="n">2</span><span class="p">,</span> <span class="n">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>The comma operator creates an array in PowerShell.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlCollectionDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Collections are typically represented as table variables or temporary tables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQueryCollectionDefinition</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sequences are the primary collection type in XQuery, created using parentheses and commas.</p></td>
+</tr>
+<tr class="row-even"><td><p>CssCollectionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not have a native collection type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CudaCollectionDefinition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style arrays are used within CUDA kernels.</p></td>
+</tr>
+<tr class="row-even"><td><p>X86CollectionDefinition</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">arr</span><span class="w"> </span><span class="nv">dd</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>A collection is defined as a sequence of data values in the data section.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RiscvCollectionDefinition</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">arr:</span><span class="w"> </span><span class="na">.word</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>A collection is defined as a series of data directives in the data section.</p></td>
+</tr>
+<tr class="row-even"><td><p>PrologCollectionDefinition</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists are the primary collection type in Prolog, represented with square brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaBytecodeCollectionDefinition</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iconst_3</span>
+<span class="kr">newarray</span><span class="w"> </span><span class="kt">int</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><p>In Java Bytecode, arrays are created using instructions like newarray or anewarray.</p></td>
+</tr>
+<tr class="row-even"><td><p>CamelCollectionDefinition</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">l</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="o">;</span> <span class="mi">2</span><span class="o">;</span> <span class="mi">3</span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in OCaml use semicolons as separators and square brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArmAarch64CollectionDefinition</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">arr:</span><span class="w"> </span><span class="na">.quad</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>Defined as a sequence of values in the .data section.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoCollectionDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Slices are the primary collection type in Go.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellCollectionDefinition</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in Haskell are homogeneous linked lists.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptCollectionDefinition</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arrays are the primary collection type in TypeScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclCollectionDefinition</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>l<span class="w"> </span><span class="k">[</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists are a fundamental data type in Tcl.</p></td>
+</tr>
+<tr class="row-even"><td><p>CobolCollectionDefinition</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">01 ARR</span><span class="p">.</span>
+<span class="c">   05 </span><span class="nv">ITEM</span><span class="w"> </span><span class="kt">PIC 9(2)</span><span class="w"> </span><span class="kp">OCCURS</span><span class="w"> </span><span class="mi">3 </span><span class="kp">TIMES</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Collections are defined using the OCCURS clause in the DATA DIVISION.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FortranCollectionDefinition</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arrays are defined using the dimension attribute or parentheses.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpCollectionDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Generic lists are the standard collection type in C#.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftCollectionDefinition</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arrays are defined using square brackets in Swift.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinCollectionDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The listOf function creates an immutable list in Kotlin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppCollectionDefinition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard vectors are the common dynamic collection in C++.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlCollectionDefinition</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$l:</span><span class="w"> </span><span class="err">[Int]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">[1</span><span class="p">,</span><span class="w"> </span><span class="err">2</span><span class="p">,</span><span class="w"> </span><span class="err">3]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in GraphQL are defined with square brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlCollectionDefinition</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?x</span> <span class="p">{</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>VALUES can be used to define a set of values for a variable.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboCollectionDefinition</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.a
+</pre></div>
+</div>
+</td>
+<td><p>Collections are represented by sets, which store OSM elements.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="associativearraydefinition">
+<h2>AssociativeArrayDefinition<a class="headerlink" href="#associativearraydefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and optionally initializing a collection of key-value pairs.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">AssociativeArrayDefinition Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>C does not have a native associative array type; typically implemented via libraries or custom hash tables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaAssociativeArrayDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the immutable Map.of method (Java 9+).</p></td>
+</tr>
+<tr class="row-even"><td><p>RustAssociativeArrayDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">from</span><span class="p">([(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)]);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires importing std::collections::HashMap.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonAssociativeArrayDefinition</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Dictionaries are Python’s native associative array type.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpAssociativeArrayDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$d = [&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays use the ‘key =&gt; value’ syntax.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangAssociativeArrayDefinition</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">#{</span><span class="n">a</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="p">}.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Maps are used for key-value pairs in Erlang.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispAssociativeArrayDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nb">pairlis</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Association lists (alists) or property lists (plists) are common in Lisp.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashAssociativeArrayDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">m</span><span class="o">=([</span>a<span class="o">]=</span><span class="m">1</span><span class="w"> </span><span class="o">[</span>b<span class="o">]=</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays require explicit declaration with ‘declare -A’.</p></td>
+</tr>
+<tr class="row-even"><td><p>CmdAssociativeArrayDefinition</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set m_a=1</span>
+<span class="go">set m_b=2</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays are simulated using variable naming conventions (e.g., prefixing).</p></td>
+</tr>
+<tr class="row-odd"><td><p>PowerShellAssociativeArrayDefinition</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$h</span> <span class="p">=</span> <span class="p">@{</span> <span class="n">a</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="n">b</span> <span class="p">=</span> <span class="n">2</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Hashtables are created using the &#64;{ } syntax.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlAssociativeArrayDefinition</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative mapping is achieved through table structures with key/value columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQueryAssociativeArrayDefinition</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Maps were introduced in XQuery 3.1.</p></td>
+</tr>
+<tr class="row-even"><td><p>CssAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not have a native associative array type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CudaAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>CUDA does not have a native associative array type in device code.</p></td>
+</tr>
+<tr class="row-even"><td><p>X86AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Associative arrays are not a native concept in assembly; they must be implemented manually via hashing or search algorithms.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RiscvAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Associative arrays are typically implemented via pointers and memory structures.</p></td>
+</tr>
+<tr class="row-even"><td><p>PrologAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Prolog does not have a native associative array; association is typically achieved through facts or association lists.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaBytecodeAssociativeArrayDefinition</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">new</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap</span>
+<span class="kr">dup</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap/</span><span class="nf">&lt;init&gt;</span><span class="p">()</span><span class="kt">V</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays involve instantiating a Map class like HashMap.</p></td>
+</tr>
+<tr class="row-even"><td><p>CamelAssociativeArrayDefinition</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">m</span> <span class="o">=</span> <span class="nn">Map</span><span class="p">.</span><span class="n">empty</span> <span class="o">|&gt;</span> <span class="nn">Map</span><span class="p">.</span><span class="n">add</span> <span class="s2">&quot;a&quot;</span> <span class="mi">1</span> <span class="o">|&gt;</span> <span class="nn">Map</span><span class="p">.</span><span class="n">add</span> <span class="s2">&quot;b&quot;</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</td>
+<td><p>OCaml’s Map module provides an immutable associative structure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ArmAarch64AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Not natively supported in assembly.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoAssociativeArrayDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Maps are used for associative storage in Go.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellAssociativeArrayDefinition</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kr">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="kt">Data</span><span class="o">.</span><span class="kt">Map</span><span class="o">.</span><span class="n">fromList</span><span class="w"> </span><span class="p">[(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires importing Data.Map.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptAssociativeArrayDefinition</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The Map object provides associative mapping.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclAssociativeArrayDefinition</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">array</span><span class="w"> </span>set<span class="w"> </span>m<span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>b<span class="w"> </span><span class="mi">2</span><span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Tcl supports associative arrays with the ‘array’ command.</p></td>
+</tr>
+<tr class="row-even"><td><p>CobolAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard COBOL does not have native associative arrays; often simulated with indexed tables and SEARCH ALL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FortranAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Fortran does not have a native associative array type.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpAssociativeArrayDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Dictionaries provide associative mapping in C#.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftAssociativeArrayDefinition</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Dictionaries use the ‘key: value’ syntax within square brackets.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinAssociativeArrayDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The mapOf function creates an immutable map.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppAssociativeArrayDefinition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}};</span>
+</pre></div>
+</div>
+</td>
+<td><p>The map or unordered_map classes provide associative storage.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL does not have a native associative array type for variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>SPARQL does not have a native associative array type.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL does not support associative arrays.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="equal">
 <h2>Equal<a class="headerlink" href="#equal" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -429,8 +914,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -680,8 +1165,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -931,8 +1416,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1182,8 +1667,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1500,8 +1985,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1815,8 +2300,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2161,8 +2646,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2575,8 +3060,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2882,8 +3367,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3094,7 +3579,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id59"><span class="problematic" id="id60">mapM_</span></a> or <a href="#id61"><span class="problematic" id="id62">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id61"><span class="problematic" id="id62">mapM_</span></a> or <a href="#id63"><span class="problematic" id="id64">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -3202,8 +3687,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3497,8 +3982,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3739,8 +4224,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3925,8 +4410,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4104,8 +4589,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4288,8 +4773,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4540,8 +5025,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4783,8 +5268,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5039,8 +5524,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5291,8 +5776,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5543,8 +6028,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5792,8 +6277,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6041,8 +6526,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6290,8 +6775,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6539,8 +7024,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6779,8 +7264,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7010,8 +7495,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7244,8 +7729,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7493,8 +7978,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7742,8 +8227,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7976,8 +8461,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8210,8 +8695,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8447,8 +8932,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8684,8 +9169,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id52">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8921,8 +9406,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id53">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9159,8 +9644,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id54">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9404,8 +9889,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id55">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9656,8 +10141,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id56">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9978,8 +10463,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id57">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id59">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10263,8 +10748,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id58">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id60">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
