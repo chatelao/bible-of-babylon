@@ -46,6 +46,24 @@ pattern GreaterThan {
     parameter notes: String
 }
 
+pattern LogicalAnd {
+    meta description: "Returns true if both boolean operands are true."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern LogicalOr {
+    meta description: "Returns true if at least one boolean operand is true."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern LogicalXor {
+    meta description: "Returns true if exactly one boolean operand is true."
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern ProcedureDefinition {
     meta description: "Declaration of a reusable block of code with parameters and no return value."
     parameter name: String
@@ -6171,6 +6189,36 @@ instance CGreaterThan of GreaterThan {
     notes = ""
 }
 
+instance JavaLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance JavaLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance JavaLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "The bitwise XOR operator ^ also works as a logical XOR for boolean operands."
+}
+
+instance CLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance CLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance CLogicalXor of LogicalXor {
+    syntax = "!(a) != !(b)"
+    notes = "C does not have a logical XOR operator; it is typically simulated using inequality of boolean values."
+}
+
 instance JavaEqual of Equal {
     syntax = "a == b"
     notes = "For primitives, == checks value equality; for objects, it checks reference equality."
@@ -6184,6 +6232,21 @@ instance JavaNotEqual of NotEqual {
 instance JavaGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = ""
+}
+
+instance RustLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance RustLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance RustLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "For boolean operands, ^ acts as a non-short-circuiting logical XOR."
 }
 
 instance RustEqual of Equal {
@@ -6201,6 +6264,21 @@ instance RustGreaterThan of GreaterThan {
     notes = ""
 }
 
+instance PythonLogicalAnd of LogicalAnd {
+    syntax = "a and b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance PythonLogicalOr of LogicalOr {
+    syntax = "a or b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance PythonLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Python uses != for logical XOR between booleans."
+}
+
 instance PythonEqual of Equal {
     syntax = "a == b"
     notes = "Checks for value equality; 'is' is used for identity equality."
@@ -6216,6 +6294,21 @@ instance PythonGreaterThan of GreaterThan {
     notes = ""
 }
 
+instance PhpLogicalAnd of LogicalAnd {
+    syntax = "$a && $b"
+    notes = "Short-circuiting logical AND; 'and' is also available with lower precedence."
+}
+
+instance PhpLogicalOr of LogicalOr {
+    syntax = "$a || $b"
+    notes = "Short-circuiting logical OR; 'or' is also available with lower precedence."
+}
+
+instance PhpLogicalXor of LogicalXor {
+    syntax = "$a xor $b"
+    notes = "PHP has a native 'xor' operator."
+}
+
 instance PhpEqual of Equal {
     syntax = "a == b"
     notes = "Loose equality; use === for strict (type-safe) equality."
@@ -6229,6 +6322,21 @@ instance PhpNotEqual of NotEqual {
 instance PhpGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = ""
+}
+
+instance GoLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance GoLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance GoLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Go uses != for logical XOR between booleans."
 }
 
 instance BashEqual of Equal {
@@ -6289,6 +6397,21 @@ instance SqlNotEqual of NotEqual {
 instance SqlGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = ""
+}
+
+instance TypeScriptLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance TypeScriptLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance TypeScriptLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "TypeScript uses != for logical XOR between booleans."
 }
 
 instance ErlangEqual of Equal {
@@ -6364,6 +6487,21 @@ instance CudaNotEqual of NotEqual {
 instance CudaGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = ""
+}
+
+instance CSharpLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance CSharpLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance CSharpLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "The ^ operator acts as a logical XOR for boolean operands."
 }
 
 instance X86Equal of Equal {
@@ -6456,6 +6594,21 @@ instance CamelGreaterThan of GreaterThan {
     notes = ""
 }
 
+instance SwiftLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance SwiftLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance SwiftLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Swift uses != for logical XOR between booleans."
+}
+
 instance GoEqual of Equal {
     syntax = "a == b"
     notes = ""
@@ -6469,6 +6622,21 @@ instance GoNotEqual of NotEqual {
 instance GoGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = ""
+}
+
+instance KotlinLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance KotlinLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance KotlinLogicalXor of LogicalXor {
+    syntax = "a xor b"
+    notes = "Kotlin provides 'xor' as an infix function for booleans."
 }
 
 instance HaskellEqual of Equal {
@@ -7075,6 +7243,21 @@ instance CppNotEqual of NotEqual {
 instance CppGreaterThan of GreaterThan {
     syntax = "a > b"
     notes = "Standard greater than operator."
+}
+
+instance CppLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance CppLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance CppLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "C++ does not have a dedicated logical XOR operator; for booleans, != serves as XOR."
 }
 
 instance CppProcedure of ProcedureDefinition {
@@ -8595,4 +8778,139 @@ instance ClojureSetFiltering of SetFiltering {
 instance ClojureSetJoin of SetJoin {
     syntax = "(clojure.set/join set-a set-b)"
     notes = "Relational join operation from the clojure.set namespace."
+}
+
+instance JavaLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance JavaLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance JavaLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "The bitwise XOR operator ^ also works as a logical XOR for boolean operands."
+}
+
+instance RustLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance RustLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance RustLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "For boolean operands, ^ acts as a non-short-circuiting logical XOR."
+}
+
+instance PythonLogicalAnd of LogicalAnd {
+    syntax = "a and b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance PythonLogicalOr of LogicalOr {
+    syntax = "a or b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance PythonLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Python uses != for logical XOR between booleans."
+}
+
+instance PhpLogicalAnd of LogicalAnd {
+    syntax = "$a && $b"
+    notes = "Short-circuiting logical AND; 'and' is also available with lower precedence."
+}
+
+instance PhpLogicalOr of LogicalOr {
+    syntax = "$a || $b"
+    notes = "Short-circuiting logical OR; 'or' is also available with lower precedence."
+}
+
+instance PhpLogicalXor of LogicalXor {
+    syntax = "$a xor $b"
+    notes = "PHP has a native 'xor' operator."
+}
+
+instance CSharpLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance CSharpLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance CSharpLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "The ^ operator acts as a logical XOR for boolean operands."
+}
+
+instance GoLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance GoLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance GoLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Go uses != for logical XOR between booleans."
+}
+
+instance SwiftLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance SwiftLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance SwiftLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Swift uses != for logical XOR between booleans."
+}
+
+instance KotlinLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance KotlinLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance KotlinLogicalXor of LogicalXor {
+    syntax = "a xor b"
+    notes = "Kotlin provides 'xor' as an infix function for booleans."
+}
+
+instance TypeScriptLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance TypeScriptLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance TypeScriptLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "TypeScript uses != for logical XOR between booleans."
 }
