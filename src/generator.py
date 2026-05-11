@@ -62,7 +62,7 @@ class CodeGenerator:
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
         "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel",
         "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran", "CSharp", "Swift", "Kotlin",
-        "Clojure"
+        "Clojure", "Brainfuck"
     ]
     DATA_QUERY = [
         "SQL", "XQuery", "GraphQL", "SPARQL", "Overpass Turbo"
@@ -111,6 +111,7 @@ class CodeGenerator:
         "SPARQL": "sparql",
         "Overpass Turbo": "text",
         "Clojure": "clojure",
+        "Brainfuck": "brainfuck",
         "JSON": "json",
         "XML": "xml",
         "YAML": "yaml",

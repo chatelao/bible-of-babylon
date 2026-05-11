@@ -8914,3 +8914,54 @@ instance TypeScriptLogicalXor of LogicalXor {
     syntax = "a != b"
     notes = "TypeScript uses != for logical XOR between booleans."
 }
+
+instance BrainfuckVar of VariableDeclaration {
+    name = "N/A"
+    type = "Byte"
+    initial_value = 0
+    syntax = "N/A"
+    notes = "Brainfuck uses an implicit array of memory cells; there are no named variables."
+}
+
+instance BrainfuckLoop of Loop {
+    condition = "current cell != 0"
+    body = { raw "..." }
+    syntax = "[ ... ]"
+    notes = "Standard Brainfuck loop: jump past ] if current cell is zero."
+}
+
+instance BrainfuckIncrement of Increment {
+    syntax = "+"
+    notes = "Increments the byte at the data pointer."
+}
+
+instance BrainfuckDecrement of Decrement {
+    syntax = "-"
+    notes = "Decrements the byte at the data pointer."
+}
+
+instance BrainfuckPrint of Print {
+    value = "N/A"
+    syntax = "."
+    notes = "Outputs the byte at the data pointer as an ASCII character."
+}
+
+instance BrainfuckSingleLineComment of SingleLineComment {
+    syntax = "any text"
+    notes = "All characters except '><+-.,[]' are ignored and can be used as comments."
+}
+
+instance BrainfuckMultiLineComment of MultiLineComment {
+    syntax = "any text"
+    notes = "All characters except '><+-.,[]' are ignored and can be used as comments."
+}
+
+instance BrainfuckAddition of Addition {
+    syntax = "[->+<]"
+    notes = "Typically implemented by moving the value of one cell into another using a loop."
+}
+
+instance BrainfuckSubtraction of Subtraction {
+    syntax = "[->-<]"
+    notes = "Typically implemented by decrementing one cell while decrementing another in a loop."
+}
