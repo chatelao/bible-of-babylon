@@ -17,6 +17,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = 'sphinx_rtd_theme'
+
+# -- Options for LaTeX output ------------------------------------------------
+
+latex_engine = 'xelatex'
 html_static_path = ['_static']
 
 html_context = {
