@@ -1420,6 +1420,381 @@ Parameters:
 
 
 
+LogicalAnd
+----------
+
+
+:description: Returns true if both boolean operands are true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: LogicalAnd Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JavaLogicalAnd
+     - .. code-block:: java
+
+           a && b
+     - Short-circuiting logical AND.
+   * - CLogicalAnd
+     - .. code-block:: c
+
+           a && b
+     - Short-circuiting logical AND.
+   * - RustLogicalAnd
+     - .. code-block:: rust
+
+           a && b
+     - Short-circuiting logical AND.
+   * - PythonLogicalAnd
+     - .. code-block:: python
+
+           a and b
+     - Short-circuiting logical AND.
+   * - PhpLogicalAnd
+     - .. code-block:: php
+
+           $a && $b
+     - Short-circuiting logical AND; 'and' is also available with lower precedence.
+   * - GoLogicalAnd
+     - .. code-block:: go
+
+           a && b
+     - Short-circuiting logical AND.
+   * - TypeScriptLogicalAnd
+     - .. code-block:: typescript
+
+           a && b
+     - Short-circuiting logical AND.
+   * - CSharpLogicalAnd
+     - .. code-block:: csharp
+
+           a && b
+     - Short-circuiting logical AND.
+   * - SwiftLogicalAnd
+     - .. code-block:: swift
+
+           a && b
+     - Short-circuiting logical AND.
+   * - KotlinLogicalAnd
+     - .. code-block:: kotlin
+
+           a && b
+     - Short-circuiting logical AND.
+   * - CppLogicalAnd
+     - .. code-block:: cpp
+
+           a && b
+     - Short-circuiting logical AND.
+   * - JavaLogicalAnd
+     - .. code-block:: java
+
+           a && b
+     - Short-circuiting logical AND.
+   * - RustLogicalAnd
+     - .. code-block:: rust
+
+           a && b
+     - Short-circuiting logical AND.
+   * - PythonLogicalAnd
+     - .. code-block:: python
+
+           a and b
+     - Short-circuiting logical AND.
+   * - PhpLogicalAnd
+     - .. code-block:: php
+
+           $a && $b
+     - Short-circuiting logical AND; 'and' is also available with lower precedence.
+   * - CSharpLogicalAnd
+     - .. code-block:: csharp
+
+           a && b
+     - Short-circuiting logical AND.
+   * - GoLogicalAnd
+     - .. code-block:: go
+
+           a && b
+     - Short-circuiting logical AND.
+   * - SwiftLogicalAnd
+     - .. code-block:: swift
+
+           a && b
+     - Short-circuiting logical AND.
+   * - KotlinLogicalAnd
+     - .. code-block:: kotlin
+
+           a && b
+     - Short-circuiting logical AND.
+   * - TypeScriptLogicalAnd
+     - .. code-block:: typescript
+
+           a && b
+     - Short-circuiting logical AND.
+
+
+
+LogicalOr
+---------
+
+
+:description: Returns true if at least one boolean operand is true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: LogicalOr Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JavaLogicalOr
+     - .. code-block:: java
+
+           a || b
+     - Short-circuiting logical OR.
+   * - CLogicalOr
+     - .. code-block:: c
+
+           a || b
+     - Short-circuiting logical OR.
+   * - RustLogicalOr
+     - .. code-block:: rust
+
+           a || b
+     - Short-circuiting logical OR.
+   * - PythonLogicalOr
+     - .. code-block:: python
+
+           a or b
+     - Short-circuiting logical OR.
+   * - PhpLogicalOr
+     - .. code-block:: php
+
+           $a || $b
+     - Short-circuiting logical OR; 'or' is also available with lower precedence.
+   * - GoLogicalOr
+     - .. code-block:: go
+
+           a || b
+     - Short-circuiting logical OR.
+   * - TypeScriptLogicalOr
+     - .. code-block:: typescript
+
+           a || b
+     - Short-circuiting logical OR.
+   * - CSharpLogicalOr
+     - .. code-block:: csharp
+
+           a || b
+     - Short-circuiting logical OR.
+   * - SwiftLogicalOr
+     - .. code-block:: swift
+
+           a || b
+     - Short-circuiting logical OR.
+   * - KotlinLogicalOr
+     - .. code-block:: kotlin
+
+           a || b
+     - Short-circuiting logical OR.
+   * - CppLogicalOr
+     - .. code-block:: cpp
+
+           a || b
+     - Short-circuiting logical OR.
+   * - JavaLogicalOr
+     - .. code-block:: java
+
+           a || b
+     - Short-circuiting logical OR.
+   * - RustLogicalOr
+     - .. code-block:: rust
+
+           a || b
+     - Short-circuiting logical OR.
+   * - PythonLogicalOr
+     - .. code-block:: python
+
+           a or b
+     - Short-circuiting logical OR.
+   * - PhpLogicalOr
+     - .. code-block:: php
+
+           $a || $b
+     - Short-circuiting logical OR; 'or' is also available with lower precedence.
+   * - CSharpLogicalOr
+     - .. code-block:: csharp
+
+           a || b
+     - Short-circuiting logical OR.
+   * - GoLogicalOr
+     - .. code-block:: go
+
+           a || b
+     - Short-circuiting logical OR.
+   * - SwiftLogicalOr
+     - .. code-block:: swift
+
+           a || b
+     - Short-circuiting logical OR.
+   * - KotlinLogicalOr
+     - .. code-block:: kotlin
+
+           a || b
+     - Short-circuiting logical OR.
+   * - TypeScriptLogicalOr
+     - .. code-block:: typescript
+
+           a || b
+     - Short-circuiting logical OR.
+
+
+
+LogicalXor
+----------
+
+
+:description: Returns true if exactly one boolean operand is true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: LogicalXor Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - JavaLogicalXor
+     - .. code-block:: java
+
+           a ^ b
+     - The bitwise XOR operator ^ also works as a logical XOR for boolean operands.
+   * - CLogicalXor
+     - .. code-block:: c
+
+           !(a) != !(b)
+     - C does not have a logical XOR operator; it is typically simulated using inequality of boolean values.
+   * - RustLogicalXor
+     - .. code-block:: rust
+
+           a ^ b
+     - For boolean operands, ^ acts as a non-short-circuiting logical XOR.
+   * - PythonLogicalXor
+     - .. code-block:: python
+
+           a != b
+     - Python uses != for logical XOR between booleans.
+   * - PhpLogicalXor
+     - .. code-block:: php
+
+           $a xor $b
+     - PHP has a native 'xor' operator.
+   * - GoLogicalXor
+     - .. code-block:: go
+
+           a != b
+     - Go uses != for logical XOR between booleans.
+   * - TypeScriptLogicalXor
+     - .. code-block:: typescript
+
+           a != b
+     - TypeScript uses != for logical XOR between booleans.
+   * - CSharpLogicalXor
+     - .. code-block:: csharp
+
+           a ^ b
+     - The ^ operator acts as a logical XOR for boolean operands.
+   * - SwiftLogicalXor
+     - .. code-block:: swift
+
+           a != b
+     - Swift uses != for logical XOR between booleans.
+   * - KotlinLogicalXor
+     - .. code-block:: kotlin
+
+           a xor b
+     - Kotlin provides 'xor' as an infix function for booleans.
+   * - CppLogicalXor
+     - .. code-block:: cpp
+
+           a != b
+     - C++ does not have a dedicated logical XOR operator; for booleans, != serves as XOR.
+   * - JavaLogicalXor
+     - .. code-block:: java
+
+           a ^ b
+     - The bitwise XOR operator ^ also works as a logical XOR for boolean operands.
+   * - RustLogicalXor
+     - .. code-block:: rust
+
+           a ^ b
+     - For boolean operands, ^ acts as a non-short-circuiting logical XOR.
+   * - PythonLogicalXor
+     - .. code-block:: python
+
+           a != b
+     - Python uses != for logical XOR between booleans.
+   * - PhpLogicalXor
+     - .. code-block:: php
+
+           $a xor $b
+     - PHP has a native 'xor' operator.
+   * - CSharpLogicalXor
+     - .. code-block:: csharp
+
+           a ^ b
+     - The ^ operator acts as a logical XOR for boolean operands.
+   * - GoLogicalXor
+     - .. code-block:: go
+
+           a != b
+     - Go uses != for logical XOR between booleans.
+   * - SwiftLogicalXor
+     - .. code-block:: swift
+
+           a != b
+     - Swift uses != for logical XOR between booleans.
+   * - KotlinLogicalXor
+     - .. code-block:: kotlin
+
+           a xor b
+     - Kotlin provides 'xor' as an infix function for booleans.
+   * - TypeScriptLogicalXor
+     - .. code-block:: typescript
+
+           a != b
+     - TypeScript uses != for logical XOR between booleans.
+
+
+
 ProcedureDefinition
 -------------------
 

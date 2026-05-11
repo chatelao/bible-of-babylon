@@ -702,6 +702,162 @@ Programming Languages
      - .. code-block:: clojure
 
            (> a b)
+   * - LogicalAnd
+     - .. code-block:: c
+
+           a && b
+     - .. code-block:: cpp
+
+           a && b
+     - .. code-block:: java
+
+           a && b
+     - .. code-block:: rust
+
+           a && b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           a and b
+     - .. code-block:: php
+
+           $a && $b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           a && b
+     - N/A
+     - .. code-block:: typescript
+
+           a && b
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           a && b
+     - .. code-block:: swift
+
+           a && b
+     - .. code-block:: kotlin
+
+           a && b
+     - N/A
+   * - LogicalOr
+     - .. code-block:: c
+
+           a || b
+     - .. code-block:: cpp
+
+           a || b
+     - .. code-block:: java
+
+           a || b
+     - .. code-block:: rust
+
+           a || b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           a or b
+     - .. code-block:: php
+
+           $a || $b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           a || b
+     - N/A
+     - .. code-block:: typescript
+
+           a || b
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           a || b
+     - .. code-block:: swift
+
+           a || b
+     - .. code-block:: kotlin
+
+           a || b
+     - N/A
+   * - LogicalXor
+     - .. code-block:: c
+
+           !(a) != !(b)
+     - .. code-block:: cpp
+
+           a != b
+     - .. code-block:: java
+
+           a ^ b
+     - .. code-block:: rust
+
+           a ^ b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           a != b
+     - .. code-block:: php
+
+           $a xor $b
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           a != b
+     - N/A
+     - .. code-block:: typescript
+
+           a != b
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           a ^ b
+     - .. code-block:: swift
+
+           a != b
+     - .. code-block:: kotlin
+
+           a xor b
+     - N/A
    * - ProcedureDefinition
      - .. code-block:: c
 
@@ -4597,6 +4753,24 @@ Data Query Languages
      - .. code-block:: sparql
 
            FILTER(?a > ?b)
+     - N/A
+   * - LogicalAnd
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - LogicalOr
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - LogicalXor
+     - N/A
+     - N/A
+     - N/A
+     - N/A
      - N/A
    * - ProcedureDefinition
      - .. code-block:: sql

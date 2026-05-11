@@ -1,4 +1,4 @@
-Language,VariableDeclaration,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin
+Language,VariableDeclaration,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin
 "SQL","DECLARE @x INT = 42;","DECLARE cursor_name CURSOR FOR SELECT col FROM table;
 OPEN cursor_name;
 FETCH NEXT FROM cursor_name INTO @item;
@@ -8,7 +8,7 @@ BEGIN
     FETCH NEXT FROM cursor_name INTO @item;
 END","DECLARE @t TABLE (val INT);
 INSERT INTO @t VALUES (1), (2), (3);","DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
-INSERT INTO @t VALUES ('a', 1), ('b', 2);","a = b","a <> b","a > b","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
+INSERT INTO @t VALUES ('a', 1), ('b', 2);","a = b","a <> b","a > b","N/A","N/A","N/A","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
 AS
 BEGIN
     PRINT @msg;
@@ -43,7 +43,7 @@ BEGIN CATCH
 END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","-- comment","/* line 1
    line 2 */","PRINT 'Hello, World!';","N/A","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0","SELECT * FROM table WHERE condition;","SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;"
 "XQuery","let $x := 42","for $item in $collection
-return $item","let $s := (1, 2, 3)","let $m := map { ""a"": 1, ""b"": 2 }","$a = $b","$a != $b","$a > $b","declare function local:log-message(
+return $item","let $s := (1, 2, 3)","let $m := map { ""a"": 1, ""b"": 2 }","$a = $b","$a != $b","$a > $b","N/A","N/A","N/A","declare function local:log-message(
     $msg as xs:string
 ) as empty-sequence() {
     (); (: side effects in XQuery are implementation-defined or via extensions :)
@@ -66,10 +66,10 @@ where $x/condition
 return $x","for $a in $colA, $b in $colB
 where $a/id = $b/id
 return <res>{$a, $b}</res>"
-"GraphQL","$x: Int = 42","N/A","$l: [Int] = [1, 2, 3]","N/A","N/A","N/A","N/A","N/A","query getUser($id: ID) {
+"GraphQL","$x: Int = 42","N/A","$l: [Int] = [1, 2, 3]","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","query getUser($id: ID) {
     user(id: $id) {
         name
     }
 }","@skip(if: $condition) or @include(if: $condition)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","subscription { ... }","# comment",""""""" comment """"""","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","user(id: 42)","user { posts { title } }"
-"SPARQL","BIND(42 AS ?x)","N/A","VALUES ?x { 1 2 3 }","N/A","FILTER(?a = ?b)","FILTER(?a != ?b)","FILTER(?a > ?b)","N/A","N/A","BIND(IF(?x > 0, 1, 0) AS ?res)","COALESCE(IF(?x=1, 'one', 1/0), IF(?x=2, 'two', 1/0), 'none')","N/A","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","N/A","PREFIX dc: <http://purl.org/dc/elements/1.1/>","VALUES ?MAX { 100 }","?a + ?b","?a - ?b","?a * ?b","?a / ?b","N/A","floor(?a)","round(?a)","?a + 1","?a - 1","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","FILTER(?x > 0)","?s ?p ?o . ?s ?p2 ?o2"
-"Overpass Turbo",".setname","foreach .item ( ... )",".a","N/A","[""name""=""Berlin""]","[""name""!=""Berlin""]","N/A","N/A","N/A","if (condition) { ... } else { ... }","N/A","foreach .a ( ... )","for ( ... )","N/A","N/A","N/A","N/A","N/A","// comment","/* comment */","out;","[out:json];","{{key=value}}","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","node[""name""=""Berlin""];","(node(area); way(area););"
+"SPARQL","BIND(42 AS ?x)","N/A","VALUES ?x { 1 2 3 }","N/A","FILTER(?a = ?b)","FILTER(?a != ?b)","FILTER(?a > ?b)","N/A","N/A","N/A","N/A","N/A","BIND(IF(?x > 0, 1, 0) AS ?res)","COALESCE(IF(?x=1, 'one', 1/0), IF(?x=2, 'two', 1/0), 'none')","N/A","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","N/A","PREFIX dc: <http://purl.org/dc/elements/1.1/>","VALUES ?MAX { 100 }","?a + ?b","?a - ?b","?a * ?b","?a / ?b","N/A","floor(?a)","round(?a)","?a + 1","?a - 1","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","FILTER(?x > 0)","?s ?p ?o . ?s ?p2 ?o2"
+"Overpass Turbo",".setname","foreach .item ( ... )",".a","N/A","[""name""=""Berlin""]","[""name""!=""Berlin""]","N/A","N/A","N/A","N/A","N/A","N/A","if (condition) { ... } else { ... }","N/A","foreach .a ( ... )","for ( ... )","N/A","N/A","N/A","N/A","N/A","// comment","/* comment */","out;","[out:json];","{{key=value}}","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","node[""name""=""Berlin""];","(node(area); way(area););"
