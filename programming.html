@@ -139,6 +139,7 @@
 <li class="toctree-l1"><a class="reference internal" href="sparql_pivot.html">SPARQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 </ul>
 
         </div>
@@ -428,6 +429,10 @@
 </div>
 </td>
 <td><p>Variables are defined using ‘def’; they are immutable by default in the sense of ‘binding’.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckVar</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck uses an implicit array of memory cells; there are no named variables.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4257,6 +4262,13 @@
 </td>
 <td><p>The ‘loop/recur’ form is the standard way to perform recursion in constant stack space.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckLoop</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"> </span><span class="nt">...</span><span class="c"> </span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Brainfuck loop: jump past ] if current cell is zero.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5968,6 +5980,13 @@
 </td>
 <td><p>Semicolon starts a single-line comment.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckSingleLineComment</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">any text</span>
+</pre></div>
+</div>
+</td>
+<td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6217,6 +6236,13 @@
 </div>
 </td>
 <td><p>The ‘comment’ macro ignores its body, effectively serving as a multi-line comment.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckMultiLineComment</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">any text</span>
+</pre></div>
+</div>
+</td>
+<td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6480,6 +6506,13 @@
 </div>
 </td>
 <td><p>Standard output with a newline.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckPrint</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs the byte at the data pointer as an ASCII character.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7256,6 +7289,13 @@
 </td>
 <td><p>Prefix notation for addition.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckAddition</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented by moving the value of one cell into another using a loop.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7511,6 +7551,13 @@
 </div>
 </td>
 <td><p>Prefix notation for subtraction.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckSubtraction</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented by decrementing one cell while decrementing another in a loop.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9006,6 +9053,13 @@
 </td>
 <td><p>Increments the value by 1.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckIncrement</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the byte at the data pointer.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9261,6 +9315,13 @@
 </div>
 </td>
 <td><p>Decrements the value by 1.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckDecrement</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the byte at the data pointer.</p></td>
 </tr>
 </tbody>
 </table>

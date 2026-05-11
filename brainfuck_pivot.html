@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overpass Turbo Pivot View &mdash; Bible of Babylon  documentation</title>
+  <title>Brainfuck Pivot View &mdash; Bible of Babylon  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -19,8 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Clojure Pivot View" href="clojure_pivot.html" />
-    <link rel="prev" title="SPARQL Pivot View" href="sparql_pivot.html" /> 
+    <link rel="prev" title="Clojure Pivot View" href="clojure_pivot.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -89,9 +88,9 @@
 <li class="toctree-l1"><a class="reference internal" href="kotlin_pivot.html">Kotlin Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="graphql_pivot.html">GraphQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sparql_pivot.html">SPARQL Pivot View</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Overpass Turbo Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
-<li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Brainfuck Pivot View</a></li>
 </ul>
 
         </div>
@@ -108,9 +107,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Overpass Turbo Pivot View</li>
+      <li class="breadcrumb-item active">Brainfuck Pivot View</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/chatelao/bible-of-babylon/blob/main/docs/overpass_turbo_pivot.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/chatelao/bible-of-babylon/blob/main/docs/brainfuck_pivot.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -118,10 +117,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="overpass-turbo-pivot-view">
-<h1>Overpass Turbo Pivot View<a class="headerlink" href="#overpass-turbo-pivot-view" title="Link to this heading"></a></h1>
+  <section id="brainfuck-pivot-view">
+<h1>Brainfuck Pivot View<a class="headerlink" href="#brainfuck-pivot-view" title="Link to this heading"></a></h1>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text">Overpass Turbo Pivot Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<caption><span class="caption-text">Brainfuck Pivot Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -130,203 +129,64 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.setname
+<td><p>N/A</p></td>
+<td><p>Brainfuck uses an implicit array of memory cells; there are no named variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loop</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"> </span><span class="nt">...</span><span class="c"> </span><span class="k">]</span>
 </pre></div>
 </div>
 </td>
-<td><p>Overpass QL uses sets (prefixed with .) to store results.</p></td>
+<td><p>Standard Brainfuck loop: jump past ] if current cell is zero.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
+<tr class="row-even"><td><p>Increment</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nb">+</span>
 </pre></div>
 </div>
 </td>
-<td><p>Equality is used in attribute filters.</p></td>
+<td><p>Increments the byte at the data pointer.</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
+<tr class="row-odd"><td><p>Decrement</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nb">-</span>
 </pre></div>
 </div>
 </td>
-<td><p>Inequality in attribute filters.</p></td>
+<td><p>Decrements the byte at the data pointer.</p></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
-<td><p>N/A</p></td>
-<td><p>Overpass QL has limited support for numeric comparisons in some implementations.</p></td>
-</tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>IfElse</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if (condition) { ... } else { ... }
+<tr class="row-even"><td><p>Print</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="nt">.</span>
 </pre></div>
 </div>
 </td>
-<td><p>Control flow statements were added in recent versions of Overpass QL.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .a ( ... )
-</pre></div>
-</div>
-</td>
-<td><p>The foreach statement iterates over the elements of a set.</p></td>
-</tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>for ( ... )
-</pre></div>
-</div>
-</td>
-<td><p>Overpass QL supports C-style for loops in recent versions.</p></td>
-</tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Raise</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Thread</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
+<td><p>Outputs the byte at the data pointer as an ASCII character.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">any text</span>
 </pre></div>
 </div>
 </td>
-<td><p>C-style single-line comments.</p></td>
+<td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
 </tr>
 <tr class="row-even"><td><p>MultiLineComment</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">any text</span>
 </pre></div>
 </div>
 </td>
-<td><p>C-style multi-line comments.</p></td>
+<td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
+<tr class="row-odd"><td><p>Addition</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span>
 </pre></div>
 </div>
 </td>
-<td><p>The out statement produces the result of the query.</p></td>
+<td><p>Typically implemented by moving the value of one cell into another using a loop.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
+<tr class="row-even"><td><p>Subtraction</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span>
 </pre></div>
 </div>
 </td>
-<td><p>Settings (like output format) are specified at the beginning of the script.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Constant</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
-</pre></div>
-</div>
-</td>
-<td><p>Overpass Turbo (the web interface) supports mustache-style constants.</p></td>
-</tr>
-<tr class="row-even"><td><p>Addition</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Division</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Remainder</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Floor</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Rounding</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Increment</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Decrement</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>RightShift</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>BitOr</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>BitNot</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
-<td><p>N/A</p></td>
-<td><p>N/A</p></td>
-</tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
-</pre></div>
-</div>
-</td>
-<td><p>Filters elements by tags or location.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(node(area); way(area););
-</pre></div>
-</div>
-</td>
-<td><p>Unions and recursion (e.g., node(w)) are used to combine sets.</p></td>
+<td><p>Typically implemented by decrementing one cell while decrementing another in a loop.</p></td>
 </tr>
 </tbody>
 </table>
@@ -336,8 +196,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="sparql_pivot.html" class="btn btn-neutral float-left" title="SPARQL Pivot View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="clojure_pivot.html" class="btn btn-neutral float-right" title="Clojure Pivot View" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="clojure_pivot.html" class="btn btn-neutral float-left" title="Clojure Pivot View" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

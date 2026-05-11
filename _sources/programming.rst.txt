@@ -201,6 +201,9 @@ Parameters:
 
            (def x 42)
      - Variables are defined using 'def'; they are immutable by default in the sense of 'binding'.
+   * - BrainfuckVar
+     - N/A
+     - Brainfuck uses an implicit array of memory cells; there are no named variables.
 
 
 
@@ -3229,6 +3232,11 @@ Parameters:
                (println i)
                (recur (inc i))))
      - The 'loop/recur' form is the standard way to perform recursion in constant stack space.
+   * - BrainfuckLoop
+     - .. code-block:: brainfuck
+
+           [ ... ]
+     - Standard Brainfuck loop: jump past ] if current cell is zero.
 
 
 
@@ -4577,6 +4585,11 @@ Parameters:
 
            ; comment
      - Semicolon starts a single-line comment.
+   * - BrainfuckSingleLineComment
+     - .. code-block:: brainfuck
+
+           any text
+     - All characters except '><+-.,[]' are ignored and can be used as comments.
 
 
 
@@ -4771,6 +4784,11 @@ Parameters:
            (comment
              (some code))
      - The 'comment' macro ignores its body, effectively serving as a multi-line comment.
+   * - BrainfuckMultiLineComment
+     - .. code-block:: brainfuck
+
+           any text
+     - All characters except '><+-.,[]' are ignored and can be used as comments.
 
 
 
@@ -4970,6 +4988,11 @@ Parameters:
 
            (println "Hello, World!")
      - Standard output with a newline.
+   * - BrainfuckPrint
+     - .. code-block:: brainfuck
+
+           .
+     - Outputs the byte at the data pointer as an ASCII character.
 
 
 
@@ -5553,6 +5576,11 @@ Parameters:
 
            (+ a b)
      - Prefix notation for addition.
+   * - BrainfuckAddition
+     - .. code-block:: brainfuck
+
+           [->+<]
+     - Typically implemented by moving the value of one cell into another using a loop.
 
 
 
@@ -5744,6 +5772,11 @@ Parameters:
 
            (- a b)
      - Prefix notation for subtraction.
+   * - BrainfuckSubtraction
+     - .. code-block:: brainfuck
+
+           [->-<]
+     - Typically implemented by decrementing one cell while decrementing another in a loop.
 
 
 
@@ -6862,6 +6895,11 @@ Parameters:
 
            (inc x)
      - Increments the value by 1.
+   * - BrainfuckIncrement
+     - .. code-block:: brainfuck
+
+           +
+     - Increments the byte at the data pointer.
 
 
 
@@ -7053,6 +7091,11 @@ Parameters:
 
            (dec x)
      - Decrements the value by 1.
+   * - BrainfuckDecrement
+     - .. code-block:: brainfuck
+
+           -
+     - Decrements the byte at the data pointer.
 
 
 
