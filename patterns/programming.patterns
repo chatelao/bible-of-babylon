@@ -8965,3 +8965,217 @@ instance BrainfuckSubtraction of Subtraction {
     syntax = "[->-<]"
     notes = "Typically implemented by decrementing one cell while decrementing another in a loop."
 }
+
+instance BrainfuckForEach of ForEach {
+    syntax = "N/A"
+    notes = "Iterating over a collection is not natively supported as there are no high-level collection types."
+}
+
+instance BrainfuckCollectionDefinition of CollectionDefinition {
+    name = "N/A"
+    type = "N/A"
+    syntax = "N/A"
+    notes = "The entire memory is a single linear collection of cells."
+}
+
+instance BrainfuckAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "N/A"
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckEqual of Equal {
+    syntax = "[->+<]>[-<+>]<[->-<]+>[<->[-]]<"
+    notes = "Compares two cells for equality; requires a complex sequence of loops and temporary cells."
+}
+
+instance BrainfuckNotEqual of NotEqual {
+    syntax = "[->-<]>[-<+>]<"
+    notes = "Compares two cells for inequality (results in a non-zero value if not equal)."
+}
+
+instance BrainfuckGreaterThan of GreaterThan {
+    syntax = "N/A"
+    notes = "Requires a complex algorithm involving nested loops and multiple temporary cells."
+}
+
+instance BrainfuckLogicalAnd of LogicalAnd {
+    syntax = "[->[->+<]<]"
+    notes = "Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1)."
+}
+
+instance BrainfuckLogicalOr of LogicalOr {
+    syntax = "[->+<]>[-<+>]<"
+    notes = "Simulated by checking if either cell is non-zero."
+}
+
+instance BrainfuckLogicalXor of LogicalXor {
+    syntax = "N/A"
+    notes = "Typically implemented using subtraction and checking the result."
+}
+
+instance BrainfuckProcedureDefinition of ProcedureDefinition {
+    name = "N/A"
+    parameters = []
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Brainfuck does not support procedures or subroutines."
+}
+
+instance BrainfuckFunctionDefinition of FunctionDefinition {
+    name = "N/A"
+    parameters = []
+    return_type = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Brainfuck does not support functions."
+}
+
+instance BrainfuckIfElse of IfElse {
+    condition = "current cell != 0"
+    then_branch = { raw "..." }
+    else_branch = { raw "..." }
+    syntax = "[ ... [-]]"
+    notes = "If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells."
+}
+
+instance BrainfuckSwitchCase of SwitchCase {
+    expression = "N/A"
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckForLoop of ForLoop {
+    syntax = "N/A"
+    notes = "Typically implemented using a cell as a counter and a while loop []."
+}
+
+instance BrainfuckTryCatch of TryCatch {
+    try_body = { raw "N/A" }
+    exception_type = "N/A"
+    error_variable = "N/A"
+    catch_body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "No error handling mechanisms."
+}
+
+instance BrainfuckRaise of Raise {
+    exception_type = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "No mechanism to raise exceptions."
+}
+
+instance BrainfuckThread of Thread {
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "No native support for concurrency."
+}
+
+instance BrainfuckSendMessage of SendMessage {
+    recipient = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "No native messaging system."
+}
+
+instance BrainfuckReceiveMessage of ReceiveMessage {
+    match_pattern = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "No native messaging system."
+}
+
+instance BrainfuckImport of Import {
+    module_name = "N/A"
+    syntax = "N/A"
+    notes = "Brainfuck has no module or import system."
+}
+
+instance BrainfuckConstant of Constant {
+    name = "N/A"
+    type = "N/A"
+    value = "N/A"
+    syntax = "N/A"
+    notes = "Constants are represented by repeatedly incrementing a cell."
+}
+
+instance BrainfuckMultiplication of Multiplication {
+    syntax = "[->[->+>+<<]>[-<+>]<<]"
+    notes = "Implemented using nested loops to add a value to a destination multiple times."
+}
+
+instance BrainfuckDivision of Division {
+    syntax = "N/A"
+    notes = "Highly complex to implement; requires multiple temporary cells and nested loops."
+}
+
+instance BrainfuckRemainder of Remainder {
+    syntax = "N/A"
+    notes = "Highly complex to implement."
+}
+
+instance BrainfuckFloor of Floor {
+    syntax = "N/A"
+    notes = "Not applicable as Brainfuck typically operates on integers/bytes."
+}
+
+instance BrainfuckRounding of Rounding {
+    syntax = "N/A"
+    notes = "Not applicable."
+}
+
+instance BrainfuckLeftShift of LeftShift {
+    syntax = "N/A"
+    notes = "Bitwise operations are not natively supported."
+}
+
+instance BrainfuckRightShift of RightShift {
+    syntax = "N/A"
+    notes = "Bitwise operations are not natively supported."
+}
+
+instance BrainfuckBitAnd of BitAnd {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckBitOr of BitOr {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckBitXor of BitXor {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckBitNot of BitNot {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckSetFiltering of SetFiltering {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance BrainfuckSetJoin of SetJoin {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
