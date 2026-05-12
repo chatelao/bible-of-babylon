@@ -464,6 +464,9 @@ Parameters:
            (doseq [item collection]
              (println item))
      - The 'doseq' macro is also the standard way to iterate over collections.
+   * - BrainfuckForEach
+     - N/A
+     - Iterating over a collection is not natively supported as there are no high-level collection types.
 
 
 
@@ -665,6 +668,9 @@ Parameters:
 
            (def l [1 2 3])
      - Vectors are the standard ordered collection in Clojure.
+   * - BrainfuckCollectionDefinition
+     - N/A
+     - The entire memory is a single linear collection of cells.
 
 
 
@@ -843,6 +849,9 @@ Parameters:
 
            (def m {:a 1 :b 2})
      - Maps are used for key-value pairs.
+   * - BrainfuckAssociativeArrayDefinition
+     - N/A
+     - Not supported natively.
 
 
 
@@ -1036,6 +1045,11 @@ Parameters:
 
            (= a b)
      - Structural equality.
+   * - BrainfuckEqual
+     - .. code-block:: brainfuck
+
+           [->+<]>[-<+>]<[->-<]+>[<->[-]]<
+     - Compares two cells for equality; requires a complex sequence of loops and temporary cells.
 
 
 
@@ -1229,6 +1243,11 @@ Parameters:
 
            (not= a b)
      - Negated equality.
+   * - BrainfuckNotEqual
+     - .. code-block:: brainfuck
+
+           [->-<]>[-<+>]<
+     - Compares two cells for inequality (results in a non-zero value if not equal).
 
 
 
@@ -1420,6 +1439,9 @@ Parameters:
 
            (> a b)
      - Standard comparison.
+   * - BrainfuckGreaterThan
+     - N/A
+     - Requires a complex algorithm involving nested loops and multiple temporary cells.
 
 
 
@@ -1545,6 +1567,11 @@ Parameters:
 
            a && b
      - Short-circuiting logical AND.
+   * - BrainfuckLogicalAnd
+     - .. code-block:: brainfuck
+
+           [->[->+<]<]
+     - Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1).
 
 
 
@@ -1670,6 +1697,11 @@ Parameters:
 
            a || b
      - Short-circuiting logical OR.
+   * - BrainfuckLogicalOr
+     - .. code-block:: brainfuck
+
+           [->+<]>[-<+>]<
+     - Simulated by checking if either cell is non-zero.
 
 
 
@@ -1795,6 +1827,9 @@ Parameters:
 
            a != b
      - TypeScript uses != for logical XOR between booleans.
+   * - BrainfuckLogicalXor
+     - N/A
+     - Typically implemented using subtraction and checking the result.
 
 
 
@@ -2060,6 +2095,9 @@ Parameters:
            (defn my-proc [args]
              (println args))
      - Procedures in Clojure are functions that return nil.
+   * - BrainfuckProcedureDefinition
+     - N/A
+     - Brainfuck does not support procedures or subroutines.
 
 
 
@@ -2324,6 +2362,9 @@ Parameters:
            (defn my-func [x]
              (+ x 1))
      - Functions return the result of the last expression.
+   * - BrainfuckFunctionDefinition
+     - N/A
+     - Brainfuck does not support functions.
 
 
 
@@ -2615,6 +2656,11 @@ Parameters:
 
            (if (> x 0) 1 0)
      - Standard if-then-else.
+   * - BrainfuckIfElse
+     - .. code-block:: brainfuck
+
+           [ ... [-]]
+     - If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells.
 
 
 
@@ -2975,6 +3021,9 @@ Parameters:
              2 "two"
              "default")
      - The 'case' macro provides constant-time dispatch.
+   * - BrainfuckSwitchCase
+     - N/A
+     - Not supported natively.
 
 
 
@@ -3497,6 +3546,9 @@ Parameters:
            (doseq [i (range 10)]
              (println i))
      - The 'doseq' macro is used for side-effecting iterations.
+   * - BrainfuckForLoop
+     - N/A
+     - Typically implemented using a cell as a counter and a while loop [].
 
 
 
@@ -3751,6 +3803,9 @@ Parameters:
              (catch Exception e
                (println (.getMessage e))))
      - Clojure's error handling interops with Java's exceptions.
+   * - BrainfuckTryCatch
+     - N/A
+     - No error handling mechanisms.
 
 
 
@@ -3942,6 +3997,9 @@ Parameters:
 
            (throw (Exception. "Error"))
      - Throws a Java exception.
+   * - BrainfuckRaise
+     - N/A
+     - No mechanism to raise exceptions.
 
 
 
@@ -4093,6 +4151,9 @@ Parameters:
 
            (future (println "Hello from thread"))
      - Futures are a simple way to run code on another thread.
+   * - BrainfuckThread
+     - N/A
+     - No native support for concurrency.
 
 
 
@@ -4239,6 +4300,9 @@ Parameters:
 
            (send my-agent (fn [state] (inc state)))
      - Agents provide a way to manage asynchronous state updates.
+   * - BrainfuckSendMessage
+     - N/A
+     - No native messaging system.
 
 
 
@@ -4392,6 +4456,9 @@ Parameters:
 
            @my-agent
      - The '@' or 'deref' function is used to get the current state of an agent or the result of a future.
+   * - BrainfuckReceiveMessage
+     - N/A
+     - No native messaging system.
 
 
 
@@ -5186,6 +5253,9 @@ Parameters:
 
            (require '[clojure.string :as str])
      - The 'require' form is used to load namespaces.
+   * - BrainfuckImport
+     - N/A
+     - Brainfuck has no module or import system.
 
 
 
@@ -5385,6 +5455,9 @@ Parameters:
 
            (def ^:const my-const 10)
      - Constants are defined with the ^:const metadata for compiler optimization.
+   * - BrainfuckConstant
+     - N/A
+     - Constants are represented by repeatedly incrementing a cell.
 
 
 
@@ -5968,6 +6041,11 @@ Parameters:
 
            (* a b)
      - Prefix notation for multiplication.
+   * - BrainfuckMultiplication
+     - .. code-block:: brainfuck
+
+           [->[->+>+<<]>[-<+>]<<]
+     - Implemented using nested loops to add a value to a destination multiple times.
 
 
 
@@ -6159,6 +6237,9 @@ Parameters:
 
            (/ a b)
      - Prefix notation for division.
+   * - BrainfuckDivision
+     - N/A
+     - Highly complex to implement; requires multiple temporary cells and nested loops.
 
 
 
@@ -6344,6 +6425,9 @@ Parameters:
 
            (rem a b)
      - Returns the remainder of division.
+   * - BrainfuckRemainder
+     - N/A
+     - Highly complex to implement.
 
 
 
@@ -6523,6 +6607,9 @@ Parameters:
 
            (Math/floor x)
      - Uses Java interop for floor.
+   * - BrainfuckFloor
+     - N/A
+     - Not applicable as Brainfuck typically operates on integers/bytes.
 
 
 
@@ -6704,6 +6791,9 @@ Parameters:
 
            (Math/round x)
      - Uses Java interop for rounding.
+   * - BrainfuckRounding
+     - N/A
+     - Not applicable.
 
 
 
@@ -7277,6 +7367,9 @@ Parameters:
 
            (bit-shift-left x n)
      - Bitwise left shift.
+   * - BrainfuckLeftShift
+     - N/A
+     - Bitwise operations are not natively supported.
 
 
 
@@ -7458,6 +7551,9 @@ Parameters:
 
            (bit-shift-right x n)
      - Bitwise right shift.
+   * - BrainfuckRightShift
+     - N/A
+     - Bitwise operations are not natively supported.
 
 
 
@@ -7641,6 +7737,9 @@ Parameters:
 
            (bit-and a b)
      - Bitwise AND.
+   * - BrainfuckBitAnd
+     - N/A
+     - Not supported natively.
 
 
 
@@ -7824,6 +7923,9 @@ Parameters:
 
            (bit-or a b)
      - Bitwise OR.
+   * - BrainfuckBitOr
+     - N/A
+     - Not supported natively.
 
 
 
@@ -8007,6 +8109,9 @@ Parameters:
 
            (bit-xor a b)
      - Bitwise XOR.
+   * - BrainfuckBitXor
+     - N/A
+     - Not supported natively.
 
 
 
@@ -8191,6 +8296,9 @@ Parameters:
 
            (bit-not x)
      - Bitwise NOT.
+   * - BrainfuckBitNot
+     - N/A
+     - Not supported natively.
 
 
 
@@ -8381,6 +8489,9 @@ Parameters:
 
            (mapv * a b)
      - Element-wise multiplication of vectors.
+   * - BrainfuckFloat4VectorMultiplication
+     - N/A
+     - Not supported natively.
 
 
 
@@ -8578,6 +8689,9 @@ Parameters:
 
            (reduce + (map * a b))
      - Standard dot product implementation.
+   * - BrainfuckFloat4VectorDotProduct
+     - N/A
+     - Not supported natively.
 
 
 
@@ -8851,6 +8965,9 @@ Parameters:
               (- (* ax by) (* ay bx))
               0.0])
      - Uses destructuring and vector literal.
+   * - BrainfuckFloat4VectorCrossProduct
+     - N/A
+     - Not supported natively.
 
 
 
@@ -9077,6 +9194,9 @@ Parameters:
 
            (filter #(= % :val) my-set)
      - Higher-order function for filtering.
+   * - BrainfuckSetFiltering
+     - N/A
+     - Not supported natively.
 
 
 
@@ -9310,3 +9430,6 @@ Parameters:
 
            (clojure.set/join set-a set-b)
      - Relational join operation from the clojure.set namespace.
+   * - BrainfuckSetJoin
+     - N/A
+     - Not supported natively.

@@ -188,6 +188,172 @@
 </td>
 <td><p>Typically implemented by decrementing one cell while decrementing another in a loop.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>Iterating over a collection is not natively supported as there are no high-level collection types.</p></td>
+</tr>
+<tr class="row-even"><td><p>CollectionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>The entire memory is a single linear collection of cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">[</span><span class="nv">&lt;</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compares two cells for equality; requires a complex sequence of loops and temporary cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NotEqual</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compares two cells for inequality (results in a non-zero value if not equal).</p></td>
+</tr>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><p>N/A</p></td>
+<td><p>Requires a complex algorithm involving nested loops and multiple temporary cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1).</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalOr</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Simulated by checking if either cell is non-zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalXor</p></td>
+<td><p>N/A</p></td>
+<td><p>Typically implemented using subtraction and checking the result.</p></td>
+</tr>
+<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck does not support procedures or subroutines.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck does not support functions.</p></td>
+</tr>
+<tr class="row-even"><td><p>IfElse</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"> </span><span class="nt">...</span><span class="c"> </span><span class="k">[</span><span class="nb">-</span><span class="k">]]</span>
+</pre></div>
+</div>
+</td>
+<td><p>If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwitchCase</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>ForLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>Typically implemented using a cell as a counter and a while loop [].</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>No error handling mechanisms.</p></td>
+</tr>
+<tr class="row-even"><td><p>Raise</p></td>
+<td><p>N/A</p></td>
+<td><p>No mechanism to raise exceptions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thread</p></td>
+<td><p>N/A</p></td>
+<td><p>No native support for concurrency.</p></td>
+</tr>
+<tr class="row-even"><td><p>SendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>No native messaging system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>No native messaging system.</p></td>
+</tr>
+<tr class="row-even"><td><p>Import</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck has no module or import system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Constant</p></td>
+<td><p>N/A</p></td>
+<td><p>Constants are represented by repeatedly incrementing a cell.</p></td>
+</tr>
+<tr class="row-even"><td><p>Multiplication</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested loops to add a value to a destination multiple times.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Division</p></td>
+<td><p>N/A</p></td>
+<td><p>Highly complex to implement; requires multiple temporary cells and nested loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>Remainder</p></td>
+<td><p>N/A</p></td>
+<td><p>Highly complex to implement.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Floor</p></td>
+<td><p>N/A</p></td>
+<td><p>Not applicable as Brainfuck typically operates on integers/bytes.</p></td>
+</tr>
+<tr class="row-even"><td><p>Rounding</p></td>
+<td><p>N/A</p></td>
+<td><p>Not applicable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>Bitwise operations are not natively supported.</p></td>
+</tr>
+<tr class="row-even"><td><p>RightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>Bitwise operations are not natively supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitAnd</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>BitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>SetFiltering</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SetJoin</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

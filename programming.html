@@ -756,6 +756,10 @@
 </td>
 <td><p>The ‘doseq’ macro is also the standard way to iterate over collections.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>Iterating over a collection is not natively supported as there are no high-level collection types.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1021,6 +1025,10 @@
 </td>
 <td><p>Vectors are the standard ordered collection in Clojure.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckCollectionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>The entire memory is a single linear collection of cells.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1252,6 +1260,10 @@
 </div>
 </td>
 <td><p>Maps are used for key-value pairs.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckAssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1511,6 +1523,13 @@
 </td>
 <td><p>Structural equality.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckEqual</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">[</span><span class="nv">&lt;</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="k">]]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compares two cells for equality; requires a complex sequence of loops and temporary cells.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1769,6 +1788,13 @@
 </td>
 <td><p>Negated equality.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckNotEqual</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">-</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compares two cells for inequality (results in a non-zero value if not equal).</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2024,6 +2050,10 @@
 </td>
 <td><p>Standard comparison.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckGreaterThan</p></td>
+<td><p>N/A</p></td>
+<td><p>Requires a complex algorithm involving nested loops and multiple temporary cells.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2187,6 +2217,13 @@
 </div>
 </td>
 <td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckLogicalAnd</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1).</p></td>
 </tr>
 </tbody>
 </table>
@@ -2352,6 +2389,13 @@
 </td>
 <td><p>Short-circuiting logical OR.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckLogicalOr</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Simulated by checking if either cell is non-zero.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2515,6 +2559,10 @@
 </div>
 </td>
 <td><p>TypeScript uses != for logical XOR between booleans.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckLogicalXor</p></td>
+<td><p>N/A</p></td>
+<td><p>Typically implemented using subtraction and checking the result.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2841,6 +2889,10 @@
 </td>
 <td><p>Procedures in Clojure are functions that return nil.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckProcedureDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck does not support procedures or subroutines.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3164,6 +3216,10 @@
 </div>
 </td>
 <td><p>Functions return the result of the last expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckFunctionDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck does not support functions.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3519,6 +3575,13 @@
 </div>
 </td>
 <td><p>Standard if-then-else.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckIfElse</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="c"> </span><span class="nt">...</span><span class="c"> </span><span class="k">[</span><span class="nb">-</span><span class="k">]]</span>
+</pre></div>
+</div>
+</td>
+<td><p>If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3942,6 +4005,10 @@
 </div>
 </td>
 <td><p>The ‘case’ macro provides constant-time dispatch.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckSwitchCase</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4593,6 +4660,10 @@
 </td>
 <td><p>The ‘doseq’ macro is used for side-effecting iterations.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckForLoop</p></td>
+<td><p>N/A</p></td>
+<td><p>Typically implemented using a cell as a counter and a while loop [].</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4900,6 +4971,10 @@
 </td>
 <td><p>Clojure’s error handling interops with Java’s exceptions.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckTryCatch</p></td>
+<td><p>N/A</p></td>
+<td><p>No error handling mechanisms.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5150,6 +5225,10 @@
 </td>
 <td><p>Throws a Java exception.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckRaise</p></td>
+<td><p>N/A</p></td>
+<td><p>No mechanism to raise exceptions.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5342,6 +5421,10 @@
 </td>
 <td><p>Futures are a simple way to run code on another thread.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckThread</p></td>
+<td><p>N/A</p></td>
+<td><p>No native support for concurrency.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5527,6 +5610,10 @@
 </div>
 </td>
 <td><p>Agents provide a way to manage asynchronous state updates.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckSendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>No native messaging system.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5720,6 +5807,10 @@
 </div>
 </td>
 <td><p>The ‘&#64;’ or ‘deref’ function is used to get the current state of an agent or the result of a future.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>No native messaging system.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6771,6 +6862,10 @@
 </td>
 <td><p>The ‘require’ form is used to load namespaces.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckImport</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck has no module or import system.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7032,6 +7127,10 @@
 </div>
 </td>
 <td><p>Constants are defined with the ^:const metadata for compiler optimization.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckConstant</p></td>
+<td><p>N/A</p></td>
+<td><p>Constants are represented by repeatedly incrementing a cell.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7815,6 +7914,13 @@
 </td>
 <td><p>Prefix notation for multiplication.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckMultiplication</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested loops to add a value to a destination multiple times.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8071,6 +8177,10 @@
 </td>
 <td><p>Prefix notation for division.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckDivision</p></td>
+<td><p>N/A</p></td>
+<td><p>Highly complex to implement; requires multiple temporary cells and nested loops.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8318,6 +8428,10 @@
 </td>
 <td><p>Returns the remainder of division.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckRemainder</p></td>
+<td><p>N/A</p></td>
+<td><p>Highly complex to implement.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8555,6 +8669,10 @@
 </div>
 </td>
 <td><p>Uses Java interop for floor.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckFloor</p></td>
+<td><p>N/A</p></td>
+<td><p>Not applicable as Brainfuck typically operates on integers/bytes.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8796,6 +8914,10 @@
 </div>
 </td>
 <td><p>Uses Java interop for rounding.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckRounding</p></td>
+<td><p>N/A</p></td>
+<td><p>Not applicable.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9564,6 +9686,10 @@
 </td>
 <td><p>Bitwise left shift.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckLeftShift</p></td>
+<td><p>N/A</p></td>
+<td><p>Bitwise operations are not natively supported.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9804,6 +9930,10 @@
 </div>
 </td>
 <td><p>Bitwise right shift.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckRightShift</p></td>
+<td><p>N/A</p></td>
+<td><p>Bitwise operations are not natively supported.</p></td>
 </tr>
 </tbody>
 </table>
@@ -10049,6 +10179,10 @@
 </td>
 <td><p>Bitwise AND.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckBitAnd</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10292,6 +10426,10 @@
 </div>
 </td>
 <td><p>Bitwise OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckBitOr</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -10537,6 +10675,10 @@
 </td>
 <td><p>Bitwise XOR.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckBitXor</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10781,6 +10923,10 @@
 </div>
 </td>
 <td><p>Bitwise NOT.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckBitNot</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11033,6 +11179,10 @@
 </div>
 </td>
 <td><p>Element-wise multiplication of vectors.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckFloat4VectorMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11292,6 +11442,10 @@
 </div>
 </td>
 <td><p>Standard dot product implementation.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckFloat4VectorDotProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11627,6 +11781,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Uses destructuring and vector literal.</p></td>
 </tr>
+<tr class="row-even"><td><p>BrainfuckFloat4VectorCrossProduct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -11918,6 +12076,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Higher-order function for filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckSetFiltering</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
@@ -12216,6 +12378,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Relational join operation from the clojure.set namespace.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckSetJoin</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
 </tr>
 </tbody>
 </table>
