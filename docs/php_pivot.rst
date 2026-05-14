@@ -13,6 +13,16 @@ PHP Pivot View
 
            $x = 42;
      - Variables start with a dollar sign; dynamically typed but supports type declarations.
+   * - CollectionDefinition
+     - .. code-block:: php
+
+           $a = [1, 2, 3];
+     - PHP arrays can act as both indexed collections and associative maps.
+   * - AssociativeArrayDefinition
+     - .. code-block:: php
+
+           $d = ['a' => 1, 'b' => 2];
+     - Associative arrays use the 'key => value' syntax.
    * - SwitchCase
      - .. code-block:: php
 
@@ -192,6 +202,28 @@ PHP Pivot View
                // body
            }
      - Standard C-style for loop.
+   * - ForEach
+     - .. code-block:: php
+
+           foreach ($collection as $item) {
+               // body
+           }
+     - The foreach construct is the standard way to iterate over arrays.
+   * - LogicalAnd
+     - .. code-block:: php
+
+           $a && $b
+     - Short-circuiting logical AND; 'and' is also available with lower precedence.
+   * - LogicalOr
+     - .. code-block:: php
+
+           $a || $b
+     - Short-circuiting logical OR; 'or' is also available with lower precedence.
+   * - LogicalXor
+     - .. code-block:: php
+
+           $a xor $b
+     - PHP has a native 'xor' operator.
    * - Equal
      - .. code-block:: php
 
@@ -223,3 +255,33 @@ PHP Pivot View
                }
            }
      - Implemented using nested foreach loops.
+   * - MutexDefinition
+     - .. code-block:: php
+
+           Mutex::create()
+     - Requires pthreads or parallel extension.
+   * - MutexLock
+     - .. code-block:: php
+
+           Mutex::lock($mtx)
+     - N/A
+   * - MutexUnlock
+     - .. code-block:: php
+
+           Mutex::unlock($mtx)
+     - N/A
+   * - SemaphoreDefinition
+     - .. code-block:: php
+
+           sem_get($key, 1)
+     - Uses System V semaphores.
+   * - SemaphoreWait
+     - .. code-block:: php
+
+           sem_acquire($sem)
+     - N/A
+   * - SemaphoreSignal
+     - .. code-block:: php
+
+           sem_release($sem)
+     - N/A

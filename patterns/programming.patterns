@@ -1428,6 +1428,45 @@ pattern ReceiveMessage {
     parameter notes: String
 }
 
+pattern MutexDefinition {
+    meta description: "Declaring and optionally initializing a mutual exclusion object."
+    parameter name: String
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern MutexLock {
+    meta description: "Acquiring a lock on a mutex, blocking if it is already held."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern MutexUnlock {
+    meta description: "Releasing a held lock on a mutex."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern SemaphoreDefinition {
+    meta description: "Declaring and initializing a semaphore with a specific count."
+    parameter name: String
+    parameter initial_value: Number
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern SemaphoreWait {
+    meta description: "Decreasing the semaphore count, blocking if the count is zero."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern SemaphoreSignal {
+    meta description: "Increasing the semaphore count, potentially unblocking a waiting thread."
+    parameter syntax: String
+    parameter notes: String
+}
+
 instance ErlangThread of Thread {
     body = { call do_work() }
     syntax = "Pid = spawn(fun() -> do_work() end)."
@@ -1566,6 +1605,303 @@ instance PrologReceiveMessage of ReceiveMessage {
     body = { call handle_hello() }
     syntax = "thread_get_message(hello)."
     notes = "Retrieves a matching message from the current thread's queue."
+}
+
+instance CMutexDefinition of MutexDefinition {
+    name = "mtx"
+    syntax = "pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;"
+    notes = "Requires pthread.h library."
+}
+
+instance CMutexLock of MutexLock {
+    syntax = "pthread_mutex_lock(&mtx);"
+    notes = "Blocks until the mutex is available."
+}
+
+instance CMutexUnlock of MutexUnlock {
+    syntax = "pthread_mutex_unlock(&mtx);"
+    notes = "Releases the mutex."
+}
+
+instance CSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "sem_t sem;\nsem_init(&sem, 0, 1);"
+    notes = "Requires semaphore.h library."
+}
+
+instance CSemaphoreWait of SemaphoreWait {
+    syntax = "sem_wait(&sem);"
+    notes = "Decrements the semaphore; blocks if count is zero."
+}
+
+instance CSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem_post(&sem);"
+    notes = "Increments the semaphore."
+}
+
+instance CppMutexDefinition of MutexDefinition {
+    name = "mtx"
+    syntax = "std::mutex mtx;"
+    notes = "Requires <mutex> header (C++11)."
+}
+
+instance CppMutexLock of MutexLock {
+    syntax = "mtx.lock();"
+    notes = "Better handled with std::lock_guard for RAII."
+}
+
+instance CppMutexUnlock of MutexUnlock {
+    syntax = "mtx.unlock();"
+    notes = "Releases the lock."
+}
+
+instance CppSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "std::counting_semaphore<10> sem(1);"
+    notes = "Requires <semaphore> header (C++20)."
+}
+
+instance CppSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire();"
+    notes = "Decrements and blocks if needed."
+}
+
+instance CppSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release();"
+    notes = "Increments the semaphore count."
+}
+
+instance JavaMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "Lock lock = new ReentrantLock();"
+    notes = "Requires java.util.concurrent.locks.Lock."
+}
+
+instance JavaMutexLock of MutexLock {
+    syntax = "lock.lock();"
+    notes = "Acquires the lock."
+}
+
+instance JavaMutexUnlock of MutexUnlock {
+    syntax = "lock.unlock();"
+    notes = "Should be called in a finally block."
+}
+
+instance JavaSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "Semaphore sem = new Semaphore(1);"
+    notes = "Requires java.util.concurrent.Semaphore."
+}
+
+instance JavaSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire();"
+    notes = "Can throw InterruptedException."
+}
+
+instance JavaSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release();"
+    notes = "Increments the available permits."
+}
+
+instance RustMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "let lock = Mutex::new(0);"
+    notes = "In Rust, Mutexes protect data, not just code."
+}
+
+instance RustMutexLock of MutexLock {
+    syntax = "let mut data = lock.lock().unwrap();"
+    notes = "Returns a MutexGuard, which unlocks when dropped."
+}
+
+instance RustMutexUnlock of MutexUnlock {
+    syntax = "drop(data);"
+    notes = "Explicitly dropping the guard releases the lock early."
+}
+
+instance RustSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "let sem = Semaphore::new(1);"
+    notes = "Standard library doesn't have a semaphore; typically used from tokio::sync or similar."
+}
+
+instance RustSemaphoreWait of SemaphoreWait {
+    syntax = "let _permit = sem.acquire().await.unwrap();"
+    notes = "Async acquisition in tokio."
+}
+
+instance RustSemaphoreSignal of SemaphoreSignal {
+    syntax = "drop(_permit);"
+    notes = "Permit is returned to the semaphore when dropped."
+}
+
+instance PythonMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "lock = threading.Lock()"
+    notes = "Part of the threading module."
+}
+
+instance PythonMutexLock of MutexLock {
+    syntax = "lock.acquire()"
+    notes = "Can be used as a context manager: with lock:"
+}
+
+instance PythonMutexUnlock of MutexUnlock {
+    syntax = "lock.release()"
+    notes = "Releases the lock."
+}
+
+instance PythonSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "sem = threading.Semaphore(1)"
+    notes = "Initial value sets the number of concurrent permits."
+}
+
+instance PythonSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire()"
+    notes = "Decrements the internal counter."
+}
+
+instance PythonSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release()"
+    notes = "Increments the internal counter."
+}
+
+instance GoMutexDefinition of MutexDefinition {
+    name = "mu"
+    syntax = "var mu sync.Mutex"
+    notes = "Mutexes are usually part of a struct."
+}
+
+instance GoMutexLock of MutexLock {
+    syntax = "mu.Lock()"
+    notes = "Blocks until available."
+}
+
+instance GoMutexUnlock of MutexUnlock {
+    syntax = "mu.Unlock()"
+    notes = "Often paired with 'defer mu.Unlock()'."
+}
+
+instance GoSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "sem := make(chan struct{}, 1)"
+    notes = "Buffered channels are the idiomatic way to implement semaphores in Go."
+}
+
+instance GoSemaphoreWait of SemaphoreWait {
+    syntax = "sem <- struct{}{}"
+    notes = "Sending to the channel 'acquires' a permit."
+}
+
+instance GoSemaphoreSignal of SemaphoreSignal {
+    syntax = "<-sem"
+    notes = "Receiving from the channel 'releases' a permit."
+}
+
+instance CSharpMutexDefinition of MutexDefinition {
+    name = "mtx"
+    syntax = "Mutex mtx = new Mutex();"
+    notes = "Mutex can be named for cross-process synchronization."
+}
+
+instance CSharpMutexLock of MutexLock {
+    syntax = "mtx.WaitOne();"
+    notes = "WaitOne is the standard way to acquire a WaitHandle."
+}
+
+instance CSharpMutexUnlock of MutexUnlock {
+    syntax = "mtx.ReleaseMutex();"
+    notes = "Releases the mutex."
+}
+
+instance CSharpSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "Semaphore sem = new Semaphore(1, 10);"
+    notes = "Parameters are initial count and maximum count."
+}
+
+instance CSharpSemaphoreWait of SemaphoreWait {
+    syntax = "sem.WaitOne();"
+    notes = "Blocks until a permit is available."
+}
+
+instance CSharpSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.Release();"
+    notes = "Increments the semaphore count."
+}
+
+instance SwiftMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "let lock = NSLock()"
+    notes = "Found in the Foundation framework."
+}
+
+instance SwiftMutexLock of MutexLock {
+    syntax = "lock.lock()"
+    notes = "Standard locking call."
+}
+
+instance SwiftMutexUnlock of MutexUnlock {
+    syntax = "lock.unlock()"
+    notes = "Standard unlocking call."
+}
+
+instance SwiftSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "let sem = DispatchSemaphore(value: 1)"
+    notes = "Part of Grand Central Dispatch (GCD)."
+}
+
+instance SwiftSemaphoreWait of SemaphoreWait {
+    syntax = "sem.wait()"
+    notes = "Decrements the semaphore count."
+}
+
+instance SwiftSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.signal()"
+    notes = "Increments the semaphore count."
+}
+
+instance KotlinMutexDefinition of MutexDefinition {
+    name = "mutex"
+    syntax = "val mutex = Mutex()"
+    notes = "Requires kotlinx.coroutines.sync.Mutex."
+}
+
+instance KotlinMutexLock of MutexLock {
+    syntax = "mutex.lock()"
+    notes = "Suspends the coroutine if the mutex is locked."
+}
+
+instance KotlinMutexUnlock of MutexUnlock {
+    syntax = "mutex.unlock()"
+    notes = "Releases the mutex."
+}
+
+instance KotlinSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "val sem = Semaphore(1)"
+    notes = "Requires kotlinx.coroutines.sync.Semaphore."
+}
+
+instance KotlinSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire()"
+    notes = "Suspends the coroutine until a permit is available."
+}
+
+instance KotlinSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release()"
+    notes = "Releases a permit."
 }
 
 pattern SingleLineComment {
@@ -8780,148 +9116,6 @@ instance ClojureSetJoin of SetJoin {
     notes = "Relational join operation from the clojure.set namespace."
 }
 
-instance JavaLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance JavaLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance JavaLogicalXor of LogicalXor {
-    syntax = "a ^ b"
-    notes = "The bitwise XOR operator ^ also works as a logical XOR for boolean operands."
-}
-
-instance RustLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance RustLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance RustLogicalXor of LogicalXor {
-    syntax = "a ^ b"
-    notes = "For boolean operands, ^ acts as a non-short-circuiting logical XOR."
-}
-
-instance PythonLogicalAnd of LogicalAnd {
-    syntax = "a and b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance PythonLogicalOr of LogicalOr {
-    syntax = "a or b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance PythonLogicalXor of LogicalXor {
-    syntax = "a != b"
-    notes = "Python uses != for logical XOR between booleans."
-}
-
-instance PhpLogicalAnd of LogicalAnd {
-    syntax = "$a && $b"
-    notes = "Short-circuiting logical AND; 'and' is also available with lower precedence."
-}
-
-instance PhpLogicalOr of LogicalOr {
-    syntax = "$a || $b"
-    notes = "Short-circuiting logical OR; 'or' is also available with lower precedence."
-}
-
-instance PhpLogicalXor of LogicalXor {
-    syntax = "$a xor $b"
-    notes = "PHP has a native 'xor' operator."
-}
-
-instance CSharpLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance CSharpLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance CSharpLogicalXor of LogicalXor {
-    syntax = "a ^ b"
-    notes = "The ^ operator acts as a logical XOR for boolean operands."
-}
-
-instance GoLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance GoLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance GoLogicalXor of LogicalXor {
-    syntax = "a != b"
-    notes = "Go uses != for logical XOR between booleans."
-}
-
-instance SwiftLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance SwiftLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance SwiftLogicalXor of LogicalXor {
-    syntax = "a != b"
-    notes = "Swift uses != for logical XOR between booleans."
-}
-
-instance KotlinLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance KotlinLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance KotlinLogicalXor of LogicalXor {
-    syntax = "a xor b"
-    notes = "Kotlin provides 'xor' as an infix function for booleans."
-}
-
-instance TypeScriptLogicalAnd of LogicalAnd {
-    syntax = "a && b"
-    notes = "Short-circuiting logical AND."
-}
-
-instance TypeScriptLogicalOr of LogicalOr {
-    syntax = "a || b"
-    notes = "Short-circuiting logical OR."
-}
-
-instance TypeScriptLogicalXor of LogicalXor {
-    syntax = "a != b"
-    notes = "TypeScript uses != for logical XOR between booleans."
-}
-
-instance BrainfuckVar of VariableDeclaration {
-    name = "N/A"
-    type = "Byte"
-    initial_value = 0
-    syntax = "N/A"
-    notes = "Brainfuck uses an implicit array of memory cells; there are no named variables."
-}
 
 instance BrainfuckLoop of Loop {
     condition = "current cell != 0"
@@ -9179,3 +9373,44 @@ instance BrainfuckSetJoin of SetJoin {
     syntax = "N/A"
     notes = "Not supported natively."
 }
+instance ErlangMutexDefinition of MutexDefinition { name = "N/A" syntax = "N/A" notes = "Erlang uses message passing and isolated processes instead of shared-memory locks." }
+instance ErlangMutexLock of MutexLock { syntax = "N/A" notes = "N/A" }
+instance ErlangMutexUnlock of MutexUnlock { syntax = "N/A" notes = "N/A" }
+instance ErlangSemaphoreDefinition of SemaphoreDefinition { name = "N/A" initial_value = 0 syntax = "N/A" notes = "N/A" }
+instance ErlangSemaphoreWait of SemaphoreWait { syntax = "N/A" notes = "N/A" }
+instance ErlangSemaphoreSignal of SemaphoreSignal { syntax = "N/A" notes = "N/A" }
+
+instance LispMutexDefinition of MutexDefinition { name = "mtx" syntax = "(setf mtx (bt:make-lock))" notes = "Requires bordeaux-threads library." }
+instance LispMutexLock of MutexLock { syntax = "(bt:acquire-lock mtx)" notes = "N/A" }
+instance LispMutexUnlock of MutexUnlock { syntax = "(bt:release-lock mtx)" notes = "N/A" }
+instance LispSemaphoreDefinition of SemaphoreDefinition { name = "sem" initial_value = 1 syntax = "(setf sem (bt:make-semaphore :count 1))" notes = "Requires bordeaux-threads." }
+instance LispSemaphoreWait of SemaphoreWait { syntax = "(bt:wait-on-semaphore sem)" notes = "N/A" }
+instance LispSemaphoreSignal of SemaphoreSignal { syntax = "(bt:signal-semaphore sem)" notes = "N/A" }
+
+instance BashMutexDefinition of MutexDefinition { name = "N/A" syntax = "N/A" notes = "Not natively supported; typically implemented using lockfiles or mkdir." }
+instance BashMutexLock of MutexLock { syntax = "N/A" notes = "N/A" }
+instance BashMutexUnlock of MutexUnlock { syntax = "N/A" notes = "N/A" }
+instance BashSemaphoreDefinition of SemaphoreDefinition { name = "N/A" initial_value = 0 syntax = "N/A" notes = "N/A" }
+instance BashSemaphoreWait of SemaphoreWait { syntax = "N/A" notes = "N/A" }
+instance BashSemaphoreSignal of SemaphoreSignal { syntax = "N/A" notes = "N/A" }
+
+instance PhpMutexDefinition of MutexDefinition { name = "mtx" syntax = "Mutex::create()" notes = "Requires pthreads or parallel extension." }
+instance PhpMutexLock of MutexLock { syntax = "Mutex::lock($mtx)" notes = "N/A" }
+instance PhpMutexUnlock of MutexUnlock { syntax = "Mutex::unlock($mtx)" notes = "N/A" }
+instance PhpSemaphoreDefinition of SemaphoreDefinition { name = "sem" initial_value = 1 syntax = "sem_get($key, 1)" notes = "Uses System V semaphores." }
+instance PhpSemaphoreWait of SemaphoreWait { syntax = "sem_acquire($sem)" notes = "N/A" }
+instance PhpSemaphoreSignal of SemaphoreSignal { syntax = "sem_release($sem)" notes = "N/A" }
+
+instance ClojureMutexDefinition of MutexDefinition { name = "mtx" syntax = "(def mtx (Object.))" notes = "Any object can be used as a monitor in Clojure." }
+instance ClojureMutexLock of MutexLock { syntax = "(locking mtx ...)" notes = "The locking macro acquires the monitor." }
+instance ClojureMutexUnlock of MutexUnlock { syntax = "N/A" notes = "Released automatically at the end of the locking block." }
+instance ClojureSemaphoreDefinition of SemaphoreDefinition { name = "sem" initial_value = 1 syntax = "(def sem (java.util.concurrent.Semaphore. 1))" notes = "Uses Java interop for semaphores." }
+instance ClojureSemaphoreWait of SemaphoreWait { syntax = "(.acquire sem)" notes = "N/A" }
+instance ClojureSemaphoreSignal of SemaphoreSignal { syntax = "(.release sem)" notes = "N/A" }
+
+instance SqlMutexDefinition of MutexDefinition { name = "N/A" syntax = "N/A" notes = "Database locks (e.g., SELECT ... FOR UPDATE) are used instead of mutexes." }
+instance SqlMutexLock of MutexLock { syntax = "N/A" notes = "N/A" }
+instance SqlMutexUnlock of MutexUnlock { syntax = "N/A" notes = "N/A" }
+instance SqlSemaphoreDefinition of SemaphoreDefinition { name = "N/A" initial_value = 0 syntax = "N/A" notes = "N/A" }
+instance SqlSemaphoreWait of SemaphoreWait { syntax = "N/A" notes = "N/A" }
+instance SqlSemaphoreSignal of SemaphoreSignal { syntax = "N/A" notes = "N/A" }

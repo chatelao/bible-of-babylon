@@ -13,6 +13,15 @@ COBOL Pivot View
 
            01 X PIC 9(4) VALUE 42.
      - Variables are defined in the DATA DIVISION; PIC (picture) clause specifies the data type and size.
+   * - CollectionDefinition
+     - .. code-block:: cobol
+
+           01 ARR.
+              05 ITEM PIC 9(2) OCCURS 3 TIMES.
+     - Collections are defined using the OCCURS clause in the DATA DIVISION.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Standard COBOL does not have native associative arrays; often simulated with indexed tables and SEARCH ALL.
    * - IfElse
      - .. code-block:: cobol
 
@@ -48,6 +57,9 @@ COBOL Pivot View
                *> body
            END-PERFORM.
      - PERFORM VARYING is the COBOL equivalent of a for loop.
+   * - ForEach
+     - N/A
+     - Standard COBOL doesn't have a direct for-each; typically done via PERFORM VARYING over table indices.
    * - FunctionDefinition
      - .. code-block:: cobol
 

@@ -13,6 +13,14 @@ Prolog Pivot View
 
            X = 42.
      - Uses unification for assignment; variables must start with an uppercase letter.
+   * - CollectionDefinition
+     - .. code-block:: prolog
+
+           L = [1, 2, 3].
+     - Lists are the primary collection type in Prolog, represented with square brackets.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Prolog does not have a native associative array; association is typically achieved through facts or association lists.
    * - SwitchCase
      - .. code-block:: prolog
 
@@ -191,6 +199,11 @@ Prolog Pivot View
 
            forall(between(0, 9, I), do_something(I)).
      - Uses between/3 to generate values and forall/2 to iterate over them.
+   * - ForEach
+     - .. code-block:: prolog
+
+           member(Item, Collection), do_something(Item).
+     - Uses member/2 to non-deterministically unify with each element.
    * - Equal
      - .. code-block:: prolog
 

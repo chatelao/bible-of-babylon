@@ -1,5 +1,5 @@
-Data Query Patterns
-===================
+Data Query Languages
+====================
 
 
 
@@ -354,6 +354,57 @@ Parameters:
    * - OverpassTurboGreaterThan
      - N/A
      - Overpass QL has limited support for numeric comparisons in some implementations.
+
+
+
+LogicalAnd
+----------
+
+
+:description: Returns true if both boolean operands are true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+
+
+LogicalOr
+---------
+
+
+:description: Returns true if at least one boolean operand is true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+
+
+LogicalXor
+----------
+
+
+:description: Returns true if exactly one boolean operand is true.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
 
 
 
@@ -923,6 +974,180 @@ Parameters:
      - N/A
      - N/A
    * - OverpassTurboReceiveMessage
+     - N/A
+     - N/A
+
+
+
+MutexDefinition
+---------------
+
+
+:description: Declaring and optionally initializing a mutual exclusion object.
+
+
+Parameters:
+
+* name: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlMutexDefinition
+     - N/A
+     - Database locks (e.g., SELECT ... FOR UPDATE) are used instead of mutexes.
+
+
+
+MutexLock
+---------
+
+
+:description: Acquiring a lock on a mutex, blocking if it is already held.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexLock Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlMutexLock
+     - N/A
+     - N/A
+
+
+
+MutexUnlock
+-----------
+
+
+:description: Releasing a held lock on a mutex.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexUnlock Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlMutexUnlock
+     - N/A
+     - N/A
+
+
+
+SemaphoreDefinition
+-------------------
+
+
+:description: Declaring and initializing a semaphore with a specific count.
+
+
+Parameters:
+
+* name: String
+
+* initial_value: Number
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSemaphoreDefinition
+     - N/A
+     - N/A
+
+
+
+SemaphoreWait
+-------------
+
+
+:description: Decreasing the semaphore count, blocking if the count is zero.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreWait Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSemaphoreWait
+     - N/A
+     - N/A
+
+
+
+SemaphoreSignal
+---------------
+
+
+:description: Increasing the semaphore count, potentially unblocking a waiting thread.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreSignal Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSemaphoreSignal
      - N/A
      - N/A
 

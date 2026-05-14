@@ -46,6 +46,12 @@ This section compares languages based on common programming patterns.
 - Function/Procedure definition
 - Error handling
 - Concurrency models
+- Mutex definition
+- Mutex lock
+- Mutex unlock
+- Semaphore definition
+- Semaphore wait
+- Semaphore signal
 - Module/Package Import
 - Constants
 - Switch/Case statement

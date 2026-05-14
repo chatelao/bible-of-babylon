@@ -77,6 +77,12 @@ Clojure Pivot View
            (doseq [i (range 10)]
              (println i))
      - The 'doseq' macro is used for side-effecting iterations.
+   * - ForEach
+     - .. code-block:: clojure
+
+           (doseq [item collection]
+             (println item))
+     - The 'doseq' macro is also the standard way to iterate over collections.
    * - TryCatch
      - .. code-block:: clojure
 
@@ -236,3 +242,31 @@ Clojure Pivot View
 
            (clojure.set/join set-a set-b)
      - Relational join operation from the clojure.set namespace.
+   * - MutexDefinition
+     - .. code-block:: clojure
+
+           (def mtx (Object.))
+     - Any object can be used as a monitor in Clojure.
+   * - MutexLock
+     - .. code-block:: clojure
+
+           (locking mtx ...)
+     - The locking macro acquires the monitor.
+   * - MutexUnlock
+     - N/A
+     - Released automatically at the end of the locking block.
+   * - SemaphoreDefinition
+     - .. code-block:: clojure
+
+           (def sem (java.util.concurrent.Semaphore. 1))
+     - Uses Java interop for semaphores.
+   * - SemaphoreWait
+     - .. code-block:: clojure
+
+           (.acquire sem)
+     - N/A
+   * - SemaphoreSignal
+     - .. code-block:: clojure
+
+           (.release sem)
+     - N/A

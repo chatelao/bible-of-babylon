@@ -13,6 +13,16 @@ Erlang Pivot View
 
            X = 42.
      - Single assignment; must start with an uppercase letter.
+   * - CollectionDefinition
+     - .. code-block:: erlang
+
+           L = [1, 2, 3].
+     - Lists are the standard linked-list structure in Erlang.
+   * - AssociativeArrayDefinition
+     - .. code-block:: erlang
+
+           M = #{a => 1, b => 2}.
+     - Maps are used for key-value pairs in Erlang.
    * - SwitchCase
      - .. code-block:: erlang
 
@@ -192,6 +202,11 @@ Erlang Pivot View
 
            lists:foreach(fun(I) -> ok end, lists:seq(1, 10)).
      - Erlang uses recursion or library functions like lists:foreach for iteration.
+   * - ForEach
+     - .. code-block:: erlang
+
+           lists:foreach(fun(Item) -> ok end, Collection).
+     - Iterates over a list using the lists:foreach function.
    * - Equal
      - .. code-block:: erlang
 
@@ -217,3 +232,21 @@ Erlang Pivot View
 
            [{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].
      - Uses list comprehensions for joins.
+   * - MutexDefinition
+     - N/A
+     - Erlang uses message passing and isolated processes instead of shared-memory locks.
+   * - MutexLock
+     - N/A
+     - N/A
+   * - MutexUnlock
+     - N/A
+     - N/A
+   * - SemaphoreDefinition
+     - N/A
+     - N/A
+   * - SemaphoreWait
+     - N/A
+     - N/A
+   * - SemaphoreSignal
+     - N/A
+     - N/A

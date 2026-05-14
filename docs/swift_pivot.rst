@@ -8,11 +8,66 @@ Swift Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - MutexDefinition
+     - .. code-block:: swift
+
+           let lock = NSLock()
+     - Found in the Foundation framework.
+   * - MutexLock
+     - .. code-block:: swift
+
+           lock.lock()
+     - Standard locking call.
+   * - MutexUnlock
+     - .. code-block:: swift
+
+           lock.unlock()
+     - Standard unlocking call.
+   * - SemaphoreDefinition
+     - .. code-block:: swift
+
+           let sem = DispatchSemaphore(value: 1)
+     - Part of Grand Central Dispatch (GCD).
+   * - SemaphoreWait
+     - .. code-block:: swift
+
+           sem.wait()
+     - Decrements the semaphore count.
+   * - SemaphoreSignal
+     - .. code-block:: swift
+
+           sem.signal()
+     - Increments the semaphore count.
+   * - LogicalAnd
+     - .. code-block:: swift
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: swift
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: swift
+
+           a != b
+     - Swift uses != for logical XOR between booleans.
    * - VariableDeclaration
      - .. code-block:: swift
 
            var x: Int = 42
      - Variables are declared with 'var'; supports type inference.
+   * - CollectionDefinition
+     - .. code-block:: swift
+
+           var a = [1, 2, 3]
+     - Arrays are defined using square brackets in Swift.
+   * - AssociativeArrayDefinition
+     - .. code-block:: swift
+
+           var d = ["a": 1, "b": 2]
+     - Dictionaries use the 'key: value' syntax within square brackets.
    * - Equal
      - .. code-block:: swift
 
@@ -77,6 +132,13 @@ Swift Pivot View
                // body
            }
      - Uses ranges; ..< is half-open (exclusive of upper bound).
+   * - ForEach
+     - .. code-block:: swift
+
+           for item in collection {
+               // body
+           }
+     - Standard Swift for-in loop for iterating over sequences.
    * - TryCatch
      - .. code-block:: swift
 

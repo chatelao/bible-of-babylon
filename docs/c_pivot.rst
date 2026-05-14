@@ -13,6 +13,14 @@ C Pivot View
 
            int x = 42;
      - Static typing, terminated by semicolon.
+   * - CollectionDefinition
+     - .. code-block:: c
+
+           int arr[] = {1, 2, 3};
+     - Standard C array definition with initializer list.
+   * - AssociativeArrayDefinition
+     - N/A
+     - C does not have a native associative array type; typically implemented via libraries or custom hash tables.
    * - IfElse
      - .. code-block:: c
 
@@ -63,6 +71,37 @@ C Pivot View
 
            exit(1);
      - C uses exit() or signals for severe errors.
+   * - MutexDefinition
+     - .. code-block:: c
+
+           pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+     - Requires pthread.h library.
+   * - MutexLock
+     - .. code-block:: c
+
+           pthread_mutex_lock(&mtx);
+     - Blocks until the mutex is available.
+   * - MutexUnlock
+     - .. code-block:: c
+
+           pthread_mutex_unlock(&mtx);
+     - Releases the mutex.
+   * - SemaphoreDefinition
+     - .. code-block:: c
+
+           sem_t sem;
+           sem_init(&sem, 0, 1);
+     - Requires semaphore.h library.
+   * - SemaphoreWait
+     - .. code-block:: c
+
+           sem_wait(&sem);
+     - Decrements the semaphore; blocks if count is zero.
+   * - SemaphoreSignal
+     - .. code-block:: c
+
+           sem_post(&sem);
+     - Increments the semaphore.
    * - SingleLineComment
      - .. code-block:: c
 
@@ -189,6 +228,14 @@ C Pivot View
                // body
            }
      - Standard C for loop with initialization, condition, and increment.
+   * - ForEach
+     - .. code-block:: c
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - Standard C does not have a native for-each loop; typically implemented via index access.
    * - Equal
      - .. code-block:: c
 
@@ -204,6 +251,21 @@ C Pivot View
 
            a > b
      -
+   * - LogicalAnd
+     - .. code-block:: c
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: c
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: c
+
+           !(a) != !(b)
+     - C does not have a logical XOR operator; it is typically simulated using inequality of boolean values.
    * - SetFiltering
      - .. code-block:: c
 

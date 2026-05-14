@@ -13,6 +13,16 @@ Bash Pivot View
 
            x=42
      - No spaces around the assignment operator.
+   * - CollectionDefinition
+     - .. code-block:: bash
+
+           a=(1 2 3)
+     - Bash supports indexed arrays using parentheses.
+   * - AssociativeArrayDefinition
+     - .. code-block:: bash
+
+           declare -A m=([a]=1 [b]=2)
+     - Associative arrays require explicit declaration with 'declare -A'.
    * - SwitchCase
      - .. code-block:: bash
 
@@ -191,6 +201,13 @@ Bash Pivot View
                # body
            done
      - Uses brace expansion for ranges; also supports C-style for loops.
+   * - ForEach
+     - .. code-block:: bash
+
+           for item in "${collection[@]}"; do
+               # body
+           done
+     - Iterates over the elements of an array.
    * - Equal
      - .. code-block:: bash
 
@@ -220,3 +237,21 @@ Bash Pivot View
 
            join file1 file2
      - The join command joins lines of two files on a common field.
+   * - MutexDefinition
+     - N/A
+     - Not natively supported; typically implemented using lockfiles or mkdir.
+   * - MutexLock
+     - N/A
+     - N/A
+   * - MutexUnlock
+     - N/A
+     - N/A
+   * - SemaphoreDefinition
+     - N/A
+     - N/A
+   * - SemaphoreWait
+     - N/A
+     - N/A
+   * - SemaphoreSignal
+     - N/A
+     - N/A

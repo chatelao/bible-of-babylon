@@ -8,11 +8,22 @@ SPARQL Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - ForEach
+     - N/A
+     - N/A
    * - VariableDeclaration
      - .. code-block:: sparql
 
            BIND(42 AS ?x)
      - The BIND clause assigns a value to a variable.
+   * - CollectionDefinition
+     - .. code-block:: sparql
+
+           VALUES ?x { 1 2 3 }
+     - VALUES can be used to define a set of values for a variable.
+   * - AssociativeArrayDefinition
+     - N/A
+     - SPARQL does not have a native associative array type.
    * - Equal
      - .. code-block:: sparql
 

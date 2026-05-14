@@ -13,6 +13,14 @@ x86 Assembler Pivot View
 
            x   dd 42
      - Defined in the .data section (Intel syntax).
+   * - CollectionDefinition
+     - .. code-block:: nasm
+
+           arr dd 1, 2, 3
+     - A collection is defined as a sequence of data values in the data section.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Associative arrays are not a native concept in assembly; they must be implemented manually via hashing or search algorithms.
    * - SwitchCase
      - .. code-block:: nasm
 
@@ -215,6 +223,16 @@ x86 Assembler Pivot View
                ; body
                loop .loop
      - The loop instruction uses the ECX register as a counter.
+   * - ForEach
+     - .. code-block:: nasm
+
+               mov esi, collection
+               mov ecx, count
+           .loop:
+               lodsd ; load [ESI] into EAX and increment ESI
+               ; body (use EAX)
+               loop .loop
+     - Implemented using pointer increment (like lods) and a counter.
    * - Equal
      - .. code-block:: nasm
 
