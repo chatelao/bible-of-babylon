@@ -8,9 +8,6 @@ Brainfuck Pivot View
    * - Pattern
      - Syntax
      - Notes
-   * - VariableDeclaration
-     - N/A
-     - Brainfuck uses an implicit array of memory cells; there are no named variables.
    * - Loop
      - .. code-block:: brainfuck
 

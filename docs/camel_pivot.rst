@@ -13,6 +13,16 @@ Camel Pivot View
 
            let x = 42
      - Immutable binding by default; type inference is used.
+   * - CollectionDefinition
+     - .. code-block:: ocaml
+
+           let l = [1; 2; 3]
+     - Lists in OCaml use semicolons as separators and square brackets.
+   * - AssociativeArrayDefinition
+     - .. code-block:: ocaml
+
+           let m = Map.empty |> Map.add "a" 1 |> Map.add "b" 2
+     - OCaml's Map module provides an immutable associative structure.
    * - IfElse
      - .. code-block:: ocaml
 
@@ -194,6 +204,11 @@ Camel Pivot View
                (* body *)
            done
      - OCaml provides a simple for loop for integer ranges.
+   * - ForEach
+     - .. code-block:: ocaml
+
+           List.iter (fun item -> (* body *)) collection
+     - Higher-order functions like List.iter are the idiomatic way to iterate.
    * - Equal
      - .. code-block:: ocaml
 

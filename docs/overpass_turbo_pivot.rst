@@ -13,6 +13,14 @@ Overpass Turbo Pivot View
 
            .setname
      - Overpass QL uses sets (prefixed with .) to store results.
+   * - CollectionDefinition
+     - .. code-block:: text
+
+           .a
+     - Collections are represented by sets, which store OSM elements.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Overpass QL does not support associative arrays.
    * - Equal
      - .. code-block:: text
 
@@ -50,6 +58,11 @@ Overpass Turbo Pivot View
 
            for ( ... )
      - Overpass QL supports C-style for loops in recent versions.
+   * - ForEach
+     - .. code-block:: text
+
+           foreach .item ( ... )
+     - The foreach statement iterates over the elements of a set.
    * - TryCatch
      - N/A
      - N/A

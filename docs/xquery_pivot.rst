@@ -13,6 +13,16 @@ XQuery Pivot View
 
            let $x := 42
      - XQuery uses 'let' for variable binding.
+   * - CollectionDefinition
+     - .. code-block:: xquery
+
+           let $s := (1, 2, 3)
+     - Sequences are the primary collection type in XQuery, created using parentheses and commas.
+   * - AssociativeArrayDefinition
+     - .. code-block:: xquery
+
+           let $m := map { "a": 1, "b": 2 }
+     - Maps were introduced in XQuery 3.1.
    * - SwitchCase
      - .. code-block:: xquery
 
@@ -174,6 +184,12 @@ XQuery Pivot View
            for $i in 1 to 10
            return $i
      - Iterates over a sequence and returns a new sequence.
+   * - ForEach
+     - .. code-block:: xquery
+
+           for $item in $collection
+           return $item
+     - The FLWOR 'for' clause naturally iterates over items in a sequence.
    * - Equal
      - .. code-block:: xquery
 

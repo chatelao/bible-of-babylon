@@ -13,6 +13,21 @@ Java Bytecode Pivot View
 
            .field private static x I = 42
      - In Jasmin syntax, static fields represent global-like variables.
+   * - CollectionDefinition
+     - .. code-block:: jasmin
+
+           iconst_3
+           newarray int
+           astore_1
+     - In Java Bytecode, arrays are created using instructions like newarray or anewarray.
+   * - AssociativeArrayDefinition
+     - .. code-block:: jasmin
+
+           new java/util/HashMap
+           dup
+           invokespecial java/util/HashMap/<init>()V
+           astore_1
+     - Associative arrays involve instantiating a Map class like HashMap.
    * - IfElse
      - .. code-block:: jasmin
 
@@ -280,6 +295,21 @@ Java Bytecode Pivot View
                goto LoopStart
            LoopEnd:
      - Built using labels, conditional jumps (if_icmpge), and iinc.
+   * - ForEach
+     - .. code-block:: jasmin
+
+               aload_0 ; collection (as Iterator)
+           LoopStart:
+               aload_0
+               invokeinterface Iterator.hasNext()Z
+               ifeq LoopEnd
+               aload_0
+               invokeinterface Iterator.next()LObject;
+               astore_1 ; item
+               ; body
+               goto LoopStart
+           LoopEnd:
+     - Typically implemented using Iterator.hasNext() and Iterator.next().
    * - Equal
      - .. code-block:: jasmin
 

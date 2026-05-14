@@ -13,6 +13,16 @@ Haskell Pivot View
 
            let x = 42
      - Immutable binding within a scope; part of let-in or where clause.
+   * - CollectionDefinition
+     - .. code-block:: haskell
+
+           let l = [1, 2, 3]
+     - Lists in Haskell are homogeneous linked lists.
+   * - AssociativeArrayDefinition
+     - .. code-block:: haskell
+
+           let m = Data.Map.fromList [("a", 1), ("b", 2)]
+     - Requires importing Data.Map.
    * - IfElse
      - .. code-block:: haskell
 
@@ -190,6 +200,11 @@ Haskell Pivot View
 
            mapM_ (\i -> return ()) [0..9]
      - Haskell uses mapM_ or forM_ (Control.Monad) for imperative-style iteration.
+   * - ForEach
+     - .. code-block:: haskell
+
+           mapM_ (\item -> return ()) collection
+     - Functions like mapM_ or forM_ are used to apply actions to elements.
    * - Equal
      - .. code-block:: haskell
 
