@@ -13,6 +13,16 @@ TypeScript Pivot View
 
            let x: number = 42;
      - Supports static typing on top of JavaScript.
+   * - CollectionDefinition
+     - .. code-block:: typescript
+
+           const a: number[] = [1, 2, 3];
+     - Arrays are the primary collection type in TypeScript.
+   * - AssociativeArrayDefinition
+     - .. code-block:: typescript
+
+           const m: Map<string, number> = new Map([['a', 1], ['b', 2]]);
+     - The Map object provides associative mapping.
    * - IfElse
      - .. code-block:: typescript
 
@@ -212,6 +222,28 @@ TypeScript Pivot View
                // body
            }
      - Identical to JavaScript; supports typed loop variables.
+   * - ForEach
+     - .. code-block:: typescript
+
+           for (const item of collection) {
+               // body
+           }
+     - The 'for...of' loop is the modern way to iterate over iterables.
+   * - LogicalAnd
+     - .. code-block:: typescript
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: typescript
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: typescript
+
+           a != b
+     - TypeScript uses != for logical XOR between booleans.
    * - Equal
      - .. code-block:: typescript
 

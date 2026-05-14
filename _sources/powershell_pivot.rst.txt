@@ -13,6 +13,16 @@ PowerShell Pivot View
 
            $x = 42
      - Variables start with a dollar sign.
+   * - CollectionDefinition
+     - .. code-block:: powershell
+
+           $a = 1, 2, 3
+     - The comma operator creates an array in PowerShell.
+   * - AssociativeArrayDefinition
+     - .. code-block:: powershell
+
+           $h = @{ a = 1; b = 2 }
+     - Hashtables are created using the @{ } syntax.
    * - SwitchCase
      - .. code-block:: powershell
 
@@ -189,6 +199,13 @@ PowerShell Pivot View
                # body
            }
      - Standard C-style for loop with PowerShell comparison operators.
+   * - ForEach
+     - .. code-block:: powershell
+
+           foreach ($item in $collection) {
+               # body
+           }
+     - Powershell's foreach statement iterates over a collection of objects.
    * - Equal
      - .. code-block:: powershell
 

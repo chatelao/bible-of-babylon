@@ -1,4 +1,4 @@
-Language,VariableDeclaration,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin
+Language,VariableDeclaration,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,MutexDefinition,MutexLock,MutexUnlock,SemaphoreDefinition,SemaphoreWait,SemaphoreSignal,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin
 "C","int x = 42;","for (int i = 0; i < n; i++) {
     int item = collection[i];
     // body
@@ -21,7 +21,8 @@ Language,VariableDeclaration,ForEach,CollectionDefinition,AssociativeArrayDefini
     x = x - 1;
 }","for (int i = 0; i < 10; i++) {
     // body
-}","N/A","exit(1);","N/A","N/A","N/A","// comment","/* line 1
+}","N/A","exit(1);","N/A","N/A","N/A","pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;","pthread_mutex_lock(&mtx);","pthread_mutex_unlock(&mtx);","sem_t sem;
+sem_init(&sem, 0, 1);","sem_wait(&sem);","sem_post(&sem);","// comment","/* line 1
    line 2 */","printf(""Hello, World!\n"");","#include <stdio.h>","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
@@ -64,7 +65,7 @@ c[3] = 0.0f;","for (int i = 0; i < n; i++) {
 }","throw std::runtime_error(""Error"");","std::thread t(do_work);
 t.join();","queue.push(42);","int msg = queue.front();
 queue.pop();
-handle(msg);","// comment","/* line 1
+handle(msg);","std::mutex mtx;","mtx.lock();","mtx.unlock();","std::counting_semaphore<10> sem(1);","sem.acquire();","sem.release();","// comment","/* line 1
    line 2 */","std::cout << ""Hello, World!"" << std::endl;","#include <iostream>","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","std::floor(a)","std::round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
@@ -94,7 +95,7 @@ c[3] = 0.0f;","std::copy_if(v.begin(), v.end(), std::back_inserter(res), conditi
     do_something();
 } catch (Exception e) {
     handle(e);
-}","throw new RuntimeException(""Error"");","new Thread(() -> { do_work(); }).start();","queue.put(42);","int msg = queue.take(); handle(msg);","// comment","/* line 1
+}","throw new RuntimeException(""Error"");","new Thread(() -> { do_work(); }).start();","queue.put(42);","int msg = queue.take(); handle(msg);","Lock lock = new ReentrantLock();","lock.lock();","lock.unlock();","Semaphore sem = new Semaphore(1);","sem.acquire();","sem.release();","// comment","/* line 1
    line 2 */","System.out.println(""Hello, World!"");","import java.util.List;","public static final int MAX = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
@@ -120,7 +121,7 @@ c[3] = 0.0f;","list.stream().filter(x -> x > 0).collect(Collectors.toList());","
 }","match do_something() {
     Ok(v) => v,
     Err(e) => handle(e)
-}","panic!(""Error"");","thread::spawn(|| { do_work(); });","tx.send(42).unwrap();","let msg = rx.recv().unwrap(); handle(msg);","// comment","/* line 1
+}","panic!(""Error"");","thread::spawn(|| { do_work(); });","tx.send(42).unwrap();","let msg = rx.recv().unwrap(); handle(msg);","let lock = Mutex::new(0);","let mut data = lock.lock().unwrap();","drop(data);","let sem = Semaphore::new(1);","let _permit = sem.acquire().await.unwrap();","drop(_permit);","// comment","/* line 1
    line 2 */","println!(""Hello, World!"");","use std::collections::HashMap;","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","a % b","a.floor()","a.round()","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","!a","for i in 0..4 { c[i] = a[i] * b[i]; }","let dot: f32 = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
@@ -134,7 +135,7 @@ end","loop(0) -> ok; loop(X) when X > 0 -> loop(X - 1).","lists:foreach(fun(I) -
     do_something()
 catch
     error:Reason -> handle(Reason)
-end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].","Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).","C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
+end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","N/A","N/A","N/A","N/A","N/A","N/A","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].","Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).","C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
      lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
      lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0].","[X || X <- List, X > 0].","[{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)]."
 "Lisp","(defparameter x 42)","(dolist (item collection)
@@ -143,7 +144,7 @@ end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","r
   (1 ""one"")
   (2 ""two"")
   (t ""none""))","(loop while (> x 0) do (setq x (1- x)))","(loop for i from 0 to 9 do
-    #| body |#)","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","; comment","#| line 1
+    #| body |#)","(handler-case (do_something) (error (c) (handle c)))","(error ""Error"")","N/A","N/A","N/A","(setf mtx (bt:make-lock))","(bt:acquire-lock mtx)","(bt:release-lock mtx)","(setf sem (bt:make-semaphore :count 1))","(bt:wait-on-semaphore sem)","(bt:signal-semaphore sem)","; comment","#| line 1
    line 2 |#","(format t ""Hello, World!~%"")","(use-package :iter)","(defconstant +max+ 100)","(+ a b)","(- a b)","(* a b)","(/ a b)","(mod a b)","(floor a)","(round a)","(1+ a)","(1- a)","(ash a b)","(ash a -b)","(logand a b)","(logior a b)","(logxor a b)","(lognot a)","(mapcar #'* a b)","(reduce #'+ (mapcar #'* a b))","(list (- (* (nth 1 a) (nth 2 b)) (* (nth 2 a) (nth 1 b)))
       (- (* (nth 2 a) (nth 0 b)) (* (nth 0 a) (nth 2 b)))
       (- (* (nth 0 a) (nth 1 b)) (* (nth 1 a) (nth 0 b)))
@@ -175,7 +176,7 @@ esac","while [ $x -gt 0 ]; do
     x=$((x-1))
 done","for i in {0..9}; do
     # body
-done","do_something || handle_error","exit 1","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","((a | b))","((a ^ b))","((~a))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done","dot=0; for i in {0..3}; do dot=$(echo ""$dot + (${a[$i]} * ${b[$i]})"" | bc); done","c[0]=$(echo ""${a[1]}*${b[2]} - ${a[2]}*${b[1]}"" | bc)
+done","do_something || handle_error","exit 1","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","echo ""Hello, World!""","source utils.sh","readonly MAX=100","((a + b))","((a - b))","((a * b))","((a / b))","((a % b))","echo ""a / 1"" | bc","printf ""%.0f"" ""$a""","((a++))","((a--))","((a << b))","((a >> b))","((a & b))","((a | b))","((a ^ b))","((~a))","for i in {0..3}; do c[$i]=$(echo ""${a[$i]} * ${b[$i]}"" | bc); done","dot=0; for i in {0..3}; do dot=$(echo ""$dot + (${a[$i]} * ${b[$i]})"" | bc); done","c[0]=$(echo ""${a[1]}*${b[2]} - ${a[2]}*${b[1]}"" | bc)
 c[1]=$(echo ""${a[2]}*${b[0]} - ${a[0]}*${b[2]}"" | bc)
 c[2]=$(echo ""${a[0]}*${b[1]} - ${a[1]}*${b[0]}"" | bc)
 c[3]=0","for x in ""${a[@]}""; do
@@ -193,7 +194,7 @@ set /a res=%~1+%~2
 exit /b %res%","if %x% GTR 0 (exit /b 1) else (exit /b 0)","if ""%x%""==""1"" (goto :one) else if ""%x%""==""2"" (goto :two) else (goto :none)",":loop
 if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     rem body
-)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A","for %%x in (%a%) do (
+)","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A","for %%x in (%a%) do (
     if %%x GTR 0 (set b=!b! %%x)
 )","N/A"
 "PowerShell","$x = 42","foreach ($item in $collection) {
@@ -218,7 +219,7 @@ if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     do_something
 } catch {
     handle_error($_)
-}","throw ""Error""","N/A","N/A","N/A","# comment","<# line 1
+}","throw ""Error""","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","# comment","<# line 1
    line 2 #>","Write-Host ""Hello, World!""","Import-Module ActiveDirectory","Set-Variable -Name MAX -Value 100 -Option ReadOnly","a + b","a - b","a * b","a / b","a % b","[Math]::Floor(a)","[Math]::Round(a)","a++","a--","a -shl b","a -shr b","a -band b","a -bor b","a -bxor b","-bnot a","$c = 0..3 | ForEach-Object { $a[$_] * $b[$_] }","$dot = 0; 0..3 | ForEach-Object { $dot += $a[$_] * $b[$_] }","$c = @($a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0)","$b = $a | Where-Object { $_ -gt 0 }","foreach ($a in $listA) {
     foreach ($b in $listB) {
         if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }
@@ -237,7 +238,7 @@ if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     # body","try:
     do_something()
 except Exception as e:
-    handle(e)","raise Exception(""Error"")","N/A","N/A","N/A","# comment",""""""" line 1
+    handle(e)","raise Exception(""Error"")","N/A","N/A","N/A","lock = threading.Lock()","lock.acquire()","lock.release()","sem = threading.Semaphore(1)","sem.acquire()","sem.release()","# comment",""""""" line 1
     line 2 """"""","print(""Hello, World!"")","import math","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","c = [ai * bi for ai, bi in zip(a, b)]","dot = sum(ai * bi for ai, bi in zip(a, b))","c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]","b = [x for x in a if x > 0]","res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]"
 "PHP","$x = 42;","foreach ($collection as $item) {
     // body
@@ -264,7 +265,7 @@ except Exception as e:
     do_something();
 } catch (Exception $e) {
     handle($e);
-}","throw new Exception(""Error"");","N/A","N/A","N/A","// comment","/* line 1
+}","throw new Exception(""Error"");","N/A","N/A","N/A","Mutex::create()","Mutex::lock($mtx)","Mutex::unlock($mtx)","sem_get($key, 1)","sem_acquire($sem)","sem_release($sem)","// comment","/* line 1
    line 2 */","echo ""Hello, World!"";","require 'utils.php';","define('MAX', 100);","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","$c = array_map(fn($ai, $bi) => $ai * $bi, $a, $b);","$dot = array_sum(array_map(fn($ai, $bi) => $ai * $bi, $a, $b));","$c = [$a[1]*$b[2] - $a[2]*$b[1], $a[2]*$b[0] - $a[0]*$b[2], $a[0]*$b[1] - $a[1]*$b[0], 0.0];","$b = array_filter($a, fn($x) => $x > 0);","foreach ($a as $itemA) {
     foreach ($b as $itemB) {
         if ($itemA['id'] == $itemB['id']) {
@@ -272,7 +273,7 @@ except Exception as e:
         }
     }
 }"
-"CSS","--x: 42;","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
+"CSS","--x: 42;","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
    line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A"
 "CUDA","__device__ int x = 42;","for (int i = 0; i < n; i++) {
     int item = collection[i];
@@ -296,7 +297,7 @@ except Exception as e:
     x = x - 1;
 }","for (int i = 0; i < 10; i++) {
     // body
-}","N/A","N/A","kernel<<<grid, block>>>();","N/A","N/A","// comment","/* line 1
+}","N/A","N/A","kernel<<<grid, block>>>();","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","// comment","/* line 1
    line 2 */","printf(""Hello, World!\n"");","#include <cuda_runtime.h>","__constant__ int MAX = 100;","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c.x = a.x * b.x; c.y = a.y * b.y; c.z = a.z * b.z; c.w = a.w * b.w;","float dot = a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;","c.x = a.y*b.z - a.z*b.y; c.y = a.z*b.x - a.x*b.z; c.z = a.x*b.y - a.y*b.x;","if (condition(data[idx])) {
     result[output_idx] = data[idx];
 }","if (a[i].id == b[j].id) {
@@ -343,7 +344,7 @@ jg .greater","N/A","N/A","N/A","log_message:
     loop .loop","N/A","    int 3","    push offset do_work
     call CreateThread","    push msg
     push thread_id
-    call PostThreadMessage","    call GetMessage","; comment","N/A","push offset hello_msg
+    call PostThreadMessage","    call GetMessage","N/A","N/A","N/A","N/A","N/A","N/A","; comment","N/A","push offset hello_msg
 call printf","include 'macros.inc'","MAX equ 100","add eax, ebx","sub eax, ebx","imul eax, ebx","idiv ebx","N/A","N/A","N/A","inc eax","dec eax","shl eax, cl","shr eax, cl","and eax, ebx","or eax, ebx","xor eax, ebx","not eax","mulps xmm0, xmm1","dpps xmm0, xmm1, 0xF1","movaps xmm2, xmm0
 shufps xmm0, xmm0, 0xC9 ; y z x w
 shufps xmm2, xmm2, 0xD2 ; z x y w
@@ -397,7 +398,7 @@ subps xmm0, xmm2","    cmp eax, 0
 .end:","N/A","    ebreak","    li a7, 220 # clone syscall
     ecall","    li a7, 139 # rt_sigqueueinfo
     ecall","    li a7, 128 # rt_sigtimedwait
-    ecall","# comment","N/A","    la a0, hello_msg
+    ecall","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","    la a0, hello_msg
     call printf",".include ""macros.s""",".equiv MAX, 100","add t0, t1, t2","sub t0, t1, t2","mul t0, t1, t2","div t0, t1, t2","rem t0, t1, t2","N/A","N/A","addi t0, t0, 1","addi t0, t0, -1","sll t0, t1, t2","srl t0, t1, t2","and t0, t1, t2","or t0, t1, t2","xor t0, t1, t2","not t0, t1","vsetvli t0, x0, e32, m1
 vfmul.vv v1, v2, v3","vsetvli t0, x0, e32, m1
 vfmul.vv v1, v2, v3
@@ -409,7 +410,7 @@ vfredusum.vs v4, v1, v5","N/A","    blez t0, .skip
 ;   X = 2 -> writeln('two')
 ;   writeln('none')
 )","loop(0) :- !.
-loop(X) :- X > 0, X1 is X - 1, loop(X1).","forall(between(0, 9, I), do_something(I)).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","% comment","/* line 1
+loop(X) :- X > 0, X1 is X - 1, loop(X1).","forall(between(0, 9, I), do_something(I)).","catch(do_something, E, handle(E))","throw(error(Error))","thread_create(do_work, Id, []).","thread_send_message(Id, hello).","thread_get_message(hello).","N/A","N/A","N/A","N/A","N/A","N/A","% comment","/* line 1
    line 2 */","writeln('Hello, World!').","use_module(library(math)).","max(100).","Res is A + B","Res is A - B","Res is A * B","Res is A / B","Res is A mod B","Res is floor(A)","Res is round(A)","Res is A + 1","Res is A - 1","Res is A << B","Res is A >> B","Res is A /\ B","Res is A \/ B","Res is A xor B","Res is \ A","maplist(multiply, A, B, C).","dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).","cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-
     C1 is A2*B3 - A3*B2,
     C2 is A3*B1 - A1*B3,
@@ -504,7 +505,7 @@ Done:","    new java/lang/RuntimeException
     invokevirtual java/lang/Integer/intValue()I
     istore_1 ; msg
     iload_1
-    invokestatic MyClass/handle(I)V","; comment","N/A","    getstatic java/lang/System/out Ljava/io/PrintStream;
+    invokestatic MyClass/handle(I)V","N/A","N/A","N/A","N/A","N/A","N/A","; comment","N/A","    getstatic java/lang/System/out Ljava/io/PrintStream;
     ldc ""Hello, World!""
     invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V","Ljava/util/List;",".field public static final MAX I = 100","iadd","isub","imul","idiv","irem","N/A","N/A","iinc index, 1","iinc index, -1","ishl","ishr","iand","ior","ixor","iconst_m1
 ixor","fload_1
@@ -576,7 +577,7 @@ b.gt .greater","N/A","N/A","N/A","log_message:
 .end:","N/A","    brk #0","    mov x8, #220 // clone syscall
     svc #0","    mov x8, #139 // rt_sigqueueinfo
     svc #0","    mov x8, #128 // rt_sigtimedwait
-    svc #0","// comment","N/A","    adrp x0, hello_msg
+    svc #0","N/A","N/A","N/A","N/A","N/A","N/A","// comment","N/A","    adrp x0, hello_msg
     add x0, x0, :lo12:hello_msg
     bl printf",".include ""macros.s""",".equiv MAX, 100","add x0, x1, x2","sub x0, x1, x2","mul x0, x1, x2","sdiv x0, x1, x2","N/A","N/A","N/A","add x0, x0, #1","sub x0, x0, #1","lsl x0, x1, x2","lsr x0, x1, x2","and x0, x1, x2","orr x0, x1, x2","eor x0, x1, x2","mvn x0, x1","fmul v0.4s, v1.4s, v2.4s","fmul v0.4s, v1.4s, v2.4s
 faddp v0.4s, v0.4s, v0.4s
@@ -596,7 +597,7 @@ fmls s4, v0.s[1], v1.s[0]","    cmp x0, #0
     x := !x - 1
 done","for i = 0 to 9 do
     (* body *)
-done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thread.create do_work ()","Event.sync (Event.send ch 42)","let msg = Event.sync (Event.receive ch) in handle msg","(* comment *)","(* line 1
+done","try do_something () with e -> handle e","raise (Failure ""Error"")","Thread.create do_work ()","Event.sync (Event.send ch 42)","let msg = Event.sync (Event.receive ch) in handle msg","N/A","N/A","N/A","N/A","N/A","N/A","(* comment *)","(* line 1
    line 2 *)","print_endline ""Hello, World!""","open List","let max = 100","a + b","a - b","a * b","a / b","a mod b","floor a","Float.round a","a + 1","a - 1","a lsl b","a lsr b","a land b","a lor b","a lxor b","lnot a","Array.map2 (fun ai bi -> ai *. bi) a b","let dot = List.fold_left2 (fun acc ai bi -> acc +. ai *. bi) 0.0 a b","[| a.(1) *. b.(2) -. a.(2) *. b.(1);
    a.(2) *. b.(0) -. a.(0) *. b.(2);
    a.(0) *. b.(1) -. a.(1) *. b.(0);
@@ -625,7 +626,7 @@ default:
 }","if err := do_something(); err != nil {
     handle(err)
 }","panic(""Error"")","go do_work()","ch <- 42","msg := <-ch
-handle(msg)","// comment","/* line 1
+handle(msg)","var mu sync.Mutex","mu.Lock()","mu.Unlock()","sem := make(chan struct{}, 1)","sem <- struct{}{}","<-sem","// comment","/* line 1
    line 2 */","fmt.Println(""Hello, World!"")","import ""fmt""","const MAX = 100","a + b","a - b","a * b","a / b","a % b","math.Floor(a)","math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","^a","for i := range a { c[i] = a[i] * b[i] }","dot := 0.0
 for i := range a { dot += a[i] * b[i] }","c := [4]float64{
     a[1]*b[2] - a[2]*b[1],
@@ -649,7 +650,7 @@ add a b = a + b","if x > 0 then 1 else 0","case x of
     1 -> 1
     2 -> 2
     _ -> 0","loop x = if x > 0 then loop (x - 1) else return ()","mapM_ (\i -> return ()) [0..9]","do_something `catch` \(e :: SomeException) -> handle e","error ""Error""","forkIO (do_work)","writeChan chan 42","msg <- readChan chan
-handle msg","-- comment","{- line 1
+handle msg","N/A","N/A","N/A","N/A","N/A","N/A","-- comment","{- line 1
    line 2 -}","putStrLn ""Hello, World!""","import Data.List","maxVal = 100","a + b","a - b","a * b","a / b","a `mod` b","floor a","round a","a + 1","a - 1","shiftL a b","shiftR a b","a .&. b","a .|. b","xor a b","complement a","zipWith (*) a b","dot = sum $ zipWith (*) a b","cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]","filter (> 0) list","[(a, b) | a <- listA, b <- listB, idA a == idB b]"
 "TypeScript","let x: number = 42;","for (const item of collection) {
     // body
@@ -676,7 +677,7 @@ handle msg","-- comment","{- line 1
     do_something();
 } catch (e) {
     handle(e);
-}","throw new Error(""Error"");","new Worker('worker.js');","worker.postMessage(42);","worker.onmessage = (e) => { handle(e.data); };","// comment","/* line 1
+}","throw new Error(""Error"");","new Worker('worker.js');","worker.postMessage(42);","worker.onmessage = (e) => { handle(e.data); };","N/A","N/A","N/A","N/A","N/A","N/A","// comment","/* line 1
    line 2 */","console.log(""Hello, World!"");","import { add } from './math';","const MAX: number = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a.map((v, i) => v * b[i]);","const dot = a.reduce((acc, v, i) => acc + v * b[i], 0);","const c = [
     a[1]*b[2] - a[2]*b[1],
     a[2]*b[0] - a[0]*b[2],
@@ -711,7 +712,7 @@ handle msg","-- comment","{- line 1
     do_something
 } on error {e} {
     handle $e
-}","error ""Error""","thread::create { do_work }","thread::send $id $msg","vwait msg; handle $msg","# comment","N/A","puts ""Hello, World!""","package require Tcl","set MAX 100","[expr {$a + $b}]","[expr {$a - $b}]","[expr {$a * $b}]","[expr {$a / $b}]","[expr {$a % $b}]","[expr {floor($a)}]","[expr {round($a)}]","incr a","incr a -1","[expr {$a << $b}]","[expr {$a >> $b}]","[expr {$a & $b}]","[expr {$a | $b}]","[expr {$a ^ $b}]","[expr {~$a}]","foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }","set dot 0
+}","error ""Error""","thread::create { do_work }","thread::send $id $msg","vwait msg; handle $msg","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","puts ""Hello, World!""","package require Tcl","set MAX 100","[expr {$a + $b}]","[expr {$a - $b}]","[expr {$a * $b}]","[expr {$a / $b}]","[expr {$a % $b}]","[expr {floor($a)}]","[expr {round($a)}]","incr a","incr a -1","[expr {$a << $b}]","[expr {$a >> $b}]","[expr {$a & $b}]","[expr {$a | $b}]","[expr {$a ^ $b}]","[expr {~$a}]","foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }","set dot 0
 foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }","set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
             [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
             [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]","lmap x $a {if {$x > 0} {set x} else continue}","foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }"
@@ -741,7 +742,7 @@ END-PERFORM.","PERFORM VARYING I FROM 1 BY 1 UNTIL I > 10
     *> body
 END-PERFORM.","ADD A TO B ON SIZE ERROR
     DISPLAY 'Arithmetic Overflow'
-END-ADD.","N/A","N/A","N/A","N/A","*> comment","N/A","DISPLAY ""Hello World"".","COPY DEFS.","01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT.","ADD A TO B.","SUBTRACT A FROM B.","MULTIPLY A BY B.","DIVIDE A BY B GIVING C.","DIVIDE A BY B GIVING Q REMAINDER R.","FUNCTION INTEGER(A)","ADD A TO B ROUNDED.","ADD 1 TO A.","SUBTRACT 1 FROM A.","N/A","N/A","N/A","N/A","N/A","N/A","PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
+END-ADD.","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","*> comment","N/A","DISPLAY ""Hello World"".","COPY DEFS.","01 MAX-VAL PIC 9(3) VALUE 100 CONSTANT.","ADD A TO B.","SUBTRACT A FROM B.","MULTIPLY A BY B.","DIVIDE A BY B GIVING C.","DIVIDE A BY B GIVING Q REMAINDER R.","FUNCTION INTEGER(A)","ADD A TO B ROUNDED.","ADD 1 TO A.","SUBTRACT 1 FROM A.","N/A","N/A","N/A","N/A","N/A","N/A","PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
     COMPUTE C(I) = A(I) * B(I)
 END-PERFORM.","MOVE 0 TO DOT-PRODUCT.
 PERFORM VARYING I FROM 1 BY 1 UNTIL I > 4
@@ -783,7 +784,7 @@ end select","do while (x > 0)
     x = x - 1
 end do","do i = 1, 10
     ! body
-end do","N/A","error stop ""Error""","N/A","target_var[image] = data","sync images(*)","! comment","N/A","print *, ""Hello World""","use math_mod","integer, parameter :: MAX = 100","a + b","a - b","a * b","a / b","mod(a, b)","floor(a)","nint(a)","a = a + 1","a = a - 1","ishft(a, b)","ishft(a, -b)","iand(a, b)","ior(a, b)","ieor(a, b)","not(a)","c = a * b","res = dot_product(a, b)","c = [a(2)*b(3) - a(3)*b(2), &
+end do","N/A","error stop ""Error""","N/A","target_var[image] = data","sync images(*)","N/A","N/A","N/A","N/A","N/A","N/A","! comment","N/A","print *, ""Hello World""","use math_mod","integer, parameter :: MAX = 100","a + b","a - b","a * b","a / b","mod(a, b)","floor(a)","nint(a)","a = a + 1","a = a - 1","ishft(a, b)","ishft(a, -b)","iand(a, b)","ior(a, b)","ieor(a, b)","not(a)","c = a * b","res = dot_product(a, b)","c = [a(2)*b(3) - a(3)*b(2), &
      a(3)*b(1) - a(1)*b(3), &
      a(1)*b(2) - a(2)*b(1), 0.0]","b = pack(a, a > 0)","do i = 1, n
     do j = 1, m
@@ -818,7 +819,7 @@ end do"
 } catch (Exception ex) {
     handle(ex);
 }","throw new Exception(""Error"");","new Thread(() => { do_work(); }).start();","await channel.Writer.WriteAsync(42);","var msg = await channel.Reader.ReadAsync();
-handle(msg);","// comment","/* line 1
+handle(msg);","Mutex mtx = new Mutex();","mtx.WaitOne();","mtx.ReleaseMutex();","Semaphore sem = new Semaphore(1, 10);","sem.WaitOne();","sem.Release();","// comment","/* line 1
    line 2 */","Console.WriteLine(""Hello, World!"");","using System.Collections.Generic;","const int Max = 100;","a + b","a - b","a * b","a / b","a % b","Math.Floor(a)","Math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c = a * b;","float dot = Vector4.Dot(a, b);","var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));","var b = a.Where(x => x > 0).ToList();","var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };"
 "Swift","var x: Int = 42","for item in collection {
     // body
@@ -847,7 +848,7 @@ default:
     handle(error)
 }","throw MyError.error","Thread.detachNewThread {
     doWork()
-}","await actor.handle(msg)","N/A","// comment","/* line 1
+}","await actor.handle(msg)","N/A","let lock = NSLock()","lock.lock()","lock.unlock()","let sem = DispatchSemaphore(value: 1)","sem.wait()","sem.signal()","// comment","/* line 1
    line 2 */","print(""Hello, World!"")","import Foundation","let MAX = 100","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","let c = zip(a, b).map(*)","let dot = zip(a, b).map(*).reduce(0, +)","let c = [
     a[1]*b[2] - a[2]*b[1],
     a[2]*b[0] - a[0]*b[2],
@@ -875,7 +876,7 @@ default:
 }","throw Exception(""Error"")","thread {
     doWork()
 }","channel.send(42)","val msg = channel.receive()
-handle(msg)","// comment","/* line 1
+handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Semaphore(1)","sem.acquire()","sem.release()","// comment","/* line 1
    line 2 */","println(""Hello, World!"")","import kotlin.math.*","const val MAX = 100","a + b","a - b","a * b","a / b","a % b","floor(a)","round(a)","a++","a--","a shl b","a shr b","a and b","a or b","a xor b","a.inv()","val c = a.zip(b) { ai, bi -> ai * bi }","val dot = a.zip(b) { ai, bi -> ai * bi }.sum()","val c = floatArrayOf(
     a[1]*b[2] - a[2]*b[1],
     a[2]*b[0] - a[0]*b[2],
@@ -895,7 +896,7 @@ handle(msg)","// comment","/* line 1
   (println i))","(try
   (/ 1 0)
   (catch Exception e
-    (println (.getMessage e))))","(throw (Exception. ""Error""))","(future (println ""Hello from thread""))","(send my-agent (fn [state] (inc state)))","@my-agent","; comment","(comment
+    (println (.getMessage e))))","(throw (Exception. ""Error""))","(future (println ""Hello from thread""))","(send my-agent (fn [state] (inc state)))","@my-agent","(def mtx (Object.))","(locking mtx ...)","N/A","(def sem (java.util.concurrent.Semaphore. 1))","(.acquire sem)","(.release sem)","; comment","(comment
   (some code))","(println ""Hello, World!"")","(require '[clojure.string :as str])","(def ^:const my-const 10)","(+ a b)","(- a b)","(* a b)","(/ a b)","(rem a b)","(Math/floor x)","(Math/round x)","(inc x)","(dec x)","(bit-shift-left x n)","(bit-shift-right x n)","(bit-and a b)","(bit-or a b)","(bit-xor a b)","(bit-not x)","(mapv * a b)","(reduce + (map * a b))","(let [[ax ay az] a
       [bx by bz] b]
   [(- (* ay bz) (* az by))

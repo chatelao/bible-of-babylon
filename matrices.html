@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pattern Comparison Matrices</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#programming-languages">Programming Languages</a></li>
@@ -2959,6 +2959,406 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="nv">my-agent</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-lock</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::create()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">mu</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Mutex</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">lock</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">NSLock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nf">Object.</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:acquire-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::lock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">locking </span><span class="nv">mtx</span><span class="w"> </span><span class="nv">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:release-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::unlock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">ReleaseMutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_t</span><span class="w"> </span><span class="n">sem</span><span class="p">;</span>
+<span class="n">sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">counting_semaphore</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sem</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-semaphore</span><span class="w"> </span><span class="ss">:count</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_get($key, 1)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DispatchSemaphore</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nf">java.util.concurrent.Semaphore.</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">_permit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sem</span><span class="p">.</span><span class="n">acquire</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:wait-on-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_acquire($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}{}</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.acquire</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">_permit</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:signal-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_release($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;-</span><span class="nx">sem</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.release</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -6353,6 +6753,48 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>

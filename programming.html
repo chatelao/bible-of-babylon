@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Query Patterns" href="data_query.html" />
+    <link rel="next" title="Data Query Languages" href="data_query.html" />
     <link rel="prev" title="DSL Examples" href="dsl_examples.html" /> 
 </head>
 
@@ -71,6 +71,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#thread">Thread</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sendmessage">SendMessage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#receivemessage">ReceiveMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexdefinition">MutexDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexlock">MutexLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexunlock">MutexUnlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphoredefinition">SemaphoreDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphorewait">SemaphoreWait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphoresignal">SemaphoreSignal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#singlelinecomment">SingleLineComment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multilinecomment">MultiLineComment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#print">Print</a></li>
@@ -98,7 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setjoin">SetJoin</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -430,10 +436,6 @@
 </td>
 <td><p>Variables are defined using ‘def’; they are immutable by default in the sense of ‘binding’.</p></td>
 </tr>
-<tr class="row-even"><td><p>BrainfuckVar</p></td>
-<td><p>N/A</p></td>
-<td><p>Brainfuck uses an implicit array of memory cells; there are no named variables.</p></td>
-</tr>
 </tbody>
 </table>
 </section>
@@ -669,7 +671,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Functions like <a href="#id65"><span class="problematic" id="id66">mapM_</span></a> or <a href="#id67"><span class="problematic" id="id68">forM_</span></a> are used to apply actions to elements.</p></td>
+<td><p>Functions like <a href="#id71"><span class="problematic" id="id72">mapM_</span></a> or <a href="#id73"><span class="problematic" id="id74">forM_</span></a> are used to apply actions to elements.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForEach</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2155,70 +2157,7 @@
 </td>
 <td><p>Short-circuiting logical AND.</p></td>
 </tr>
-<tr class="row-odd"><td><p>JavaLogicalAnd</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-even"><td><p>RustLogicalAnd</p></td>
-<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-odd"><td><p>PythonLogicalAnd</p></td>
-<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-even"><td><p>PhpLogicalAnd</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a &amp;&amp; $b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND; ‘and’ is also available with lower precedence.</p></td>
-</tr>
-<tr class="row-odd"><td><p>CSharpLogicalAnd</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-even"><td><p>GoLogicalAnd</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwiftLogicalAnd</p></td>
-<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-even"><td><p>KotlinLogicalAnd</p></td>
-<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TypeScriptLogicalAnd</p></td>
-<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical AND.</p></td>
-</tr>
-<tr class="row-even"><td><p>BrainfuckLogicalAnd</p></td>
+<tr class="row-odd"><td><p>BrainfuckLogicalAnd</p></td>
 <td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">]</span>
 </pre></div>
 </div>
@@ -2326,70 +2265,7 @@
 </td>
 <td><p>Short-circuiting logical OR.</p></td>
 </tr>
-<tr class="row-odd"><td><p>JavaLogicalOr</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-even"><td><p>RustLogicalOr</p></td>
-<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-odd"><td><p>PythonLogicalOr</p></td>
-<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-even"><td><p>PhpLogicalOr</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a || $b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR; ‘or’ is also available with lower precedence.</p></td>
-</tr>
-<tr class="row-odd"><td><p>CSharpLogicalOr</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-even"><td><p>GoLogicalOr</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwiftLogicalOr</p></td>
-<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-even"><td><p>KotlinLogicalOr</p></td>
-<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TypeScriptLogicalOr</p></td>
-<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Short-circuiting logical OR.</p></td>
-</tr>
-<tr class="row-even"><td><p>BrainfuckLogicalOr</p></td>
+<tr class="row-odd"><td><p>BrainfuckLogicalOr</p></td>
 <td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&gt;</span><span class="k">[</span><span class="nb">-</span><span class="nv">&lt;</span><span class="nb">+</span><span class="nv">&gt;</span><span class="k">]</span><span class="nv">&lt;</span>
 </pre></div>
 </div>
@@ -2497,70 +2373,7 @@
 </td>
 <td><p>C++ does not have a dedicated logical XOR operator; for booleans, != serves as XOR.</p></td>
 </tr>
-<tr class="row-odd"><td><p>JavaLogicalXor</p></td>
-<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>The bitwise XOR operator ^ also works as a logical XOR for boolean operands.</p></td>
-</tr>
-<tr class="row-even"><td><p>RustLogicalXor</p></td>
-<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>For boolean operands, ^ acts as a non-short-circuiting logical XOR.</p></td>
-</tr>
-<tr class="row-odd"><td><p>PythonLogicalXor</p></td>
-<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Python uses != for logical XOR between booleans.</p></td>
-</tr>
-<tr class="row-even"><td><p>PhpLogicalXor</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a xor $b</span>
-</pre></div>
-</div>
-</td>
-<td><p>PHP has a native ‘xor’ operator.</p></td>
-</tr>
-<tr class="row-odd"><td><p>CSharpLogicalXor</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>The ^ operator acts as a logical XOR for boolean operands.</p></td>
-</tr>
-<tr class="row-even"><td><p>GoLogicalXor</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Go uses != for logical XOR between booleans.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SwiftLogicalXor</p></td>
-<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Swift uses != for logical XOR between booleans.</p></td>
-</tr>
-<tr class="row-even"><td><p>KotlinLogicalXor</p></td>
-<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">xor</span><span class="w"> </span><span class="n">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>Kotlin provides ‘xor’ as an infix function for booleans.</p></td>
-</tr>
-<tr class="row-odd"><td><p>TypeScriptLogicalXor</p></td>
-<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">b</span>
-</pre></div>
-</div>
-</td>
-<td><p>TypeScript uses != for logical XOR between booleans.</p></td>
-</tr>
-<tr class="row-even"><td><p>BrainfuckLogicalXor</p></td>
+<tr class="row-odd"><td><p>BrainfuckLogicalXor</p></td>
 <td><p>N/A</p></td>
 <td><p>Typically implemented using subtraction and checking the result.</p></td>
 </tr>
@@ -4563,7 +4376,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id69"><span class="problematic" id="id70">mapM_</span></a> or <a href="#id71"><span class="problematic" id="id72">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id75"><span class="problematic" id="id76">mapM_</span></a> or <a href="#id77"><span class="problematic" id="id78">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5815,6 +5628,727 @@
 </tbody>
 </table>
 </section>
+<section id="mutexdefinition">
+<h2>MutexDefinition<a class="headerlink" href="#mutexdefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and optionally initializing a mutual exclusion object.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMutexDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires pthread.h library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppMutexDefinition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mtx</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires &lt;mutex&gt; header (C++11).</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaMutexDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires java.util.concurrent.locks.Lock.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustMutexDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>In Rust, Mutexes protect data, not just code.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonMutexDefinition</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Part of the threading module.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoMutexDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">mu</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</pre></div>
+</div>
+</td>
+<td><p>Mutexes are usually part of a struct.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpMutexDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Mutex</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Mutex can be named for cross-process synchronization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftMutexDefinition</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">lock</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="bp">NSLock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Found in the Foundation framework.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinMutexDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlinx.coroutines.sync.Mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangMutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Erlang uses message passing and isolated processes instead of shared-memory locks.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispMutexDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-lock</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires bordeaux-threads library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashMutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Not natively supported; typically implemented using lockfiles or mkdir.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpMutexDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::create()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires pthreads or parallel extension.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMutexDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nf">Object.</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Any object can be used as a monitor in Clojure.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlMutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Database locks (e.g., SELECT … FOR UPDATE) are used instead of mutexes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mutexlock">
+<h2>MutexLock<a class="headerlink" href="#mutexlock" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Acquiring a lock on a mutex, blocking if it is already held.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMutexLock</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Blocks until the mutex is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppMutexLock</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Better handled with std::lock_guard for RAII.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaMutexLock</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Acquires the lock.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustMutexLock</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a MutexGuard, which unlocks when dropped.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonMutexLock</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can be used as a context manager: with lock:</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoMutexLock</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Blocks until available.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpMutexLock</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>WaitOne is the standard way to acquire a WaitHandle.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftMutexLock</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard locking call.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinMutexLock</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Suspends the coroutine if the mutex is locked.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangMutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LispMutexLock</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:acquire-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashMutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpMutexLock</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::lock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMutexLock</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">locking </span><span class="nv">mtx</span><span class="w"> </span><span class="nv">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The locking macro acquires the monitor.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlMutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mutexunlock">
+<h2>MutexUnlock<a class="headerlink" href="#mutexunlock" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Releasing a held lock on a mutex.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CMutexUnlock</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppMutexUnlock</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the lock.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaMutexUnlock</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Should be called in a finally block.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustMutexUnlock</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Explicitly dropping the guard releases the lock early.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonMutexUnlock</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the lock.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoMutexUnlock</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Often paired with ‘defer mu.Unlock()’.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpMutexUnlock</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">ReleaseMutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftMutexUnlock</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="n">unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard unlocking call.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinMutexUnlock</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangMutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LispMutexUnlock</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:release-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashMutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpMutexUnlock</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::unlock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>Released automatically at the end of the locking block.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlMutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphoredefinition">
+<h2>SemaphoreDefinition<a class="headerlink" href="#semaphoredefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and initializing a semaphore with a specific count.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>initial_value: Number</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSemaphoreDefinition</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_t</span><span class="w"> </span><span class="n">sem</span><span class="p">;</span>
+<span class="n">sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires semaphore.h library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppSemaphoreDefinition</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">counting_semaphore</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sem</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires &lt;semaphore&gt; header (C++20).</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSemaphoreDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires java.util.concurrent.Semaphore.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSemaphoreDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard library doesn’t have a semaphore; typically used from tokio::sync or similar.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonSemaphoreDefinition</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Initial value sets the number of concurrent permits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSemaphoreDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Buffered channels are the idiomatic way to implement semaphores in Go.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpSemaphoreDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parameters are initial count and maximum count.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftSemaphoreDefinition</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DispatchSemaphore</span><span class="p">(</span><span class="n">value</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Part of Grand Central Dispatch (GCD).</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinSemaphoreDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlinx.coroutines.sync.Semaphore.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangSemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LispSemaphoreDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-semaphore</span><span class="w"> </span><span class="ss">:count</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires bordeaux-threads.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashSemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSemaphoreDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_get($key, 1)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses System V semaphores.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSemaphoreDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nf">java.util.concurrent.Semaphore.</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Java interop for semaphores.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlSemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphorewait">
+<h2>SemaphoreWait<a class="headerlink" href="#semaphorewait" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Decreasing the semaphore count, blocking if the count is zero.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSemaphoreWait</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the semaphore; blocks if count is zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppSemaphoreWait</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">acquire</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements and blocks if needed.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSemaphoreWait</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can throw InterruptedException.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSemaphoreWait</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">_permit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sem</span><span class="p">.</span><span class="n">acquire</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Async acquisition in tokio.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonSemaphoreWait</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the internal counter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSemaphoreWait</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}{}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sending to the channel ‘acquires’ a permit.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpSemaphoreWait</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Blocks until a permit is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftSemaphoreWait</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the semaphore count.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinSemaphoreWait</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Suspends the coroutine until a permit is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangSemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LispSemaphoreWait</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:wait-on-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashSemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSemaphoreWait</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_acquire($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSemaphoreWait</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.acquire</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlSemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphoresignal">
+<h2>SemaphoreSignal<a class="headerlink" href="#semaphoresignal" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Increasing the semaphore count, potentially unblocking a waiting thread.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSemaphoreSignal</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the semaphore.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppSemaphoreSignal</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the semaphore count.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSemaphoreSignal</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the available permits.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSemaphoreSignal</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">_permit</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Permit is returned to the semaphore when dropped.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonSemaphoreSignal</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the internal counter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSemaphoreSignal</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;-</span><span class="nx">sem</span>
+</pre></div>
+</div>
+</td>
+<td><p>Receiving from the channel ‘releases’ a permit.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpSemaphoreSignal</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the semaphore count.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftSemaphoreSignal</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">signal</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the semaphore count.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinSemaphoreSignal</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases a permit.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangSemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>LispSemaphoreSignal</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:signal-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashSemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSemaphoreSignal</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_release($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureSemaphoreSignal</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.release</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlSemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="singlelinecomment">
 <h2>SingleLineComment<a class="headerlink" href="#singlelinecomment" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -5827,8 +6361,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6093,8 +6627,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6351,8 +6885,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6621,8 +7155,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6884,8 +7418,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7147,8 +7681,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7410,8 +7944,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7673,8 +8207,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7936,8 +8470,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8196,8 +8730,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8447,8 +8981,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8689,8 +9223,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8934,8 +9468,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id52">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9197,8 +9731,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id53">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id59">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9460,8 +9994,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id54">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id60">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9705,8 +10239,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id55">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id61">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9950,8 +10484,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id56">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id62">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10198,8 +10732,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id57">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id63">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10446,8 +10980,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id58">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id64">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10694,8 +11228,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id59">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id65">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id65" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10943,8 +11477,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id60">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id66">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id66" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11199,8 +11733,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id61">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id67">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id67" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11462,8 +11996,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id62">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id68">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id68" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11800,8 +12334,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id63">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id69">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id69" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12096,8 +12630,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id64">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id70">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id70" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12393,7 +12927,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dsl_examples.html" class="btn btn-neutral float-left" title="DSL Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Languages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

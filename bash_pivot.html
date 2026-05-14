@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>No spaces around the assignment operator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=(</span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bash supports indexed arrays using parentheses.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">declare</span><span class="w"> </span>-A<span class="w"> </span><span class="nv">m</span><span class="o">=([</span>a<span class="o">]=</span><span class="m">1</span><span class="w"> </span><span class="o">[</span>b<span class="o">]=</span><span class="m">2</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays require explicit declaration with ‘declare -A’.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">in</span>
@@ -375,28 +389,37 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Uses brace expansion for ranges; also supports C-style for loops.</p></td>
 </tr>
-<tr class="row-even"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">collection</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="c1"># body</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over the elements of an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use = or == for strings.</p></td>
 </tr>
-<tr class="row-odd"><td><p>NotEqual</p></td>
+<tr class="row-even"><td><p>NotEqual</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use != for strings.</p></td>
 </tr>
-<tr class="row-even"><td><p>GreaterThan</p></td>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use &gt; (within [[ ]]) or expr for strings.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetFiltering</p></td>
+<tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
 <span class="w">        </span><span class="nv">b</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$x</span><span class="s2">&quot;</span><span class="o">)</span>
@@ -407,12 +430,36 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Iterates through an array and conditionally appends to another.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetJoin</p></td>
+<tr class="row-odd"><td><p>SetJoin</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>join<span class="w"> </span>file1<span class="w"> </span>file2
 </pre></div>
 </div>
 </td>
 <td><p>The join command joins lines of two files on a common field.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Not natively supported; typically implemented using lockfiles or mkdir.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>

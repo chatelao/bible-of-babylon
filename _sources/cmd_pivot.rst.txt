@@ -13,6 +13,17 @@ Cmd Pivot View
 
            set x=42
      - Used in Windows Command Prompt.
+   * - CollectionDefinition
+     - .. code-block:: doscon
+
+           set a=1 2 3
+     - Cmd does not have real arrays; strings with delimiters are used for iteration.
+   * - AssociativeArrayDefinition
+     - .. code-block:: doscon
+
+           set m_a=1
+           set m_b=2
+     - Associative arrays are simulated using variable naming conventions (e.g., prefixing).
    * - SwitchCase
      - .. code-block:: doscon
 
@@ -163,6 +174,13 @@ Cmd Pivot View
                rem body
            )
      - The /L switch is used for iterative loops (start, step, end).
+   * - ForEach
+     - .. code-block:: doscon
+
+           for %%i in (%collection%) do (
+               rem body
+           )
+     - The standard for loop in CMD iterates over a space-separated set.
    * - Equal
      - .. code-block:: doscon
 

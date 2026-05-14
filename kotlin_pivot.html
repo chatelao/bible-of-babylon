@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -129,35 +129,112 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>VariableDeclaration</p></td>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlinx.coroutines.sync.Mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexLock</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Suspends the coroutine if the mutex is locked.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="na">unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires kotlinx.coroutines.sync.Semaphore.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Suspends the coroutine until a permit is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases a permit.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="n">xor</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Kotlin provides ‘xor’ as an infix function for booleans.</p></td>
+</tr>
+<tr class="row-odd"><td><p>VariableDeclaration</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nv">x</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">42</span>
 </pre></div>
 </div>
 </td>
 <td><p>Variables are declared with ‘var’; static typing with type inference.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">listOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The listOf function creates an immutable list in Kotlin.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The mapOf function creates an immutable map.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Checks for structural equality; calls equals().</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">fun</span><span class="w"> </span><span class="nf">logMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 <span class="p">}</span>
@@ -166,7 +243,7 @@
 </td>
 <td><p>Procedures return Unit, which can be omitted.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">fun</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">:</span><span class="w"> </span><span class="kt">Int</span><span class="p">):</span><span class="w"> </span><span class="kt">Int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 <span class="p">}</span>
@@ -175,14 +252,14 @@
 </td>
 <td><p>Uses ‘fun’ keyword; return type follows the parameter list.</p></td>
 </tr>
-<tr class="row-even"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="m">0</span>
 </pre></div>
 </div>
 </td>
 <td><p>If-else is an expression in Kotlin.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">when</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="m">1</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="m">2</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="m">2</span>
@@ -193,7 +270,7 @@
 </td>
 <td><p>Kotlin uses ‘when’ instead of ‘switch’.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="m">1</span>
 <span class="p">}</span>
@@ -202,7 +279,7 @@
 </td>
 <td><p>Standard while loop.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
+<tr class="row-even"><td><p>ForLoop</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="m">10</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// body</span>
 <span class="p">}</span>
@@ -210,6 +287,15 @@
 </div>
 </td>
 <td><p>Iterates over a range; ‘until’ is exclusive of the upper bound.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Kotlin for loop for iterating over anything that provides an iterator.</p></td>
 </tr>
 <tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>

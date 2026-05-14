@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -136,6 +136,17 @@
 </td>
 <td><p>Static typing; :: is used to separate attributes from the variable name.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">/</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arrays are defined using the dimension attribute or parentheses.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Fortran does not have a native associative array type.</p></td>
+</tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">    </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
@@ -179,7 +190,11 @@
 </td>
 <td><p>The do loop is used for iteration over ranges.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Fortran doesn’t have a direct for-each; iteration is usually index-based.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">function </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span>
 <span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">res</span>
@@ -190,7 +205,7 @@
 </td>
 <td><p>Functions return a value; ‘intent(in)’ specifies that parameters are read-only.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">log_msg</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 <span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
 <span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span>
@@ -200,187 +215,187 @@
 </td>
 <td><p>Subroutines are used for procedures that do not return a value.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>Fortran does not have high-level try-catch blocks; uses iostat for I/O errors.</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">error stop</span><span class="w"> </span><span class="s2">&quot;Error&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘error stop’ statement terminates execution with an error message (Fortran 2008+).</p></td>
 </tr>
-<tr class="row-odd"><td><p>Thread</p></td>
+<tr class="row-even"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>Fortran uses Coarrays or OpenMP/MPI for parallelism, but not a simple ‘thread spawn’ primitive.</p></td>
 </tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
+<tr class="row-odd"><td><p>SendMessage</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">target_var</span><span class="p">[</span><span class="n">image</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">data</span>
 </pre></div>
 </div>
 </td>
 <td><p>Coarrays use distributed memory and assignment to ‘images’ for communication.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">sync images</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Synchronization is used to ensure data consistency in Coarrays.</p></td>
 </tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>Exclamation mark starts a comment to the end of the line.</p></td>
 </tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>Fortran does not support multi-line comments natively.</p></td>
 </tr>
-<tr class="row-even"><td><p>Print</p></td>
+<tr class="row-odd"><td><p>Print</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>The print statement with * (default format) outputs to stdout.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Import</p></td>
+<tr class="row-even"><td><p>Import</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">math_mod</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘use’ statement imports a module’s public variables and procedures.</p></td>
 </tr>
-<tr class="row-even"><td><p>Constant</p></td>
+<tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="nb">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘parameter’ attribute makes the variable a named constant.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Addition</p></td>
+<tr class="row-even"><td><p>Addition</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Subtraction</p></td>
+<tr class="row-odd"><td><p>Subtraction</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Multiplication</p></td>
+<tr class="row-even"><td><p>Multiplication</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Division</p></td>
+<tr class="row-odd"><td><p>Division</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Remainder</p></td>
+<tr class="row-even"><td><p>Remainder</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">mod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for remainder.</p></td>
 </tr>
-<tr class="row-even"><td><p>Floor</p></td>
+<tr class="row-odd"><td><p>Floor</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for the floor of a real number.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Rounding</p></td>
+<tr class="row-even"><td><p>Rounding</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">nint</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for the nearest integer.</p></td>
 </tr>
-<tr class="row-even"><td><p>Increment</p></td>
+<tr class="row-odd"><td><p>Increment</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 </td>
 <td><p>No native increment operator; uses assignment.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Decrement</p></td>
+<tr class="row-even"><td><p>Decrement</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
 </td>
 <td><p>No native decrement operator; uses assignment.</p></td>
 </tr>
-<tr class="row-even"><td><p>LeftShift</p></td>
+<tr class="row-odd"><td><p>LeftShift</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">ishft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ishft function performs a logical shift.</p></td>
 </tr>
-<tr class="row-odd"><td><p>RightShift</p></td>
+<tr class="row-even"><td><p>RightShift</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">ishft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Negative shift counts in ishft perform a right shift.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitAnd</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">iand</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for bitwise AND.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitOr</p></td>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">ior</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for bitwise OR.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitXor</p></td>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">ieor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for bitwise XOR.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitNot</p></td>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="nb">not</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Built-in function for bitwise NOT.</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Fortran supports element-wise operations on arrays natively.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">dot_product</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The dot_product intrinsic function calculates the dot product of two vectors.</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">     </span><span class="n">a</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">     </span><span class="n">a</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">b</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="mf">0.0</span><span class="p">]</span>
@@ -389,35 +404,35 @@
 </td>
 <td><p>Calculated component-wise using an array constructor.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Alternative syntax: a .eq. b</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Alternative syntax: a .ne. b</p></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Alternative syntax: a .gt. b</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The pack intrinsic function filters an array based on a mask.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">n</span>
 <span class="w">    </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">m</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">)%</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">(</span><span class="n">j</span><span class="p">)%</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>

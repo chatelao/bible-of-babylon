@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Variables start with a dollar sign; dynamically typed but supports type declarations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a = [1, 2, 3];</span>
+</pre></div>
+</div>
+</td>
+<td><p>PHP arrays can act as both indexed collections and associative maps.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$d = [&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays use the ‘key =&gt; value’ syntax.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">switch ($x) {</span>
@@ -377,6 +391,36 @@
 </td>
 <td><p>Standard C-style for loop.</p></td>
 </tr>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($collection as $item) {</span>
+<span class="x">    // body</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The foreach construct is the standard way to iterate over arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a &amp;&amp; $b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND; ‘and’ is also available with lower precedence.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalOr</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a || $b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR; ‘or’ is also available with lower precedence.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalXor</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$a xor $b</span>
+</pre></div>
+</div>
+</td>
+<td><p>PHP has a native ‘xor’ operator.</p></td>
+</tr>
 <tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">a == b</span>
 </pre></div>
@@ -417,6 +461,48 @@
 </div>
 </td>
 <td><p>Implemented using nested foreach loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::create()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires pthreads or parallel extension.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::lock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">Mutex::unlock($mtx)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_get($key, 1)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses System V semaphores.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_acquire($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sem_release($sem)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>

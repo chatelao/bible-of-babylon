@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,17 @@
 </div>
 </td>
 <td><p>Defined in the .data section (Intel syntax).</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">arr</span><span class="w"> </span><span class="nv">dd</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>A collection is defined as a sequence of data values in the data section.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Associative arrays are not a native concept in assembly; they must be implemented manually via hashing or search algorithms.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span>
@@ -401,7 +412,19 @@
 </td>
 <td><p>The loop instruction uses the ECX register as a counter.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">esi</span><span class="p">,</span><span class="w"> </span><span class="nv">collection</span>
+<span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span>
+<span class="nl">.loop:</span>
+<span class="w">    </span><span class="nf">lodsd</span><span class="w"> </span><span class="c1">; load [ESI] into EAX and increment ESI</span>
+<span class="w">    </span><span class="c1">; body (use EAX)</span>
+<span class="w">    </span><span class="nf">loop</span><span class="w"> </span><span class="nv">.loop</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using pointer increment (like lods) and a counter.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 <span class="nf">je</span><span class="w"> </span><span class="nv">.equal</span>
 </pre></div>
@@ -409,7 +432,7 @@
 </td>
 <td><p>Comparison sets flags, then a conditional jump is used.</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 <span class="nf">jne</span><span class="w"> </span><span class="nv">.not_equal</span>
 </pre></div>
@@ -417,7 +440,7 @@
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nb">ebx</span>
 <span class="nf">jg</span><span class="w"> </span><span class="nv">.greater</span>
 </pre></div>
@@ -425,7 +448,7 @@
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">    </span><span class="nf">jle</span><span class="w"> </span><span class="nv">.skip</span>
 <span class="w">    </span><span class="nf">mov</span><span class="w"> </span><span class="p">[</span><span class="nb">edi</span><span class="p">],</span><span class="w"> </span><span class="nb">eax</span>
@@ -436,7 +459,7 @@
 </td>
 <td><p>Conditional move or branch to skip elements that don’t meet the criteria.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops with comparisons in assembly</span>
 </pre></div>
 </div>

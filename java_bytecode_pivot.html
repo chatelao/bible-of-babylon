@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,25 @@
 </div>
 </td>
 <td><p>In Jasmin syntax, static fields represent global-like variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">iconst_3</span>
+<span class="kr">newarray</span><span class="w"> </span><span class="kt">int</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><p>In Java Bytecode, arrays are created using instructions like newarray or anewarray.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">new</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap</span>
+<span class="kr">dup</span>
+<span class="kr">invokespecial</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">HashMap/</span><span class="nf">&lt;init&gt;</span><span class="p">()</span><span class="kt">V</span>
+<span class="kr">astore_1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays involve instantiating a Map class like HashMap.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">getstatic</span><span class="w"> </span><span class="nc">MyClass/</span><span class="vc">x</span><span class="w"> </span><span class="kt">I</span>
@@ -468,35 +487,52 @@
 </td>
 <td><p>Built using labels, conditional jumps (if_icmpge), and iinc.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="kr">aload_0</span><span class="w"> </span><span class="c1">; collection (as Iterator)</span>
+<span class="nl">LoopStart</span><span class="p">:</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">hasNext</span><span class="p">()</span><span class="kt">Z</span>
+<span class="w">    </span><span class="kr">ifeq</span><span class="w"> </span><span class="nl">LoopEnd</span>
+<span class="w">    </span><span class="kr">aload_0</span>
+<span class="w">    </span><span class="kr">invokeinterface</span><span class="w"> </span><span class="nc">Iterator.</span><span class="nf">next</span><span class="p">()</span><span class="kt">L</span><span class="nc">Object</span><span class="p">;</span>
+<span class="w">    </span><span class="kr">astore_1</span><span class="w"> </span><span class="c1">; item</span>
+<span class="w">    </span><span class="c1">; body</span>
+<span class="w">    </span><span class="kr">goto</span><span class="w"> </span><span class="nl">LoopStart</span>
+<span class="nl">LoopEnd</span><span class="p">:</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using Iterator.hasNext() and Iterator.next().</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">if_icmpeq</span><span class="w"> </span><span class="nl">Label</span>
 </pre></div>
 </div>
 </td>
 <td><p>Pops two integers from the stack and branches if they are equal.</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">if_icmpne</span><span class="w"> </span><span class="nl">Label</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">if_icmpgt</span><span class="w"> </span><span class="nl">Label</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">invokestatic</span><span class="w"> </span><span class="nn">java/util/stream/</span><span class="nc">Stream/</span><span class="nf">filter</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/util/function/</span><span class="nc">Predicate</span><span class="p">;)</span><span class="kt">L</span><span class="nn">java/util/stream/</span><span class="nc">Stream</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses Stream API filter method via invokedynamic or invokestatic.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="c1">; Nested loops using labels and jumps</span>
 </pre></div>
 </div>

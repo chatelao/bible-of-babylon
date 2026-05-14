@@ -13,6 +13,14 @@ Fortran Pivot View
 
            integer :: x = 42
      - Static typing; :: is used to separate attributes from the variable name.
+   * - CollectionDefinition
+     - .. code-block:: fortran
+
+           integer, dimension(3) :: a = (/1, 2, 3/)
+     - Arrays are defined using the dimension attribute or parentheses.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Standard Fortran does not have a native associative array type.
    * - IfElse
      - .. code-block:: fortran
 
@@ -48,6 +56,9 @@ Fortran Pivot View
                ! body
            end do
      - The do loop is used for iteration over ranges.
+   * - ForEach
+     - N/A
+     - Standard Fortran doesn't have a direct for-each; iteration is usually index-based.
    * - FunctionDefinition
      - .. code-block:: fortran
 

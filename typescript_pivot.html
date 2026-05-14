@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Supports static typing on top of JavaScript.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Arrays are the primary collection type in TypeScript.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">m</span><span class="o">:</span><span class="w"> </span><span class="kt">Map</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Map</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The Map object provides associative mapping.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -402,6 +416,36 @@
 </div>
 </td>
 <td><p>Identical to JavaScript; supports typed loop variables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘for…of’ loop is the modern way to iterate over iterables.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>TypeScript uses != for logical XOR between booleans.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span>

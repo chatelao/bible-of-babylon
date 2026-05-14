@@ -13,6 +13,12 @@ CSS Pivot View
 
            --x: 42;
      - CSS custom properties (variables).
+   * - CollectionDefinition
+     - N/A
+     - CSS does not have a native collection type.
+   * - AssociativeArrayDefinition
+     - N/A
+     - CSS does not have a native associative array type.
    * - SwitchCase
      - N/A
      - CSS does not support switch/case logic.
@@ -133,6 +139,9 @@ CSS Pivot View
    * - ForLoop
      - N/A
      - CSS does not support for loops natively.
+   * - ForEach
+     - N/A
+     - CSS does not support iteration constructs.
    * - Equal
      - N/A
      - CSS does not support general-purpose comparison operations.

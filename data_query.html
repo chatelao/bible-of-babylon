@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Data Query Patterns &mdash; Bible of Babylon  documentation</title>
+  <title>Data Query Languages &mdash; Bible of Babylon  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Query Patterns</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Query Languages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#variabledeclaration">VariableDeclaration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#foreach">ForEach</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#collectiondefinition">CollectionDefinition</a></li>
@@ -58,6 +58,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#equal">Equal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#notequal">NotEqual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#greaterthan">GreaterThan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logicaland">LogicalAnd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logicalor">LogicalOr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logicalxor">LogicalXor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#proceduredefinition">ProcedureDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functiondefinition">FunctionDefinition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ifelse">IfElse</a></li>
@@ -69,6 +72,12 @@
 <li class="toctree-l2"><a class="reference internal" href="#thread">Thread</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sendmessage">SendMessage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#receivemessage">ReceiveMessage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexdefinition">MutexDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexlock">MutexLock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mutexunlock">MutexUnlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphoredefinition">SemaphoreDefinition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphorewait">SemaphoreWait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semaphoresignal">SemaphoreSignal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#singlelinecomment">SingleLineComment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#multilinecomment">MultiLineComment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#print">Print</a></li>
@@ -153,7 +162,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Data Query Patterns</li>
+      <li class="breadcrumb-item active">Data Query Languages</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/chatelao/bible-of-babylon/blob/main/docs/data_query.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -163,8 +172,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="data-query-patterns">
-<h1>Data Query Patterns<a class="headerlink" href="#data-query-patterns" title="Link to this heading"></a></h1>
+  <section id="data-query-languages">
+<h1>Data Query Languages<a class="headerlink" href="#data-query-languages" title="Link to this heading"></a></h1>
 <section id="variabledeclaration">
 <h2>VariableDeclaration<a class="headerlink" href="#variabledeclaration" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -566,6 +575,45 @@
 </tr>
 </tbody>
 </table>
+</section>
+<section id="logicaland">
+<h2>LogicalAnd<a class="headerlink" href="#logicaland" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns true if both boolean operands are true.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+</section>
+<section id="logicalor">
+<h2>LogicalOr<a class="headerlink" href="#logicalor" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns true if at least one boolean operand is true.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+</section>
+<section id="logicalxor">
+<h2>LogicalXor<a class="headerlink" href="#logicalxor" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns true if exactly one boolean operand is true.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
 </section>
 <section id="proceduredefinition">
 <h2>ProcedureDefinition<a class="headerlink" href="#proceduredefinition" title="Link to this heading"></a></h2>
@@ -1176,6 +1224,177 @@
 </tbody>
 </table>
 </section>
+<section id="mutexdefinition">
+<h2>MutexDefinition<a class="headerlink" href="#mutexdefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and optionally initializing a mutual exclusion object.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlMutexDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Database locks (e.g., SELECT … FOR UPDATE) are used instead of mutexes.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mutexlock">
+<h2>MutexLock<a class="headerlink" href="#mutexlock" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Acquiring a lock on a mutex, blocking if it is already held.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlMutexLock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mutexunlock">
+<h2>MutexUnlock<a class="headerlink" href="#mutexunlock" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Releasing a held lock on a mutex.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlMutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphoredefinition">
+<h2>SemaphoreDefinition<a class="headerlink" href="#semaphoredefinition" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Declaring and initializing a semaphore with a specific count.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>name: String</p></li>
+<li><p>initial_value: Number</p></li>
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlSemaphoreDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphorewait">
+<h2>SemaphoreWait<a class="headerlink" href="#semaphorewait" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Decreasing the semaphore count, blocking if the count is zero.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlSemaphoreWait</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="semaphoresignal">
+<h2>SemaphoreSignal<a class="headerlink" href="#semaphoresignal" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Increasing the semaphore count, potentially unblocking a waiting thread.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlSemaphoreSignal</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="singlelinecomment">
 <h2>SingleLineComment<a class="headerlink" href="#singlelinecomment" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -1188,8 +1407,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1247,8 +1466,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1306,8 +1525,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1360,8 +1579,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1416,8 +1635,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1472,8 +1691,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1525,8 +1744,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1578,8 +1797,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1631,8 +1850,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1684,8 +1903,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1734,8 +1953,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1787,8 +2006,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1840,8 +2059,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1893,8 +2112,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1946,8 +2165,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1990,8 +2209,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2034,8 +2253,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2081,8 +2300,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2128,8 +2347,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2175,8 +2394,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2222,8 +2441,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2272,8 +2491,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2322,8 +2541,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2372,8 +2591,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2433,8 +2652,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>

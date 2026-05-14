@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -129,217 +129,232 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>VariableDeclaration</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>VariableDeclaration</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="mi">42</span> <span class="k">AS</span> <span class="nv">?x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The BIND clause assigns a value to a variable.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?x</span> <span class="p">{</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>VALUES can be used to define a set of values for a variable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>SPARQL does not have a native associative array type.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">=</span> <span class="nv">?b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Equality is checked within a FILTER or BIND expression.</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">!=</span> <span class="nv">?b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Inequality check in SPARQL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?a</span> <span class="o">&gt;</span> <span class="nv">?b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Greater than comparison in SPARQL.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>SPARQL does not support procedure definitions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>User-defined functions are implementation-dependent (e.g., via ARQ).</p></td>
 </tr>
-<tr class="row-even"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">BIND</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?res</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The IF function returns one of two expressions based on a condition.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Multi-way branching can be simulated using nested IFs or COALESCE.</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><p>N/A</p></td>
 <td><p>SPARQL is a declarative query language and does not have loops.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
+<tr class="row-even"><td><p>ForLoop</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>Errors in expressions (like division by zero) result in the value being unbound.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>SPARQL comments start with #.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><p>N/A</p></td>
 <td><p>SPARQL does not support multi-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><p>N/A</p></td>
 <td><p>Results are returned as bindings or a graph.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">PREFIX</span> <span class="nn">dc</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/dc/elements/1.1/&gt;</span>
 </pre></div>
 </div>
 </td>
 <td><p>PREFIX defines a namespace prefix.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">VALUES</span> <span class="nv">?MAX</span> <span class="p">{</span> <span class="mi">100</span> <span class="p">}</span>
 </pre></div>
 </div>
 </td>
 <td><p>VALUES can be used to provide constant values for variables.</p></td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="nv">?b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic operators in SPARQL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="nv">?b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic operators in SPARQL.</p></td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">*</span> <span class="nv">?b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic operators in SPARQL.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">/</span> <span class="nv">?b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic operators in SPARQL.</p></td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">floor</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard SPARQL function.</p></td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">round</span><span class="p">(</span><span class="nv">?a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard SPARQL function.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">+</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?a</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
 </div>
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span><span class="p">(</span><span class="nv">?x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The FILTER clause restricts the solutions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nv">?s</span> <span class="nv">?p</span> <span class="nv">?o</span> <span class="p">.</span> <span class="nv">?s</span> <span class="nv">?p2</span> <span class="nv">?o2</span>
 </pre></div>
 </div>

@@ -13,6 +13,16 @@ Tcl Pivot View
 
            set x 42
      - Variables are untyped strings; set is used for assignment.
+   * - CollectionDefinition
+     - .. code-block:: tcl
+
+           set l [list 1 2 3]
+     - Lists are a fundamental data type in Tcl.
+   * - AssociativeArrayDefinition
+     - .. code-block:: tcl
+
+           array set m {a 1 b 2}
+     - Tcl supports associative arrays with the 'array' command.
    * - IfElse
      - .. code-block:: tcl
 
@@ -210,6 +220,13 @@ Tcl Pivot View
                # body
            }
      - Standard for loop; all arguments are Tcl scripts.
+   * - ForEach
+     - .. code-block:: tcl
+
+           foreach item $collection {
+               # body
+           }
+     - The foreach command iterates over elements of one or more lists.
    * - Equal
      - .. code-block:: tcl
 

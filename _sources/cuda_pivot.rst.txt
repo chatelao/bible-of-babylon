@@ -13,6 +13,14 @@ CUDA Pivot View
 
            __device__ int x = 42;
      - Uses __device__ qualifier for GPU memory.
+   * - CollectionDefinition
+     - .. code-block:: cpp
+
+           int arr[] = {1, 2, 3};
+     - Standard C-style arrays are used within CUDA kernels.
+   * - AssociativeArrayDefinition
+     - N/A
+     - CUDA does not have a native associative array type in device code.
    * - SwitchCase
      - .. code-block:: cpp
 
@@ -195,6 +203,14 @@ CUDA Pivot View
                // body
            }
      - Standard C for loop, usable within kernels.
+   * - ForEach
+     - .. code-block:: cpp
+
+           for (int i = 0; i < n; i++) {
+               int item = collection[i];
+               // body
+           }
+     - Like C, CUDA typically uses index-based iteration within threads.
    * - Equal
      - .. code-block:: cpp
 

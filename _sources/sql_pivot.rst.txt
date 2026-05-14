@@ -13,6 +13,18 @@ SQL Pivot View
 
            DECLARE @x INT = 42;
      - T-SQL syntax for variable declaration.
+   * - CollectionDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (val INT);
+           INSERT INTO @t VALUES (1), (2), (3);
+     - Collections are typically represented as table variables or temporary tables.
+   * - AssociativeArrayDefinition
+     - .. code-block:: sql
+
+           DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
+           INSERT INTO @t VALUES ('a', 1), ('b', 2);
+     - Associative mapping is achieved through table structures with key/value columns.
    * - SwitchCase
      - .. code-block:: sql
 
@@ -195,6 +207,18 @@ SQL Pivot View
                SET @i = @i + 1;
            END
      - T-SQL uses WHILE loops; there is no native FOR loop for ranges.
+   * - ForEach
+     - .. code-block:: sql
+
+           DECLARE cursor_name CURSOR FOR SELECT col FROM table;
+           OPEN cursor_name;
+           FETCH NEXT FROM cursor_name INTO @item;
+           WHILE @@FETCH_STATUS = 0
+           BEGIN
+               -- body
+               FETCH NEXT FROM cursor_name INTO @item;
+           END
+     - SQL typically uses cursors for row-by-row iteration.
    * - Equal
      - .. code-block:: sql
 
@@ -220,3 +244,21 @@ SQL Pivot View
 
            SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;
      - Standard SQL INNER JOIN.
+   * - MutexDefinition
+     - N/A
+     - Database locks (e.g., SELECT ... FOR UPDATE) are used instead of mutexes.
+   * - MutexLock
+     - N/A
+     - N/A
+   * - MutexUnlock
+     - N/A
+     - N/A
+   * - SemaphoreDefinition
+     - N/A
+     - N/A
+   * - SemaphoreWait
+     - N/A
+     - N/A
+   * - SemaphoreSignal
+     - N/A
+     - N/A

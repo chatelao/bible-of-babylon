@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Dynamic typing; defined using defparameter or defvar.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in Lisp are typically quoted literals or created with (list …).</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nb">pairlis</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Association lists (alists) or property lists (plists) are common in Lisp.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">case</span><span class="w"> </span><span class="nv">x</span>
@@ -362,35 +376,43 @@
 </td>
 <td><p>The loop macro provides a highly expressive way to iterate.</p></td>
 </tr>
-<tr class="row-even"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dolist</span><span class="w"> </span><span class="p">(</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">)</span>
+<span class="w">  </span><span class="cm">#| body |#</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The dolist macro iterates over each element of a list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Numerical equality; use ‘eq’, ‘eql’, ‘equal’, or ‘equalp’ for other types.</p></td>
 </tr>
-<tr class="row-odd"><td><p>NotEqual</p></td>
+<tr class="row-even"><td><p>NotEqual</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/=</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Returns true if all arguments are not equal to each other.</p></td>
 </tr>
-<tr class="row-even"><td><p>GreaterThan</p></td>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>SetFiltering</p></td>
+<tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-if-not</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">evenp</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Common Lisp uses remove-if-not or filter-like functions.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetJoin</p></td>
+<tr class="row-odd"><td><p>SetJoin</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-a</span><span class="w"> </span><span class="nb">append</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">loop</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">list-b</span>
 <span class="w">    </span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="ss">:id</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">getf</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="ss">:id</span><span class="p">))</span>
@@ -399,6 +421,48 @@
 </div>
 </td>
 <td><p>Uses nested loops to join lists of property lists or objects.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-lock</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires bordeaux-threads library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexLock</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:acquire-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:release-lock</span><span class="w"> </span><span class="nv">mtx</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nv">bt:make-semaphore</span><span class="w"> </span><span class="ss">:count</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires bordeaux-threads.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:wait-on-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nv">bt:signal-semaphore</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>

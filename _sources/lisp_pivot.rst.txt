@@ -13,6 +13,16 @@ Lisp Pivot View
 
            (defparameter x 42)
      - Dynamic typing; defined using defparameter or defvar.
+   * - CollectionDefinition
+     - .. code-block:: common-lisp
+
+           (setf l '(1 2 3))
+     - Lists in Lisp are typically quoted literals or created with (list ...).
+   * - AssociativeArrayDefinition
+     - .. code-block:: common-lisp
+
+           (setf m (pairlis '(a b) '(1 2)))
+     - Association lists (alists) or property lists (plists) are common in Lisp.
    * - SwitchCase
      - .. code-block:: common-lisp
 
@@ -177,6 +187,12 @@ Lisp Pivot View
            (loop for i from 0 to 9 do
                #| body |#)
      - The loop macro provides a highly expressive way to iterate.
+   * - ForEach
+     - .. code-block:: common-lisp
+
+           (dolist (item collection)
+             #| body |#)
+     - The dolist macro iterates over each element of a list.
    * - Equal
      - .. code-block:: common-lisp
 
@@ -205,3 +221,33 @@ Lisp Pivot View
                when (= (getf a :id) (getf b :id))
                collect (list a b)))
      - Uses nested loops to join lists of property lists or objects.
+   * - MutexDefinition
+     - .. code-block:: common-lisp
+
+           (setf mtx (bt:make-lock))
+     - Requires bordeaux-threads library.
+   * - MutexLock
+     - .. code-block:: common-lisp
+
+           (bt:acquire-lock mtx)
+     - N/A
+   * - MutexUnlock
+     - .. code-block:: common-lisp
+
+           (bt:release-lock mtx)
+     - N/A
+   * - SemaphoreDefinition
+     - .. code-block:: common-lisp
+
+           (setf sem (bt:make-semaphore :count 1))
+     - Requires bordeaux-threads.
+   * - SemaphoreWait
+     - .. code-block:: common-lisp
+
+           (bt:wait-on-semaphore sem)
+     - N/A
+   * - SemaphoreSignal
+     - .. code-block:: common-lisp
+
+           (bt:signal-semaphore sem)
+     - N/A

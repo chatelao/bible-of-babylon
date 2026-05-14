@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -136,6 +136,17 @@
 </td>
 <td><p>Overpass QL uses sets (prefixed with .) to store results.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.a
+</pre></div>
+</div>
+</td>
+<td><p>Collections are represented by sets, which store OSM elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL does not support associative arrays.</p></td>
+</tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
 </pre></div>
@@ -187,141 +198,148 @@
 </td>
 <td><p>Overpass QL supports C-style for loops in recent versions.</p></td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>foreach .item ( ... )
+</pre></div>
+</div>
+</td>
+<td><p>The foreach statement iterates over the elements of a set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>// comment
 </pre></div>
 </div>
 </td>
 <td><p>C-style single-line comments.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/* comment */
 </pre></div>
 </div>
 </td>
 <td><p>C-style multi-line comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>out;
 </pre></div>
 </div>
 </td>
 <td><p>The out statement produces the result of the query.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[out:json];
 </pre></div>
 </div>
 </td>
 <td><p>Settings (like output format) are specified at the beginning of the script.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>{{key=value}}
 </pre></div>
 </div>
 </td>
 <td><p>Overpass Turbo (the web interface) supports mustache-style constants.</p></td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
 </pre></div>
 </div>
 </td>
 <td><p>Filters elements by tags or location.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>(node(area); way(area););
 </pre></div>
 </div>

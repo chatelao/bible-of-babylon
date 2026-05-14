@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -136,6 +136,17 @@
 </td>
 <td><p>Variables in GraphQL are prefixed with $ and used in operation definitions.</p></td>
 </tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">$l:</span><span class="w"> </span><span class="err">[Int]</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">[1</span><span class="p">,</span><span class="w"> </span><span class="err">2</span><span class="p">,</span><span class="w"> </span><span class="err">3]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists in GraphQL are defined with square brackets.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL does not have a native associative array type for variables.</p></td>
+</tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><p>N/A</p></td>
 <td><p>GraphQL does not have a native equality operator in the query language itself.</p></td>
@@ -144,15 +155,19 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>GraphQL does not support procedure definitions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="nf">getUser</span><span class="p">(</span><span class="nv">$id</span><span class="p">:</span><span class="w"> </span><span class="nb">ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">user</span><span class="p">(</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="nv">$id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">name</span>
@@ -163,154 +178,154 @@
 </td>
 <td><p>Operations (query, mutation, subscription) are the closest equivalent to functions.</p></td>
 </tr>
-<tr class="row-even"><td><p>IfElse</p></td>
+<tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">@skip(if:</span><span class="w"> </span><span class="err">$condition)</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">@include(if:</span><span class="w"> </span><span class="err">$condition)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Directives provide conditional inclusion of fields.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SwitchCase</p></td>
+<tr class="row-even"><td><p>SwitchCase</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Loop</p></td>
+<tr class="row-odd"><td><p>Loop</p></td>
 <td><p>N/A</p></td>
 <td><p>GraphQL does not support loops in queries.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ForLoop</p></td>
+<tr class="row-even"><td><p>ForLoop</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><p>Errors are returned in the ‘errors’ field of the response.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
 </pre></div>
 </div>
 </td>
 <td><p>Subscriptions allow receiving real-time updates.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="c"># comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard GraphQL comment.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Block strings can be used as multi-line descriptions/comments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><p>N/A</p></td>
 <td><p>Schema stitching or federation is used to combine schemas.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user(id:</span><span class="w"> </span><span class="err">42)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Filtering is typically done via field arguments.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">user</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">posts</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>

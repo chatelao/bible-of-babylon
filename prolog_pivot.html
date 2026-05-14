@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,17 @@
 </div>
 </td>
 <td><p>Uses unification for assignment; variables must start with an uppercase letter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">L</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Lists are the primary collection type in Prolog, represented with square brackets.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><p>N/A</p></td>
+<td><p>Prolog does not have a native associative array; association is typically achieved through facts or association lists.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>   <span class="nv">X</span> <span class="o">=</span> <span class="mi">1</span> <span class="s s-Atom">-&gt;</span> <span class="nf">writeln</span><span class="p">(</span><span class="s s-Atom">&#39;one&#39;</span><span class="p">)</span>
@@ -382,35 +393,42 @@
 </td>
 <td><p>Uses between/3 to generate values and forall/2 to iterate over them.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Equal</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">member</span><span class="p">(</span><span class="nv">Item</span><span class="p">,</span> <span class="nv">Collection</span><span class="p">),</span> <span class="nf">do_something</span><span class="p">(</span><span class="nv">Item</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses member/2 to non-deterministically unify with each element.</p></td>
+</tr>
+<tr class="row-even"><td><p>Equal</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="o">==</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
 <td><p>Checks if A and B are currently identical; use = for unification.</p></td>
 </tr>
-<tr class="row-even"><td><p>NotEqual</p></td>
+<tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="s s-Atom">\==</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
 <td><p>Checks if A and B are currently not identical.</p></td>
 </tr>
-<tr class="row-odd"><td><p>GreaterThan</p></td>
+<tr class="row-even"><td><p>GreaterThan</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nv">A</span> <span class="o">&gt;</span> <span class="nv">B</span>
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic comparison.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">include</span><span class="p">(</span><span class="nv">Condition</span><span class="p">,</span> <span class="nv">List</span><span class="p">,</span> <span class="nv">Filtered</span><span class="p">).</span>
 </pre></div>
 </div>
 </td>
 <td><p>The include/3 predicate filters a list based on a goal.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">join</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">Y</span><span class="p">))</span> <span class="p">:-</span> <span class="nf">member</span><span class="p">(</span><span class="nv">X</span><span class="p">,</span> <span class="nv">A</span><span class="p">),</span> <span class="nf">member</span><span class="p">(</span><span class="nv">Y</span><span class="p">,</span> <span class="nv">B</span><span class="p">),</span> <span class="nv">X</span><span class="p">.</span><span class="s s-Atom">id</span> <span class="o">=</span> <span class="nv">Y</span><span class="p">.</span><span class="s s-Atom">id</span><span class="p">.</span>
 </pre></div>
 </div>

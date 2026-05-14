@@ -13,6 +13,16 @@ Java Pivot View
 
            int x = 42;
      - Strongly typed, similar to C.
+   * - CollectionDefinition
+     - .. code-block:: java
+
+           List<Integer> list = List.of(1, 2, 3);
+     - Using the immutable List.of method (Java 9+).
+   * - AssociativeArrayDefinition
+     - .. code-block:: java
+
+           Map<String, Integer> map = Map.of("a", 1, "b", 2);
+     - Using the immutable Map.of method (Java 9+).
    * - IfElse
      - .. code-block:: java
 
@@ -84,6 +94,36 @@ Java Pivot View
 
            int msg = queue.take(); handle(msg);
      - Using BlockingQueue.take(); blocks until an element becomes available.
+   * - MutexDefinition
+     - .. code-block:: java
+
+           Lock lock = new ReentrantLock();
+     - Requires java.util.concurrent.locks.Lock.
+   * - MutexLock
+     - .. code-block:: java
+
+           lock.lock();
+     - Acquires the lock.
+   * - MutexUnlock
+     - .. code-block:: java
+
+           lock.unlock();
+     - Should be called in a finally block.
+   * - SemaphoreDefinition
+     - .. code-block:: java
+
+           Semaphore sem = new Semaphore(1);
+     - Requires java.util.concurrent.Semaphore.
+   * - SemaphoreWait
+     - .. code-block:: java
+
+           sem.acquire();
+     - Can throw InterruptedException.
+   * - SemaphoreSignal
+     - .. code-block:: java
+
+           sem.release();
+     - Increments the available permits.
    * - SingleLineComment
      - .. code-block:: java
 
@@ -210,6 +250,28 @@ Java Pivot View
                // body
            }
      - Identical to C; also supports enhanced for-each loops.
+   * - ForEach
+     - .. code-block:: java
+
+           for (int item : collection) {
+               // body
+           }
+     - The 'enhanced' for loop introduced in Java 5.
+   * - LogicalAnd
+     - .. code-block:: java
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: java
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: java
+
+           a ^ b
+     - The bitwise XOR operator ^ also works as a logical XOR for boolean operands.
    * - Equal
      - .. code-block:: java
 

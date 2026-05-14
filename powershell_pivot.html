@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Variables start with a dollar sign.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="p">=</span> <span class="n">1</span><span class="p">,</span> <span class="n">2</span><span class="p">,</span> <span class="n">3</span>
+</pre></div>
+</div>
+</td>
+<td><p>The comma operator creates an array in PowerShell.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$h</span> <span class="p">=</span> <span class="p">@{</span> <span class="n">a</span> <span class="p">=</span> <span class="n">1</span><span class="p">;</span> <span class="n">b</span> <span class="p">=</span> <span class="n">2</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Hashtables are created using the &#64;{ } syntax.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="nv">$x</span><span class="p">)</span> <span class="p">{</span>
@@ -374,35 +388,44 @@
 </td>
 <td><p>Standard C-style for loop with PowerShell comparison operators.</p></td>
 </tr>
-<tr class="row-even"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$item</span> <span class="k">in</span> <span class="nv">$collection</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c"># body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Powershell’s foreach statement iterates over a collection of objects.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="o">-eq</span> <span class="nv">$b</span>
 </pre></div>
 </div>
 </td>
 <td><p>PowerShell uses prefixed operators for comparison.</p></td>
 </tr>
-<tr class="row-odd"><td><p>NotEqual</p></td>
+<tr class="row-even"><td><p>NotEqual</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="o">-ne</span> <span class="nv">$b</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>GreaterThan</p></td>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$a</span> <span class="o">-gt</span> <span class="nv">$b</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>SetFiltering</p></td>
+<tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$b</span> <span class="p">=</span> <span class="nv">$a</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span> <span class="nv">$_</span> <span class="o">-gt</span> <span class="n">0</span> <span class="p">}</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the Where-Object cmdlet (alias ?) in a pipeline.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetJoin</p></td>
+<tr class="row-odd"><td><p>SetJoin</p></td>
 <td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span> <span class="k">in</span> <span class="nv">$listA</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">foreach</span> <span class="p">(</span><span class="nv">$b</span> <span class="k">in</span> <span class="nv">$listB</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nv">$a</span><span class="p">.</span><span class="n">id</span> <span class="o">-eq</span> <span class="nv">$b</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="p">{</span> <span class="no">[PSCustomObject]</span><span class="p">@{</span><span class="n">A</span><span class="p">=</span><span class="nv">$a</span><span class="p">;</span> <span class="n">B</span><span class="p">=</span><span class="nv">$b</span><span class="p">}</span> <span class="p">}</span>

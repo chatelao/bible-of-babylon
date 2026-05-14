@@ -8,11 +8,51 @@ Go Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - MutexDefinition
+     - .. code-block:: go
+
+           var mu sync.Mutex
+     - Mutexes are usually part of a struct.
+   * - MutexLock
+     - .. code-block:: go
+
+           mu.Lock()
+     - Blocks until available.
+   * - MutexUnlock
+     - .. code-block:: go
+
+           mu.Unlock()
+     - Often paired with 'defer mu.Unlock()'.
+   * - SemaphoreDefinition
+     - .. code-block:: go
+
+           sem := make(chan struct{}, 1)
+     - Buffered channels are the idiomatic way to implement semaphores in Go.
+   * - SemaphoreWait
+     - .. code-block:: go
+
+           sem <- struct{}{}
+     - Sending to the channel 'acquires' a permit.
+   * - SemaphoreSignal
+     - .. code-block:: go
+
+           <-sem
+     - Receiving from the channel 'releases' a permit.
    * - VariableDeclaration
      - .. code-block:: go
 
            var x int = 42
      - Static typing with optional type inference.
+   * - CollectionDefinition
+     - .. code-block:: go
+
+           s := []int{1, 2, 3}
+     - Slices are the primary collection type in Go.
+   * - AssociativeArrayDefinition
+     - .. code-block:: go
+
+           m := map[string]int{"a": 1, "b": 2}
+     - Maps are used for associative storage in Go.
    * - IfElse
      - .. code-block:: go
 
@@ -212,6 +252,28 @@ Go Pivot View
                // body
            }
      - Go's only looping construct is 'for'.
+   * - ForEach
+     - .. code-block:: go
+
+           for index, item := range collection {
+               // body
+           }
+     - The range clause is Go's way to iterate over slices or maps.
+   * - LogicalAnd
+     - .. code-block:: go
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: go
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: go
+
+           a != b
+     - Go uses != for logical XOR between booleans.
    * - Equal
      - .. code-block:: go
 

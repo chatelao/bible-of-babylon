@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -222,7 +222,15 @@
 </td>
 <td><p>The ‘doseq’ macro is used for side-effecting iterations.</p></td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">doseq </span><span class="p">[</span><span class="nv">item</span><span class="w"> </span><span class="nv">collection</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">println </span><span class="nv">item</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘doseq’ macro is also the standard way to iterate over collections.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">try</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">/ </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="w">  </span><span class="p">(</span><span class="nf">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">e</span>
@@ -232,42 +240,42 @@
 </td>
 <td><p>Clojure’s error handling interops with Java’s exceptions.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">throw</span><span class="w"> </span><span class="p">(</span><span class="nf">Exception.</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
 <td><p>Throws a Java exception.</p></td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">future</span><span class="w"> </span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello from thread&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
 <td><p>Futures are a simple way to run code on another thread.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">send </span><span class="nv">my-agent</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">state</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">state</span><span class="p">)))</span>
 </pre></div>
 </div>
 </td>
 <td><p>Agents provide a way to manage asynchronous state updates.</p></td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="o">@</span><span class="nv">my-agent</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘&#64;’ or ‘deref’ function is used to get the current state of an agent or the result of a future.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="c1">; comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>Semicolon starts a single-line comment.</p></td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">comment</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">some </span><span class="nv">code</span><span class="p">))</span>
 </pre></div>
@@ -275,147 +283,147 @@
 </td>
 <td><p>The ‘comment’ macro ignores its body, effectively serving as a multi-line comment.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">println </span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard output with a newline.</p></td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.string</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">str</span><span class="p">])</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘require’ form is used to load namespaces.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="o">^</span><span class="ss">:const</span><span class="w"> </span><span class="nv">my-const</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Constants are defined with the ^:const metadata for compiler optimization.</p></td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Prefix notation for addition.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">- </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Prefix notation for subtraction.</p></td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Prefix notation for multiplication.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">/ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Prefix notation for division.</p></td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">rem </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Returns the remainder of division.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/floor</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses Java interop for floor.</p></td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/round</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses Java interop for rounding.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">inc </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Increments the value by 1.</p></td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">dec </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Decrements the value by 1.</p></td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-left </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise left shift.</p></td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-right </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise right shift.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-and </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise AND.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-or </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise OR.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-xor </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise XOR.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-not </span><span class="nv">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise NOT.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Element-wise multiplication of vectors.</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard dot product implementation.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">let </span><span class="p">[[</span><span class="nv">ax</span><span class="w"> </span><span class="nv">ay</span><span class="w"> </span><span class="nv">az</span><span class="p">]</span><span class="w"> </span><span class="nv">a</span>
 <span class="w">      </span><span class="p">[</span><span class="nv">bx</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">bz</span><span class="p">]</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
 <span class="w">  </span><span class="p">[(</span><span class="nb">- </span><span class="p">(</span><span class="nb">* </span><span class="nv">ay</span><span class="w"> </span><span class="nv">bz</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">* </span><span class="nv">az</span><span class="w"> </span><span class="nv">by</span><span class="p">))</span>
@@ -427,19 +435,58 @@
 </td>
 <td><p>Uses destructuring and vector literal.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="ss">:val</span><span class="p">)</span><span class="w"> </span><span class="nv">my-set</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Higher-order function for filtering.</p></td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Relational join operation from the clojure.set namespace.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nf">Object.</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Any object can be used as a monitor in Clojure.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">locking </span><span class="nv">mtx</span><span class="w"> </span><span class="nv">...</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The locking macro acquires the monitor.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><p>N/A</p></td>
+<td><p>Released automatically at the end of the locking block.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nf">java.util.concurrent.Semaphore.</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Java interop for semaphores.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.acquire</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.release</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
 </tr>
 </tbody>
 </table>

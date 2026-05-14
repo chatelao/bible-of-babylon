@@ -13,10 +13,21 @@ GraphQL Pivot View
 
            $x: Int = 42
      - Variables in GraphQL are prefixed with $ and used in operation definitions.
+   * - CollectionDefinition
+     - .. code-block:: graphql
+
+           $l: [Int] = [1, 2, 3]
+     - Lists in GraphQL are defined with square brackets.
+   * - AssociativeArrayDefinition
+     - N/A
+     - GraphQL does not have a native associative array type for variables.
    * - Equal
      - N/A
      - GraphQL does not have a native equality operator in the query language itself.
    * - NotEqual
+     - N/A
+     - N/A
+   * - ForEach
      - N/A
      - N/A
    * - GreaterThan

@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Immutable by default; supports type inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the vec! macro for dynamic array creation.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HashMap</span><span class="p">::</span><span class="n">from</span><span class="p">([(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)]);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires importing std::collections::HashMap.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
@@ -222,6 +236,48 @@
 </div>
 </td>
 <td><p>Using a channel receiver; blocks until a message is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mutex</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>In Rust, Mutexes protect data, not just code.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lock</span><span class="p">.</span><span class="n">lock</span><span class="p">().</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a MutexGuard, which unlocks when dropped.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Explicitly dropping the guard releases the lock early.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">::</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard library doesn’t have a semaphore; typically used from tokio::sync or similar.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">_permit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sem</span><span class="p">.</span><span class="n">acquire</span><span class="p">().</span><span class="k">await</span><span class="p">.</span><span class="n">unwrap</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Async acquisition in tokio.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="nb">drop</span><span class="p">(</span><span class="n">_permit</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Permit is returned to the semaphore when dropped.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
@@ -396,6 +452,36 @@
 </div>
 </td>
 <td><p>Uses ranges; 0..10 is exclusive of the upper bound.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">&amp;</span><span class="n">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over an iterator provided by the collection.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>For boolean operands, ^ acts as a non-short-circuiting logical XOR.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>

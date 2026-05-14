@@ -8,11 +8,51 @@ Cpp Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - MutexDefinition
+     - .. code-block:: cpp
+
+           std::mutex mtx;
+     - Requires <mutex> header (C++11).
+   * - MutexLock
+     - .. code-block:: cpp
+
+           mtx.lock();
+     - Better handled with std::lock_guard for RAII.
+   * - MutexUnlock
+     - .. code-block:: cpp
+
+           mtx.unlock();
+     - Releases the lock.
+   * - SemaphoreDefinition
+     - .. code-block:: cpp
+
+           std::counting_semaphore<10> sem(1);
+     - Requires <semaphore> header (C++20).
+   * - SemaphoreWait
+     - .. code-block:: cpp
+
+           sem.acquire();
+     - Decrements and blocks if needed.
+   * - SemaphoreSignal
+     - .. code-block:: cpp
+
+           sem.release();
+     - Increments the semaphore count.
    * - VariableDeclaration
      - .. code-block:: cpp
 
            int x = 42;
      - Static typing, similar to C.
+   * - CollectionDefinition
+     - .. code-block:: cpp
+
+           std::vector<int> v = {1, 2, 3};
+     - Standard vectors are the common dynamic collection in C++.
+   * - AssociativeArrayDefinition
+     - .. code-block:: cpp
+
+           std::map<std::string, int> m = {{"a", 1}, {"b", 2}};
+     - The map or unordered_map classes provide associative storage.
    * - Equal
      - .. code-block:: cpp
 
@@ -28,6 +68,21 @@ Cpp Pivot View
 
            a > b
      - Standard greater than operator.
+   * - LogicalAnd
+     - .. code-block:: cpp
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: cpp
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: cpp
+
+           a != b
+     - C++ does not have a dedicated logical XOR operator; for booleans, != serves as XOR.
    * - ProcedureDefinition
      - .. code-block:: cpp
 
@@ -77,6 +132,13 @@ Cpp Pivot View
                // body
            }
      - Standard C-style for loop.
+   * - ForEach
+     - .. code-block:: cpp
+
+           for (const auto& item : collection) {
+               // body
+           }
+     - The range-based for loop introduced in C++11.
    * - Addition
      - .. code-block:: cpp
 

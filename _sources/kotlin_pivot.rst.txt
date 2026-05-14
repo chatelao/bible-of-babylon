@@ -8,11 +8,66 @@ Kotlin Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - MutexDefinition
+     - .. code-block:: kotlin
+
+           val mutex = Mutex()
+     - Requires kotlinx.coroutines.sync.Mutex.
+   * - MutexLock
+     - .. code-block:: kotlin
+
+           mutex.lock()
+     - Suspends the coroutine if the mutex is locked.
+   * - MutexUnlock
+     - .. code-block:: kotlin
+
+           mutex.unlock()
+     - Releases the mutex.
+   * - SemaphoreDefinition
+     - .. code-block:: kotlin
+
+           val sem = Semaphore(1)
+     - Requires kotlinx.coroutines.sync.Semaphore.
+   * - SemaphoreWait
+     - .. code-block:: kotlin
+
+           sem.acquire()
+     - Suspends the coroutine until a permit is available.
+   * - SemaphoreSignal
+     - .. code-block:: kotlin
+
+           sem.release()
+     - Releases a permit.
+   * - LogicalAnd
+     - .. code-block:: kotlin
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: kotlin
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: kotlin
+
+           a xor b
+     - Kotlin provides 'xor' as an infix function for booleans.
    * - VariableDeclaration
      - .. code-block:: kotlin
 
            var x: Int = 42
      - Variables are declared with 'var'; static typing with type inference.
+   * - CollectionDefinition
+     - .. code-block:: kotlin
+
+           val l = listOf(1, 2, 3)
+     - The listOf function creates an immutable list in Kotlin.
+   * - AssociativeArrayDefinition
+     - .. code-block:: kotlin
+
+           val m = mapOf("a" to 1, "b" to 2)
+     - The mapOf function creates an immutable map.
    * - Equal
      - .. code-block:: kotlin
 
@@ -70,6 +125,13 @@ Kotlin Pivot View
                // body
            }
      - Iterates over a range; 'until' is exclusive of the upper bound.
+   * - ForEach
+     - .. code-block:: kotlin
+
+           for (item in collection) {
+               // body
+           }
+     - Standard Kotlin for loop for iterating over anything that provides an iterator.
    * - TryCatch
      - .. code-block:: kotlin
 

@@ -13,6 +13,16 @@ Rust Pivot View
 
            let x: i32 = 42;
      - Immutable by default; supports type inference.
+   * - CollectionDefinition
+     - .. code-block:: rust
+
+           let v = vec![1, 2, 3];
+     - Using the vec! macro for dynamic array creation.
+   * - AssociativeArrayDefinition
+     - .. code-block:: rust
+
+           let m = HashMap::from([("a", 1), ("b", 2)]);
+     - Requires importing std::collections::HashMap.
    * - IfElse
      - .. code-block:: rust
 
@@ -80,6 +90,36 @@ Rust Pivot View
 
            let msg = rx.recv().unwrap(); handle(msg);
      - Using a channel receiver; blocks until a message is available.
+   * - MutexDefinition
+     - .. code-block:: rust
+
+           let lock = Mutex::new(0);
+     - In Rust, Mutexes protect data, not just code.
+   * - MutexLock
+     - .. code-block:: rust
+
+           let mut data = lock.lock().unwrap();
+     - Returns a MutexGuard, which unlocks when dropped.
+   * - MutexUnlock
+     - .. code-block:: rust
+
+           drop(data);
+     - Explicitly dropping the guard releases the lock early.
+   * - SemaphoreDefinition
+     - .. code-block:: rust
+
+           let sem = Semaphore::new(1);
+     - Standard library doesn't have a semaphore; typically used from tokio::sync or similar.
+   * - SemaphoreWait
+     - .. code-block:: rust
+
+           let _permit = sem.acquire().await.unwrap();
+     - Async acquisition in tokio.
+   * - SemaphoreSignal
+     - .. code-block:: rust
+
+           drop(_permit);
+     - Permit is returned to the semaphore when dropped.
    * - SingleLineComment
      - .. code-block:: rust
 
@@ -206,6 +246,28 @@ Rust Pivot View
                // body
            }
      - Uses ranges; 0..10 is exclusive of the upper bound.
+   * - ForEach
+     - .. code-block:: rust
+
+           for item in &collection {
+               // body
+           }
+     - Iterates over an iterator provided by the collection.
+   * - LogicalAnd
+     - .. code-block:: rust
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: rust
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: rust
+
+           a ^ b
+     - For boolean operands, ^ acts as a non-short-circuiting logical XOR.
    * - Equal
      - .. code-block:: rust
 

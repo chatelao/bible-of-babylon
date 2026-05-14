@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,20 @@
 </div>
 </td>
 <td><p>Strongly typed, similar to C.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the immutable List.of method (Java 9+).</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Map</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the immutable Map.of method (Java 9+).</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -226,6 +240,48 @@
 </div>
 </td>
 <td><p>Using BlockingQueue.take(); blocks until an element becomes available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ReentrantLock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires java.util.concurrent.locks.Lock.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexLock</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Acquires the lock.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">lock</span><span class="p">.</span><span class="na">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Should be called in a finally block.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires java.util.concurrent.Semaphore.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">acquire</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can throw InterruptedException.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="na">release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the available permits.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
@@ -400,6 +456,36 @@
 </div>
 </td>
 <td><p>Identical to C; also supports enhanced for-each loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘enhanced’ for loop introduced in Java 5.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>The bitwise XOR operator ^ also works as a logical XOR for boolean operands.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>

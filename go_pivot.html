@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -129,12 +129,68 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">mu</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+</pre></div>
+</div>
+</td>
+<td><p>Mutexes are usually part of a struct.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexLock</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Blocks until available.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Often paired with ‘defer mu.Unlock()’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Buffered channels are the idiomatic way to implement semaphores in Go.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}{}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sending to the channel ‘acquires’ a permit.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;-</span><span class="nx">sem</span>
+</pre></div>
+</div>
+</td>
+<td><p>Receiving from the channel ‘releases’ a permit.</p></td>
+</tr>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
 <td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
 </pre></div>
 </div>
 </td>
 <td><p>Static typing with optional type inference.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Slices are the primary collection type in Go.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Maps are used for associative storage in Go.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
@@ -402,6 +458,36 @@
 </div>
 </td>
 <td><p>Go’s only looping construct is ‘for’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">index</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">collection</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The range clause is Go’s way to iterate over slices or maps.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go uses != for logical XOR between booleans.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span>

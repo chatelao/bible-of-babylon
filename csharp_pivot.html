@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -129,12 +129,68 @@
 </tr>
 </thead>
 <tbody>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Mutex</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Mutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Mutex can be named for cross-process synchronization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MutexLock</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>WaitOne is the standard way to acquire a WaitHandle.</p></td>
+</tr>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">mtx</span><span class="p">.</span><span class="n">ReleaseMutex</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the mutex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Semaphore</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parameters are initial count and maximum count.</p></td>
+</tr>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">WaitOne</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Blocks until a permit is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">Release</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the semaphore count.</p></td>
+</tr>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Static typing, similar to C++ and Java.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Generic lists are the standard collection type in C#.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Dictionaries provide associative mapping in C#.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -179,7 +235,16 @@
 </td>
 <td><p>Standard C-style for loop.</p></td>
 </tr>
-<tr class="row-odd"><td><p>FunctionDefinition</p></td>
+<tr class="row-odd"><td><p>ForEach</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The foreach statement iterates over any type that implements IEnumerable.</p></td>
+</tr>
+<tr class="row-even"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
@@ -188,7 +253,7 @@
 </td>
 <td><p>Methods are typically defined within classes.</p></td>
 </tr>
-<tr class="row-even"><td><p>ProcedureDefinition</p></td>
+<tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LogMessage</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
 <span class="p">}</span>
@@ -197,7 +262,7 @@
 </td>
 <td><p>Uses the ‘void’ keyword for procedures.</p></td>
 </tr>
-<tr class="row-odd"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>TryCatch</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
 <span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -208,28 +273,28 @@
 </td>
 <td><p>Standard try-catch block for exception handling.</p></td>
 </tr>
-<tr class="row-even"><td><p>Raise</p></td>
+<tr class="row-odd"><td><p>Raise</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the ‘throw’ keyword to raise an exception.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Thread</p></td>
+<tr class="row-even"><td><p>Thread</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">new</span><span class="w"> </span><span class="nf">Thread</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">do_work</span><span class="p">();</span><span class="w"> </span><span class="p">}).</span><span class="n">start</span><span class="p">();</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the System.Threading.Thread class; Task.Run is often preferred in modern C#.</p></td>
 </tr>
-<tr class="row-even"><td><p>SendMessage</p></td>
+<tr class="row-odd"><td><p>SendMessage</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">await</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="n">Writer</span><span class="p">.</span><span class="n">WriteAsync</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>Using System.Threading.Channels for asynchronous message passing.</p></td>
 </tr>
-<tr class="row-odd"><td><p>ReceiveMessage</p></td>
+<tr class="row-even"><td><p>ReceiveMessage</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">channel</span><span class="p">.</span><span class="n">Reader</span><span class="p">.</span><span class="n">ReadAsync</span><span class="p">();</span>
 <span class="n">handle</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
 </pre></div>
@@ -237,14 +302,14 @@
 </td>
 <td><p>Using System.Threading.Channels for asynchronous message receiving.</p></td>
 </tr>
-<tr class="row-even"><td><p>SingleLineComment</p></td>
+<tr class="row-odd"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard single-line comment.</p></td>
 </tr>
-<tr class="row-odd"><td><p>MultiLineComment</p></td>
+<tr class="row-even"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
 </pre></div>
@@ -252,152 +317,173 @@
 </td>
 <td><p>Standard block comment.</p></td>
 </tr>
-<tr class="row-even"><td><p>Print</p></td>
+<tr class="row-odd"><td><p>Print</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>Outputs text to the console with a trailing newline.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Import</p></td>
+<tr class="row-even"><td><p>Import</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘using’ directive imports namespaces.</p></td>
 </tr>
-<tr class="row-even"><td><p>Constant</p></td>
+<tr class="row-odd"><td><p>Constant</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘const’ keyword defines a compile-time constant.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Addition</p></td>
+<tr class="row-even"><td><p>Addition</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Subtraction</p></td>
+<tr class="row-odd"><td><p>Subtraction</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Multiplication</p></td>
+<tr class="row-even"><td><p>Multiplication</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Division</p></td>
+<tr class="row-odd"><td><p>Division</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Remainder</p></td>
+<tr class="row-even"><td><p>Remainder</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard arithmetic operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Floor</p></td>
+<tr class="row-odd"><td><p>Floor</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="n">Floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the System.Math class.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Rounding</p></td>
+<tr class="row-even"><td><p>Rounding</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Math</span><span class="p">.</span><span class="n">Round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the System.Math class.</p></td>
 </tr>
-<tr class="row-even"><td><p>Increment</p></td>
+<tr class="row-odd"><td><p>Increment</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard increment operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Decrement</p></td>
+<tr class="row-even"><td><p>Decrement</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard decrement operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>LeftShift</p></td>
+<tr class="row-odd"><td><p>LeftShift</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise shift operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>RightShift</p></td>
+<tr class="row-even"><td><p>RightShift</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise shift operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitAnd</p></td>
+<tr class="row-odd"><td><p>BitAnd</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitOr</p></td>
+<tr class="row-even"><td><p>BitOr</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>BitXor</p></td>
+<tr class="row-odd"><td><p>BitXor</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitNot</p></td>
+<tr class="row-even"><td><p>BitNot</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard bitwise operator.</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>System.Numerics.Vector4 supports overloaded operators for element-wise multiplication.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector4</span><span class="p">.</span><span class="n">Dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>System.Numerics.Vector4.Dot provides the scalar product.</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">Cross</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">Z</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Z</span><span class="p">));</span>
 </pre></div>
 </div>
 </td>
 <td><p>Cross product is defined for 3D vectors in System.Numerics.Vector3.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalAnd</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LogicalOr</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
+<tr class="row-even"><td><p>LogicalXor</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ^ operator acts as a logical XOR for boolean operands.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>

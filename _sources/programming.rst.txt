@@ -201,9 +201,6 @@ Parameters:
 
            (def x 42)
      - Variables are defined using 'def'; they are immutable by default in the sense of 'binding'.
-   * - BrainfuckVar
-     - N/A
-     - Brainfuck uses an implicit array of memory cells; there are no named variables.
 
 
 
@@ -1522,51 +1519,6 @@ Parameters:
 
            a && b
      - Short-circuiting logical AND.
-   * - JavaLogicalAnd
-     - .. code-block:: java
-
-           a && b
-     - Short-circuiting logical AND.
-   * - RustLogicalAnd
-     - .. code-block:: rust
-
-           a && b
-     - Short-circuiting logical AND.
-   * - PythonLogicalAnd
-     - .. code-block:: python
-
-           a and b
-     - Short-circuiting logical AND.
-   * - PhpLogicalAnd
-     - .. code-block:: php
-
-           $a && $b
-     - Short-circuiting logical AND; 'and' is also available with lower precedence.
-   * - CSharpLogicalAnd
-     - .. code-block:: csharp
-
-           a && b
-     - Short-circuiting logical AND.
-   * - GoLogicalAnd
-     - .. code-block:: go
-
-           a && b
-     - Short-circuiting logical AND.
-   * - SwiftLogicalAnd
-     - .. code-block:: swift
-
-           a && b
-     - Short-circuiting logical AND.
-   * - KotlinLogicalAnd
-     - .. code-block:: kotlin
-
-           a && b
-     - Short-circuiting logical AND.
-   * - TypeScriptLogicalAnd
-     - .. code-block:: typescript
-
-           a && b
-     - Short-circuiting logical AND.
    * - BrainfuckLogicalAnd
      - .. code-block:: brainfuck
 
@@ -1649,51 +1601,6 @@ Parameters:
      - Short-circuiting logical OR.
    * - CppLogicalOr
      - .. code-block:: cpp
-
-           a || b
-     - Short-circuiting logical OR.
-   * - JavaLogicalOr
-     - .. code-block:: java
-
-           a || b
-     - Short-circuiting logical OR.
-   * - RustLogicalOr
-     - .. code-block:: rust
-
-           a || b
-     - Short-circuiting logical OR.
-   * - PythonLogicalOr
-     - .. code-block:: python
-
-           a or b
-     - Short-circuiting logical OR.
-   * - PhpLogicalOr
-     - .. code-block:: php
-
-           $a || $b
-     - Short-circuiting logical OR; 'or' is also available with lower precedence.
-   * - CSharpLogicalOr
-     - .. code-block:: csharp
-
-           a || b
-     - Short-circuiting logical OR.
-   * - GoLogicalOr
-     - .. code-block:: go
-
-           a || b
-     - Short-circuiting logical OR.
-   * - SwiftLogicalOr
-     - .. code-block:: swift
-
-           a || b
-     - Short-circuiting logical OR.
-   * - KotlinLogicalOr
-     - .. code-block:: kotlin
-
-           a || b
-     - Short-circuiting logical OR.
-   * - TypeScriptLogicalOr
-     - .. code-block:: typescript
 
            a || b
      - Short-circuiting logical OR.
@@ -1782,51 +1689,6 @@ Parameters:
 
            a != b
      - C++ does not have a dedicated logical XOR operator; for booleans, != serves as XOR.
-   * - JavaLogicalXor
-     - .. code-block:: java
-
-           a ^ b
-     - The bitwise XOR operator ^ also works as a logical XOR for boolean operands.
-   * - RustLogicalXor
-     - .. code-block:: rust
-
-           a ^ b
-     - For boolean operands, ^ acts as a non-short-circuiting logical XOR.
-   * - PythonLogicalXor
-     - .. code-block:: python
-
-           a != b
-     - Python uses != for logical XOR between booleans.
-   * - PhpLogicalXor
-     - .. code-block:: php
-
-           $a xor $b
-     - PHP has a native 'xor' operator.
-   * - CSharpLogicalXor
-     - .. code-block:: csharp
-
-           a ^ b
-     - The ^ operator acts as a logical XOR for boolean operands.
-   * - GoLogicalXor
-     - .. code-block:: go
-
-           a != b
-     - Go uses != for logical XOR between booleans.
-   * - SwiftLogicalXor
-     - .. code-block:: swift
-
-           a != b
-     - Swift uses != for logical XOR between booleans.
-   * - KotlinLogicalXor
-     - .. code-block:: kotlin
-
-           a xor b
-     - Kotlin provides 'xor' as an infix function for booleans.
-   * - TypeScriptLogicalXor
-     - .. code-block:: typescript
-
-           a != b
-     - TypeScript uses != for logical XOR between booleans.
    * - BrainfuckLogicalXor
      - N/A
      - Typically implemented using subtraction and checking the result.
@@ -4459,6 +4321,575 @@ Parameters:
    * - BrainfuckReceiveMessage
      - N/A
      - No native messaging system.
+
+
+
+MutexDefinition
+---------------
+
+
+:description: Declaring and optionally initializing a mutual exclusion object.
+
+
+Parameters:
+
+* name: String
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CMutexDefinition
+     - .. code-block:: c
+
+           pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+     - Requires pthread.h library.
+   * - CppMutexDefinition
+     - .. code-block:: cpp
+
+           std::mutex mtx;
+     - Requires <mutex> header (C++11).
+   * - JavaMutexDefinition
+     - .. code-block:: java
+
+           Lock lock = new ReentrantLock();
+     - Requires java.util.concurrent.locks.Lock.
+   * - RustMutexDefinition
+     - .. code-block:: rust
+
+           let lock = Mutex::new(0);
+     - In Rust, Mutexes protect data, not just code.
+   * - PythonMutexDefinition
+     - .. code-block:: python
+
+           lock = threading.Lock()
+     - Part of the threading module.
+   * - GoMutexDefinition
+     - .. code-block:: go
+
+           var mu sync.Mutex
+     - Mutexes are usually part of a struct.
+   * - CSharpMutexDefinition
+     - .. code-block:: csharp
+
+           Mutex mtx = new Mutex();
+     - Mutex can be named for cross-process synchronization.
+   * - SwiftMutexDefinition
+     - .. code-block:: swift
+
+           let lock = NSLock()
+     - Found in the Foundation framework.
+   * - KotlinMutexDefinition
+     - .. code-block:: kotlin
+
+           val mutex = Mutex()
+     - Requires kotlinx.coroutines.sync.Mutex.
+   * - ErlangMutexDefinition
+     - N/A
+     - Erlang uses message passing and isolated processes instead of shared-memory locks.
+   * - LispMutexDefinition
+     - .. code-block:: common-lisp
+
+           (setf mtx (bt:make-lock))
+     - Requires bordeaux-threads library.
+   * - BashMutexDefinition
+     - N/A
+     - Not natively supported; typically implemented using lockfiles or mkdir.
+   * - PhpMutexDefinition
+     - .. code-block:: php
+
+           Mutex::create()
+     - Requires pthreads or parallel extension.
+   * - ClojureMutexDefinition
+     - .. code-block:: clojure
+
+           (def mtx (Object.))
+     - Any object can be used as a monitor in Clojure.
+   * - SqlMutexDefinition
+     - N/A
+     - Database locks (e.g., SELECT ... FOR UPDATE) are used instead of mutexes.
+
+
+
+MutexLock
+---------
+
+
+:description: Acquiring a lock on a mutex, blocking if it is already held.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexLock Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CMutexLock
+     - .. code-block:: c
+
+           pthread_mutex_lock(&mtx);
+     - Blocks until the mutex is available.
+   * - CppMutexLock
+     - .. code-block:: cpp
+
+           mtx.lock();
+     - Better handled with std::lock_guard for RAII.
+   * - JavaMutexLock
+     - .. code-block:: java
+
+           lock.lock();
+     - Acquires the lock.
+   * - RustMutexLock
+     - .. code-block:: rust
+
+           let mut data = lock.lock().unwrap();
+     - Returns a MutexGuard, which unlocks when dropped.
+   * - PythonMutexLock
+     - .. code-block:: python
+
+           lock.acquire()
+     - Can be used as a context manager: with lock:
+   * - GoMutexLock
+     - .. code-block:: go
+
+           mu.Lock()
+     - Blocks until available.
+   * - CSharpMutexLock
+     - .. code-block:: csharp
+
+           mtx.WaitOne();
+     - WaitOne is the standard way to acquire a WaitHandle.
+   * - SwiftMutexLock
+     - .. code-block:: swift
+
+           lock.lock()
+     - Standard locking call.
+   * - KotlinMutexLock
+     - .. code-block:: kotlin
+
+           mutex.lock()
+     - Suspends the coroutine if the mutex is locked.
+   * - ErlangMutexLock
+     - N/A
+     - N/A
+   * - LispMutexLock
+     - .. code-block:: common-lisp
+
+           (bt:acquire-lock mtx)
+     - N/A
+   * - BashMutexLock
+     - N/A
+     - N/A
+   * - PhpMutexLock
+     - .. code-block:: php
+
+           Mutex::lock($mtx)
+     - N/A
+   * - ClojureMutexLock
+     - .. code-block:: clojure
+
+           (locking mtx ...)
+     - The locking macro acquires the monitor.
+   * - SqlMutexLock
+     - N/A
+     - N/A
+
+
+
+MutexUnlock
+-----------
+
+
+:description: Releasing a held lock on a mutex.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MutexUnlock Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CMutexUnlock
+     - .. code-block:: c
+
+           pthread_mutex_unlock(&mtx);
+     - Releases the mutex.
+   * - CppMutexUnlock
+     - .. code-block:: cpp
+
+           mtx.unlock();
+     - Releases the lock.
+   * - JavaMutexUnlock
+     - .. code-block:: java
+
+           lock.unlock();
+     - Should be called in a finally block.
+   * - RustMutexUnlock
+     - .. code-block:: rust
+
+           drop(data);
+     - Explicitly dropping the guard releases the lock early.
+   * - PythonMutexUnlock
+     - .. code-block:: python
+
+           lock.release()
+     - Releases the lock.
+   * - GoMutexUnlock
+     - .. code-block:: go
+
+           mu.Unlock()
+     - Often paired with 'defer mu.Unlock()'.
+   * - CSharpMutexUnlock
+     - .. code-block:: csharp
+
+           mtx.ReleaseMutex();
+     - Releases the mutex.
+   * - SwiftMutexUnlock
+     - .. code-block:: swift
+
+           lock.unlock()
+     - Standard unlocking call.
+   * - KotlinMutexUnlock
+     - .. code-block:: kotlin
+
+           mutex.unlock()
+     - Releases the mutex.
+   * - ErlangMutexUnlock
+     - N/A
+     - N/A
+   * - LispMutexUnlock
+     - .. code-block:: common-lisp
+
+           (bt:release-lock mtx)
+     - N/A
+   * - BashMutexUnlock
+     - N/A
+     - N/A
+   * - PhpMutexUnlock
+     - .. code-block:: php
+
+           Mutex::unlock($mtx)
+     - N/A
+   * - ClojureMutexUnlock
+     - N/A
+     - Released automatically at the end of the locking block.
+   * - SqlMutexUnlock
+     - N/A
+     - N/A
+
+
+
+SemaphoreDefinition
+-------------------
+
+
+:description: Declaring and initializing a semaphore with a specific count.
+
+
+Parameters:
+
+* name: String
+
+* initial_value: Number
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreDefinition Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CSemaphoreDefinition
+     - .. code-block:: c
+
+           sem_t sem;
+           sem_init(&sem, 0, 1);
+     - Requires semaphore.h library.
+   * - CppSemaphoreDefinition
+     - .. code-block:: cpp
+
+           std::counting_semaphore<10> sem(1);
+     - Requires <semaphore> header (C++20).
+   * - JavaSemaphoreDefinition
+     - .. code-block:: java
+
+           Semaphore sem = new Semaphore(1);
+     - Requires java.util.concurrent.Semaphore.
+   * - RustSemaphoreDefinition
+     - .. code-block:: rust
+
+           let sem = Semaphore::new(1);
+     - Standard library doesn't have a semaphore; typically used from tokio::sync or similar.
+   * - PythonSemaphoreDefinition
+     - .. code-block:: python
+
+           sem = threading.Semaphore(1)
+     - Initial value sets the number of concurrent permits.
+   * - GoSemaphoreDefinition
+     - .. code-block:: go
+
+           sem := make(chan struct{}, 1)
+     - Buffered channels are the idiomatic way to implement semaphores in Go.
+   * - CSharpSemaphoreDefinition
+     - .. code-block:: csharp
+
+           Semaphore sem = new Semaphore(1, 10);
+     - Parameters are initial count and maximum count.
+   * - SwiftSemaphoreDefinition
+     - .. code-block:: swift
+
+           let sem = DispatchSemaphore(value: 1)
+     - Part of Grand Central Dispatch (GCD).
+   * - KotlinSemaphoreDefinition
+     - .. code-block:: kotlin
+
+           val sem = Semaphore(1)
+     - Requires kotlinx.coroutines.sync.Semaphore.
+   * - ErlangSemaphoreDefinition
+     - N/A
+     - N/A
+   * - LispSemaphoreDefinition
+     - .. code-block:: common-lisp
+
+           (setf sem (bt:make-semaphore :count 1))
+     - Requires bordeaux-threads.
+   * - BashSemaphoreDefinition
+     - N/A
+     - N/A
+   * - PhpSemaphoreDefinition
+     - .. code-block:: php
+
+           sem_get($key, 1)
+     - Uses System V semaphores.
+   * - ClojureSemaphoreDefinition
+     - .. code-block:: clojure
+
+           (def sem (java.util.concurrent.Semaphore. 1))
+     - Uses Java interop for semaphores.
+   * - SqlSemaphoreDefinition
+     - N/A
+     - N/A
+
+
+
+SemaphoreWait
+-------------
+
+
+:description: Decreasing the semaphore count, blocking if the count is zero.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreWait Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CSemaphoreWait
+     - .. code-block:: c
+
+           sem_wait(&sem);
+     - Decrements the semaphore; blocks if count is zero.
+   * - CppSemaphoreWait
+     - .. code-block:: cpp
+
+           sem.acquire();
+     - Decrements and blocks if needed.
+   * - JavaSemaphoreWait
+     - .. code-block:: java
+
+           sem.acquire();
+     - Can throw InterruptedException.
+   * - RustSemaphoreWait
+     - .. code-block:: rust
+
+           let _permit = sem.acquire().await.unwrap();
+     - Async acquisition in tokio.
+   * - PythonSemaphoreWait
+     - .. code-block:: python
+
+           sem.acquire()
+     - Decrements the internal counter.
+   * - GoSemaphoreWait
+     - .. code-block:: go
+
+           sem <- struct{}{}
+     - Sending to the channel 'acquires' a permit.
+   * - CSharpSemaphoreWait
+     - .. code-block:: csharp
+
+           sem.WaitOne();
+     - Blocks until a permit is available.
+   * - SwiftSemaphoreWait
+     - .. code-block:: swift
+
+           sem.wait()
+     - Decrements the semaphore count.
+   * - KotlinSemaphoreWait
+     - .. code-block:: kotlin
+
+           sem.acquire()
+     - Suspends the coroutine until a permit is available.
+   * - ErlangSemaphoreWait
+     - N/A
+     - N/A
+   * - LispSemaphoreWait
+     - .. code-block:: common-lisp
+
+           (bt:wait-on-semaphore sem)
+     - N/A
+   * - BashSemaphoreWait
+     - N/A
+     - N/A
+   * - PhpSemaphoreWait
+     - .. code-block:: php
+
+           sem_acquire($sem)
+     - N/A
+   * - ClojureSemaphoreWait
+     - .. code-block:: clojure
+
+           (.acquire sem)
+     - N/A
+   * - SqlSemaphoreWait
+     - N/A
+     - N/A
+
+
+
+SemaphoreSignal
+---------------
+
+
+:description: Increasing the semaphore count, potentially unblocking a waiting thread.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: SemaphoreSignal Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CSemaphoreSignal
+     - .. code-block:: c
+
+           sem_post(&sem);
+     - Increments the semaphore.
+   * - CppSemaphoreSignal
+     - .. code-block:: cpp
+
+           sem.release();
+     - Increments the semaphore count.
+   * - JavaSemaphoreSignal
+     - .. code-block:: java
+
+           sem.release();
+     - Increments the available permits.
+   * - RustSemaphoreSignal
+     - .. code-block:: rust
+
+           drop(_permit);
+     - Permit is returned to the semaphore when dropped.
+   * - PythonSemaphoreSignal
+     - .. code-block:: python
+
+           sem.release()
+     - Increments the internal counter.
+   * - GoSemaphoreSignal
+     - .. code-block:: go
+
+           <-sem
+     - Receiving from the channel 'releases' a permit.
+   * - CSharpSemaphoreSignal
+     - .. code-block:: csharp
+
+           sem.Release();
+     - Increments the semaphore count.
+   * - SwiftSemaphoreSignal
+     - .. code-block:: swift
+
+           sem.signal()
+     - Increments the semaphore count.
+   * - KotlinSemaphoreSignal
+     - .. code-block:: kotlin
+
+           sem.release()
+     - Releases a permit.
+   * - ErlangSemaphoreSignal
+     - N/A
+     - N/A
+   * - LispSemaphoreSignal
+     - .. code-block:: common-lisp
+
+           (bt:signal-semaphore sem)
+     - N/A
+   * - BashSemaphoreSignal
+     - N/A
+     - N/A
+   * - PhpSemaphoreSignal
+     - .. code-block:: php
+
+           sem_release($sem)
+     - N/A
+   * - ClojureSemaphoreSignal
+     - .. code-block:: clojure
+
+           (.release sem)
+     - N/A
+   * - SqlSemaphoreSignal
+     - N/A
+     - N/A
 
 
 

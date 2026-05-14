@@ -2324,6 +2324,329 @@ Programming Languages
      - .. code-block:: clojure
 
            @my-agent
+   * - MutexDefinition
+     - .. code-block:: c
+
+           pthread_mutex_t mtx = PTHREAD_MUTEX_INITIALIZER;
+     - .. code-block:: cpp
+
+           std::mutex mtx;
+     - .. code-block:: java
+
+           Lock lock = new ReentrantLock();
+     - .. code-block:: rust
+
+           let lock = Mutex::new(0);
+     - N/A
+     - .. code-block:: common-lisp
+
+           (setf mtx (bt:make-lock))
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           lock = threading.Lock()
+     - .. code-block:: php
+
+           Mutex::create()
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           var mu sync.Mutex
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           Mutex mtx = new Mutex();
+     - .. code-block:: swift
+
+           let lock = NSLock()
+     - .. code-block:: kotlin
+
+           val mutex = Mutex()
+     - .. code-block:: clojure
+
+           (def mtx (Object.))
+   * - MutexLock
+     - .. code-block:: c
+
+           pthread_mutex_lock(&mtx);
+     - .. code-block:: cpp
+
+           mtx.lock();
+     - .. code-block:: java
+
+           lock.lock();
+     - .. code-block:: rust
+
+           let mut data = lock.lock().unwrap();
+     - N/A
+     - .. code-block:: common-lisp
+
+           (bt:acquire-lock mtx)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           lock.acquire()
+     - .. code-block:: php
+
+           Mutex::lock($mtx)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           mu.Lock()
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           mtx.WaitOne();
+     - .. code-block:: swift
+
+           lock.lock()
+     - .. code-block:: kotlin
+
+           mutex.lock()
+     - .. code-block:: clojure
+
+           (locking mtx ...)
+   * - MutexUnlock
+     - .. code-block:: c
+
+           pthread_mutex_unlock(&mtx);
+     - .. code-block:: cpp
+
+           mtx.unlock();
+     - .. code-block:: java
+
+           lock.unlock();
+     - .. code-block:: rust
+
+           drop(data);
+     - N/A
+     - .. code-block:: common-lisp
+
+           (bt:release-lock mtx)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           lock.release()
+     - .. code-block:: php
+
+           Mutex::unlock($mtx)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           mu.Unlock()
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           mtx.ReleaseMutex();
+     - .. code-block:: swift
+
+           lock.unlock()
+     - .. code-block:: kotlin
+
+           mutex.unlock()
+     - N/A
+   * - SemaphoreDefinition
+     - .. code-block:: c
+
+           sem_t sem;
+           sem_init(&sem, 0, 1);
+     - .. code-block:: cpp
+
+           std::counting_semaphore<10> sem(1);
+     - .. code-block:: java
+
+           Semaphore sem = new Semaphore(1);
+     - .. code-block:: rust
+
+           let sem = Semaphore::new(1);
+     - N/A
+     - .. code-block:: common-lisp
+
+           (setf sem (bt:make-semaphore :count 1))
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           sem = threading.Semaphore(1)
+     - .. code-block:: php
+
+           sem_get($key, 1)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           sem := make(chan struct{}, 1)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           Semaphore sem = new Semaphore(1, 10);
+     - .. code-block:: swift
+
+           let sem = DispatchSemaphore(value: 1)
+     - .. code-block:: kotlin
+
+           val sem = Semaphore(1)
+     - .. code-block:: clojure
+
+           (def sem (java.util.concurrent.Semaphore. 1))
+   * - SemaphoreWait
+     - .. code-block:: c
+
+           sem_wait(&sem);
+     - .. code-block:: cpp
+
+           sem.acquire();
+     - .. code-block:: java
+
+           sem.acquire();
+     - .. code-block:: rust
+
+           let _permit = sem.acquire().await.unwrap();
+     - N/A
+     - .. code-block:: common-lisp
+
+           (bt:wait-on-semaphore sem)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           sem.acquire()
+     - .. code-block:: php
+
+           sem_acquire($sem)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           sem <- struct{}{}
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           sem.WaitOne();
+     - .. code-block:: swift
+
+           sem.wait()
+     - .. code-block:: kotlin
+
+           sem.acquire()
+     - .. code-block:: clojure
+
+           (.acquire sem)
+   * - SemaphoreSignal
+     - .. code-block:: c
+
+           sem_post(&sem);
+     - .. code-block:: cpp
+
+           sem.release();
+     - .. code-block:: java
+
+           sem.release();
+     - .. code-block:: rust
+
+           drop(_permit);
+     - N/A
+     - .. code-block:: common-lisp
+
+           (bt:signal-semaphore sem)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           sem.release()
+     - .. code-block:: php
+
+           sem_release($sem)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           <-sem
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           sem.Release();
+     - .. code-block:: swift
+
+           sem.signal()
+     - .. code-block:: kotlin
+
+           sem.release()
+     - .. code-block:: clojure
+
+           (.release sem)
    * - SingleLineComment
      - .. code-block:: c
 
@@ -4937,6 +5260,42 @@ Data Query Languages
      - .. code-block:: graphql
 
            subscription { ... }
+     - N/A
+     - N/A
+   * - MutexDefinition
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - MutexLock
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - MutexUnlock
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - SemaphoreDefinition
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - SemaphoreWait
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - SemaphoreSignal
+     - N/A
+     - N/A
+     - N/A
      - N/A
      - N/A
    * - SingleLineComment

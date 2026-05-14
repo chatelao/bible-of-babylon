@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -135,6 +135,21 @@
 </div>
 </td>
 <td><p>Used in Windows Command Prompt.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CollectionDefinition</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set a=1 2 3</span>
+</pre></div>
+</div>
+</td>
+<td><p>Cmd does not have real arrays; strings with delimiters are used for iteration.</p></td>
+</tr>
+<tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">set m_a=1</span>
+<span class="go">set m_b=2</span>
+</pre></div>
+</div>
+</td>
+<td><p>Associative arrays are simulated using variable naming conventions (e.g., prefixing).</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if &quot;%x%&quot;==&quot;1&quot; (goto :one) else if &quot;%x%&quot;==&quot;2&quot; (goto :two) else (goto :none)</span>
@@ -342,28 +357,37 @@
 </td>
 <td><p>The /L switch is used for iterative loops (start, step, end).</p></td>
 </tr>
-<tr class="row-even"><td><p>Equal</p></td>
+<tr class="row-even"><td><p>ForEach</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%i in (%collection%) do (</span>
+<span class="go">    rem body</span>
+<span class="go">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The standard for loop in CMD iterates over a space-separated set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% EQU %b%</span>
 </pre></div>
 </div>
 </td>
 <td><p>Comparison operators are used within if statements.</p></td>
 </tr>
-<tr class="row-odd"><td><p>NotEqual</p></td>
+<tr class="row-even"><td><p>NotEqual</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% NEQ %b%</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p>GreaterThan</p></td>
+<tr class="row-odd"><td><p>GreaterThan</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">if %a% GTR %b%</span>
 </pre></div>
 </div>
 </td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p>SetFiltering</p></td>
+<tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%x in (%a%) do (</span>
 <span class="go">    if %%x GTR 0 (set b=!b! %%x)</span>
 <span class="go">)</span>
@@ -372,7 +396,7 @@
 </td>
 <td><p>Filters a space-separated list of values.</p></td>
 </tr>
-<tr class="row-even"><td><p>SetJoin</p></td>
+<tr class="row-odd"><td><p>SetJoin</p></td>
 <td><p>N/A</p></td>
 <td><p>Joining sets is not natively supported in Cmd and is complex to implement.</p></td>
 </tr>

@@ -8,11 +8,51 @@ CSharp Pivot View
    * - Pattern
      - Syntax
      - Notes
+   * - MutexDefinition
+     - .. code-block:: csharp
+
+           Mutex mtx = new Mutex();
+     - Mutex can be named for cross-process synchronization.
+   * - MutexLock
+     - .. code-block:: csharp
+
+           mtx.WaitOne();
+     - WaitOne is the standard way to acquire a WaitHandle.
+   * - MutexUnlock
+     - .. code-block:: csharp
+
+           mtx.ReleaseMutex();
+     - Releases the mutex.
+   * - SemaphoreDefinition
+     - .. code-block:: csharp
+
+           Semaphore sem = new Semaphore(1, 10);
+     - Parameters are initial count and maximum count.
+   * - SemaphoreWait
+     - .. code-block:: csharp
+
+           sem.WaitOne();
+     - Blocks until a permit is available.
+   * - SemaphoreSignal
+     - .. code-block:: csharp
+
+           sem.Release();
+     - Increments the semaphore count.
    * - VariableDeclaration
      - .. code-block:: csharp
 
            int x = 42;
      - Static typing, similar to C++ and Java.
+   * - CollectionDefinition
+     - .. code-block:: csharp
+
+           var l = new List<int> { 1, 2, 3 };
+     - Generic lists are the standard collection type in C#.
+   * - AssociativeArrayDefinition
+     - .. code-block:: csharp
+
+           var d = new Dictionary<string, int> { {"a", 1}, {"b", 2} };
+     - Dictionaries provide associative mapping in C#.
    * - IfElse
      - .. code-block:: csharp
 
@@ -48,6 +88,13 @@ CSharp Pivot View
                // body
            }
      - Standard C-style for loop.
+   * - ForEach
+     - .. code-block:: csharp
+
+           foreach (var item in collection) {
+               // body
+           }
+     - The foreach statement iterates over any type that implements IEnumerable.
    * - FunctionDefinition
      - .. code-block:: csharp
 
@@ -208,6 +255,21 @@ CSharp Pivot View
 
            var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));
      - Cross product is defined for 3D vectors in System.Numerics.Vector3.
+   * - LogicalAnd
+     - .. code-block:: csharp
+
+           a && b
+     - Short-circuiting logical AND.
+   * - LogicalOr
+     - .. code-block:: csharp
+
+           a || b
+     - Short-circuiting logical OR.
+   * - LogicalXor
+     - .. code-block:: csharp
+
+           a ^ b
+     - The ^ operator acts as a logical XOR for boolean operands.
    * - Equal
      - .. code-block:: csharp
 
