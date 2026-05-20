@@ -180,3 +180,4 @@
 - [x] Generate Pivot Chapter for Swift
 - [x] Generate Pivot Chapter for Kotlin
 - [x] Generate Pivot Chapter for Clojure
+- [x] Generate Pivot Chapter for Scala

@@ -9414,3 +9414,302 @@ instance SqlMutexUnlock of MutexUnlock { syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreDefinition of SemaphoreDefinition { name = "N/A" initial_value = 0 syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreWait of SemaphoreWait { syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreSignal of SemaphoreSignal { syntax = "N/A" notes = "N/A" }
+
+
+instance ScalaVar of VariableDeclaration {
+    name = "x"
+    type = "Int"
+    initial_value = 42
+    syntax = "var x: Int = 42"
+    notes = "Scala supports both mutable (var) and immutable (val) variables."
+}
+
+instance ScalaForEach of ForEach {
+    syntax = "collection.foreach(item => println(item))"
+    notes = "Commonly used with functional style."
+}
+
+instance ScalaCollectionDefinition of CollectionDefinition {
+    name = "list"
+    type = "List[Int]"
+    syntax = "val list = List(1, 2, 3)"
+    notes = "Immutable List is the default collection in Scala."
+}
+
+instance ScalaAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "map"
+    syntax = "val map = Map(\"a\" -> 1, \"b\" -> 2)"
+    notes = "Uses the -> operator to create tuples for the map."
+}
+
+instance ScalaEqual of Equal {
+    syntax = "a == b"
+    notes = "In Scala, == calls the equals method, handling nulls safely."
+}
+
+instance ScalaNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = "Inverse of ==."
+}
+
+instance ScalaGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Standard comparison operator."
+}
+
+instance ScalaLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance ScalaLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance ScalaLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "Bitwise XOR operator used for booleans as well."
+}
+
+instance ScalaProcedureDefinition of ProcedureDefinition {
+    name = "log"
+    parameters = ["message: String"]
+    body = { raw "println(message)" }
+    syntax = "def log(message: String): Unit = {\n    println(message)\n}"
+    notes = "Procedures return Unit in Scala."
+}
+
+instance ScalaFunctionDefinition of FunctionDefinition {
+    name = "addOne"
+    parameters = ["x: Int"]
+    return_type = "Int"
+    body = { return "x + 1" }
+    syntax = "def addOne(x: Int): Int = {\n    x + 1\n}"
+    notes = "The last expression in a block is the return value."
+}
+
+instance ScalaIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) 1 else 0"
+    notes = "if-else is an expression in Scala."
+}
+
+instance ScalaSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "x match {\n    case 1 => \"one\"\n    case 2 => \"two\"\n    case _ => \"many\"\n}"
+    notes = "Pattern matching is a powerful alternative to switch-case."
+}
+
+instance ScalaLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x -= 1" }
+    syntax = "while (x > 0) {\n    x -= 1\n}"
+    notes = "Standard while loop."
+}
+
+instance ScalaForLoop of ForLoop {
+    syntax = "for (i <- 0 until 10) {\n    println(i)\n}"
+    notes = "The for-comprehension is used for iteration."
+}
+
+instance ScalaTryCatch of TryCatch {
+    try_body = { raw "doSomething()" }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { raw "println(e)" }
+    syntax = "try {\n    // code\n} catch {\n    case e: Exception => println(e)\n} finally {\n    // cleanup\n}"
+    notes = "Uses pattern matching in the catch block."
+}
+
+instance ScalaRaise of Raise {
+    exception_type = "RuntimeException"
+    message = "error"
+    syntax = "throw new RuntimeException(\"error\")"
+    notes = "Similar to Java."
+}
+
+instance ScalaThread of Thread {
+    body = { raw "println(\"running\")" }
+    syntax = "val t = new Thread(() => {\n    println(\"running\")\n})\nt.start()"
+    notes = "Uses Java's Thread class."
+}
+
+instance ScalaSendMessage of SendMessage {
+    recipient = "actor"
+    message = "msg"
+    syntax = "actor ! message"
+    notes = "Idiomatic message passing using Akka or Pekko actors."
+}
+
+instance ScalaReceiveMessage of ReceiveMessage {
+    match_pattern = "message"
+    body = { raw "println(message)" }
+    syntax = "def receive = {\n    case message => println(message)\n}"
+    notes = "Actors define a receive partial function."
+}
+
+instance ScalaMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "val lock = new AnyRef"
+    notes = "Any object can serve as a monitor."
+}
+
+instance ScalaMutexLock of MutexLock {
+    syntax = "lock.synchronized {\n    // critical section\n}"
+    notes = "The synchronized block ensures mutual exclusion."
+}
+
+instance ScalaMutexUnlock of MutexUnlock {
+    syntax = "N/A"
+    notes = "Released automatically at the end of the synchronized block."
+}
+
+instance ScalaSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "val sem = new java.util.concurrent.Semaphore(1)"
+    notes = "Uses Java's Semaphore."
+}
+
+instance ScalaSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire()"
+    notes = "Blocks until a permit is available."
+}
+
+instance ScalaSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release()"
+    notes = "Releases a permit."
+}
+
+instance ScalaSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard C-style comment."
+}
+
+instance ScalaMultiLineComment of MultiLineComment {
+    syntax = "/* comment */"
+    notes = "Standard C-style multi-line comment."
+}
+
+instance ScalaPrint of Print {
+    value = "\"Hello World\""
+    syntax = "println(\"Hello World\")"
+    notes = "Prints to standard output with a newline."
+}
+
+instance ScalaImport of Import {
+    module_name = "scala.collection.mutable.ListBuffer"
+    syntax = "import scala.collection.mutable.ListBuffer"
+    notes = "Standard import statement."
+}
+
+instance ScalaConstant of Constant {
+    name = "PI"
+    type = "Double"
+    value = "3.14159"
+    syntax = "val PI = 3.14159"
+    notes = "Immutable variables (val) are used for constants."
+}
+
+instance ScalaAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic addition."
+}
+
+instance ScalaSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic subtraction."
+}
+
+instance ScalaMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic multiplication."
+}
+
+instance ScalaDivision of Division {
+    syntax = "a / b"
+    notes = "Standard arithmetic division."
+}
+
+instance ScalaRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard remainder operator."
+}
+
+instance ScalaFloor of Floor {
+    syntax = "math.floor(x)"
+    notes = "Uses the scala.math library."
+}
+
+instance ScalaRounding of Rounding {
+    syntax = "math.round(x)"
+    notes = "Uses the scala.math library."
+}
+
+instance ScalaIncrement of Increment {
+    syntax = "x += 1"
+    notes = "Scala does not have ++ operator."
+}
+
+instance ScalaDecrement of Decrement {
+    syntax = "x -= 1"
+    notes = "Scala does not have -- operator."
+}
+
+instance ScalaLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Bitwise left shift."
+}
+
+instance ScalaRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Bitwise right shift."
+}
+
+instance ScalaBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Bitwise AND."
+}
+
+instance ScalaBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Bitwise OR."
+}
+
+instance ScalaBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Bitwise XOR."
+}
+
+instance ScalaBitNot of BitNot {
+    syntax = "~a"
+    notes = "Bitwise NOT."
+}
+
+instance ScalaFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "for (i <- 0 until 4) c(i) = a(i) * b(i)"
+    notes = "Loops are commonly used for vector operations in basic Scala."
+}
+
+instance ScalaFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "(0 until 4).map(i => a(i) * b(i)).sum"
+    notes = "Functional approach using map and sum."
+}
+
+instance ScalaFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "res(0) = a(1) * b(2) - a(2) * b(1)\nres(1) = a(2) * b(0) - a(0) * b(2)\nres(2) = a(0) * b(1) - a(1) * b(0)\nres(3) = 0.0"
+    notes = "Standard 3D cross product implementation."
+}
+
+instance ScalaSetFiltering of SetFiltering {
+    syntax = "val filtered = list.filter(_ > 0)"
+    notes = "Higher-order function filter with underscore syntax."
+}
+
+instance ScalaSetJoin of SetJoin {
+    syntax = "for (a <- listA; b <- listB if a.id == b.id) yield (a, b)"
+    notes = "Uses for-comprehension with a guard for joining."
+}
