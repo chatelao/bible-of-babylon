@@ -69,6 +69,7 @@ Downloads
    overpass_turbo_pivot
    clojure_pivot
    brainfuck_pivot
+   scala_pivot
 
 Indices and tables
 ==================
