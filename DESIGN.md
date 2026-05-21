@@ -43,6 +43,7 @@ This section compares languages based on common programming patterns.
 - Collection definition
 - Associative array definition
 - Control flow (if/else, loops, for loops, for-each loops)
+- Line continuation
 - Function/Procedure definition
 - Error handling
 - Concurrency models
