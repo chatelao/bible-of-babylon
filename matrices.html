@@ -2395,7 +2395,47 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>LineContinuation</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">^</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">`</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">do_something</span><span class="p">();</span>
@@ -2554,7 +2594,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -2667,7 +2707,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="kr">thread</span><span class="w"> </span><span class="nf">t</span><span class="p">(</span><span class="n">do_work</span><span class="p">);</span>
 <span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
@@ -2769,7 +2809,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
 </pre></div>
@@ -2864,7 +2904,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">queue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
 <span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
@@ -2963,7 +3003,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -3030,7 +3070,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MutexLock</p></td>
+<tr class="row-odd"><td><p>MutexLock</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3097,7 +3137,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3161,7 +3201,7 @@
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_t</span><span class="w"> </span><span class="n">sem</span><span class="p">;</span>
 <span class="n">sem_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -3229,7 +3269,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3296,7 +3336,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3363,7 +3403,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
 </pre></div>
 </div>
@@ -3478,7 +3518,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
 </pre></div>
@@ -3585,7 +3625,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -3709,7 +3749,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 </pre></div>
 </div>
@@ -3827,7 +3867,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -3945,7 +3985,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4063,7 +4103,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4181,7 +4221,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4299,7 +4339,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4417,7 +4457,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -4529,7 +4569,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4629,7 +4669,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4732,7 +4772,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">++</span>
 </pre></div>
 </div>
@@ -4850,7 +4890,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
 </pre></div>
 </div>
@@ -4968,7 +5008,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5080,7 +5120,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5192,7 +5232,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5304,7 +5344,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5416,7 +5456,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -5528,7 +5568,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -5641,7 +5681,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </pre></div>
 </div>
@@ -5758,7 +5798,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
 </pre></div>
 </div>
@@ -5882,7 +5922,7 @@
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 <span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
@@ -6081,7 +6121,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">result</span><span class="p">[</span><span class="n">j</span><span class="o">++</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -6227,7 +6267,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">].</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6697,7 +6737,14 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>TryCatch</p></td>
+<tr class="row-even"><td><p>LineContinuation</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>TryCatch</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
 <span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
 <span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
@@ -6719,7 +6766,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Raise</p></td>
+<tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -6732,21 +6779,21 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Thread</p></td>
+<tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SendMessage</p></td>
+<tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>ReceiveMessage</p></td>
+<tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">subscription</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="err">}</span>
@@ -6756,49 +6803,49 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>MutexDefinition</p></td>
+<tr class="row-even"><td><p>MutexDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>MutexLock</p></td>
+<tr class="row-odd"><td><p>MutexLock</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>MutexUnlock</p></td>
+<tr class="row-even"><td><p>MutexUnlock</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SemaphoreDefinition</p></td>
+<tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SemaphoreWait</p></td>
+<tr class="row-even"><td><p>SemaphoreWait</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SemaphoreSignal</p></td>
+<tr class="row-odd"><td><p>SemaphoreSignal</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>SingleLineComment</p></td>
+<tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
 </pre></div>
 </div>
@@ -6820,7 +6867,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>MultiLineComment</p></td>
+<tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
 <span class="cm">   line 2 */</span>
 </pre></div>
@@ -6841,7 +6888,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Print</p></td>
+<tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -6857,7 +6904,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Import</p></td>
+<tr class="row-odd"><td><p>Import</p></td>
 <td><p>N/A</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
 </pre></div>
@@ -6873,7 +6920,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>Constant</p></td>
+<tr class="row-even"><td><p>Constant</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -6892,7 +6939,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-even"><td><p>Addition</p></td>
+<tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -6908,7 +6955,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Subtraction</p></td>
+<tr class="row-even"><td><p>Subtraction</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -6924,7 +6971,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Multiplication</p></td>
+<tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -6940,7 +6987,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Division</p></td>
+<tr class="row-even"><td><p>Division</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -6956,7 +7003,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Remainder</p></td>
+<tr class="row-odd"><td><p>Remainder</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -6969,7 +7016,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Floor</p></td>
+<tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6985,7 +7032,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Rounding</p></td>
+<tr class="row-odd"><td><p>Rounding</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">ROUND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7001,7 +7048,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Increment</p></td>
+<tr class="row-even"><td><p>Increment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
@@ -7017,7 +7064,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Decrement</p></td>
+<tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 </pre></div>
 </div>
@@ -7033,21 +7080,21 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>LeftShift</p></td>
+<tr class="row-even"><td><p>LeftShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>RightShift</p></td>
+<tr class="row-odd"><td><p>RightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitAnd</p></td>
+<tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -7057,7 +7104,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitOr</p></td>
+<tr class="row-odd"><td><p>BitOr</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -7067,7 +7114,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>BitXor</p></td>
+<tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
@@ -7077,7 +7124,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>BitNot</p></td>
+<tr class="row-odd"><td><p>BitNot</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
@@ -7087,7 +7134,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
+<tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
 </pre></div>
 </div>
@@ -7100,7 +7147,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>Float4VectorDotProduct</p></td>
+<tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
 </pre></div>
 </div>
@@ -7113,7 +7160,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-odd"><td><p>Float4VectorCrossProduct</p></td>
+<tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span>
 </pre></div>
 </div>
@@ -7126,7 +7173,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
-<tr class="row-even"><td><p>SetFiltering</p></td>
+<tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span>
 </pre></div>
 </div>
@@ -7150,7 +7197,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 </tr>
-<tr class="row-odd"><td><p>SetJoin</p></td>
+<tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tableA</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">tableB</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">tableA</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tableB</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
 </pre></div>
 </div>

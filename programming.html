@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#switchcase">SwitchCase</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loop">Loop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#forloop">ForLoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linecontinuation">LineContinuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trycatch">TryCatch</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#raise">Raise</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#thread">Thread</a></li>
@@ -671,7 +672,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Functions like <a href="#id71"><span class="problematic" id="id72">mapM_</span></a> or <a href="#id73"><span class="problematic" id="id74">forM_</span></a> are used to apply actions to elements.</p></td>
+<td><p>Functions like <a href="#id72"><span class="problematic" id="id73">mapM_</span></a> or <a href="#id74"><span class="problematic" id="id75">forM_</span></a> are used to apply actions to elements.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForEach</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4376,7 +4377,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id75"><span class="problematic" id="id76">mapM_</span></a> or <a href="#id77"><span class="problematic" id="id78">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id76"><span class="problematic" id="id77">mapM_</span></a> or <a href="#id78"><span class="problematic" id="id79">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -4480,6 +4481,51 @@
 </tbody>
 </table>
 </section>
+<section id="linecontinuation">
+<h2>LineContinuation<a class="headerlink" href="#linecontinuation" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Character used to continue a command on the next line.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">LineContinuation Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BashLineContinuation</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="se">\</span>
+</pre></div>
+</div>
+</td>
+<td><p>The backslash is the standard line continuation character in Bash.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CmdLineContinuation</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">^</span>
+</pre></div>
+</div>
+</td>
+<td><p>The caret is used for line continuation in Windows Command Prompt (Cmd).</p></td>
+</tr>
+<tr class="row-even"><td><p>PowerShellLineContinuation</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">`</span>
+</pre></div>
+</div>
+</td>
+<td><p>PowerShell uses the backtick character for line continuation.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="trycatch">
 <h2>TryCatch<a class="headerlink" href="#trycatch" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -4496,8 +4542,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4805,8 +4851,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5058,8 +5104,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5255,8 +5301,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5445,8 +5491,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5641,8 +5687,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5761,8 +5807,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5881,8 +5927,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6000,8 +6046,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6121,8 +6167,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6241,8 +6287,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6361,8 +6407,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6627,8 +6673,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6885,8 +6931,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7155,8 +7201,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7418,8 +7464,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7681,8 +7727,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7944,8 +7990,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id52">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8207,8 +8253,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id53">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8470,8 +8516,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id54">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8730,8 +8776,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id55">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8981,8 +9027,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id56">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9223,8 +9269,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id57">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9468,8 +9514,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id58">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id59">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9731,8 +9777,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id59">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id60">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9994,8 +10040,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id60">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id61">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10239,8 +10285,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id61">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id62">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10484,8 +10530,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id62">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id63">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10732,8 +10778,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id63">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id64">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10980,8 +11026,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id64">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id65">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id65" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11228,8 +11274,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id65">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id65" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id66">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id66" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11477,8 +11523,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id66">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id66" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id67">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id67" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11733,8 +11779,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id67">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id67" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id68">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id68" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11996,8 +12042,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id68">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id68" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id69">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id69" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12334,8 +12380,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id69">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id69" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id70">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id70" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12630,8 +12676,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id70">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id70" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id71">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id71" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>

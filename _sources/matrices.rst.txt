@@ -1865,6 +1865,42 @@ Programming Languages
 
            (doseq [i (range 10)]
              (println i))
+   * - LineContinuation
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: bash
+
+           \
+     - .. code-block:: doscon
+
+           ^
+     - .. code-block:: powershell
+
+           `
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
    * - TryCatch
      - N/A
      - .. code-block:: cpp
@@ -5213,6 +5249,12 @@ Data Query Languages
      - .. code-block:: text
 
            for ( ... )
+   * - LineContinuation
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
    * - TryCatch
      - .. code-block:: sql
 

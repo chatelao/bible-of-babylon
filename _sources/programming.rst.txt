@@ -3414,6 +3414,46 @@ Parameters:
 
 
 
+LineContinuation
+----------------
+
+
+:description: Character used to continue a command on the next line.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: LineContinuation Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - BashLineContinuation
+     - .. code-block:: bash
+
+           \
+     - The backslash is the standard line continuation character in Bash.
+   * - CmdLineContinuation
+     - .. code-block:: doscon
+
+           ^
+     - The caret is used for line continuation in Windows Command Prompt (Cmd).
+   * - PowerShellLineContinuation
+     - .. code-block:: powershell
+
+           `
+     - PowerShell uses the backtick character for line continuation.
+
+
+
 TryCatch
 --------
 
