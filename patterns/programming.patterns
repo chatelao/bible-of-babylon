@@ -113,6 +113,12 @@ pattern ForLoop {
     parameter notes: String
 }
 
+pattern LineContinuation {
+    meta description: "Character used to continue a command on the next line."
+    parameter syntax: String
+    parameter notes: String
+}
+
 instance CVar of VariableDeclaration {
     name = "x"
     type = "int"
@@ -9414,3 +9420,18 @@ instance SqlMutexUnlock of MutexUnlock { syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreDefinition of SemaphoreDefinition { name = "N/A" initial_value = 0 syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreWait of SemaphoreWait { syntax = "N/A" notes = "N/A" }
 instance SqlSemaphoreSignal of SemaphoreSignal { syntax = "N/A" notes = "N/A" }
+
+instance BashLineContinuation of LineContinuation {
+    syntax = "\\"
+    notes = "The backslash is the standard line continuation character in Bash."
+}
+
+instance CmdLineContinuation of LineContinuation {
+    syntax = "^"
+    notes = "The caret is used for line continuation in Windows Command Prompt (Cmd)."
+}
+
+instance PowerShellLineContinuation of LineContinuation {
+    syntax = "`"
+    notes = "PowerShell uses the backtick character for line continuation."
+}
