@@ -9435,3 +9435,306 @@ instance PowerShellLineContinuation of LineContinuation {
     syntax = "`"
     notes = "PowerShell uses the backtick character for line continuation."
 }
+
+instance ZigVar of VariableDeclaration {
+    name = "x"
+    type = "i32"
+    initial_value = 42
+    syntax = "var x: i32 = 42;"
+    notes = "Variables are declared with 'var' for mutable values."
+}
+
+instance ZigCollectionDefinition of CollectionDefinition {
+    name = "a"
+    type = "[3]i32"
+    syntax = "var a = [_]i32{1, 2, 3};"
+    notes = "Zig uses array literals with the { } syntax; [_] infers the size."
+}
+
+instance ZigAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "map"
+    syntax = "var map = std.AutoHashMap(i32, i32).init(allocator);"
+    notes = "Zig's standard library provides HashMap types; they require an allocator for initialization."
+}
+
+instance ZigEqual of Equal {
+    syntax = "a == b"
+    notes = "Standard equality operator for primitive types."
+}
+
+instance ZigNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = "Standard inequality operator."
+}
+
+instance ZigGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Standard comparison operator."
+}
+
+instance ZigLogicalAnd of LogicalAnd {
+    syntax = "a and b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance ZigLogicalOr of LogicalOr {
+    syntax = "a or b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance ZigLogicalXor of LogicalXor {
+    syntax = "a != b"
+    notes = "Logical XOR is achieved using inequality for booleans."
+}
+
+instance ZigProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg: []const u8"]
+    body = { raw "std.debug.print(\"{s}\\n\", .{msg});" }
+    syntax = "fn logMessage(msg: []const u8) void {\n    std.debug.print(\"{s}\\n\", .{msg});\n}"
+    notes = "Procedures use the 'void' return type."
+}
+
+instance ZigFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a: i32", "b: i32"]
+    return_type = "i32"
+    body = { raw "return a + b;" }
+    syntax = "fn add(a: i32, b: i32) i32 {\n    return a + b;\n}"
+    notes = "Functions return a type; 'return' is required."
+}
+
+instance ZigIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) {\n    return 1;\n} else {\n    return 0;\n}"
+    notes = "Standard if-else statement; parentheses around the condition are required."
+}
+
+instance ZigSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "switch (x) {\n    1 => return 1,\n    2 => return 2,\n    else => return 0,\n}"
+    notes = "Zig's switch is an expression and must be exhaustive."
+}
+
+instance ZigLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x -= 1;" }
+    syntax = "while (x > 0) {\n    x -= 1;\n}"
+    notes = "Standard while loop."
+}
+
+instance ZigForLoop of ForLoop {
+    syntax = "for (0..10) |i| {\n    // body\n}"
+    notes = "Zig's for loop iterates over ranges or collections."
+}
+
+instance ZigForEach of ForEach {
+    syntax = "for (collection) |item| {\n    // body\n}"
+    notes = "Zig uses the for loop to iterate over elements of an array or slice."
+}
+
+instance ZigTryCatch of TryCatch {
+    try_body = { call doSomething() }
+    exception_type = "anyerror"
+    error_variable = "err"
+    catch_body = { call handle(err) }
+    syntax = "doSomething() catch |err| {\n    handle(err);\n};"
+    notes = "Zig uses error unions and the catch keyword for error handling."
+}
+
+instance ZigRaise of Raise {
+    exception_type = "error"
+    message = "BadThing"
+    syntax = "return error.BadThing;"
+    notes = "Zig uses explicit error return values from the 'error' set."
+}
+
+instance ZigThread of Thread {
+    body = { call doWork() }
+    syntax = "const thread = try std.Thread.spawn(.{}, doWork, .{});\nthread.join();"
+    notes = "Uses std.Thread.spawn to run a function in a new thread."
+}
+
+instance ZigSendMessage of SendMessage {
+    recipient = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "Zig does not have a native message-passing primitive; usually implemented via shared memory and synchronization."
+}
+
+instance ZigReceiveMessage of ReceiveMessage {
+    match_pattern = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance ZigMutexDefinition of MutexDefinition {
+    name = "mutex"
+    syntax = "var mutex = std.Thread.Mutex{};"
+    notes = "Provides mutual exclusion."
+}
+
+instance ZigMutexLock of MutexLock {
+    syntax = "mutex.lock();"
+    notes = "Acquires the lock; blocks if held."
+}
+
+instance ZigMutexUnlock of MutexUnlock {
+    syntax = "mutex.unlock();"
+    notes = "Releases the lock."
+}
+
+instance ZigSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "var sem = std.Thread.Semaphore{ .permits = 1 };"
+    notes = "Initializes a semaphore with a permit count."
+}
+
+instance ZigSemaphoreWait of SemaphoreWait {
+    syntax = "sem.wait();"
+    notes = "Decrements the permit count; blocks if zero."
+}
+
+instance ZigSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.post();"
+    notes = "Increments the permit count."
+}
+
+instance ZigSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard single-line comment."
+}
+
+instance ZigMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "Zig does not have multi-line comments; multiple single-line comments are used."
+}
+
+instance ZigPrint of Print {
+    value = "Hello, World!"
+    syntax = "std.debug.print(\"Hello, World!\\n\", .{});"
+    notes = "Standard debug print; requires the std library."
+}
+
+instance ZigImport of Import {
+    module_name = "std"
+    syntax = "const std = @import(\"std\");"
+    notes = "The @import built-in function imports a package or file."
+}
+
+instance ZigConstant of Constant {
+    name = "MAX"
+    type = "i32"
+    value = "100"
+    syntax = "const MAX: i32 = 100;"
+    notes = "Constants are declared with 'const' and are immutable."
+}
+
+instance ZigAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard addition operator; Zig also has wrap-around addition with +%."
+}
+
+instance ZigSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard subtraction operator."
+}
+
+instance ZigMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard multiplication operator."
+}
+
+instance ZigDivision of Division {
+    syntax = "a / b"
+    notes = "Standard division operator."
+}
+
+instance ZigRemainder of Remainder {
+    syntax = "@mod(a, b)"
+    notes = "Zig uses the @mod built-in for the remainder."
+}
+
+instance ZigFloor of Floor {
+    syntax = "@floor(a)"
+    notes = "Uses the @floor built-in function for floating-point values."
+}
+
+instance ZigRounding of Rounding {
+    syntax = "@round(a)"
+    notes = "Uses the @round built-in function for floating-point values."
+}
+
+instance ZigIncrement of Increment {
+    syntax = "a += 1"
+    notes = "Zig does not support prefix or postfix ++ operators."
+}
+
+instance ZigDecrement of Decrement {
+    syntax = "a -= 1"
+    notes = "Zig does not support -- operators."
+}
+
+instance ZigLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard bitwise left shift."
+}
+
+instance ZigRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Standard bitwise right shift."
+}
+
+instance ZigBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Bitwise AND operator."
+}
+
+instance ZigBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Bitwise OR operator."
+}
+
+instance ZigBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Bitwise XOR operator."
+}
+
+instance ZigBitNot of BitNot {
+    syntax = "~a"
+    notes = "Bitwise NOT operator."
+}
+
+instance ZigFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "const c = a * b;"
+    notes = "Zig supports native SIMD vector operations for @Vector types."
+}
+
+instance ZigFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "const dot = @reduce(.Add, a * b);"
+    notes = "Uses @reduce with .Add on the element-wise product of vectors."
+}
+
+instance ZigFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };"
+    notes = "Manual implementation for 3D cross product of vectors."
+}
+
+instance ZigSetFiltering of SetFiltering {
+    syntax = "for (a) |item| { if (condition(item)) try res.append(item); }"
+    notes = "Typically implemented using a loop and a conditional append to a dynamic list."
+}
+
+instance ZigSetJoin of SetJoin {
+    syntax = "for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }"
+    notes = "Implemented using nested loops for joining collections."
+}
+
+instance ZigLineContinuation of LineContinuation {
+    syntax = "N/A"
+    notes = "Zig treats newlines as whitespace, so explicit line continuation characters are not needed."
+}

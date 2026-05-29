@@ -37,6 +37,7 @@ This section compares languages based on common programming patterns.
 - Swift
 - Kotlin
 - Clojure
+- Zig
 
 **Patterns to be compared:**
 - Variable declaration
