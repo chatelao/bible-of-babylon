@@ -206,6 +206,11 @@ Parameters:
 
            var x: i32 = 42;
      - Variables are declared with 'var' for mutable values.
+   * - ScalaVar
+     - .. code-block:: scala
+
+           var x: Int = 42
+     - Variables are declared with 'var'; supports type inference.
 
 
 
@@ -476,6 +481,11 @@ Parameters:
                // body
            }
      - Zig uses the for loop to iterate over elements of an array or slice.
+   * - ScalaForEach
+     - .. code-block:: scala
+
+           collection.foreach(item => println(item))
+     - Higher-order function for iterating over a collection.
 
 
 
@@ -685,6 +695,11 @@ Parameters:
 
            var a = [_]i32{1, 2, 3};
      - Zig uses array literals with the { } syntax; [_] infers the size.
+   * - ScalaCollectionDefinition
+     - .. code-block:: scala
+
+           val l = List(1, 2, 3)
+     - Lists are immutable by default in Scala.
 
 
 
@@ -871,6 +886,11 @@ Parameters:
 
            var map = std.AutoHashMap(i32, i32).init(allocator);
      - Zig's standard library provides HashMap types; they require an allocator for initialization.
+   * - ScalaAssociativeArrayDefinition
+     - .. code-block:: scala
+
+           val m = Map("a" -> 1, "b" -> 2)
+     - Maps store key-value pairs using the -> arrow.
 
 
 
@@ -1074,6 +1094,11 @@ Parameters:
 
            a == b
      - Standard equality operator for primitive types.
+   * - ScalaEqual
+     - .. code-block:: scala
+
+           a == b
+     - Checks for structural equality; calls equals().
 
 
 
@@ -1277,6 +1302,11 @@ Parameters:
 
            a != b
      - Standard inequality operator.
+   * - ScalaNotEqual
+     - .. code-block:: scala
+
+           a != b
+     - Structural inequality.
 
 
 
@@ -1476,6 +1506,11 @@ Parameters:
 
            a > b
      - Standard comparison operator.
+   * - ScalaGreaterThan
+     - .. code-block:: scala
+
+           a > b
+     - Standard comparison.
 
 
 
@@ -1565,6 +1600,11 @@ Parameters:
      - .. code-block:: zig
 
            a and b
+     - Short-circuiting logical AND.
+   * - ScalaLogicalAnd
+     - .. code-block:: scala
+
+           a && b
      - Short-circuiting logical AND.
 
 
@@ -1656,6 +1696,11 @@ Parameters:
 
            a or b
      - Short-circuiting logical OR.
+   * - ScalaLogicalOr
+     - .. code-block:: scala
+
+           a || b
+     - Short-circuiting logical OR.
 
 
 
@@ -1744,6 +1789,11 @@ Parameters:
 
            a != b
      - Logical XOR is achieved using inequality for booleans.
+   * - ScalaLogicalXor
+     - .. code-block:: scala
+
+           a ^ b
+     - The ^ operator acts as a logical XOR for boolean operands.
 
 
 
@@ -2019,6 +2069,13 @@ Parameters:
                std.debug.print("{s}\n", .{msg});
            }
      - Procedures use the 'void' return type.
+   * - ScalaProcedure
+     - .. code-block:: scala
+
+           def logMessage(msg: String): Unit = {
+               println(msg)
+           }
+     - Procedures return Unit (equivalent to void).
 
 
 
@@ -2293,6 +2350,11 @@ Parameters:
                return a + b;
            }
      - Functions return a type; 'return' is required.
+   * - ScalaFunction
+     - .. code-block:: scala
+
+           def add(a: Int, b: Int): Int = a + b
+     - Functions are defined with 'def'; result is the value of the last expression.
 
 
 
@@ -2598,6 +2660,11 @@ Parameters:
                return 0;
            }
      - Standard if-else statement; parentheses around the condition are required.
+   * - ScalaIfElse
+     - .. code-block:: scala
+
+           if (x > 0) 1 else 0
+     - If-else is an expression in Scala.
 
 
 
@@ -2970,6 +3037,15 @@ Parameters:
                else => return 0,
            }
      - Zig's switch is an expression and must be exhaustive.
+   * - ScalaSwitchCase
+     - .. code-block:: scala
+
+           x match {
+               case 1 => 1
+               case 2 => 2
+               case _ => 0
+           }
+     - Scala uses pattern matching with 'match'.
 
 
 
@@ -3237,6 +3313,13 @@ Parameters:
 
            while (x > 0) {
                x -= 1;
+           }
+     - Standard while loop.
+   * - ScalaLoop
+     - .. code-block:: scala
+
+           while (x > 0) {
+               x -= 1
            }
      - Standard while loop.
 
@@ -3509,6 +3592,13 @@ Parameters:
                // body
            }
      - Zig's for loop iterates over ranges or collections.
+   * - ScalaForLoop
+     - .. code-block:: scala
+
+           for (i <- 0 until 10) {
+               // body
+           }
+     - Iterates over a range; 'until' is exclusive of the upper bound.
 
 
 
@@ -3552,6 +3642,9 @@ Parameters:
    * - ZigLineContinuation
      - N/A
      - Zig treats newlines as whitespace, so explicit line continuation characters are not needed.
+   * - ScalaLineContinuation
+     - N/A
+     - Scala automatically handles line continuation if an expression is incomplete.
 
 
 
@@ -3816,6 +3909,15 @@ Parameters:
                handle(err);
            };
      - Zig uses error unions and the catch keyword for error handling.
+   * - ScalaTryCatch
+     - .. code-block:: scala
+
+           try {
+               doSomething()
+           } catch {
+               case e: Exception => handle(e)
+           }
+     - Scala's catch block uses pattern matching.
 
 
 
@@ -4015,6 +4117,11 @@ Parameters:
 
            return error.BadThing;
      - Zig uses explicit error return values from the 'error' set.
+   * - ScalaRaise
+     - .. code-block:: scala
+
+           throw new Exception("Error")
+     - Uses 'throw' to raise an exception.
 
 
 
@@ -4175,6 +4282,11 @@ Parameters:
            const thread = try std.Thread.spawn(.{}, doWork, .{});
            thread.join();
      - Uses std.Thread.spawn to run a function in a new thread.
+   * - ScalaThread
+     - .. code-block:: scala
+
+           Future { doWork() }
+     - Uses Futures for asynchronous execution (requires ExecutionContext).
 
 
 
@@ -4327,6 +4439,11 @@ Parameters:
    * - ZigSendMessage
      - N/A
      - Zig does not have a native message-passing primitive; usually implemented via shared memory and synchronization.
+   * - ScalaSendMessage
+     - .. code-block:: scala
+
+           actor ! msg
+     - Actors use the ! operator for asynchronous message passing (e.g., in Akka/Pekko).
 
 
 
@@ -4486,6 +4603,11 @@ Parameters:
    * - ZigReceiveMessage
      - N/A
      - Not supported natively.
+   * - ScalaReceiveMessage
+     - .. code-block:: scala
+
+           def receive = { case msg => handle(msg) }
+     - Actors define a receive block using pattern matching.
 
 
 
@@ -4587,6 +4709,11 @@ Parameters:
 
            var mutex = std.Thread.Mutex{};
      - Provides mutual exclusion.
+   * - ScalaMutexDefinition
+     - .. code-block:: scala
+
+           val lock = new AnyRef()
+     - Any object can be used as a monitor in Scala.
 
 
 
@@ -4686,6 +4813,11 @@ Parameters:
 
            mutex.lock();
      - Acquires the lock; blocks if held.
+   * - ScalaMutexLock
+     - .. code-block:: scala
+
+           lock.synchronized { ... }
+     - The synchronized block acquires the object's monitor.
 
 
 
@@ -4783,6 +4915,9 @@ Parameters:
 
            mutex.unlock();
      - Releases the lock.
+   * - ScalaMutexUnlock
+     - N/A
+     - Released automatically at the end of the synchronized block.
 
 
 
@@ -4887,6 +5022,11 @@ Parameters:
 
            var sem = std.Thread.Semaphore{ .permits = 1 };
      - Initializes a semaphore with a permit count.
+   * - ScalaSemaphoreDefinition
+     - .. code-block:: scala
+
+           val sem = new java.util.concurrent.Semaphore(1)
+     - Uses Java's Semaphore class.
 
 
 
@@ -4986,6 +5126,11 @@ Parameters:
 
            sem.wait();
      - Decrements the permit count; blocks if zero.
+   * - ScalaSemaphoreWait
+     - .. code-block:: scala
+
+           sem.acquire()
+     - Blocks until a permit is available.
 
 
 
@@ -5084,6 +5229,11 @@ Parameters:
      - .. code-block:: zig
 
            sem.post();
+     - Increments the permit count.
+   * - ScalaSemaphoreSignal
+     - .. code-block:: scala
+
+           sem.release()
      - Increments the permit count.
 
 
@@ -5285,6 +5435,11 @@ Parameters:
      - All characters except '><+-.,[]' are ignored and can be used as comments.
    * - ZigSingleLineComment
      - .. code-block:: zig
+
+           // comment
+     - Standard single-line comment.
+   * - ScalaSingleLineComment
+     - .. code-block:: scala
 
            // comment
      - Standard single-line comment.
@@ -5490,6 +5645,12 @@ Parameters:
    * - ZigMultiLineComment
      - N/A
      - Zig does not have multi-line comments; multiple single-line comments are used.
+   * - ScalaMultiLineComment
+     - .. code-block:: scala
+
+           /* line 1
+              line 2 */
+     - Standard block comment; supports nesting.
 
 
 
@@ -5699,6 +5860,11 @@ Parameters:
 
            std.debug.print("Hello, World!\n", .{});
      - Standard debug print; requires the std library.
+   * - ScalaPrint
+     - .. code-block:: scala
+
+           println("Hello, World!")
+     - Outputs to the console with a trailing newline.
 
 
 
@@ -5900,6 +6066,11 @@ Parameters:
 
            const std = @import("std");
      - The @import built-in function imports a package or file.
+   * - ScalaImport
+     - .. code-block:: scala
+
+           import scala.collection.mutable
+     - Imports a package or specific members.
 
 
 
@@ -6107,6 +6278,11 @@ Parameters:
 
            const MAX: i32 = 100;
      - Constants are declared with 'const' and are immutable.
+   * - ScalaConstant
+     - .. code-block:: scala
+
+           val MAX = 100
+     - Constants are declared with 'val' and are immutable.
 
 
 
@@ -6308,6 +6484,11 @@ Parameters:
 
            a + b
      - Standard addition operator; Zig also has wrap-around addition with +%.
+   * - ScalaAddition
+     - .. code-block:: scala
+
+           a + b
+     - Standard arithmetic operator.
 
 
 
@@ -6509,6 +6690,11 @@ Parameters:
 
            a - b
      - Standard subtraction operator.
+   * - ScalaSubtraction
+     - .. code-block:: scala
+
+           a - b
+     - Standard arithmetic operator.
 
 
 
@@ -6710,6 +6896,11 @@ Parameters:
 
            a * b
      - Standard multiplication operator.
+   * - ScalaMultiplication
+     - .. code-block:: scala
+
+           a * b
+     - Standard arithmetic operator.
 
 
 
@@ -6909,6 +7100,11 @@ Parameters:
 
            a / b
      - Standard division operator.
+   * - ScalaDivision
+     - .. code-block:: scala
+
+           a / b
+     - Standard arithmetic operator.
 
 
 
@@ -7102,6 +7298,11 @@ Parameters:
 
            @mod(a, b)
      - Zig uses the @mod built-in for the remainder.
+   * - ScalaRemainder
+     - .. code-block:: scala
+
+           a % b
+     - Standard arithmetic operator.
 
 
 
@@ -7289,6 +7490,11 @@ Parameters:
 
            @floor(a)
      - Uses the @floor built-in function for floating-point values.
+   * - ScalaFloor
+     - .. code-block:: scala
+
+           math.floor(a)
+     - Uses the scala.math package.
 
 
 
@@ -7478,6 +7684,11 @@ Parameters:
 
            @round(a)
      - Uses the @round built-in function for floating-point values.
+   * - ScalaRounding
+     - .. code-block:: scala
+
+           math.round(a)
+     - Uses the scala.math package.
 
 
 
@@ -7679,6 +7890,11 @@ Parameters:
 
            a += 1
      - Zig does not support prefix or postfix ++ operators.
+   * - ScalaIncrement
+     - .. code-block:: scala
+
+           a += 1
+     - Scala does not support ++ operators.
 
 
 
@@ -7880,6 +8096,11 @@ Parameters:
 
            a -= 1
      - Zig does not support -- operators.
+   * - ScalaDecrement
+     - .. code-block:: scala
+
+           a -= 1
+     - Scala does not support -- operators.
 
 
 
@@ -8069,6 +8290,11 @@ Parameters:
 
            a << b
      - Standard bitwise left shift.
+   * - ScalaLeftShift
+     - .. code-block:: scala
+
+           a << b
+     - Standard bitwise shift.
 
 
 
@@ -8258,6 +8484,11 @@ Parameters:
 
            a >> b
      - Standard bitwise right shift.
+   * - ScalaRightShift
+     - .. code-block:: scala
+
+           a >> b
+     - Standard bitwise shift.
 
 
 
@@ -8449,6 +8680,11 @@ Parameters:
 
            a & b
      - Bitwise AND operator.
+   * - ScalaBitAnd
+     - .. code-block:: scala
+
+           a & b
+     - Standard bitwise operator.
 
 
 
@@ -8640,6 +8876,11 @@ Parameters:
 
            a | b
      - Bitwise OR operator.
+   * - ScalaBitOr
+     - .. code-block:: scala
+
+           a | b
+     - Standard bitwise operator.
 
 
 
@@ -8831,6 +9072,11 @@ Parameters:
 
            a ^ b
      - Bitwise XOR operator.
+   * - ScalaBitXor
+     - .. code-block:: scala
+
+           a ^ b
+     - Standard bitwise operator.
 
 
 
@@ -9023,6 +9269,11 @@ Parameters:
 
            ~a
      - Bitwise NOT operator.
+   * - ScalaBitNot
+     - .. code-block:: scala
+
+           ~a
+     - Standard bitwise operator.
 
 
 
@@ -9221,6 +9472,11 @@ Parameters:
 
            const c = a * b;
      - Zig supports native SIMD vector operations for @Vector types.
+   * - ScalaFloat4VectorMultiplication
+     - .. code-block:: scala
+
+           a.zip(b).map { case (ai, bi) => ai * bi }
+     - Functional approach using zip and map.
 
 
 
@@ -9426,6 +9682,11 @@ Parameters:
 
            const dot = @reduce(.Add, a * b);
      - Uses @reduce with .Add on the element-wise product of vectors.
+   * - ScalaFloat4VectorDotProduct
+     - .. code-block:: scala
+
+           a.zip(b).map { case (ai, bi) => ai * bi }.sum
+     - Functional approach combining zip, map, and sum.
 
 
 
@@ -9707,6 +9968,11 @@ Parameters:
 
            const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };
      - Manual implementation for 3D cross product of vectors.
+   * - ScalaFloat4VectorCrossProduct
+     - .. code-block:: scala
+
+           Array(a(1)*b(2) - a(2)*b(1), a(2)*b(0) - a(0)*b(2), a(0)*b(1) - a(1)*b(0), 0.0f)
+     - Manual calculation for 3D cross product.
 
 
 
@@ -9941,6 +10207,11 @@ Parameters:
 
            for (a) |item| { if (condition(item)) try res.append(item); }
      - Typically implemented using a loop and a conditional append to a dynamic list.
+   * - ScalaSetFiltering
+     - .. code-block:: scala
+
+           val filtered = collection.filter(_ > 0)
+     - Uses the filter method with a predicate; _ is a shorthand for the element.
 
 
 
@@ -10182,3 +10453,8 @@ Parameters:
 
            for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }
      - Implemented using nested loops for joining collections.
+   * - ScalaSetJoin
+     - .. code-block:: scala
+
+           for { a <- listA; b <- listB; if a.id == b.id } yield (a, b)
+     - Implemented using for-comprehensions for joining collections.
