@@ -201,6 +201,11 @@ Parameters:
 
            (def x 42)
      - Variables are defined using 'def'; they are immutable by default in the sense of 'binding'.
+   * - ZigVar
+     - .. code-block:: zig
+
+           var x: i32 = 42;
+     - Variables are declared with 'var' for mutable values.
 
 
 
@@ -464,6 +469,13 @@ Parameters:
    * - BrainfuckForEach
      - N/A
      - Iterating over a collection is not natively supported as there are no high-level collection types.
+   * - ZigForEach
+     - .. code-block:: zig
+
+           for (collection) |item| {
+               // body
+           }
+     - Zig uses the for loop to iterate over elements of an array or slice.
 
 
 
@@ -668,6 +680,11 @@ Parameters:
    * - BrainfuckCollectionDefinition
      - N/A
      - The entire memory is a single linear collection of cells.
+   * - ZigCollectionDefinition
+     - .. code-block:: zig
+
+           var a = [_]i32{1, 2, 3};
+     - Zig uses array literals with the { } syntax; [_] infers the size.
 
 
 
@@ -849,6 +866,11 @@ Parameters:
    * - BrainfuckAssociativeArrayDefinition
      - N/A
      - Not supported natively.
+   * - ZigAssociativeArrayDefinition
+     - .. code-block:: zig
+
+           var map = std.AutoHashMap(i32, i32).init(allocator);
+     - Zig's standard library provides HashMap types; they require an allocator for initialization.
 
 
 
@@ -1047,6 +1069,11 @@ Parameters:
 
            [->+<]>[-<+>]<[->-<]+>[<->[-]]<
      - Compares two cells for equality; requires a complex sequence of loops and temporary cells.
+   * - ZigEqual
+     - .. code-block:: zig
+
+           a == b
+     - Standard equality operator for primitive types.
 
 
 
@@ -1245,6 +1272,11 @@ Parameters:
 
            [->-<]>[-<+>]<
      - Compares two cells for inequality (results in a non-zero value if not equal).
+   * - ZigNotEqual
+     - .. code-block:: zig
+
+           a != b
+     - Standard inequality operator.
 
 
 
@@ -1439,6 +1471,11 @@ Parameters:
    * - BrainfuckGreaterThan
      - N/A
      - Requires a complex algorithm involving nested loops and multiple temporary cells.
+   * - ZigGreaterThan
+     - .. code-block:: zig
+
+           a > b
+     - Standard comparison operator.
 
 
 
@@ -1524,6 +1561,11 @@ Parameters:
 
            [->[->+<]<]
      - Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1).
+   * - ZigLogicalAnd
+     - .. code-block:: zig
+
+           a and b
+     - Short-circuiting logical AND.
 
 
 
@@ -1609,6 +1651,11 @@ Parameters:
 
            [->+<]>[-<+>]<
      - Simulated by checking if either cell is non-zero.
+   * - ZigLogicalOr
+     - .. code-block:: zig
+
+           a or b
+     - Short-circuiting logical OR.
 
 
 
@@ -1692,6 +1739,11 @@ Parameters:
    * - BrainfuckLogicalXor
      - N/A
      - Typically implemented using subtraction and checking the result.
+   * - ZigLogicalXor
+     - .. code-block:: zig
+
+           a != b
+     - Logical XOR is achieved using inequality for booleans.
 
 
 
@@ -1960,6 +2012,13 @@ Parameters:
    * - BrainfuckProcedureDefinition
      - N/A
      - Brainfuck does not support procedures or subroutines.
+   * - ZigProcedure
+     - .. code-block:: zig
+
+           fn logMessage(msg: []const u8) void {
+               std.debug.print("{s}\n", .{msg});
+           }
+     - Procedures use the 'void' return type.
 
 
 
@@ -2227,6 +2286,13 @@ Parameters:
    * - BrainfuckFunctionDefinition
      - N/A
      - Brainfuck does not support functions.
+   * - ZigFunction
+     - .. code-block:: zig
+
+           fn add(a: i32, b: i32) i32 {
+               return a + b;
+           }
+     - Functions return a type; 'return' is required.
 
 
 
@@ -2523,6 +2589,15 @@ Parameters:
 
            [ ... [-]]
      - If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells.
+   * - ZigIfElse
+     - .. code-block:: zig
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
+     - Standard if-else statement; parentheses around the condition are required.
 
 
 
@@ -2886,6 +2961,15 @@ Parameters:
    * - BrainfuckSwitchCase
      - N/A
      - Not supported natively.
+   * - ZigSwitchCase
+     - .. code-block:: zig
+
+           switch (x) {
+               1 => return 1,
+               2 => return 2,
+               else => return 0,
+           }
+     - Zig's switch is an expression and must be exhaustive.
 
 
 
@@ -3148,6 +3232,13 @@ Parameters:
 
            [ ... ]
      - Standard Brainfuck loop: jump past ] if current cell is zero.
+   * - ZigLoop
+     - .. code-block:: zig
+
+           while (x > 0) {
+               x -= 1;
+           }
+     - Standard while loop.
 
 
 
@@ -3411,6 +3502,13 @@ Parameters:
    * - BrainfuckForLoop
      - N/A
      - Typically implemented using a cell as a counter and a while loop [].
+   * - ZigForLoop
+     - .. code-block:: zig
+
+           for (0..10) |i| {
+               // body
+           }
+     - Zig's for loop iterates over ranges or collections.
 
 
 
@@ -3451,6 +3549,9 @@ Parameters:
 
            `
      - PowerShell uses the backtick character for line continuation.
+   * - ZigLineContinuation
+     - N/A
+     - Zig treats newlines as whitespace, so explicit line continuation characters are not needed.
 
 
 
@@ -3708,6 +3809,13 @@ Parameters:
    * - BrainfuckTryCatch
      - N/A
      - No error handling mechanisms.
+   * - ZigTryCatch
+     - .. code-block:: zig
+
+           doSomething() catch |err| {
+               handle(err);
+           };
+     - Zig uses error unions and the catch keyword for error handling.
 
 
 
@@ -3902,6 +4010,11 @@ Parameters:
    * - BrainfuckRaise
      - N/A
      - No mechanism to raise exceptions.
+   * - ZigRaise
+     - .. code-block:: zig
+
+           return error.BadThing;
+     - Zig uses explicit error return values from the 'error' set.
 
 
 
@@ -4056,6 +4169,12 @@ Parameters:
    * - BrainfuckThread
      - N/A
      - No native support for concurrency.
+   * - ZigThread
+     - .. code-block:: zig
+
+           const thread = try std.Thread.spawn(.{}, doWork, .{});
+           thread.join();
+     - Uses std.Thread.spawn to run a function in a new thread.
 
 
 
@@ -4205,6 +4324,9 @@ Parameters:
    * - BrainfuckSendMessage
      - N/A
      - No native messaging system.
+   * - ZigSendMessage
+     - N/A
+     - Zig does not have a native message-passing primitive; usually implemented via shared memory and synchronization.
 
 
 
@@ -4361,6 +4483,9 @@ Parameters:
    * - BrainfuckReceiveMessage
      - N/A
      - No native messaging system.
+   * - ZigReceiveMessage
+     - N/A
+     - Not supported natively.
 
 
 
@@ -4457,6 +4582,11 @@ Parameters:
    * - SqlMutexDefinition
      - N/A
      - Database locks (e.g., SELECT ... FOR UPDATE) are used instead of mutexes.
+   * - ZigMutexDefinition
+     - .. code-block:: zig
+
+           var mutex = std.Thread.Mutex{};
+     - Provides mutual exclusion.
 
 
 
@@ -4551,6 +4681,11 @@ Parameters:
    * - SqlMutexLock
      - N/A
      - N/A
+   * - ZigMutexLock
+     - .. code-block:: zig
+
+           mutex.lock();
+     - Acquires the lock; blocks if held.
 
 
 
@@ -4643,6 +4778,11 @@ Parameters:
    * - SqlMutexUnlock
      - N/A
      - N/A
+   * - ZigMutexUnlock
+     - .. code-block:: zig
+
+           mutex.unlock();
+     - Releases the lock.
 
 
 
@@ -4742,6 +4882,11 @@ Parameters:
    * - SqlSemaphoreDefinition
      - N/A
      - N/A
+   * - ZigSemaphoreDefinition
+     - .. code-block:: zig
+
+           var sem = std.Thread.Semaphore{ .permits = 1 };
+     - Initializes a semaphore with a permit count.
 
 
 
@@ -4836,6 +4981,11 @@ Parameters:
    * - SqlSemaphoreWait
      - N/A
      - N/A
+   * - ZigSemaphoreWait
+     - .. code-block:: zig
+
+           sem.wait();
+     - Decrements the permit count; blocks if zero.
 
 
 
@@ -4930,6 +5080,11 @@ Parameters:
    * - SqlSemaphoreSignal
      - N/A
      - N/A
+   * - ZigSemaphoreSignal
+     - .. code-block:: zig
+
+           sem.post();
+     - Increments the permit count.
 
 
 
@@ -5128,6 +5283,11 @@ Parameters:
 
            any text
      - All characters except '><+-.,[]' are ignored and can be used as comments.
+   * - ZigSingleLineComment
+     - .. code-block:: zig
+
+           // comment
+     - Standard single-line comment.
 
 
 
@@ -5327,6 +5487,9 @@ Parameters:
 
            any text
      - All characters except '><+-.,[]' are ignored and can be used as comments.
+   * - ZigMultiLineComment
+     - N/A
+     - Zig does not have multi-line comments; multiple single-line comments are used.
 
 
 
@@ -5531,6 +5694,11 @@ Parameters:
 
            .
      - Outputs the byte at the data pointer as an ASCII character.
+   * - ZigPrint
+     - .. code-block:: zig
+
+           std.debug.print("Hello, World!\n", .{});
+     - Standard debug print; requires the std library.
 
 
 
@@ -5727,6 +5895,11 @@ Parameters:
    * - BrainfuckImport
      - N/A
      - Brainfuck has no module or import system.
+   * - ZigImport
+     - .. code-block:: zig
+
+           const std = @import("std");
+     - The @import built-in function imports a package or file.
 
 
 
@@ -5929,6 +6102,11 @@ Parameters:
    * - BrainfuckConstant
      - N/A
      - Constants are represented by repeatedly incrementing a cell.
+   * - ZigConstant
+     - .. code-block:: zig
+
+           const MAX: i32 = 100;
+     - Constants are declared with 'const' and are immutable.
 
 
 
@@ -6125,6 +6303,11 @@ Parameters:
 
            [->+<]
      - Typically implemented by moving the value of one cell into another using a loop.
+   * - ZigAddition
+     - .. code-block:: zig
+
+           a + b
+     - Standard addition operator; Zig also has wrap-around addition with +%.
 
 
 
@@ -6321,6 +6504,11 @@ Parameters:
 
            [->-<]
      - Typically implemented by decrementing one cell while decrementing another in a loop.
+   * - ZigSubtraction
+     - .. code-block:: zig
+
+           a - b
+     - Standard subtraction operator.
 
 
 
@@ -6517,6 +6705,11 @@ Parameters:
 
            [->[->+>+<<]>[-<+>]<<]
      - Implemented using nested loops to add a value to a destination multiple times.
+   * - ZigMultiplication
+     - .. code-block:: zig
+
+           a * b
+     - Standard multiplication operator.
 
 
 
@@ -6711,6 +6904,11 @@ Parameters:
    * - BrainfuckDivision
      - N/A
      - Highly complex to implement; requires multiple temporary cells and nested loops.
+   * - ZigDivision
+     - .. code-block:: zig
+
+           a / b
+     - Standard division operator.
 
 
 
@@ -6899,6 +7097,11 @@ Parameters:
    * - BrainfuckRemainder
      - N/A
      - Highly complex to implement.
+   * - ZigRemainder
+     - .. code-block:: zig
+
+           @mod(a, b)
+     - Zig uses the @mod built-in for the remainder.
 
 
 
@@ -7081,6 +7284,11 @@ Parameters:
    * - BrainfuckFloor
      - N/A
      - Not applicable as Brainfuck typically operates on integers/bytes.
+   * - ZigFloor
+     - .. code-block:: zig
+
+           @floor(a)
+     - Uses the @floor built-in function for floating-point values.
 
 
 
@@ -7265,6 +7473,11 @@ Parameters:
    * - BrainfuckRounding
      - N/A
      - Not applicable.
+   * - ZigRounding
+     - .. code-block:: zig
+
+           @round(a)
+     - Uses the @round built-in function for floating-point values.
 
 
 
@@ -7461,6 +7674,11 @@ Parameters:
 
            +
      - Increments the byte at the data pointer.
+   * - ZigIncrement
+     - .. code-block:: zig
+
+           a += 1
+     - Zig does not support prefix or postfix ++ operators.
 
 
 
@@ -7657,6 +7875,11 @@ Parameters:
 
            -
      - Decrements the byte at the data pointer.
+   * - ZigDecrement
+     - .. code-block:: zig
+
+           a -= 1
+     - Zig does not support -- operators.
 
 
 
@@ -7841,6 +8064,11 @@ Parameters:
    * - BrainfuckLeftShift
      - N/A
      - Bitwise operations are not natively supported.
+   * - ZigLeftShift
+     - .. code-block:: zig
+
+           a << b
+     - Standard bitwise left shift.
 
 
 
@@ -8025,6 +8253,11 @@ Parameters:
    * - BrainfuckRightShift
      - N/A
      - Bitwise operations are not natively supported.
+   * - ZigRightShift
+     - .. code-block:: zig
+
+           a >> b
+     - Standard bitwise right shift.
 
 
 
@@ -8211,6 +8444,11 @@ Parameters:
    * - BrainfuckBitAnd
      - N/A
      - Not supported natively.
+   * - ZigBitAnd
+     - .. code-block:: zig
+
+           a & b
+     - Bitwise AND operator.
 
 
 
@@ -8397,6 +8635,11 @@ Parameters:
    * - BrainfuckBitOr
      - N/A
      - Not supported natively.
+   * - ZigBitOr
+     - .. code-block:: zig
+
+           a | b
+     - Bitwise OR operator.
 
 
 
@@ -8583,6 +8826,11 @@ Parameters:
    * - BrainfuckBitXor
      - N/A
      - Not supported natively.
+   * - ZigBitXor
+     - .. code-block:: zig
+
+           a ^ b
+     - Bitwise XOR operator.
 
 
 
@@ -8770,6 +9018,11 @@ Parameters:
    * - BrainfuckBitNot
      - N/A
      - Not supported natively.
+   * - ZigBitNot
+     - .. code-block:: zig
+
+           ~a
+     - Bitwise NOT operator.
 
 
 
@@ -8963,6 +9216,11 @@ Parameters:
    * - BrainfuckFloat4VectorMultiplication
      - N/A
      - Not supported natively.
+   * - ZigFloat4VectorMultiplication
+     - .. code-block:: zig
+
+           const c = a * b;
+     - Zig supports native SIMD vector operations for @Vector types.
 
 
 
@@ -9163,6 +9421,11 @@ Parameters:
    * - BrainfuckFloat4VectorDotProduct
      - N/A
      - Not supported natively.
+   * - ZigFloat4VectorDotProduct
+     - .. code-block:: zig
+
+           const dot = @reduce(.Add, a * b);
+     - Uses @reduce with .Add on the element-wise product of vectors.
 
 
 
@@ -9439,6 +9702,11 @@ Parameters:
    * - BrainfuckFloat4VectorCrossProduct
      - N/A
      - Not supported natively.
+   * - ZigFloat4VectorCrossProduct
+     - .. code-block:: zig
+
+           const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };
+     - Manual implementation for 3D cross product of vectors.
 
 
 
@@ -9668,6 +9936,11 @@ Parameters:
    * - BrainfuckSetFiltering
      - N/A
      - Not supported natively.
+   * - ZigSetFiltering
+     - .. code-block:: zig
+
+           for (a) |item| { if (condition(item)) try res.append(item); }
+     - Typically implemented using a loop and a conditional append to a dynamic list.
 
 
 
@@ -9904,3 +10177,8 @@ Parameters:
    * - BrainfuckSetJoin
      - N/A
      - Not supported natively.
+   * - ZigSetJoin
+     - .. code-block:: zig
+
+           for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }
+     - Implemented using nested loops for joining collections.

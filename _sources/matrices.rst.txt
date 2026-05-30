@@ -37,6 +37,7 @@ Programming Languages
      - Swift
      - Kotlin
      - Clojure
+     - Zig
      
    * - VariableDeclaration
      - .. code-block:: c
@@ -126,6 +127,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def x 42)
+     - .. code-block:: zig
+
+           var x: i32 = 42;
    * - ForEach
      - .. code-block:: c
 
@@ -275,6 +279,11 @@ Programming Languages
 
            (doseq [item collection]
              (println item))
+     - .. code-block:: zig
+
+           for (collection) |item| {
+               // body
+           }
    * - CollectionDefinition
      - .. code-block:: c
 
@@ -364,6 +373,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def l [1 2 3])
+     - .. code-block:: zig
+
+           var a = [_]i32{1, 2, 3};
    * - AssociativeArrayDefinition
      - N/A
      - .. code-block:: cpp
@@ -438,6 +450,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def m {:a 1 :b 2})
+     - .. code-block:: zig
+
+           var map = std.AutoHashMap(i32, i32).init(allocator);
    * - Equal
      - .. code-block:: c
 
@@ -526,6 +541,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (= a b)
+     - .. code-block:: zig
+
+           a == b
    * - NotEqual
      - .. code-block:: c
 
@@ -614,6 +632,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (not= a b)
+     - .. code-block:: zig
+
+           a != b
    * - GreaterThan
      - .. code-block:: c
 
@@ -702,6 +723,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (> a b)
+     - .. code-block:: zig
+
+           a > b
    * - LogicalAnd
      - .. code-block:: c
 
@@ -754,6 +778,9 @@ Programming Languages
 
            a && b
      - N/A
+     - .. code-block:: zig
+
+           a and b
    * - LogicalOr
      - .. code-block:: c
 
@@ -806,6 +833,9 @@ Programming Languages
 
            a || b
      - N/A
+     - .. code-block:: zig
+
+           a or b
    * - LogicalXor
      - .. code-block:: c
 
@@ -858,6 +888,9 @@ Programming Languages
 
            a xor b
      - N/A
+     - .. code-block:: zig
+
+           a != b
    * - ProcedureDefinition
      - .. code-block:: c
 
@@ -1008,6 +1041,11 @@ Programming Languages
 
            (defn my-proc [args]
              (println args))
+     - .. code-block:: zig
+
+           fn logMessage(msg: []const u8) void {
+               std.debug.print("{s}\n", .{msg});
+           }
    * - FunctionDefinition
      - .. code-block:: c
 
@@ -1148,6 +1186,11 @@ Programming Languages
 
            (defn my-func [x]
              (+ x 1))
+     - .. code-block:: zig
+
+           fn add(a: i32, b: i32) i32 {
+               return a + b;
+           }
    * - IfElse
      - .. code-block:: c
 
@@ -1319,6 +1362,13 @@ Programming Languages
      - .. code-block:: clojure
 
            (if (> x 0) 1 0)
+     - .. code-block:: zig
+
+           if (x > 0) {
+               return 1;
+           } else {
+               return 0;
+           }
    * - SwitchCase
      - .. code-block:: c
 
@@ -1567,6 +1617,13 @@ Programming Languages
              1 "one"
              2 "two"
              "default")
+     - .. code-block:: zig
+
+           switch (x) {
+               1 => return 1,
+               2 => return 2,
+               else => return 0,
+           }
    * - Loop
      - .. code-block:: c
 
@@ -1714,6 +1771,11 @@ Programming Languages
              (when (< i 10)
                (println i)
                (recur (inc i))))
+     - .. code-block:: zig
+
+           while (x > 0) {
+               x -= 1;
+           }
    * - ForLoop
      - .. code-block:: c
 
@@ -1865,6 +1927,11 @@ Programming Languages
 
            (doseq [i (range 10)]
              (println i))
+     - .. code-block:: zig
+
+           for (0..10) |i| {
+               // body
+           }
    * - LineContinuation
      - N/A
      - N/A
@@ -1881,6 +1948,7 @@ Programming Languages
      - .. code-block:: powershell
 
            `
+     - N/A
      - N/A
      - N/A
      - N/A
@@ -2037,6 +2105,11 @@ Programming Languages
              (/ 1 0)
              (catch Exception e
                (println (.getMessage e))))
+     - .. code-block:: zig
+
+           doSomething() catch |err| {
+               handle(err);
+           };
    * - Raise
      - .. code-block:: c
 
@@ -2123,6 +2196,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (throw (Exception. "Error"))
+     - .. code-block:: zig
+
+           return error.BadThing;
    * - Thread
      - N/A
      - .. code-block:: cpp
@@ -2205,6 +2281,10 @@ Programming Languages
      - .. code-block:: clojure
 
            (future (println "Hello from thread"))
+     - .. code-block:: zig
+
+           const thread = try std.Thread.spawn(.{}, doWork, .{});
+           thread.join();
    * - SendMessage
      - N/A
      - .. code-block:: cpp
@@ -2280,6 +2360,7 @@ Programming Languages
      - .. code-block:: clojure
 
            (send my-agent (fn [state] (inc state)))
+     - N/A
    * - ReceiveMessage
      - N/A
      - .. code-block:: cpp
@@ -2360,6 +2441,7 @@ Programming Languages
      - .. code-block:: clojure
 
            @my-agent
+     - N/A
    * - MutexDefinition
      - .. code-block:: c
 
@@ -2414,6 +2496,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def mtx (Object.))
+     - .. code-block:: zig
+
+           var mutex = std.Thread.Mutex{};
    * - MutexLock
      - .. code-block:: c
 
@@ -2468,6 +2553,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (locking mtx ...)
+     - .. code-block:: zig
+
+           mutex.lock();
    * - MutexUnlock
      - .. code-block:: c
 
@@ -2520,6 +2608,9 @@ Programming Languages
 
            mutex.unlock()
      - N/A
+     - .. code-block:: zig
+
+           mutex.unlock();
    * - SemaphoreDefinition
      - .. code-block:: c
 
@@ -2575,6 +2666,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def sem (java.util.concurrent.Semaphore. 1))
+     - .. code-block:: zig
+
+           var sem = std.Thread.Semaphore{ .permits = 1 };
    * - SemaphoreWait
      - .. code-block:: c
 
@@ -2629,6 +2723,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (.acquire sem)
+     - .. code-block:: zig
+
+           sem.wait();
    * - SemaphoreSignal
      - .. code-block:: c
 
@@ -2683,6 +2780,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (.release sem)
+     - .. code-block:: zig
+
+           sem.post();
    * - SingleLineComment
      - .. code-block:: c
 
@@ -2769,6 +2869,9 @@ Programming Languages
      - .. code-block:: clojure
 
            ; comment
+     - .. code-block:: zig
+
+           // comment
    * - MultiLineComment
      - .. code-block:: c
 
@@ -2856,6 +2959,7 @@ Programming Languages
 
            (comment
              (some code))
+     - N/A
    * - Print
      - .. code-block:: c
 
@@ -2950,6 +3054,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (println "Hello, World!")
+     - .. code-block:: zig
+
+           std.debug.print("Hello, World!\n", .{});
    * - Import
      - .. code-block:: c
 
@@ -3038,6 +3145,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (require '[clojure.string :as str])
+     - .. code-block:: zig
+
+           const std = @import("std");
    * - Constant
      - .. code-block:: c
 
@@ -3126,6 +3236,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (def ^:const my-const 10)
+     - .. code-block:: zig
+
+           const MAX: i32 = 100;
    * - Addition
      - .. code-block:: c
 
@@ -3214,6 +3327,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (+ a b)
+     - .. code-block:: zig
+
+           a + b
    * - Subtraction
      - .. code-block:: c
 
@@ -3302,6 +3418,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (- a b)
+     - .. code-block:: zig
+
+           a - b
    * - Multiplication
      - .. code-block:: c
 
@@ -3390,6 +3509,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (* a b)
+     - .. code-block:: zig
+
+           a * b
    * - Division
      - .. code-block:: c
 
@@ -3478,6 +3600,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (/ a b)
+     - .. code-block:: zig
+
+           a / b
    * - Remainder
      - .. code-block:: c
 
@@ -3562,6 +3687,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (rem a b)
+     - .. code-block:: zig
+
+           @mod(a, b)
    * - Floor
      - .. code-block:: c
 
@@ -3638,6 +3766,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (Math/floor x)
+     - .. code-block:: zig
+
+           @floor(a)
    * - Rounding
      - .. code-block:: c
 
@@ -3716,6 +3847,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (Math/round x)
+     - .. code-block:: zig
+
+           @round(a)
    * - Increment
      - .. code-block:: c
 
@@ -3804,6 +3938,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (inc x)
+     - .. code-block:: zig
+
+           a += 1
    * - Decrement
      - .. code-block:: c
 
@@ -3892,6 +4029,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (dec x)
+     - .. code-block:: zig
+
+           a -= 1
    * - LeftShift
      - .. code-block:: c
 
@@ -3976,6 +4116,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-shift-left x n)
+     - .. code-block:: zig
+
+           a << b
    * - RightShift
      - .. code-block:: c
 
@@ -4060,6 +4203,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-shift-right x n)
+     - .. code-block:: zig
+
+           a >> b
    * - BitAnd
      - .. code-block:: c
 
@@ -4144,6 +4290,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-and a b)
+     - .. code-block:: zig
+
+           a & b
    * - BitOr
      - .. code-block:: c
 
@@ -4228,6 +4377,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-or a b)
+     - .. code-block:: zig
+
+           a | b
    * - BitXor
      - .. code-block:: c
 
@@ -4312,6 +4464,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-xor a b)
+     - .. code-block:: zig
+
+           a ^ b
    * - BitNot
      - .. code-block:: c
 
@@ -4397,6 +4552,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (bit-not x)
+     - .. code-block:: zig
+
+           ~a
    * - Float4VectorMultiplication
      - .. code-block:: c
 
@@ -4486,6 +4644,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (mapv * a b)
+     - .. code-block:: zig
+
+           const c = a * b;
    * - Float4VectorDotProduct
      - .. code-block:: c
 
@@ -4582,6 +4743,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (reduce + (map * a b))
+     - .. code-block:: zig
+
+           const dot = @reduce(.Add, a * b);
    * - Float4VectorCrossProduct
      - .. code-block:: c
 
@@ -4754,6 +4918,9 @@ Programming Languages
               (- (* az bx) (* ax bz))
               (- (* ax by) (* ay bx))
               0.0])
+     - .. code-block:: zig
+
+           const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };
    * - SetFiltering
      - .. code-block:: c
 
@@ -4871,6 +5038,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (filter #(= % :val) my-set)
+     - .. code-block:: zig
+
+           for (a) |item| { if (condition(item)) try res.append(item); }
    * - SetJoin
      - .. code-block:: c
 
@@ -4995,6 +5165,9 @@ Programming Languages
      - .. code-block:: clojure
 
            (clojure.set/join set-a set-b)
+     - .. code-block:: zig
+
+           for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }
 
 Data Query Languages
 --------------------

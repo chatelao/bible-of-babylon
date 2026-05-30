@@ -147,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
 </ul>
 
         </div>
@@ -436,6 +437,13 @@
 </div>
 </td>
 <td><p>Variables are defined using ‘def’; they are immutable by default in the sense of ‘binding’.</p></td>
+</tr>
+<tr class="row-even"><td><p>ZigVar</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Variables are declared with ‘var’ for mutable values.</p></td>
 </tr>
 </tbody>
 </table>
@@ -763,6 +771,15 @@
 <td><p>N/A</p></td>
 <td><p>Iterating over a collection is not natively supported as there are no high-level collection types.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigForEach</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig uses the for loop to iterate over elements of an array or slice.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1032,6 +1049,13 @@
 <td><p>N/A</p></td>
 <td><p>The entire memory is a single linear collection of cells.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigCollectionDefinition</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig uses array literals with the { } syntax; [_] infers the size.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1267,6 +1291,13 @@
 <tr class="row-even"><td><p>BrainfuckAssociativeArrayDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigAssociativeArrayDefinition</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">AutoHashMap</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">).</span><span class="n">init</span><span class="p">(</span><span class="n">allocator</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig’s standard library provides HashMap types; they require an allocator for initialization.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1533,6 +1564,13 @@
 </td>
 <td><p>Compares two cells for equality; requires a complex sequence of loops and temporary cells.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigEqual</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard equality operator for primitive types.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -1798,6 +1836,13 @@
 </td>
 <td><p>Compares two cells for inequality (results in a non-zero value if not equal).</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigNotEqual</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard inequality operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2057,6 +2102,13 @@
 <td><p>N/A</p></td>
 <td><p>Requires a complex algorithm involving nested loops and multiple temporary cells.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigGreaterThan</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard comparison operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2164,6 +2216,13 @@
 </div>
 </td>
 <td><p>Simulated by checking if both cells are non-zero (assuming inputs are 0 or 1).</p></td>
+</tr>
+<tr class="row-even"><td><p>ZigLogicalAnd</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical AND.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2273,6 +2332,13 @@
 </td>
 <td><p>Simulated by checking if either cell is non-zero.</p></td>
 </tr>
+<tr class="row-even"><td><p>ZigLogicalOr</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Short-circuiting logical OR.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -2377,6 +2443,13 @@
 <tr class="row-odd"><td><p>BrainfuckLogicalXor</p></td>
 <td><p>N/A</p></td>
 <td><p>Typically implemented using subtraction and checking the result.</p></td>
+</tr>
+<tr class="row-even"><td><p>ZigLogicalXor</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Logical XOR is achieved using inequality for booleans.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2707,6 +2780,15 @@
 <td><p>N/A</p></td>
 <td><p>Brainfuck does not support procedures or subroutines.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigProcedure</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">logMessage</span><span class="p">(</span><span class="n">msg</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kr">const</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;{s}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">msg</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Procedures use the ‘void’ return type.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -3034,6 +3116,15 @@
 <tr class="row-even"><td><p>BrainfuckFunctionDefinition</p></td>
 <td><p>N/A</p></td>
 <td><p>Brainfuck does not support functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigFunction</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functions return a type; ‘return’ is required.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3396,6 +3487,17 @@
 </div>
 </td>
 <td><p>If-else is simulated by executing a loop once and zeroing the cell, or using additional flag cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigIfElse</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard if-else statement; parentheses around the condition are required.</p></td>
 </tr>
 </tbody>
 </table>
@@ -3824,6 +3926,17 @@
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigSwitchCase</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig’s switch is an expression and must be exhaustive.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4149,6 +4262,15 @@
 </div>
 </td>
 <td><p>Standard Brainfuck loop: jump past ] if current cell is zero.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigLoop</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard while loop.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4478,6 +4600,15 @@
 <td><p>N/A</p></td>
 <td><p>Typically implemented using a cell as a counter and a while loop [].</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigForLoop</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig’s for loop iterates over ranges or collections.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -4522,6 +4653,10 @@
 </div>
 </td>
 <td><p>PowerShell uses the backtick character for line continuation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigLineContinuation</p></td>
+<td><p>N/A</p></td>
+<td><p>Zig treats newlines as whitespace, so explicit line continuation characters are not needed.</p></td>
 </tr>
 </tbody>
 </table>
@@ -4834,6 +4969,15 @@
 <td><p>N/A</p></td>
 <td><p>No error handling mechanisms.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigTryCatch</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">doSomething</span><span class="p">()</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="o">|</span><span class="n">err</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig uses error unions and the catch keyword for error handling.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5088,6 +5232,13 @@
 <td><p>N/A</p></td>
 <td><p>No mechanism to raise exceptions.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigRaise</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="k">error</span><span class="p">.</span><span class="n">BadThing</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig uses explicit error return values from the ‘error’ set.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5284,6 +5435,14 @@
 <td><p>N/A</p></td>
 <td><p>No native support for concurrency.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigThread</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">spawn</span><span class="p">(.{},</span><span class="w"> </span><span class="n">doWork</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span>
+<span class="n">thread</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std.Thread.spawn to run a function in a new thread.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5473,6 +5632,10 @@
 <tr class="row-even"><td><p>BrainfuckSendMessage</p></td>
 <td><p>N/A</p></td>
 <td><p>No native messaging system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigSendMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>Zig does not have a native message-passing primitive; usually implemented via shared memory and synchronization.</p></td>
 </tr>
 </tbody>
 </table>
@@ -5671,6 +5834,10 @@
 <td><p>N/A</p></td>
 <td><p>No native messaging system.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigReceiveMessage</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5792,6 +5959,13 @@
 <td><p>N/A</p></td>
 <td><p>Database locks (e.g., SELECT … FOR UPDATE) are used instead of mutexes.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigMutexDefinition</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">Mutex</span><span class="p">{};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Provides mutual exclusion.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -5912,6 +6086,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigMutexLock</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Acquires the lock; blocks if held.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6028,6 +6209,13 @@
 <tr class="row-even"><td><p>SqlMutexUnlock</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigMutexUnlock</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Releases the lock.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6152,6 +6340,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigSemaphoreDefinition</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">Semaphore</span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">permits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Initializes a semaphore with a permit count.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6272,6 +6467,13 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigSemaphoreWait</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Decrements the permit count; blocks if zero.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6391,6 +6593,13 @@
 <tr class="row-even"><td><p>SqlSemaphoreSignal</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigSemaphoreSignal</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Increments the permit count.</p></td>
 </tr>
 </tbody>
 </table>
@@ -6658,6 +6867,13 @@
 </td>
 <td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigSingleLineComment</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard single-line comment.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -6914,6 +7130,10 @@
 </div>
 </td>
 <td><p>All characters except ‘&gt;&lt;+-.,[]’ are ignored and can be used as comments.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigMultiLineComment</p></td>
+<td><p>N/A</p></td>
+<td><p>Zig does not have multi-line comments; multiple single-line comments are used.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7185,6 +7405,13 @@
 </td>
 <td><p>Outputs the byte at the data pointer as an ASCII character.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigPrint</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard debug print; requires the std library.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7445,6 +7672,13 @@
 <tr class="row-even"><td><p>BrainfuckImport</p></td>
 <td><p>N/A</p></td>
 <td><p>Brainfuck has no module or import system.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigImport</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&quot;std&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The &#64;import built-in function imports a package or file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -7712,6 +7946,13 @@
 <td><p>N/A</p></td>
 <td><p>Constants are represented by repeatedly incrementing a cell.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigConstant</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">MAX</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Constants are declared with ‘const’ and are immutable.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -7974,6 +8215,13 @@
 </div>
 </td>
 <td><p>Typically implemented by moving the value of one cell into another using a loop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigAddition</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard addition operator; Zig also has wrap-around addition with +%.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8238,6 +8486,13 @@
 </td>
 <td><p>Typically implemented by decrementing one cell while decrementing another in a loop.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigSubtraction</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard subtraction operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8501,6 +8756,13 @@
 </td>
 <td><p>Implemented using nested loops to add a value to a destination multiple times.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigMultiplication</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard multiplication operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -8761,6 +9023,13 @@
 <td><p>N/A</p></td>
 <td><p>Highly complex to implement; requires multiple temporary cells and nested loops.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigDivision</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard division operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9012,6 +9281,13 @@
 <td><p>N/A</p></td>
 <td><p>Highly complex to implement.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigRemainder</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@mod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig uses the &#64;mod built-in for the remainder.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -9253,6 +9529,13 @@
 <tr class="row-even"><td><p>BrainfuckFloor</p></td>
 <td><p>N/A</p></td>
 <td><p>Not applicable as Brainfuck typically operates on integers/bytes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigFloor</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the &#64;floor built-in function for floating-point values.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9498,6 +9781,13 @@
 <tr class="row-even"><td><p>BrainfuckRounding</p></td>
 <td><p>N/A</p></td>
 <td><p>Not applicable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigRounding</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the &#64;round built-in function for floating-point values.</p></td>
 </tr>
 </tbody>
 </table>
@@ -9762,6 +10052,13 @@
 </td>
 <td><p>Increments the byte at the data pointer.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigIncrement</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig does not support prefix or postfix ++ operators.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10025,6 +10322,13 @@
 </td>
 <td><p>Decrements the byte at the data pointer.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigDecrement</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig does not support – operators.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10270,6 +10574,13 @@
 <td><p>N/A</p></td>
 <td><p>Bitwise operations are not natively supported.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigLeftShift</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise left shift.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -10514,6 +10825,13 @@
 <tr class="row-even"><td><p>BrainfuckRightShift</p></td>
 <td><p>N/A</p></td>
 <td><p>Bitwise operations are not natively supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigRightShift</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard bitwise right shift.</p></td>
 </tr>
 </tbody>
 </table>
@@ -10763,6 +11081,13 @@
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigBitAnd</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise AND operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -11010,6 +11335,13 @@
 <tr class="row-even"><td><p>BrainfuckBitOr</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigBitOr</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise OR operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11259,6 +11591,13 @@
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigBitXor</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise XOR operator.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -11507,6 +11846,13 @@
 <tr class="row-even"><td><p>BrainfuckBitNot</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigBitNot</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
+</pre></div>
+</div>
+</td>
+<td><p>Bitwise NOT operator.</p></td>
 </tr>
 </tbody>
 </table>
@@ -11763,6 +12109,13 @@
 <tr class="row-even"><td><p>BrainfuckFloat4VectorMultiplication</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigFloat4VectorMultiplication</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig supports native SIMD vector operations for &#64;Vector types.</p></td>
 </tr>
 </tbody>
 </table>
@@ -12026,6 +12379,13 @@
 <tr class="row-even"><td><p>BrainfuckFloat4VectorDotProduct</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigFloat4VectorDotProduct</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@reduce</span><span class="p">(.</span><span class="n">Add</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses &#64;reduce with .Add on the element-wise product of vectors.</p></td>
 </tr>
 </tbody>
 </table>
@@ -12365,6 +12725,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ZigFloat4VectorCrossProduct</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual implementation for 3D cross product of vectors.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -12660,6 +13027,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <tr class="row-even"><td><p>BrainfuckSetFiltering</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigSetFiltering</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">))</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using a loop and a conditional append to a dynamic list.</p></td>
 </tr>
 </tbody>
 </table>
@@ -12962,6 +13336,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <tr class="row-even"><td><p>BrainfuckSetJoin</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigSetJoin</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">listA</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">listB</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">append</span><span class="p">(.{</span><span class="w"> </span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Implemented using nested loops for joining collections.</p></td>
 </tr>
 </tbody>
 </table>

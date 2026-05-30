@@ -903,3 +903,25 @@ handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Se
    (- (* az bx) (* ax bz))
    (- (* ax by) (* ay bx))
    0.0])","(filter #(= % :val) my-set)","(clojure.set/join set-a set-b)"
+"Zig","var x: i32 = 42;","for (collection) |item| {
+    // body
+}","var a = [_]i32{1, 2, 3};","var map = std.AutoHashMap(i32, i32).init(allocator);","a == b","a != b","a > b","a and b","a or b","a != b","fn logMessage(msg: []const u8) void {
+    std.debug.print(""{s}\n"", .{msg});
+}","fn add(a: i32, b: i32) i32 {
+    return a + b;
+}","if (x > 0) {
+    return 1;
+} else {
+    return 0;
+}","switch (x) {
+    1 => return 1,
+    2 => return 2,
+    else => return 0,
+}","while (x > 0) {
+    x -= 1;
+}","for (0..10) |i| {
+    // body
+}","N/A","doSomething() catch |err| {
+    handle(err);
+};","return error.BadThing;","const thread = try std.Thread.spawn(.{}, doWork, .{});
+thread.join();","N/A","N/A","var mutex = std.Thread.Mutex{};","mutex.lock();","mutex.unlock();","var sem = std.Thread.Semaphore{ .permits = 1 };","sem.wait();","sem.post();","// comment","N/A","std.debug.print(""Hello, World!\n"", .{});","const std = @import(""std"");","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","@mod(a, b)","@floor(a)","@round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a * b;","const dot = @reduce(.Add, a * b);","const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };","for (a) |item| { if (condition(item)) try res.append(item); }","for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }"

@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overpass_turbo_pivot.html">Overpass Turbo Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clojure_pivot.html">Clojure Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
 </ul>
 
         </div>
@@ -160,6 +161,7 @@
 <th class="head"><p>Swift</p></th>
 <th class="head"><p>Kotlin</p></th>
 <th class="head"><p>Clojure</p></th>
+<th class="head"><p>Zig</p></th>
 </tr>
 </thead>
 <tbody>
@@ -277,6 +279,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">x</span><span class="w"> </span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -456,6 +462,12 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">collection</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>CollectionDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">arr</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
@@ -574,6 +586,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">_</span><span class="p">]</span><span class="kt">i32</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
 <td><p>N/A</p></td>
@@ -666,6 +682,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">m</span><span class="w"> </span><span class="p">{</span><span class="ss">:a</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ss">:b</span><span class="w"> </span><span class="mi">2</span><span class="p">})</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">AutoHashMap</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">).</span><span class="n">init</span><span class="p">(</span><span class="n">allocator</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -786,6 +806,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>NotEqual</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
@@ -900,6 +924,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">not= </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -1020,6 +1048,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>LogicalAnd</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span>
@@ -1084,6 +1116,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>LogicalOr</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span>
@@ -1148,6 +1184,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>LogicalXor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">!</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -1212,6 +1252,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">log_message</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1391,6 +1435,12 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">logMessage</span><span class="p">(</span><span class="n">msg</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="kr">const</span><span class="w"> </span><span class="kt">u8</span><span class="p">)</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;{s}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.{</span><span class="n">msg</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1557,6 +1607,12 @@
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">my-func</span><span class="w"> </span><span class="p">[</span><span class="nv">x</span><span class="p">]</span>
 <span class="w">  </span><span class="p">(</span><span class="nb">+ </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -1758,6 +1814,14 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if </span><span class="p">(</span><span class="nb">&gt; </span><span class="nv">x</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -2038,6 +2102,14 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -2211,6 +2283,12 @@
 <span class="w">  </span><span class="p">(</span><span class="nb">when </span><span class="p">(</span><span class="nb">&lt; </span><span class="nv">i</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="nb">println </span><span class="nv">i</span><span class="p">)</span>
 <span class="w">    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">inc </span><span class="nv">i</span><span class="p">))))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -2394,6 +2472,12 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// body</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>LineContinuation</p></td>
 <td><p>N/A</p></td>
@@ -2414,6 +2498,7 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
@@ -2593,6 +2678,12 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">doSomething</span><span class="p">()</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="o">|</span><span class="n">err</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">handle</span><span class="p">(</span><span class="n">err</span><span class="p">);</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -2706,6 +2797,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">return</span><span class="w"> </span><span class="k">error</span><span class="p">.</span><span class="n">BadThing</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Thread</p></td>
 <td><p>N/A</p></td>
@@ -2808,6 +2903,11 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">thread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">spawn</span><span class="p">(.{},</span><span class="w"> </span><span class="n">doWork</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span>
+<span class="n">thread</span><span class="p">.</span><span class="n">join</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>SendMessage</p></td>
 <td><p>N/A</p></td>
@@ -2903,6 +3003,7 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ReceiveMessage</p></td>
 <td><p>N/A</p></td>
@@ -3002,6 +3103,7 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>MutexDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_t</span><span class="w"> </span><span class="n">mtx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PTHREAD_MUTEX_INITIALIZER</span><span class="p">;</span>
@@ -3066,6 +3168,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">mtx</span><span class="w"> </span><span class="p">(</span><span class="nf">Object.</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">mutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">Mutex</span><span class="p">{};</span>
 </pre></div>
 </div>
 </td>
@@ -3136,6 +3242,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="n">lock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>MutexUnlock</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mtx</span><span class="p">);</span>
@@ -3200,6 +3310,10 @@
 </div>
 </td>
 <td><p>N/A</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">mutex</span><span class="p">.</span><span class="n">unlock</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_t</span><span class="w"> </span><span class="n">sem</span><span class="p">;</span>
@@ -3265,6 +3379,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">def </span><span class="nv">sem</span><span class="w"> </span><span class="p">(</span><span class="nf">java.util.concurrent.Semaphore.</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">var</span><span class="w"> </span><span class="n">sem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">Semaphore</span><span class="p">{</span><span class="w"> </span><span class="p">.</span><span class="n">permits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 </td>
@@ -3335,6 +3453,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">wait</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>SemaphoreSignal</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sem_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
@@ -3399,6 +3521,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">.release</span><span class="w"> </span><span class="nv">sem</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">sem</span><span class="p">.</span><span class="n">post</span><span class="p">();</span>
 </pre></div>
 </div>
 </td>
@@ -3517,6 +3643,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="c1">// comment</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>MultiLineComment</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* line 1</span>
@@ -3624,6 +3754,7 @@
 </pre></div>
 </div>
 </td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
@@ -3748,6 +3879,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">.</span><span class="n">debug</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">.{});</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
@@ -3863,6 +3998,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">require</span><span class="w"> </span><span class="o">&#39;</span><span class="p">[</span><span class="nv">clojure.string</span><span class="w"> </span><span class="ss">:as</span><span class="w"> </span><span class="nv">str</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">std</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@import</span><span class="p">(</span><span class="s">&quot;std&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -3984,6 +4123,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">MAX</span><span class="o">:</span><span class="w"> </span><span class="kt">i32</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
@@ -4099,6 +4242,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">+ </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -4220,6 +4367,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Multiplication</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
@@ -4335,6 +4486,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -4456,6 +4611,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
@@ -4568,6 +4727,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@mod</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -4665,6 +4828,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/floor</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@floor</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -4768,6 +4935,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">Math/round</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="nb">@round</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -4889,6 +5060,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>Decrement</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">--</span>
@@ -5007,6 +5182,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>LeftShift</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
@@ -5116,6 +5295,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-shift-left </span><span class="nv">x</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -5231,6 +5414,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>BitAnd</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
@@ -5340,6 +5527,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-and </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -5455,6 +5646,10 @@
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p>BitXor</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
@@ -5564,6 +5759,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-xor </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
 </pre></div>
 </div>
 </td>
@@ -5677,6 +5876,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">bit-not </span><span class="nv">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
 </pre></div>
 </div>
 </td>
@@ -5794,6 +5997,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="nb">* </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -5918,6 +6125,10 @@
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">dot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">@reduce</span><span class="p">(.</span><span class="n">Add</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -6120,6 +6331,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.{</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+</td>
 </tr>
 <tr class="row-odd"><td><p>SetFiltering</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -6263,6 +6478,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">filter </span><span class="o">#</span><span class="p">(</span><span class="nb">= </span><span class="nv">%</span><span class="w"> </span><span class="ss">:val</span><span class="p">)</span><span class="w"> </span><span class="nv">my-set</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">item</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">condition</span><span class="p">(</span><span class="n">item</span><span class="p">))</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -6415,6 +6634,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nf">clojure.set/join</span><span class="w"> </span><span class="nv">set-a</span><span class="w"> </span><span class="nv">set-b</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">listA</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">a</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">listB</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">b</span><span class="o">|</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">append</span><span class="p">(.{</span><span class="w"> </span><span class="p">.</span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
