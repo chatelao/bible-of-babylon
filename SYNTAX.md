@@ -41,6 +41,7 @@ The transpiler maintains a mapping between internal instance names and Pygments-
 | Swift         | `swift`        |
 | Kotlin        | `kotlin`       |
 | Clojure       | `clojure`      |
+| Scala         | `scala`        |
 | Zig           | `zig`          |
 | JSON          | `json`         |
 | XML           | `xml`          |

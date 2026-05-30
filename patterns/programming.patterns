@@ -9738,3 +9738,306 @@ instance ZigLineContinuation of LineContinuation {
     syntax = "N/A"
     notes = "Zig treats newlines as whitespace, so explicit line continuation characters are not needed."
 }
+
+instance ScalaVar of VariableDeclaration {
+    name = "x"
+    type = "Int"
+    initial_value = 42
+    syntax = "var x: Int = 42"
+    notes = "Variables are declared with 'var'; supports type inference."
+}
+
+instance ScalaConstant of Constant {
+    name = "MAX"
+    type = "Int"
+    value = "100"
+    syntax = "val MAX = 100"
+    notes = "Constants are declared with 'val' and are immutable."
+}
+
+instance ScalaSingleLineComment of SingleLineComment {
+    syntax = "// comment"
+    notes = "Standard single-line comment."
+}
+
+instance ScalaMultiLineComment of MultiLineComment {
+    syntax = "/* line 1\n   line 2 */"
+    notes = "Standard block comment; supports nesting."
+}
+
+instance ScalaPrint of Print {
+    value = "Hello, World!"
+    syntax = "println(\"Hello, World!\")"
+    notes = "Outputs to the console with a trailing newline."
+}
+
+instance ScalaImport of Import {
+    module_name = "scala.collection.mutable"
+    syntax = "import scala.collection.mutable"
+    notes = "Imports a package or specific members."
+}
+
+instance ScalaLineContinuation of LineContinuation {
+    syntax = "N/A"
+    notes = "Scala automatically handles line continuation if an expression is incomplete."
+}
+
+instance ScalaCollectionDefinition of CollectionDefinition {
+    name = "l"
+    type = "List[Int]"
+    syntax = "val l = List(1, 2, 3)"
+    notes = "Lists are immutable by default in Scala."
+}
+
+instance ScalaAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "m"
+    syntax = "val m = Map(\"a\" -> 1, \"b\" -> 2)"
+    notes = "Maps store key-value pairs using the -> arrow."
+}
+
+instance ScalaForEach of ForEach {
+    syntax = "collection.foreach(item => println(item))"
+    notes = "Higher-order function for iterating over a collection."
+}
+
+instance ScalaSetFiltering of SetFiltering {
+    syntax = "val filtered = collection.filter(_ > 0)"
+    notes = "Uses the filter method with a predicate; _ is a shorthand for the element."
+}
+
+instance ScalaSetJoin of SetJoin {
+    syntax = "for { a <- listA; b <- listB; if a.id == b.id } yield (a, b)"
+    notes = "Implemented using for-comprehensions for joining collections."
+}
+
+instance ScalaIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "if (x > 0) 1 else 0"
+    notes = "If-else is an expression in Scala."
+}
+
+instance ScalaSwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "x match {\n    case 1 => 1\n    case 2 => 2\n    case _ => 0\n}"
+    notes = "Scala uses pattern matching with 'match'."
+}
+
+instance ScalaLoop of Loop {
+    condition = "x > 0"
+    body = { raw "x -= 1" }
+    syntax = "while (x > 0) {\n    x -= 1\n}"
+    notes = "Standard while loop."
+}
+
+instance ScalaForLoop of ForLoop {
+    syntax = "for (i <- 0 until 10) {\n    // body\n}"
+    notes = "Iterates over a range; 'until' is exclusive of the upper bound."
+}
+
+instance ScalaEqual of Equal {
+    syntax = "a == b"
+    notes = "Checks for structural equality; calls equals()."
+}
+
+instance ScalaNotEqual of NotEqual {
+    syntax = "a != b"
+    notes = "Structural inequality."
+}
+
+instance ScalaGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Standard comparison."
+}
+
+instance ScalaLogicalAnd of LogicalAnd {
+    syntax = "a && b"
+    notes = "Short-circuiting logical AND."
+}
+
+instance ScalaLogicalOr of LogicalOr {
+    syntax = "a || b"
+    notes = "Short-circuiting logical OR."
+}
+
+instance ScalaLogicalXor of LogicalXor {
+    syntax = "a ^ b"
+    notes = "The ^ operator acts as a logical XOR for boolean operands."
+}
+
+instance ScalaFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a: Int", "b: Int"]
+    return_type = "Int"
+    body = { raw "a + b" }
+    syntax = "def add(a: Int, b: Int): Int = a + b"
+    notes = "Functions are defined with 'def'; result is the value of the last expression."
+}
+
+instance ScalaProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg: String"]
+    body = { call println(msg) }
+    syntax = "def logMessage(msg: String): Unit = {\n    println(msg)\n}"
+    notes = "Procedures return Unit (equivalent to void)."
+}
+
+instance ScalaTryCatch of TryCatch {
+    try_body = { call doSomething() }
+    exception_type = "Exception"
+    error_variable = "e"
+    catch_body = { call handle(e) }
+    syntax = "try {\n    doSomething()\n} catch {\n    case e: Exception => handle(e)\n}"
+    notes = "Scala's catch block uses pattern matching."
+}
+
+instance ScalaRaise of Raise {
+    exception_type = "Exception"
+    message = "Error"
+    syntax = "throw new Exception(\"Error\")"
+    notes = "Uses 'throw' to raise an exception."
+}
+
+instance ScalaAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic operator."
+}
+
+instance ScalaSubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic operator."
+}
+
+instance ScalaMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic operator."
+}
+
+instance ScalaDivision of Division {
+    syntax = "a / b"
+    notes = "Standard arithmetic operator."
+}
+
+instance ScalaRemainder of Remainder {
+    syntax = "a % b"
+    notes = "Standard arithmetic operator."
+}
+
+instance ScalaFloor of Floor {
+    syntax = "math.floor(a)"
+    notes = "Uses the scala.math package."
+}
+
+instance ScalaRounding of Rounding {
+    syntax = "math.round(a)"
+    notes = "Uses the scala.math package."
+}
+
+instance ScalaIncrement of Increment {
+    syntax = "a += 1"
+    notes = "Scala does not support ++ operators."
+}
+
+instance ScalaDecrement of Decrement {
+    syntax = "a -= 1"
+    notes = "Scala does not support -- operators."
+}
+
+instance ScalaLeftShift of LeftShift {
+    syntax = "a << b"
+    notes = "Standard bitwise shift."
+}
+
+instance ScalaRightShift of RightShift {
+    syntax = "a >> b"
+    notes = "Standard bitwise shift."
+}
+
+instance ScalaBitAnd of BitAnd {
+    syntax = "a & b"
+    notes = "Standard bitwise operator."
+}
+
+instance ScalaBitOr of BitOr {
+    syntax = "a | b"
+    notes = "Standard bitwise operator."
+}
+
+instance ScalaBitXor of BitXor {
+    syntax = "a ^ b"
+    notes = "Standard bitwise operator."
+}
+
+instance ScalaBitNot of BitNot {
+    syntax = "~a"
+    notes = "Standard bitwise operator."
+}
+
+instance ScalaFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "a.zip(b).map { case (ai, bi) => ai * bi }"
+    notes = "Functional approach using zip and map."
+}
+
+instance ScalaFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "a.zip(b).map { case (ai, bi) => ai * bi }.sum"
+    notes = "Functional approach combining zip, map, and sum."
+}
+
+instance ScalaFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "Array(a(1)*b(2) - a(2)*b(1), a(2)*b(0) - a(0)*b(2), a(0)*b(1) - a(1)*b(0), 0.0f)"
+    notes = "Manual calculation for 3D cross product."
+}
+
+instance ScalaThread of Thread {
+    body = { call doWork() }
+    syntax = "Future { doWork() }"
+    notes = "Uses Futures for asynchronous execution (requires ExecutionContext)."
+}
+
+instance ScalaSendMessage of SendMessage {
+    recipient = "actor"
+    message = "msg"
+    syntax = "actor ! msg"
+    notes = "Actors use the ! operator for asynchronous message passing (e.g., in Akka/Pekko)."
+}
+
+instance ScalaReceiveMessage of ReceiveMessage {
+    match_pattern = "msg"
+    body = { call handle(msg) }
+    syntax = "def receive = { case msg => handle(msg) }"
+    notes = "Actors define a receive block using pattern matching."
+}
+
+instance ScalaMutexDefinition of MutexDefinition {
+    name = "lock"
+    syntax = "val lock = new AnyRef()"
+    notes = "Any object can be used as a monitor in Scala."
+}
+
+instance ScalaMutexLock of MutexLock {
+    syntax = "lock.synchronized { ... }"
+    notes = "The synchronized block acquires the object's monitor."
+}
+
+instance ScalaMutexUnlock of MutexUnlock {
+    syntax = "N/A"
+    notes = "Released automatically at the end of the synchronized block."
+}
+
+instance ScalaSemaphoreDefinition of SemaphoreDefinition {
+    name = "sem"
+    initial_value = 1
+    syntax = "val sem = new java.util.concurrent.Semaphore(1)"
+    notes = "Uses Java's Semaphore class."
+}
+
+instance ScalaSemaphoreWait of SemaphoreWait {
+    syntax = "sem.acquire()"
+    notes = "Blocks until a permit is available."
+}
+
+instance ScalaSemaphoreSignal of SemaphoreSignal {
+    syntax = "sem.release()"
+    notes = "Increments the permit count."
+}
