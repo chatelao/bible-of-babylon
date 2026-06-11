@@ -297,3 +297,34 @@ Java Pivot View
 
            listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());
      - Can be implemented using flatMap and filter on streams.
+   * - ToCharDate
+     - .. code-block:: java
+
+           date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - Uses the modern java.time API.
+   * - ToCharDateTimezone
+     - .. code-block:: java
+
+           dt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z"))
+     - z provides the timezone name.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: java
+
+           NumberFormat.getInstance().format(num)
+     - Uses locale-specific formatting.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: java
+
+           DecimalFormat df = new DecimalFormat("#,##0;(#,##0)");
+           df.format(num);
+     - DecimalFormat supports positive and negative patterns separated by a semicolon.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: java
+
+           String.format("%.2f", num)
+     - Standard string formatting to 2 decimal places.
+   * - ToDate
+     - .. code-block:: java
+
+           LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - Parses a string directly into a LocalDate object.

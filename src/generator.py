@@ -264,6 +264,9 @@ class CodeGenerator:
 
         # Render each pattern and its instances
         for pattern_name, pattern in patterns_map.items():
+            if filter_languages and pattern_name not in instances_by_pattern:
+                continue
+
             results.append(self.render_pattern(pattern))
 
             if pattern_name in instances_by_pattern:

@@ -295,3 +295,33 @@ CSharp Pivot View
 
            var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };
      - LINQ provides a native 'join' keyword.
+   * - ToCharDate
+     - .. code-block:: csharp
+
+           date.ToString("dd.MM.yyyy")
+     - Standard .NET format string.
+   * - ToCharDateTimezone
+     - .. code-block:: csharp
+
+           dt.ToString("yyyy-MM-dd HH:mm:ss K")
+     - K represents the timezone information.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: csharp
+
+           num.ToString("N0")
+     - The 'N' format specifier includes group separators.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: csharp
+
+           num.ToString("#,##0;(#,##0)")
+     - Custom format string with positive and negative sections.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: csharp
+
+           num.ToString("F2")
+     - The 'F' format specifier ensures fixed decimal places.
+   * - ToDate
+     - .. code-block:: csharp
+
+           DateTime.ParseExact(dateStr, "dd.MM.yyyy", CultureInfo.InvariantCulture)
+     - Strict parsing of the specific format.

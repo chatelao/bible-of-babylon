@@ -293,3 +293,23 @@ Rust Pivot View
 
            list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));
      - Implemented using flat_map and filter.
+   * - ToCharDate
+     - .. code-block:: rust
+
+           date.format("%d.%m.%Y").to_string()
+     - Requires the chrono crate.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: rust
+
+           num.to_formatted_string(&Locale::en)
+     - Requires the num-format crate.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: rust
+
+           format!("{:.2}", num)
+     - Standard macro for string formatting.
+   * - ToDate
+     - .. code-block:: rust
+
+           NaiveDate::parse_from_str(date_str, "%d.%m.%Y")
+     - Requires the chrono crate.

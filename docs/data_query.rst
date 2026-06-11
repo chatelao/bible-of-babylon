@@ -59,6 +59,216 @@ Parameters:
 
 
 
+ToCharDate
+----------
+
+
+:description: Formatting a date as a string (specifically DD.MM.YYYY).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharDate Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharDate
+     - .. code-block:: sql
+
+           FORMAT(date_col, 'dd.MM.yyyy')
+     - T-SQL syntax using the FORMAT function.
+   * - XQueryToCharDate
+     - .. code-block:: xquery
+
+           format-date($date, '[D,2].[M,2].[Y,4]')
+     - Uses the XPath/XQuery format-date function.
+
+
+
+ToCharDateTimezone
+------------------
+
+
+:description: Formatting a date/time as a string including timezone information.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharDateTimezone Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharDateTimezone
+     - .. code-block:: sql
+
+           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
+     - T-SQL syntax; K represents the timezone offset.
+   * - XQueryToCharDateTimezone
+     - .. code-block:: xquery
+
+           format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')
+     - Uses the format-dateTime function; [z] outputs the timezone.
+
+
+
+ToCharNumberThousandSeparator
+-----------------------------
+
+
+:description: Formatting a number with a thousands separator.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberThousandSeparator Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberThousandSeparator
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0')
+     - Formats the number with a comma as a thousands separator.
+   * - XQueryToCharNumberThousandSeparator
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0')
+     - Uses the format-number function with a grouping separator.
+
+
+
+ToCharNumberNegativeBrackets
+----------------------------
+
+
+:description: Formatting a number using brackets for negative values.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberNegativeBrackets Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberNegativeBrackets
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0;(#,0)')
+     - The second part of the format string defines the layout for negative numbers.
+   * - XQueryToCharNumberNegativeBrackets
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0;(#,##0)')
+     - The semicolon separates positive and negative sub-pictures.
+
+
+
+ToCharNumberFixedDecimals
+-------------------------
+
+
+:description: Formatting a number with a fixed number of decimal positions.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberFixedDecimals Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberFixedDecimals
+     - .. code-block:: sql
+
+           FORMAT(num, 'N2')
+     - Uses standard numeric format with 2 decimal places.
+   * - XQueryToCharNumberFixedDecimals
+     - .. code-block:: xquery
+
+           format-number($num, '0.00')
+     - Ensures two decimal places are always displayed.
+
+
+
+ToDate
+------
+
+
+:description: Parsing a string (specifically in DD.MM.YYYY format) into a date object.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToDate Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToDate
+     - .. code-block:: sql
+
+           CONVERT(DATE, '31.12.2023', 104)
+     - 104 is the format code for 'dd.mm.yyyy' in T-SQL.
+   * - XQueryToDate
+     - .. code-block:: xquery
+
+           xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
+     - XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy.
+
+
+
 ForEach
 -------
 
@@ -354,57 +564,6 @@ Parameters:
    * - OverpassTurboGreaterThan
      - N/A
      - Overpass QL has limited support for numeric comparisons in some implementations.
-
-
-
-LogicalAnd
-----------
-
-
-:description: Returns true if both boolean operands are true.
-
-
-Parameters:
-
-* syntax: String
-
-* notes: String
-
-
-
-
-
-LogicalOr
----------
-
-
-:description: Returns true if at least one boolean operand is true.
-
-
-Parameters:
-
-* syntax: String
-
-* notes: String
-
-
-
-
-
-LogicalXor
-----------
-
-
-:description: Returns true if exactly one boolean operand is true.
-
-
-Parameters:
-
-* syntax: String
-
-* notes: String
-
-
 
 
 
