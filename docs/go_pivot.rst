@@ -309,3 +309,18 @@ Go Pivot View
                }
            }
      - Standard imperative nested loop join.
+   * - ToCharDate
+     - .. code-block:: go
+
+           t.Format("02.01.2006")
+     - Go uses a unique layout-based formatting string.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: go
+
+           fmt.Sprintf("%.2f", num)
+     - Standard printf-style formatting.
+   * - ToDate
+     - .. code-block:: go
+
+           time.Parse("02.01.2006", dateStr)
+     - Parses a string using the same layout logic as Format.

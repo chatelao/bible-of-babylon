@@ -7,6 +7,42 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern ToCharDate {
+    meta description: "Formatting a date as a string (specifically DD.MM.YYYY)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ToCharDateTimezone {
+    meta description: "Formatting a date/time as a string including timezone information."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ToCharNumberThousandSeparator {
+    meta description: "Formatting a number with a thousands separator."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ToCharNumberNegativeBrackets {
+    meta description: "Formatting a number using brackets for negative values."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ToCharNumberFixedDecimals {
+    meta description: "Formatting a number with a fixed number of decimal positions."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern ToDate {
+    meta description: "Parsing a string (specifically in DD.MM.YYYY format) into a date object."
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern ForEach {
     meta description: "Iterating over the elements of a collection."
     parameter syntax: String
@@ -10040,4 +10076,260 @@ instance ScalaSemaphoreWait of SemaphoreWait {
 instance ScalaSemaphoreSignal of SemaphoreSignal {
     syntax = "sem.release()"
     notes = "Increments the permit count."
+}
+
+instance SqlToCharDate of ToCharDate {
+    syntax = "FORMAT(date_col, 'dd.MM.yyyy')"
+    notes = "T-SQL syntax using the FORMAT function."
+}
+
+instance SqlToCharDateTimezone of ToCharDateTimezone {
+    syntax = "FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')"
+    notes = "T-SQL syntax; K represents the timezone offset."
+}
+
+instance SqlToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "FORMAT(num, '#,0')"
+    notes = "Formats the number with a comma as a thousands separator."
+}
+
+instance SqlToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "FORMAT(num, '#,0;(#,0)')"
+    notes = "The second part of the format string defines the layout for negative numbers."
+}
+
+instance SqlToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "FORMAT(num, 'N2')"
+    notes = "Uses standard numeric format with 2 decimal places."
+}
+
+instance SqlToDate of ToDate {
+    syntax = "CONVERT(DATE, '31.12.2023', 104)"
+    notes = "104 is the format code for 'dd.mm.yyyy' in T-SQL."
+}
+
+instance XQueryToCharDate of ToCharDate {
+    syntax = "format-date($date, '[D,2].[M,2].[Y,4]')"
+    notes = "Uses the XPath/XQuery format-date function."
+}
+
+instance XQueryToCharDateTimezone of ToCharDateTimezone {
+    syntax = "format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')"
+    notes = "Uses the format-dateTime function; [z] outputs the timezone."
+}
+
+instance XQueryToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "format-number($num, '#,##0')"
+    notes = "Uses the format-number function with a grouping separator."
+}
+
+instance XQueryToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "format-number($num, '#,##0;(#,##0)')"
+    notes = "The semicolon separates positive and negative sub-pictures."
+}
+
+instance XQueryToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "format-number($num, '0.00')"
+    notes = "Ensures two decimal places are always displayed."
+}
+
+instance XQueryToDate of ToDate {
+    syntax = "xs:date(replace($str, '(\\d{2})\\.(\\d{2})\\.(\\d{4})', '$3-$2-$1'))"
+    notes = "XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy."
+}
+
+instance PythonToCharDate of ToCharDate {
+    syntax = "date_obj.strftime('%d.%m.%Y')"
+    notes = "Standard strftime formatting."
+}
+
+instance PythonToCharDateTimezone of ToCharDateTimezone {
+    syntax = "dt_obj.strftime('%Y-%m-%d %H:%M:%S %Z')"
+    notes = "%Z provides the timezone name; %z provides the offset."
+}
+
+instance PythonToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "f'{num:,}'"
+    notes = "Uses f-string formatting with a comma as the separator."
+}
+
+instance PythonToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "f'({-num:,})' if num < 0 else f'{num:,}'"
+    notes = "Python requires conditional logic or a custom locale-aware formatter for brackets."
+}
+
+instance PythonToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "f'{num:.2f}'"
+    notes = "Formats to exactly 2 decimal places."
+}
+
+instance PythonToDate of ToDate {
+    syntax = "datetime.strptime(date_str, '%d.%m.%Y').date()"
+    notes = "Parses a string into a datetime object and extracts the date."
+}
+
+instance JavaToCharDate of ToCharDate {
+    syntax = "date.format(DateTimeFormatter.ofPattern(\"dd.MM.yyyy\"))"
+    notes = "Uses the modern java.time API."
+}
+
+instance JavaToCharDateTimezone of ToCharDateTimezone {
+    syntax = "dt.format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd HH:mm:ss z\"))"
+    notes = "z provides the timezone name."
+}
+
+instance JavaToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "NumberFormat.getInstance().format(num)"
+    notes = "Uses locale-specific formatting."
+}
+
+instance JavaToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "DecimalFormat df = new DecimalFormat(\"#,##0;(#,##0)\");\ndf.format(num);"
+    notes = "DecimalFormat supports positive and negative patterns separated by a semicolon."
+}
+
+instance JavaToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "String.format(\"%.2f\", num)"
+    notes = "Standard string formatting to 2 decimal places."
+}
+
+instance JavaToDate of ToDate {
+    syntax = "LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(\"dd.MM.yyyy\"))"
+    notes = "Parses a string directly into a LocalDate object."
+}
+
+instance PhpToCharDate of ToCharDate {
+    syntax = "$date->format('d.m.Y')"
+    notes = "Using the DateTime object's format method."
+}
+
+instance PhpToCharDateTimezone of ToCharDateTimezone {
+    syntax = "$date->format('Y-m-d H:i:s T')"
+    notes = "T provides the timezone abbreviation."
+}
+
+instance PhpToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "number_format($num, 0, '.', ',')"
+    notes = "Standard function for numeric formatting."
+}
+
+instance PhpToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "$num < 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)"
+    notes = "Manual formatting for brackets."
+}
+
+instance PhpToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "number_format($num, 2)"
+    notes = "Formats to 2 decimal places."
+}
+
+instance PhpToDate of ToDate {
+    syntax = "DateTime::createFromFormat('d.m.Y', $dateStr)"
+    notes = "Static method to parse specific formats."
+}
+
+instance CSharpToCharDate of ToCharDate {
+    syntax = "date.ToString(\"dd.MM.yyyy\")"
+    notes = "Standard .NET format string."
+}
+
+instance CSharpToCharDateTimezone of ToCharDateTimezone {
+    syntax = "dt.ToString(\"yyyy-MM-dd HH:mm:ss K\")"
+    notes = "K represents the timezone information."
+}
+
+instance CSharpToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "num.ToString(\"N0\")"
+    notes = "The 'N' format specifier includes group separators."
+}
+
+instance CSharpToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "num.ToString(\"#,##0;(#,##0)\")"
+    notes = "Custom format string with positive and negative sections."
+}
+
+instance CSharpToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "num.ToString(\"F2\")"
+    notes = "The 'F' format specifier ensures fixed decimal places."
+}
+
+instance CSharpToDate of ToDate {
+    syntax = "DateTime.ParseExact(dateStr, \"dd.MM.yyyy\", CultureInfo.InvariantCulture)"
+    notes = "Strict parsing of the specific format."
+}
+
+instance TypeScriptToCharDate of ToCharDate {
+    syntax = "date.toLocaleDateString('de-DE')"
+    notes = "German locale uses the dd.mm.yyyy format."
+}
+
+instance TypeScriptToCharDateTimezone of ToCharDateTimezone {
+    syntax = "date.toISOString()"
+    notes = "Outputs a string in ISO 8601 format including UTC 'Z'."
+}
+
+instance TypeScriptToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "num.toLocaleString()"
+    notes = "Uses locale-specific separators."
+}
+
+instance TypeScriptToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)"
+    notes = "Accounting style uses brackets for negative values."
+}
+
+instance TypeScriptToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "num.toFixed(2)"
+    notes = "Formats to exactly 2 decimal places."
+}
+
+instance TypeScriptToDate of ToDate {
+    syntax = "const [d, m, y] = str.split('.');\nnew Date(`${y}-${m}-${d}`);"
+    notes = "Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats."
+}
+
+
+instance CppToCharDate of ToCharDate {
+    syntax = "std::strftime(buf, sizeof(buf), \"%d.%m.%Y\", &timeinfo);"
+    notes = "Standard C-style formatting available in C++."
+}
+
+instance CppToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "std::format(\"{:.2f}\", num);"
+    notes = "Available in C++20 and later."
+}
+
+instance RustToCharDate of ToCharDate {
+    syntax = "date.format(\"%d.%m.%Y\").to_string()"
+    notes = "Requires the chrono crate."
+}
+
+instance RustToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "num.to_formatted_string(&Locale::en)"
+    notes = "Requires the num-format crate."
+}
+
+instance RustToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "format!(\"{:.2}\", num)"
+    notes = "Standard macro for string formatting."
+}
+
+instance RustToDate of ToDate {
+    syntax = "NaiveDate::parse_from_str(date_str, \"%d.%m.%Y\")"
+    notes = "Requires the chrono crate."
+}
+
+instance GoToCharDate of ToCharDate {
+    syntax = "t.Format(\"02.01.2006\")"
+    notes = "Go uses a unique layout-based formatting string."
+}
+
+instance GoToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "fmt.Sprintf(\"%.2f\", num)"
+    notes = "Standard printf-style formatting."
+}
+
+instance GoToDate of ToDate {
+    syntax = "time.Parse(\"02.01.2006\", dateStr)"
+    notes = "Parses a string using the same layout logic as Format."
 }

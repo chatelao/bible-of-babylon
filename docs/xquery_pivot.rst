@@ -219,3 +219,33 @@ XQuery Pivot View
            where $a/id = $b/id
            return <res>{$a, $b}</res>
      - Join is performed using multiple 'for' clauses and a 'where' filter.
+   * - ToCharDate
+     - .. code-block:: xquery
+
+           format-date($date, '[D,2].[M,2].[Y,4]')
+     - Uses the XPath/XQuery format-date function.
+   * - ToCharDateTimezone
+     - .. code-block:: xquery
+
+           format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')
+     - Uses the format-dateTime function; [z] outputs the timezone.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0')
+     - Uses the format-number function with a grouping separator.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0;(#,##0)')
+     - The semicolon separates positive and negative sub-pictures.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: xquery
+
+           format-number($num, '0.00')
+     - Ensures two decimal places are always displayed.
+   * - ToDate
+     - .. code-block:: xquery
+
+           xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
+     - XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy.

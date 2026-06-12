@@ -269,3 +269,34 @@ TypeScript Pivot View
 
            const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));
      - Uses flatMap and filter for a functional approach.
+   * - ToCharDate
+     - .. code-block:: typescript
+
+           date.toLocaleDateString('de-DE')
+     - German locale uses the dd.mm.yyyy format.
+   * - ToCharDateTimezone
+     - .. code-block:: typescript
+
+           date.toISOString()
+     - Outputs a string in ISO 8601 format including UTC 'Z'.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: typescript
+
+           num.toLocaleString()
+     - Uses locale-specific separators.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: typescript
+
+           new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)
+     - Accounting style uses brackets for negative values.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: typescript
+
+           num.toFixed(2)
+     - Formats to exactly 2 decimal places.
+   * - ToDate
+     - .. code-block:: typescript
+
+           const [d, m, y] = str.split('.');
+           new Date(`${y}-${m}-${d}`);
+     - Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats.

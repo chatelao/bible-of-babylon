@@ -267,3 +267,33 @@ Python Pivot View
 
            res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]
      - Uses nested list comprehensions.
+   * - ToCharDate
+     - .. code-block:: python
+
+           date_obj.strftime('%d.%m.%Y')
+     - Standard strftime formatting.
+   * - ToCharDateTimezone
+     - .. code-block:: python
+
+           dt_obj.strftime('%Y-%m-%d %H:%M:%S %Z')
+     - %Z provides the timezone name; %z provides the offset.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: python
+
+           f'{num:,}'
+     - Uses f-string formatting with a comma as the separator.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: python
+
+           f'({-num:,})' if num < 0 else f'{num:,}'
+     - Python requires conditional logic or a custom locale-aware formatter for brackets.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: python
+
+           f'{num:.2f}'
+     - Formats to exactly 2 decimal places.
+   * - ToDate
+     - .. code-block:: python
+
+           datetime.strptime(date_str, '%d.%m.%Y').date()
+     - Parses a string into a datetime object and extracts the date.

@@ -285,3 +285,33 @@ PHP Pivot View
 
            sem_release($sem)
      - N/A
+   * - ToCharDate
+     - .. code-block:: php
+
+           $date->format('d.m.Y')
+     - Using the DateTime object's format method.
+   * - ToCharDateTimezone
+     - .. code-block:: php
+
+           $date->format('Y-m-d H:i:s T')
+     - T provides the timezone abbreviation.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: php
+
+           number_format($num, 0, '.', ',')
+     - Standard function for numeric formatting.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: php
+
+           $num < 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)
+     - Manual formatting for brackets.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: php
+
+           number_format($num, 2)
+     - Formats to 2 decimal places.
+   * - ToDate
+     - .. code-block:: php
+
+           DateTime::createFromFormat('d.m.Y', $dateStr)
+     - Static method to parse specific formats.
