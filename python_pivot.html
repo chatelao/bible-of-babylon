@@ -488,6 +488,48 @@
 </td>
 <td><p>Uses nested list comprehensions.</p></td>
 </tr>
+<tr class="row-odd"><td><p>ToCharDate</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">date_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard strftime formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S %Z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>%Z provides the timezone name; %z provides the offset.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses f-string formatting with a comma as the separator.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="o">-</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Python requires conditional logic or a custom locale-aware formatter for brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Formats to exactly 2 decimal places.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToDate</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parses a string into a datetime object and extracts the date.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

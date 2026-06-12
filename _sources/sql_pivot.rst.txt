@@ -262,3 +262,33 @@ SQL Pivot View
    * - SemaphoreSignal
      - N/A
      - N/A
+   * - ToCharDate
+     - .. code-block:: sql
+
+           FORMAT(date_col, 'dd.MM.yyyy')
+     - T-SQL syntax using the FORMAT function.
+   * - ToCharDateTimezone
+     - .. code-block:: sql
+
+           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
+     - T-SQL syntax; K represents the timezone offset.
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0')
+     - Formats the number with a comma as a thousands separator.
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0;(#,0)')
+     - The second part of the format string defines the layout for negative numbers.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: sql
+
+           FORMAT(num, 'N2')
+     - Uses standard numeric format with 2 decimal places.
+   * - ToDate
+     - .. code-block:: sql
+
+           CONVERT(DATE, '31.12.2023', 104)
+     - 104 is the format code for 'dd.mm.yyyy' in T-SQL.

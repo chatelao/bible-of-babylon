@@ -506,6 +506,48 @@
 </td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-odd"><td><p>ToCharDate</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;d.m.Y&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Using the DateTime object’s format method.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;Y-m-d H:i:s T&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>T provides the timezone abbreviation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 0, &#39;.&#39;, &#39;,&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard function for numeric formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$num &lt; 0 ? &#39;(&#39; . number_format(abs($num)) . &#39;)&#39; : number_format($num)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual formatting for brackets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 2)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Formats to 2 decimal places.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToDate</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">DateTime::createFromFormat(&#39;d.m.Y&#39;, $dateStr)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Static method to parse specific formats.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -522,6 +522,48 @@
 </td>
 <td><p>LINQ provides a native ‘join’ keyword.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard .NET format string.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>K represents the timezone information.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;N0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘N’ format specifier includes group separators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;#,##0;(#,##0)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Custom format string with positive and negative sections.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;F2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘F’ format specifier ensures fixed decimal places.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToDate</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Strict parsing of the specific format.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -300,3 +300,13 @@ Cpp Pivot View
 
            std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));
      - Uses set_intersection for sorted ranges; otherwise uses nested loops.
+   * - ToCharDate
+     - .. code-block:: cpp
+
+           std::strftime(buf, sizeof(buf), "%d.%m.%Y", &timeinfo);
+     - Standard C-style formatting available in C++.
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: cpp
+
+           std::format("{:.2f}", num);
+     - Available in C++20 and later.

@@ -520,6 +520,34 @@
 </td>
 <td><p>Implemented using flat_map and filter.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">).</span><span class="n">to_string</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the chrono crate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">to_formatted_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Locale</span><span class="p">::</span><span class="n">en</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the num-format crate.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{:.2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard macro for string formatting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToDate</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">NaiveDate</span><span class="p">::</span><span class="n">parse_from_str</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires the chrono crate.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

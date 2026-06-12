@@ -468,6 +468,48 @@
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dd.MM.yyyy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>T-SQL syntax using the FORMAT function.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>T-SQL syntax; K represents the timezone offset.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Formats the number with a comma as a thousands separator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0;(#,0)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The second part of the format string defines the layout for negative numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses standard numeric format with 2 decimal places.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToDate</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CONVERT</span><span class="p">(</span><span class="nb">DATE</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>104 is the format code for ‘dd.mm.yyyy’ in T-SQL.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

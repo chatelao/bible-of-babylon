@@ -214,6 +214,413 @@ Parameters:
 
 
 
+ToCharDate
+----------
+
+
+:description: Formatting a date as a string (specifically DD.MM.YYYY).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharDate Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharDate
+     - .. code-block:: sql
+
+           FORMAT(date_col, 'dd.MM.yyyy')
+     - T-SQL syntax using the FORMAT function.
+   * - XQueryToCharDate
+     - .. code-block:: xquery
+
+           format-date($date, '[D,2].[M,2].[Y,4]')
+     - Uses the XPath/XQuery format-date function.
+   * - PythonToCharDate
+     - .. code-block:: python
+
+           date_obj.strftime('%d.%m.%Y')
+     - Standard strftime formatting.
+   * - JavaToCharDate
+     - .. code-block:: java
+
+           date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - Uses the modern java.time API.
+   * - PhpToCharDate
+     - .. code-block:: php
+
+           $date->format('d.m.Y')
+     - Using the DateTime object's format method.
+   * - CSharpToCharDate
+     - .. code-block:: csharp
+
+           date.ToString("dd.MM.yyyy")
+     - Standard .NET format string.
+   * - TypeScriptToCharDate
+     - .. code-block:: typescript
+
+           date.toLocaleDateString('de-DE')
+     - German locale uses the dd.mm.yyyy format.
+   * - CppToCharDate
+     - .. code-block:: cpp
+
+           std::strftime(buf, sizeof(buf), "%d.%m.%Y", &timeinfo);
+     - Standard C-style formatting available in C++.
+   * - RustToCharDate
+     - .. code-block:: rust
+
+           date.format("%d.%m.%Y").to_string()
+     - Requires the chrono crate.
+   * - GoToCharDate
+     - .. code-block:: go
+
+           t.Format("02.01.2006")
+     - Go uses a unique layout-based formatting string.
+
+
+
+ToCharDateTimezone
+------------------
+
+
+:description: Formatting a date/time as a string including timezone information.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharDateTimezone Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharDateTimezone
+     - .. code-block:: sql
+
+           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
+     - T-SQL syntax; K represents the timezone offset.
+   * - XQueryToCharDateTimezone
+     - .. code-block:: xquery
+
+           format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')
+     - Uses the format-dateTime function; [z] outputs the timezone.
+   * - PythonToCharDateTimezone
+     - .. code-block:: python
+
+           dt_obj.strftime('%Y-%m-%d %H:%M:%S %Z')
+     - %Z provides the timezone name; %z provides the offset.
+   * - JavaToCharDateTimezone
+     - .. code-block:: java
+
+           dt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z"))
+     - z provides the timezone name.
+   * - PhpToCharDateTimezone
+     - .. code-block:: php
+
+           $date->format('Y-m-d H:i:s T')
+     - T provides the timezone abbreviation.
+   * - CSharpToCharDateTimezone
+     - .. code-block:: csharp
+
+           dt.ToString("yyyy-MM-dd HH:mm:ss K")
+     - K represents the timezone information.
+   * - TypeScriptToCharDateTimezone
+     - .. code-block:: typescript
+
+           date.toISOString()
+     - Outputs a string in ISO 8601 format including UTC 'Z'.
+
+
+
+ToCharNumberThousandSeparator
+-----------------------------
+
+
+:description: Formatting a number with a thousands separator.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberThousandSeparator Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberThousandSeparator
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0')
+     - Formats the number with a comma as a thousands separator.
+   * - XQueryToCharNumberThousandSeparator
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0')
+     - Uses the format-number function with a grouping separator.
+   * - PythonToCharNumberThousandSeparator
+     - .. code-block:: python
+
+           f'{num:,}'
+     - Uses f-string formatting with a comma as the separator.
+   * - JavaToCharNumberThousandSeparator
+     - .. code-block:: java
+
+           NumberFormat.getInstance().format(num)
+     - Uses locale-specific formatting.
+   * - PhpToCharNumberThousandSeparator
+     - .. code-block:: php
+
+           number_format($num, 0, '.', ',')
+     - Standard function for numeric formatting.
+   * - CSharpToCharNumberThousandSeparator
+     - .. code-block:: csharp
+
+           num.ToString("N0")
+     - The 'N' format specifier includes group separators.
+   * - TypeScriptToCharNumberThousandSeparator
+     - .. code-block:: typescript
+
+           num.toLocaleString()
+     - Uses locale-specific separators.
+   * - RustToCharNumberThousandSeparator
+     - .. code-block:: rust
+
+           num.to_formatted_string(&Locale::en)
+     - Requires the num-format crate.
+
+
+
+ToCharNumberNegativeBrackets
+----------------------------
+
+
+:description: Formatting a number using brackets for negative values.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberNegativeBrackets Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberNegativeBrackets
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0;(#,0)')
+     - The second part of the format string defines the layout for negative numbers.
+   * - XQueryToCharNumberNegativeBrackets
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0;(#,##0)')
+     - The semicolon separates positive and negative sub-pictures.
+   * - PythonToCharNumberNegativeBrackets
+     - .. code-block:: python
+
+           f'({-num:,})' if num < 0 else f'{num:,}'
+     - Python requires conditional logic or a custom locale-aware formatter for brackets.
+   * - JavaToCharNumberNegativeBrackets
+     - .. code-block:: java
+
+           DecimalFormat df = new DecimalFormat("#,##0;(#,##0)");
+           df.format(num);
+     - DecimalFormat supports positive and negative patterns separated by a semicolon.
+   * - PhpToCharNumberNegativeBrackets
+     - .. code-block:: php
+
+           $num < 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)
+     - Manual formatting for brackets.
+   * - CSharpToCharNumberNegativeBrackets
+     - .. code-block:: csharp
+
+           num.ToString("#,##0;(#,##0)")
+     - Custom format string with positive and negative sections.
+   * - TypeScriptToCharNumberNegativeBrackets
+     - .. code-block:: typescript
+
+           new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)
+     - Accounting style uses brackets for negative values.
+
+
+
+ToCharNumberFixedDecimals
+-------------------------
+
+
+:description: Formatting a number with a fixed number of decimal positions.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToCharNumberFixedDecimals Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToCharNumberFixedDecimals
+     - .. code-block:: sql
+
+           FORMAT(num, 'N2')
+     - Uses standard numeric format with 2 decimal places.
+   * - XQueryToCharNumberFixedDecimals
+     - .. code-block:: xquery
+
+           format-number($num, '0.00')
+     - Ensures two decimal places are always displayed.
+   * - PythonToCharNumberFixedDecimals
+     - .. code-block:: python
+
+           f'{num:.2f}'
+     - Formats to exactly 2 decimal places.
+   * - JavaToCharNumberFixedDecimals
+     - .. code-block:: java
+
+           String.format("%.2f", num)
+     - Standard string formatting to 2 decimal places.
+   * - PhpToCharNumberFixedDecimals
+     - .. code-block:: php
+
+           number_format($num, 2)
+     - Formats to 2 decimal places.
+   * - CSharpToCharNumberFixedDecimals
+     - .. code-block:: csharp
+
+           num.ToString("F2")
+     - The 'F' format specifier ensures fixed decimal places.
+   * - TypeScriptToCharNumberFixedDecimals
+     - .. code-block:: typescript
+
+           num.toFixed(2)
+     - Formats to exactly 2 decimal places.
+   * - CppToCharNumberFixedDecimals
+     - .. code-block:: cpp
+
+           std::format("{:.2f}", num);
+     - Available in C++20 and later.
+   * - RustToCharNumberFixedDecimals
+     - .. code-block:: rust
+
+           format!("{:.2}", num)
+     - Standard macro for string formatting.
+   * - GoToCharNumberFixedDecimals
+     - .. code-block:: go
+
+           fmt.Sprintf("%.2f", num)
+     - Standard printf-style formatting.
+
+
+
+ToDate
+------
+
+
+:description: Parsing a string (specifically in DD.MM.YYYY format) into a date object.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: ToDate Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlToDate
+     - .. code-block:: sql
+
+           CONVERT(DATE, '31.12.2023', 104)
+     - 104 is the format code for 'dd.mm.yyyy' in T-SQL.
+   * - XQueryToDate
+     - .. code-block:: xquery
+
+           xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
+     - XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy.
+   * - PythonToDate
+     - .. code-block:: python
+
+           datetime.strptime(date_str, '%d.%m.%Y').date()
+     - Parses a string into a datetime object and extracts the date.
+   * - JavaToDate
+     - .. code-block:: java
+
+           LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - Parses a string directly into a LocalDate object.
+   * - PhpToDate
+     - .. code-block:: php
+
+           DateTime::createFromFormat('d.m.Y', $dateStr)
+     - Static method to parse specific formats.
+   * - CSharpToDate
+     - .. code-block:: csharp
+
+           DateTime.ParseExact(dateStr, "dd.MM.yyyy", CultureInfo.InvariantCulture)
+     - Strict parsing of the specific format.
+   * - TypeScriptToDate
+     - .. code-block:: typescript
+
+           const [d, m, y] = str.split('.');
+           new Date(`${y}-${m}-${d}`);
+     - Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats.
+   * - RustToDate
+     - .. code-block:: rust
+
+           NaiveDate::parse_from_str(date_str, "%d.%m.%Y")
+     - Requires the chrono crate.
+   * - GoToDate
+     - .. code-block:: go
+
+           time.Parse("02.01.2006", dateStr)
+     - Parses a string using the same layout logic as Format.
+
+
+
 ForEach
 -------
 

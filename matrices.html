@@ -288,6 +288,317 @@
 </div>
 </td>
 </tr>
+<tr class="row-odd"><td><p>ToCharDate</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">strftime</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timeinfo</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">).</span><span class="n">to_string</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">date_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;d.m.Y&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">(</span><span class="s1">&#39;de-DE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharDateTimezone</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss z&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dt_obj</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S %Z&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;Y-m-d H:i:s T&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">date</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss K&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">NumberFormat</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">to_formatted_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Locale</span><span class="p">::</span><span class="n">en</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 0, &#39;.&#39;, &#39;,&#39;)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">num</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;N0&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DecimalFormat</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DecimalFormat</span><span class="p">(</span><span class="s">&quot;#,##0;(#,##0)&quot;</span><span class="p">);</span>
+<span class="n">df</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="o">-</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">)&#39;</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">,</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$num &lt; 0 ? &#39;(&#39; . number_format(abs($num)) . &#39;)&#39; : number_format($num)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span><span class="w"> </span><span class="nb">Intl</span><span class="p">.</span><span class="nx">NumberFormat</span><span class="p">(</span><span class="s1">&#39;en-US&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">currencySign</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;accounting&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;currency&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;USD&#39;</span><span class="w"> </span><span class="p">}).</span><span class="nx">format</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;#,##0;(#,##0)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;{:.2f}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="fm">format!</span><span class="p">(</span><span class="s">&quot;{:.2}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 2)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">num</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;F2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToDate</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">NaiveDate</span><span class="p">::</span><span class="n">parse_from_str</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">.%m.%Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">DateTime::createFromFormat(&#39;d.m.Y&#39;, $dateStr)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">time</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">dateStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">d</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">y</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">m</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">d</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
 <tr class="row-odd"><td><p>ForEach</p></td>
 <td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
@@ -6681,6 +6992,84 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </pre></div>
 </div>
 </td>
+</tr>
+<tr class="row-odd"><td><p>ToCharDate</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dd.MM.yyyy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-date</span><span class="p">(</span><span class="nv">$</span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[D,2].[M,2].[Y,4]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss K&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-dateTime</span><span class="p">(</span><span class="nv">$</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,##0&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0;(#,0)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,##0;(#,##0)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0.00&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-even"><td><p>ToDate</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CONVERT</span><span class="p">(</span><span class="nb">DATE</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">xs:date</span><span class="p">(</span><span class="nf">replace</span><span class="p">(</span><span class="nv">$</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(\d{2})\.(\d{2})\.(\d{4})&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$3-$2-$1&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
+<td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ForEach</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>

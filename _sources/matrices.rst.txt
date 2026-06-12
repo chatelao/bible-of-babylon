@@ -130,6 +130,272 @@ Programming Languages
      - .. code-block:: zig
 
            var x: i32 = 42;
+   * - ToCharDate
+     - N/A
+     - .. code-block:: cpp
+
+           std::strftime(buf, sizeof(buf), "%d.%m.%Y", &timeinfo);
+     - .. code-block:: java
+
+           date.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - .. code-block:: rust
+
+           date.format("%d.%m.%Y").to_string()
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           date_obj.strftime('%d.%m.%Y')
+     - .. code-block:: php
+
+           $date->format('d.m.Y')
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           t.Format("02.01.2006")
+     - N/A
+     - .. code-block:: typescript
+
+           date.toLocaleDateString('de-DE')
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           date.ToString("dd.MM.yyyy")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharDateTimezone
+     - N/A
+     - N/A
+     - .. code-block:: java
+
+           dt.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss z"))
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           dt_obj.strftime('%Y-%m-%d %H:%M:%S %Z')
+     - .. code-block:: php
+
+           $date->format('Y-m-d H:i:s T')
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: typescript
+
+           date.toISOString()
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           dt.ToString("yyyy-MM-dd HH:mm:ss K")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberThousandSeparator
+     - N/A
+     - N/A
+     - .. code-block:: java
+
+           NumberFormat.getInstance().format(num)
+     - .. code-block:: rust
+
+           num.to_formatted_string(&Locale::en)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           f'{num:,}'
+     - .. code-block:: php
+
+           number_format($num, 0, '.', ',')
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: typescript
+
+           num.toLocaleString()
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           num.ToString("N0")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberNegativeBrackets
+     - N/A
+     - N/A
+     - .. code-block:: java
+
+           DecimalFormat df = new DecimalFormat("#,##0;(#,##0)");
+           df.format(num);
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           f'({-num:,})' if num < 0 else f'{num:,}'
+     - .. code-block:: php
+
+           $num < 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: typescript
+
+           new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           num.ToString("#,##0;(#,##0)")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberFixedDecimals
+     - N/A
+     - .. code-block:: cpp
+
+           std::format("{:.2f}", num);
+     - .. code-block:: java
+
+           String.format("%.2f", num)
+     - .. code-block:: rust
+
+           format!("{:.2}", num)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           f'{num:.2f}'
+     - .. code-block:: php
+
+           number_format($num, 2)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           fmt.Sprintf("%.2f", num)
+     - N/A
+     - .. code-block:: typescript
+
+           num.toFixed(2)
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           num.ToString("F2")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+   * - ToDate
+     - N/A
+     - N/A
+     - .. code-block:: java
+
+           LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
+     - .. code-block:: rust
+
+           NaiveDate::parse_from_str(date_str, "%d.%m.%Y")
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: python
+
+           datetime.strptime(date_str, '%d.%m.%Y').date()
+     - .. code-block:: php
+
+           DateTime::createFromFormat('d.m.Y', $dateStr)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: go
+
+           time.Parse("02.01.2006", dateStr)
+     - N/A
+     - .. code-block:: typescript
+
+           const [d, m, y] = str.split('.');
+           new Date(`${y}-${m}-${d}`);
+     - N/A
+     - N/A
+     - N/A
+     - .. code-block:: csharp
+
+           DateTime.ParseExact(dateStr, "dd.MM.yyyy", CultureInfo.InvariantCulture)
+     - N/A
+     - N/A
+     - N/A
+     - N/A
    * - ForEach
      - .. code-block:: c
 
@@ -5198,6 +5464,66 @@ Data Query Languages
      - .. code-block:: text
 
            .setname
+   * - ToCharDate
+     - .. code-block:: sql
+
+           FORMAT(date_col, 'dd.MM.yyyy')
+     - .. code-block:: xquery
+
+           format-date($date, '[D,2].[M,2].[Y,4]')
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharDateTimezone
+     - .. code-block:: sql
+
+           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
+     - .. code-block:: xquery
+
+           format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberThousandSeparator
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0')
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0')
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberNegativeBrackets
+     - .. code-block:: sql
+
+           FORMAT(num, '#,0;(#,0)')
+     - .. code-block:: xquery
+
+           format-number($num, '#,##0;(#,##0)')
+     - N/A
+     - N/A
+     - N/A
+   * - ToCharNumberFixedDecimals
+     - .. code-block:: sql
+
+           FORMAT(num, 'N2')
+     - .. code-block:: xquery
+
+           format-number($num, '0.00')
+     - N/A
+     - N/A
+     - N/A
+   * - ToDate
+     - .. code-block:: sql
+
+           CONVERT(DATE, '31.12.2023', 104)
+     - .. code-block:: xquery
+
+           xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
+     - N/A
+     - N/A
+     - N/A
    * - ForEach
      - .. code-block:: sql
 

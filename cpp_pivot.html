@@ -527,6 +527,20 @@
 </td>
 <td><p>Uses set_intersection for sorted ranges; otherwise uses nested loops.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">strftime</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%d.%m.%Y&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">timeinfo</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard C-style formatting available in C++.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">format</span><span class="p">(</span><span class="s">&quot;{:.2f}&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Available in C++20 and later.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

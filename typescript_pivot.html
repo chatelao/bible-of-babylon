@@ -484,6 +484,49 @@
 </td>
 <td><p>Uses flatMap and filter for a functional approach.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">date</span><span class="p">.</span><span class="nx">toLocaleDateString</span><span class="p">(</span><span class="s1">&#39;de-DE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>German locale uses the dd.mm.yyyy format.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">date</span><span class="p">.</span><span class="nx">toISOString</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Outputs a string in ISO 8601 format including UTC ‘Z’.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">num</span><span class="p">.</span><span class="nx">toLocaleString</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses locale-specific separators.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="ow">new</span><span class="w"> </span><span class="nb">Intl</span><span class="p">.</span><span class="nx">NumberFormat</span><span class="p">(</span><span class="s1">&#39;en-US&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">currencySign</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;accounting&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;currency&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">currency</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;USD&#39;</span><span class="w"> </span><span class="p">}).</span><span class="nx">format</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Accounting style uses brackets for negative values.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">num</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Formats to exactly 2 decimal places.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToDate</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">d</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">);</span>
+<span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">y</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">m</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">d</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

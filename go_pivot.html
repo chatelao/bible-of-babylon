@@ -536,6 +536,27 @@
 </td>
 <td><p>Standard imperative nested loop join.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Go uses a unique layout-based formatting string.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard printf-style formatting.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToDate</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">time</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">dateStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parses a string using the same layout logic as Format.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

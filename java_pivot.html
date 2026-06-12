@@ -524,6 +524,49 @@
 </td>
 <td><p>Can be implemented using flatMap and filter on streams.</p></td>
 </tr>
+<tr class="row-even"><td><p>ToCharDate</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the modern java.time API.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss z&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>z provides the timezone name.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">NumberFormat</span><span class="p">.</span><span class="na">getInstance</span><span class="p">().</span><span class="na">format</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses locale-specific formatting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DecimalFormat</span><span class="w"> </span><span class="n">df</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DecimalFormat</span><span class="p">(</span><span class="s">&quot;#,##0;(#,##0)&quot;</span><span class="p">);</span>
+<span class="n">df</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">num</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>DecimalFormat supports positive and negative patterns separated by a semicolon.</p></td>
+</tr>
+<tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">String</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard string formatting to 2 decimal places.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ToDate</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Parses a string directly into a LocalDate object.</p></td>
+</tr>
 </tbody>
 </table>
 </section>
