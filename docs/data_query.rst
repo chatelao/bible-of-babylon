@@ -34,8 +34,12 @@ Parameters:
    * - SqlVar
      - .. code-block:: sql
 
-           DECLARE @x INT = 42;
-     - T-SQL syntax for variable declaration.
+           DECLARE
+             x NUMBER := 42;
+           BEGIN
+             -- usage
+           END;
+     - PL/SQL syntax for variable declaration. ANSI SQL uses DECLARE in blocks.
    * - XQueryVar
      - .. code-block:: xquery
 
@@ -84,8 +88,8 @@ Parameters:
    * - SqlToCharDate
      - .. code-block:: sql
 
-           FORMAT(date_col, 'dd.MM.yyyy')
-     - T-SQL syntax using the FORMAT function.
+           TO_CHAR(date_col, 'DD.MM.YYYY')
+     - Oracle TO_CHAR function for date formatting.
    * - XQueryToCharDate
      - .. code-block:: xquery
 
@@ -119,8 +123,8 @@ Parameters:
    * - SqlToCharDateTimezone
      - .. code-block:: sql
 
-           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
-     - T-SQL syntax; K represents the timezone offset.
+           TO_CHAR(datetime_col, 'YYYY-MM-DD HH24:MI:SS TZH:TZM')
+     - Oracle TO_CHAR with timezone information.
    * - XQueryToCharDateTimezone
      - .. code-block:: xquery
 
@@ -154,8 +158,8 @@ Parameters:
    * - SqlToCharNumberThousandSeparator
      - .. code-block:: sql
 
-           FORMAT(num, '#,0')
-     - Formats the number with a comma as a thousands separator.
+           TO_CHAR(num, '999,999,990')
+     - Oracle TO_CHAR with G (Group separator) or comma.
    * - XQueryToCharNumberThousandSeparator
      - .. code-block:: xquery
 
@@ -189,8 +193,8 @@ Parameters:
    * - SqlToCharNumberNegativeBrackets
      - .. code-block:: sql
 
-           FORMAT(num, '#,0;(#,0)')
-     - The second part of the format string defines the layout for negative numbers.
+           TO_CHAR(num, '999G990D00PR')
+     - PR format element in Oracle TO_CHAR wraps negative numbers in brackets.
    * - XQueryToCharNumberNegativeBrackets
      - .. code-block:: xquery
 
@@ -224,8 +228,8 @@ Parameters:
    * - SqlToCharNumberFixedDecimals
      - .. code-block:: sql
 
-           FORMAT(num, 'N2')
-     - Uses standard numeric format with 2 decimal places.
+           TO_CHAR(num, '999990.00')
+     - Oracle TO_CHAR with fixed decimal positions.
    * - XQueryToCharNumberFixedDecimals
      - .. code-block:: xquery
 
@@ -259,8 +263,8 @@ Parameters:
    * - SqlToDate
      - .. code-block:: sql
 
-           CONVERT(DATE, '31.12.2023', 104)
-     - 104 is the format code for 'dd.mm.yyyy' in T-SQL.
+           TO_DATE('31.12.2023', 'DD.MM.YYYY')
+     - Oracle TO_DATE function converts string to date.
    * - XQueryToDate
      - .. code-block:: xquery
 
@@ -294,15 +298,10 @@ Parameters:
    * - SqlForEach
      - .. code-block:: sql
 
-           DECLARE cursor_name CURSOR FOR SELECT col FROM table;
-           OPEN cursor_name;
-           FETCH NEXT FROM cursor_name INTO @item;
-           WHILE @@FETCH_STATUS = 0
-           BEGIN
-               -- body
-               FETCH NEXT FROM cursor_name INTO @item;
-           END
-     - SQL typically uses cursors for row-by-row iteration.
+           FOR r IN (SELECT * FROM table) LOOP
+               -- access r.column
+           END LOOP;
+     - Oracle PL/SQL supports cursor FOR loops for easy iteration over result sets.
    * - XQueryForEach
      - .. code-block:: xquery
 
@@ -352,9 +351,9 @@ Parameters:
    * - SqlCollectionDefinition
      - .. code-block:: sql
 
-           DECLARE @t TABLE (val INT);
-           INSERT INTO @t VALUES (1), (2), (3);
-     - Collections are typically represented as table variables or temporary tables.
+           TYPE NumList IS TABLE OF NUMBER;
+           t NumList := NumList(1, 2, 3);
+     - Oracle PL/SQL uses collection types (Nested Tables, Varrays).
    * - XQueryCollectionDefinition
      - .. code-block:: xquery
 
@@ -405,9 +404,11 @@ Parameters:
    * - SqlAssociativeArrayDefinition
      - .. code-block:: sql
 
-           DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
-           INSERT INTO @t VALUES ('a', 1), ('b', 2);
-     - Associative mapping is achieved through table structures with key/value columns.
+           TYPE Dict IS TABLE OF NUMBER INDEX BY VARCHAR2(10);
+           t Dict;
+           t('a') := 1;
+           t('b') := 2;
+     - Oracle PL/SQL supports Associative Arrays (index-by tables).
    * - XQueryAssociativeArrayDefinition
      - .. code-block:: xquery
 
@@ -598,12 +599,11 @@ Parameters:
    * - SqlProcedure
      - .. code-block:: sql
 
-           CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
-           AS
+           CREATE OR REPLACE PROCEDURE log_message(msg IN VARCHAR2) AS
            BEGIN
-               PRINT @msg;
-           END
-     - T-SQL uses CREATE PROCEDURE for blocks that perform actions.
+               DBMS_OUTPUT.PUT_LINE(msg);
+           END;
+     - Oracle PL/SQL procedure syntax.
    * - XQueryProcedure
      - .. code-block:: xquery
 
@@ -658,12 +658,12 @@ Parameters:
    * - SqlFunction
      - .. code-block:: sql
 
-           CREATE FUNCTION add(@a INT, @b INT)
-           RETURNS INT AS
+           CREATE OR REPLACE FUNCTION add(a NUMBER, b NUMBER)
+           RETURN NUMBER AS
            BEGIN
-               RETURN @a + @b
-           END
-     - T-SQL syntax for Scalar-Valued Functions.
+               RETURN a + b;
+           END;
+     - Oracle PL/SQL function syntax.
    * - XQueryFunction
      - .. code-block:: xquery
 
@@ -723,15 +723,12 @@ Parameters:
    * - SqlIfElse
      - .. code-block:: sql
 
-           IF @x > 0
-           BEGIN
-               RETURN 1
-           END
+           IF x > 0 THEN
+               RETURN 1;
            ELSE
-           BEGIN
-               RETURN 0
-           END
-     - Uses IF-ELSE with BEGIN-END blocks.
+               RETURN 0;
+           END IF;
+     - Oracle PL/SQL uses IF-THEN-ELSE syntax.
    * - XQueryIfElse
      - .. code-block:: xquery
 
@@ -782,12 +779,12 @@ Parameters:
    * - SqlSwitchCase
      - .. code-block:: sql
 
-           CASE @x
+           CASE x
                WHEN 1 THEN 'one'
                WHEN 2 THEN 'two'
                ELSE 'none'
            END
-     - The CASE expression is used for conditional logic in SQL.
+     - The ANSI CASE expression is supported by almost all SQL databases including Oracle.
    * - XQuerySwitchCase
      - .. code-block:: xquery
 
@@ -839,11 +836,10 @@ Parameters:
    * - SqlLoop
      - .. code-block:: sql
 
-           WHILE @x > 0
-           BEGIN
-               SET @x = @x - 1
-           END
-     - Standard WHILE loop in T-SQL.
+           WHILE x > 0 LOOP
+               x := x - 1;
+           END LOOP;
+     - Standard WHILE LOOP in Oracle PL/SQL.
    * - XQueryLoop
      - .. code-block:: xquery
 
@@ -888,13 +884,10 @@ Parameters:
    * - SqlForLoop
      - .. code-block:: sql
 
-           DECLARE @i INT = 0;
-           WHILE @i < 10
-           BEGIN
+           FOR i IN 1..10 LOOP
                -- body
-               SET @i = @i + 1;
-           END
-     - T-SQL uses WHILE loops; there is no native FOR loop for ranges.
+           END LOOP;
+     - Oracle PL/SQL provides a native FOR loop for ranges.
    * - XQueryForLoop
      - .. code-block:: xquery
 
@@ -948,13 +941,13 @@ Parameters:
    * - SqlTryCatch
      - .. code-block:: sql
 
-           BEGIN TRY
-               EXEC do_something;
-           END TRY
-           BEGIN CATCH
-               EXEC handle_error;
-           END CATCH
-     - T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks.
+           BEGIN
+               do_something;
+           EXCEPTION
+               WHEN OTHERS THEN
+                   handle_error;
+           END;
+     - Oracle PL/SQL uses EXCEPTION blocks for error handling.
    * - XQueryTryCatch
      - .. code-block:: xquery
 
@@ -1005,8 +998,8 @@ Parameters:
    * - SqlRaise
      - .. code-block:: sql
 
-           THROW 50000, 'Error', 1;
-     - The THROW statement raises an exception and transfers execution to a CATCH block.
+           RAISE_APPLICATION_ERROR(-20001, 'Error');
+     - RAISE_APPLICATION_ERROR is used to raise user-defined exceptions in Oracle.
    * - XQueryRaise
      - .. code-block:: xquery
 
@@ -1439,8 +1432,8 @@ Parameters:
    * - SqlPrint
      - .. code-block:: sql
 
-           PRINT 'Hello, World!';
-     - T-SQL PRINT statement outputs a message to the client.
+           DBMS_OUTPUT.PUT_LINE('Hello, World!');
+     - Oracle PL/SQL uses DBMS_OUTPUT.PUT_LINE for console output.
    * - XQueryPrint
      - .. code-block:: xquery
 
@@ -1539,8 +1532,8 @@ Parameters:
    * - SqlConstant
      - .. code-block:: sql
 
-           DECLARE @MAX INT = 100;
-     - T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.
+           MAX_VAL CONSTANT NUMBER := 100;
+     - Oracle PL/SQL supports constant declarations.
    * - XQueryConstant
      - .. code-block:: xquery
 
@@ -1771,8 +1764,8 @@ Parameters:
    * - SqlRemainder
      - .. code-block:: sql
 
-           a % b
-     - Standard SQL arithmetic functions.
+           MOD(a, b)
+     - Oracle uses the MOD function for remainders.
    * - XQueryRemainder
      - .. code-block:: xquery
 
@@ -2079,8 +2072,8 @@ Parameters:
    * - SqlBitAnd
      - .. code-block:: sql
 
-           a & b
-     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+           BITAND(a, b)
+     - Oracle provides the BITAND function.
    * - XQueryBitAnd
      - N/A
      - Standard XQuery does not have native bitwise operators.
@@ -2121,8 +2114,8 @@ Parameters:
    * - SqlBitOr
      - .. code-block:: sql
 
-           a | b
-     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+           a + b - BITAND(a, b)
+     - Oracle does not have a native BITOR; it can be simulated using BITAND.
    * - XQueryBitOr
      - N/A
      - Standard XQuery does not have native bitwise operators.
@@ -2163,8 +2156,8 @@ Parameters:
    * - SqlBitXor
      - .. code-block:: sql
 
-           a ^ b
-     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+           a + b - 2 * BITAND(a, b)
+     - Oracle does not have a native BITXOR; it can be simulated using BITAND.
    * - XQueryBitXor
      - N/A
      - Standard XQuery does not have native bitwise operators.
@@ -2203,10 +2196,8 @@ Parameters:
      - Syntax
      - Notes
    * - SqlBitNot
-     - .. code-block:: sql
-
-           ~a
-     - Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~.
+     - N/A
+     - Oracle does not have a native BITNOT.
    * - XQueryBitNot
      - N/A
      - Standard XQuery does not have native bitwise operators.
