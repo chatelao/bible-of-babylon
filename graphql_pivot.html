@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -333,6 +333,17 @@
 </div>
 </td>
 <td><p>Joins are expressed through nested selection sets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sort</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">orderBy</span><span class="p">:</span><span class="w"> </span><span class="no">NAME_ASC</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorting is typically handled via arguments passed to fields in the query.</p></td>
+</tr>
+<tr class="row-even"><td><p>Distinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Uniqueness is usually managed by the back-end resolver or database.</p></td>
 </tr>
 </tbody>
 </table>

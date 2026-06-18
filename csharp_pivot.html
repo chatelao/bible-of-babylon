@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -563,6 +563,20 @@
 </div>
 </td>
 <td><p>Strict parsing of the specific format.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sort</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts a List in place.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distinct</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Distinct</span><span class="p">().</span><span class="n">ToList</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses LINQ to produce a sequence of unique elements.</p></td>
 </tr>
 </tbody>
 </table>

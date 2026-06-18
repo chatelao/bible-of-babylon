@@ -286,3 +286,13 @@ C Pivot View
                }
            }
      - Implemented using nested loops (Nested Loop Join).
+   * - Sort
+     - .. code-block:: c
+
+           qsort(arr, n, sizeof(int), compare);
+     - Requires a comparison function; part of stdlib.h.
+   * - Distinct
+     - .. code-block:: c
+
+           /* Manual implementation using a loop or sorting followed by shifting elements */
+     - C does not have a built-in unique function for arrays.

@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Query Languages" href="data_query.html" />
+    <link rel="next" title="Data Query Language Patterns" href="data_query.html" />
     <link rel="prev" title="DSL Examples" href="dsl_examples.html" /> 
 </head>
 
@@ -51,6 +51,8 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Programming Language Patterns</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#variabledeclaration">VariableDeclaration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sort">Sort</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#distinct">Distinct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tochardate">ToCharDate</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tochardatetimezone">ToCharDateTimezone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tocharnumberthousandseparator">ToCharNumberThousandSeparator</a></li>
@@ -111,14 +113,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#setjoin">SetJoin</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -466,6 +468,547 @@
 </tbody>
 </table>
 </section>
+<section id="sort">
+<h2>Sort<a class="headerlink" href="#sort" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Ordering the elements of a collection based on a specific criteria.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text">Sort Comparison</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CSort</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">qsort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">),</span><span class="w"> </span><span class="n">compare</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires a comparison function; part of stdlib.h.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppSort</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the standard algorithm header; complexity is O(N log N).</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaSort</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Collections</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">list</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts a List in place; Arrays.sort() is used for arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustSort</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts a vector in place; use v.sort_unstable() for potentially better performance if stable sort is not needed.</p></td>
+</tr>
+<tr class="row-even"><td><p>ErlangSort</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nn">lists</span><span class="p">:</span><span class="nf">sort</span><span class="p">(</span><span class="nv">List</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new sorted list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LispSort</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">sort</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">&lt;</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The sort function is destructive; use stable-sort for stability.</p></td>
+</tr>
+<tr class="row-even"><td><p>BashSort</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nv">sorted</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the external ‘sort’ utility; requires handling of delimiters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CmdSort</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(for %%a in (%list%)</span> <span class="go">do @echo %%a) | sort</span>
+</pre></div>
+</div>
+</td>
+<td><p>Pipes output of a loop to the sort command.</p></td>
+</tr>
+<tr class="row-even"><td><p>PowerShellSort</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$sorted</span> <span class="p">=</span> <span class="nv">$list</span> <span class="p">|</span> <span class="nb">Sort-Object</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts objects in the pipeline.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonSort</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts the list in place; sorted(l) returns a new sorted list.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpSort</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">sort($array);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts an array in place.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CssSort</p></td>
+<td><p>N/A</p></td>
+<td><p>CSS does not support collection operations like sorting.</p></td>
+</tr>
+<tr class="row-even"><td><p>CudaSort</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">thrust</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically uses the Thrust library for high-performance sorting on the GPU.</p></td>
+</tr>
+<tr class="row-odd"><td><p>X86Sort</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Manual implementation (e.g., Bubble Sort)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorting must be implemented manually using loops and comparisons.</p></td>
+</tr>
+<tr class="row-even"><td><p>RiscvSort</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires hand-coded sorting algorithms.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PrologSort</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">sort</span><span class="p">(</span><span class="nv">List</span><span class="p">,</span> <span class="nv">Sorted</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>The sort/2 predicate sorts a list and removes duplicates simultaneously.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaBytecodeSort</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">invokestatic</span><span class="w"> </span><span class="nn">java/util/</span><span class="nc">Collections/</span><span class="nf">sort</span><span class="p">(</span><span class="kt">L</span><span class="nn">java/util/</span><span class="nc">List</span><span class="p">;)</span><span class="kt">V</span>
+</pre></div>
+</div>
+</td>
+<td><p>Calls the standard Java collection sort method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CamelSort</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">sort</span> <span class="n">compare</span> <span class="kt">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a provided comparison function; returns a new list.</p></td>
+</tr>
+<tr class="row-even"><td><p>ArmAarch64Sort</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">// Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires implementing a sorting algorithm in assembly.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoSort</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">slice</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The sort package provides functions for sorting slices of basic types.</p></td>
+</tr>
+<tr class="row-even"><td><p>HaskellSort</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Data</span><span class="o">.</span><span class="kt">List</span><span class="o">.</span><span class="n">sort</span><span class="w"> </span><span class="n">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sorted list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TypeScriptSort</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The default sort() converts elements to strings; a comparator is needed for numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p>TclSort</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">lsort</span><span class="w"> </span><span class="nv">$list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new sorted list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CobolSort</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">SORT t</span><span class="nv">able</span><span class="w"> </span><span class="kp">ASCENDING</span><span class="w"> </span><span class="kp">KEY </span><span class="p">...</span>
+</pre></div>
+</div>
+</td>
+<td><p>The SORT statement is used to order records in a table or file.</p></td>
+</tr>
+<tr class="row-even"><td><p>FortranSort</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard Fortran does not have a built-in sort function for arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSharpSort</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts a List in place.</p></td>
+</tr>
+<tr class="row-even"><td><p>SwiftSort</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">.</span><span class="bp">sort</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts the array in place; sorted() returns a new sorted array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>KotlinSort</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="na">sort</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorts a mutable list in place.</p></td>
+</tr>
+<tr class="row-even"><td><p>ClojureSort</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">sort </span><span class="nv">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sorted sequence.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BrainfuckSort</p></td>
+<td><p>N/A</p></td>
+<td><p>Sorting is extremely complex to implement in Brainfuck.</p></td>
+</tr>
+<tr class="row-even"><td><p>ScalaSort</p></td>
+<td><div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">sorted</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new sorted list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigSort</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">block</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">sort</span><span class="p">.</span><span class="n">asc</span><span class="p">(</span><span class="kt">i32</span><span class="p">));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Zig’s standard library provides several sorting algorithms.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlSort</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">column</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ORDER BY clause is used to sort results.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQuerySort</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">col</span><span class="w"> </span><span class="k">order by</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘order by’ clause in a FLWOR expression sorts the sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlSort</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">orderBy</span><span class="p">:</span><span class="w"> </span><span class="no">NAME_ASC</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Sorting is typically handled via arguments passed to fields in the query.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlSort</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?name</span> <span class="k">WHERE</span> <span class="p">{</span> <span class="nv">?u</span> <span class="p">:</span><span class="nt">name</span> <span class="nv">?name</span> <span class="p">}</span> <span class="k">ORDER BY</span> <span class="nv">?name</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ORDER BY clause sorts the results.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboSort</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL does not have an explicit sort command; results are typically ordered by ID.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distinct">
+<h2>Distinct<a class="headerlink" href="#distinct" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Removing duplicate elements from a collection to ensure all elements are unique.</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text">Distinct Comparison</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CDistinct</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/* Manual implementation using a loop or sorting followed by shifting elements */</span>
+</pre></div>
+</div>
+</td>
+<td><p>C does not have a built-in unique function for arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CppDistinct</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">()),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>std::unique removes consecutive duplicates; the vector must be sorted first.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaDistinct</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">distinct</span><span class="p">().</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the Stream API to filter unique elements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RustDistinct</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="p">.</span><span class="n">dedup</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Removes consecutive duplicates; vector must be sorted first.</p></td>
+</tr>
+<tr class="row-even"><td><p>ErlangDistinct</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nn">lists</span><span class="p">:</span><span class="nf">usort</span><span class="p">(</span><span class="nv">List</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sorted list with duplicates removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LispDistinct</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-duplicates</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new list with duplicates removed.</p></td>
+</tr>
+<tr class="row-even"><td><p>BashDistinct</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nv">unique</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="o">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>The -u flag for the sort command removes duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CmdDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Cmd does not have a simple way to remove duplicates.</p></td>
+</tr>
+<tr class="row-even"><td><p>PowerShellDistinct</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$unique</span> <span class="p">=</span> <span class="nv">$list</span> <span class="p">|</span> <span class="nb">Select-Object</span> <span class="n">-Unique</span>
+</pre></div>
+</div>
+</td>
+<td><p>Select-Object with the -Unique flag filters out duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PythonDistinct</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">l</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Converting to a set removes duplicates but does not preserve order.</p></td>
+</tr>
+<tr class="row-even"><td><p>PhpDistinct</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">array_unique($array);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new array with unique values.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CssDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not applicable to CSS.</p></td>
+</tr>
+<tr class="row-even"><td><p>CudaDistinct</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">thrust</span><span class="o">::</span><span class="n">unique</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires sorting the collection before applying unique.</p></td>
+</tr>
+<tr class="row-odd"><td><p>X86Distinct</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires iterating through the collection and checking for duplicates.</p></td>
+</tr>
+<tr class="row-even"><td><p>RiscvDistinct</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires hand-coded logic to remove duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PrologDistinct</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">list_to_set</span><span class="p">(</span><span class="nv">List</span><span class="p">,</span> <span class="nv">Set</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Converts a list into a set, effectively removing duplicates.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaBytecodeDistinct</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">invokevirtual</span><span class="w"> </span><span class="nn">java/util/stream/</span><span class="nc">Stream/</span><span class="nf">distinct</span><span class="p">()</span><span class="kt">L</span><span class="nn">java/util/stream/</span><span class="nc">Stream</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using the Stream API’s distinct method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CamelDistinct</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">List</span><span class="p">.</span><span class="n">sort_uniq</span> <span class="n">compare</span> <span class="kt">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sorted list with duplicates removed.</p></td>
+</tr>
+<tr class="row-even"><td><p>ArmAarch64Distinct</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">// Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Requires implementing duplicate removal logic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GoDistinct</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">slice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">unique</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">unique</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">);</span><span class="w"> </span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using a map to track seen elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>HaskellDistinct</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="kt">Data</span><span class="o">.</span><span class="kt">List</span><span class="o">.</span><span class="n">nub</span><span class="w"> </span><span class="n">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>The nub function removes duplicates but has O(N^2) complexity; Data.Set can be used for O(N log N).</p></td>
+</tr>
+<tr class="row-odd"><td><p>TypeScriptDistinct</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">[...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a Set to filter unique values and then spreads back into an array.</p></td>
+</tr>
+<tr class="row-even"><td><p>TclDistinct</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="nb">lsort</span><span class="w"> </span><span class="o">-</span>unique<span class="w"> </span><span class="nv">$list</span>
+</pre></div>
+</div>
+</td>
+<td><p>The -unique flag for lsort removes duplicates while sorting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CobolDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Typically implemented manually by iterating through a sorted table.</p></td>
+</tr>
+<tr class="row-even"><td><p>FortranDistinct</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="c">! Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically implemented using loops and conditional logic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CSharpDistinct</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">list</span><span class="p">.</span><span class="n">Distinct</span><span class="p">().</span><span class="n">ToList</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses LINQ to produce a sequence of unique elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>SwiftDistinct</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="nb">Array</span><span class="p">(</span><span class="n">Set</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Converting to a Set removes duplicates but loses order.</p></td>
+</tr>
+<tr class="row-odd"><td><p>KotlinDistinct</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="na">distinct</span><span class="p">()</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a list containing only distinct elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>ClojureDistinct</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">distinct </span><span class="nv">collection</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a lazy sequence of the elements of a collection with duplicates removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BrainfuckDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-even"><td><p>ScalaDistinct</p></td>
+<td><div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="n">list</span><span class="p">.</span><span class="n">distinct</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a new list with duplicates removed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ZigDistinct</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="c1">// Manual implementation</span>
+</pre></div>
+</div>
+</td>
+<td><p>Typically involves sorting followed by a unique pass or using a HashMap.</p></td>
+</tr>
+<tr class="row-even"><td><p>SqlDistinct</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The DISTINCT keyword filters out duplicate rows from the result set.</p></td>
+</tr>
+<tr class="row-odd"><td><p>XQueryDistinct</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">distinct-values</span><span class="p">(</span><span class="nv">$</span><span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sequence containing only the unique values from the input.</p></td>
+</tr>
+<tr class="row-even"><td><p>GraphQlDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Uniqueness is usually managed by the back-end resolver or database.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SparqlDistinct</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="nv">?name</span> <span class="k">WHERE</span> <span class="p">{</span> <span class="nv">?u</span> <span class="p">:</span><span class="nt">name</span> <span class="nv">?name</span> <span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>The DISTINCT keyword removes duplicate result bindings.</p></td>
+</tr>
+<tr class="row-even"><td><p>OverpassTurboDistinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL sets are generally unique by default.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="tochardate">
 <h2>ToCharDate<a class="headerlink" href="#tochardate" title="Link to this heading"></a></h2>
 <dl class="field-list simple">
@@ -478,8 +1021,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id12">
-<caption><span class="caption-text">ToCharDate Comparison</span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text">ToCharDate Comparison</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -572,8 +1115,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id13">
-<caption><span class="caption-text">ToCharDateTimezone Comparison</span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text">ToCharDateTimezone Comparison</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -645,8 +1188,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id14">
-<caption><span class="caption-text">ToCharNumberThousandSeparator Comparison</span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id16">
+<caption><span class="caption-text">ToCharNumberThousandSeparator Comparison</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -725,8 +1268,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id15">
-<caption><span class="caption-text">ToCharNumberNegativeBrackets Comparison</span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id17">
+<caption><span class="caption-text">ToCharNumberNegativeBrackets Comparison</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -799,8 +1342,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id16">
-<caption><span class="caption-text">ToCharNumberFixedDecimals Comparison</span><a class="headerlink" href="#id16" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-text">ToCharNumberFixedDecimals Comparison</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -893,8 +1436,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id17">
-<caption><span class="caption-text">ToDate Comparison</span><a class="headerlink" href="#id17" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-text">ToDate Comparison</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -981,8 +1524,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id18">
-<caption><span class="caption-text">ForEach Comparison</span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-text">ForEach Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1196,7 +1739,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Functions like <a href="#id70"><span class="problematic" id="id71">mapM_</span></a> or <a href="#id72"><span class="problematic" id="id73">forM_</span></a> are used to apply actions to elements.</p></td>
+<td><p>Functions like <a href="#id72"><span class="problematic" id="id73">mapM_</span></a> or <a href="#id74"><span class="problematic" id="id75">forM_</span></a> are used to apply actions to elements.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForEach</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1320,8 +1863,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id19">
-<caption><span class="caption-text">CollectionDefinition Comparison</span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id21">
+<caption><span class="caption-text">CollectionDefinition Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1602,8 +2145,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id20">
-<caption><span class="caption-text">AssociativeArrayDefinition Comparison</span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id22">
+<caption><span class="caption-text">AssociativeArrayDefinition Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -1853,8 +2396,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id21">
-<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id23">
+<caption><span class="caption-text">Equal Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2132,8 +2675,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id22">
-<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id24">
+<caption><span class="caption-text">NotEqual Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2411,8 +2954,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id23">
-<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id25">
+<caption><span class="caption-text">GreaterThan Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2684,8 +3227,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id24">
-<caption><span class="caption-text">LogicalAnd Comparison</span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id26">
+<caption><span class="caption-text">LogicalAnd Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2806,8 +3349,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id25">
-<caption><span class="caption-text">LogicalOr Comparison</span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id27">
+<caption><span class="caption-text">LogicalOr Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -2928,8 +3471,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id26">
-<caption><span class="caption-text">LogicalXor Comparison</span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id28">
+<caption><span class="caption-text">LogicalXor Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3050,8 +3593,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id27">
-<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id29">
+<caption><span class="caption-text">ProcedureDefinition Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3397,8 +3940,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id28">
-<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id30">
+<caption><span class="caption-text">FunctionDefinition Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -3740,8 +4283,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id29">
-<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id31">
+<caption><span class="caption-text">IfElse Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4115,8 +4658,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id30">
-<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id32">
+<caption><span class="caption-text">SwitchCase Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4565,8 +5108,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id31">
-<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id33">
+<caption><span class="caption-text">Loop Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -4906,8 +5449,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id32">
-<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-text">ForLoop Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5115,7 +5658,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id74"><span class="problematic" id="id75">mapM_</span></a> or <a href="#id76"><span class="problematic" id="id77">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id76"><span class="problematic" id="id77">mapM_</span></a> or <a href="#id78"><span class="problematic" id="id79">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5249,8 +5792,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id33">
-<caption><span class="caption-text">LineContinuation Comparison</span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text">LineContinuation Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5306,8 +5849,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id34">
-<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-text">TryCatch Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5635,8 +6178,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id35">
-<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id37">
+<caption><span class="caption-text">Raise Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -5902,8 +6445,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id36">
-<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id38">
+<caption><span class="caption-text">Thread Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6114,8 +6657,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id37">
-<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id37" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id39">
+<caption><span class="caption-text">SendMessage Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6315,8 +6858,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id38">
-<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id38" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id40">
+<caption><span class="caption-text">ReceiveMessage Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6522,8 +7065,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id39">
-<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id39" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id41">
+<caption><span class="caption-text">MutexDefinition Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6656,8 +7199,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id40">
-<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id40" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id42">
+<caption><span class="caption-text">MutexLock Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6790,8 +7333,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id41">
-<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id41" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id43">
+<caption><span class="caption-text">MutexUnlock Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -6920,8 +7463,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id42">
-<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id42" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id44">
+<caption><span class="caption-text">SemaphoreDefinition Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7055,8 +7598,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id43">
-<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id43" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id45">
+<caption><span class="caption-text">SemaphoreWait Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7189,8 +7732,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id44">
-<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id44" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id46">
+<caption><span class="caption-text">SemaphoreSignal Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7323,8 +7866,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id45">
-<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id45" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id47">
+<caption><span class="caption-text">SingleLineComment Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7603,8 +8146,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id46">
-<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id46" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id48">
+<caption><span class="caption-text">MultiLineComment Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -7873,8 +8416,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id47">
-<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id47" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id49">
+<caption><span class="caption-text">Print Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8157,8 +8700,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id48">
-<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id48" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id50">
+<caption><span class="caption-text">Import Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8434,8 +8977,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id49">
-<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id49" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id51">
+<caption><span class="caption-text">Constant Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8711,8 +9254,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id50">
-<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id50" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id52">
+<caption><span class="caption-text">Addition Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -8988,8 +9531,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id51">
-<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id51" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id53">
+<caption><span class="caption-text">Subtraction Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9265,8 +9808,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id52">
-<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id52" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id54">
+<caption><span class="caption-text">Multiplication Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9542,8 +10085,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id53">
-<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id53" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id55">
+<caption><span class="caption-text">Division Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -9816,8 +10359,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id54">
-<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id54" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id56">
+<caption><span class="caption-text">Remainder Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10081,8 +10624,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id55">
-<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id55" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id57">
+<caption><span class="caption-text">Floor Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10337,8 +10880,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id56">
-<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id56" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id58">
+<caption><span class="caption-text">Rounding Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10596,8 +11139,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id57">
-<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id57" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id59">
+<caption><span class="caption-text">Increment Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -10873,8 +11416,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id58">
-<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id58" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id60">
+<caption><span class="caption-text">Decrement Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11150,8 +11693,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id59">
-<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id59" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id61">
+<caption><span class="caption-text">LeftShift Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11409,8 +11952,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id60">
-<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id60" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id62">
+<caption><span class="caption-text">RightShift Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11668,8 +12211,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id61">
-<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id61" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id63">
+<caption><span class="caption-text">BitAnd Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -11930,8 +12473,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id62">
-<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id62" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id64">
+<caption><span class="caption-text">BitOr Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12192,8 +12735,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id63">
-<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id63" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id65">
+<caption><span class="caption-text">BitXor Comparison</span><a class="headerlink" href="#id65" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12454,8 +12997,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id64">
-<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id64" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id66">
+<caption><span class="caption-text">BitNot Comparison</span><a class="headerlink" href="#id66" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12714,8 +13257,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id65">
-<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id65" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id67">
+<caption><span class="caption-text">Float4VectorMultiplication Comparison</span><a class="headerlink" href="#id67" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -12984,8 +13527,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id66">
-<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id66" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id68">
+<caption><span class="caption-text">Float4VectorDotProduct Comparison</span><a class="headerlink" href="#id68" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -13261,8 +13804,8 @@
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id67">
-<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id67" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id69">
+<caption><span class="caption-text">Float4VectorCrossProduct Comparison</span><a class="headerlink" href="#id69" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -13613,8 +14156,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id68">
-<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id68" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id70">
+<caption><span class="caption-text">SetFiltering Comparison</span><a class="headerlink" href="#id70" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -13923,8 +14466,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <li><p>syntax: String</p></li>
 <li><p>notes: String</p></li>
 </ul>
-<table class="docutils align-default" id="id69">
-<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id69" title="Link to this table"></a></caption>
+<table class="docutils align-default" id="id71">
+<caption><span class="caption-text">SetJoin Comparison</span><a class="headerlink" href="#id71" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Language</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -14234,7 +14777,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dsl_examples.html" class="btn btn-neutral float-left" title="DSL Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Languages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Language Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

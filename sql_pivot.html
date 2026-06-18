@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL &mdash; Bible of Babylon  documentation</title>
+  <title>SQL Pivot View &mdash; Bible of Babylon  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -110,7 +110,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">SQL</li>
+      <li class="breadcrumb-item active">SQL Pivot View</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/chatelao/bible-of-babylon/blob/main/docs/sql_pivot.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -120,8 +120,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sql">
-<h1>SQL<a class="headerlink" href="#sql" title="Link to this heading"></a></h1>
+  <section id="sql-pivot-view">
+<h1>SQL Pivot View<a class="headerlink" href="#sql-pivot-view" title="Link to this heading"></a></h1>
 <table class="docutils align-default" id="id1">
 <caption><span class="caption-text">SQL Pivot Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
@@ -499,6 +499,20 @@
 </div>
 </td>
 <td><p>Oracle TO_DATE function converts string to date.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sort</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">column</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ORDER BY clause is used to sort results.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distinct</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>The DISTINCT keyword filters out duplicate rows from the result set.</p></td>
 </tr>
 </tbody>
 </table>

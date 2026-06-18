@@ -284,3 +284,13 @@ Scala Pivot View
 
            sem.release()
      - Increments the permit count.
+   * - Sort
+     - .. code-block:: scala
+
+           list.sorted
+     - Returns a new sorted list.
+   * - Distinct
+     - .. code-block:: scala
+
+           list.distinct
+     - Returns a new list with duplicates removed.

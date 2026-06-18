@@ -229,3 +229,13 @@ Prolog Pivot View
 
            join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.
      - Joins are naturally expressed using member/2 and unification.
+   * - Sort
+     - .. code-block:: prolog
+
+           sort(List, Sorted).
+     - The sort/2 predicate sorts a list and removes duplicates simultaneously.
+   * - Distinct
+     - .. code-block:: prolog
+
+           list_to_set(List, Set).
+     - Converts a list into a set, effectively removing duplicates.

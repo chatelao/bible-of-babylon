@@ -295,3 +295,13 @@ Kotlin Pivot View
 
            val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }
      - Uses flatMap and filter extension functions.
+   * - Sort
+     - .. code-block:: kotlin
+
+           list.sort()
+     - Sorts a mutable list in place.
+   * - Distinct
+     - .. code-block:: kotlin
+
+           list.distinct()
+     - Returns a list containing only distinct elements.

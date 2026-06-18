@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -526,6 +526,20 @@
 </div>
 </td>
 <td><p>Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sort</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="nx">array</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">b</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The default sort() converts elements to strings; a comparator is needed for numbers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distinct</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="p">[...</span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">(</span><span class="nx">array</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses a Set to filter unique values and then spreads back into an array.</p></td>
 </tr>
 </tbody>
 </table>

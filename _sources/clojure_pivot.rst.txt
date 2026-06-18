@@ -270,3 +270,13 @@ Clojure Pivot View
 
            (.release sem)
      - N/A
+   * - Sort
+     - .. code-block:: clojure
+
+           (sort collection)
+     - Returns a sorted sequence.
+   * - Distinct
+     - .. code-block:: clojure
+
+           (distinct collection)
+     - Returns a lazy sequence of the elements of a collection with duplicates removed.

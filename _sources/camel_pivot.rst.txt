@@ -234,3 +234,13 @@ Camel Pivot View
 
            List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)
      - Uses nested map and filter operations.
+   * - Sort
+     - .. code-block:: ocaml
+
+           List.sort compare list
+     - Uses a provided comparison function; returns a new list.
+   * - Distinct
+     - .. code-block:: ocaml
+
+           List.sort_uniq compare list
+     - Returns a sorted list with duplicates removed.

@@ -218,6 +218,410 @@ Parameters:
 
 
 
+Sort
+----
+
+
+:description: Ordering the elements of a collection based on a specific criteria.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Sort Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CSort
+     - .. code-block:: c
+
+           qsort(arr, n, sizeof(int), compare);
+     - Requires a comparison function; part of stdlib.h.
+   * - CppSort
+     - .. code-block:: cpp
+
+           std::sort(v.begin(), v.end());
+     - Uses the standard algorithm header; complexity is O(N log N).
+   * - JavaSort
+     - .. code-block:: java
+
+           Collections.sort(list);
+     - Sorts a List in place; Arrays.sort() is used for arrays.
+   * - RustSort
+     - .. code-block:: rust
+
+           v.sort();
+     - Sorts a vector in place; use v.sort_unstable() for potentially better performance if stable sort is not needed.
+   * - ErlangSort
+     - .. code-block:: erlang
+
+           lists:sort(List).
+     - Returns a new sorted list.
+   * - LispSort
+     - .. code-block:: common-lisp
+
+           (sort list #'<)
+     - The sort function is destructive; use stable-sort for stability.
+   * - BashSort
+     - .. code-block:: bash
+
+           IFS=$'
+           ' sorted=($(sort <<<"${arr[*]}"))
+     - Uses the external 'sort' utility; requires handling of delimiters.
+   * - CmdSort
+     - .. code-block:: doscon
+
+           (for %%a in (%list%) do @echo %%a) | sort
+     - Pipes output of a loop to the sort command.
+   * - PowerShellSort
+     - .. code-block:: powershell
+
+           $sorted = $list | Sort-Object
+     - Sorts objects in the pipeline.
+   * - PythonSort
+     - .. code-block:: python
+
+           l.sort()
+     - Sorts the list in place; sorted(l) returns a new sorted list.
+   * - PhpSort
+     - .. code-block:: php
+
+           sort($array);
+     - Sorts an array in place.
+   * - CssSort
+     - N/A
+     - CSS does not support collection operations like sorting.
+   * - CudaSort
+     - .. code-block:: cpp
+
+           thrust::sort(v.begin(), v.end());
+     - Typically uses the Thrust library for high-performance sorting on the GPU.
+   * - X86Sort
+     - .. code-block:: nasm
+
+           ; Manual implementation (e.g., Bubble Sort)
+     - Sorting must be implemented manually using loops and comparisons.
+   * - RiscvSort
+     - .. code-block:: asm
+
+           # Manual implementation
+     - Requires hand-coded sorting algorithms.
+   * - PrologSort
+     - .. code-block:: prolog
+
+           sort(List, Sorted).
+     - The sort/2 predicate sorts a list and removes duplicates simultaneously.
+   * - JavaBytecodeSort
+     - .. code-block:: jasmin
+
+           invokestatic java/util/Collections/sort(Ljava/util/List;)V
+     - Calls the standard Java collection sort method.
+   * - CamelSort
+     - .. code-block:: ocaml
+
+           List.sort compare list
+     - Uses a provided comparison function; returns a new list.
+   * - ArmAarch64Sort
+     - .. code-block:: asm
+
+           // Manual implementation
+     - Requires implementing a sorting algorithm in assembly.
+   * - GoSort
+     - .. code-block:: go
+
+           sort.Ints(slice)
+     - The sort package provides functions for sorting slices of basic types.
+   * - HaskellSort
+     - .. code-block:: haskell
+
+           Data.List.sort list
+     - Returns a sorted list.
+   * - TypeScriptSort
+     - .. code-block:: typescript
+
+           array.sort((a, b) => a - b);
+     - The default sort() converts elements to strings; a comparator is needed for numbers.
+   * - TclSort
+     - .. code-block:: tcl
+
+           lsort $list
+     - Returns a new sorted list.
+   * - CobolSort
+     - .. code-block:: cobol
+
+           SORT table ASCENDING KEY ...
+     - The SORT statement is used to order records in a table or file.
+   * - FortranSort
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - Standard Fortran does not have a built-in sort function for arrays.
+   * - CSharpSort
+     - .. code-block:: csharp
+
+           list.Sort();
+     - Sorts a List in place.
+   * - SwiftSort
+     - .. code-block:: swift
+
+           array.sort()
+     - Sorts the array in place; sorted() returns a new sorted array.
+   * - KotlinSort
+     - .. code-block:: kotlin
+
+           list.sort()
+     - Sorts a mutable list in place.
+   * - ClojureSort
+     - .. code-block:: clojure
+
+           (sort collection)
+     - Returns a sorted sequence.
+   * - BrainfuckSort
+     - N/A
+     - Sorting is extremely complex to implement in Brainfuck.
+   * - ScalaSort
+     - .. code-block:: scala
+
+           list.sorted
+     - Returns a new sorted list.
+   * - ZigSort
+     - .. code-block:: zig
+
+           std.sort.block(i32, slice, {}, std.sort.asc(i32));
+     - Zig's standard library provides several sorting algorithms.
+   * - SqlSort
+     - .. code-block:: sql
+
+           SELECT * FROM table ORDER BY column;
+     - The ORDER BY clause is used to sort results.
+   * - XQuerySort
+     - .. code-block:: xquery
+
+           for $x in $col order by $x return $x
+     - The 'order by' clause in a FLWOR expression sorts the sequence.
+   * - GraphQlSort
+     - .. code-block:: graphql
+
+           query { users(orderBy: NAME_ASC) { name } }
+     - Sorting is typically handled via arguments passed to fields in the query.
+   * - SparqlSort
+     - .. code-block:: sparql
+
+           SELECT ?name WHERE { ?u :name ?name } ORDER BY ?name
+     - The ORDER BY clause sorts the results.
+   * - OverpassTurboSort
+     - N/A
+     - Overpass QL does not have an explicit sort command; results are typically ordered by ID.
+
+
+
+Distinct
+--------
+
+
+:description: Removing duplicate elements from a collection to ensure all elements are unique.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Distinct Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - CDistinct
+     - .. code-block:: c
+
+           /* Manual implementation using a loop or sorting followed by shifting elements */
+     - C does not have a built-in unique function for arrays.
+   * - CppDistinct
+     - .. code-block:: cpp
+
+           v.erase(std::unique(v.begin(), v.end()), v.end());
+     - std::unique removes consecutive duplicates; the vector must be sorted first.
+   * - JavaDistinct
+     - .. code-block:: java
+
+           list.stream().distinct().collect(Collectors.toList());
+     - Uses the Stream API to filter unique elements.
+   * - RustDistinct
+     - .. code-block:: rust
+
+           v.dedup();
+     - Removes consecutive duplicates; vector must be sorted first.
+   * - ErlangDistinct
+     - .. code-block:: erlang
+
+           lists:usort(List).
+     - Returns a sorted list with duplicates removed.
+   * - LispDistinct
+     - .. code-block:: common-lisp
+
+           (remove-duplicates list)
+     - Returns a new list with duplicates removed.
+   * - BashDistinct
+     - .. code-block:: bash
+
+           IFS=$'
+           ' unique=($(sort -u <<<"${arr[*]}"))
+     - The -u flag for the sort command removes duplicates.
+   * - CmdDistinct
+     - N/A
+     - Standard Cmd does not have a simple way to remove duplicates.
+   * - PowerShellDistinct
+     - .. code-block:: powershell
+
+           $unique = $list | Select-Object -Unique
+     - Select-Object with the -Unique flag filters out duplicates.
+   * - PythonDistinct
+     - .. code-block:: python
+
+           list(set(l))
+     - Converting to a set removes duplicates but does not preserve order.
+   * - PhpDistinct
+     - .. code-block:: php
+
+           array_unique($array);
+     - Returns a new array with unique values.
+   * - CssDistinct
+     - N/A
+     - Not applicable to CSS.
+   * - CudaDistinct
+     - .. code-block:: cpp
+
+           thrust::unique(v.begin(), v.end());
+     - Requires sorting the collection before applying unique.
+   * - X86Distinct
+     - .. code-block:: nasm
+
+           ; Manual implementation
+     - Requires iterating through the collection and checking for duplicates.
+   * - RiscvDistinct
+     - .. code-block:: asm
+
+           # Manual implementation
+     - Requires hand-coded logic to remove duplicates.
+   * - PrologDistinct
+     - .. code-block:: prolog
+
+           list_to_set(List, Set).
+     - Converts a list into a set, effectively removing duplicates.
+   * - JavaBytecodeDistinct
+     - .. code-block:: jasmin
+
+           invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;
+     - Typically implemented using the Stream API's distinct method.
+   * - CamelDistinct
+     - .. code-block:: ocaml
+
+           List.sort_uniq compare list
+     - Returns a sorted list with duplicates removed.
+   * - ArmAarch64Distinct
+     - .. code-block:: asm
+
+           // Manual implementation
+     - Requires implementing duplicate removal logic.
+   * - GoDistinct
+     - .. code-block:: go
+
+           for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }
+     - Typically implemented using a map to track seen elements.
+   * - HaskellDistinct
+     - .. code-block:: haskell
+
+           Data.List.nub list
+     - The nub function removes duplicates but has O(N^2) complexity; Data.Set can be used for O(N log N).
+   * - TypeScriptDistinct
+     - .. code-block:: typescript
+
+           [...new Set(array)]
+     - Uses a Set to filter unique values and then spreads back into an array.
+   * - TclDistinct
+     - .. code-block:: tcl
+
+           lsort -unique $list
+     - The -unique flag for lsort removes duplicates while sorting.
+   * - CobolDistinct
+     - N/A
+     - Typically implemented manually by iterating through a sorted table.
+   * - FortranDistinct
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - Typically implemented using loops and conditional logic.
+   * - CSharpDistinct
+     - .. code-block:: csharp
+
+           var unique = list.Distinct().ToList();
+     - Uses LINQ to produce a sequence of unique elements.
+   * - SwiftDistinct
+     - .. code-block:: swift
+
+           Array(Set(array))
+     - Converting to a Set removes duplicates but loses order.
+   * - KotlinDistinct
+     - .. code-block:: kotlin
+
+           list.distinct()
+     - Returns a list containing only distinct elements.
+   * - ClojureDistinct
+     - .. code-block:: clojure
+
+           (distinct collection)
+     - Returns a lazy sequence of the elements of a collection with duplicates removed.
+   * - BrainfuckDistinct
+     - N/A
+     - Not supported natively.
+   * - ScalaDistinct
+     - .. code-block:: scala
+
+           list.distinct
+     - Returns a new list with duplicates removed.
+   * - ZigDistinct
+     - .. code-block:: zig
+
+           // Manual implementation
+     - Typically involves sorting followed by a unique pass or using a HashMap.
+   * - SqlDistinct
+     - .. code-block:: sql
+
+           SELECT DISTINCT column FROM table;
+     - The DISTINCT keyword filters out duplicate rows from the result set.
+   * - XQueryDistinct
+     - .. code-block:: xquery
+
+           distinct-values($col)
+     - Returns a sequence containing only the unique values from the input.
+   * - GraphQlDistinct
+     - N/A
+     - Uniqueness is usually managed by the back-end resolver or database.
+   * - SparqlDistinct
+     - .. code-block:: sparql
+
+           SELECT DISTINCT ?name WHERE { ?u :name ?name }
+     - The DISTINCT keyword removes duplicate result bindings.
+   * - OverpassTurboDistinct
+     - N/A
+     - Overpass QL sets are generally unique by default.
+
+
+
 ToCharDate
 ----------
 

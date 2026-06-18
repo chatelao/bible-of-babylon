@@ -252,3 +252,13 @@ Tcl Pivot View
 
            foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }
      - Uses nested foreach loops and dict operations.
+   * - Sort
+     - .. code-block:: tcl
+
+           lsort $list
+     - Returns a new sorted list.
+   * - Distinct
+     - .. code-block:: tcl
+
+           lsort -unique $list
+     - The -unique flag for lsort removes duplicates while sorting.

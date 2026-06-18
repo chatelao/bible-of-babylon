@@ -240,3 +240,13 @@ CUDA Pivot View
                result[idx] = join(a[i], b[j]);
            }
      - Joins on GPU are typically implemented using hash joins or nested loops across threads.
+   * - Sort
+     - .. code-block:: cpp
+
+           thrust::sort(v.begin(), v.end());
+     - Typically uses the Thrust library for high-performance sorting on the GPU.
+   * - Distinct
+     - .. code-block:: cpp
+
+           thrust::unique(v.begin(), v.end());
+     - Requires sorting the collection before applying unique.

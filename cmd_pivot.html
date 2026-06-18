@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -401,6 +401,24 @@
 <tr class="row-odd"><td><p>SetJoin</p></td>
 <td><p>N/A</p></td>
 <td><p>Joining sets is not natively supported in Cmd and is complex to implement.</p></td>
+</tr>
+<tr class="row-even"><td><p>LineContinuation</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">^</span>
+</pre></div>
+</div>
+</td>
+<td><p>The caret is used for line continuation in Windows Command Prompt (Cmd).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sort</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(for %%a in (%list%)</span> <span class="go">do @echo %%a) | sort</span>
+</pre></div>
+</div>
+</td>
+<td><p>Pipes output of a loop to the sort command.</p></td>
+</tr>
+<tr class="row-even"><td><p>Distinct</p></td>
+<td><p>N/A</p></td>
+<td><p>Standard Cmd does not have a simple way to remove duplicates.</p></td>
 </tr>
 </tbody>
 </table>

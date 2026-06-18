@@ -328,3 +328,13 @@ Java Pivot View
 
            LocalDate.parse(dateStr, DateTimeFormatter.ofPattern("dd.MM.yyyy"))
      - Parses a string directly into a LocalDate object.
+   * - Sort
+     - .. code-block:: java
+
+           Collections.sort(list);
+     - Sorts a List in place; Arrays.sort() is used for arrays.
+   * - Distinct
+     - .. code-block:: java
+
+           list.stream().distinct().collect(Collectors.toList());
+     - Uses the Stream API to filter unique elements.

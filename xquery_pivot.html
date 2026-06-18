@@ -50,14 +50,14 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">XQuery Pivot View</a></li>
@@ -457,6 +457,20 @@
 </div>
 </td>
 <td><p>XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sort</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nv">$</span><span class="n">col</span><span class="w"> </span><span class="k">order by</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">x</span>
+</pre></div>
+</div>
+</td>
+<td><p>The ‘order by’ clause in a FLWOR expression sorts the sequence.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distinct</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">distinct-values</span><span class="p">(</span><span class="nv">$</span><span class="n">col</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Returns a sequence containing only the unique values from the input.</p></td>
 </tr>
 </tbody>
 </table>

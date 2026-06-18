@@ -130,6 +130,182 @@ Programming Languages
      - .. code-block:: zig
 
            var x: i32 = 42;
+   * - Sort
+     - .. code-block:: c
+
+           qsort(arr, n, sizeof(int), compare);
+     - .. code-block:: cpp
+
+           std::sort(v.begin(), v.end());
+     - .. code-block:: java
+
+           Collections.sort(list);
+     - .. code-block:: rust
+
+           v.sort();
+     - .. code-block:: erlang
+
+           lists:sort(List).
+     - .. code-block:: common-lisp
+
+           (sort list #'<)
+     - .. code-block:: bash
+
+           IFS=$'
+           ' sorted=($(sort <<<"${arr[*]}"))
+     - .. code-block:: doscon
+
+           (for %%a in (%list%) do @echo %%a) | sort
+     - .. code-block:: powershell
+
+           $sorted = $list | Sort-Object
+     - .. code-block:: python
+
+           l.sort()
+     - .. code-block:: php
+
+           sort($array);
+     - N/A
+     - .. code-block:: cpp
+
+           thrust::sort(v.begin(), v.end());
+     - .. code-block:: nasm
+
+           ; Manual implementation (e.g., Bubble Sort)
+     - .. code-block:: asm
+
+           # Manual implementation
+     - .. code-block:: prolog
+
+           sort(List, Sorted).
+     - .. code-block:: jasmin
+
+           invokestatic java/util/Collections/sort(Ljava/util/List;)V
+     - .. code-block:: asm
+
+           // Manual implementation
+     - .. code-block:: ocaml
+
+           List.sort compare list
+     - .. code-block:: go
+
+           sort.Ints(slice)
+     - .. code-block:: haskell
+
+           Data.List.sort list
+     - .. code-block:: typescript
+
+           array.sort((a, b) => a - b);
+     - .. code-block:: tcl
+
+           lsort $list
+     - .. code-block:: cobol
+
+           SORT table ASCENDING KEY ...
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - .. code-block:: csharp
+
+           list.Sort();
+     - .. code-block:: swift
+
+           array.sort()
+     - .. code-block:: kotlin
+
+           list.sort()
+     - .. code-block:: clojure
+
+           (sort collection)
+     - .. code-block:: zig
+
+           std.sort.block(i32, slice, {}, std.sort.asc(i32));
+   * - Distinct
+     - .. code-block:: c
+
+           /* Manual implementation using a loop or sorting followed by shifting elements */
+     - .. code-block:: cpp
+
+           v.erase(std::unique(v.begin(), v.end()), v.end());
+     - .. code-block:: java
+
+           list.stream().distinct().collect(Collectors.toList());
+     - .. code-block:: rust
+
+           v.dedup();
+     - .. code-block:: erlang
+
+           lists:usort(List).
+     - .. code-block:: common-lisp
+
+           (remove-duplicates list)
+     - .. code-block:: bash
+
+           IFS=$'
+           ' unique=($(sort -u <<<"${arr[*]}"))
+     - N/A
+     - .. code-block:: powershell
+
+           $unique = $list | Select-Object -Unique
+     - .. code-block:: python
+
+           list(set(l))
+     - .. code-block:: php
+
+           array_unique($array);
+     - N/A
+     - .. code-block:: cpp
+
+           thrust::unique(v.begin(), v.end());
+     - .. code-block:: nasm
+
+           ; Manual implementation
+     - .. code-block:: asm
+
+           # Manual implementation
+     - .. code-block:: prolog
+
+           list_to_set(List, Set).
+     - .. code-block:: jasmin
+
+           invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;
+     - .. code-block:: asm
+
+           // Manual implementation
+     - .. code-block:: ocaml
+
+           List.sort_uniq compare list
+     - .. code-block:: go
+
+           for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }
+     - .. code-block:: haskell
+
+           Data.List.nub list
+     - .. code-block:: typescript
+
+           [...new Set(array)]
+     - .. code-block:: tcl
+
+           lsort -unique $list
+     - N/A
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - .. code-block:: csharp
+
+           var unique = list.Distinct().ToList();
+     - .. code-block:: swift
+
+           Array(Set(array))
+     - .. code-block:: kotlin
+
+           list.distinct()
+     - .. code-block:: clojure
+
+           (distinct collection)
+     - .. code-block:: zig
+
+           // Manual implementation
    * - ToCharDate
      - N/A
      - .. code-block:: cpp
@@ -5468,6 +5644,32 @@ Data Query Languages
      - .. code-block:: text
 
            .setname
+   * - Sort
+     - .. code-block:: sql
+
+           SELECT * FROM table ORDER BY column;
+     - .. code-block:: xquery
+
+           for $x in $col order by $x return $x
+     - .. code-block:: graphql
+
+           query { users(orderBy: NAME_ASC) { name } }
+     - .. code-block:: sparql
+
+           SELECT ?name WHERE { ?u :name ?name } ORDER BY ?name
+     - N/A
+   * - Distinct
+     - .. code-block:: sql
+
+           SELECT DISTINCT column FROM table;
+     - .. code-block:: xquery
+
+           distinct-values($col)
+     - N/A
+     - .. code-block:: sparql
+
+           SELECT DISTINCT ?name WHERE { ?u :name ?name }
+     - N/A
    * - ToCharDate
      - .. code-block:: sql
 

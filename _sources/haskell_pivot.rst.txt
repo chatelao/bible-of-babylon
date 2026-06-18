@@ -230,3 +230,13 @@ Haskell Pivot View
 
            [(a, b) | a <- listA, b <- listB, idA a == idB b]
      - Uses list comprehensions to express joins.
+   * - Sort
+     - .. code-block:: haskell
+
+           Data.List.sort list
+     - Returns a sorted list.
+   * - Distinct
+     - .. code-block:: haskell
+
+           Data.List.nub list
+     - The nub function removes duplicates but has O(N^2) complexity; Data.Set can be used for O(N log N).

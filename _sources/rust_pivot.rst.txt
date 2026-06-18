@@ -313,3 +313,13 @@ Rust Pivot View
 
            NaiveDate::parse_from_str(date_str, "%d.%m.%Y")
      - Requires the chrono crate.
+   * - Sort
+     - .. code-block:: rust
+
+           v.sort();
+     - Sorts a vector in place; use v.sort_unstable() for potentially better performance if stable sort is not needed.
+   * - Distinct
+     - .. code-block:: rust
+
+           v.dedup();
+     - Removes consecutive duplicates; vector must be sorted first.

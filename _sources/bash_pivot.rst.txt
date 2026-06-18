@@ -255,3 +255,20 @@ Bash Pivot View
    * - SemaphoreSignal
      - N/A
      - N/A
+   * - LineContinuation
+     - .. code-block:: bash
+
+           \
+     - The backslash is the standard line continuation character in Bash.
+   * - Sort
+     - .. code-block:: bash
+
+           IFS=$'
+           ' sorted=($(sort <<<"${arr[*]}"))
+     - Uses the external 'sort' utility; requires handling of delimiters.
+   * - Distinct
+     - .. code-block:: bash
+
+           IFS=$'
+           ' unique=($(sort -u <<<"${arr[*]}"))
+     - The -u flag for the sort command removes duplicates.

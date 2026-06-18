@@ -157,3 +157,9 @@ CSS Pivot View
    * - SetJoin
      - N/A
      - CSS does not support set joins.
+   * - Sort
+     - N/A
+     - CSS does not support collection operations like sorting.
+   * - Distinct
+     - N/A
+     - Not applicable to CSS.

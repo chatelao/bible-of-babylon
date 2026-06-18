@@ -324,3 +324,13 @@ Go Pivot View
 
            time.Parse("02.01.2006", dateStr)
      - Parses a string using the same layout logic as Format.
+   * - Sort
+     - .. code-block:: go
+
+           sort.Ints(slice)
+     - The sort package provides functions for sorting slices of basic types.
+   * - Distinct
+     - .. code-block:: go
+
+           for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }
+     - Typically implemented using a map to track seen elements.
