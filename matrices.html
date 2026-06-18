@@ -62,7 +62,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sql_pivot.html">SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -6972,7 +6972,11 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </thead>
 <tbody>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="k">BEGIN</span>
+<span class="w">  </span><span class="c1">-- usage</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -6994,7 +6998,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-odd"><td><p>ToCharDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dd.MM.yyyy&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7007,7 +7011,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDateTimezone</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss K&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH24:MI:SS TZH:TZM&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7020,7 +7024,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999,999,990&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7033,7 +7037,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0;(#,0)&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999G990D00PR&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7046,7 +7050,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999990.00&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7059,7 +7063,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ToDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CONVERT</span><span class="p">(</span><span class="nb">DATE</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7072,14 +7076,9 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ForEach</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
-<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
-<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">FOR</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">)</span><span class="w"> </span><span class="n">LOOP</span>
+<span class="w">    </span><span class="c1">-- access r.column</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7096,8 +7095,8 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-even"><td><p>CollectionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">NumList</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">;</span>
+<span class="n">t</span><span class="w"> </span><span class="n">NumList</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">NumList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -7119,8 +7118,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-odd"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">Dict</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">t</span><span class="w"> </span><span class="n">Dict</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7208,11 +7209,10 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-<span class="k">AS</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="p">(</span><span class="n">msg</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="p">;</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7229,11 +7229,11 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
-<span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">b</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7258,14 +7258,11 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>IfElse</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">ELSE</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7287,7 +7284,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="n">x</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
 <span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
@@ -7310,10 +7307,9 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Loop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">LOOP</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7329,12 +7325,9 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-odd"><td><p>ForLoop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="k">BEGIN</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">FOR</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="mi">10</span><span class="w"> </span><span class="n">LOOP</span>
 <span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">END</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7358,12 +7351,12 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>TryCatch</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
-<span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">handle_error</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">;</span>
+<span class="k">EXCEPTION</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">OTHERS</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">        </span><span class="n">handle_error</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7380,7 +7373,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Raise</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -7502,7 +7495,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -7534,7 +7527,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_VAL</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -7617,7 +7610,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">MOD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7708,7 +7701,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>BitAnd</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7718,7 +7711,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitOr</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7728,7 +7721,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>BitXor</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -7738,10 +7731,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitNot</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
-</pre></div>
-</div>
-</td>
+<td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>
 <td><p>N/A</p></td>

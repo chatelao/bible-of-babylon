@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQL Pivot View &mdash; Bible of Babylon  documentation</title>
+  <title>SQL &mdash; Bible of Babylon  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
@@ -57,7 +57,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Language Pivot Chapters:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL Pivot View</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SQL</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c_pivot.html">C Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cpp_pivot.html">Cpp Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="xquery_pivot.html">XQuery Pivot View</a></li>
@@ -110,7 +110,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">SQL Pivot View</li>
+      <li class="breadcrumb-item active">SQL</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/chatelao/bible-of-babylon/blob/main/docs/sql_pivot.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -120,10 +120,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="sql-pivot-view">
-<h1>SQL Pivot View<a class="headerlink" href="#sql-pivot-view" title="Link to this heading"></a></h1>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-text">SQL Pivot Table</span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+  <section id="sql">
+<h1>SQL<a class="headerlink" href="#sql" title="Link to this heading"></a></h1>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">SQL Pivot Table</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Pattern</p></th>
 <th class="head"><p>Syntax</p></th>
@@ -132,30 +132,36 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<span class="k">BEGIN</span>
+<span class="w">  </span><span class="c1">-- usage</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL syntax for variable declaration.</p></td>
+<td><p>PL/SQL syntax for variable declaration. ANSI SQL uses DECLARE in blocks.</p></td>
 </tr>
 <tr class="row-odd"><td><p>CollectionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">NumList</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">;</span>
+<span class="n">t</span><span class="w"> </span><span class="n">NumList</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">NumList</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
-<td><p>Collections are typically represented as table variables or temporary tables.</p></td>
+<td><p>Oracle PL/SQL uses collection types (Nested Tables, Varrays).</p></td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="p">(</span><span class="n">key_name</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="nb">INT</span><span class="p">);</span>
-<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">t</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">Dict</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">t</span><span class="w"> </span><span class="n">Dict</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>Associative mapping is achieved through table structures with key/value columns.</p></td>
+<td><p>Oracle PL/SQL supports Associative Arrays (index-by tables).</p></td>
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="n">x</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
 <span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
 <span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
@@ -163,72 +169,67 @@
 </pre></div>
 </div>
 </td>
-<td><p>The CASE expression is used for conditional logic in SQL.</p></td>
+<td><p>The ANSI CASE expression is supported by almost all SQL databases including Oracle.</p></td>
 </tr>
 <tr class="row-even"><td><p>IfElse</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">IF</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="k">ELSE</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>Uses IF-ELSE with BEGIN-END blocks.</p></td>
+<td><p>Oracle PL/SQL uses IF-THEN-ELSE syntax.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Loop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">WHILE</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">LOOP</span>
+<span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>Standard WHILE loop in T-SQL.</p></td>
+<td><p>Standard WHILE LOOP in Oracle PL/SQL.</p></td>
 </tr>
 <tr class="row-even"><td><p>FunctionDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">b</span><span class="w"> </span><span class="nb">INT</span><span class="p">)</span>
-<span class="k">RETURNS</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">AS</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="k">add</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="nb">NUMBER</span><span class="p">)</span>
+<span class="k">RETURN</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="o">@</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">b</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL syntax for Scalar-Valued Functions.</p></td>
+<td><p>Oracle PL/SQL function syntax.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ProcedureDefinition</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="k">MAX</span><span class="p">)</span>
-<span class="k">AS</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">log_message</span><span class="p">(</span><span class="n">msg</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span>
 <span class="k">BEGIN</span>
-<span class="w">    </span><span class="n">PRINT</span><span class="w"> </span><span class="o">@</span><span class="n">msg</span><span class="p">;</span>
-<span class="k">END</span>
+<span class="w">    </span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL uses CREATE PROCEDURE for blocks that perform actions.</p></td>
+<td><p>Oracle PL/SQL procedure syntax.</p></td>
 </tr>
 <tr class="row-even"><td><p>TryCatch</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span><span class="w"> </span><span class="n">TRY</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">do_something</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
-<span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
-<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">handle_error</span><span class="p">;</span>
-<span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">BEGIN</span>
+<span class="w">    </span><span class="n">do_something</span><span class="p">;</span>
+<span class="k">EXCEPTION</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">OTHERS</span><span class="w"> </span><span class="k">THEN</span>
+<span class="w">        </span><span class="n">handle_error</span><span class="p">;</span>
+<span class="k">END</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL supports BEGIN TRY…END TRY and BEGIN CATCH…END CATCH blocks.</p></td>
+<td><p>Oracle PL/SQL uses EXCEPTION blocks for error handling.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
-<td><p>The THROW statement raises an exception and transfers execution to a CATCH block.</p></td>
+<td><p>RAISE_APPLICATION_ERROR is used to raise user-defined exceptions in Oracle.</p></td>
 </tr>
 <tr class="row-even"><td><p>SingleLineComment</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- comment</span>
@@ -246,22 +247,22 @@
 <td><p>Standard SQL multi-line comment.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="w"> </span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL PRINT statement outputs a message to the client.</p></td>
+<td><p>Oracle PL/SQL uses DBMS_OUTPUT.PUT_LINE for console output.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
 <td><p>N/A</p></td>
 <td><p>Standard SQL does not have a native ‘import’ keyword for code; database objects are globally accessible or schema-qualified.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="k">MAX</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">MAX_VAL</span><span class="w"> </span><span class="n">CONSTANT</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure.</p></td>
+<td><p>Oracle PL/SQL supports constant declarations.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Addition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span>
@@ -292,11 +293,11 @@
 <td><p>Standard SQL arithmetic functions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Remainder</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">MOD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Standard SQL arithmetic functions.</p></td>
+<td><p>Oracle uses the MOD function for remainders.</p></td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FLOOR</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -335,32 +336,29 @@
 <td><p>Standard SQL arithmetic functions.</p></td>
 </tr>
 <tr class="row-even"><td><p>BitAnd</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Bitwise support varies by SQL dialect; T-SQL supports &amp;, <a href="#id1"><span class="problematic" id="id2">|</span></a>, ^, ~.</p></td>
+<td><p>Oracle provides the BITAND function.</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitOr</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Bitwise support varies by SQL dialect; T-SQL supports &amp;, <a href="#id3"><span class="problematic" id="id4">|</span></a>, ^, ~.</p></td>
+<td><p>Oracle does not have a native BITOR; it can be simulated using BITAND.</p></td>
 </tr>
 <tr class="row-even"><td><p>BitXor</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">b</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">BITAND</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Bitwise support varies by SQL dialect; T-SQL supports &amp;, <a href="#id5"><span class="problematic" id="id6">|</span></a>, ^, ~.</p></td>
+<td><p>Oracle does not have a native BITXOR; it can be simulated using BITAND.</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitNot</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">a</span>
-</pre></div>
-</div>
-</td>
-<td><p>Bitwise support varies by SQL dialect; T-SQL supports &amp;, <a href="#id7"><span class="problematic" id="id8">|</span></a>, ^, ~.</p></td>
+<td><p>N/A</p></td>
+<td><p>Oracle does not have a native BITNOT.</p></td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a1</span><span class="o">*</span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="o">*</span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="n">a3</span><span class="o">*</span><span class="n">b3</span><span class="p">,</span><span class="w"> </span><span class="n">a4</span><span class="o">*</span><span class="n">b4</span>
@@ -384,30 +382,22 @@
 <td><p>Computed using column-wise arithmetic.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ForLoop</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span>
-<span class="k">BEGIN</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">FOR</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="mi">1</span><span class="p">..</span><span class="mi">10</span><span class="w"> </span><span class="n">LOOP</span>
 <span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="k">END</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL uses WHILE loops; there is no native FOR loop for ranges.</p></td>
+<td><p>Oracle PL/SQL provides a native FOR loop for ranges.</p></td>
 </tr>
 <tr class="row-even"><td><p>ForEach</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DECLARE</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">;</span>
-<span class="k">OPEN</span><span class="w"> </span><span class="k">cursor_name</span><span class="p">;</span>
-<span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="n">WHILE</span><span class="w"> </span><span class="o">@@</span><span class="n">FETCH_STATUS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="k">BEGIN</span>
-<span class="w">    </span><span class="c1">-- body</span>
-<span class="w">    </span><span class="k">FETCH</span><span class="w"> </span><span class="k">NEXT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">cursor_name</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">item</span><span class="p">;</span>
-<span class="k">END</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">FOR</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="p">)</span><span class="w"> </span><span class="n">LOOP</span>
+<span class="w">    </span><span class="c1">-- access r.column</span>
+<span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
-<td><p>SQL typically uses cursors for row-by-row iteration.</p></td>
+<td><p>Oracle PL/SQL supports cursor FOR loops for easy iteration over result sets.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span>
@@ -469,46 +459,46 @@
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dd.MM.yyyy&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL syntax using the FORMAT function.</p></td>
+<td><p>Oracle TO_CHAR function for date formatting.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yyyy-MM-dd HH:mm:ss K&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH24:MI:SS TZH:TZM&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>T-SQL syntax; K represents the timezone offset.</p></td>
+<td><p>Oracle TO_CHAR with timezone information.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999,999,990&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Formats the number with a comma as a thousands separator.</p></td>
+<td><p>Oracle TO_CHAR with G (Group separator) or comma.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,0;(#,0)&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999G990D00PR&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>The second part of the format string defines the layout for negative numbers.</p></td>
+<td><p>PR format element in Oracle TO_CHAR wraps negative numbers in brackets.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">FORMAT</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;N2&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999990.00&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>Uses standard numeric format with 2 decimal places.</p></td>
+<td><p>Oracle TO_CHAR with fixed decimal positions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CONVERT</span><span class="p">(</span><span class="nb">DATE</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
-<td><p>104 is the format code for ‘dd.mm.yyyy’ in T-SQL.</p></td>
+<td><p>Oracle TO_DATE function converts string to date.</p></td>
 </tr>
 </tbody>
 </table>

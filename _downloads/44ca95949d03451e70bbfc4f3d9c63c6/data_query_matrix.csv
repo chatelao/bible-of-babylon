@@ -1,47 +1,40 @@
 Language,VariableDeclaration,ToCharDate,ToCharDateTimezone,ToCharNumberThousandSeparator,ToCharNumberNegativeBrackets,ToCharNumberFixedDecimals,ToDate,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,LineContinuation,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,MutexDefinition,MutexLock,MutexUnlock,SemaphoreDefinition,SemaphoreWait,SemaphoreSignal,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin
-"SQL","DECLARE @x INT = 42;","FORMAT(date_col, 'dd.MM.yyyy')","FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')","FORMAT(num, '#,0')","FORMAT(num, '#,0;(#,0)')","FORMAT(num, 'N2')","CONVERT(DATE, '31.12.2023', 104)","DECLARE cursor_name CURSOR FOR SELECT col FROM table;
-OPEN cursor_name;
-FETCH NEXT FROM cursor_name INTO @item;
-WHILE @@FETCH_STATUS = 0
+"SQL","DECLARE
+  x NUMBER := 42;
 BEGIN
-    -- body
-    FETCH NEXT FROM cursor_name INTO @item;
-END","DECLARE @t TABLE (val INT);
-INSERT INTO @t VALUES (1), (2), (3);","DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
-INSERT INTO @t VALUES ('a', 1), ('b', 2);","a = b","a <> b","a > b","N/A","N/A","N/A","CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
-AS
+  -- usage
+END;","TO_CHAR(date_col, 'DD.MM.YYYY')","TO_CHAR(datetime_col, 'YYYY-MM-DD HH24:MI:SS TZH:TZM')","TO_CHAR(num, '999,999,990')","TO_CHAR(num, '999G990D00PR')","TO_CHAR(num, '999990.00')","TO_DATE('31.12.2023', 'DD.MM.YYYY')","FOR r IN (SELECT * FROM table) LOOP
+    -- access r.column
+END LOOP;","TYPE NumList IS TABLE OF NUMBER;
+t NumList := NumList(1, 2, 3);","TYPE Dict IS TABLE OF NUMBER INDEX BY VARCHAR2(10);
+t Dict;
+t('a') := 1;
+t('b') := 2;","a = b","a <> b","a > b","N/A","N/A","N/A","CREATE OR REPLACE PROCEDURE log_message(msg IN VARCHAR2) AS
 BEGIN
-    PRINT @msg;
-END","CREATE FUNCTION add(@a INT, @b INT)
-RETURNS INT AS
+    DBMS_OUTPUT.PUT_LINE(msg);
+END;","CREATE OR REPLACE FUNCTION add(a NUMBER, b NUMBER)
+RETURN NUMBER AS
 BEGIN
-    RETURN @a + @b
-END","IF @x > 0
-BEGIN
-    RETURN 1
-END
+    RETURN a + b;
+END;","IF x > 0 THEN
+    RETURN 1;
 ELSE
-BEGIN
-    RETURN 0
-END","CASE @x
+    RETURN 0;
+END IF;","CASE x
     WHEN 1 THEN 'one'
     WHEN 2 THEN 'two'
     ELSE 'none'
-END","WHILE @x > 0
-BEGIN
-    SET @x = @x - 1
-END","DECLARE @i INT = 0;
-WHILE @i < 10
-BEGIN
+END","WHILE x > 0 LOOP
+    x := x - 1;
+END LOOP;","FOR i IN 1..10 LOOP
     -- body
-    SET @i = @i + 1;
-END","N/A","BEGIN TRY
-    EXEC do_something;
-END TRY
-BEGIN CATCH
-    EXEC handle_error;
-END CATCH","THROW 50000, 'Error', 1;","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","-- comment","/* line 1
-   line 2 */","PRINT 'Hello, World!';","N/A","DECLARE @MAX INT = 100;","a + b","a - b","a * b","a / b","a % b","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","a & b","a | b","a ^ b","~a","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0","SELECT * FROM table WHERE condition;","SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;"
+END LOOP;","N/A","BEGIN
+    do_something;
+EXCEPTION
+    WHEN OTHERS THEN
+        handle_error;
+END;","RAISE_APPLICATION_ERROR(-20001, 'Error');","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","-- comment","/* line 1
+   line 2 */","DBMS_OUTPUT.PUT_LINE('Hello, World!');","N/A","MAX_VAL CONSTANT NUMBER := 100;","a + b","a - b","a * b","a / b","MOD(a, b)","FLOOR(a)","ROUND(a, 0)","a + 1","a - 1","N/A","N/A","BITAND(a, b)","a + b - BITAND(a, b)","a + b - 2 * BITAND(a, b)","N/A","SELECT a1*b1, a2*b2, a3*b3, a4*b4","SELECT a1*b1 + a2*b2 + a3*b3 + a4*b4","SELECT a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0","SELECT * FROM table WHERE condition;","SELECT * FROM tableA JOIN tableB ON tableA.id = tableB.id;"
 "XQuery","let $x := 42","format-date($date, '[D,2].[M,2].[Y,4]')","format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')","format-number($num, '#,##0')","format-number($num, '#,##0;(#,##0)')","format-number($num, '0.00')","xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))","for $item in $collection
 return $item","let $s := (1, 2, 3)","let $m := map { ""a"": 1, ""b"": 2 }","$a = $b","$a != $b","$a > $b","N/A","N/A","N/A","declare function local:log-message(
     $msg as xs:string

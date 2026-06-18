@@ -5451,7 +5451,11 @@ Data Query Languages
    * - VariableDeclaration
      - .. code-block:: sql
 
-           DECLARE @x INT = 42;
+           DECLARE
+             x NUMBER := 42;
+           BEGIN
+             -- usage
+           END;
      - .. code-block:: xquery
 
            let $x := 42
@@ -5467,7 +5471,7 @@ Data Query Languages
    * - ToCharDate
      - .. code-block:: sql
 
-           FORMAT(date_col, 'dd.MM.yyyy')
+           TO_CHAR(date_col, 'DD.MM.YYYY')
      - .. code-block:: xquery
 
            format-date($date, '[D,2].[M,2].[Y,4]')
@@ -5477,7 +5481,7 @@ Data Query Languages
    * - ToCharDateTimezone
      - .. code-block:: sql
 
-           FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')
+           TO_CHAR(datetime_col, 'YYYY-MM-DD HH24:MI:SS TZH:TZM')
      - .. code-block:: xquery
 
            format-dateTime($dt, '[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]')
@@ -5487,7 +5491,7 @@ Data Query Languages
    * - ToCharNumberThousandSeparator
      - .. code-block:: sql
 
-           FORMAT(num, '#,0')
+           TO_CHAR(num, '999,999,990')
      - .. code-block:: xquery
 
            format-number($num, '#,##0')
@@ -5497,7 +5501,7 @@ Data Query Languages
    * - ToCharNumberNegativeBrackets
      - .. code-block:: sql
 
-           FORMAT(num, '#,0;(#,0)')
+           TO_CHAR(num, '999G990D00PR')
      - .. code-block:: xquery
 
            format-number($num, '#,##0;(#,##0)')
@@ -5507,7 +5511,7 @@ Data Query Languages
    * - ToCharNumberFixedDecimals
      - .. code-block:: sql
 
-           FORMAT(num, 'N2')
+           TO_CHAR(num, '999990.00')
      - .. code-block:: xquery
 
            format-number($num, '0.00')
@@ -5517,7 +5521,7 @@ Data Query Languages
    * - ToDate
      - .. code-block:: sql
 
-           CONVERT(DATE, '31.12.2023', 104)
+           TO_DATE('31.12.2023', 'DD.MM.YYYY')
      - .. code-block:: xquery
 
            xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
@@ -5527,14 +5531,9 @@ Data Query Languages
    * - ForEach
      - .. code-block:: sql
 
-           DECLARE cursor_name CURSOR FOR SELECT col FROM table;
-           OPEN cursor_name;
-           FETCH NEXT FROM cursor_name INTO @item;
-           WHILE @@FETCH_STATUS = 0
-           BEGIN
-               -- body
-               FETCH NEXT FROM cursor_name INTO @item;
-           END
+           FOR r IN (SELECT * FROM table) LOOP
+               -- access r.column
+           END LOOP;
      - .. code-block:: xquery
 
            for $item in $collection
@@ -5547,8 +5546,8 @@ Data Query Languages
    * - CollectionDefinition
      - .. code-block:: sql
 
-           DECLARE @t TABLE (val INT);
-           INSERT INTO @t VALUES (1), (2), (3);
+           TYPE NumList IS TABLE OF NUMBER;
+           t NumList := NumList(1, 2, 3);
      - .. code-block:: xquery
 
            let $s := (1, 2, 3)
@@ -5564,8 +5563,10 @@ Data Query Languages
    * - AssociativeArrayDefinition
      - .. code-block:: sql
 
-           DECLARE @t TABLE (key_name NVARCHAR(10), val INT);
-           INSERT INTO @t VALUES ('a', 1), ('b', 2);
+           TYPE Dict IS TABLE OF NUMBER INDEX BY VARCHAR2(10);
+           t Dict;
+           t('a') := 1;
+           t('b') := 2;
      - .. code-block:: xquery
 
            let $m := map { "a": 1, "b": 2 }
@@ -5633,11 +5634,10 @@ Data Query Languages
    * - ProcedureDefinition
      - .. code-block:: sql
 
-           CREATE PROCEDURE log_message @msg NVARCHAR(MAX)
-           AS
+           CREATE OR REPLACE PROCEDURE log_message(msg IN VARCHAR2) AS
            BEGIN
-               PRINT @msg;
-           END
+               DBMS_OUTPUT.PUT_LINE(msg);
+           END;
      - .. code-block:: xquery
 
            declare function local:log-message(
@@ -5651,11 +5651,11 @@ Data Query Languages
    * - FunctionDefinition
      - .. code-block:: sql
 
-           CREATE FUNCTION add(@a INT, @b INT)
-           RETURNS INT AS
+           CREATE OR REPLACE FUNCTION add(a NUMBER, b NUMBER)
+           RETURN NUMBER AS
            BEGIN
-               RETURN @a + @b
-           END
+               RETURN a + b;
+           END;
      - .. code-block:: xquery
 
            declare function local:add(
@@ -5676,14 +5676,11 @@ Data Query Languages
    * - IfElse
      - .. code-block:: sql
 
-           IF @x > 0
-           BEGIN
-               RETURN 1
-           END
+           IF x > 0 THEN
+               RETURN 1;
            ELSE
-           BEGIN
-               RETURN 0
-           END
+               RETURN 0;
+           END IF;
      - .. code-block:: xquery
 
            if ($x > 0) then 1 else 0
@@ -5699,7 +5696,7 @@ Data Query Languages
    * - SwitchCase
      - .. code-block:: sql
 
-           CASE @x
+           CASE x
                WHEN 1 THEN 'one'
                WHEN 2 THEN 'two'
                ELSE 'none'
@@ -5718,10 +5715,9 @@ Data Query Languages
    * - Loop
      - .. code-block:: sql
 
-           WHILE @x > 0
-           BEGIN
-               SET @x = @x - 1
-           END
+           WHILE x > 0 LOOP
+               x := x - 1;
+           END LOOP;
      - .. code-block:: xquery
 
            for $i in 1 to $x return $i
@@ -5733,12 +5729,9 @@ Data Query Languages
    * - ForLoop
      - .. code-block:: sql
 
-           DECLARE @i INT = 0;
-           WHILE @i < 10
-           BEGIN
+           FOR i IN 1..10 LOOP
                -- body
-               SET @i = @i + 1;
-           END
+           END LOOP;
      - .. code-block:: xquery
 
            for $i in 1 to 10
@@ -5757,12 +5750,12 @@ Data Query Languages
    * - TryCatch
      - .. code-block:: sql
 
-           BEGIN TRY
-               EXEC do_something;
-           END TRY
-           BEGIN CATCH
-               EXEC handle_error;
-           END CATCH
+           BEGIN
+               do_something;
+           EXCEPTION
+               WHEN OTHERS THEN
+                   handle_error;
+           END;
      - .. code-block:: xquery
 
            try {
@@ -5776,7 +5769,7 @@ Data Query Languages
    * - Raise
      - .. code-block:: sql
 
-           THROW 50000, 'Error', 1;
+           RAISE_APPLICATION_ERROR(-20001, 'Error');
      - .. code-block:: xquery
 
            fn:error(fn:QName('http://example.com/errors', 'MY_ERROR'), 'Error')
@@ -5874,7 +5867,7 @@ Data Query Languages
    * - Print
      - .. code-block:: sql
 
-           PRINT 'Hello, World!';
+           DBMS_OUTPUT.PUT_LINE('Hello, World!');
      - .. code-block:: xquery
 
            "Hello, World!"
@@ -5898,7 +5891,7 @@ Data Query Languages
    * - Constant
      - .. code-block:: sql
 
-           DECLARE @MAX INT = 100;
+           MAX_VAL CONSTANT NUMBER := 100;
      - .. code-block:: xquery
 
            declare variable $MAX as xs:integer := 100;
@@ -5960,7 +5953,7 @@ Data Query Languages
    * - Remainder
      - .. code-block:: sql
 
-           a % b
+           MOD(a, b)
      - .. code-block:: xquery
 
            a mod b
@@ -6030,7 +6023,7 @@ Data Query Languages
    * - BitAnd
      - .. code-block:: sql
 
-           a & b
+           BITAND(a, b)
      - N/A
      - N/A
      - N/A
@@ -6038,7 +6031,7 @@ Data Query Languages
    * - BitOr
      - .. code-block:: sql
 
-           a | b
+           a + b - BITAND(a, b)
      - N/A
      - N/A
      - N/A
@@ -6046,15 +6039,13 @@ Data Query Languages
    * - BitXor
      - .. code-block:: sql
 
-           a ^ b
+           a + b - 2 * BITAND(a, b)
      - N/A
      - N/A
      - N/A
      - N/A
    * - BitNot
-     - .. code-block:: sql
-
-           ~a
+     - N/A
      - N/A
      - N/A
      - N/A
