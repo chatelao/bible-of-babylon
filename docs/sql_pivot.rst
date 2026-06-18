@@ -1,5 +1,5 @@
-SQL
-===
+SQL Pivot View
+==============
 
 .. list-table:: SQL Pivot Table
    :widths: auto
@@ -283,3 +283,13 @@ SQL
 
            TO_DATE('31.12.2023', 'DD.MM.YYYY')
      - Oracle TO_DATE function converts string to date.
+   * - Sort
+     - .. code-block:: sql
+
+           SELECT * FROM table ORDER BY column;
+     - The ORDER BY clause is used to sort results.
+   * - Distinct
+     - .. code-block:: sql
+
+           SELECT DISTINCT column FROM table;
+     - The DISTINCT keyword filters out duplicate rows from the result set.

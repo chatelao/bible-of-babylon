@@ -147,6 +147,8 @@
     - [x] Define pattern and implement instances across all 33 languages
 - [x] Implement `AssociativeArrayDefinition` pattern
     - [x] Define pattern and implement instances across all 33 languages
+- [x] Implement `Sort` and `Distinct` operations
+    - [x] Define patterns and implement instances across all languages
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->

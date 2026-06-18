@@ -310,3 +310,13 @@ Cpp Pivot View
 
            std::format("{:.2f}", num);
      - Available in C++20 and later.
+   * - Sort
+     - .. code-block:: cpp
+
+           std::sort(v.begin(), v.end());
+     - Uses the standard algorithm header; complexity is O(N log N).
+   * - Distinct
+     - .. code-block:: cpp
+
+           v.erase(std::unique(v.begin(), v.end()), v.end());
+     - std::unique removes consecutive duplicates; the vector must be sorted first.

@@ -79,6 +79,8 @@ This section compares languages based on common programming patterns.
 - Bitwise NOT
 - Set filtering
 - Set join
+- Sort
+- Distinct
 - 4-float vector multiplication
 - 4-float vector dot product
 - 4-float vector cross product

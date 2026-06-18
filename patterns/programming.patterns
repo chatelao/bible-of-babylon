@@ -7,6 +7,18 @@ pattern VariableDeclaration {
     parameter notes: String
 }
 
+pattern Sort {
+    meta description: "Ordering the elements of a collection based on a specific criteria."
+    parameter syntax: String
+    parameter notes: String
+}
+
+pattern Distinct {
+    meta description: "Removing duplicate elements from a collection to ensure all elements are unique."
+    parameter syntax: String
+    parameter notes: String
+}
+
 pattern ToCharDate {
     meta description: "Formatting a date as a string (specifically DD.MM.YYYY)."
     parameter syntax: String
@@ -10332,4 +10344,374 @@ instance GoToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
 instance GoToDate of ToDate {
     syntax = "time.Parse(\"02.01.2006\", dateStr)"
     notes = "Parses a string using the same layout logic as Format."
+}
+
+instance CSort of Sort {
+    syntax = "qsort(arr, n, sizeof(int), compare);"
+    notes = "Requires a comparison function; part of stdlib.h."
+}
+
+instance CDistinct of Distinct {
+    syntax = "/* Manual implementation using a loop or sorting followed by shifting elements */"
+    notes = "C does not have a built-in unique function for arrays."
+}
+
+instance CppSort of Sort {
+    syntax = "std::sort(v.begin(), v.end());"
+    notes = "Uses the standard algorithm header; complexity is O(N log N)."
+}
+
+instance CppDistinct of Distinct {
+    syntax = "v.erase(std::unique(v.begin(), v.end()), v.end());"
+    notes = "std::unique removes consecutive duplicates; the vector must be sorted first."
+}
+
+instance JavaSort of Sort {
+    syntax = "Collections.sort(list);"
+    notes = "Sorts a List in place; Arrays.sort() is used for arrays."
+}
+
+instance JavaDistinct of Distinct {
+    syntax = "list.stream().distinct().collect(Collectors.toList());"
+    notes = "Uses the Stream API to filter unique elements."
+}
+
+instance RustSort of Sort {
+    syntax = "v.sort();"
+    notes = "Sorts a vector in place; use v.sort_unstable() for potentially better performance if stable sort is not needed."
+}
+
+instance RustDistinct of Distinct {
+    syntax = "v.dedup();"
+    notes = "Removes consecutive duplicates; vector must be sorted first."
+}
+
+instance ErlangSort of Sort {
+    syntax = "lists:sort(List)."
+    notes = "Returns a new sorted list."
+}
+
+instance ErlangDistinct of Distinct {
+    syntax = "lists:usort(List)."
+    notes = "Returns a sorted list with duplicates removed."
+}
+
+instance LispSort of Sort {
+    syntax = "(sort list #'<)"
+    notes = "The sort function is destructive; use stable-sort for stability."
+}
+
+instance LispDistinct of Distinct {
+    syntax = "(remove-duplicates list)"
+    notes = "Returns a new list with duplicates removed."
+}
+
+instance BashSort of Sort {
+    syntax = "IFS=$'\n' sorted=($(sort <<<\"${arr[*]}\"))"
+    notes = "Uses the external 'sort' utility; requires handling of delimiters."
+}
+
+instance BashDistinct of Distinct {
+    syntax = "IFS=$'\n' unique=($(sort -u <<<\"${arr[*]}\"))"
+    notes = "The -u flag for the sort command removes duplicates."
+}
+
+instance CmdSort of Sort {
+    syntax = "(for %%a in (%list%) do @echo %%a) | sort"
+    notes = "Pipes output of a loop to the sort command."
+}
+
+instance CmdDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Standard Cmd does not have a simple way to remove duplicates."
+}
+
+instance PowerShellSort of Sort {
+    syntax = "$sorted = $list | Sort-Object"
+    notes = "Sorts objects in the pipeline."
+}
+
+instance PowerShellDistinct of Distinct {
+    syntax = "$unique = $list | Select-Object -Unique"
+    notes = "Select-Object with the -Unique flag filters out duplicates."
+}
+
+instance PythonSort of Sort {
+    syntax = "l.sort()"
+    notes = "Sorts the list in place; sorted(l) returns a new sorted list."
+}
+
+instance PythonDistinct of Distinct {
+    syntax = "list(set(l))"
+    notes = "Converting to a set removes duplicates but does not preserve order."
+}
+
+instance PhpSort of Sort {
+    syntax = "sort($array);"
+    notes = "Sorts an array in place."
+}
+
+instance PhpDistinct of Distinct {
+    syntax = "array_unique($array);"
+    notes = "Returns a new array with unique values."
+}
+
+instance CssSort of Sort {
+    syntax = "N/A"
+    notes = "CSS does not support collection operations like sorting."
+}
+
+instance CssDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Not applicable to CSS."
+}
+
+instance CudaSort of Sort {
+    syntax = "thrust::sort(v.begin(), v.end());"
+    notes = "Typically uses the Thrust library for high-performance sorting on the GPU."
+}
+
+instance CudaDistinct of Distinct {
+    syntax = "thrust::unique(v.begin(), v.end());"
+    notes = "Requires sorting the collection before applying unique."
+}
+
+instance X86Sort of Sort {
+    syntax = "; Manual implementation (e.g., Bubble Sort)"
+    notes = "Sorting must be implemented manually using loops and comparisons."
+}
+
+instance X86Distinct of Distinct {
+    syntax = "; Manual implementation"
+    notes = "Requires iterating through the collection and checking for duplicates."
+}
+
+instance RiscvSort of Sort {
+    syntax = "# Manual implementation"
+    notes = "Requires hand-coded sorting algorithms."
+}
+
+instance RiscvDistinct of Distinct {
+    syntax = "# Manual implementation"
+    notes = "Requires hand-coded logic to remove duplicates."
+}
+
+instance PrologSort of Sort {
+    syntax = "sort(List, Sorted)."
+    notes = "The sort/2 predicate sorts a list and removes duplicates simultaneously."
+}
+
+instance PrologDistinct of Distinct {
+    syntax = "list_to_set(List, Set)."
+    notes = "Converts a list into a set, effectively removing duplicates."
+}
+
+instance JavaBytecodeSort of Sort {
+    syntax = "invokestatic java/util/Collections/sort(Ljava/util/List;)V"
+    notes = "Calls the standard Java collection sort method."
+}
+
+instance JavaBytecodeDistinct of Distinct {
+    syntax = "invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;"
+    notes = "Typically implemented using the Stream API's distinct method."
+}
+
+instance CamelSort of Sort {
+    syntax = "List.sort compare list"
+    notes = "Uses a provided comparison function; returns a new list."
+}
+
+instance CamelDistinct of Distinct {
+    syntax = "List.sort_uniq compare list"
+    notes = "Returns a sorted list with duplicates removed."
+}
+
+instance ArmAarch64Sort of Sort {
+    syntax = "// Manual implementation"
+    notes = "Requires implementing a sorting algorithm in assembly."
+}
+
+instance ArmAarch64Distinct of Distinct {
+    syntax = "// Manual implementation"
+    notes = "Requires implementing duplicate removal logic."
+}
+
+instance GoSort of Sort {
+    syntax = "sort.Ints(slice)"
+    notes = "The sort package provides functions for sorting slices of basic types."
+}
+
+instance GoDistinct of Distinct {
+    syntax = "for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }"
+    notes = "Typically implemented using a map to track seen elements."
+}
+
+instance HaskellSort of Sort {
+    syntax = "Data.List.sort list"
+    notes = "Returns a sorted list."
+}
+
+instance HaskellDistinct of Distinct {
+    syntax = "Data.List.nub list"
+    notes = "The nub function removes duplicates but has O(N^2) complexity; Data.Set can be used for O(N log N)."
+}
+
+instance TypeScriptSort of Sort {
+    syntax = "array.sort((a, b) => a - b);"
+    notes = "The default sort() converts elements to strings; a comparator is needed for numbers."
+}
+
+instance TypeScriptDistinct of Distinct {
+    syntax = "[...new Set(array)]"
+    notes = "Uses a Set to filter unique values and then spreads back into an array."
+}
+
+instance TclSort of Sort {
+    syntax = "lsort $list"
+    notes = "Returns a new sorted list."
+}
+
+instance TclDistinct of Distinct {
+    syntax = "lsort -unique $list"
+    notes = "The -unique flag for lsort removes duplicates while sorting."
+}
+
+instance CobolSort of Sort {
+    syntax = "SORT table ASCENDING KEY ..."
+    notes = "The SORT statement is used to order records in a table or file."
+}
+
+instance CobolDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Typically implemented manually by iterating through a sorted table."
+}
+
+instance FortranSort of Sort {
+    syntax = "! Manual implementation"
+    notes = "Standard Fortran does not have a built-in sort function for arrays."
+}
+
+instance FortranDistinct of Distinct {
+    syntax = "! Manual implementation"
+    notes = "Typically implemented using loops and conditional logic."
+}
+
+instance CSharpSort of Sort {
+    syntax = "list.Sort();"
+    notes = "Sorts a List in place."
+}
+
+instance CSharpDistinct of Distinct {
+    syntax = "var unique = list.Distinct().ToList();"
+    notes = "Uses LINQ to produce a sequence of unique elements."
+}
+
+instance SwiftSort of Sort {
+    syntax = "array.sort()"
+    notes = "Sorts the array in place; sorted() returns a new sorted array."
+}
+
+instance SwiftDistinct of Distinct {
+    syntax = "Array(Set(array))"
+    notes = "Converting to a Set removes duplicates but loses order."
+}
+
+instance KotlinSort of Sort {
+    syntax = "list.sort()"
+    notes = "Sorts a mutable list in place."
+}
+
+instance KotlinDistinct of Distinct {
+    syntax = "list.distinct()"
+    notes = "Returns a list containing only distinct elements."
+}
+
+instance ClojureSort of Sort {
+    syntax = "(sort collection)"
+    notes = "Returns a sorted sequence."
+}
+
+instance ClojureDistinct of Distinct {
+    syntax = "(distinct collection)"
+    notes = "Returns a lazy sequence of the elements of a collection with duplicates removed."
+}
+
+instance BrainfuckSort of Sort {
+    syntax = "N/A"
+    notes = "Sorting is extremely complex to implement in Brainfuck."
+}
+
+instance BrainfuckDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Not supported natively."
+}
+
+instance ScalaSort of Sort {
+    syntax = "list.sorted"
+    notes = "Returns a new sorted list."
+}
+
+instance ScalaDistinct of Distinct {
+    syntax = "list.distinct"
+    notes = "Returns a new list with duplicates removed."
+}
+
+instance ZigSort of Sort {
+    syntax = "std.sort.block(i32, slice, {}, std.sort.asc(i32));"
+    notes = "Zig's standard library provides several sorting algorithms."
+}
+
+instance ZigDistinct of Distinct {
+    syntax = "// Manual implementation"
+    notes = "Typically involves sorting followed by a unique pass or using a HashMap."
+}
+
+instance SqlSort of Sort {
+    syntax = "SELECT * FROM table ORDER BY column;"
+    notes = "The ORDER BY clause is used to sort results."
+}
+
+instance SqlDistinct of Distinct {
+    syntax = "SELECT DISTINCT column FROM table;"
+    notes = "The DISTINCT keyword filters out duplicate rows from the result set."
+}
+
+instance XQuerySort of Sort {
+    syntax = "for $x in $col order by $x return $x"
+    notes = "The 'order by' clause in a FLWOR expression sorts the sequence."
+}
+
+instance XQueryDistinct of Distinct {
+    syntax = "distinct-values($col)"
+    notes = "Returns a sequence containing only the unique values from the input."
+}
+
+instance GraphQlSort of Sort {
+    syntax = "query { users(orderBy: NAME_ASC) { name } }"
+    notes = "Sorting is typically handled via arguments passed to fields in the query."
+}
+
+instance GraphQlDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Uniqueness is usually managed by the back-end resolver or database."
+}
+
+instance SparqlSort of Sort {
+    syntax = "SELECT ?name WHERE { ?u :name ?name } ORDER BY ?name"
+    notes = "The ORDER BY clause sorts the results."
+}
+
+instance SparqlDistinct of Distinct {
+    syntax = "SELECT DISTINCT ?name WHERE { ?u :name ?name }"
+    notes = "The DISTINCT keyword removes duplicate result bindings."
+}
+
+instance OverpassTurboSort of Sort {
+    syntax = "N/A"
+    notes = "Overpass QL does not have an explicit sort command; results are typically ordered by ID."
+}
+
+instance OverpassTurboDistinct of Distinct {
+    syntax = "N/A"
+    notes = "Overpass QL sets are generally unique by default."
 }

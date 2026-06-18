@@ -299,3 +299,13 @@ Swift Pivot View
 
            let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }
      - Uses flatMap and filter for a functional join.
+   * - Sort
+     - .. code-block:: swift
+
+           array.sort()
+     - Sorts the array in place; sorted() returns a new sorted array.
+   * - Distinct
+     - .. code-block:: swift
+
+           Array(Set(array))
+     - Converting to a Set removes duplicates but loses order.

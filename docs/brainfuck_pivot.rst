@@ -171,3 +171,9 @@ Brainfuck Pivot View
    * - SetJoin
      - N/A
      - Not supported natively.
+   * - Sort
+     - N/A
+     - Sorting is extremely complex to implement in Brainfuck.
+   * - Distinct
+     - N/A
+     - Not supported natively.

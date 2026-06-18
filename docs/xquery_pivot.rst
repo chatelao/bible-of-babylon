@@ -249,3 +249,13 @@ XQuery Pivot View
 
            xs:date(replace($str, '(\d{2})\.(\d{2})\.(\d{4})', '$3-$2-$1'))
      - XQuery requires ISO 8601 format for xs:date; regex is used to transform dd.mm.yyyy.
+   * - Sort
+     - .. code-block:: xquery
+
+           for $x in $col order by $x return $x
+     - The 'order by' clause in a FLWOR expression sorts the sequence.
+   * - Distinct
+     - .. code-block:: xquery
+
+           distinct-values($col)
+     - Returns a sequence containing only the unique values from the input.

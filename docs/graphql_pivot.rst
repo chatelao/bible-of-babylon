@@ -159,3 +159,11 @@ GraphQL Pivot View
 
            user { posts { title } }
      - Joins are expressed through nested selection sets.
+   * - Sort
+     - .. code-block:: graphql
+
+           query { users(orderBy: NAME_ASC) { name } }
+     - Sorting is typically handled via arguments passed to fields in the query.
+   * - Distinct
+     - N/A
+     - Uniqueness is usually managed by the back-end resolver or database.

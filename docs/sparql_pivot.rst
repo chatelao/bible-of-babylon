@@ -177,3 +177,13 @@ SPARQL Pivot View
 
            ?s ?p ?o . ?s ?p2 ?o2
      - Joins are performed by using the same variable in different triple patterns.
+   * - Sort
+     - .. code-block:: sparql
+
+           SELECT ?name WHERE { ?u :name ?name } ORDER BY ?name
+     - The ORDER BY clause sorts the results.
+   * - Distinct
+     - .. code-block:: sparql
+
+           SELECT DISTINCT ?name WHERE { ?u :name ?name }
+     - The DISTINCT keyword removes duplicate result bindings.

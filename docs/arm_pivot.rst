@@ -13,6 +13,14 @@ ARM AArch64 Assembler Pivot View
 
            x:  .quad 42
      - Defined in the .data section.
+   * - CollectionDefinition
+     - .. code-block:: asm
+
+           arr: .quad 1, 2, 3
+     - Defined as a sequence of values in the .data section.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Not natively supported in assembly.
    * - IfElse
      - .. code-block:: asm
 
@@ -214,6 +222,19 @@ ARM AArch64 Assembler Pivot View
                b .loop
            .end:
      - Uses a register for the counter and conditional branches.
+   * - ForEach
+     - .. code-block:: asm
+
+               adr x0, collection
+               mov x1, #count
+           .loop:
+               cbz x1, .end
+               ldr x2, [x0], #4
+               ; body (use x2)
+               sub x1, x1, #1
+               b .loop
+           .end:
+     - Uses base register with post-index increment for iteration.
    * - Equal
      - .. code-block:: asm
 
@@ -245,3 +266,13 @@ ARM AArch64 Assembler Pivot View
 
                ; Nested loops with comparisons
      - Requires manual implementation of nested loops and equality checks.
+   * - Sort
+     - .. code-block:: asm
+
+           // Manual implementation
+     - Requires implementing a sorting algorithm in assembly.
+   * - Distinct
+     - .. code-block:: asm
+
+           // Manual implementation
+     - Requires implementing duplicate removal logic.

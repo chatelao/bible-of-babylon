@@ -300,3 +300,13 @@ TypeScript Pivot View
            const [d, m, y] = str.split('.');
            new Date(`${y}-${m}-${d}`);
      - Manual parsing is often needed as Date.parse is implementation-dependent for non-ISO formats.
+   * - Sort
+     - .. code-block:: typescript
+
+           array.sort((a, b) => a - b);
+     - The default sort() converts elements to strings; a comparator is needed for numbers.
+   * - Distinct
+     - .. code-block:: typescript
+
+           [...new Set(array)]
+     - Uses a Set to filter unique values and then spreads back into an array.

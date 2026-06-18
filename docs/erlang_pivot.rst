@@ -250,3 +250,13 @@ Erlang Pivot View
    * - SemaphoreSignal
      - N/A
      - N/A
+   * - Sort
+     - .. code-block:: erlang
+
+           lists:sort(List).
+     - Returns a new sorted list.
+   * - Distinct
+     - .. code-block:: erlang
+
+           lists:usort(List).
+     - Returns a sorted list with duplicates removed.

@@ -315,3 +315,13 @@ PHP Pivot View
 
            DateTime::createFromFormat('d.m.Y', $dateStr)
      - Static method to parse specific formats.
+   * - Sort
+     - .. code-block:: php
+
+           sort($array);
+     - Sorts an array in place.
+   * - Distinct
+     - .. code-block:: php
+
+           array_unique($array);
+     - Returns a new array with unique values.

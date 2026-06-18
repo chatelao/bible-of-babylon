@@ -297,3 +297,13 @@ Python Pivot View
 
            datetime.strptime(date_str, '%d.%m.%Y').date()
      - Parses a string into a datetime object and extracts the date.
+   * - Sort
+     - .. code-block:: python
+
+           l.sort()
+     - Sorts the list in place; sorted(l) returns a new sorted list.
+   * - Distinct
+     - .. code-block:: python
+
+           list(set(l))
+     - Converting to a set removes duplicates but does not preserve order.
