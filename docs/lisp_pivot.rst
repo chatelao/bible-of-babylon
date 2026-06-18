@@ -251,3 +251,13 @@ Lisp Pivot View
 
            (bt:signal-semaphore sem)
      - N/A
+   * - Sort
+     - .. code-block:: common-lisp
+
+           (sort list #'<)
+     - The sort function is destructive; use stable-sort for stability.
+   * - Distinct
+     - .. code-block:: common-lisp
+
+           (remove-duplicates list)
+     - Returns a new list with duplicates removed.

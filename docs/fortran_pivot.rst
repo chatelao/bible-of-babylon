@@ -243,3 +243,13 @@ Fortran Pivot View
                end do
            end do
      - Standard nested DO loops for joining arrays of types.
+   * - Sort
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - Standard Fortran does not have a built-in sort function for arrays.
+   * - Distinct
+     - .. code-block:: fortran
+
+           ! Manual implementation
+     - Typically implemented using loops and conditional logic.

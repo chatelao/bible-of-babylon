@@ -235,3 +235,18 @@ PowerShell Pivot View
                }
            }
      - Typically implemented using nested foreach loops.
+   * - LineContinuation
+     - .. code-block:: powershell
+
+           `
+     - PowerShell uses the backtick character for line continuation.
+   * - Sort
+     - .. code-block:: powershell
+
+           $sorted = $list | Sort-Object
+     - Sorts objects in the pipeline.
+   * - Distinct
+     - .. code-block:: powershell
+
+           $unique = $list | Select-Object -Unique
+     - Select-Object with the -Unique flag filters out duplicates.

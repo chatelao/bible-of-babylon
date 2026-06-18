@@ -1,5 +1,5 @@
-Data Query Languages
-====================
+Data Query Language Patterns
+============================
 
 
 
@@ -60,6 +60,100 @@ Parameters:
 
            .setname
      - Overpass QL uses sets (prefixed with .) to store results.
+
+
+
+Sort
+----
+
+
+:description: Ordering the elements of a collection based on a specific criteria.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Sort Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlSort
+     - .. code-block:: sql
+
+           SELECT * FROM table ORDER BY column;
+     - The ORDER BY clause is used to sort results.
+   * - XQuerySort
+     - .. code-block:: xquery
+
+           for $x in $col order by $x return $x
+     - The 'order by' clause in a FLWOR expression sorts the sequence.
+   * - GraphQlSort
+     - .. code-block:: graphql
+
+           query { users(orderBy: NAME_ASC) { name } }
+     - Sorting is typically handled via arguments passed to fields in the query.
+   * - SparqlSort
+     - .. code-block:: sparql
+
+           SELECT ?name WHERE { ?u :name ?name } ORDER BY ?name
+     - The ORDER BY clause sorts the results.
+   * - OverpassTurboSort
+     - N/A
+     - Overpass QL does not have an explicit sort command; results are typically ordered by ID.
+
+
+
+Distinct
+--------
+
+
+:description: Removing duplicate elements from a collection to ensure all elements are unique.
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: Distinct Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlDistinct
+     - .. code-block:: sql
+
+           SELECT DISTINCT column FROM table;
+     - The DISTINCT keyword filters out duplicate rows from the result set.
+   * - XQueryDistinct
+     - .. code-block:: xquery
+
+           distinct-values($col)
+     - Returns a sequence containing only the unique values from the input.
+   * - GraphQlDistinct
+     - N/A
+     - Uniqueness is usually managed by the back-end resolver or database.
+   * - SparqlDistinct
+     - .. code-block:: sparql
+
+           SELECT DISTINCT ?name WHERE { ?u :name ?name }
+     - The DISTINCT keyword removes duplicate result bindings.
+   * - OverpassTurboDistinct
+     - N/A
+     - Overpass QL sets are generally unique by default.
 
 
 

@@ -206,3 +206,16 @@ Cmd Pivot View
    * - SetJoin
      - N/A
      - Joining sets is not natively supported in Cmd and is complex to implement.
+   * - LineContinuation
+     - .. code-block:: doscon
+
+           ^
+     - The caret is used for line continuation in Windows Command Prompt (Cmd).
+   * - Sort
+     - .. code-block:: doscon
+
+           (for %%a in (%list%) do @echo %%a) | sort
+     - Pipes output of a loop to the sort command.
+   * - Distinct
+     - N/A
+     - Standard Cmd does not have a simple way to remove duplicates.

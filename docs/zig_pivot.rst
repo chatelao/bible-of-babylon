@@ -286,3 +286,13 @@ Zig Pivot View
    * - LineContinuation
      - N/A
      - Zig treats newlines as whitespace, so explicit line continuation characters are not needed.
+   * - Sort
+     - .. code-block:: zig
+
+           std.sort.block(i32, slice, {}, std.sort.asc(i32));
+     - Zig's standard library provides several sorting algorithms.
+   * - Distinct
+     - .. code-block:: zig
+
+           // Manual implementation
+     - Typically involves sorting followed by a unique pass or using a HashMap.

@@ -325,3 +325,13 @@ CSharp Pivot View
 
            DateTime.ParseExact(dateStr, "dd.MM.yyyy", CultureInfo.InvariantCulture)
      - Strict parsing of the specific format.
+   * - Sort
+     - .. code-block:: csharp
+
+           list.Sort();
+     - Sorts a List in place.
+   * - Distinct
+     - .. code-block:: csharp
+
+           var unique = list.Distinct().ToList();
+     - Uses LINQ to produce a sequence of unique elements.

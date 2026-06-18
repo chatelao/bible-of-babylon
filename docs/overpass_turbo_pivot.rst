@@ -167,3 +167,9 @@ Overpass Turbo Pivot View
 
            (node(area); way(area););
      - Unions and recursion (e.g., node(w)) are used to combine sets.
+   * - Sort
+     - N/A
+     - Overpass QL does not have an explicit sort command; results are typically ordered by ID.
+   * - Distinct
+     - N/A
+     - Overpass QL sets are generally unique by default.

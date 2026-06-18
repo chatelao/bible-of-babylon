@@ -265,3 +265,13 @@ x86 Assembler Pivot View
 
                ; Nested loops with comparisons in assembly
      - Requires manual implementation of nested loops and equality checks.
+   * - Sort
+     - .. code-block:: nasm
+
+           ; Manual implementation (e.g., Bubble Sort)
+     - Sorting must be implemented manually using loops and comparisons.
+   * - Distinct
+     - .. code-block:: nasm
+
+           ; Manual implementation
+     - Requires iterating through the collection and checking for duplicates.

@@ -335,3 +335,13 @@ Java Bytecode Pivot View
 
                ; Nested loops using labels and jumps
      - Implemented by manually coding nested loops.
+   * - Sort
+     - .. code-block:: jasmin
+
+           invokestatic java/util/Collections/sort(Ljava/util/List;)V
+     - Calls the standard Java collection sort method.
+   * - Distinct
+     - .. code-block:: jasmin
+
+           invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;
+     - Typically implemented using the Stream API's distinct method.

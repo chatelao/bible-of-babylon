@@ -242,3 +242,11 @@ COBOL Pivot View
                END-PERFORM
            END-PERFORM.
      - Implemented using nested PERFORM VARYING loops.
+   * - Sort
+     - .. code-block:: cobol
+
+           SORT table ASCENDING KEY ...
+     - The SORT statement is used to order records in a table or file.
+   * - Distinct
+     - N/A
+     - Typically implemented manually by iterating through a sorted table.

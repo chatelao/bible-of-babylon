@@ -13,6 +13,14 @@ RISC-V Assembler Pivot View
 
            x:  .word 42
      - Defined in the .data section.
+   * - CollectionDefinition
+     - .. code-block:: asm
+
+           arr: .word 1, 2, 3
+     - A collection is defined as a series of data directives in the data section.
+   * - AssociativeArrayDefinition
+     - N/A
+     - Associative arrays are typically implemented via pointers and memory structures.
    * - SwitchCase
      - .. code-block:: asm
 
@@ -208,6 +216,20 @@ RISC-V Assembler Pivot View
                j .loop
            .end:
      - Implemented using a counter register and conditional branches.
+   * - ForEach
+     - .. code-block:: asm
+
+               la t0, collection
+               li t1, count
+           .loop:
+               beqz t1, .end
+               lw t2, 0(t0)
+               ; body (use t2)
+               addi t0, t0, 4
+               addi t1, t1, -1
+               j .loop
+           .end:
+     - Iterates over an array using a pointer and a countdown.
    * - Equal
      - .. code-block:: asm
 
@@ -236,3 +258,13 @@ RISC-V Assembler Pivot View
 
                ; Nested loops with comparisons in assembly
      - Requires manual implementation of nested loops and equality checks.
+   * - Sort
+     - .. code-block:: asm
+
+           # Manual implementation
+     - Requires hand-coded sorting algorithms.
+   * - Distinct
+     - .. code-block:: asm
+
+           # Manual implementation
+     - Requires hand-coded logic to remove duplicates.
