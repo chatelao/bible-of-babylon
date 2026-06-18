@@ -367,23 +367,23 @@ instance PowerShellAssociativeArrayDefinition of AssociativeArrayDefinition {
 
 instance SqlVar of VariableDeclaration {
     name = "x"
-    type = "INT"
+    type = "NUMBER"
     initial_value = 42
-    syntax = "DECLARE @x INT = 42;"
-    notes = "T-SQL syntax for variable declaration."
+    syntax = "DECLARE\n  x NUMBER := 42;\nBEGIN\n  -- usage\nEND;"
+    notes = "PL/SQL syntax for variable declaration. ANSI SQL uses DECLARE in blocks."
 }
 
 instance SqlCollectionDefinition of CollectionDefinition {
-    name = "N/A"
-    type = "Table"
-    syntax = "DECLARE @t TABLE (val INT);\nINSERT INTO @t VALUES (1), (2), (3);"
-    notes = "Collections are typically represented as table variables or temporary tables."
+    name = "t"
+    type = "TYPE"
+    syntax = "TYPE NumList IS TABLE OF NUMBER;\nt NumList := NumList(1, 2, 3);"
+    notes = "Oracle PL/SQL uses collection types (Nested Tables, Varrays)."
 }
 
 instance SqlAssociativeArrayDefinition of AssociativeArrayDefinition {
-    name = "N/A"
-    syntax = "DECLARE @t TABLE (key_name NVARCHAR(10), val INT);\nINSERT INTO @t VALUES ('a', 1), ('b', 2);"
-    notes = "Associative mapping is achieved through table structures with key/value columns."
+    name = "t"
+    syntax = "TYPE Dict IS TABLE OF NUMBER INDEX BY VARCHAR2(10);\nt Dict;\nt('a') := 1;\nt('b') := 2;"
+    notes = "Oracle PL/SQL supports Associative Arrays (index-by tables)."
 }
 
 instance XQueryVar of VariableDeclaration {
@@ -552,9 +552,9 @@ instance CmdSwitchCase of SwitchCase {
 }
 
 instance SqlSwitchCase of SwitchCase {
-    expression = "@x"
-    syntax = "CASE @x\n    WHEN 1 THEN 'one'\n    WHEN 2 THEN 'two'\n    ELSE 'none'\nEND"
-    notes = "The CASE expression is used for conditional logic in SQL."
+    expression = "x"
+    syntax = "CASE x\n    WHEN 1 THEN 'one'\n    WHEN 2 THEN 'two'\n    ELSE 'none'\nEND"
+    notes = "The ANSI CASE expression is supported by almost all SQL databases including Oracle."
 }
 
 instance ErlangSwitchCase of SwitchCase {
@@ -735,18 +735,18 @@ instance CmdLoop of Loop {
 }
 
 instance SqlIfElse of IfElse {
-    condition = "@x > 0"
+    condition = "x > 0"
     then_branch = { return 1 }
     else_branch = { return 0 }
-    syntax = "IF @x > 0\nBEGIN\n    RETURN 1\nEND\nELSE\nBEGIN\n    RETURN 0\nEND"
-    notes = "Uses IF-ELSE with BEGIN-END blocks."
+    syntax = "IF x > 0 THEN\n    RETURN 1;\nELSE\n    RETURN 0;\nEND IF;"
+    notes = "Oracle PL/SQL uses IF-THEN-ELSE syntax."
 }
 
 instance SqlLoop of Loop {
-    condition = "@x > 0"
-    body = { raw "SET @x = @x - 1" }
-    syntax = "WHILE @x > 0\nBEGIN\n    SET @x = @x - 1\nEND"
-    notes = "Standard WHILE loop in T-SQL."
+    condition = "x > 0"
+    body = { raw "x := x - 1" }
+    syntax = "WHILE x > 0 LOOP\n    x := x - 1;\nEND LOOP;"
+    notes = "Standard WHILE LOOP in Oracle PL/SQL."
 }
 
 instance ErlangIfElse of IfElse {
@@ -942,11 +942,11 @@ instance CmdFunction of FunctionDefinition {
 
 instance SqlFunction of FunctionDefinition {
     name = "add"
-    parameters = ["@a INT", "@b INT"]
-    return_type = "INT"
-    body = { raw "RETURN @a + @b" }
-    syntax = "CREATE FUNCTION add(@a INT, @b INT)\nRETURNS INT AS\nBEGIN\n    RETURN @a + @b\nEND"
-    notes = "T-SQL syntax for Scalar-Valued Functions."
+    parameters = ["a NUMBER", "b NUMBER"]
+    return_type = "NUMBER"
+    body = { raw "RETURN a + b" }
+    syntax = "CREATE OR REPLACE FUNCTION add(a NUMBER, b NUMBER)\nRETURN NUMBER AS\nBEGIN\n    RETURN a + b;\nEND;"
+    notes = "Oracle PL/SQL function syntax."
 }
 
 instance ErlangFunction of FunctionDefinition {
@@ -1087,10 +1087,10 @@ instance CmdProcedure of ProcedureDefinition {
 
 instance SqlProcedure of ProcedureDefinition {
     name = "log_message"
-    parameters = ["@msg NVARCHAR(MAX)"]
-    body = { raw "PRINT @msg" }
-    syntax = "CREATE PROCEDURE log_message @msg NVARCHAR(MAX)\nAS\nBEGIN\n    PRINT @msg;\nEND"
-    notes = "T-SQL uses CREATE PROCEDURE for blocks that perform actions."
+    parameters = ["msg VARCHAR2"]
+    body = { raw "DBMS_OUTPUT.PUT_LINE(msg)" }
+    syntax = "CREATE OR REPLACE PROCEDURE log_message(msg IN VARCHAR2) AS\nBEGIN\n    DBMS_OUTPUT.PUT_LINE(msg);\nEND;"
+    notes = "Oracle PL/SQL procedure syntax."
 }
 
 instance ErlangProcedure of ProcedureDefinition {
@@ -1305,18 +1305,18 @@ instance CmdRaise of Raise {
 
 instance SqlTryCatch of TryCatch {
     try_body = { call do_something() }
-    exception_type = "Error"
-    error_variable = "@@ERROR"
+    exception_type = "OTHERS"
+    error_variable = "SQLERRM"
     catch_body = { call handle_error() }
-    syntax = "BEGIN TRY\n    EXEC do_something;\nEND TRY\nBEGIN CATCH\n    EXEC handle_error;\nEND CATCH"
-    notes = "T-SQL supports BEGIN TRY...END TRY and BEGIN CATCH...END CATCH blocks."
+    syntax = "BEGIN\n    do_something;\nEXCEPTION\n    WHEN OTHERS THEN\n        handle_error;\nEND;"
+    notes = "Oracle PL/SQL uses EXCEPTION blocks for error handling."
 }
 
 instance SqlRaise of Raise {
-    exception_type = "Error"
+    exception_type = "UserDefined"
     message = "Error"
-    syntax = "THROW 50000, 'Error', 1;"
-    notes = "The THROW statement raises an exception and transfers execution to a CATCH block."
+    syntax = "RAISE_APPLICATION_ERROR(-20001, 'Error');"
+    notes = "RAISE_APPLICATION_ERROR is used to raise user-defined exceptions in Oracle."
 }
 
 instance ErlangTryCatch of TryCatch {
@@ -2185,8 +2185,8 @@ instance CmdPrint of Print {
 
 instance SqlPrint of Print {
     value = "Hello, World!"
-    syntax = "PRINT 'Hello, World!';"
-    notes = "T-SQL PRINT statement outputs a message to the client."
+    syntax = "DBMS_OUTPUT.PUT_LINE('Hello, World!');"
+    notes = "Oracle PL/SQL uses DBMS_OUTPUT.PUT_LINE for console output."
 }
 
 instance ErlangPrint of Print {
@@ -2420,11 +2420,11 @@ instance CmdConstant of Constant {
 }
 
 instance SqlConstant of Constant {
-    name = "MAX"
-    type = "INT"
+    name = "MAX_VAL"
+    type = "CONSTANT NUMBER"
     value = "100"
-    syntax = "DECLARE @MAX INT = 100;"
-    notes = "T-SQL variables are not strictly constant, but can be treated as such within a batch or procedure."
+    syntax = "MAX_VAL CONSTANT NUMBER := 100;"
+    notes = "Oracle PL/SQL supports constant declarations."
 }
 
 instance ErlangConstant of Constant {
@@ -3329,8 +3329,8 @@ instance SqlDivision of Division {
 }
 
 instance SqlRemainder of Remainder {
-    syntax = "a % b"
-    notes = "Standard SQL arithmetic functions."
+    syntax = "MOD(a, b)"
+    notes = "Oracle uses the MOD function for remainders."
 }
 
 instance SqlFloor of Floor {
@@ -3364,23 +3364,23 @@ instance SqlRightShift of RightShift {
 }
 
 instance SqlBitAnd of BitAnd {
-    syntax = "a & b"
-    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+    syntax = "BITAND(a, b)"
+    notes = "Oracle provides the BITAND function."
 }
 
 instance SqlBitOr of BitOr {
-    syntax = "a | b"
-    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+    syntax = "a + b - BITAND(a, b)"
+    notes = "Oracle does not have a native BITOR; it can be simulated using BITAND."
 }
 
 instance SqlBitXor of BitXor {
-    syntax = "a ^ b"
-    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+    syntax = "a + b - 2 * BITAND(a, b)"
+    notes = "Oracle does not have a native BITXOR; it can be simulated using BITAND."
 }
 
 instance SqlBitNot of BitNot {
-    syntax = "~a"
-    notes = "Bitwise support varies by SQL dialect; T-SQL supports &, |, ^, ~."
+    syntax = "N/A"
+    notes = "Oracle does not have a native BITNOT."
 }
 
 instance ErlangAddition of Addition {
@@ -5737,13 +5737,13 @@ instance PowerShellForEach of ForEach {
 }
 
 instance SqlForLoop of ForLoop {
-    syntax = "DECLARE @i INT = 0;\nWHILE @i < 10\nBEGIN\n    -- body\n    SET @i = @i + 1;\nEND"
-    notes = "T-SQL uses WHILE loops; there is no native FOR loop for ranges."
+    syntax = "FOR i IN 1..10 LOOP\n    -- body\nEND LOOP;"
+    notes = "Oracle PL/SQL provides a native FOR loop for ranges."
 }
 
 instance SqlForEach of ForEach {
-    syntax = "DECLARE cursor_name CURSOR FOR SELECT col FROM table;\nOPEN cursor_name;\nFETCH NEXT FROM cursor_name INTO @item;\nWHILE @@FETCH_STATUS = 0\nBEGIN\n    -- body\n    FETCH NEXT FROM cursor_name INTO @item;\nEND"
-    notes = "SQL typically uses cursors for row-by-row iteration."
+    syntax = "FOR r IN (SELECT * FROM table) LOOP\n    -- access r.column\nEND LOOP;"
+    notes = "Oracle PL/SQL supports cursor FOR loops for easy iteration over result sets."
 }
 
 instance XQueryForLoop of ForLoop {
@@ -10079,33 +10079,33 @@ instance ScalaSemaphoreSignal of SemaphoreSignal {
 }
 
 instance SqlToCharDate of ToCharDate {
-    syntax = "FORMAT(date_col, 'dd.MM.yyyy')"
-    notes = "T-SQL syntax using the FORMAT function."
+    syntax = "TO_CHAR(date_col, 'DD.MM.YYYY')"
+    notes = "Oracle TO_CHAR function for date formatting."
 }
 
 instance SqlToCharDateTimezone of ToCharDateTimezone {
-    syntax = "FORMAT(datetime_col, 'yyyy-MM-dd HH:mm:ss K')"
-    notes = "T-SQL syntax; K represents the timezone offset."
+    syntax = "TO_CHAR(datetime_col, 'YYYY-MM-DD HH24:MI:SS TZH:TZM')"
+    notes = "Oracle TO_CHAR with timezone information."
 }
 
 instance SqlToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
-    syntax = "FORMAT(num, '#,0')"
-    notes = "Formats the number with a comma as a thousands separator."
+    syntax = "TO_CHAR(num, '999,999,990')"
+    notes = "Oracle TO_CHAR with G (Group separator) or comma."
 }
 
 instance SqlToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
-    syntax = "FORMAT(num, '#,0;(#,0)')"
-    notes = "The second part of the format string defines the layout for negative numbers."
+    syntax = "TO_CHAR(num, '999G990D00PR')"
+    notes = "PR format element in Oracle TO_CHAR wraps negative numbers in brackets."
 }
 
 instance SqlToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
-    syntax = "FORMAT(num, 'N2')"
-    notes = "Uses standard numeric format with 2 decimal places."
+    syntax = "TO_CHAR(num, '999990.00')"
+    notes = "Oracle TO_CHAR with fixed decimal positions."
 }
 
 instance SqlToDate of ToDate {
-    syntax = "CONVERT(DATE, '31.12.2023', 104)"
-    notes = "104 is the format code for 'dd.mm.yyyy' in T-SQL."
+    syntax = "TO_DATE('31.12.2023', 'DD.MM.YYYY')"
+    notes = "Oracle TO_DATE function converts string to date."
 }
 
 instance XQueryToCharDate of ToCharDate {
