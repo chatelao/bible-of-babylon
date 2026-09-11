@@ -62,7 +62,7 @@ class CodeGenerator:
         "PowerShell", "Python", "PHP", "CSS", "CUDA", "x86 Assembler", "RISC-V Assembler", "Prolog",
         "X86", "Riscv", "Java Bytecode", "OCaml", "ARM AArch64 Assembler", "Arm", "Camel",
         "Go", "Haskell", "TypeScript", "Tcl", "COBOL", "Fortran", "CSharp", "Swift", "Kotlin",
-        "Clojure", "Brainfuck", "Scala", "Zig"
+        "Clojure", "Brainfuck", "Scala", "Zig", "VBA"
     ]
     DATA_QUERY = [
         "SQL", "XQuery", "GraphQL", "SPARQL", "Overpass Turbo"
@@ -114,6 +114,7 @@ class CodeGenerator:
         "Brainfuck": "brainfuck",
         "Scala": "scala",
         "Zig": "zig",
+        "VBA": "vb.net",
         "JSON": "json",
         "XML": "xml",
         "YAML": "yaml",

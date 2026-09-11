@@ -10715,3 +10715,347 @@ instance OverpassTurboDistinct of Distinct {
     syntax = "N/A"
     notes = "Overpass QL sets are generally unique by default."
 }
+
+
+instance VBAVar of VariableDeclaration {
+    name = "x"
+    type = "Integer"
+    initial_value = 42
+    syntax = "Dim x As Integer\nx = 42"
+    notes = "Variables are declared using 'Dim'; statically typed with 'As Type'."
+}
+
+instance VBACollectionDefinition of CollectionDefinition {
+    name = "arr"
+    type = "Variant"
+    syntax = "Dim arr As Variant\narr = Array(1, 2, 3)"
+    notes = "Arrays can be initialized using the Array() function or static array declaration."
+}
+
+instance VBAAssociativeArrayDefinition of AssociativeArrayDefinition {
+    name = "dict"
+    syntax = "Dim dict As Object\nSet dict = CreateObject(\"Scripting.Dictionary\")\ndict.Add \"a\", 1"
+    notes = "Requires Scripting.Dictionary or Collection object for key-value pairs."
+}
+
+instance VBASort of Sort {
+    syntax = "' Manual sorting implementation"
+    notes = "VBA has no built-in array sort method; requires custom sorting algorithm or Excel Range.Sort."
+}
+
+instance VBADistinct of Distinct {
+    syntax = "' Using Scripting.Dictionary"
+    notes = "Commonly achieved by inserting elements as keys into a Dictionary."
+}
+
+instance VBAToCharDate of ToCharDate {
+    syntax = "Format(dateVal, \"dd.mm.yyyy\")"
+    notes = "Uses the Format function with date format specifiers."
+}
+
+instance VBAToCharDateTimezone of ToCharDateTimezone {
+    syntax = "Format(dateVal, \"yyyy-mm-dd hh:nn:ss\")"
+    notes = "VBA Date type does not store timezone information; timezone must be handled separately."
+}
+
+instance VBAToCharNumberThousandSeparator of ToCharNumberThousandSeparator {
+    syntax = "Format(num, \"#,##0\")"
+    notes = "Uses the Format function with digit placeholders and comma."
+}
+
+instance VBAToCharNumberNegativeBrackets of ToCharNumberNegativeBrackets {
+    syntax = "Format(num, \"#,##0;(#,##0)\")"
+    notes = "Format function supports positive;negative sections separated by a semicolon."
+}
+
+instance VBAToCharNumberFixedDecimals of ToCharNumberFixedDecimals {
+    syntax = "Format(num, \"0.00\")"
+    notes = "Formats a number with a fixed number of decimal places."
+}
+
+instance VBAToDate of ToDate {
+    syntax = "CDate(\"31.12.2023\")"
+    notes = "Converts string or numeric expressions to a Date using locale settings or CDate/DateValue."
+}
+
+instance VBAForEach of ForEach {
+    syntax = "For Each item In collection\n    ' body\nNext item"
+    notes = "Iterates over items in a collection or array."
+}
+
+instance VBAEqual of Equal {
+    syntax = "a = b"
+    notes = "In VBA, = is used for both assignment and equality comparison."
+}
+
+instance VBANotEqual of NotEqual {
+    syntax = "a <> b"
+    notes = "VBA uses <> for inequality."
+}
+
+instance VBAGreaterThan of GreaterThan {
+    syntax = "a > b"
+    notes = "Standard greater than operator."
+}
+
+instance VBALogicalAnd of LogicalAnd {
+    syntax = "a And b"
+    notes = "The And operator is bitwise when used with numbers, logical when used with booleans."
+}
+
+instance VBALogicalOr of LogicalOr {
+    syntax = "a Or b"
+    notes = "The Or operator performs logical or bitwise disjunction."
+}
+
+instance VBALogicalXor of LogicalXor {
+    syntax = "a Xor b"
+    notes = "VBA provides a native Xor logical/bitwise operator."
+}
+
+instance VBAProcedure of ProcedureDefinition {
+    name = "logMessage"
+    parameters = ["msg As String"]
+    body = { raw "Debug.Print msg" }
+    syntax = "Sub LogMessage(msg As String)\n    Debug.Print msg\nEnd Sub"
+    notes = "Procedures in VBA are defined with 'Sub' and return no value."
+}
+
+instance VBAFunction of FunctionDefinition {
+    name = "add"
+    parameters = ["a As Integer", "b As Integer"]
+    return_type = "Integer"
+    body = { raw "add = a + b" }
+    syntax = "Function Add(a As Integer, b As Integer) As Integer\n    Add = a + b\nEnd Function"
+    notes = "Functions return values by assigning to the function name."
+}
+
+instance VBAIfElse of IfElse {
+    condition = "x > 0"
+    then_branch = { return 1 }
+    else_branch = { return 0 }
+    syntax = "If x > 0 Then\n    ' then branch\nElse\n    ' else branch\nEnd If"
+    notes = "Uses If-Then-Else-End If block syntax."
+}
+
+instance VBASwitchCase of SwitchCase {
+    expression = "x"
+    syntax = "Select Case x\n    Case 1\n        ' case 1\n    Case 2\n        ' case 2\n    Case Else\n        ' default\nEnd Select"
+    notes = "VBA uses Select Case statements for multi-way branching."
+}
+
+instance VBALoop of Loop {
+    condition = "x > 0"
+    body = { raw "x = x - 1" }
+    syntax = "Do While x > 0\n    x = x - 1\nLoop"
+    notes = "Do While ... Loop repeatedly executes while condition is true."
+}
+
+instance VBAForLoop of ForLoop {
+    syntax = "For i = 0 To 9\n    ' body\nNext i"
+    notes = "Standard count-controlled loop in VBA."
+}
+
+instance VBALineContinuation of LineContinuation {
+    syntax = " _"
+    notes = "VBA uses a space followed by an underscore character for line continuation."
+}
+
+instance VBATryCatch of TryCatch {
+    try_body = { call do_something() }
+    exception_type = "Err"
+    error_variable = "Err"
+    catch_body = { call handle(Err) }
+    syntax = "On Error GoTo ErrorHandler\n    do_something\n    Exit Sub\nErrorHandler:\n    handle Err"
+    notes = "VBA error handling uses 'On Error GoTo' labels."
+}
+
+instance VBARaise of Raise {
+    exception_type = "Error"
+    message = "Error"
+    syntax = "Err.Raise vbObjectError + 513, \"Source\", \"Error\""
+    notes = "Uses Err.Raise to throw errors."
+}
+
+instance VBAThread of Thread {
+    body = { call do_work() }
+    syntax = "N/A"
+    notes = "VBA is single-threaded; multi-threading is not natively supported."
+}
+
+instance VBASendMessage of SendMessage {
+    recipient = "N/A"
+    message = "N/A"
+    syntax = "N/A"
+    notes = "Not natively supported in VBA."
+}
+
+instance VBAReceiveMessage of ReceiveMessage {
+    match_pattern = "N/A"
+    body = { raw "N/A" }
+    syntax = "N/A"
+    notes = "Not natively supported in VBA."
+}
+
+instance VBAMutexDefinition of MutexDefinition {
+    name = "hMutex"
+    syntax = "Dim hMutex As LongPtr\nhMutex = CreateMutex(0, 0, \"MyMutex\")"
+    notes = "Requires Windows API CreateMutex function declaration."
+}
+
+instance VBAMutexLock of MutexLock {
+    syntax = "WaitForSingleObject hMutex, INFINITE"
+    notes = "Uses Win32 API WaitForSingleObject."
+}
+
+instance VBAMutexUnlock of MutexUnlock {
+    syntax = "ReleaseMutex hMutex"
+    notes = "Uses Win32 API ReleaseMutex."
+}
+
+instance VBASemaphoreDefinition of SemaphoreDefinition {
+    name = "hSem"
+    initial_value = 1
+    syntax = "Dim hSem As LongPtr\nhSem = CreateSemaphore(0, 1, 10, \"MySem\")"
+    notes = "Requires Windows API CreateSemaphore function declaration."
+}
+
+instance VBASemaphoreWait of SemaphoreWait {
+    syntax = "WaitForSingleObject hSem, INFINITE"
+    notes = "Uses Win32 API WaitForSingleObject."
+}
+
+instance VBASemaphoreSignal of SemaphoreSignal {
+    syntax = "ReleaseSemaphore hSem, 1, 0"
+    notes = "Uses Win32 API ReleaseSemaphore."
+}
+
+instance VBASingleLineComment of SingleLineComment {
+    syntax = "' comment"
+    notes = "Single-line comments start with an apostrophe."
+}
+
+instance VBAMultiLineComment of MultiLineComment {
+    syntax = "N/A"
+    notes = "VBA does not support multi-line comments; multiple single-line apostrophe comments must be used."
+}
+
+instance VBAPrint of Print {
+    value = "Hello, World!"
+    syntax = "Debug.Print \"Hello, World!\""
+    notes = "Outputs text to the Immediate Window."
+}
+
+instance VBAImport of Import {
+    module_name = "N/A"
+    syntax = "' Tools -> References"
+    notes = "External libraries are imported via IDE References."
+}
+
+instance VBAConstant of Constant {
+    name = "MAX"
+    type = "Integer"
+    value = "100"
+    syntax = "Const MAX As Integer = 100"
+    notes = "Declared using the Const keyword."
+}
+
+instance VBAAddition of Addition {
+    syntax = "a + b"
+    notes = "Standard arithmetic operator."
+}
+
+instance VBASubtraction of Subtraction {
+    syntax = "a - b"
+    notes = "Standard arithmetic operator."
+}
+
+instance VBAMultiplication of Multiplication {
+    syntax = "a * b"
+    notes = "Standard arithmetic operator."
+}
+
+instance VBADivision of Division {
+    syntax = "a / b"
+    notes = "Standard floating-point division; use \\ for integer division."
+}
+
+instance VBARemainder of Remainder {
+    syntax = "a Mod b"
+    notes = "The Mod operator returns the remainder of division."
+}
+
+instance VBAFloor of Floor {
+    syntax = "Int(a)"
+    notes = "Int() returns the greatest integer <= number."
+}
+
+instance VBARounding of Rounding {
+    syntax = "Round(a, 0)"
+    notes = "Round() performs banker's rounding."
+}
+
+instance VBAIncrement of Increment {
+    syntax = "a = a + 1"
+    notes = "VBA does not support ++ or += operators."
+}
+
+instance VBADecrement of Decrement {
+    syntax = "a = a - 1"
+    notes = "VBA does not support -- or -= operators."
+}
+
+instance VBALeftShift of LeftShift {
+    syntax = "a * (2 ^ b)"
+    notes = "No bitwise shift operator in VBA; simulated via multiplication by powers of 2."
+}
+
+instance VBARightShift of RightShift {
+    syntax = "a \\ (2 ^ b)"
+    notes = "Simulated via integer division by powers of 2."
+}
+
+instance VBABitAnd of BitAnd {
+    syntax = "a And b"
+    notes = "The And operator performs bitwise AND when applied to numeric operands."
+}
+
+instance VBABitOr of BitOr {
+    syntax = "a Or b"
+    notes = "The Or operator performs bitwise OR when applied to numeric operands."
+}
+
+instance VBABitXor of BitXor {
+    syntax = "a Xor b"
+    notes = "The Xor operator performs bitwise XOR when applied to numeric operands."
+}
+
+instance VBABitNot of BitNot {
+    syntax = "Not a"
+    notes = "The Not operator performs bitwise NOT when applied to numeric operands."
+}
+
+instance VBAFloat4VectorMultiplication of Float4VectorMultiplication {
+    syntax = "For i = 0 To 3: c(i) = a(i) * b(i): Next i"
+    notes = "Element-wise multiplication using a loop."
+}
+
+instance VBAFloat4VectorDotProduct of Float4VectorDotProduct {
+    syntax = "dot = a(0)*b(0) + a(1)*b(1) + a(2)*b(2) + a(3)*b(3)"
+    notes = "Calculated by summing the products of corresponding components."
+}
+
+instance VBAFloat4VectorCrossProduct of Float4VectorCrossProduct {
+    syntax = "c(0) = a(1)*b(2) - a(2)*b(1)\nc(1) = a(2)*b(0) - a(0)*b(2)\nc(2) = a(0)*b(1) - a(1)*b(0)\nc(3) = 0.0"
+    notes = "Calculated component-wise for 3D cross product."
+}
+
+instance VBASetFiltering of SetFiltering {
+    syntax = "For Each item In col\n    If condition(item) Then res.Add item\nNext item"
+    notes = "Iterates over a collection and adds matching elements to a result collection."
+}
+
+instance VBASetJoin of SetJoin {
+    syntax = "For Each a In colA\n    For Each b In colB\n        If a.id = b.id Then ' join logic\n    Next b\nNext a"
+    notes = "Nested loops used to join elements from two collections."
+}

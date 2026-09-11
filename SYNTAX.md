@@ -43,6 +43,7 @@ The transpiler maintains a mapping between internal instance names and Pygments-
 | Clojure       | `clojure`      |
 | Scala         | `scala`        |
 | Zig           | `zig`          |
+| VBA           | `vb.net`       |
 | JSON          | `json`         |
 | XML           | `xml`          |
 | YAML          | `yaml`         |
