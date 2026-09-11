@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -188,7 +189,7 @@
 <td><p>Generic lists are the standard collection type in C#.</p></td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Dictionary</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="s">"a"</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">"b"</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span><span class="w"> </span><span class="p">};</span>
 </pre></div>
 </div>
 </td>
@@ -276,7 +277,7 @@
 <td><p>Standard try-catch block for exception handling.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">);</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">Exception</span><span class="p">(</span><span class="s">"Error"</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -320,7 +321,7 @@
 <td><p>Standard block comment.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -523,42 +524,42 @@
 <td><p>LINQ provides a native ‘join’ keyword.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDate</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">date</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"dd.MM.yyyy"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard .NET format string.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;yyyy-MM-dd HH:mm:ss K&quot;</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">dt</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"yyyy-MM-dd HH:mm:ss K"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>K represents the timezone information.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;N0&quot;</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"N0"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘N’ format specifier includes group separators.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;#,##0;(#,##0)&quot;</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"#,##0;(#,##0)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Custom format string with positive and negative sections.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">&quot;F2&quot;</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"F2"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>The ‘F’ format specifier ensures fixed decimal places.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToDate</p></td>
-<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;dd.MM.yyyy&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">)</span>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">dateStr</span><span class="p">,</span><span class="w"> </span><span class="s">"dd.MM.yyyy"</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>

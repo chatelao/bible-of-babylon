@@ -929,3 +929,44 @@ handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Se
     handle(err);
 };","return error.BadThing;","const thread = try std.Thread.spawn(.{}, doWork, .{});
 thread.join();","N/A","N/A","var mutex = std.Thread.Mutex{};","mutex.lock();","mutex.unlock();","var sem = std.Thread.Semaphore{ .permits = 1 };","sem.wait();","sem.post();","// comment","N/A","std.debug.print(""Hello, World!\n"", .{});","const std = @import(""std"");","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","@mod(a, b)","@floor(a)","@round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a * b;","const dot = @reduce(.Add, a * b);","const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };","for (a) |item| { if (condition(item)) try res.append(item); }","for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }"
+"VBA","Dim x As Integer
+x = 42","' Manual sorting implementation","' Using Scripting.Dictionary","Format(dateVal, ""dd.mm.yyyy"")","Format(dateVal, ""yyyy-mm-dd hh:nn:ss"")","Format(num, ""#,##0"")","Format(num, ""#,##0;(#,##0)"")","Format(num, ""0.00"")","CDate(""31.12.2023"")","For Each item In collection
+    ' body
+Next item","Dim arr As Variant
+arr = Array(1, 2, 3)","Dim dict As Object
+Set dict = CreateObject(""Scripting.Dictionary"")
+dict.Add ""a"", 1","a = b","a <> b","a > b","a And b","a Or b","a Xor b","Sub LogMessage(msg As String)
+    Debug.Print msg
+End Sub","Function Add(a As Integer, b As Integer) As Integer
+    Add = a + b
+End Function","If x > 0 Then
+    ' then branch
+Else
+    ' else branch
+End If","Select Case x
+    Case 1
+        ' case 1
+    Case 2
+        ' case 2
+    Case Else
+        ' default
+End Select","Do While x > 0
+    x = x - 1
+Loop","For i = 0 To 9
+    ' body
+Next i"," _","On Error GoTo ErrorHandler
+    do_something
+    Exit Sub
+ErrorHandler:
+    handle Err","Err.Raise vbObjectError + 513, ""Source"", ""Error""","N/A","N/A","N/A","Dim hMutex As LongPtr
+hMutex = CreateMutex(0, 0, ""MyMutex"")","WaitForSingleObject hMutex, INFINITE","ReleaseMutex hMutex","Dim hSem As LongPtr
+hSem = CreateSemaphore(0, 1, 10, ""MySem"")","WaitForSingleObject hSem, INFINITE","ReleaseSemaphore hSem, 1, 0","' comment","N/A","Debug.Print ""Hello, World!""","' Tools -> References","Const MAX As Integer = 100","a + b","a - b","a * b","a / b","a Mod b","Int(a)","Round(a, 0)","a = a + 1","a = a - 1","a * (2 ^ b)","a \ (2 ^ b)","a And b","a Or b","a Xor b","Not a","For i = 0 To 3: c(i) = a(i) * b(i): Next i","dot = a(0)*b(0) + a(1)*b(1) + a(2)*b(2) + a(3)*b(3)","c(0) = a(1)*b(2) - a(2)*b(1)
+c(1) = a(2)*b(0) - a(0)*b(2)
+c(2) = a(0)*b(1) - a(1)*b(0)
+c(3) = 0.0","For Each item In col
+    If condition(item) Then res.Add item
+Next item","For Each a In colA
+    For Each b In colB
+        If a.id = b.id Then ' join logic
+    Next b
+Next a"

@@ -38,6 +38,7 @@ Programming Languages
      - Kotlin
      - Clojure
      - Zig
+     - VBA
      
    * - VariableDeclaration
      - .. code-block:: c
@@ -130,6 +131,10 @@ Programming Languages
      - .. code-block:: zig
 
            var x: i32 = 42;
+     - .. code-block:: vb.net
+
+           Dim x As Integer
+           x = 42
    * - Sort
      - .. code-block:: c
 
@@ -220,6 +225,9 @@ Programming Languages
      - .. code-block:: zig
 
            std.sort.block(i32, slice, {}, std.sort.asc(i32));
+     - .. code-block:: vb.net
+
+           ' Manual sorting implementation
    * - Distinct
      - .. code-block:: c
 
@@ -306,6 +314,9 @@ Programming Languages
      - .. code-block:: zig
 
            // Manual implementation
+     - .. code-block:: vb.net
+
+           ' Using Scripting.Dictionary
    * - ToCharDate
      - N/A
      - .. code-block:: cpp
@@ -353,6 +364,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           Format(dateVal, "dd.mm.yyyy")
    * - ToCharDateTimezone
      - N/A
      - N/A
@@ -394,6 +408,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           Format(dateVal, "yyyy-mm-dd hh:nn:ss")
    * - ToCharNumberThousandSeparator
      - N/A
      - N/A
@@ -437,6 +454,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           Format(num, "#,##0")
    * - ToCharNumberNegativeBrackets
      - N/A
      - N/A
@@ -479,6 +499,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           Format(num, "#,##0;(#,##0)")
    * - ToCharNumberFixedDecimals
      - N/A
      - .. code-block:: cpp
@@ -526,6 +549,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           Format(num, "0.00")
    * - ToDate
      - N/A
      - N/A
@@ -572,6 +598,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+           CDate("31.12.2023")
    * - ForEach
      - .. code-block:: c
 
@@ -726,6 +755,11 @@ Programming Languages
            for (collection) |item| {
                // body
            }
+     - .. code-block:: vb.net
+
+           For Each item In collection
+               ' body
+           Next item
    * - CollectionDefinition
      - .. code-block:: c
 
@@ -818,6 +852,10 @@ Programming Languages
      - .. code-block:: zig
 
            var a = [_]i32{1, 2, 3};
+     - .. code-block:: vb.net
+
+           Dim arr As Variant
+           arr = Array(1, 2, 3)
    * - AssociativeArrayDefinition
      - N/A
      - .. code-block:: cpp
@@ -895,6 +933,11 @@ Programming Languages
      - .. code-block:: zig
 
            var map = std.AutoHashMap(i32, i32).init(allocator);
+     - .. code-block:: vb.net
+
+           Dim dict As Object
+           Set dict = CreateObject("Scripting.Dictionary")
+           dict.Add "a", 1
    * - Equal
      - .. code-block:: c
 
@@ -986,6 +1029,9 @@ Programming Languages
      - .. code-block:: zig
 
            a == b
+     - .. code-block:: vb.net
+
+           a = b
    * - NotEqual
      - .. code-block:: c
 
@@ -1077,6 +1123,9 @@ Programming Languages
      - .. code-block:: zig
 
            a != b
+     - .. code-block:: vb.net
+
+           a <> b
    * - GreaterThan
      - .. code-block:: c
 
@@ -1168,6 +1217,9 @@ Programming Languages
      - .. code-block:: zig
 
            a > b
+     - .. code-block:: vb.net
+
+           a > b
    * - LogicalAnd
      - .. code-block:: c
 
@@ -1223,6 +1275,9 @@ Programming Languages
      - .. code-block:: zig
 
            a and b
+     - .. code-block:: vb.net
+
+           a And b
    * - LogicalOr
      - .. code-block:: c
 
@@ -1278,6 +1333,9 @@ Programming Languages
      - .. code-block:: zig
 
            a or b
+     - .. code-block:: vb.net
+
+           a Or b
    * - LogicalXor
      - .. code-block:: c
 
@@ -1333,6 +1391,9 @@ Programming Languages
      - .. code-block:: zig
 
            a != b
+     - .. code-block:: vb.net
+
+           a Xor b
    * - ProcedureDefinition
      - .. code-block:: c
 
@@ -1488,6 +1549,11 @@ Programming Languages
            fn logMessage(msg: []const u8) void {
                std.debug.print("{s}\n", .{msg});
            }
+     - .. code-block:: vb.net
+
+           Sub LogMessage(msg As String)
+               Debug.Print msg
+           End Sub
    * - FunctionDefinition
      - .. code-block:: c
 
@@ -1633,6 +1699,11 @@ Programming Languages
            fn add(a: i32, b: i32) i32 {
                return a + b;
            }
+     - .. code-block:: vb.net
+
+           Function Add(a As Integer, b As Integer) As Integer
+               Add = a + b
+           End Function
    * - IfElse
      - .. code-block:: c
 
@@ -1811,6 +1882,13 @@ Programming Languages
            } else {
                return 0;
            }
+     - .. code-block:: vb.net
+
+           If x > 0 Then
+               ' then branch
+           Else
+               ' else branch
+           End If
    * - SwitchCase
      - .. code-block:: c
 
@@ -2066,6 +2144,16 @@ Programming Languages
                2 => return 2,
                else => return 0,
            }
+     - .. code-block:: vb.net
+
+           Select Case x
+               Case 1
+                   ' case 1
+               Case 2
+                   ' case 2
+               Case Else
+                   ' default
+           End Select
    * - Loop
      - .. code-block:: c
 
@@ -2218,6 +2306,11 @@ Programming Languages
            while (x > 0) {
                x -= 1;
            }
+     - .. code-block:: vb.net
+
+           Do While x > 0
+               x = x - 1
+           Loop
    * - ForLoop
      - .. code-block:: c
 
@@ -2374,6 +2467,11 @@ Programming Languages
            for (0..10) |i| {
                // body
            }
+     - .. code-block:: vb.net
+
+           For i = 0 To 9
+               ' body
+           Next i
    * - LineContinuation
      - N/A
      - N/A
@@ -2411,6 +2509,9 @@ Programming Languages
      - N/A
      - N/A
      - N/A
+     - .. code-block:: vb.net
+
+            _
    * - TryCatch
      - N/A
      - .. code-block:: cpp
@@ -2552,6 +2653,13 @@ Programming Languages
            doSomething() catch |err| {
                handle(err);
            };
+     - .. code-block:: vb.net
+
+           On Error GoTo ErrorHandler
+               do_something
+               Exit Sub
+           ErrorHandler:
+               handle Err
    * - Raise
      - .. code-block:: c
 
@@ -2641,6 +2749,9 @@ Programming Languages
      - .. code-block:: zig
 
            return error.BadThing;
+     - .. code-block:: vb.net
+
+           Err.Raise vbObjectError + 513, "Source", "Error"
    * - Thread
      - N/A
      - .. code-block:: cpp
@@ -2727,6 +2838,7 @@ Programming Languages
 
            const thread = try std.Thread.spawn(.{}, doWork, .{});
            thread.join();
+     - N/A
    * - SendMessage
      - N/A
      - .. code-block:: cpp
@@ -2802,6 +2914,7 @@ Programming Languages
      - .. code-block:: clojure
 
            (send my-agent (fn [state] (inc state)))
+     - N/A
      - N/A
    * - ReceiveMessage
      - N/A
@@ -2884,6 +2997,7 @@ Programming Languages
 
            @my-agent
      - N/A
+     - N/A
    * - MutexDefinition
      - .. code-block:: c
 
@@ -2941,6 +3055,10 @@ Programming Languages
      - .. code-block:: zig
 
            var mutex = std.Thread.Mutex{};
+     - .. code-block:: vb.net
+
+           Dim hMutex As LongPtr
+           hMutex = CreateMutex(0, 0, "MyMutex")
    * - MutexLock
      - .. code-block:: c
 
@@ -2998,6 +3116,9 @@ Programming Languages
      - .. code-block:: zig
 
            mutex.lock();
+     - .. code-block:: vb.net
+
+           WaitForSingleObject hMutex, INFINITE
    * - MutexUnlock
      - .. code-block:: c
 
@@ -3053,6 +3174,9 @@ Programming Languages
      - .. code-block:: zig
 
            mutex.unlock();
+     - .. code-block:: vb.net
+
+           ReleaseMutex hMutex
    * - SemaphoreDefinition
      - .. code-block:: c
 
@@ -3111,6 +3235,10 @@ Programming Languages
      - .. code-block:: zig
 
            var sem = std.Thread.Semaphore{ .permits = 1 };
+     - .. code-block:: vb.net
+
+           Dim hSem As LongPtr
+           hSem = CreateSemaphore(0, 1, 10, "MySem")
    * - SemaphoreWait
      - .. code-block:: c
 
@@ -3168,6 +3296,9 @@ Programming Languages
      - .. code-block:: zig
 
            sem.wait();
+     - .. code-block:: vb.net
+
+           WaitForSingleObject hSem, INFINITE
    * - SemaphoreSignal
      - .. code-block:: c
 
@@ -3225,6 +3356,9 @@ Programming Languages
      - .. code-block:: zig
 
            sem.post();
+     - .. code-block:: vb.net
+
+           ReleaseSemaphore hSem, 1, 0
    * - SingleLineComment
      - .. code-block:: c
 
@@ -3314,6 +3448,9 @@ Programming Languages
      - .. code-block:: zig
 
            // comment
+     - .. code-block:: vb.net
+
+           ' comment
    * - MultiLineComment
      - .. code-block:: c
 
@@ -3401,6 +3538,7 @@ Programming Languages
 
            (comment
              (some code))
+     - N/A
      - N/A
    * - Print
      - .. code-block:: c
@@ -3499,6 +3637,9 @@ Programming Languages
      - .. code-block:: zig
 
            std.debug.print("Hello, World!\n", .{});
+     - .. code-block:: vb.net
+
+           Debug.Print "Hello, World!"
    * - Import
      - .. code-block:: c
 
@@ -3590,6 +3731,9 @@ Programming Languages
      - .. code-block:: zig
 
            const std = @import("std");
+     - .. code-block:: vb.net
+
+           ' Tools -> References
    * - Constant
      - .. code-block:: c
 
@@ -3681,6 +3825,9 @@ Programming Languages
      - .. code-block:: zig
 
            const MAX: i32 = 100;
+     - .. code-block:: vb.net
+
+           Const MAX As Integer = 100
    * - Addition
      - .. code-block:: c
 
@@ -3770,6 +3917,9 @@ Programming Languages
 
            (+ a b)
      - .. code-block:: zig
+
+           a + b
+     - .. code-block:: vb.net
 
            a + b
    * - Subtraction
@@ -3863,6 +4013,9 @@ Programming Languages
      - .. code-block:: zig
 
            a - b
+     - .. code-block:: vb.net
+
+           a - b
    * - Multiplication
      - .. code-block:: c
 
@@ -3952,6 +4105,9 @@ Programming Languages
 
            (* a b)
      - .. code-block:: zig
+
+           a * b
+     - .. code-block:: vb.net
 
            a * b
    * - Division
@@ -4045,6 +4201,9 @@ Programming Languages
      - .. code-block:: zig
 
            a / b
+     - .. code-block:: vb.net
+
+           a / b
    * - Remainder
      - .. code-block:: c
 
@@ -4132,6 +4291,9 @@ Programming Languages
      - .. code-block:: zig
 
            @mod(a, b)
+     - .. code-block:: vb.net
+
+           a Mod b
    * - Floor
      - .. code-block:: c
 
@@ -4211,6 +4373,9 @@ Programming Languages
      - .. code-block:: zig
 
            @floor(a)
+     - .. code-block:: vb.net
+
+           Int(a)
    * - Rounding
      - .. code-block:: c
 
@@ -4292,6 +4457,9 @@ Programming Languages
      - .. code-block:: zig
 
            @round(a)
+     - .. code-block:: vb.net
+
+           Round(a, 0)
    * - Increment
      - .. code-block:: c
 
@@ -4383,6 +4551,9 @@ Programming Languages
      - .. code-block:: zig
 
            a += 1
+     - .. code-block:: vb.net
+
+           a = a + 1
    * - Decrement
      - .. code-block:: c
 
@@ -4474,6 +4645,9 @@ Programming Languages
      - .. code-block:: zig
 
            a -= 1
+     - .. code-block:: vb.net
+
+           a = a - 1
    * - LeftShift
      - .. code-block:: c
 
@@ -4561,6 +4735,9 @@ Programming Languages
      - .. code-block:: zig
 
            a << b
+     - .. code-block:: vb.net
+
+           a * (2 ^ b)
    * - RightShift
      - .. code-block:: c
 
@@ -4648,6 +4825,9 @@ Programming Languages
      - .. code-block:: zig
 
            a >> b
+     - .. code-block:: vb.net
+
+           a \ (2 ^ b)
    * - BitAnd
      - .. code-block:: c
 
@@ -4735,6 +4915,9 @@ Programming Languages
      - .. code-block:: zig
 
            a & b
+     - .. code-block:: vb.net
+
+           a And b
    * - BitOr
      - .. code-block:: c
 
@@ -4822,6 +5005,9 @@ Programming Languages
      - .. code-block:: zig
 
            a | b
+     - .. code-block:: vb.net
+
+           a Or b
    * - BitXor
      - .. code-block:: c
 
@@ -4909,6 +5095,9 @@ Programming Languages
      - .. code-block:: zig
 
            a ^ b
+     - .. code-block:: vb.net
+
+           a Xor b
    * - BitNot
      - .. code-block:: c
 
@@ -4997,6 +5186,9 @@ Programming Languages
      - .. code-block:: zig
 
            ~a
+     - .. code-block:: vb.net
+
+           Not a
    * - Float4VectorMultiplication
      - .. code-block:: c
 
@@ -5089,6 +5281,9 @@ Programming Languages
      - .. code-block:: zig
 
            const c = a * b;
+     - .. code-block:: vb.net
+
+           For i = 0 To 3: c(i) = a(i) * b(i): Next i
    * - Float4VectorDotProduct
      - .. code-block:: c
 
@@ -5188,6 +5383,9 @@ Programming Languages
      - .. code-block:: zig
 
            const dot = @reduce(.Add, a * b);
+     - .. code-block:: vb.net
+
+           dot = a(0)*b(0) + a(1)*b(1) + a(2)*b(2) + a(3)*b(3)
    * - Float4VectorCrossProduct
      - .. code-block:: c
 
@@ -5363,6 +5561,12 @@ Programming Languages
      - .. code-block:: zig
 
            const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };
+     - .. code-block:: vb.net
+
+           c(0) = a(1)*b(2) - a(2)*b(1)
+           c(1) = a(2)*b(0) - a(0)*b(2)
+           c(2) = a(0)*b(1) - a(1)*b(0)
+           c(3) = 0.0
    * - SetFiltering
      - .. code-block:: c
 
@@ -5483,6 +5687,11 @@ Programming Languages
      - .. code-block:: zig
 
            for (a) |item| { if (condition(item)) try res.append(item); }
+     - .. code-block:: vb.net
+
+           For Each item In col
+               If condition(item) Then res.Add item
+           Next item
    * - SetJoin
      - .. code-block:: c
 
@@ -5610,6 +5819,13 @@ Programming Languages
      - .. code-block:: zig
 
            for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }
+     - .. code-block:: vb.net
+
+           For Each a In colA
+               For Each b In colB
+                   If a.id = b.id Then ' join logic
+               Next b
+           Next a
 
 Data Query Languages
 --------------------

@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -139,14 +140,14 @@
 <td><p>Dynamic typing; defined using defparameter or defvar.</p></td>
 </tr>
 <tr class="row-odd"><td><p>CollectionDefinition</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">l</span><span class="w"> </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
 <td><p>Lists in Lisp are typically quoted literals or created with (list …).</p></td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nb">pairlis</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">setf</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nb">pairlis</span><span class="w"> </span><span class="o">'</span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="o">'</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">)))</span>
 </pre></div>
 </div>
 </td>
@@ -154,9 +155,9 @@
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">case</span><span class="w"> </span><span class="nv">x</span>
-<span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;one&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="no">t</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="p">))</span>
+<span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="s">"one"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="s">"two"</span><span class="p">)</span>
+<span class="w">  </span><span class="p">(</span><span class="no">t</span><span class="w"> </span><span class="s">"none"</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
@@ -185,7 +186,7 @@
 </tr>
 <tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">log-message</span><span class="w"> </span><span class="p">(</span><span class="nv">msg</span><span class="p">)</span>
-<span class="w">  </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;~A~%&quot;</span><span class="w"> </span><span class="nv">msg</span><span class="p">))</span>
+<span class="w">  </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">"~A~%"</span><span class="w"> </span><span class="nv">msg</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
@@ -199,7 +200,7 @@
 <td><p>Common Lisp uses handler-case for high-level error handling.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">error</span><span class="w"> </span><span class="s">"Error"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -221,7 +222,7 @@
 <td><p>Uses <code class="docutils literal notranslate"><span class="pre">#|</span></code> and <code class="docutils literal notranslate"><span class="pre">|#</span></code> for block comments.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">&quot;Hello, World!~%&quot;</span><span class="p">)</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="s">"Hello, World!~%"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -347,14 +348,14 @@
 <td><p>Common Lisp bitwise operations; ash is used for both left and right shifts.</p></td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#'</span><span class="nb">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Applies the multiplication function element-wise to the lists.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nf">#'</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#'</span><span class="nb">*</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
@@ -408,7 +409,7 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p>SetFiltering</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-if-not</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">evenp</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">remove-if-not</span><span class="w"> </span><span class="nf">#'</span><span class="nb">evenp</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -467,7 +468,7 @@
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>Sort</p></td>
-<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">sort</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">&lt;</span><span class="p">)</span>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">sort</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nf">#'</span><span class="nb">&lt;</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>

@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -153,8 +154,8 @@
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">Dict</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">t</span><span class="w"> </span><span class="n">Dict</span><span class="p">;</span>
-<span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="n">t</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -162,9 +163,9 @@
 </tr>
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="n">x</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
-<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'one'</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'two'</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'none'</span>
 <span class="k">END</span>
 </pre></div>
 </div>
@@ -225,7 +226,7 @@
 <td><p>Oracle PL/SQL uses EXCEPTION blocks for error handling.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">'Error'</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -247,7 +248,7 @@
 <td><p>Standard SQL multi-line comment.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
@@ -459,42 +460,42 @@
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD.MM.YYYY'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR function for date formatting.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharDateTimezone</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH24:MI:SS TZH:TZM&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">'YYYY-MM-DD HH24:MI:SS TZH:TZM'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with timezone information.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999,999,990&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999,999,990'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with G (Group separator) or comma.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999G990D00PR&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999G990D00PR'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>PR format element in Oracle TO_CHAR wraps negative numbers in brackets.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999990.00&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999990.00'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with fixed decimal positions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">'31.12.2023'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD.MM.YYYY'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>

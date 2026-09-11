@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -155,13 +156,13 @@
 <tr class="row-odd"><td><p>SwitchCase</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="k">in</span>
 <span class="w">    </span><span class="m">1</span><span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"one"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span><span class="m">2</span><span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"two"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="w">    </span>*<span class="o">)</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"none"</span>
 <span class="w">        </span><span class="p">;;</span>
 <span class="k">esac</span>
 </pre></div>
@@ -200,7 +201,7 @@
 </tr>
 <tr class="row-odd"><td><p>ProcedureDefinition</p></td>
 <td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>log_message<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -233,7 +234,7 @@
 <td><p>Bash does not have a native multi-line comment syntax; multiple single-line comments are used.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hello, World!&quot;</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Hello, World!"</span>
 </pre></div>
 </div>
 </td>
@@ -289,14 +290,14 @@
 <td><p>Arithmetic expansion handles integers; bc or printf used for floating point operations.</p></td>
 </tr>
 <tr class="row-even"><td><p>Floor</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;a / 1&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"a / 1"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc
 </pre></div>
 </div>
 </td>
 <td><p>Arithmetic expansion handles integers; bc or printf used for floating point operations.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Rounding</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">printf</span><span class="w"> </span><span class="s2">&quot;%.0f&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">printf</span><span class="w"> </span><span class="s2">"%.0f"</span><span class="w"> </span><span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span>
 </pre></div>
 </div>
 </td>
@@ -359,23 +360,23 @@
 <td><p>Bitwise operations within double parentheses.</p></td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorMultiplication</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..3<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>c<span class="o">[</span><span class="nv">$i</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">${</span><span class="nv">b</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..3<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>c<span class="o">[</span><span class="nv">$i</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">a</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">${</span><span class="nv">b</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </pre></div>
 </div>
 </td>
 <td><p>Requires external tools like bc for floating-point arithmetic.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorDotProduct</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dot</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..3<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">dot</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$dot</span><span class="s2"> + (</span><span class="si">${</span><span class="nv">a</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">${</span><span class="nv">b</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dot</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">0</span>..3<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nv">dot</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="nv">$dot</span><span class="s2"> + (</span><span class="si">${</span><span class="nv">a</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">${</span><span class="nv">b</span><span class="p">[</span><span class="nv">$i</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
 </pre></div>
 </div>
 </td>
 <td><p>Requires bc for floating-point accumulation.</p></td>
 </tr>
 <tr class="row-even"><td><p>Float4VectorCrossProduct</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>c<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[1]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[2]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[2]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[1]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
-c<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[2]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[0]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[0]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[2]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
-c<span class="o">[</span><span class="m">2</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[0]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[1]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[1]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[0]</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>c<span class="o">[</span><span class="m">0</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">a</span><span class="p">[1]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[2]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[2]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[1]</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
+c<span class="o">[</span><span class="m">1</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">a</span><span class="p">[2]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[0]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[0]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[2]</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
+c<span class="o">[</span><span class="m">2</span><span class="o">]=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">a</span><span class="p">[0]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[1]</span><span class="si">}</span><span class="s2"> - </span><span class="si">${</span><span class="nv">a</span><span class="p">[1]</span><span class="si">}</span><span class="s2">*</span><span class="si">${</span><span class="nv">b</span><span class="p">[0]</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bc<span class="k">)</span>
 c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span class="m">0</span>
 </pre></div>
 </div>
@@ -392,7 +393,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>Uses brace expansion for ranges; also supports C-style for loops.</p></td>
 </tr>
 <tr class="row-even"><td><p>ForEach</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">collection</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>item<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">collection</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="c1"># body</span>
 <span class="k">done</span>
 </pre></div>
@@ -401,30 +402,30 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>Iterates over the elements of an array.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Equal</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span><span class="w"> </span>-eq<span class="w"> </span><span class="s2">"</span><span class="nv">$b</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use = or == for strings.</p></td>
 </tr>
 <tr class="row-even"><td><p>NotEqual</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-ne<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span><span class="w"> </span>-ne<span class="w"> </span><span class="s2">"</span><span class="nv">$b</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use != for strings.</p></td>
 </tr>
 <tr class="row-odd"><td><p>GreaterThan</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$a</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$b</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$a</span><span class="s2">"</span><span class="w"> </span>-gt<span class="w"> </span><span class="s2">"</span><span class="nv">$b</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span>
 </pre></div>
 </div>
 </td>
 <td><p>Used for integer comparison; use &gt; (within [[ ]]) or expr for strings.</p></td>
 </tr>
 <tr class="row-even"><td><p>SetFiltering</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>x<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">a</span><span class="p">[@]</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="nv">$x</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nv">b</span><span class="o">+=(</span><span class="s2">&quot;</span><span class="nv">$x</span><span class="s2">&quot;</span><span class="o">)</span>
+<span class="w">        </span><span class="nv">b</span><span class="o">+=(</span><span class="s2">"</span><span class="nv">$x</span><span class="s2">"</span><span class="o">)</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 </pre></div>
@@ -471,16 +472,16 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 <td><p>The backslash is the standard line continuation character in Bash.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Sort</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;</span>
-<span class="s1">&#39;</span><span class="w"> </span><span class="nv">sorted</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="o">)</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$'</span>
+<span class="s1">'</span><span class="w"> </span><span class="nv">sorted</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="o">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the external ‘sort’ utility; requires handling of delimiters.</p></td>
 </tr>
 <tr class="row-even"><td><p>Distinct</p></td>
-<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$&#39;</span>
-<span class="s1">&#39;</span><span class="w"> </span><span class="nv">unique</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">&quot;</span><span class="k">)</span><span class="o">)</span>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IFS</span><span class="o">=</span><span class="s1">$'</span>
+<span class="s1">'</span><span class="w"> </span><span class="nv">unique</span><span class="o">=(</span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="o">&lt;&lt;&lt;</span><span class="s2">"</span><span class="si">${</span><span class="nv">arr</span><span class="p">[*]</span><span class="si">}</span><span class="s2">"</span><span class="k">)</span><span class="o">)</span>
 </pre></div>
 </div>
 </td>

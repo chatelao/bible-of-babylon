@@ -153,6 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -378,14 +379,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToCharDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">date_col</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD.MM.YYYY'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR function for date formatting.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToCharDate</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-date</span><span class="p">(</span><span class="nv">$</span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[D,2].[M,2].[Y,4]&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-date</span><span class="p">(</span><span class="nv">$</span><span class="n">date</span><span class="p">,</span><span class="w"> </span><span class="s1">'[D,2].[M,2].[Y,4]'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -416,14 +417,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToCharDateTimezone</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;YYYY-MM-DD HH24:MI:SS TZH:TZM&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">datetime_col</span><span class="p">,</span><span class="w"> </span><span class="s1">'YYYY-MM-DD HH24:MI:SS TZH:TZM'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with timezone information.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToCharDateTimezone</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-dateTime</span><span class="p">(</span><span class="nv">$</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-dateTime</span><span class="p">(</span><span class="nv">$</span><span class="n">dt</span><span class="p">,</span><span class="w"> </span><span class="s1">'[Y]-[M,2]-[D,2] [H,2]:[m,2]:[s,2] [z]'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -454,14 +455,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999,999,990&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999,999,990'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with G (Group separator) or comma.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,##0&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'#,##0'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -492,14 +493,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999G990D00PR&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999G990D00PR'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>PR format element in Oracle TO_CHAR wraps negative numbers in brackets.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;#,##0;(#,##0)&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'#,##0;(#,##0)'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -530,14 +531,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;999990.00&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'999990.00'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_CHAR with fixed decimal positions.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0.00&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">format-number</span><span class="p">(</span><span class="nv">$</span><span class="n">num</span><span class="p">,</span><span class="w"> </span><span class="s1">'0.00'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -568,14 +569,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlToDate</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">&#39;31.12.2023&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DD.MM.YYYY&#39;</span><span class="p">)</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">TO_DATE</span><span class="p">(</span><span class="s1">'31.12.2023'</span><span class="p">,</span><span class="w"> </span><span class="s1">'DD.MM.YYYY'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle TO_DATE function converts string to date.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryToDate</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">xs:date</span><span class="p">(</span><span class="nf">replace</span><span class="p">(</span><span class="nv">$</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(\d{2})\.(\d{2})\.(\d{4})&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;$3-$2-$1&#39;</span><span class="p">))</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">xs:date</span><span class="p">(</span><span class="nf">replace</span><span class="p">(</span><span class="nv">$</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="s1">'(\d{2})\.(\d{2})\.(\d{4})'</span><span class="p">,</span><span class="w"> </span><span class="s1">'$3-$2-$1'</span><span class="p">))</span>
 </pre></div>
 </div>
 </td>
@@ -727,15 +728,15 @@
 <tr class="row-even"><td><p>SqlAssociativeArrayDefinition</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">TYPE</span><span class="w"> </span><span class="n">Dict</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">OF</span><span class="w"> </span><span class="nb">NUMBER</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="n">t</span><span class="w"> </span><span class="n">Dict</span><span class="p">;</span>
-<span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="n">t</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">t</span><span class="p">(</span><span class="s1">'b'</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle PL/SQL supports Associative Arrays (index-by tables).</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryAssociativeArrayDefinition</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s2">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -803,7 +804,7 @@
 <td><p>Equality is checked within a FILTER or BIND expression.</p></td>
 </tr>
 <tr class="row-even"><td><p>OverpassTurboEqual</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;=&quot;Berlin&quot;]
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>["name"="Berlin"]
 </pre></div>
 </div>
 </td>
@@ -859,7 +860,7 @@
 <td><p>Inequality check in SPARQL.</p></td>
 </tr>
 <tr class="row-even"><td><p>OverpassTurboNotEqual</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&quot;name&quot;!=&quot;Berlin&quot;]
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>["name"!="Berlin"]
 </pre></div>
 </div>
 </td>
@@ -1141,9 +1142,9 @@
 <tbody>
 <tr class="row-even"><td><p>SqlSwitchCase</p></td>
 <td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"> </span><span class="n">x</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;one&#39;</span>
-<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;two&#39;</span>
-<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;none&#39;</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'one'</span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">'two'</span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">'none'</span>
 <span class="k">END</span>
 </pre></div>
 </div>
@@ -1152,9 +1153,9 @@
 </tr>
 <tr class="row-odd"><td><p>XQuerySwitchCase</p></td>
 <td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nv">$</span><span class="n">x</span><span class="p">)</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;one&quot;</span>
-<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;two&quot;</span>
-<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">1</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"one"</span>
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="err">2</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"two"</span>
+<span class="w">  </span><span class="k">default</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s2">"none"</span>
 </pre></div>
 </div>
 </td>
@@ -1165,7 +1166,7 @@
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>SparqlSwitchCase</p></td>
-<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;one&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#39;two&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#39;none&#39;</span><span class="p">)</span>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="nf">COALESCE</span><span class="p">(</span><span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s">'one'</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="nf">IF</span><span class="p">(</span><span class="nv">?x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="s">'two'</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span><span class="p">),</span> <span class="s">'none'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -1378,14 +1379,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlRaise</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">RAISE_APPLICATION_ERROR</span><span class="p">(</span><span class="o">-</span><span class="mi">20001</span><span class="p">,</span><span class="w"> </span><span class="s1">'Error'</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>RAISE_APPLICATION_ERROR is used to raise user-defined exceptions in Oracle.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryRaise</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">&#39;http://example.com/errors&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MY_ERROR&#39;</span><span class="p">),</span><span class="w"> </span><span class="s1">&#39;Error&#39;</span><span class="p">)</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="nf">fn:error</span><span class="p">(</span><span class="nf">fn:QName</span><span class="p">(</span><span class="s1">'http://example.com/errors'</span><span class="p">,</span><span class="w"> </span><span class="s1">'MY_ERROR'</span><span class="p">),</span><span class="w"> </span><span class="s1">'Error'</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -1790,7 +1791,7 @@
 <td><p>XQuery uses (: :) for multi-line comments.</p></td>
 </tr>
 <tr class="row-even"><td><p>GraphQlMultiLineComment</p></td>
-<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">&quot;&quot;&quot;</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">&quot;&quot;&quot;</span>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="err">"""</span><span class="w"> </span><span class="err">comment</span><span class="w"> </span><span class="err">"""</span>
 </pre></div>
 </div>
 </td>
@@ -1833,14 +1834,14 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SqlPrint</p></td>
-<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">&#39;Hello, World!&#39;</span><span class="p">);</span>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">'Hello, World!'</span><span class="p">);</span>
 </pre></div>
 </div>
 </td>
 <td><p>Oracle PL/SQL uses DBMS_OUTPUT.PUT_LINE for console output.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryPrint</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello, World!&quot;</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="s2">"Hello, World!"</span>
 </pre></div>
 </div>
 </td>
@@ -1891,7 +1892,7 @@
 <td><p>Standard SQL does not have a native ‘import’ keyword for code; database objects are globally accessible or schema-qualified.</p></td>
 </tr>
 <tr class="row-odd"><td><p>XQueryImport</p></td>
-<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;http://example.com/utils&quot;</span><span class="p">;</span>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="kp">import</span><span class="w"> </span><span class="kp">module</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"http://example.com/utils"</span><span class="p">;</span>
 </pre></div>
 </div>
 </td>
@@ -2926,7 +2927,7 @@
 <td><p>The FILTER clause restricts the solutions.</p></td>
 </tr>
 <tr class="row-even"><td><p>OverpassTurboSetFiltering</p></td>
-<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node[&quot;name&quot;=&quot;Berlin&quot;];
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node["name"="Berlin"];
 </pre></div>
 </div>
 </td>

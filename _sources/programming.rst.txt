@@ -215,6 +215,12 @@ Parameters:
 
            var x: Int = 42
      - Variables are declared with 'var'; supports type inference.
+   * - VBAVar
+     - .. code-block:: vb.net
+
+           Dim x As Integer
+           x = 42
+     - Variables are declared using 'Dim'; statically typed with 'As Type'.
 
 
 
@@ -420,6 +426,11 @@ Parameters:
    * - OverpassTurboSort
      - N/A
      - Overpass QL does not have an explicit sort command; results are typically ordered by ID.
+   * - VBASort
+     - .. code-block:: vb.net
+
+           ' Manual sorting implementation
+     - VBA has no built-in array sort method; requires custom sorting algorithm or Excel Range.Sort.
 
 
 
@@ -619,6 +630,11 @@ Parameters:
    * - OverpassTurboDistinct
      - N/A
      - Overpass QL sets are generally unique by default.
+   * - VBADistinct
+     - .. code-block:: vb.net
+
+           ' Using Scripting.Dictionary
+     - Commonly achieved by inserting elements as keys into a Dictionary.
 
 
 
@@ -694,6 +710,11 @@ Parameters:
 
            t.Format("02.01.2006")
      - Go uses a unique layout-based formatting string.
+   * - VBAToCharDate
+     - .. code-block:: vb.net
+
+           Format(dateVal, "dd.mm.yyyy")
+     - Uses the Format function with date format specifiers.
 
 
 
@@ -754,6 +775,11 @@ Parameters:
 
            date.toISOString()
      - Outputs a string in ISO 8601 format including UTC 'Z'.
+   * - VBAToCharDateTimezone
+     - .. code-block:: vb.net
+
+           Format(dateVal, "yyyy-mm-dd hh:nn:ss")
+     - VBA Date type does not store timezone information; timezone must be handled separately.
 
 
 
@@ -819,6 +845,11 @@ Parameters:
 
            num.to_formatted_string(&Locale::en)
      - Requires the num-format crate.
+   * - VBAToCharNumberThousandSeparator
+     - .. code-block:: vb.net
+
+           Format(num, "#,##0")
+     - Uses the Format function with digit placeholders and comma.
 
 
 
@@ -880,6 +911,11 @@ Parameters:
 
            new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)
      - Accounting style uses brackets for negative values.
+   * - VBAToCharNumberNegativeBrackets
+     - .. code-block:: vb.net
+
+           Format(num, "#,##0;(#,##0)")
+     - Format function supports positive;negative sections separated by a semicolon.
 
 
 
@@ -955,6 +991,11 @@ Parameters:
 
            fmt.Sprintf("%.2f", num)
      - Standard printf-style formatting.
+   * - VBAToCharNumberFixedDecimals
+     - .. code-block:: vb.net
+
+           Format(num, "0.00")
+     - Formats a number with a fixed number of decimal places.
 
 
 
@@ -1026,6 +1067,11 @@ Parameters:
 
            time.Parse("02.01.2006", dateStr)
      - Parses a string using the same layout logic as Format.
+   * - VBAToDate
+     - .. code-block:: vb.net
+
+           CDate("31.12.2023")
+     - Converts string or numeric expressions to a Date using locale settings or CDate/DateValue.
 
 
 
@@ -1296,6 +1342,13 @@ Parameters:
 
            collection.foreach(item => println(item))
      - Higher-order function for iterating over a collection.
+   * - VBAForEach
+     - .. code-block:: vb.net
+
+           For Each item In collection
+               ' body
+           Next item
+     - Iterates over items in a collection or array.
 
 
 
@@ -1510,6 +1563,12 @@ Parameters:
 
            val l = List(1, 2, 3)
      - Lists are immutable by default in Scala.
+   * - VBACollectionDefinition
+     - .. code-block:: vb.net
+
+           Dim arr As Variant
+           arr = Array(1, 2, 3)
+     - Arrays can be initialized using the Array() function or static array declaration.
 
 
 
@@ -1703,6 +1762,13 @@ Parameters:
 
            val m = Map("a" -> 1, "b" -> 2)
      - Maps store key-value pairs using the -> arrow.
+   * - VBAAssociativeArrayDefinition
+     - .. code-block:: vb.net
+
+           Dim dict As Object
+           Set dict = CreateObject("Scripting.Dictionary")
+           dict.Add "a", 1
+     - Requires Scripting.Dictionary or Collection object for key-value pairs.
 
 
 
@@ -1911,6 +1977,11 @@ Parameters:
 
            a == b
      - Checks for structural equality; calls equals().
+   * - VBAEqual
+     - .. code-block:: vb.net
+
+           a = b
+     - In VBA, = is used for both assignment and equality comparison.
 
 
 
@@ -2119,6 +2190,11 @@ Parameters:
 
            a != b
      - Structural inequality.
+   * - VBANotEqual
+     - .. code-block:: vb.net
+
+           a <> b
+     - VBA uses <> for inequality.
 
 
 
@@ -2323,6 +2399,11 @@ Parameters:
 
            a > b
      - Standard comparison.
+   * - VBAGreaterThan
+     - .. code-block:: vb.net
+
+           a > b
+     - Standard greater than operator.
 
 
 
@@ -2418,6 +2499,11 @@ Parameters:
 
            a && b
      - Short-circuiting logical AND.
+   * - VBALogicalAnd
+     - .. code-block:: vb.net
+
+           a And b
+     - The And operator is bitwise when used with numbers, logical when used with booleans.
 
 
 
@@ -2513,6 +2599,11 @@ Parameters:
 
            a || b
      - Short-circuiting logical OR.
+   * - VBALogicalOr
+     - .. code-block:: vb.net
+
+           a Or b
+     - The Or operator performs logical or bitwise disjunction.
 
 
 
@@ -2606,6 +2697,11 @@ Parameters:
 
            a ^ b
      - The ^ operator acts as a logical XOR for boolean operands.
+   * - VBALogicalXor
+     - .. code-block:: vb.net
+
+           a Xor b
+     - VBA provides a native Xor logical/bitwise operator.
 
 
 
@@ -2887,6 +2983,13 @@ Parameters:
                println(msg)
            }
      - Procedures return Unit (equivalent to void).
+   * - VBAProcedure
+     - .. code-block:: vb.net
+
+           Sub LogMessage(msg As String)
+               Debug.Print msg
+           End Sub
+     - Procedures in VBA are defined with 'Sub' and return no value.
 
 
 
@@ -3166,6 +3269,13 @@ Parameters:
 
            def add(a: Int, b: Int): Int = a + b
      - Functions are defined with 'def'; result is the value of the last expression.
+   * - VBAFunction
+     - .. code-block:: vb.net
+
+           Function Add(a As Integer, b As Integer) As Integer
+               Add = a + b
+           End Function
+     - Functions return values by assigning to the function name.
 
 
 
@@ -3473,6 +3583,15 @@ Parameters:
 
            if (x > 0) 1 else 0
      - If-else is an expression in Scala.
+   * - VBAIfElse
+     - .. code-block:: vb.net
+
+           If x > 0 Then
+               ' then branch
+           Else
+               ' else branch
+           End If
+     - Uses If-Then-Else-End If block syntax.
 
 
 
@@ -3854,6 +3973,18 @@ Parameters:
                case _ => 0
            }
      - Scala uses pattern matching with 'match'.
+   * - VBASwitchCase
+     - .. code-block:: vb.net
+
+           Select Case x
+               Case 1
+                   ' case 1
+               Case 2
+                   ' case 2
+               Case Else
+                   ' default
+           End Select
+     - VBA uses Select Case statements for multi-way branching.
 
 
 
@@ -4129,6 +4260,13 @@ Parameters:
                x -= 1
            }
      - Standard while loop.
+   * - VBALoop
+     - .. code-block:: vb.net
+
+           Do While x > 0
+               x = x - 1
+           Loop
+     - Do While ... Loop repeatedly executes while condition is true.
 
 
 
@@ -4403,6 +4541,13 @@ Parameters:
                // body
            }
      - Iterates over a range; 'until' is exclusive of the upper bound.
+   * - VBAForLoop
+     - .. code-block:: vb.net
+
+           For i = 0 To 9
+               ' body
+           Next i
+     - Standard count-controlled loop in VBA.
 
 
 
@@ -4449,6 +4594,11 @@ Parameters:
    * - ScalaLineContinuation
      - N/A
      - Scala automatically handles line continuation if an expression is incomplete.
+   * - VBALineContinuation
+     - .. code-block:: vb.net
+
+            _
+     - VBA uses a space followed by an underscore character for line continuation.
 
 
 
@@ -4722,6 +4872,15 @@ Parameters:
                case e: Exception => handle(e)
            }
      - Scala's catch block uses pattern matching.
+   * - VBATryCatch
+     - .. code-block:: vb.net
+
+           On Error GoTo ErrorHandler
+               do_something
+               Exit Sub
+           ErrorHandler:
+               handle Err
+     - VBA error handling uses 'On Error GoTo' labels.
 
 
 
@@ -4926,6 +5085,11 @@ Parameters:
 
            throw new Exception("Error")
      - Uses 'throw' to raise an exception.
+   * - VBARaise
+     - .. code-block:: vb.net
+
+           Err.Raise vbObjectError + 513, "Source", "Error"
+     - Uses Err.Raise to throw errors.
 
 
 
@@ -5091,6 +5255,9 @@ Parameters:
 
            Future { doWork() }
      - Uses Futures for asynchronous execution (requires ExecutionContext).
+   * - VBAThread
+     - N/A
+     - VBA is single-threaded; multi-threading is not natively supported.
 
 
 
@@ -5248,6 +5415,9 @@ Parameters:
 
            actor ! msg
      - Actors use the ! operator for asynchronous message passing (e.g., in Akka/Pekko).
+   * - VBASendMessage
+     - N/A
+     - Not natively supported in VBA.
 
 
 
@@ -5412,6 +5582,9 @@ Parameters:
 
            def receive = { case msg => handle(msg) }
      - Actors define a receive block using pattern matching.
+   * - VBAReceiveMessage
+     - N/A
+     - Not natively supported in VBA.
 
 
 
@@ -5518,6 +5691,12 @@ Parameters:
 
            val lock = new AnyRef()
      - Any object can be used as a monitor in Scala.
+   * - VBAMutexDefinition
+     - .. code-block:: vb.net
+
+           Dim hMutex As LongPtr
+           hMutex = CreateMutex(0, 0, "MyMutex")
+     - Requires Windows API CreateMutex function declaration.
 
 
 
@@ -5622,6 +5801,11 @@ Parameters:
 
            lock.synchronized { ... }
      - The synchronized block acquires the object's monitor.
+   * - VBAMutexLock
+     - .. code-block:: vb.net
+
+           WaitForSingleObject hMutex, INFINITE
+     - Uses Win32 API WaitForSingleObject.
 
 
 
@@ -5722,6 +5906,11 @@ Parameters:
    * - ScalaMutexUnlock
      - N/A
      - Released automatically at the end of the synchronized block.
+   * - VBAMutexUnlock
+     - .. code-block:: vb.net
+
+           ReleaseMutex hMutex
+     - Uses Win32 API ReleaseMutex.
 
 
 
@@ -5831,6 +6020,12 @@ Parameters:
 
            val sem = new java.util.concurrent.Semaphore(1)
      - Uses Java's Semaphore class.
+   * - VBASemaphoreDefinition
+     - .. code-block:: vb.net
+
+           Dim hSem As LongPtr
+           hSem = CreateSemaphore(0, 1, 10, "MySem")
+     - Requires Windows API CreateSemaphore function declaration.
 
 
 
@@ -5935,6 +6130,11 @@ Parameters:
 
            sem.acquire()
      - Blocks until a permit is available.
+   * - VBASemaphoreWait
+     - .. code-block:: vb.net
+
+           WaitForSingleObject hSem, INFINITE
+     - Uses Win32 API WaitForSingleObject.
 
 
 
@@ -6039,6 +6239,11 @@ Parameters:
 
            sem.release()
      - Increments the permit count.
+   * - VBASemaphoreSignal
+     - .. code-block:: vb.net
+
+           ReleaseSemaphore hSem, 1, 0
+     - Uses Win32 API ReleaseSemaphore.
 
 
 
@@ -6247,6 +6452,11 @@ Parameters:
 
            // comment
      - Standard single-line comment.
+   * - VBASingleLineComment
+     - .. code-block:: vb.net
+
+           ' comment
+     - Single-line comments start with an apostrophe.
 
 
 
@@ -6455,6 +6665,9 @@ Parameters:
            /* line 1
               line 2 */
      - Standard block comment; supports nesting.
+   * - VBAMultiLineComment
+     - N/A
+     - VBA does not support multi-line comments; multiple single-line apostrophe comments must be used.
 
 
 
@@ -6669,6 +6882,11 @@ Parameters:
 
            println("Hello, World!")
      - Outputs to the console with a trailing newline.
+   * - VBAPrint
+     - .. code-block:: vb.net
+
+           Debug.Print "Hello, World!"
+     - Outputs text to the Immediate Window.
 
 
 
@@ -6875,6 +7093,11 @@ Parameters:
 
            import scala.collection.mutable
      - Imports a package or specific members.
+   * - VBAImport
+     - .. code-block:: vb.net
+
+           ' Tools -> References
+     - External libraries are imported via IDE References.
 
 
 
@@ -7087,6 +7310,11 @@ Parameters:
 
            val MAX = 100
      - Constants are declared with 'val' and are immutable.
+   * - VBAConstant
+     - .. code-block:: vb.net
+
+           Const MAX As Integer = 100
+     - Declared using the Const keyword.
 
 
 
@@ -7290,6 +7518,11 @@ Parameters:
      - Standard addition operator; Zig also has wrap-around addition with +%.
    * - ScalaAddition
      - .. code-block:: scala
+
+           a + b
+     - Standard arithmetic operator.
+   * - VBAAddition
+     - .. code-block:: vb.net
 
            a + b
      - Standard arithmetic operator.
@@ -7499,6 +7732,11 @@ Parameters:
 
            a - b
      - Standard arithmetic operator.
+   * - VBASubtraction
+     - .. code-block:: vb.net
+
+           a - b
+     - Standard arithmetic operator.
 
 
 
@@ -7702,6 +7940,11 @@ Parameters:
      - Standard multiplication operator.
    * - ScalaMultiplication
      - .. code-block:: scala
+
+           a * b
+     - Standard arithmetic operator.
+   * - VBAMultiplication
+     - .. code-block:: vb.net
 
            a * b
      - Standard arithmetic operator.
@@ -7909,6 +8152,11 @@ Parameters:
 
            a / b
      - Standard arithmetic operator.
+   * - VBADivision
+     - .. code-block:: vb.net
+
+           a / b
+     - Standard floating-point division; use \ for integer division.
 
 
 
@@ -8107,6 +8355,11 @@ Parameters:
 
            a % b
      - Standard arithmetic operator.
+   * - VBARemainder
+     - .. code-block:: vb.net
+
+           a Mod b
+     - The Mod operator returns the remainder of division.
 
 
 
@@ -8299,6 +8552,11 @@ Parameters:
 
            math.floor(a)
      - Uses the scala.math package.
+   * - VBAFloor
+     - .. code-block:: vb.net
+
+           Int(a)
+     - Int() returns the greatest integer <= number.
 
 
 
@@ -8493,6 +8751,11 @@ Parameters:
 
            math.round(a)
      - Uses the scala.math package.
+   * - VBARounding
+     - .. code-block:: vb.net
+
+           Round(a, 0)
+     - Round() performs banker's rounding.
 
 
 
@@ -8699,6 +8962,11 @@ Parameters:
 
            a += 1
      - Scala does not support ++ operators.
+   * - VBAIncrement
+     - .. code-block:: vb.net
+
+           a = a + 1
+     - VBA does not support ++ or += operators.
 
 
 
@@ -8905,6 +9173,11 @@ Parameters:
 
            a -= 1
      - Scala does not support -- operators.
+   * - VBADecrement
+     - .. code-block:: vb.net
+
+           a = a - 1
+     - VBA does not support -- or -= operators.
 
 
 
@@ -9099,6 +9372,11 @@ Parameters:
 
            a << b
      - Standard bitwise shift.
+   * - VBALeftShift
+     - .. code-block:: vb.net
+
+           a * (2 ^ b)
+     - No bitwise shift operator in VBA; simulated via multiplication by powers of 2.
 
 
 
@@ -9293,6 +9571,11 @@ Parameters:
 
            a >> b
      - Standard bitwise shift.
+   * - VBARightShift
+     - .. code-block:: vb.net
+
+           a \ (2 ^ b)
+     - Simulated via integer division by powers of 2.
 
 
 
@@ -9489,6 +9772,11 @@ Parameters:
 
            a & b
      - Standard bitwise operator.
+   * - VBABitAnd
+     - .. code-block:: vb.net
+
+           a And b
+     - The And operator performs bitwise AND when applied to numeric operands.
 
 
 
@@ -9685,6 +9973,11 @@ Parameters:
 
            a | b
      - Standard bitwise operator.
+   * - VBABitOr
+     - .. code-block:: vb.net
+
+           a Or b
+     - The Or operator performs bitwise OR when applied to numeric operands.
 
 
 
@@ -9881,6 +10174,11 @@ Parameters:
 
            a ^ b
      - Standard bitwise operator.
+   * - VBABitXor
+     - .. code-block:: vb.net
+
+           a Xor b
+     - The Xor operator performs bitwise XOR when applied to numeric operands.
 
 
 
@@ -10076,6 +10374,11 @@ Parameters:
 
            ~a
      - Standard bitwise operator.
+   * - VBABitNot
+     - .. code-block:: vb.net
+
+           Not a
+     - The Not operator performs bitwise NOT when applied to numeric operands.
 
 
 
@@ -10279,6 +10582,11 @@ Parameters:
 
            a.zip(b).map { case (ai, bi) => ai * bi }
      - Functional approach using zip and map.
+   * - VBAFloat4VectorMultiplication
+     - .. code-block:: vb.net
+
+           For i = 0 To 3: c(i) = a(i) * b(i): Next i
+     - Element-wise multiplication using a loop.
 
 
 
@@ -10489,6 +10797,11 @@ Parameters:
 
            a.zip(b).map { case (ai, bi) => ai * bi }.sum
      - Functional approach combining zip, map, and sum.
+   * - VBAFloat4VectorDotProduct
+     - .. code-block:: vb.net
+
+           dot = a(0)*b(0) + a(1)*b(1) + a(2)*b(2) + a(3)*b(3)
+     - Calculated by summing the products of corresponding components.
 
 
 
@@ -10775,6 +11088,14 @@ Parameters:
 
            Array(a(1)*b(2) - a(2)*b(1), a(2)*b(0) - a(0)*b(2), a(0)*b(1) - a(1)*b(0), 0.0f)
      - Manual calculation for 3D cross product.
+   * - VBAFloat4VectorCrossProduct
+     - .. code-block:: vb.net
+
+           c(0) = a(1)*b(2) - a(2)*b(1)
+           c(1) = a(2)*b(0) - a(0)*b(2)
+           c(2) = a(0)*b(1) - a(1)*b(0)
+           c(3) = 0.0
+     - Calculated component-wise for 3D cross product.
 
 
 
@@ -11014,6 +11335,13 @@ Parameters:
 
            val filtered = collection.filter(_ > 0)
      - Uses the filter method with a predicate; _ is a shorthand for the element.
+   * - VBASetFiltering
+     - .. code-block:: vb.net
+
+           For Each item In col
+               If condition(item) Then res.Add item
+           Next item
+     - Iterates over a collection and adds matching elements to a result collection.
 
 
 
@@ -11260,3 +11588,12 @@ Parameters:
 
            for { a <- listA; b <- listB; if a.id == b.id } yield (a, b)
      - Implemented using for-comprehensions for joining collections.
+   * - VBASetJoin
+     - .. code-block:: vb.net
+
+           For Each a In colA
+               For Each b In colB
+                   If a.id = b.id Then ' join logic
+               Next b
+           Next a
+     - Nested loops used to join elements from two collections.

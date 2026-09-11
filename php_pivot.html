@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -146,7 +147,7 @@
 <td><p>PHP arrays can act as both indexed collections and associative maps.</p></td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$d = [&#39;a&#39; =&gt; 1, &#39;b&#39; =&gt; 2];</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$d = ['a' =&gt; 1, 'b' =&gt; 2];</span>
 </pre></div>
 </div>
 </td>
@@ -216,7 +217,7 @@
 <td><p>Standard PHP exception handling using try-catch blocks.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">throw new Exception(&quot;Error&quot;);</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">throw new Exception("Error");</span>
 </pre></div>
 </div>
 </td>
@@ -238,21 +239,21 @@
 <td><p>Standard C-style block comments.</p></td>
 </tr>
 <tr class="row-even"><td><p>Print</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">echo &quot;Hello, World!&quot;;</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">echo "Hello, World!";</span>
 </pre></div>
 </div>
 </td>
 <td><p>The echo statement is used to output text.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Import</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">require &#39;utils.php&#39;;</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">require 'utils.php';</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses include, require, include_once, or require_once to include other files.</p></td>
 </tr>
 <tr class="row-even"><td><p>Constant</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">define(&#39;MAX&#39;, 100);</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">define('MAX', 100);</span>
 </pre></div>
 </div>
 </td>
@@ -454,7 +455,7 @@
 <tr class="row-even"><td><p>SetJoin</p></td>
 <td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">foreach ($a as $itemA) {</span>
 <span class="x">    foreach ($b as $itemB) {</span>
-<span class="x">        if ($itemA[&#39;id&#39;] == $itemB[&#39;id&#39;]) {</span>
+<span class="x">        if ($itemA['id'] == $itemB['id']) {</span>
 <span class="x">            $res[] = array_merge($itemA, $itemB);</span>
 <span class="x">        }</span>
 <span class="x">    }</span>
@@ -507,28 +508,28 @@
 <td><p>N/A</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharDate</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;d.m.Y&#39;)</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format('d.m.Y')</span>
 </pre></div>
 </div>
 </td>
 <td><p>Using the DateTime object’s format method.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDateTimezone</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format(&#39;Y-m-d H:i:s T&#39;)</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$date-&gt;format('Y-m-d H:i:s T')</span>
 </pre></div>
 </div>
 </td>
 <td><p>T provides the timezone abbreviation.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberThousandSeparator</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 0, &#39;.&#39;, &#39;,&#39;)</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">number_format($num, 0, '.', ',')</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard function for numeric formatting.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharNumberNegativeBrackets</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$num &lt; 0 ? &#39;(&#39; . number_format(abs($num)) . &#39;)&#39; : number_format($num)</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$num &lt; 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)</span>
 </pre></div>
 </div>
 </td>
@@ -542,7 +543,7 @@
 <td><p>Formats to 2 decimal places.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToDate</p></td>
-<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">DateTime::createFromFormat(&#39;d.m.Y&#39;, $dateStr)</span>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">DateTime::createFromFormat('d.m.Y', $dateStr)</span>
 </pre></div>
 </div>
 </td>

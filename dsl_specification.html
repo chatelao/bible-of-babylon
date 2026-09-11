@@ -114,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -160,7 +161,7 @@
 <h3>Pattern Definition<a class="headerlink" href="#pattern-definition" title="Link to this heading"></a></h3>
 <p>A pattern definition describes the structure of a common programming or data concept.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
-    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">&quot;Declares a variable.&quot;</span>
+    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">"Declares a variable."</span>
     <span class="n">parameter</span> <span class="n">name</span><span class="p">:</span> <span class="n">Identifier</span>
     <span class="n">parameter</span> <span class="nb">type</span><span class="p">:</span> <span class="n">Type</span>
     <span class="n">parameter</span> <span class="n">initial_value</span><span class="p">:</span> <span class="n">Expression</span>
@@ -172,8 +173,8 @@
 <h3>Pattern Instance<a class="headerlink" href="#pattern-instance" title="Link to this heading"></a></h3>
 <p>An instance provides the specific values for a pattern to be compared across languages.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="n">VarDec1</span> <span class="n">of</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;x&quot;</span>
-    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;Integer&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">"x"</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">"Integer"</span>
     <span class="n">initial_value</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="p">}</span>
 </pre></div>
@@ -214,8 +215,8 @@
 <p>Used for nesting complex structures without requiring a top-level name for every sub-component.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">instance</span> <span class="n">UserProfile</span> <span class="n">of</span> <span class="n">DataMap</span> <span class="p">{</span>
     <span class="n">entries</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
-        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;active&quot;</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">true</span> <span class="p">}</span>
+        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">"id"</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span>
+        <span class="n">instance</span> <span class="n">of</span> <span class="n">MapEntry</span> <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="s2">"active"</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">true</span> <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
@@ -226,7 +227,7 @@
 <h2>3. Metadata<a class="headerlink" href="#metadata" title="Link to this heading"></a></h2>
 <p>Patterns and instances can include metadata such as descriptions and notes using the <code class="docutils literal notranslate"><span class="pre">meta</span></code> keyword.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pattern</span> <span class="n">VariableDeclaration</span> <span class="p">{</span>
-    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">&quot;The act of naming a value and optionally specifying its type.&quot;</span>
+    <span class="n">meta</span> <span class="n">description</span><span class="p">:</span> <span class="s2">"The act of naming a value and optionally specifying its type."</span>
     <span class="n">parameter</span> <span class="n">name</span><span class="p">:</span> <span class="n">Identifier</span>
     <span class="o">...</span>
 <span class="p">}</span>

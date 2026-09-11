@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="brainfuck_pivot.html">Brainfuck Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="scala_pivot.html">Scala Pivot View</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zig_pivot.html">Zig Pivot View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vba_pivot.html">VBA Pivot View</a></li>
 </ul>
 
         </div>
@@ -153,7 +154,7 @@
 <td><p>Often paired with ‘defer mu.Unlock()’.</p></td>
 </tr>
 <tr class="row-odd"><td><p>SemaphoreDefinition</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">sem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kt">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -174,7 +175,7 @@
 <td><p>Receiving from the channel ‘releases’ a permit.</p></td>
 </tr>
 <tr class="row-even"><td><p>VariableDeclaration</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">42</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span>
 </pre></div>
 </div>
 </td>
@@ -188,14 +189,14 @@
 <td><p>Slices are the primary collection type in Go.</p></td>
 </tr>
 <tr class="row-even"><td><p>AssociativeArrayDefinition</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">m</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">"a"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">"b"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
 <td><p>Maps are used for associative storage in Go.</p></td>
 </tr>
 <tr class="row-odd"><td><p>IfElse</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span>
@@ -220,8 +221,8 @@
 <td><p>Switch cases do not fall through by default in Go.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Loop</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -256,7 +257,7 @@
 <td><p>Go handles errors explicitly by returning them as values.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Raise</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;Error&quot;</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nb">panic</span><span class="p">(</span><span class="s">"Error"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -300,21 +301,21 @@
 <td><p>Standard block comment.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Print</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Uses the fmt package for formatted I/O.</p></td>
 </tr>
 <tr class="row-even"><td><p>Import</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="s">&quot;fmt&quot;</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="s">"fmt"</span>
 </pre></div>
 </div>
 </td>
 <td><p>Imports a package by its path.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Constant</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">100</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">MAX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
 </pre></div>
 </div>
 </td>
@@ -412,21 +413,21 @@
 <td><p>Bitwise NOT is implemented using the bitwise XOR operator with no left operand.</p></td>
 </tr>
 <tr class="row-odd"><td><p>BitXor</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="p">^</span><span class="w"> </span><span class="nx">b</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="nx">b</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise NOT is implemented using the bitwise XOR operator with no left operand.</p></td>
 </tr>
 <tr class="row-even"><td><p>BitNot</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="p">^</span><span class="nx">a</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="o">^</span><span class="nx">a</span>
 </pre></div>
 </div>
 </td>
 <td><p>Bitwise NOT is implemented using the bitwise XOR operator with no left operand.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Float4VectorMultiplication</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">c</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">c</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">b</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
@@ -453,7 +454,7 @@
 <td><p>Calculated using array indexing in a composite literal.</p></td>
 </tr>
 <tr class="row-even"><td><p>ForLoop</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// body</span>
 <span class="p">}</span>
 </pre></div>
@@ -506,7 +507,7 @@
 <td></td>
 </tr>
 <tr class="row-odd"><td><p>GreaterThan</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">b</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">a</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">b</span>
 </pre></div>
 </div>
 </td>
@@ -514,8 +515,8 @@
 </tr>
 <tr class="row-even"><td><p>SetFiltering</p></td>
 <td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">b</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">x</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -527,7 +528,7 @@
 <td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">listA</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">listB</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">Id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">b</span><span class="p">.</span><span class="nx">Id</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">Result</span><span class="p">{</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">})</span>
+<span class="w">            </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">res</span><span class="p">,</span><span class="w"> </span><span class="nx">Result</span><span class="p">{</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">})</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
@@ -537,21 +538,21 @@
 <td><p>Standard imperative nested loop join.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToCharDate</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">t</span><span class="p">.</span><span class="nx">Format</span><span class="p">(</span><span class="s">"02.01.2006"</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Go uses a unique layout-based formatting string.</p></td>
 </tr>
 <tr class="row-odd"><td><p>ToCharNumberFixedDecimals</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%.2f&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">"%.2f"</span><span class="p">,</span><span class="w"> </span><span class="nx">num</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
 <td><p>Standard printf-style formatting.</p></td>
 </tr>
 <tr class="row-even"><td><p>ToDate</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">time</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="s">&quot;02.01.2006&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">dateStr</span><span class="p">)</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">time</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="s">"02.01.2006"</span><span class="p">,</span><span class="w"> </span><span class="nx">dateStr</span><span class="p">)</span>
 </pre></div>
 </div>
 </td>
@@ -565,7 +566,7 @@
 <td><p>The sort package provides functions for sorting slices of basic types.</p></td>
 </tr>
 <tr class="row-even"><td><p>Distinct</p></td>
-<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">slice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">unique</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">unique</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">);</span><span class="w"> </span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">slice</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">unique</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">unique</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">);</span><span class="w"> </span><span class="nx">seen</span><span class="p">[</span><span class="nx">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </pre></div>
 </div>
 </td>
