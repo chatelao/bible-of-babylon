@@ -71,6 +71,7 @@ Downloads
    brainfuck_pivot
    scala_pivot
    zig_pivot
+   vba_pivot
 
 Indices and tables
 ==================

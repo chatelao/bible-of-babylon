@@ -38,6 +38,7 @@ This section compares languages based on common programming patterns.
 - Kotlin
 - Clojure
 - Zig
+- VBA
 
 **Patterns to be compared:**
 - Variable declaration
