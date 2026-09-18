@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Data Query Language Patterns" href="data_query.html" />
+    <link rel="next" title="Data Query Languages" href="data_query.html" />
     <link rel="prev" title="DSL Examples" href="dsl_examples.html" /> 
 </head>
 
@@ -111,9 +111,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#float4vectorcrossproduct">Float4VectorCrossProduct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setfiltering">SetFiltering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setjoin">SetJoin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inclause">InClause</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -1804,7 +1805,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Functions like <a href="#id72"><span class="problematic" id="id73">mapM_</span></a> or <a href="#id74"><span class="problematic" id="id75">forM_</span></a> are used to apply actions to elements.</p></td>
+<td><p>Functions like <a href="#id73"><span class="problematic" id="id74">mapM_</span></a> or <a href="#id75"><span class="problematic" id="id76">forM_</span></a> are used to apply actions to elements.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForEach</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5843,7 +5844,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id76"><span class="problematic" id="id77">mapM_</span></a> or <a href="#id78"><span class="problematic" id="id79">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id77"><span class="problematic" id="id78">mapM_</span></a> or <a href="#id79"><span class="problematic" id="id80">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -15226,6 +15227,325 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </tbody>
 </table>
 </section>
+<section id="inclause">
+<h2>InClause<a class="headerlink" href="#inclause" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Checking whether a value is present in a candidate collection or list of values (e.g., IN clause/operator).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id72">
+<caption><span class="caption-text">InClause Comparison</span><a class="headerlink" href="#id72" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlInClause</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="n">val1</span><span class="p">,</span><span class="w"> </span><span class="n">val2</span><span class="p">,</span><span class="w"> </span><span class="n">val3</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>The IN operator checks if a column value matches any value in a list or subquery.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CInClause</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>In C, checking membership requires iterating through the array.</p></td>
+</tr>
+<tr class="row-even"><td><p>CppInClause</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std::find for sequences, or set.count(val) / set.contains(val) for sets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaInClause</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kt">boolean</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">.</span><span class="na">contains</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Collection.contains() for List, Set, or other collection types.</p></td>
+</tr>
+<tr class="row-even"><td><p>RustInClause</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="o">&amp;</span><span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Vec::contains or HashSet::contains.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangInClause</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="nv">Found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">lists</span><span class="p">:</span><span class="nf">member</span><span class="p">(</span><span class="nv">Val</span><span class="p">,</span><span class="w"> </span><span class="nv">List</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses lists:member/2 to check if an element is present in a list.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispInClause</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">member</span><span class="w"> </span><span class="nv">val</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="no">nil</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses member (or find/position) to check if an item is present in a list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashInClause</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">" </span><span class="si">${</span><span class="nv">list</span><span class="p">[*]</span><span class="si">}</span><span class="s2"> "</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">" </span><span class="si">${</span><span class="nv">val</span><span class="si">}</span><span class="s2"> "</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>...<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can be checked via string matching, regex, or iterating through array elements.</p></td>
+</tr>
+<tr class="row-even"><td><p>CmdInClause</p></td>
+<td><div class="highlight-doscon notranslate"><div class="highlight"><pre><span></span><span class="go">for %%a in (%list%) do if "%%a"=="%val%" set found=1</span>
+</pre></div>
+</div>
+</td>
+<td><p>Iterates over space-separated elements in a loop to match target value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PowerShellInClause</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nv">$found</span> <span class="p">=</span> <span class="nv">$val</span> <span class="n">-in</span> <span class="nv">$list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the -in operator (or -contains with operands reversed).</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonInClause</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">found</span> <span class="o">=</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the ‘in’ membership operator for lists, sets, tuples, or dict keys.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PhpInClause</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">$found = in_array($val, $arr);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses in_array() for lists/arrays or array_key_exists() for keys.</p></td>
+</tr>
+<tr class="row-even"><td><p>CssInClause</p></td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">p</span><span class="p">:</span><span class="nd">is</span><span class="o">(</span><span class="p">.</span><span class="nc">class1</span><span class="o">,</span><span class="w"> </span><span class="p">.</span><span class="nc">class2</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>CSS :is() pseudo-class matches elements against a list of selectors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CudaInClause</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>In CUDA device code, membership is checked via loops within a thread.</p></td>
+</tr>
+<tr class="row-even"><td><p>X86InClause</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Search array for val</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">edi</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">array</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nv">val</span>
+<span class="nf">repne</span><span class="w"> </span><span class="nv">scasb</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses repne scasb/scasd instruction or comparison loop to scan memory array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RiscvInClause</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">loop:</span>
+<span class="w">    </span><span class="nf">lw</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t0</span><span class="p">)</span>
+<span class="w">    </span><span class="nf">beq</span><span class="w"> </span><span class="no">t1</span><span class="p">,</span><span class="w"> </span><span class="no">a0</span><span class="p">,</span><span class="w"> </span><span class="no">found</span>
+<span class="w">    </span><span class="nf">addi</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span>
+<span class="w">    </span><span class="nf">bne</span><span class="w"> </span><span class="no">t0</span><span class="p">,</span><span class="w"> </span><span class="no">t2</span><span class="p">,</span><span class="w"> </span><span class="no">loop</span>
+</pre></div>
+</div>
+</td>
+<td><p>Traverses memory array and compares each element to target value.</p></td>
+</tr>
+<tr class="row-even"><td><p>ArmAarch64InClause</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">loop:</span>
+<span class="w">    </span><span class="nf">ldr</span><span class="w"> </span><span class="no">w2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x0</span><span class="p">],</span><span class="w"> </span><span class="mi">#4</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">w2</span><span class="p">,</span><span class="w"> </span><span class="no">w1</span>
+<span class="w">    </span><span class="nf">b.eq</span><span class="w"> </span><span class="no">found</span>
+<span class="w">    </span><span class="nf">subs</span><span class="w"> </span><span class="no">w3</span><span class="p">,</span><span class="w"> </span><span class="no">w3</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b.ne</span><span class="w"> </span><span class="no">loop</span>
+</pre></div>
+</div>
+</td>
+<td><p>Loops through array elements in registers comparing against target value.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PrologInClause</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">member</span><span class="p">(</span><span class="nv">Val</span><span class="p">,</span> <span class="nv">List</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>The built-in member/2 predicate succeeds if Val is an element of List.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaBytecodeInClause</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_1</span>
+<span class="kr">aload_2</span>
+<span class="kr">invokeinterface</span><span class="w"> </span><span class="err">java/util/List.contains</span><span class="p">:</span><span class="nl">(Ljava/lang/Object;)Z</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+</div>
+</td>
+<td><p>Invokes java/util/List.contains or loops over array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CamelInClause</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="n">found</span> <span class="o">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">mem</span> <span class="k">val</span> <span class="kt">list</span> <span class="k">in</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses List.mem (or Set.mem) to test membership.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoInClause</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="nx">found</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">slices</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">slice</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses slices.Contains (Go 1.21+) or range loop over slice/map.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellInClause</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">found</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="p">`</span><span class="n">elem</span><span class="p">`</span><span class="w"> </span><span class="n">list</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses elem (or Set.member) to check if element exists in structure.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptInClause</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">list</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Array.prototype.includes() or Set.prototype.has().</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclInClause</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>found<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$val</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">$list</span><span class="k">}]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the ‘in’ operator inside expr expressions.</p></td>
+</tr>
+<tr class="row-even"><td><p>CobolInClause</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">SEARCH</span><span class="w"> </span><span class="kp">ALL</span><span class="w"> </span><span class="nv">TAB-ELEM</span>
+<span class="c">    AT</span><span class="w"> </span><span class="kr">END</span><span class="w"> </span><span class="kr">SET</span><span class="w"> </span><span class="nv">NOT-FOUND</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nb">TRUE</span>
+<span class="nb">   </span><span class="w"> </span><span class="kp">WHEN</span><span class="w"> </span><span class="nv">TAB-VAL</span><span class="p">(</span><span class="nv">IDX</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">VAL</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">SET</span><span class="w"> </span><span class="nv">FOUND</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nb">TRUE</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses SEARCH or SEARCH ALL statement on OCCURS table.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FortranInClause</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">any</span><span class="p">(</span><span class="k">array</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the intrinsic any() function with array comparison.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpInClause</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Enumerable.Contains() or List.Contains() / HashSet.Contains().</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftInClause</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nv">found</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">collection</span><span class="p">.</span><span class="bp">contains</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses contains(_:) method on Array, Set, or Sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinInClause</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="nv">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">val</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="n">collection</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the ‘in’ operator (which delegates to contains()).</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureInClause</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">boolean </span><span class="p">(</span><span class="nb">some </span><span class="o">#</span><span class="p">{</span><span class="nv">val</span><span class="p">}</span><span class="w"> </span><span class="nv">coll</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses (contains? set val) for sets or (some #{val} coll) for sequences.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckInClause</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">; Compare search cell against array cells in loop</span>
+<span class="k">[</span><span class="nb">-</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Element-wise subtraction in a loop to check if any cell equals target.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ScalaInClause</p></td>
+<td><div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">collection</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="kd">val</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses contains method on Seq, Set, or Option.</p></td>
+</tr>
+<tr class="row-even"><td><p>ZigInClause</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="p">.</span><span class="n">mem</span><span class="p">.</span><span class="n">indexOfScalar</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">slice</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std.mem.indexOfScalar or for loop searching slice.</p></td>
+</tr>
+<tr class="row-odd"><td><p>VBAInClause</p></td>
+<td><div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">Not</span><span class="w"> </span><span class="n">IsError</span><span class="p">(</span><span class="n">Application</span><span class="p">.</span><span class="n">Match</span><span class="p">(</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Application.Match function or loop over array/collection.</p></td>
+</tr>
+<tr class="row-even"><td><p>XQueryInClause</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">$</span><span class="n">found</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nv">$</span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nt">val1</span><span class="p">,</span><span class="w"> </span><span class="nt">val2</span><span class="p">,</span><span class="w"> </span><span class="nt">val3</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>General comparison operator = tests if any item in sequence matches $val.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GraphQlInClause</p></td>
+<td><div class="highlight-graphql notranslate"><div class="highlight"><pre><span></span><span class="k">query</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">users</span><span class="p">(</span><span class="n">filter</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">id_in</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">name</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>In GraphQL, IN filtering is implemented via list input arguments in field filters.</p></td>
+</tr>
+<tr class="row-even"><td><p>SparqlInClause</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">FILTER</span> <span class="p">(</span><span class="nv">?val</span> <span class="k">IN</span> <span class="p">(</span><span class="err">val</span><span class="mi">1</span><span class="p">,</span> <span class="err">val</span><span class="mi">2</span><span class="p">,</span> <span class="err">val</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses the IN operator inside FILTER clauses.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OverpassTurboInClause</p></td>
+<td><div class="highlight-text notranslate"><div class="highlight"><pre><span></span>node["amenity"~"^(restaurant|pub|cafe)$"];
+</pre></div>
+</div>
+</td>
+<td><p>Uses regular expression matching (~”^(val1|val2)$”) or union of tag values.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 </section>
 
 
@@ -15233,7 +15553,7 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dsl_examples.html" class="btn btn-neutral float-left" title="DSL Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Language Patterns" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data_query.html" class="btn btn-neutral float-right" title="Data Query Languages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

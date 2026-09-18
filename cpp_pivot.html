@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -555,6 +555,13 @@
 </div>
 </td>
 <td><p>std::unique removes consecutive duplicates; the vector must be sorted first.</p></td>
+</tr>
+<tr class="row-even"><td><p>InClause</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">find</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses std::find for sequences, or set.count(val) / set.contains(val) for sets.</p></td>
 </tr>
 </tbody>
 </table>

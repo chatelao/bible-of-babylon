@@ -1,5 +1,5 @@
-Data Query Language Patterns
-============================
+Data Query Languages
+====================
 
 
 
@@ -2540,3 +2540,57 @@ Parameters:
 
            (node(area); way(area););
      - Unions and recursion (e.g., node(w)) are used to combine sets.
+
+
+
+InClause
+--------
+
+
+:description: Checking whether a value is present in a candidate collection or list of values (e.g., IN clause/operator).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: InClause Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlInClause
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE column IN (val1, val2, val3);
+     - The IN operator checks if a column value matches any value in a list or subquery.
+   * - XQueryInClause
+     - .. code-block:: xquery
+
+           let $found := $val = (val1, val2, val3)
+     - General comparison operator = tests if any item in sequence matches $val.
+   * - GraphQlInClause
+     - .. code-block:: graphql
+
+           query {
+             users(filter: { id_in: [1, 2, 3] }) {
+               name
+             }
+           }
+     - In GraphQL, IN filtering is implemented via list input arguments in field filters.
+   * - SparqlInClause
+     - .. code-block:: sparql
+
+           FILTER (?val IN (val1, val2, val3))
+     - Uses the IN operator inside FILTER clauses.
+   * - OverpassTurboInClause
+     - .. code-block:: text
+
+           node["amenity"~"^(restaurant|pub|cafe)$"];
+     - Uses regular expression matching (~"^(val1|val2)$") or union of tag values.

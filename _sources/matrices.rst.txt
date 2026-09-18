@@ -5826,6 +5826,124 @@ Programming Languages
                    If a.id = b.id Then ' join logic
                Next b
            Next a
+   * - InClause
+     - .. code-block:: c
+
+           bool found = false;
+           for (int i = 0; i < size; i++) {
+               if (arr[i] == val) { found = true; break; }
+           }
+     - .. code-block:: cpp
+
+           bool found = std::find(vec.begin(), vec.end(), val) != vec.end();
+     - .. code-block:: java
+
+           boolean found = collection.contains(val);
+     - .. code-block:: rust
+
+           let found = collection.contains(&val);
+     - .. code-block:: erlang
+
+           Found = lists:member(Val, List).
+     - .. code-block:: common-lisp
+
+           (if (member val list) t nil)
+     - .. code-block:: bash
+
+           if [[ " ${list[*]} " =~ " ${val} " ]]; then ... ; fi
+     - .. code-block:: doscon
+
+           for %%a in (%list%) do if "%%a"=="%val%" set found=1
+     - .. code-block:: powershell
+
+           $found = $val -in $list
+     - .. code-block:: python
+
+           found = val in collection
+     - .. code-block:: php
+
+           $found = in_array($val, $arr);
+     - .. code-block:: css
+
+           p:is(.class1, .class2) { color: red; }
+     - .. code-block:: cpp
+
+           bool found = false;
+           for (int i = 0; i < size; i++) {
+               if (arr[i] == val) { found = true; break; }
+           }
+     - .. code-block:: nasm
+
+           ; Search array for val
+           mov ecx, count
+           mov edi, offset array
+           mov eax, val
+           repne scasb
+     - .. code-block:: asm
+
+           loop:
+               lw t1, 0(t0)
+               beq t1, a0, found
+               addi t0, t0, 4
+               bne t0, t2, loop
+     - .. code-block:: prolog
+
+           member(Val, List).
+     - .. code-block:: jasmin
+
+           aload_1
+           aload_2
+           invokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2
+     - .. code-block:: asm
+
+           loop:
+               ldr w2, [x0], #4
+               cmp w2, w1
+               b.eq found
+               subs w3, w3, #1
+               b.ne loop
+     - .. code-block:: ocaml
+
+           let found = List.mem val list in
+     - .. code-block:: go
+
+           found := slices.Contains(slice, val)
+     - .. code-block:: haskell
+
+           found = val `elem` list
+     - .. code-block:: typescript
+
+           const found = list.includes(val);
+     - .. code-block:: tcl
+
+           set found [expr {$val in $list}]
+     - .. code-block:: cobol
+
+           SEARCH ALL TAB-ELEM
+               AT END SET NOT-FOUND TO TRUE
+               WHEN TAB-VAL(IDX) = VAL
+                   SET FOUND TO TRUE
+     - .. code-block:: fortran
+
+           found = any(array == val)
+     - .. code-block:: csharp
+
+           bool found = collection.Contains(val);
+     - .. code-block:: swift
+
+           let found = collection.contains(val)
+     - .. code-block:: kotlin
+
+           val found = val in collection
+     - .. code-block:: clojure
+
+           (boolean (some #{val} coll))
+     - .. code-block:: zig
+
+           const found = std.mem.indexOfScalar(T, slice, val) != null;
+     - .. code-block:: vb.net
+
+           found = Not IsError(Application.Match(val, arr, 0))
 
 Data Query Languages
 --------------------
@@ -6534,6 +6652,26 @@ Data Query Languages
      - .. code-block:: text
 
            (node(area); way(area););
+   * - InClause
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE column IN (val1, val2, val3);
+     - .. code-block:: xquery
+
+           let $found := $val = (val1, val2, val3)
+     - .. code-block:: graphql
+
+           query {
+             users(filter: { id_in: [1, 2, 3] }) {
+               name
+             }
+           }
+     - .. code-block:: sparql
+
+           FILTER (?val IN (val1, val2, val3))
+     - .. code-block:: text
+
+           node["amenity"~"^(restaurant|pub|cafe)$"];
 
 Data Formats
 ------------

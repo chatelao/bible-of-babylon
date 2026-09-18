@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -483,6 +483,18 @@
 </div>
 </td>
 <td><p>Requires implementing duplicate removal logic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="nl">loop:</span>
+<span class="w">    </span><span class="nf">ldr</span><span class="w"> </span><span class="no">w2</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x0</span><span class="p">],</span><span class="w"> </span><span class="mi">#4</span>
+<span class="w">    </span><span class="nf">cmp</span><span class="w"> </span><span class="no">w2</span><span class="p">,</span><span class="w"> </span><span class="no">w1</span>
+<span class="w">    </span><span class="nf">b.eq</span><span class="w"> </span><span class="no">found</span>
+<span class="w">    </span><span class="nf">subs</span><span class="w"> </span><span class="no">w3</span><span class="p">,</span><span class="w"> </span><span class="no">w3</span><span class="p">,</span><span class="w"> </span><span class="mi">#1</span>
+<span class="w">    </span><span class="nf">b.ne</span><span class="w"> </span><span class="no">loop</span>
+</pre></div>
+</div>
+</td>
+<td><p>Loops through array elements in registers comparing against target value.</p></td>
 </tr>
 </tbody>
 </table>

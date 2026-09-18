@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -480,6 +480,13 @@
 </div>
 </td>
 <td><p>Returns a new list with duplicates removed.</p></td>
+</tr>
+<tr class="row-even"><td><p>InClause</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">member</span><span class="w"> </span><span class="nv">val</span><span class="w"> </span><span class="nb">list</span><span class="p">)</span><span class="w"> </span><span class="no">t</span><span class="w"> </span><span class="no">nil</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses member (or find/position) to check if an item is present in a list.</p></td>
 </tr>
 </tbody>
 </table>

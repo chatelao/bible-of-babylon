@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -482,6 +482,17 @@
 </div>
 </td>
 <td><p>Requires iterating through the collection and checking for duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Search array for val</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">ecx</span><span class="p">,</span><span class="w"> </span><span class="nv">count</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">edi</span><span class="p">,</span><span class="w"> </span><span class="nv">offset</span><span class="w"> </span><span class="nv">array</span>
+<span class="nf">mov</span><span class="w"> </span><span class="nb">eax</span><span class="p">,</span><span class="w"> </span><span class="nv">val</span>
+<span class="nf">repne</span><span class="w"> </span><span class="nv">scasb</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses repne scasb/scasd instruction or comparison loop to scan memory array.</p></td>
 </tr>
 </tbody>
 </table>

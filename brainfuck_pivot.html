@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -361,6 +361,14 @@
 <tr class="row-even"><td><p>Distinct</p></td>
 <td><p>N/A</p></td>
 <td><p>Not supported natively.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-brainfuck notranslate"><div class="highlight"><pre><span></span><span class="c">; Compare search cell against array cells in loop</span>
+<span class="k">[</span><span class="nb">-</span><span class="k">[</span><span class="nb">-</span><span class="nv">&gt;</span><span class="nb">+</span><span class="nv">&lt;</span><span class="k">]</span><span class="nv">&lt;</span><span class="k">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Element-wise subtraction in a loop to check if any cell equals target.</p></td>
 </tr>
 </tbody>
 </table>

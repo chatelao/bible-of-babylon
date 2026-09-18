@@ -261,3 +261,8 @@ Lisp Pivot View
 
            (remove-duplicates list)
      - Returns a new list with duplicates removed.
+   * - InClause
+     - .. code-block:: common-lisp
+
+           (if (member val list) t nil)
+     - Uses member (or find/position) to check if an item is present in a list.

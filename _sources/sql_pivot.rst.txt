@@ -293,3 +293,8 @@ SQL Pivot View
 
            SELECT DISTINCT column FROM table;
      - The DISTINCT keyword filters out duplicate rows from the result set.
+   * - InClause
+     - .. code-block:: sql
+
+           SELECT * FROM table WHERE column IN (val1, val2, val3);
+     - The IN operator checks if a column value matches any value in a list or subquery.

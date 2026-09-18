@@ -239,3 +239,8 @@ Prolog Pivot View
 
            list_to_set(List, Set).
      - Converts a list into a set, effectively removing duplicates.
+   * - InClause
+     - .. code-block:: prolog
+
+           member(Val, List).
+     - The built-in member/2 predicate succeeds if Val is an element of List.

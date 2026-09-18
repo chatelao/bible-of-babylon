@@ -163,3 +163,8 @@ CSS Pivot View
    * - Distinct
      - N/A
      - Not applicable to CSS.
+   * - InClause
+     - .. code-block:: css
+
+           p:is(.class1, .class2) { color: red; }
+     - CSS :is() pseudo-class matches elements against a list of selectors.

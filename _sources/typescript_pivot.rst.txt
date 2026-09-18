@@ -310,3 +310,8 @@ TypeScript Pivot View
 
            [...new Set(array)]
      - Uses a Set to filter unique values and then spreads back into an array.
+   * - InClause
+     - .. code-block:: typescript
+
+           const found = list.includes(val);
+     - Uses Array.prototype.includes() or Set.prototype.has().

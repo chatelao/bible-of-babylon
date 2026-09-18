@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -449,6 +449,16 @@
 <tr class="row-even"><td><p>Distinct</p></td>
 <td><p>N/A</p></td>
 <td><p>Typically implemented manually by iterating through a sorted table.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">SEARCH</span><span class="w"> </span><span class="kp">ALL</span><span class="w"> </span><span class="nv">TAB-ELEM</span>
+<span class="c">    AT</span><span class="w"> </span><span class="kr">END</span><span class="w"> </span><span class="kr">SET</span><span class="w"> </span><span class="nv">NOT-FOUND</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nb">TRUE</span>
+<span class="nb">   </span><span class="w"> </span><span class="kp">WHEN</span><span class="w"> </span><span class="nv">TAB-VAL</span><span class="p">(</span><span class="nv">IDX</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">VAL</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">SET</span><span class="w"> </span><span class="nv">FOUND</span><span class="w"> </span><span class="kp">TO</span><span class="w"> </span><span class="nb">TRUE</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses SEARCH or SEARCH ALL statement on OCCURS table.</p></td>
 </tr>
 </tbody>
 </table>

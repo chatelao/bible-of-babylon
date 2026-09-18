@@ -268,3 +268,12 @@ RISC-V Assembler Pivot View
 
            # Manual implementation
      - Requires hand-coded logic to remove duplicates.
+   * - InClause
+     - .. code-block:: asm
+
+           loop:
+               lw t1, 0(t0)
+               beq t1, a0, found
+               addi t0, t0, 4
+               bne t0, t2, loop
+     - Traverses memory array and compares each element to target value.

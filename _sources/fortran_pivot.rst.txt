@@ -253,3 +253,8 @@ Fortran Pivot View
 
            ! Manual implementation
      - Typically implemented using loops and conditional logic.
+   * - InClause
+     - .. code-block:: fortran
+
+           found = any(array == val)
+     - Uses the intrinsic any() function with array comparison.

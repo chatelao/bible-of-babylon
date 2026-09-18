@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -486,6 +486,13 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>The -u flag for the sort command removes duplicates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span><span class="s2">" </span><span class="si">${</span><span class="nv">list</span><span class="p">[*]</span><span class="si">}</span><span class="s2"> "</span><span class="w"> </span><span class="o">=</span>~<span class="w"> </span><span class="s2">" </span><span class="si">${</span><span class="nv">val</span><span class="si">}</span><span class="s2"> "</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>...<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">fi</span>
+</pre></div>
+</div>
+</td>
+<td><p>Can be checked via string matching, regex, or iterating through array elements.</p></td>
 </tr>
 </tbody>
 </table>

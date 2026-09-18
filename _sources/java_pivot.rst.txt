@@ -338,3 +338,8 @@ Java Pivot View
 
            list.stream().distinct().collect(Collectors.toList());
      - Uses the Stream API to filter unique elements.
+   * - InClause
+     - .. code-block:: java
+
+           boolean found = collection.contains(val);
+     - Uses Collection.contains() for List, Set, or other collection types.

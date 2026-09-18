@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -541,6 +541,13 @@
 </div>
 </td>
 <td><p>Uses a Set to filter unique values and then spreads back into an array.</p></td>
+</tr>
+<tr class="row-even"><td><p>InClause</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">list</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Array.prototype.includes() or Set.prototype.has().</p></td>
 </tr>
 </tbody>
 </table>

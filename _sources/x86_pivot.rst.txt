@@ -275,3 +275,12 @@ x86 Assembler Pivot View
 
            ; Manual implementation
      - Requires iterating through the collection and checking for duplicates.
+   * - InClause
+     - .. code-block:: nasm
+
+           ; Search array for val
+           mov ecx, count
+           mov edi, offset array
+           mov eax, val
+           repne scasb
+     - Uses repne scasb/scasd instruction or comparison loop to scan memory array.

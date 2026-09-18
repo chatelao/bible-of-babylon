@@ -50,7 +50,7 @@
 <p class="caption" role="heading"><span class="caption-text">Pattern Comparison:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming Language Patterns</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Language Patterns</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="data_formats.html">Data Format Patterns</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Pattern Comparison Matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coverage.html">Language and Format Coverage</a></li>
@@ -555,6 +555,15 @@
 </div>
 </td>
 <td><p>Typically implemented using the Stream API’s distinct method.</p></td>
+</tr>
+<tr class="row-odd"><td><p>InClause</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_1</span>
+<span class="kr">aload_2</span>
+<span class="kr">invokeinterface</span><span class="w"> </span><span class="err">java/util/List.contains</span><span class="p">:</span><span class="nl">(Ljava/lang/Object;)Z</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+</div>
+</td>
+<td><p>Invokes java/util/List.contains or loops over array.</p></td>
 </tr>
 </tbody>
 </table>
