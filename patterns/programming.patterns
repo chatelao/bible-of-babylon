@@ -11059,3 +11059,199 @@ instance VBASetJoin of SetJoin {
     syntax = "For Each a In colA\n    For Each b In colB\n        If a.id = b.id Then ' join logic\n    Next b\nNext a"
     notes = "Nested loops used to join elements from two collections."
 }
+
+pattern InClause {
+    meta description: "Checking whether a value is present in a candidate collection or list of values (e.g., IN clause/operator)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance SqlInClause of InClause {
+    syntax = "SELECT * FROM table WHERE column IN (val1, val2, val3);"
+    notes = "The IN operator checks if a column value matches any value in a list or subquery."
+}
+
+instance CInClause of InClause {
+    syntax = "bool found = false;\nfor (int i = 0; i < size; i++) {\n    if (arr[i] == val) { found = true; break; }\n}"
+    notes = "In C, checking membership requires iterating through the array."
+}
+
+instance CppInClause of InClause {
+    syntax = "bool found = std::find(vec.begin(), vec.end(), val) != vec.end();"
+    notes = "Uses std::find for sequences, or set.count(val) / set.contains(val) for sets."
+}
+
+instance JavaInClause of InClause {
+    syntax = "boolean found = collection.contains(val);"
+    notes = "Uses Collection.contains() for List, Set, or other collection types."
+}
+
+instance RustInClause of InClause {
+    syntax = "let found = collection.contains(&val);"
+    notes = "Uses Vec::contains or HashSet::contains."
+}
+
+instance ErlangInClause of InClause {
+    syntax = "Found = lists:member(Val, List)."
+    notes = "Uses lists:member/2 to check if an element is present in a list."
+}
+
+instance LispInClause of InClause {
+    syntax = "(if (member val list) t nil)"
+    notes = "Uses member (or find/position) to check if an item is present in a list."
+}
+
+instance BashInClause of InClause {
+    syntax = "if [[ \" ${list[*]} \" =~ \" ${val} \" ]]; then ... ; fi"
+    notes = "Can be checked via string matching, regex, or iterating through array elements."
+}
+
+instance CmdInClause of InClause {
+    syntax = "for %%a in (%list%) do if \"%%a\"==\"%val%\" set found=1"
+    notes = "Iterates over space-separated elements in a loop to match target value."
+}
+
+instance PowerShellInClause of InClause {
+    syntax = "$found = $val -in $list"
+    notes = "Uses the -in operator (or -contains with operands reversed)."
+}
+
+instance PythonInClause of InClause {
+    syntax = "found = val in collection"
+    notes = "Uses the 'in' membership operator for lists, sets, tuples, or dict keys."
+}
+
+instance PhpInClause of InClause {
+    syntax = "$found = in_array($val, $arr);"
+    notes = "Uses in_array() for lists/arrays or array_key_exists() for keys."
+}
+
+instance CssInClause of InClause {
+    syntax = "p:is(.class1, .class2) { color: red; }"
+    notes = "CSS :is() pseudo-class matches elements against a list of selectors."
+}
+
+instance CudaInClause of InClause {
+    syntax = "bool found = false;\nfor (int i = 0; i < size; i++) {\n    if (arr[i] == val) { found = true; break; }\n}"
+    notes = "In CUDA device code, membership is checked via loops within a thread."
+}
+
+instance X86InClause of InClause {
+    syntax = "; Search array for val\nmov ecx, count\nmov edi, offset array\nmov eax, val\nrepne scasb"
+    notes = "Uses repne scasb/scasd instruction or comparison loop to scan memory array."
+}
+
+instance RiscvInClause of InClause {
+    syntax = "loop:\n    lw t1, 0(t0)\n    beq t1, a0, found\n    addi t0, t0, 4\n    bne t0, t2, loop"
+    notes = "Traverses memory array and compares each element to target value."
+}
+
+instance ArmAarch64InClause of InClause {
+    syntax = "loop:\n    ldr w2, [x0], #4\n    cmp w2, w1\n    b.eq found\n    subs w3, w3, #1\n    b.ne loop"
+    notes = "Loops through array elements in registers comparing against target value."
+}
+
+instance PrologInClause of InClause {
+    syntax = "member(Val, List)."
+    notes = "The built-in member/2 predicate succeeds if Val is an element of List."
+}
+
+instance JavaBytecodeInClause of InClause {
+    syntax = "aload_1\naload_2\ninvokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2"
+    notes = "Invokes java/util/List.contains or loops over array."
+}
+
+instance CamelInClause of InClause {
+    syntax = "let found = List.mem val list in"
+    notes = "Uses List.mem (or Set.mem) to test membership."
+}
+
+instance GoInClause of InClause {
+    syntax = "found := slices.Contains(slice, val)"
+    notes = "Uses slices.Contains (Go 1.21+) or range loop over slice/map."
+}
+
+instance HaskellInClause of InClause {
+    syntax = "found = val `elem` list"
+    notes = "Uses elem (or Set.member) to check if element exists in structure."
+}
+
+instance TypeScriptInClause of InClause {
+    syntax = "const found = list.includes(val);"
+    notes = "Uses Array.prototype.includes() or Set.prototype.has()."
+}
+
+instance TclInClause of InClause {
+    syntax = "set found [expr {$val in $list}]"
+    notes = "Uses the 'in' operator inside expr expressions."
+}
+
+instance CobolInClause of InClause {
+    syntax = "SEARCH ALL TAB-ELEM\n    AT END SET NOT-FOUND TO TRUE\n    WHEN TAB-VAL(IDX) = VAL\n        SET FOUND TO TRUE"
+    notes = "Uses SEARCH or SEARCH ALL statement on OCCURS table."
+}
+
+instance FortranInClause of InClause {
+    syntax = "found = any(array == val)"
+    notes = "Uses the intrinsic any() function with array comparison."
+}
+
+instance CSharpInClause of InClause {
+    syntax = "bool found = collection.Contains(val);"
+    notes = "Uses Enumerable.Contains() or List.Contains() / HashSet.Contains()."
+}
+
+instance SwiftInClause of InClause {
+    syntax = "let found = collection.contains(val)"
+    notes = "Uses contains(_:) method on Array, Set, or Sequence."
+}
+
+instance KotlinInClause of InClause {
+    syntax = "val found = val in collection"
+    notes = "Uses the 'in' operator (which delegates to contains())."
+}
+
+instance ClojureInClause of InClause {
+    syntax = "(boolean (some #{val} coll))"
+    notes = "Uses (contains? set val) for sets or (some #{val} coll) for sequences."
+}
+
+instance BrainfuckInClause of InClause {
+    syntax = "; Compare search cell against array cells in loop\n[-[->+<]<]"
+    notes = "Element-wise subtraction in a loop to check if any cell equals target."
+}
+
+instance ScalaInClause of InClause {
+    syntax = "val found = collection.contains(val)"
+    notes = "Uses contains method on Seq, Set, or Option."
+}
+
+instance ZigInClause of InClause {
+    syntax = "const found = std.mem.indexOfScalar(T, slice, val) != null;"
+    notes = "Uses std.mem.indexOfScalar or for loop searching slice."
+}
+
+instance VBAInClause of InClause {
+    syntax = "found = Not IsError(Application.Match(val, arr, 0))"
+    notes = "Uses Application.Match function or loop over array/collection."
+}
+
+instance XQueryInClause of InClause {
+    syntax = "let $found := $val = (val1, val2, val3)"
+    notes = "General comparison operator = tests if any item in sequence matches $val."
+}
+
+instance GraphQlInClause of InClause {
+    syntax = "query {\n  users(filter: { id_in: [1, 2, 3] }) {\n    name\n  }\n}"
+    notes = "In GraphQL, IN filtering is implemented via list input arguments in field filters."
+}
+
+instance SparqlInClause of InClause {
+    syntax = "FILTER (?val IN (val1, val2, val3))"
+    notes = "Uses the IN operator inside FILTER clauses."
+}
+
+instance OverpassTurboInClause of InClause {
+    syntax = "node[\"amenity\"~\"^(restaurant|pub|cafe)$\"];"
+    notes = "Uses regular expression matching (~\"^(val1|val2)$\") or union of tag values."
+}

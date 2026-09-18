@@ -280,3 +280,8 @@ Clojure Pivot View
 
            (distinct collection)
      - Returns a lazy sequence of the elements of a collection with duplicates removed.
+   * - InClause
+     - .. code-block:: clojure
+
+           (boolean (some #{val} coll))
+     - Uses (contains? set val) for sets or (some #{val} coll) for sequences.

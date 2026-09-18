@@ -250,3 +250,11 @@ COBOL Pivot View
    * - Distinct
      - N/A
      - Typically implemented manually by iterating through a sorted table.
+   * - InClause
+     - .. code-block:: cobol
+
+           SEARCH ALL TAB-ELEM
+               AT END SET NOT-FOUND TO TRUE
+               WHEN TAB-VAL(IDX) = VAL
+                   SET FOUND TO TRUE
+     - Uses SEARCH or SEARCH ALL statement on OCCURS table.

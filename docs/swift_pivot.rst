@@ -309,3 +309,8 @@ Swift Pivot View
 
            Array(Set(array))
      - Converting to a Set removes duplicates but loses order.
+   * - InClause
+     - .. code-block:: swift
+
+           let found = collection.contains(val)
+     - Uses contains(_:) method on Array, Set, or Sequence.

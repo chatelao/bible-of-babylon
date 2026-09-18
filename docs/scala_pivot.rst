@@ -294,3 +294,8 @@ Scala Pivot View
 
            list.distinct
      - Returns a new list with duplicates removed.
+   * - InClause
+     - .. code-block:: scala
+
+           val found = collection.contains(val)
+     - Uses contains method on Seq, Set, or Option.

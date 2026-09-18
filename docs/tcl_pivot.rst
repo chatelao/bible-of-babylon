@@ -262,3 +262,8 @@ Tcl Pivot View
 
            lsort -unique $list
      - The -unique flag for lsort removes duplicates while sorting.
+   * - InClause
+     - .. code-block:: tcl
+
+           set found [expr {$val in $list}]
+     - Uses the 'in' operator inside expr expressions.

@@ -272,3 +272,8 @@ Bash Pivot View
            IFS=$'
            ' unique=($(sort -u <<<"${arr[*]}"))
      - The -u flag for the sort command removes duplicates.
+   * - InClause
+     - .. code-block:: bash
+
+           if [[ " ${list[*]} " =~ " ${val} " ]]; then ... ; fi
+     - Can be checked via string matching, regex, or iterating through array elements.

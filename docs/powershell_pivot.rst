@@ -250,3 +250,8 @@ PowerShell Pivot View
 
            $unique = $list | Select-Object -Unique
      - Select-Object with the -Unique flag filters out duplicates.
+   * - InClause
+     - .. code-block:: powershell
+
+           $found = $val -in $list
+     - Uses the -in operator (or -contains with operands reversed).

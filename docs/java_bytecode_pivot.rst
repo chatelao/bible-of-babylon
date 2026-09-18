@@ -345,3 +345,10 @@ Java Bytecode Pivot View
 
            invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;
      - Typically implemented using the Stream API's distinct method.
+   * - InClause
+     - .. code-block:: jasmin
+
+           aload_1
+           aload_2
+           invokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2
+     - Invokes java/util/List.contains or loops over array.

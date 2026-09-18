@@ -167,3 +167,12 @@ GraphQL Pivot View
    * - Distinct
      - N/A
      - Uniqueness is usually managed by the back-end resolver or database.
+   * - InClause
+     - .. code-block:: graphql
+
+           query {
+             users(filter: { id_in: [1, 2, 3] }) {
+               name
+             }
+           }
+     - In GraphQL, IN filtering is implemented via list input arguments in field filters.

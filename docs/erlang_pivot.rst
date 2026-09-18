@@ -260,3 +260,8 @@ Erlang Pivot View
 
            lists:usort(List).
      - Returns a sorted list with duplicates removed.
+   * - InClause
+     - .. code-block:: erlang
+
+           Found = lists:member(Val, List).
+     - Uses lists:member/2 to check if an element is present in a list.

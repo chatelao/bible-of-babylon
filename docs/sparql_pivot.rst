@@ -187,3 +187,8 @@ SPARQL Pivot View
 
            SELECT DISTINCT ?name WHERE { ?u :name ?name }
      - The DISTINCT keyword removes duplicate result bindings.
+   * - InClause
+     - .. code-block:: sparql
+
+           FILTER (?val IN (val1, val2, val3))
+     - Uses the IN operator inside FILTER clauses.

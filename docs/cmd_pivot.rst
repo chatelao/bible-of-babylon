@@ -219,3 +219,8 @@ Cmd Pivot View
    * - Distinct
      - N/A
      - Standard Cmd does not have a simple way to remove duplicates.
+   * - InClause
+     - .. code-block:: doscon
+
+           for %%a in (%list%) do if "%%a"=="%val%" set found=1
+     - Iterates over space-separated elements in a loop to match target value.

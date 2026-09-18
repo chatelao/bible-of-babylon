@@ -345,3 +345,8 @@ VBA Pivot View
                Next b
            Next a
      - Nested loops used to join elements from two collections.
+   * - InClause
+     - .. code-block:: vb.net
+
+           found = Not IsError(Application.Match(val, arr, 0))
+     - Uses Application.Match function or loop over array/collection.

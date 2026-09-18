@@ -244,3 +244,8 @@ Camel Pivot View
 
            List.sort_uniq compare list
      - Returns a sorted list with duplicates removed.
+   * - InClause
+     - .. code-block:: ocaml
+
+           let found = List.mem val list in
+     - Uses List.mem (or Set.mem) to test membership.
