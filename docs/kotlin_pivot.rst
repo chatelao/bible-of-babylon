@@ -305,3 +305,8 @@ Kotlin Pivot View
 
            list.distinct()
      - Returns a list containing only distinct elements.
+   * - InClause
+     - .. code-block:: kotlin
+
+           val found = val in collection
+     - Uses the 'in' operator (which delegates to contains()).

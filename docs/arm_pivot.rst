@@ -276,3 +276,13 @@ ARM AArch64 Assembler Pivot View
 
            // Manual implementation
      - Requires implementing duplicate removal logic.
+   * - InClause
+     - .. code-block:: asm
+
+           loop:
+               ldr w2, [x0], #4
+               cmp w2, w1
+               b.eq found
+               subs w3, w3, #1
+               b.ne loop
+     - Loops through array elements in registers comparing against target value.

@@ -296,3 +296,11 @@ C Pivot View
 
            /* Manual implementation using a loop or sorting followed by shifting elements */
      - C does not have a built-in unique function for arrays.
+   * - InClause
+     - .. code-block:: c
+
+           bool found = false;
+           for (int i = 0; i < size; i++) {
+               if (arr[i] == val) { found = true; break; }
+           }
+     - In C, checking membership requires iterating through the array.

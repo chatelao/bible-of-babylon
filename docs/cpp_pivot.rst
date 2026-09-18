@@ -320,3 +320,8 @@ Cpp Pivot View
 
            v.erase(std::unique(v.begin(), v.end()), v.end());
      - std::unique removes consecutive duplicates; the vector must be sorted first.
+   * - InClause
+     - .. code-block:: cpp
+
+           bool found = std::find(vec.begin(), vec.end(), val) != vec.end();
+     - Uses std::find for sequences, or set.count(val) / set.contains(val) for sets.

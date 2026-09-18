@@ -334,3 +334,8 @@ Go Pivot View
 
            for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }
      - Typically implemented using a map to track seen elements.
+   * - InClause
+     - .. code-block:: go
+
+           found := slices.Contains(slice, val)
+     - Uses slices.Contains (Go 1.21+) or range loop over slice/map.

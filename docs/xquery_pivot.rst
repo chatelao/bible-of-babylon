@@ -259,3 +259,8 @@ XQuery Pivot View
 
            distinct-values($col)
      - Returns a sequence containing only the unique values from the input.
+   * - InClause
+     - .. code-block:: xquery
+
+           let $found := $val = (val1, val2, val3)
+     - General comparison operator = tests if any item in sequence matches $val.

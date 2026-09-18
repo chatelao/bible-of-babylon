@@ -177,3 +177,9 @@ Brainfuck Pivot View
    * - Distinct
      - N/A
      - Not supported natively.
+   * - InClause
+     - .. code-block:: brainfuck
+
+           ; Compare search cell against array cells in loop
+           [-[->+<]<]
+     - Element-wise subtraction in a loop to check if any cell equals target.

@@ -80,6 +80,7 @@ This section compares languages based on common programming patterns.
 - Bitwise NOT
 - Set filtering
 - Set join
+- In clause
 - Sort
 - Distinct
 - 4-float vector multiplication

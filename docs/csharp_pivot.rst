@@ -335,3 +335,8 @@ CSharp Pivot View
 
            var unique = list.Distinct().ToList();
      - Uses LINQ to produce a sequence of unique elements.
+   * - InClause
+     - .. code-block:: csharp
+
+           bool found = collection.Contains(val);
+     - Uses Enumerable.Contains() or List.Contains() / HashSet.Contains().

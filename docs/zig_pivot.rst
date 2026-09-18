@@ -296,3 +296,8 @@ Zig Pivot View
 
            // Manual implementation
      - Typically involves sorting followed by a unique pass or using a HashMap.
+   * - InClause
+     - .. code-block:: zig
+
+           const found = std.mem.indexOfScalar(T, slice, val) != null;
+     - Uses std.mem.indexOfScalar or for loop searching slice.

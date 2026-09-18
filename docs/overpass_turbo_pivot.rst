@@ -173,3 +173,8 @@ Overpass Turbo Pivot View
    * - Distinct
      - N/A
      - Overpass QL sets are generally unique by default.
+   * - InClause
+     - .. code-block:: text
+
+           node["amenity"~"^(restaurant|pub|cafe)$"];
+     - Uses regular expression matching (~"^(val1|val2)$") or union of tag values.

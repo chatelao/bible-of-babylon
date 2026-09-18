@@ -250,3 +250,11 @@ CUDA Pivot View
 
            thrust::unique(v.begin(), v.end());
      - Requires sorting the collection before applying unique.
+   * - InClause
+     - .. code-block:: cpp
+
+           bool found = false;
+           for (int i = 0; i < size; i++) {
+               if (arr[i] == val) { found = true; break; }
+           }
+     - In CUDA device code, membership is checked via loops within a thread.

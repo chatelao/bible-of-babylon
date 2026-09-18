@@ -307,3 +307,8 @@ Python Pivot View
 
            list(set(l))
      - Converting to a set removes duplicates but does not preserve order.
+   * - InClause
+     - .. code-block:: python
+
+           found = val in collection
+     - Uses the 'in' membership operator for lists, sets, tuples, or dict keys.

@@ -325,3 +325,8 @@ PHP Pivot View
 
            array_unique($array);
      - Returns a new array with unique values.
+   * - InClause
+     - .. code-block:: php
+
+           $found = in_array($val, $arr);
+     - Uses in_array() for lists/arrays or array_key_exists() for keys.

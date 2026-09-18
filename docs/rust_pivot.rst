@@ -323,3 +323,8 @@ Rust Pivot View
 
            v.dedup();
      - Removes consecutive duplicates; vector must be sorted first.
+   * - InClause
+     - .. code-block:: rust
+
+           let found = collection.contains(&val);
+     - Uses Vec::contains or HashSet::contains.
