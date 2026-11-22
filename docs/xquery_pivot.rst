@@ -264,3 +264,10 @@ XQuery Pivot View
 
            let $found := $val = (val1, val2, val3)
      - General comparison operator = tests if any item in sequence matches $val.
+   * - MatrixMultiplication
+     - .. code-block:: xquery
+
+           for $i in 1 to $M return
+             for $j in 1 to $N return
+               sum(for $k in 1 to $K return $A[$i][$k] * $B[$k][$j])
+     - Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays.

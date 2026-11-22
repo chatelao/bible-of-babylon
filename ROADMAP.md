@@ -151,6 +151,8 @@
     - [x] Define patterns and implement instances across all languages
 - [x] Implement `InClause` pattern
     - [x] Define pattern and implement instances across all supported languages
+- [x] Implement `MatrixMultiplication` pattern (2026-11-22)
+    - [x] Define pattern and implement instances across all 38 supported languages
 
 ## Phase 6: Pivot Chapters (Language-specific Views)
 - [x] Implement Pivot Chapter generator logic <!-- issue #15 -->

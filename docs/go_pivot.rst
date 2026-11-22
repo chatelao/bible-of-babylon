@@ -278,17 +278,17 @@ Go Pivot View
      - .. code-block:: go
 
            a == b
-     -
+     - 
    * - NotEqual
      - .. code-block:: go
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: go
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: go
 
@@ -339,3 +339,14 @@ Go Pivot View
 
            found := slices.Contains(slice, val)
      - Uses slices.Contains (Go 1.21+) or range loop over slice/map.
+   * - MatrixMultiplication
+     - .. code-block:: go
+
+           for i := 0; i < M; i++ {
+               for j := 0; j < N; j++ {
+                   for k := 0; k < K; k++ {
+                       C[i][j] += A[i][k] * B[k][j]
+                   }
+               }
+           }
+     - Standard nested loops over slices; Gonum (mat.Dense.Mul) is commonly used for linear algebra.

@@ -258,3 +258,8 @@ Fortran Pivot View
 
            found = any(array == val)
      - Uses the intrinsic any() function with array comparison.
+   * - MatrixMultiplication
+     - .. code-block:: fortran
+
+           C = matmul(A, B)
+     - Fortran has a built-in intrinsic matmul() function, often optimized directly to BLAS calls by compilers.

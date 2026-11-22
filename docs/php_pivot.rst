@@ -238,7 +238,7 @@ PHP Pivot View
      - .. code-block:: php
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: php
 
@@ -330,3 +330,14 @@ PHP Pivot View
 
            $found = in_array($val, $arr);
      - Uses in_array() for lists/arrays or array_key_exists() for keys.
+   * - MatrixMultiplication
+     - .. code-block:: php
+
+           for ($i = 0; $i < $M; $i++) {
+               for ($j = 0; $j < $N; $j++) {
+                   for ($k = 0; $k < $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j];
+                   }
+               }
+           }
+     - Standard triple-nested loop over 2D arrays.

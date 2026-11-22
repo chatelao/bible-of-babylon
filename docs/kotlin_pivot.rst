@@ -77,12 +77,12 @@ Kotlin Pivot View
      - .. code-block:: kotlin
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: kotlin
 
            a > b
-     -
+     - 
    * - ProcedureDefinition
      - .. code-block:: kotlin
 
@@ -194,27 +194,27 @@ Kotlin Pivot View
      - .. code-block:: kotlin
 
            a + b
-     -
+     - 
    * - Subtraction
      - .. code-block:: kotlin
 
            a - b
-     -
+     - 
    * - Multiplication
      - .. code-block:: kotlin
 
            a * b
-     -
+     - 
    * - Division
      - .. code-block:: kotlin
 
            a / b
-     -
+     - 
    * - Remainder
      - .. code-block:: kotlin
 
            a % b
-     -
+     - 
    * - Floor
      - .. code-block:: kotlin
 
@@ -229,12 +229,12 @@ Kotlin Pivot View
      - .. code-block:: kotlin
 
            a++
-     -
+     - 
    * - Decrement
      - .. code-block:: kotlin
 
            a--
-     -
+     - 
    * - LeftShift
      - .. code-block:: kotlin
 
@@ -310,3 +310,11 @@ Kotlin Pivot View
 
            val found = val in collection
      - Uses the 'in' operator (which delegates to contains()).
+   * - MatrixMultiplication
+     - .. code-block:: kotlin
+
+           for (i in 0 until m)
+               for (j in 0 until n)
+                   for (k in 0 until p)
+                       c[i][j] += a[i][k] * b[k][j]
+     - Standard nested loops on 2D arrays; Multik provides NumPy-like matrix operations.

@@ -11255,3 +11255,200 @@ instance OverpassTurboInClause of InClause {
     syntax = "node[\"amenity\"~\"^(restaurant|pub|cafe)$\"];"
     notes = "Uses regular expression matching (~\"^(val1|val2)$\") or union of tag values."
 }
+
+pattern MatrixMultiplication {
+    meta description: "Multiplying two matrices A (M x K) and B (K x N) to produce matrix C (M x N)."
+    parameter syntax: String
+    parameter notes: String
+}
+
+instance SqlMatrixMultiplication of MatrixMultiplication {
+    syntax = "SELECT a.row_idx, b.col_idx, SUM(a.val * b.val) AS val\nFROM matrix_a a\nJOIN matrix_b b ON a.col_idx = b.row_idx\nGROUP BY a.row_idx, b.col_idx;"
+    notes = "Represents matrices in coordinate (row, col, val) form and computes the product via JOIN and SUM aggregation."
+}
+
+instance CMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (int i = 0; i < M; i++)\n    for (int j = 0; j < N; j++)\n        for (int k = 0; k < K; k++)\n            C[i][j] += A[i][k] * B[k][j];"
+    notes = "Standard triple-nested loop; production code typically uses BLAS (e.g., cblas_sgemm)."
+}
+
+instance CppMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (int i = 0; i < M; ++i)\n    for (int j = 0; j < N; ++j)\n        for (int k = 0; k < K; ++k)\n            C[i][j] += A[i][k] * B[k][j];"
+    notes = "Triple-nested loop in standard C++; libraries like Eigen (A * B) or BLAS are commonly used."
+}
+
+instance JavaMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (int i = 0; i < M; i++)\n    for (int j = 0; j < N; j++)\n        for (int k = 0; k < K; k++)\n            C[i][j] += A[i][k] * B[k][j];"
+    notes = "Standard nested loops on 2D arrays; libraries like EJML or Apache Commons Math provide matrix APIs."
+}
+
+instance RustMatrixMultiplication of MatrixMultiplication {
+    syntax = "for i in 0..m {\n    for j in 0..n {\n        for k in 0..p {\n            c[i][j] += a[i][k] * b[k][j];\n        }\n    }\n}"
+    notes = "Nested loops in pure Rust; crates like ndarray (a.dot(&b)) or nalgebra (a * b) provide optimized GEMM."
+}
+
+instance ErlangMatrixMultiplication of MatrixMultiplication {
+    syntax = "[[lists:sum([Aij * Bjk || {Aij, Bjk} <- lists:zip(Row, Col)]) || Col <- transpose(B)] || Row <- A]."
+    notes = "Uses nested list comprehensions with lists:zip and a transposed second matrix."
+}
+
+instance LispMatrixMultiplication of MatrixMultiplication {
+    syntax = "(mapcar (lambda (row)\n          (apply #'mapcar (lambda (&rest col)\n                            (reduce #'+ (mapcar #'* row col))) b)) a)"
+    notes = "Functional matrix multiplication using mapcar and reduce over rows and columns."
+}
+
+instance BashMatrixMultiplication of MatrixMultiplication {
+    syntax = "for ((i=0; i<M; i++)); do\n    for ((j=0; j<N; j++)); do\n        sum=0\n        for ((k=0; k<K; k++)); do\n            sum=$((sum + A[i*K+k] * B[k*N+j]))\n        done\n        C[i*N+j]=$sum\n    done\ndone"
+    notes = "Uses flattened 1D indexed arrays with integer arithmetic; external tools like awk or bc are needed for floats."
+}
+
+instance CmdMatrixMultiplication of MatrixMultiplication {
+    syntax = "N/A"
+    notes = "Cmd lacks native 2D arrays and floating-point math; matrix multiplication is impractical without external tools."
+}
+
+instance PowerShellMatrixMultiplication of MatrixMultiplication {
+    syntax = "for ($i = 0; $i -lt $M; $i++) {\n    for ($j = 0; $j -lt $N; $j++) {\n        for ($k = 0; $k -lt $K; $k++) {\n            $C[$i][$j] += $A[$i][$k] * $B[$k][$j]\n        }\n    }\n}"
+    notes = "Uses nested loops over jagged arrays; .NET libraries like MathNet.Numerics can be invoked for large matrices."
+}
+
+instance PythonMatrixMultiplication of MatrixMultiplication {
+    syntax = "C = A @ B"
+    notes = "Python 3.5+ provides the dedicated @ matrix multiplication operator (used by NumPy, PyTorch, etc.)."
+}
+
+instance PhpMatrixMultiplication of MatrixMultiplication {
+    syntax = "for ($i = 0; $i < $M; $i++) {\n    for ($j = 0; $j < $N; $j++) {\n        for ($k = 0; $k < $K; $k++) {\n            $C[$i][$j] += $A[$i][$k] * $B[$k][$j];\n        }\n    }\n}"
+    notes = "Standard triple-nested loop over 2D arrays."
+}
+
+instance CssMatrixMultiplication of MatrixMultiplication {
+    syntax = "transform: matrix(a, b, c, d, tx, ty) matrix(e, f, g, h, ux, uy);"
+    notes = "CSS composes 2D/3D transformation matrices by chaining transform functions; general numeric matrix multiplication is not supported."
+}
+
+instance CudaMatrixMultiplication of MatrixMultiplication {
+    syntax = "__global__ void matmul(const float *A, const float *B, float *C, int M, int N, int K) {\n    int row = blockIdx.y * blockDim.y + threadIdx.y;\n    int col = blockIdx.x * blockDim.x + threadIdx.x;\n    if (row < M && col < N) {\n        float sum = 0.0f;\n        for (int k = 0; k < K; ++k)\n            sum += A[row * K + k] * B[k * N + col];\n        C[row * N + col] = sum;\n    }\n}"
+    notes = "Each GPU thread computes one output element in parallel across a 2D grid; production workloads use shared-memory tiling or cuBLAS/Tensor Cores."
+}
+
+instance X86MatrixMultiplication of MatrixMultiplication {
+    syntax = "; Inner dot-product step using FMA (AVX2)\nvmovups ymm0, [rsi]\nvmovups ymm1, [rdi]\nvfmadd231ps ymm2, ymm0, ymm1"
+    notes = "High-performance x86 matrix multiplication uses AVX2/AVX-512 SIMD fused multiply-add (vfmadd231ps) inside tiled loops."
+}
+
+instance RiscvMatrixMultiplication of MatrixMultiplication {
+    syntax = "# Inner loop step: acc += A[i][k] * B[k][j]\nflw ft0, 0(t0)\nflw ft1, 0(t1)\nfmadd.s fa0, ft0, ft1, fa0"
+    notes = "Uses floating-point fused multiply-add (fmadd.s) or the RISC-V Vector Extension (RVV) inside nested loops."
+}
+
+instance ArmAarch64MatrixMultiplication of MatrixMultiplication {
+    syntax = "// Inner loop step using NEON FMA\nldr q0, [x0], #16\nldr q1, [x1], #16\nfmla v2.4s, v0.4s, v1.4s"
+    notes = "Uses NEON fused multiply-accumulate (fmla) or SME/SVE matrix instructions inside tiled loops."
+}
+
+instance PrologMatrixMultiplication of MatrixMultiplication {
+    syntax = "mat_mul(A, B, C) :-\n    transpose(B, BT),\n    maplist(row_mul(BT), A, C).\nrow_mul(BT, Row, Res) :-\n    maplist(dot(Row), BT, Res)."
+    notes = "Declarative approach transposing B and mapping dot products across rows."
+}
+
+instance JavaBytecodeMatrixMultiplication of MatrixMultiplication {
+    syntax = "aload_1          ; A[i]\niload 4          ; k\nfaload\naload_2          ; B[k]\niload 3          ; j\nfaload\nfmul\nfadd             ; accumulate into C[i][j]"
+    notes = "Compiled from nested loops using array loads (faload), fmul, and fadd."
+}
+
+instance CamelMatrixMultiplication of MatrixMultiplication {
+    syntax = "Array.init m (fun i ->\n  Array.init n (fun j ->\n    let sum = ref 0.0 in\n    for k = 0 to p - 1 do sum := !sum +. a.(i).(k) *. b.(k).(j) done;\n    !sum))"
+    notes = "Uses Array.init and imperative accumulation; libraries like Owl or Lacaml wrap BLAS."
+}
+
+instance GoMatrixMultiplication of MatrixMultiplication {
+    syntax = "for i := 0; i < M; i++ {\n    for j := 0; j < N; j++ {\n        for k := 0; k < K; k++ {\n            C[i][j] += A[i][k] * B[k][j]\n        }\n    }\n}"
+    notes = "Standard nested loops over slices; Gonum (mat.Dense.Mul) is commonly used for linear algebra."
+}
+
+instance HaskellMatrixMultiplication of MatrixMultiplication {
+    syntax = "matMul a b = [[sum $ zipWith (*) ar bc | bc <- transpose b] | ar <- a]"
+    notes = "Concise list comprehension using Data.List.transpose and zipWith (*); hmatrix provides BLAS bindings."
+}
+
+instance TypeScriptMatrixMultiplication of MatrixMultiplication {
+    syntax = "const C = A.map(row => B[0].map((_, j) => row.reduce((sum, val, k) => sum + val * B[k][j], 0)));"
+    notes = "Functional map/reduce over 2D arrays, or triple-nested loops with TypedArrays for performance."
+}
+
+instance TclMatrixMultiplication of MatrixMultiplication {
+    syntax = "for {set i 0} {$i < $M} {incr i} {\n    for {set j 0} {$j < $N} {incr j} {\n        set sum 0.0\n        for {set k 0} {$k < $K} {incr k} {\n            set sum [expr {$sum + [lindex $A $i $k] * [lindex $B $k $j]}]\n        }\n        lset C $i $j $sum\n    }\n}"
+    notes = "Uses nested loops with lindex, lset, and expr."
+}
+
+instance CobolMatrixMultiplication of MatrixMultiplication {
+    syntax = "PERFORM VARYING I FROM 1 BY 1 UNTIL I > M\n    PERFORM VARYING J FROM 1 BY 1 UNTIL J > N\n        PERFORM VARYING K FROM 1 BY 1 UNTIL K > P\n            COMPUTE C(I, J) = C(I, J) + A(I, K) * B(K, J)\n        END-PERFORM\n    END-PERFORM\nEND-PERFORM."
+    notes = "Uses nested PERFORM VARYING loops with COMPUTE over multi-dimensional OCCURS tables."
+}
+
+instance FortranMatrixMultiplication of MatrixMultiplication {
+    syntax = "C = matmul(A, B)"
+    notes = "Fortran has a built-in intrinsic matmul() function, often optimized directly to BLAS calls by compilers."
+}
+
+instance CSharpMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (int i = 0; i < M; i++)\n    for (int j = 0; j < N; j++)\n        for (int k = 0; k < K; k++)\n            C[i, j] += A[i, k] * B[k, j];"
+    notes = "Uses 2D rectangular arrays; System.Numerics.Matrix4x4 supports SIMD 4x4 multiplication and Math.NET provides general matrices."
+}
+
+instance SwiftMatrixMultiplication of MatrixMultiplication {
+    syntax = "for i in 0..<m {\n    for j in 0..<n {\n        for k in 0..<p {\n            c[i][j] += a[i][k] * b[k][j]\n        }\n    }\n}"
+    notes = "Standard nested loops; Apple Accelerate (vDSP/BLAS) or simd provides hardware-accelerated matrix multiplication."
+}
+
+instance KotlinMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (i in 0 until m)\n    for (j in 0 until n)\n        for (k in 0 until p)\n            c[i][j] += a[i][k] * b[k][j]"
+    notes = "Standard nested loops on 2D arrays; Multik provides NumPy-like matrix operations."
+}
+
+instance ClojureMatrixMultiplication of MatrixMultiplication {
+    syntax = "(defn matmul [a b]\n  (let [bt (apply mapv vector b)]\n    (mapv (fn [row] (mapv #(reduce + (map * row %)) bt)) a)))"
+    notes = "Transposes B with (apply mapv vector b) and maps dot products over rows."
+}
+
+instance BrainfuckMatrixMultiplication of MatrixMultiplication {
+    syntax = "N/A"
+    notes = "Brainfuck operates on a 1D tape of byte cells without native multiplication or 2D indexing; matrix multiplication requires complex tape layouts."
+}
+
+instance ScalaMatrixMultiplication of MatrixMultiplication {
+    syntax = "val c = for (row <- a) yield\n  for (col <- b.transpose) yield\n    (row zip col).map { case (x, y) => x * y }.sum"
+    notes = "Uses for-comprehensions with transpose and zip; Breeze provides optimized linear algebra (a * b)."
+}
+
+instance ZigMatrixMultiplication of MatrixMultiplication {
+    syntax = "for (0..M) |i| {\n    for (0..N) |j| {\n        for (0..K) |k| {\n            C[i][j] += A[i][k] * B[k][j];\n        }\n    }\n}"
+    notes = "Standard nested loops; Zig's @Vector SIMD types can accelerate inner loops."
+}
+
+instance VBAMatrixMultiplication of MatrixMultiplication {
+    syntax = "C = Application.WorksheetFunction.MMult(A, B)"
+    notes = "Excel VBA provides the built-in MMult worksheet function for matrix multiplication, or nested For loops."
+}
+
+instance XQueryMatrixMultiplication of MatrixMultiplication {
+    syntax = "for $i in 1 to $M return\n  for $j in 1 to $N return\n    sum(for $k in 1 to $K return $A[$i][$k] * $B[$k][$j])"
+    notes = "Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays."
+}
+
+instance GraphQlMatrixMultiplication of MatrixMultiplication {
+    syntax = "N/A"
+    notes = "GraphQL is a query language for APIs and does not perform arithmetic or matrix computations."
+}
+
+instance SparqlMatrixMultiplication of MatrixMultiplication {
+    syntax = "SELECT ?row ?col (SUM(?va * ?vb) AS ?val) WHERE {\n  ?a :row ?row ; :col ?k ; :val ?va .\n  ?b :row ?k ; :col ?col ; :val ?vb .\n} GROUP BY ?row ?col"
+    notes = "Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation."
+}
+
+instance OverpassTurboMatrixMultiplication of MatrixMultiplication {
+    syntax = "N/A"
+    notes = "Overpass QL is designed for querying OpenStreetMap geospatial data and does not support matrix arithmetic."
+}
+

@@ -86,6 +86,7 @@ This section compares languages based on common programming patterns.
 - 4-float vector multiplication
 - 4-float vector dot product
 - 4-float vector cross product
+- Matrix multiplication
 
 ### Part II: Data Query Languages
 This section compares languages specifically designed for querying data.

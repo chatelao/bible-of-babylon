@@ -77,12 +77,12 @@ Swift Pivot View
      - .. code-block:: swift
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: swift
 
            a > b
-     -
+     - 
    * - ProcedureDefinition
      - .. code-block:: swift
 
@@ -198,27 +198,27 @@ Swift Pivot View
      - .. code-block:: swift
 
            a + b
-     -
+     - 
    * - Subtraction
      - .. code-block:: swift
 
            a - b
-     -
+     - 
    * - Multiplication
      - .. code-block:: swift
 
            a * b
-     -
+     - 
    * - Division
      - .. code-block:: swift
 
            a / b
-     -
+     - 
    * - Remainder
      - .. code-block:: swift
 
            a % b
-     -
+     - 
    * - Floor
      - .. code-block:: swift
 
@@ -243,32 +243,32 @@ Swift Pivot View
      - .. code-block:: swift
 
            a << b
-     -
+     - 
    * - RightShift
      - .. code-block:: swift
 
            a >> b
-     -
+     - 
    * - BitAnd
      - .. code-block:: swift
 
            a & b
-     -
+     - 
    * - BitOr
      - .. code-block:: swift
 
            a | b
-     -
+     - 
    * - BitXor
      - .. code-block:: swift
 
            a ^ b
-     -
+     - 
    * - BitNot
      - .. code-block:: swift
 
            ~a
-     -
+     - 
    * - Float4VectorMultiplication
      - .. code-block:: swift
 
@@ -314,3 +314,14 @@ Swift Pivot View
 
            let found = collection.contains(val)
      - Uses contains(_:) method on Array, Set, or Sequence.
+   * - MatrixMultiplication
+     - .. code-block:: swift
+
+           for i in 0..<m {
+               for j in 0..<n {
+                   for k in 0..<p {
+                       c[i][j] += a[i][k] * b[k][j]
+                   }
+               }
+           }
+     - Standard nested loops; Apple Accelerate (vDSP/BLAS) or simd provides hardware-accelerated matrix multiplication.

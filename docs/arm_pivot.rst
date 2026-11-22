@@ -240,19 +240,19 @@ ARM AArch64 Assembler Pivot View
 
            cmp x0, x1
            b.eq .equal
-     -
+     - 
    * - NotEqual
      - .. code-block:: asm
 
            cmp x0, x1
            b.ne .not_equal
-     -
+     - 
    * - GreaterThan
      - .. code-block:: asm
 
            cmp x0, x1
            b.gt .greater
-     -
+     - 
    * - SetFiltering
      - .. code-block:: asm
 
@@ -286,3 +286,11 @@ ARM AArch64 Assembler Pivot View
                subs w3, w3, #1
                b.ne loop
      - Loops through array elements in registers comparing against target value.
+   * - MatrixMultiplication
+     - .. code-block:: asm
+
+           // Inner loop step using NEON FMA
+           ldr q0, [x0], #16
+           ldr q1, [x1], #16
+           fmla v2.4s, v0.4s, v1.4s
+     - Uses NEON fused multiply-accumulate (fmla) or SME/SVE matrix instructions inside tiled loops.

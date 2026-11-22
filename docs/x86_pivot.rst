@@ -244,13 +244,13 @@ x86 Assembler Pivot View
 
            cmp eax, ebx
            jne .not_equal
-     -
+     - 
    * - GreaterThan
      - .. code-block:: nasm
 
            cmp eax, ebx
            jg .greater
-     -
+     - 
    * - SetFiltering
      - .. code-block:: nasm
 
@@ -284,3 +284,11 @@ x86 Assembler Pivot View
            mov eax, val
            repne scasb
      - Uses repne scasb/scasd instruction or comparison loop to scan memory array.
+   * - MatrixMultiplication
+     - .. code-block:: nasm
+
+           ; Inner dot-product step using FMA (AVX2)
+           vmovups ymm0, [rsi]
+           vmovups ymm1, [rdi]
+           vfmadd231ps ymm2, ymm0, ymm1
+     - High-performance x86 matrix multiplication uses AVX2/AVX-512 SIMD fused multiply-add (vfmadd231ps) inside tiled loops.
