@@ -112,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#setfiltering">SetFiltering</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#setjoin">SetJoin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#inclause">InClause</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrixmultiplication">MatrixMultiplication</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="data_query.html">Data Query Languages</a></li>
@@ -1805,7 +1806,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Functions like <a href="#id73"><span class="problematic" id="id74">mapM_</span></a> or <a href="#id75"><span class="problematic" id="id76">forM_</span></a> are used to apply actions to elements.</p></td>
+<td><p>Functions like <a href="#id74"><span class="problematic" id="id75">mapM_</span></a> or <a href="#id76"><span class="problematic" id="id77">forM_</span></a> are used to apply actions to elements.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForEach</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">collection</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -5844,7 +5845,7 @@
 </pre></div>
 </div>
 </td>
-<td><p>Haskell uses <a href="#id77"><span class="problematic" id="id78">mapM_</span></a> or <a href="#id79"><span class="problematic" id="id80">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
+<td><p>Haskell uses <a href="#id78"><span class="problematic" id="id79">mapM_</span></a> or <a href="#id80"><span class="problematic" id="id81">forM_</span></a> (Control.Monad) for imperative-style iteration.</p></td>
 </tr>
 <tr class="row-even"><td><p>TypeScriptForLoop</p></td>
 <td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -15542,6 +15543,404 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </div>
 </td>
 <td><p>Uses regular expression matching (~”^(val1|val2)$”) or union of tag values.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="matrixmultiplication">
+<h2>MatrixMultiplication<a class="headerlink" href="#matrixmultiplication" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">description<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Multiplying two matrices A (M x K) and B (K x N) to produce matrix C (M x N).</p>
+</dd>
+</dl>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>syntax: String</p></li>
+<li><p>notes: String</p></li>
+</ul>
+<table class="docutils align-default" id="id73">
+<caption><span class="caption-text">MatrixMultiplication Comparison</span><a class="headerlink" href="#id73" title="Link to this table"></a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Syntax</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SqlMatrixMultiplication</p></td>
+<td><div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">row_idx</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">col_idx</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">val</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">matrix_a</span><span class="w"> </span><span class="n">a</span>
+<span class="k">JOIN</span><span class="w"> </span><span class="n">matrix_b</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">col_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">row_idx</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">row_idx</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">col_idx</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Represents matrices in coordinate (row, col, val) form and computes the product via JOIN and SUM aggregation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CMatrixMultiplication</p></td>
+<td><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">K</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard triple-nested loop; production code typically uses BLAS (e.g., cblas_sgemm).</p></td>
+</tr>
+<tr class="row-even"><td><p>CppMatrixMultiplication</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">K</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Triple-nested loop in standard C++; libraries like Eigen (A * B) or BLAS are commonly used.</p></td>
+</tr>
+<tr class="row-odd"><td><p>JavaMatrixMultiplication</p></td>
+<td><div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">K</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">C</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested loops on 2D arrays; libraries like EJML or Apache Commons Math provide matrix APIs.</p></td>
+</tr>
+<tr class="row-even"><td><p>RustMatrixMultiplication</p></td>
+<td><div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">m</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">p</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Nested loops in pure Rust; crates like ndarray (a.dot(&amp;b)) or nalgebra (a * b) provide optimized GEMM.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ErlangMatrixMultiplication</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="nn">lists</span><span class="p">:</span><span class="nf">sum</span><span class="p">([</span><span class="nv">Aij</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">Bjk</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="p">{</span><span class="nv">Aij</span><span class="p">,</span><span class="w"> </span><span class="nv">Bjk</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nn">lists</span><span class="p">:</span><span class="nf">zip</span><span class="p">(</span><span class="nv">Row</span><span class="p">,</span><span class="w"> </span><span class="nv">Col</span><span class="p">)])</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">Col</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">transpose</span><span class="p">(</span><span class="nv">B</span><span class="p">)]</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">Row</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">A</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested list comprehensions with lists:zip and a transposed second matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p>LispMatrixMultiplication</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">row</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#'</span><span class="nb">mapcar</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="k">&amp;rest</span><span class="w"> </span><span class="nv">col</span><span class="p">)</span>
+<span class="w">                            </span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nf">#'</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#'</span><span class="nb">*</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">col</span><span class="p">)))</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functional matrix multiplication using mapcar and reduce over rows and columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BashMatrixMultiplication</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i&lt;M<span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">j</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>j&lt;N<span class="p">;</span><span class="w"> </span>j++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="nv">sum</span><span class="o">=</span><span class="m">0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">k</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>k&lt;K<span class="p">;</span><span class="w"> </span>k++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">            </span><span class="nv">sum</span><span class="o">=</span><span class="k">$((</span><span class="nv">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">A</span><span class="o">[</span><span class="nv">i</span><span class="o">*</span><span class="nv">K</span><span class="o">+</span><span class="nv">k</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">B</span><span class="o">[</span><span class="nv">k</span><span class="o">*</span><span class="nv">N</span><span class="o">+</span><span class="nv">j</span><span class="o">]</span><span class="k">))</span>
+<span class="w">        </span><span class="k">done</span>
+<span class="w">        </span>C<span class="o">[</span>i*N+j<span class="o">]=</span><span class="nv">$sum</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flattened 1D indexed arrays with integer arithmetic; external tools like awk or bc are needed for floats.</p></td>
+</tr>
+<tr class="row-even"><td><p>CmdMatrixMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Cmd lacks native 2D arrays and floating-point math; matrix multiplication is impractical without external tools.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PowerShellMatrixMultiplication</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-lt</span> <span class="nv">$M</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$j</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">-lt</span> <span class="nv">$N</span><span class="p">;</span> <span class="nv">$j</span><span class="p">++)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$k</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$k</span> <span class="o">-lt</span> <span class="nv">$K</span><span class="p">;</span> <span class="nv">$k</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="nv">$C</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$j</span><span class="p">]</span> <span class="p">+=</span> <span class="nv">$A</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$k</span><span class="p">]</span> <span class="p">*</span> <span class="nv">$B</span><span class="p">[</span><span class="nv">$k</span><span class="p">][</span><span class="nv">$j</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops over jagged arrays; .NET libraries like MathNet.Numerics can be invoked for large matrices.</p></td>
+</tr>
+<tr class="row-even"><td><p>PythonMatrixMultiplication</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
+</pre></div>
+</div>
+</td>
+<td><p>Python 3.5+ provides the dedicated &#64; matrix multiplication operator (used by NumPy, PyTorch, etc.).</p></td>
+</tr>
+<tr class="row-odd"><td><p>PhpMatrixMultiplication</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">for ($i = 0; $i &lt; $M; $i++) {</span>
+<span class="x">    for ($j = 0; $j &lt; $N; $j++) {</span>
+<span class="x">        for ($k = 0; $k &lt; $K; $k++) {</span>
+<span class="x">            $C[$i][$j] += $A[$i][$k] * $B[$k][$j];</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard triple-nested loop over 2D arrays.</p></td>
+</tr>
+<tr class="row-even"><td><p>CssMatrixMultiplication</p></td>
+<td><div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">transform</span><span class="o">:</span><span class="w"> </span><span class="nt">matrix</span><span class="o">(</span><span class="nt">a</span><span class="o">,</span><span class="w"> </span><span class="nt">b</span><span class="o">,</span><span class="w"> </span><span class="nt">c</span><span class="o">,</span><span class="w"> </span><span class="nt">d</span><span class="o">,</span><span class="w"> </span><span class="nt">tx</span><span class="o">,</span><span class="w"> </span><span class="nt">ty</span><span class="o">)</span><span class="w"> </span><span class="nt">matrix</span><span class="o">(</span><span class="nt">e</span><span class="o">,</span><span class="w"> </span><span class="nt">f</span><span class="o">,</span><span class="w"> </span><span class="nt">g</span><span class="o">,</span><span class="w"> </span><span class="nt">h</span><span class="o">,</span><span class="w"> </span><span class="nt">ux</span><span class="o">,</span><span class="w"> </span><span class="nt">uy</span><span class="o">);</span>
+</pre></div>
+</div>
+</td>
+<td><p>CSS composes 2D/3D transformation matrices by chaining transform functions; general numeric matrix multiplication is not supported.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CudaMatrixMultiplication</p></td>
+<td><div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">__global__</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">matmul</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="o">*</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blockIdx</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blockIdx</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">blockDim</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">threadIdx</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">K</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">row</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">];</span>
+<span class="w">        </span><span class="n">C</span><span class="p">[</span><span class="n">row</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Each GPU thread computes one output element in parallel across a 2D grid; production workloads use shared-memory tiling or cuBLAS/Tensor Cores.</p></td>
+</tr>
+<tr class="row-even"><td><p>X86MatrixMultiplication</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Inner dot-product step using FMA (AVX2)</span>
+<span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
+<span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
+<span class="nf">vfmadd231ps</span><span class="w"> </span><span class="nb">ymm2</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm1</span>
+</pre></div>
+</div>
+</td>
+<td><p>High-performance x86 matrix multiplication uses AVX2/AVX-512 SIMD fused multiply-add (vfmadd231ps) inside tiled loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>RiscvMatrixMultiplication</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inner loop step: acc += A[i][k] * B[k][j]</span>
+<span class="nf">flw</span><span class="w"> </span><span class="no">ft0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t0</span><span class="p">)</span>
+<span class="nf">flw</span><span class="w"> </span><span class="no">ft1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">(</span><span class="no">t1</span><span class="p">)</span>
+<span class="nf">fmadd.s</span><span class="w"> </span><span class="no">fa0</span><span class="p">,</span><span class="w"> </span><span class="no">ft0</span><span class="p">,</span><span class="w"> </span><span class="no">ft1</span><span class="p">,</span><span class="w"> </span><span class="no">fa0</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses floating-point fused multiply-add (fmadd.s) or the RISC-V Vector Extension (RVV) inside nested loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>ArmAarch64MatrixMultiplication</p></td>
+<td><div class="highlight-asm notranslate"><div class="highlight"><pre><span></span><span class="c1">// Inner loop step using NEON FMA</span>
+<span class="nf">ldr</span><span class="w"> </span><span class="no">q0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x0</span><span class="p">],</span><span class="w"> </span><span class="mi">#16</span>
+<span class="nf">ldr</span><span class="w"> </span><span class="no">q1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="no">x1</span><span class="p">],</span><span class="w"> </span><span class="mi">#16</span>
+<span class="nf">fmla</span><span class="w"> </span><span class="no">v2.4s</span><span class="p">,</span><span class="w"> </span><span class="no">v0.4s</span><span class="p">,</span><span class="w"> </span><span class="no">v1.4s</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses NEON fused multiply-accumulate (fmla) or SME/SVE matrix instructions inside tiled loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PrologMatrixMultiplication</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">mat_mul</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">C</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">transpose</span><span class="p">(</span><span class="nv">B</span><span class="p">,</span> <span class="nv">BT</span><span class="p">),</span>
+    <span class="nf">maplist</span><span class="p">(</span><span class="nf">row_mul</span><span class="p">(</span><span class="nv">BT</span><span class="p">),</span> <span class="nv">A</span><span class="p">,</span> <span class="nv">C</span><span class="p">).</span>
+<span class="nf">row_mul</span><span class="p">(</span><span class="nv">BT</span><span class="p">,</span> <span class="nv">Row</span><span class="p">,</span> <span class="nv">Res</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">maplist</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="nv">Row</span><span class="p">),</span> <span class="nv">BT</span><span class="p">,</span> <span class="nv">Res</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Declarative approach transposing B and mapping dot products across rows.</p></td>
+</tr>
+<tr class="row-even"><td><p>JavaBytecodeMatrixMultiplication</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_1</span><span class="w">          </span><span class="c1">; A[i]</span>
+<span class="kr">iload</span><span class="w"> </span><span class="mi">4</span><span class="w">          </span><span class="c1">; k</span>
+<span class="kr">faload</span>
+<span class="kr">aload_2</span><span class="w">          </span><span class="c1">; B[k]</span>
+<span class="kr">iload</span><span class="w"> </span><span class="mi">3</span><span class="w">          </span><span class="c1">; j</span>
+<span class="kr">faload</span>
+<span class="kr">fmul</span>
+<span class="kr">fadd</span><span class="w">             </span><span class="c1">; accumulate into C[i][j]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compiled from nested loops using array loads (faload), fmul, and fadd.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CamelMatrixMultiplication</p></td>
+<td><div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nn">Array</span><span class="p">.</span><span class="n">init</span> <span class="n">m</span> <span class="o">(</span><span class="k">fun</span> <span class="n">i</span> <span class="o">-&gt;</span>
+  <span class="nn">Array</span><span class="p">.</span><span class="n">init</span> <span class="n">n</span> <span class="o">(</span><span class="k">fun</span> <span class="n">j</span> <span class="o">-&gt;</span>
+    <span class="k">let</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">ref</span> <span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="k">in</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">p</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">do</span> <span class="n">sum</span> <span class="o">:=</span> <span class="o">!</span><span class="n">sum</span> <span class="o">+.</span> <span class="n">a</span><span class="o">.(</span><span class="n">i</span><span class="o">).(</span><span class="n">k</span><span class="o">)</span> <span class="o">*.</span> <span class="n">b</span><span class="o">.(</span><span class="n">k</span><span class="o">).(</span><span class="n">j</span><span class="o">)</span> <span class="k">done</span><span class="o">;</span>
+    <span class="o">!</span><span class="n">sum</span><span class="o">))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses Array.init and imperative accumulation; libraries like Owl or Lacaml wrap BLAS.</p></td>
+</tr>
+<tr class="row-even"><td><p>GoMatrixMultiplication</p></td>
+<td><div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">M</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">N</span><span class="p">;</span><span class="w"> </span><span class="nx">j</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">K</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">C</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">A</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">B</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested loops over slices; Gonum (mat.Dense.Mul) is commonly used for linear algebra.</p></td>
+</tr>
+<tr class="row-odd"><td><p>HaskellMatrixMultiplication</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">matMul</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[[</span><span class="n">sum</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">transpose</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Concise list comprehension using Data.List.transpose and zipWith (*); hmatrix provides BLAS bindings.</p></td>
+</tr>
+<tr class="row-even"><td><p>TypeScriptMatrixMultiplication</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">A</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">B</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">row</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">B</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">)));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functional map/reduce over 2D arrays, or triple-nested loops with TypedArrays for performance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TclMatrixMultiplication</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>i<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$M</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>i<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>j<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$N</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>j<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">set</span><span class="w"> </span>sum<span class="w"> </span><span class="mf">0.0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>k<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$K</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>k<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">            </span><span class="k">set</span><span class="w"> </span>sum<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="nv">$k</span><span class="k">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$B</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$j</span><span class="k">]}]</span>
+<span class="w">        </span><span class="k">}</span>
+<span class="w">        </span><span class="nb">lset</span><span class="w"> </span>C<span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="nv">$j</span><span class="w"> </span><span class="nv">$sum</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops with lindex, lset, and expr.</p></td>
+</tr>
+<tr class="row-even"><td><p>CobolMatrixMultiplication</p></td>
+<td><div class="highlight-cobol notranslate"><div class="highlight"><pre><span></span><span class="c">PERFOR</span><span class="nv">M</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">I</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">M</span>
+<span class="c">    PE</span><span class="nv">RFORM</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">J</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">J</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">N</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">PERFORM</span><span class="w"> </span><span class="kp">VARYING</span><span class="w"> </span><span class="nv">K</span><span class="w"> </span><span class="kp">FROM</span><span class="w"> </span><span class="mi">1 </span><span class="kp">BY</span><span class="w"> </span><span class="mi">1 </span><span class="kp">UNTIL</span><span class="w"> </span><span class="nv">K</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">P</span>
+<span class="c">      </span><span class="w">      </span><span class="kr">COMPUTE</span><span class="w"> </span><span class="nv">C</span><span class="p">(</span><span class="nv">I</span><span class="p">,</span><span class="w"> </span><span class="nv">J</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">C</span><span class="p">(</span><span class="nv">I</span><span class="p">,</span><span class="w"> </span><span class="nv">J</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">A</span><span class="p">(</span><span class="nv">I</span><span class="p">,</span><span class="w"> </span><span class="nv">K</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">B</span><span class="p">(</span><span class="nv">K</span><span class="p">,</span><span class="w"> </span><span class="nv">J</span><span class="p">)</span>
+<span class="c">      </span><span class="w">  </span><span class="kr">END-PERFORM</span>
+<span class="kr">   </span><span class="w"> </span><span class="kr">END-PERFORM</span>
+<span class="c">END-PE</span><span class="nv">RFORM</span><span class="p">.</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested PERFORM VARYING loops with COMPUTE over multi-dimensional OCCURS tables.</p></td>
+</tr>
+<tr class="row-odd"><td><p>FortranMatrixMultiplication</p></td>
+<td><div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Fortran has a built-in intrinsic matmul() function, often optimized directly to BLAS calls by compilers.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSharpMatrixMultiplication</p></td>
+<td><div class="highlight-csharp notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">K</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span>
+<span class="w">            </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">];</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses 2D rectangular arrays; System.Numerics.Matrix4x4 supports SIMD 4x4 multiplication and Math.NET provides general matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SwiftMatrixMultiplication</p></td>
+<td><div class="highlight-swift notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">m</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mf">0.</span><span class="p">.&lt;</span><span class="n">p</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested loops; Apple Accelerate (vDSP/BLAS) or simd provides hardware-accelerated matrix multiplication.</p></td>
+</tr>
+<tr class="row-even"><td><p>KotlinMatrixMultiplication</p></td>
+<td><div class="highlight-kotlin notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">m</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">p</span><span class="p">)</span>
+<span class="w">            </span><span class="n">c</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">a</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">j</span><span class="o">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested loops on 2D arrays; Multik provides NumPy-like matrix operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ClojureMatrixMultiplication</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">matmul</span><span class="w"> </span><span class="p">[</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">bt</span><span class="w"> </span><span class="p">(</span><span class="nb">apply </span><span class="nv">mapv</span><span class="w"> </span><span class="nb">vector </span><span class="nv">b</span><span class="p">)]</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">row</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">row</span><span class="w"> </span><span class="nv">%</span><span class="p">))</span><span class="w"> </span><span class="nv">bt</span><span class="p">))</span><span class="w"> </span><span class="nv">a</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Transposes B with (apply mapv vector b) and maps dot products over rows.</p></td>
+</tr>
+<tr class="row-even"><td><p>BrainfuckMatrixMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Brainfuck operates on a 1D tape of byte cells without native multiplication or 2D indexing; matrix multiplication requires complex tape layouts.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ScalaMatrixMultiplication</p></td>
+<td><div class="highlight-scala notranslate"><div class="highlight"><pre><span></span><span class="kd">val</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">col</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">transpose</span><span class="p">)</span><span class="w"> </span><span class="k">yield</span>
+<span class="w">    </span><span class="p">(</span><span class="n">row</span><span class="w"> </span><span class="n">zip</span><span class="w"> </span><span class="n">col</span><span class="p">).</span><span class="n">map</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">}.</span><span class="n">sum</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses for-comprehensions with transpose and zip; Breeze provides optimized linear algebra (a * b).</p></td>
+</tr>
+<tr class="row-even"><td><p>ZigMatrixMultiplication</p></td>
+<td><div class="highlight-zig notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">j</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="n">k</span><span class="o">|</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">C</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard nested loops; Zig’s &#64;Vector SIMD types can accelerate inner loops.</p></td>
+</tr>
+<tr class="row-odd"><td><p>VBAMatrixMultiplication</p></td>
+<td><div class="highlight-vb.net notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Application</span><span class="p">.</span><span class="n">WorksheetFunction</span><span class="p">.</span><span class="n">MMult</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Excel VBA provides the built-in MMult worksheet function for matrix multiplication, or nested For loops.</p></td>
+</tr>
+<tr class="row-even"><td><p>XQueryMatrixMultiplication</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">M</span><span class="w"> </span><span class="k">return</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">N</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="nf">sum</span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">K</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">A</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">][</span><span class="nv">$</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">B</span><span class="p">[</span><span class="nv">$</span><span class="n">k</span><span class="p">][</span><span class="nv">$</span><span class="n">j</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GraphQlMatrixMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>GraphQL is a query language for APIs and does not perform arithmetic or matrix computations.</p></td>
+</tr>
+<tr class="row-even"><td><p>SparqlMatrixMultiplication</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?row</span> <span class="nv">?col</span> <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nv">?va</span> <span class="o">*</span> <span class="nv">?vb</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?val</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?a</span> <span class="p">:</span><span class="nt">row</span> <span class="nv">?row</span> <span class="p">;</span> <span class="p">:</span><span class="nt">col</span> <span class="nv">?k</span> <span class="p">;</span> <span class="p">:</span><span class="nt">val</span> <span class="nv">?va</span> <span class="p">.</span>
+  <span class="nv">?b</span> <span class="p">:</span><span class="nt">row</span> <span class="nv">?k</span> <span class="p">;</span> <span class="p">:</span><span class="nt">col</span> <span class="nv">?col</span> <span class="p">;</span> <span class="p">:</span><span class="nt">val</span> <span class="nv">?vb</span> <span class="p">.</span>
+<span class="p">}</span> <span class="k">GROUP BY</span> <span class="nv">?row</span> <span class="nv">?col</span>
+</pre></div>
+</div>
+</td>
+<td><p>Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OverpassTurboMatrixMultiplication</p></td>
+<td><p>N/A</p></td>
+<td><p>Overpass QL is designed for querying OpenStreetMap geospatial data and does not support matrix arithmetic.</p></td>
 </tr>
 </tbody>
 </table>

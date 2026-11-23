@@ -549,6 +549,13 @@
 </td>
 <td><p>Uses Array.prototype.includes() or Set.prototype.has().</p></td>
 </tr>
+<tr class="row-odd"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kd">const</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">A</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">row</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">B</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">map</span><span class="p">((</span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">row</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">sum</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">B</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="mf">0</span><span class="p">)));</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functional map/reduce over 2D arrays, or triple-nested loops with TypedArrays for performance.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

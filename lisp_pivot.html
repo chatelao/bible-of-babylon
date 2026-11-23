@@ -488,6 +488,15 @@
 </td>
 <td><p>Uses member (or find/position) to check if an item is present in a list.</p></td>
 </tr>
+<tr class="row-odd"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-common-lisp notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">row</span><span class="p">)</span>
+<span class="w">          </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#'</span><span class="nb">mapcar</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="k">&amp;rest</span><span class="w"> </span><span class="nv">col</span><span class="p">)</span>
+<span class="w">                            </span><span class="p">(</span><span class="nb">reduce</span><span class="w"> </span><span class="nf">#'</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">mapcar</span><span class="w"> </span><span class="nf">#'</span><span class="nb">*</span><span class="w"> </span><span class="nv">row</span><span class="w"> </span><span class="nv">col</span><span class="p">)))</span><span class="w"> </span><span class="nv">b</span><span class="p">))</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>Functional matrix multiplication using mapcar and reduce over rows and columns.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -251,12 +251,12 @@ Python Pivot View
      - .. code-block:: python
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: python
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: python
 
@@ -312,3 +312,8 @@ Python Pivot View
 
            found = val in collection
      - Uses the 'in' membership operator for lists, sets, tuples, or dict keys.
+   * - MatrixMultiplication
+     - .. code-block:: python
+
+           C = A @ B
+     - Python 3.5+ provides the dedicated @ matrix multiplication operator (used by NumPy, PyTorch, etc.).

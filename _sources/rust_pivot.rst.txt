@@ -277,12 +277,12 @@ Rust Pivot View
      - .. code-block:: rust
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: rust
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: rust
 
@@ -328,3 +328,14 @@ Rust Pivot View
 
            let found = collection.contains(&val);
      - Uses Vec::contains or HashSet::contains.
+   * - MatrixMultiplication
+     - .. code-block:: rust
+
+           for i in 0..m {
+               for j in 0..n {
+                   for k in 0..p {
+                       c[i][j] += a[i][k] * b[k][j];
+                   }
+               }
+           }
+     - Nested loops in pure Rust; crates like ndarray (a.dot(&b)) or nalgebra (a * b) provide optimized GEMM.

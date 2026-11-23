@@ -207,7 +207,7 @@ Lisp Pivot View
      - .. code-block:: common-lisp
 
            (> a b)
-     -
+     - 
    * - SetFiltering
      - .. code-block:: common-lisp
 
@@ -266,3 +266,10 @@ Lisp Pivot View
 
            (if (member val list) t nil)
      - Uses member (or find/position) to check if an item is present in a list.
+   * - MatrixMultiplication
+     - .. code-block:: common-lisp
+
+           (mapcar (lambda (row)
+                     (apply #'mapcar (lambda (&rest col)
+                                       (reduce #'+ (mapcar #'* row col))) b)) a)
+     - Functional matrix multiplication using mapcar and reduce over rows and columns.

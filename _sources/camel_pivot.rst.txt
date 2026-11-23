@@ -218,12 +218,12 @@ Camel Pivot View
      - .. code-block:: ocaml
 
            a <> b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: ocaml
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: ocaml
 
@@ -249,3 +249,12 @@ Camel Pivot View
 
            let found = List.mem val list in
      - Uses List.mem (or Set.mem) to test membership.
+   * - MatrixMultiplication
+     - .. code-block:: ocaml
+
+           Array.init m (fun i ->
+             Array.init n (fun j ->
+               let sum = ref 0.0 in
+               for k = 0 to p - 1 do sum := !sum +. a.(i).(k) *. b.(k).(j) done;
+               !sum))
+     - Uses Array.init and imperative accumulation; libraries like Owl or Lacaml wrap BLAS.

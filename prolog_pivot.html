@@ -459,6 +459,17 @@
 </td>
 <td><p>The built-in member/2 predicate succeeds if Val is an element of List.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-prolog notranslate"><div class="highlight"><pre><span></span><span class="nf">mat_mul</span><span class="p">(</span><span class="nv">A</span><span class="p">,</span> <span class="nv">B</span><span class="p">,</span> <span class="nv">C</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">transpose</span><span class="p">(</span><span class="nv">B</span><span class="p">,</span> <span class="nv">BT</span><span class="p">),</span>
+    <span class="nf">maplist</span><span class="p">(</span><span class="nf">row_mul</span><span class="p">(</span><span class="nv">BT</span><span class="p">),</span> <span class="nv">A</span><span class="p">,</span> <span class="nv">C</span><span class="p">).</span>
+<span class="nf">row_mul</span><span class="p">(</span><span class="nv">BT</span><span class="p">,</span> <span class="nv">Row</span><span class="p">,</span> <span class="nv">Res</span><span class="p">)</span> <span class="p">:-</span>
+    <span class="nf">maplist</span><span class="p">(</span><span class="nf">dot</span><span class="p">(</span><span class="nv">Row</span><span class="p">),</span> <span class="nv">BT</span><span class="p">,</span> <span class="nv">Res</span><span class="p">).</span>
+</pre></div>
+</div>
+</td>
+<td><p>Declarative approach transposing B and mapping dot products across rows.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -565,6 +565,20 @@
 </td>
 <td><p>Invokes java/util/List.contains or loops over array.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-jasmin notranslate"><div class="highlight"><pre><span></span><span class="kr">aload_1</span><span class="w">          </span><span class="c1">; A[i]</span>
+<span class="kr">iload</span><span class="w"> </span><span class="mi">4</span><span class="w">          </span><span class="c1">; k</span>
+<span class="kr">faload</span>
+<span class="kr">aload_2</span><span class="w">          </span><span class="c1">; B[k]</span>
+<span class="kr">iload</span><span class="w"> </span><span class="mi">3</span><span class="w">          </span><span class="c1">; j</span>
+<span class="kr">faload</span>
+<span class="kr">fmul</span>
+<span class="kr">fadd</span><span class="w">             </span><span class="c1">; accumulate into C[i][j]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Compiled from nested loops using array loads (faload), fmul, and fadd.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

@@ -176,3 +176,6 @@ GraphQL Pivot View
              }
            }
      - In GraphQL, IN filtering is implemented via list input arguments in field filters.
+   * - MatrixMultiplication
+     - N/A
+     - GraphQL is a query language for APIs and does not perform arithmetic or matrix computations.

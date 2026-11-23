@@ -461,6 +461,13 @@
 </td>
 <td><p>Uses elem (or Set.member) to check if element exists in structure.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-haskell notranslate"><div class="highlight"><pre><span></span><span class="nf">matMul</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="ow">=</span><span class="w"> </span><span class="p">[[</span><span class="n">sum</span><span class="w"> </span><span class="o">$</span><span class="w"> </span><span class="n">zipWith</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">bc</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">transpose</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">ar</span><span class="w"> </span><span class="ow">&lt;-</span><span class="w"> </span><span class="n">a</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Concise list comprehension using Data.List.transpose and zipWith (*); hmatrix provides BLAS bindings.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

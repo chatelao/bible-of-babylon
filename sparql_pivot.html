@@ -385,6 +385,16 @@
 </td>
 <td><p>Uses the IN operator inside FILTER clauses.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-sparql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="nv">?row</span> <span class="nv">?col</span> <span class="p">(</span><span class="nf">SUM</span><span class="p">(</span><span class="nv">?va</span> <span class="o">*</span> <span class="nv">?vb</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?val</span><span class="p">)</span> <span class="k">WHERE</span> <span class="p">{</span>
+  <span class="nv">?a</span> <span class="p">:</span><span class="nt">row</span> <span class="nv">?row</span> <span class="p">;</span> <span class="p">:</span><span class="nt">col</span> <span class="nv">?k</span> <span class="p">;</span> <span class="p">:</span><span class="nt">val</span> <span class="nv">?va</span> <span class="p">.</span>
+  <span class="nv">?b</span> <span class="p">:</span><span class="nt">row</span> <span class="nv">?k</span> <span class="p">;</span> <span class="p">:</span><span class="nt">col</span> <span class="nv">?col</span> <span class="p">;</span> <span class="p">:</span><span class="nt">val</span> <span class="nv">?vb</span> <span class="p">.</span>
+<span class="p">}</span> <span class="k">GROUP BY</span> <span class="nv">?row</span> <span class="nv">?col</span>
+</pre></div>
+</div>
+</td>
+<td><p>Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

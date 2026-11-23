@@ -183,3 +183,6 @@ Brainfuck Pivot View
            ; Compare search cell against array cells in loop
            [-[->+<]<]
      - Element-wise subtraction in a loop to check if any cell equals target.
+   * - MatrixMultiplication
+     - N/A
+     - Brainfuck operates on a 1D tape of byte cells without native multiplication or 2D indexing; matrix multiplication requires complex tape layouts.

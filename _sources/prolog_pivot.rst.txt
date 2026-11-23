@@ -244,3 +244,12 @@ Prolog Pivot View
 
            member(Val, List).
      - The built-in member/2 predicate succeeds if Val is an element of List.
+   * - MatrixMultiplication
+     - .. code-block:: prolog
+
+           mat_mul(A, B, C) :-
+               transpose(B, BT),
+               maplist(row_mul(BT), A, C).
+           row_mul(BT, Row, Res) :-
+               maplist(dot(Row), BT, Res).
+     - Declarative approach transposing B and mapping dot products across rows.

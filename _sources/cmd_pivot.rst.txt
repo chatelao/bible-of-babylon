@@ -190,12 +190,12 @@ Cmd Pivot View
      - .. code-block:: doscon
 
            if %a% NEQ %b%
-     -
+     - 
    * - GreaterThan
      - .. code-block:: doscon
 
            if %a% GTR %b%
-     -
+     - 
    * - SetFiltering
      - .. code-block:: doscon
 
@@ -224,3 +224,6 @@ Cmd Pivot View
 
            for %%a in (%list%) do if "%%a"=="%val%" set found=1
      - Iterates over space-separated elements in a loop to match target value.
+   * - MatrixMultiplication
+     - N/A
+     - Cmd lacks native 2D arrays and floating-point math; matrix multiplication is impractical without external tools.

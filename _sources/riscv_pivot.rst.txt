@@ -277,3 +277,11 @@ RISC-V Assembler Pivot View
                addi t0, t0, 4
                bne t0, t2, loop
      - Traverses memory array and compares each element to target value.
+   * - MatrixMultiplication
+     - .. code-block:: asm
+
+           # Inner loop step: acc += A[i][k] * B[k][j]
+           flw ft0, 0(t0)
+           flw ft1, 0(t1)
+           fmadd.s fa0, ft0, ft1, fa0
+     - Uses floating-point fused multiply-add (fmadd.s) or the RISC-V Vector Extension (RVV) inside nested loops.

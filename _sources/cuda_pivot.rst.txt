@@ -220,12 +220,12 @@ CUDA Pivot View
      - .. code-block:: cpp
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: cpp
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: cpp
 
@@ -258,3 +258,17 @@ CUDA Pivot View
                if (arr[i] == val) { found = true; break; }
            }
      - In CUDA device code, membership is checked via loops within a thread.
+   * - MatrixMultiplication
+     - .. code-block:: cpp
+
+           __global__ void matmul(const float *A, const float *B, float *C, int M, int N, int K) {
+               int row = blockIdx.y * blockDim.y + threadIdx.y;
+               int col = blockIdx.x * blockDim.x + threadIdx.x;
+               if (row < M && col < N) {
+                   float sum = 0.0f;
+                   for (int k = 0; k < K; ++k)
+                       sum += A[row * K + k] * B[k * N + col];
+                   C[row * N + col] = sum;
+               }
+           }
+     - Each GPU thread computes one output element in parallel across a 2D grid; production workloads use shared-memory tiling or cuBLAS/Tensor Cores.

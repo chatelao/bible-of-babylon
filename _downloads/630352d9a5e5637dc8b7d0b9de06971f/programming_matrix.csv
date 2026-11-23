@@ -1,4 +1,4 @@
-Language,VariableDeclaration,Sort,Distinct,ToCharDate,ToCharDateTimezone,ToCharNumberThousandSeparator,ToCharNumberNegativeBrackets,ToCharNumberFixedDecimals,ToDate,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,LineContinuation,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,MutexDefinition,MutexLock,MutexUnlock,SemaphoreDefinition,SemaphoreWait,SemaphoreSignal,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin,InClause
+Language,VariableDeclaration,Sort,Distinct,ToCharDate,ToCharDateTimezone,ToCharNumberThousandSeparator,ToCharNumberNegativeBrackets,ToCharNumberFixedDecimals,ToDate,ForEach,CollectionDefinition,AssociativeArrayDefinition,Equal,NotEqual,GreaterThan,LogicalAnd,LogicalOr,LogicalXor,ProcedureDefinition,FunctionDefinition,IfElse,SwitchCase,Loop,ForLoop,LineContinuation,TryCatch,Raise,Thread,SendMessage,ReceiveMessage,MutexDefinition,MutexLock,MutexUnlock,SemaphoreDefinition,SemaphoreWait,SemaphoreSignal,SingleLineComment,MultiLineComment,Print,Import,Constant,Addition,Subtraction,Multiplication,Division,Remainder,Floor,Rounding,Increment,Decrement,LeftShift,RightShift,BitAnd,BitOr,BitXor,BitNot,Float4VectorMultiplication,Float4VectorDotProduct,Float4VectorCrossProduct,SetFiltering,SetJoin,InClause,MatrixMultiplication
 "C","int x = 42;","qsort(arr, n, sizeof(int), compare);","/* Manual implementation using a loop or sorting followed by shifting elements */","N/A","N/A","N/A","N/A","N/A","N/A","for (int i = 0; i < n; i++) {
     int item = collection[i];
     // body
@@ -39,7 +39,10 @@ c[3] = 0.0f;","for (int i = 0; i < n; i++) {
 }","bool found = false;
 for (int i = 0; i < size; i++) {
     if (arr[i] == val) { found = true; break; }
-}"
+}","for (int i = 0; i < M; i++)
+    for (int j = 0; j < N; j++)
+        for (int k = 0; k < K; k++)
+            C[i][j] += A[i][k] * B[k][j];"
 "Cpp","int x = 42;","std::sort(v.begin(), v.end());","v.erase(std::unique(v.begin(), v.end()), v.end());","std::strftime(buf, sizeof(buf), ""%d.%m.%Y"", &timeinfo);","N/A","N/A","N/A","std::format(""{:.2f}"", num);","N/A","for (const auto& item : collection) {
     // body
 }","std::vector<int> v = {1, 2, 3};","std::map<std::string, int> m = {{""a"", 1}, {""b"", 2}};","a == b","a != b","a > b","a && b","a || b","a != b","void logMessage(std::string msg) {
@@ -72,7 +75,10 @@ handle(msg);","std::mutex mtx;","mtx.lock();","mtx.unlock();","std::counting_sem
    line 2 */","std::cout << ""Hello, World!"" << std::endl;","#include <iostream>","const int MAX = 100;","a + b","a - b","a * b","a / b","a % b","std::floor(a)","std::round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
-c[3] = 0.0f;","std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);","std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));","bool found = std::find(vec.begin(), vec.end(), val) != vec.end();"
+c[3] = 0.0f;","std::copy_if(v.begin(), v.end(), std::back_inserter(res), condition);","std::set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), std::back_inserter(res));","bool found = std::find(vec.begin(), vec.end(), val) != vec.end();","for (int i = 0; i < M; ++i)
+    for (int j = 0; j < N; ++j)
+        for (int k = 0; k < K; ++k)
+            C[i][j] += A[i][k] * B[k][j];"
 "Java","int x = 42;","Collections.sort(list);","list.stream().distinct().collect(Collectors.toList());","date.format(DateTimeFormatter.ofPattern(""dd.MM.yyyy""))","dt.format(DateTimeFormatter.ofPattern(""yyyy-MM-dd HH:mm:ss z""))","NumberFormat.getInstance().format(num)","DecimalFormat df = new DecimalFormat(""#,##0;(#,##0)"");
 df.format(num);","String.format(""%.2f"", num)","LocalDate.parse(dateStr, DateTimeFormatter.ofPattern(""dd.MM.yyyy""))","for (int item : collection) {
     // body
@@ -103,7 +109,10 @@ df.format(num);","String.format(""%.2f"", num)","LocalDate.parse(dateStr, DateTi
    line 2 */","System.out.println(""Hello, World!"");","import java.util.List;","public static final int MAX = 100;","a + b","a - b","a * b","a / b","a % b","Math.floor(a)","Math.round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","for (int i = 0; i < 4; i++) c[i] = a[i] * b[i];","float dot = 0; for (int i = 0; i < 4; i++) dot += a[i] * b[i];","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
-c[3] = 0.0f;","list.stream().filter(x -> x > 0).collect(Collectors.toList());","listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());","boolean found = collection.contains(val);"
+c[3] = 0.0f;","list.stream().filter(x -> x > 0).collect(Collectors.toList());","listA.stream().flatMap(a -> listB.stream().filter(b -> a.id == b.id).map(b -> new Result(a, b))).collect(Collectors.toList());","boolean found = collection.contains(val);","for (int i = 0; i < M; i++)
+    for (int j = 0; j < N; j++)
+        for (int k = 0; k < K; k++)
+            C[i][j] += A[i][k] * B[k][j];"
 "Rust","let x: i32 = 42;","v.sort();","v.dedup();","date.format(""%d.%m.%Y"").to_string()","N/A","num.to_formatted_string(&Locale::en)","N/A","format!(""{:.2}"", num)","NaiveDate::parse_from_str(date_str, ""%d.%m.%Y"")","for item in &collection {
     // body
 }","let v = vec![1, 2, 3];","let m = HashMap::from([(""a"", 1), (""b"", 2)]);","a == b","a != b","a > b","a && b","a || b","a ^ b","fn log_message(msg: &str) {
@@ -129,7 +138,13 @@ c[3] = 0.0f;","list.stream().filter(x -> x > 0).collect(Collectors.toList());","
    line 2 */","println!(""Hello, World!"");","use std::collections::HashMap;","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","a % b","a.floor()","a.round()","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","!a","for i in 0..4 { c[i] = a[i] * b[i]; }","let dot: f32 = a.iter().zip(b.iter()).map(|(x, y)| x * y).sum();","c[0] = a[1]*b[2] - a[2]*b[1];
 c[1] = a[2]*b[0] - a[0]*b[2];
 c[2] = a[0]*b[1] - a[1]*b[0];
-c[3] = 0.0;","let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();","list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));","let found = collection.contains(&val);"
+c[3] = 0.0;","let filtered: Vec<_> = v.into_iter().filter(|&x| x > 0).collect();","list_a.iter().flat_map(|a| list_b.iter().filter(move |b| a.id == b.id).map(move |b| (a, b)));","let found = collection.contains(&val);","for i in 0..m {
+    for j in 0..n {
+        for k in 0..p {
+            c[i][j] += a[i][k] * b[k][j];
+        }
+    }
+}"
 "Erlang","X = 42.","lists:sort(List).","lists:usort(List).","N/A","N/A","N/A","N/A","N/A","N/A","lists:foreach(fun(Item) -> ok end, Collection).","L = [1, 2, 3].","M = #{a => 1, b => 2}.","A == B","A /= B","A > B","N/A","N/A","N/A","log_message(Msg) ->
     io:format(""~p~n"", [Msg]).","add(A, B) -> A + B.","if X > 0 -> 1; true -> 0 end","case X of
     1 -> one;
@@ -141,7 +156,7 @@ catch
     error:Reason -> handle(Reason)
 end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","receive hello -> handle_hello() end.","N/A","N/A","N/A","N/A","N/A","N/A","% comment","N/A","io:format(""Hello, World!~n"").","-include(""header.hrl"").","-define(MAX, 100).","A + B","A - B","A * B","A / B","A rem B","floor(A)","round(A)","A + 1","A - 1","A bsl B","A bsr B","A band B","A bor B","A bxor B","bnot A","[Ai * Bi || {Ai, Bi} <- lists:zip(A, B)].","Dot = lists:foldl(fun({Ai, Bi}, Acc) -> Ai * Bi + Acc end, 0.0, lists:zip(A, B)).","C = [lists:nth(2,A)*lists:nth(3,B) - lists:nth(3,A)*lists:nth(2,B),
      lists:nth(3,A)*lists:nth(1,B) - lists:nth(1,A)*lists:nth(3,B),
-     lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0].","[X || X <- List, X > 0].","[{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].","Found = lists:member(Val, List)."
+     lists:nth(1,A)*lists:nth(2,B) - lists:nth(2,A)*lists:nth(1,B), 0.0].","[X || X <- List, X > 0].","[{A, B} || A <- ListA, B <- ListB, element(1, A) == element(1, B)].","Found = lists:member(Val, List).","[[lists:sum([Aij * Bjk || {Aij, Bjk} <- lists:zip(Row, Col)]) || Col <- transpose(B)] || Row <- A]."
 "Lisp","(defparameter x 42)","(sort list #'<)","(remove-duplicates list)","N/A","N/A","N/A","N/A","N/A","N/A","(dolist (item collection)
   #| body |#)","(setf l '(1 2 3))","(setf m (pairlis '(a b) '(1 2)))","(= a b)","(/= a b)","(> a b)","N/A","N/A","N/A","(defun log-message (msg)
   (format t ""~A~%"" msg))","(defun add (a b) (+ a b))","(if (> x 0) 1 0)","(case x
@@ -155,7 +170,9 @@ end","error(""Error"")","Pid = spawn(fun() -> do_work() end).","Pid ! hello.","r
       0.0)","(remove-if-not #'evenp list)","(loop for a in list-a append
   (loop for b in list-b
     when (= (getf a :id) (getf b :id))
-    collect (list a b)))","(if (member val list) t nil)"
+    collect (list a b)))","(if (member val list) t nil)","(mapcar (lambda (row)
+          (apply #'mapcar (lambda (&rest col)
+                            (reduce #'+ (mapcar #'* row col))) b)) a)"
 "Bash","x=42","IFS=$'
 ' sorted=($(sort <<<""${arr[*]}""))","IFS=$'
 ' unique=($(sort -u <<<""${arr[*]}""))","N/A","N/A","N/A","N/A","N/A","N/A","for item in ""${collection[@]}""; do
@@ -189,7 +206,15 @@ c[3]=0","for x in ""${a[@]}""; do
     if [[ $x -gt 0 ]]; then
         b+=(""$x"")
     fi
-done","join file1 file2","if [[ "" ${list[*]} "" =~ "" ${val} "" ]]; then ... ; fi"
+done","join file1 file2","if [[ "" ${list[*]} "" =~ "" ${val} "" ]]; then ... ; fi","for ((i=0; i<M; i++)); do
+    for ((j=0; j<N; j++)); do
+        sum=0
+        for ((k=0; k<K; k++)); do
+            sum=$((sum + A[i*K+k] * B[k*N+j]))
+        done
+        C[i*N+j]=$sum
+    done
+done"
 "Cmd","set x=42","(for %%a in (%list%) do @echo %%a) | sort","N/A","N/A","N/A","N/A","N/A","N/A","N/A","for %%i in (%collection%) do (
     rem body
 )","set a=1 2 3","set m_a=1
@@ -202,7 +227,7 @@ if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     rem body
 )","^","do_something || call :handle_error","exit /b 1","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","REM comment","N/A","echo Hello, World!","call other.cmd","set MAX=100","set /a res=a+b","set /a res=a-b","set /a res=a*b","set /a res=a/b","set /a res=a%%b","N/A","N/A","set /a a+=1","set /a a-=1","set /a res=a<<b","set /a res=a>>b","set /a res=""a & b""","set /a res=""a | b""","set /a res=""a ^ b""","set /a res=""~a""","N/A","N/A","N/A","for %%x in (%a%) do (
     if %%x GTR 0 (set b=!b! %%x)
-)","N/A","for %%a in (%list%) do if ""%%a""==""%val%"" set found=1"
+)","N/A","for %%a in (%list%) do if ""%%a""==""%val%"" set found=1","N/A"
 "PowerShell","$x = 42","$sorted = $list | Sort-Object","$unique = $list | Select-Object -Unique","N/A","N/A","N/A","N/A","N/A","N/A","foreach ($item in $collection) {
     # body
 }","$a = 1, 2, 3","$h = @{ a = 1; b = 2 }","$a -eq $b","$a -ne $b","$a -gt $b","N/A","N/A","N/A","function log-message($msg) {
@@ -230,7 +255,13 @@ if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     foreach ($b in $listB) {
         if ($a.id -eq $b.id) { [PSCustomObject]@{A=$a; B=$b} }
     }
-}","$found = $val -in $list"
+}","$found = $val -in $list","for ($i = 0; $i -lt $M; $i++) {
+    for ($j = 0; $j -lt $N; $j++) {
+        for ($k = 0; $k -lt $K; $k++) {
+            $C[$i][$j] += $A[$i][$k] * $B[$k][$j]
+        }
+    }
+}"
 "Python","x = 42","l.sort()","list(set(l))","date_obj.strftime('%d.%m.%Y')","dt_obj.strftime('%Y-%m-%d %H:%M:%S %Z')","f'{num:,}'","f'({-num:,})' if num < 0 else f'{num:,}'","f'{num:.2f}'","datetime.strptime(date_str, '%d.%m.%Y').date()","for item in collection:
     # body","l = [1, 2, 3]","d = {""a"": 1, ""b"": 2}","a == b","a != b","a > b","a and b","a or b","a != b","def log_message(msg):
     print(msg)","def add(a, b):
@@ -245,7 +276,7 @@ if %x% GTR 0 (set /a x=x-1 & goto loop)","for /L %%i in (0,1,9) do (
     do_something()
 except Exception as e:
     handle(e)","raise Exception(""Error"")","N/A","N/A","N/A","lock = threading.Lock()","lock.acquire()","lock.release()","sem = threading.Semaphore(1)","sem.acquire()","sem.release()","# comment",""""""" line 1
-    line 2 """"""","print(""Hello, World!"")","import math","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","c = [ai * bi for ai, bi in zip(a, b)]","dot = sum(ai * bi for ai, bi in zip(a, b))","c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]","b = [x for x in a if x > 0]","res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]","found = val in collection"
+    line 2 """"""","print(""Hello, World!"")","import math","MAX = 100","a + b","a - b","a * b","a / b","a % b","math.floor(a)","round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","c = [ai * bi for ai, bi in zip(a, b)]","dot = sum(ai * bi for ai, bi in zip(a, b))","c = [a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0]","b = [x for x in a if x > 0]","res = [{**a, **b} for a in list_a for b in list_b if a['id'] == b['id']]","found = val in collection","C = A @ B"
 "PHP","$x = 42;","sort($array);","array_unique($array);","$date->format('d.m.Y')","$date->format('Y-m-d H:i:s T')","number_format($num, 0, '.', ',')","$num < 0 ? '(' . number_format(abs($num)) . ')' : number_format($num)","number_format($num, 2)","DateTime::createFromFormat('d.m.Y', $dateStr)","foreach ($collection as $item) {
     // body
 }","$a = [1, 2, 3];","$d = ['a' => 1, 'b' => 2];","a == b","a != b","a > b","$a && $b","$a || $b","$a xor $b","function log_message(string $msg): void {
@@ -278,9 +309,15 @@ except Exception as e:
             $res[] = array_merge($itemA, $itemB);
         }
     }
-}","$found = in_array($val, $arr);"
+}","$found = in_array($val, $arr);","for ($i = 0; $i < $M; $i++) {
+    for ($j = 0; $j < $N; $j++) {
+        for ($k = 0; $k < $K; $k++) {
+            $C[$i][$j] += $A[$i][$k] * $B[$k][$j];
+        }
+    }
+}"
 "CSS","--x: 42;","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","@media (min-width: 0px) { .element { color: red; } }","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","/* line 1
-   line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","p:is(.class1, .class2) { color: red; }"
+   line 2 */",".element::before { content: ""Hello, World!""; }","@import ""base.css"";","--MAX: 100;","calc(a + b)","calc(a - b)","calc(a * b)","calc(a / b)","mod(a, b)","N/A","round(a)","calc(a + 1)","calc(a - 1)","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","p:is(.class1, .class2) { color: red; }","transform: matrix(a, b, c, d, tx, ty) matrix(e, f, g, h, ux, uy);"
 "CUDA","__device__ int x = 42;","thrust::sort(v.begin(), v.end());","thrust::unique(v.begin(), v.end());","N/A","N/A","N/A","N/A","N/A","N/A","for (int i = 0; i < n; i++) {
     int item = collection[i];
     // body
@@ -311,6 +348,15 @@ except Exception as e:
 }","bool found = false;
 for (int i = 0; i < size; i++) {
     if (arr[i] == val) { found = true; break; }
+}","__global__ void matmul(const float *A, const float *B, float *C, int M, int N, int K) {
+    int row = blockIdx.y * blockDim.y + threadIdx.y;
+    int col = blockIdx.x * blockDim.x + threadIdx.x;
+    if (row < M && col < N) {
+        float sum = 0.0f;
+        for (int k = 0; k < K; ++k)
+            sum += A[row * K + k] * B[k * N + col];
+        C[row * N + col] = sum;
+    }
 }"
 "x86 Assembler","x   dd 42","; Manual implementation (e.g., Bubble Sort)","; Manual implementation","N/A","N/A","N/A","N/A","N/A","N/A","    mov esi, collection
     mov ecx, count
@@ -370,7 +416,10 @@ subps xmm0, xmm2","    cmp eax, 0
 mov ecx, count
 mov edi, offset array
 mov eax, val
-repne scasb"
+repne scasb","; Inner dot-product step using FMA (AVX2)
+vmovups ymm0, [rsi]
+vmovups ymm1, [rdi]
+vfmadd231ps ymm2, ymm0, ymm1"
 "RISC-V Assembler","x:  .word 42","# Manual implementation","# Manual implementation","N/A","N/A","N/A","N/A","N/A","N/A","    la t0, collection
     li t1, count
 .loop:
@@ -422,7 +471,10 @@ vfredusum.vs v4, v1, v5","N/A","    blez t0, .skip
     lw t1, 0(t0)
     beq t1, a0, found
     addi t0, t0, 4
-    bne t0, t2, loop"
+    bne t0, t2, loop","# Inner loop step: acc += A[i][k] * B[k][j]
+flw ft0, 0(t0)
+flw ft1, 0(t1)
+fmadd.s fa0, ft0, ft1, fa0"
 "Prolog","X = 42.","sort(List, Sorted).","list_to_set(List, Set).","N/A","N/A","N/A","N/A","N/A","N/A","member(Item, Collection), do_something(Item).","L = [1, 2, 3].","N/A","A == B","A \== B","A > B","N/A","N/A","N/A","log_message(Msg) :- writeln(Msg).","add(A, B, Res) :- Res is A + B.","(X > 0 -> Result = 1 ; Result = 0)","(   X = 1 -> writeln('one')
 ;   X = 2 -> writeln('two')
 ;   writeln('none')
@@ -431,7 +483,11 @@ loop(X) :- X > 0, X1 is X - 1, loop(X1).","forall(between(0, 9, I), do_something
    line 2 */","writeln('Hello, World!').","use_module(library(math)).","max(100).","Res is A + B","Res is A - B","Res is A * B","Res is A / B","Res is A mod B","Res is floor(A)","Res is round(A)","Res is A + 1","Res is A - 1","Res is A << B","Res is A >> B","Res is A /\ B","Res is A \/ B","Res is A xor B","Res is \ A","maplist(multiply, A, B, C).","dot_product(A, B, Dot) :- maplist(multiply, A, B, Products), sum_list(Products, Dot).","cross_product([A1,A2,A3|_], [B1,B2,B3|_], [C1,C2,C3,0.0]) :-
     C1 is A2*B3 - A3*B2,
     C2 is A3*B1 - A1*B3,
-    C3 is A1*B2 - A2*B1.","include(Condition, List, Filtered).","join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.","member(Val, List)."
+    C3 is A1*B2 - A2*B1.","include(Condition, List, Filtered).","join(A, B, (X, Y)) :- member(X, A), member(Y, B), X.id = Y.id.","member(Val, List).","mat_mul(A, B, C) :-
+    transpose(B, BT),
+    maplist(row_mul(BT), A, C).
+row_mul(BT, Row, Res) :-
+    maplist(dot(Row), BT, Res)."
 "Java Bytecode",".field private static x I = 42","invokestatic java/util/Collections/sort(Ljava/util/List;)V","invokevirtual java/util/stream/Stream/distinct()Ljava/util/stream/Stream;","N/A","N/A","N/A","N/A","N/A","N/A","    aload_0 ; collection (as Iterator)
 LoopStart:
     aload_0
@@ -552,7 +608,14 @@ fload 4 ; bx
 fmul
 fsub ; -> cz","    invokestatic java/util/stream/Stream/filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;","    ; Nested loops using labels and jumps","aload_1
 aload_2
-invokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2"
+invokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2","aload_1          ; A[i]
+iload 4          ; k
+faload
+aload_2          ; B[k]
+iload 3          ; j
+faload
+fmul
+fadd             ; accumulate into C[i][j]"
 "ARM AArch64 Assembler","x:  .quad 42","// Manual implementation","// Manual implementation","N/A","N/A","N/A","N/A","N/A","N/A","    adr x0, collection
     mov x1, #count
 .loop:
@@ -613,7 +676,10 @@ fmls s4, v0.s[1], v1.s[0]","    cmp x0, #0
     cmp w2, w1
     b.eq found
     subs w3, w3, #1
-    b.ne loop"
+    b.ne loop","// Inner loop step using NEON FMA
+ldr q0, [x0], #16
+ldr q1, [x1], #16
+fmla v2.4s, v0.4s, v1.4s"
 "Camel","let x = 42","List.sort compare list","List.sort_uniq compare list","N/A","N/A","N/A","N/A","N/A","N/A","List.iter (fun item -> (* body *)) collection","let l = [1; 2; 3]","let m = Map.empty |> Map.add ""a"" 1 |> Map.add ""b"" 2","a = b","a <> b","a > b","N/A","N/A","N/A","let log_message msg = print_endline msg","let add a b = a + b","if x > 0 then 1 else 0","match x with
 | 1 -> 1
 | 2 -> 2
@@ -625,7 +691,11 @@ done","N/A","try do_something () with e -> handle e","raise (Failure ""Error"")"
    line 2 *)","print_endline ""Hello, World!""","open List","let max = 100","a + b","a - b","a * b","a / b","a mod b","floor a","Float.round a","a + 1","a - 1","a lsl b","a lsr b","a land b","a lor b","a lxor b","lnot a","Array.map2 (fun ai bi -> ai *. bi) a b","let dot = List.fold_left2 (fun acc ai bi -> acc +. ai *. bi) 0.0 a b","[| a.(1) *. b.(2) -. a.(2) *. b.(1);
    a.(2) *. b.(0) -. a.(0) *. b.(2);
    a.(0) *. b.(1) -. a.(1) *. b.(0);
-   0.0 |]","List.filter (fun x -> x > 0) list","List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)","let found = List.mem val list in"
+   0.0 |]","List.filter (fun x -> x > 0) list","List.concat (List.map (fun a -> List.filter (fun b -> a.id = b.id) listB |> List.map (fun b -> (a, b))) listA)","let found = List.mem val list in","Array.init m (fun i ->
+  Array.init n (fun j ->
+    let sum = ref 0.0 in
+    for k = 0 to p - 1 do sum := !sum +. a.(i).(k) *. b.(k).(j) done;
+    !sum))"
 "Go","var x int = 42","sort.Ints(slice)","for _, v := range slice { if !seen[v] { unique = append(unique, v); seen[v] = true } }","t.Format(""02.01.2006"")","N/A","N/A","N/A","fmt.Sprintf(""%.2f"", num)","time.Parse(""02.01.2006"", dateStr)","for index, item := range collection {
     // body
 }","s := []int{1, 2, 3}","m := map[string]int{""a"": 1, ""b"": 2}","a == b","a != b","a > b","a && b","a || b","a != b","func logMessage(msg string) {
@@ -667,7 +737,13 @@ for i := range a { dot += a[i] * b[i] }","c := [4]float64{
             res = append(res, Result{a, b})
         }
     }
-}","found := slices.Contains(slice, val)"
+}","found := slices.Contains(slice, val)","for i := 0; i < M; i++ {
+    for j := 0; j < N; j++ {
+        for k := 0; k < K; k++ {
+            C[i][j] += A[i][k] * B[k][j]
+        }
+    }
+}"
 "Haskell","let x = 42","Data.List.sort list","Data.List.nub list","N/A","N/A","N/A","N/A","N/A","N/A","mapM_ (\item -> return ()) collection","let l = [1, 2, 3]","let m = Data.Map.fromList [(""a"", 1), (""b"", 2)]","a == b","a /= b","a > b","N/A","N/A","N/A","logMessage :: String -> IO ()
 logMessage msg = putStrLn msg","add :: Int -> Int -> Int
 add a b = a + b","if x > 0 then 1 else 0","case x of
@@ -675,7 +751,7 @@ add a b = a + b","if x > 0 then 1 else 0","case x of
     2 -> 2
     _ -> 0","loop x = if x > 0 then loop (x - 1) else return ()","mapM_ (\i -> return ()) [0..9]","N/A","do_something `catch` \(e :: SomeException) -> handle e","error ""Error""","forkIO (do_work)","writeChan chan 42","msg <- readChan chan
 handle msg","N/A","N/A","N/A","N/A","N/A","N/A","-- comment","{- line 1
-   line 2 -}","putStrLn ""Hello, World!""","import Data.List","maxVal = 100","a + b","a - b","a * b","a / b","a `mod` b","floor a","round a","a + 1","a - 1","shiftL a b","shiftR a b","a .&. b","a .|. b","xor a b","complement a","zipWith (*) a b","dot = sum $ zipWith (*) a b","cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]","filter (> 0) list","[(a, b) | a <- listA, b <- listB, idA a == idB b]","found = val `elem` list"
+   line 2 -}","putStrLn ""Hello, World!""","import Data.List","maxVal = 100","a + b","a - b","a * b","a / b","a `mod` b","floor a","round a","a + 1","a - 1","shiftL a b","shiftR a b","a .&. b","a .|. b","xor a b","complement a","zipWith (*) a b","dot = sum $ zipWith (*) a b","cross [a1,a2,a3,_] [b1,b2,b3,_] = [a2*b3 - a3*b2, a3*b1 - a1*b3, a1*b2 - a2*b1, 0.0]","filter (> 0) list","[(a, b) | a <- listA, b <- listB, idA a == idB b]","found = val `elem` list","matMul a b = [[sum $ zipWith (*) ar bc | bc <- transpose b] | ar <- a]"
 "TypeScript","let x: number = 42;","array.sort((a, b) => a - b);","[...new Set(array)]","date.toLocaleDateString('de-DE')","date.toISOString()","num.toLocaleString()","new Intl.NumberFormat('en-US', { currencySign: 'accounting', style: 'currency', currency: 'USD' }).format(num)","num.toFixed(2)","const [d, m, y] = str.split('.');
 new Date(`${y}-${m}-${d}`);","for (const item of collection) {
     // body
@@ -708,7 +784,7 @@ new Date(`${y}-${m}-${d}`);","for (const item of collection) {
     a[2]*b[0] - a[0]*b[2],
     a[0]*b[1] - a[1]*b[0],
     0
-];","const b = a.filter(x => x > 0);","const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));","const found = list.includes(val);"
+];","const b = a.filter(x => x > 0);","const res = a.flatMap(x => b.filter(y => x.id === y.id).map(y => ({...x, ...y})));","const found = list.includes(val);","const C = A.map(row => B[0].map((_, j) => row.reduce((sum, val, k) => sum + val * B[k][j], 0)));"
 "Tcl","set x 42","lsort $list","lsort -unique $list","N/A","N/A","N/A","N/A","N/A","N/A","foreach item $collection {
     # body
 }","set l [list 1 2 3]","array set m {a 1 b 2}","[expr {$a == $b}]","[expr {$a != $b}]","[expr {$a > $b}]","N/A","N/A","N/A","proc logMessage {msg} {
@@ -740,7 +816,15 @@ new Date(`${y}-${m}-${d}`);","for (const item of collection) {
 }","error ""Error""","thread::create { do_work }","thread::send $id $msg","vwait msg; handle $msg","N/A","N/A","N/A","N/A","N/A","N/A","# comment","N/A","puts ""Hello, World!""","package require Tcl","set MAX 100","[expr {$a + $b}]","[expr {$a - $b}]","[expr {$a * $b}]","[expr {$a / $b}]","[expr {$a % $b}]","[expr {floor($a)}]","[expr {round($a)}]","incr a","incr a -1","[expr {$a << $b}]","[expr {$a >> $b}]","[expr {$a & $b}]","[expr {$a | $b}]","[expr {$a ^ $b}]","[expr {~$a}]","foreach ai $a bi $b { lappend c [expr {$ai * $bi}] }","set dot 0
 foreach ai $a bi $b { set dot [expr {$dot + ($ai * $bi)}] }","set c [list [expr {[lindex $a 1]*[lindex $b 2] - [lindex $a 2]*[lindex $b 1]}] \
             [expr {[lindex $a 2]*[lindex $b 0] - [lindex $a 0]*[lindex $b 2]}] \
-            [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]","lmap x $a {if {$x > 0} {set x} else continue}","foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }","set found [expr {$val in $list}]"
+            [expr {[lindex $a 0]*[lindex $b 1] - [lindex $a 1]*[lindex $b 0]}] 0.0]","lmap x $a {if {$x > 0} {set x} else continue}","foreach a $listA { foreach b $listB { if {[dict get $a id] == [dict get $b id]} { lappend res [dict merge $a $b] } } }","set found [expr {$val in $list}]","for {set i 0} {$i < $M} {incr i} {
+    for {set j 0} {$j < $N} {incr j} {
+        set sum 0.0
+        for {set k 0} {$k < $K} {incr k} {
+            set sum [expr {$sum + [lindex $A $i $k] * [lindex $B $k $j]}]
+        }
+        lset C $i $j $sum
+    }
+}"
 "COBOL","01 X PIC 9(4) VALUE 42.","SORT table ASCENDING KEY ...","N/A","N/A","N/A","N/A","N/A","N/A","N/A","N/A","01 ARR.
    05 ITEM PIC 9(2) OCCURS 3 TIMES.","N/A","IF A = B","IF A NOT = B","IF A > B","N/A","N/A","N/A","IDENTIFICATION DIVISION.
 PROGRAM-ID. LOG-MSG.
@@ -789,7 +873,13 @@ END-PERFORM.","PERFORM VARYING I FROM 1 BY 1 UNTIL I > N
 END-PERFORM.","SEARCH ALL TAB-ELEM
     AT END SET NOT-FOUND TO TRUE
     WHEN TAB-VAL(IDX) = VAL
-        SET FOUND TO TRUE"
+        SET FOUND TO TRUE","PERFORM VARYING I FROM 1 BY 1 UNTIL I > M
+    PERFORM VARYING J FROM 1 BY 1 UNTIL J > N
+        PERFORM VARYING K FROM 1 BY 1 UNTIL K > P
+            COMPUTE C(I, J) = C(I, J) + A(I, K) * B(K, J)
+        END-PERFORM
+    END-PERFORM
+END-PERFORM."
 "Fortran","integer :: x = 42","! Manual implementation","! Manual implementation","N/A","N/A","N/A","N/A","N/A","N/A","N/A","integer, dimension(3) :: a = (/1, 2, 3/)","N/A","a == b","a /= b","a > b","N/A","N/A","N/A","subroutine log_msg(msg)
     character(len=*), intent(in) :: msg
     print *, msg
@@ -820,7 +910,7 @@ end do","N/A","N/A","error stop ""Error""","N/A","target_var[image] = data","syn
             ! Join logic
         end if
     end do
-end do","found = any(array == val)"
+end do","found = any(array == val)","C = matmul(A, B)"
 "CSharp","int x = 42;","list.Sort();","var unique = list.Distinct().ToList();","date.ToString(""dd.MM.yyyy"")","dt.ToString(""yyyy-MM-dd HH:mm:ss K"")","num.ToString(""N0"")","num.ToString(""#,##0;(#,##0)"")","num.ToString(""F2"")","DateTime.ParseExact(dateStr, ""dd.MM.yyyy"", CultureInfo.InvariantCulture)","foreach (var item in collection) {
     // body
 }","var l = new List<int> { 1, 2, 3 };","var d = new Dictionary<string, int> { {""a"", 1}, {""b"", 2} };","a == b","a != b","a > b","a && b","a || b","a ^ b","public void LogMessage(string msg) {
@@ -848,7 +938,10 @@ end do","found = any(array == val)"
     handle(ex);
 }","throw new Exception(""Error"");","new Thread(() => { do_work(); }).start();","await channel.Writer.WriteAsync(42);","var msg = await channel.Reader.ReadAsync();
 handle(msg);","Mutex mtx = new Mutex();","mtx.WaitOne();","mtx.ReleaseMutex();","Semaphore sem = new Semaphore(1, 10);","sem.WaitOne();","sem.Release();","// comment","/* line 1
-   line 2 */","Console.WriteLine(""Hello, World!"");","using System.Collections.Generic;","const int Max = 100;","a + b","a - b","a * b","a / b","a % b","Math.Floor(a)","Math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c = a * b;","float dot = Vector4.Dot(a, b);","var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));","var b = a.Where(x => x > 0).ToList();","var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };","bool found = collection.Contains(val);"
+   line 2 */","Console.WriteLine(""Hello, World!"");","using System.Collections.Generic;","const int Max = 100;","a + b","a - b","a * b","a / b","a % b","Math.Floor(a)","Math.Round(a)","a++","a--","a << b","a >> b","a & b","a | b","a ^ b","~a","c = a * b;","float dot = Vector4.Dot(a, b);","var res = Vector3.Cross(new Vector3(a.X, a.Y, a.Z), new Vector3(b.X, b.Y, b.Z));","var b = a.Where(x => x > 0).ToList();","var res = from a in listA join b in listB on a.Id equals b.Id select new { a, b };","bool found = collection.Contains(val);","for (int i = 0; i < M; i++)
+    for (int j = 0; j < N; j++)
+        for (int k = 0; k < K; k++)
+            C[i, j] += A[i, k] * B[k, j];"
 "Swift","var x: Int = 42","array.sort()","Array(Set(array))","N/A","N/A","N/A","N/A","N/A","N/A","for item in collection {
     // body
 }","var a = [1, 2, 3]","var d = [""a"": 1, ""b"": 2]","a == b","a != b","a > b","a && b","a || b","a != b","func logMessage(msg: String) {
@@ -882,7 +975,13 @@ default:
     a[2]*b[0] - a[0]*b[2],
     a[0]*b[1] - a[1]*b[0],
     0.0
-]","let b = a.filter { $0 > 0 }","let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }","let found = collection.contains(val)"
+]","let b = a.filter { $0 > 0 }","let res = listA.flatMap { a in listB.filter { b in a.id == b.id }.map { b in (a, b) } }","let found = collection.contains(val)","for i in 0..<m {
+    for j in 0..<n {
+        for k in 0..<p {
+            c[i][j] += a[i][k] * b[k][j]
+        }
+    }
+}"
 "Kotlin","var x: Int = 42","list.sort()","list.distinct()","N/A","N/A","N/A","N/A","N/A","N/A","for (item in collection) {
     // body
 }","val l = listOf(1, 2, 3)","val m = mapOf(""a"" to 1, ""b"" to 2)","a == b","a != b","a > b","a && b","a || b","a xor b","fun logMessage(msg: String) {
@@ -910,7 +1009,10 @@ handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Se
     a[2]*b[0] - a[0]*b[2],
     a[0]*b[1] - a[1]*b[0],
     0.0f
-)","val b = a.filter { it > 0 }","val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }","val found = val in collection"
+)","val b = a.filter { it > 0 }","val res = listA.flatMap { a -> listB.filter { b -> a.id == b.id }.map { b -> a to b } }","val found = val in collection","for (i in 0 until m)
+    for (j in 0 until n)
+        for (k in 0 until p)
+            c[i][j] += a[i][k] * b[k][j]"
 "Clojure","(def x 42)","(sort collection)","(distinct collection)","N/A","N/A","N/A","N/A","N/A","N/A","(doseq [item collection]
   (println item))","(def l [1 2 3])","(def m {:a 1 :b 2})","(= a b)","(not= a b)","(> a b)","N/A","N/A","N/A","(defn my-proc [args]
   (println args))","(defn my-func [x]
@@ -930,7 +1032,9 @@ handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Se
   [(- (* ay bz) (* az by))
    (- (* az bx) (* ax bz))
    (- (* ax by) (* ay bx))
-   0.0])","(filter #(= % :val) my-set)","(clojure.set/join set-a set-b)","(boolean (some #{val} coll))"
+   0.0])","(filter #(= % :val) my-set)","(clojure.set/join set-a set-b)","(boolean (some #{val} coll))","(defn matmul [a b]
+  (let [bt (apply mapv vector b)]
+    (mapv (fn [row] (mapv #(reduce + (map * row %)) bt)) a)))"
 "Zig","var x: i32 = 42;","std.sort.block(i32, slice, {}, std.sort.asc(i32));","// Manual implementation","N/A","N/A","N/A","N/A","N/A","N/A","for (collection) |item| {
     // body
 }","var a = [_]i32{1, 2, 3};","var map = std.AutoHashMap(i32, i32).init(allocator);","a == b","a != b","a > b","a and b","a or b","a != b","fn logMessage(msg: []const u8) void {
@@ -952,7 +1056,13 @@ handle(msg)","val mutex = Mutex()","mutex.lock()","mutex.unlock()","val sem = Se
 }","N/A","doSomething() catch |err| {
     handle(err);
 };","return error.BadThing;","const thread = try std.Thread.spawn(.{}, doWork, .{});
-thread.join();","N/A","N/A","var mutex = std.Thread.Mutex{};","mutex.lock();","mutex.unlock();","var sem = std.Thread.Semaphore{ .permits = 1 };","sem.wait();","sem.post();","// comment","N/A","std.debug.print(""Hello, World!\n"", .{});","const std = @import(""std"");","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","@mod(a, b)","@floor(a)","@round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a * b;","const dot = @reduce(.Add, a * b);","const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };","for (a) |item| { if (condition(item)) try res.append(item); }","for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }","const found = std.mem.indexOfScalar(T, slice, val) != null;"
+thread.join();","N/A","N/A","var mutex = std.Thread.Mutex{};","mutex.lock();","mutex.unlock();","var sem = std.Thread.Semaphore{ .permits = 1 };","sem.wait();","sem.post();","// comment","N/A","std.debug.print(""Hello, World!\n"", .{});","const std = @import(""std"");","const MAX: i32 = 100;","a + b","a - b","a * b","a / b","@mod(a, b)","@floor(a)","@round(a)","a += 1","a -= 1","a << b","a >> b","a & b","a | b","a ^ b","~a","const c = a * b;","const dot = @reduce(.Add, a * b);","const c = .{ a[1]*b[2] - a[2]*b[1], a[2]*b[0] - a[0]*b[2], a[0]*b[1] - a[1]*b[0], 0.0 };","for (a) |item| { if (condition(item)) try res.append(item); }","for (listA) |a| { for (listB) |b| { if (a.id == b.id) try res.append(.{ .a = a, .b = b }); } }","const found = std.mem.indexOfScalar(T, slice, val) != null;","for (0..M) |i| {
+    for (0..N) |j| {
+        for (0..K) |k| {
+            C[i][j] += A[i][k] * B[k][j];
+        }
+    }
+}"
 "VBA","Dim x As Integer
 x = 42","' Manual sorting implementation","' Using Scripting.Dictionary","Format(dateVal, ""dd.mm.yyyy"")","Format(dateVal, ""yyyy-mm-dd hh:nn:ss"")","Format(num, ""#,##0"")","Format(num, ""#,##0;(#,##0)"")","Format(num, ""0.00"")","CDate(""31.12.2023"")","For Each item In collection
     ' body
@@ -993,4 +1103,4 @@ Next item","For Each a In colA
     For Each b In colB
         If a.id = b.id Then ' join logic
     Next b
-Next a","found = Not IsError(Application.Match(val, arr, 0))"
+Next a","found = Not IsError(Application.Match(val, arr, 0))","C = Application.WorksheetFunction.MMult(A, B)"

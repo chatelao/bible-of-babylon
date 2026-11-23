@@ -64,9 +64,9 @@ COBOL Pivot View
      - .. code-block:: cobol
 
            FUNCTION-ID. ADD-FUNC.
-           ...
+           ... 
            COMPUTE RESULT = A + B
-           ...
+           ... 
            END FUNCTION ADD-FUNC.
      - User-defined functions were introduced in modern COBOL (COBOL 2002).
    * - ProcedureDefinition
@@ -74,7 +74,7 @@ COBOL Pivot View
 
            IDENTIFICATION DIVISION.
            PROGRAM-ID. LOG-MSG.
-           ...
+           ... 
            DISPLAY MSG.
            EXIT PROGRAM.
      - Procedures are typically implemented as separate programs or paragraphs.
@@ -209,17 +209,17 @@ COBOL Pivot View
      - .. code-block:: cobol
 
            IF A = B
-     -
+     - 
    * - NotEqual
      - .. code-block:: cobol
 
            IF A NOT = B
-     -
+     - 
    * - GreaterThan
      - .. code-block:: cobol
 
            IF A > B
-     -
+     - 
    * - SetFiltering
      - .. code-block:: cobol
 
@@ -237,7 +237,7 @@ COBOL Pivot View
                PERFORM VARYING J FROM 1 BY 1 UNTIL J > M
                    IF ID-A(I) = ID-B(J)
                        MOVE TABLE-A(I) TO JOIN-RESULT(K)
-                       ...
+                       ... 
                    END-IF
                END-PERFORM
            END-PERFORM.
@@ -258,3 +258,14 @@ COBOL Pivot View
                WHEN TAB-VAL(IDX) = VAL
                    SET FOUND TO TRUE
      - Uses SEARCH or SEARCH ALL statement on OCCURS table.
+   * - MatrixMultiplication
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > M
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > N
+                   PERFORM VARYING K FROM 1 BY 1 UNTIL K > P
+                       COMPUTE C(I, J) = C(I, J) + A(I, K) * B(K, J)
+                   END-PERFORM
+               END-PERFORM
+           END-PERFORM.
+     - Uses nested PERFORM VARYING loops with COMPUTE over multi-dimensional OCCURS tables.

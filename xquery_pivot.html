@@ -480,6 +480,15 @@
 </td>
 <td><p>General comparison operator = tests if any item in sequence matches $val.</p></td>
 </tr>
+<tr class="row-odd"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-xquery notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">M</span><span class="w"> </span><span class="k">return</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">j</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">N</span><span class="w"> </span><span class="k">return</span>
+<span class="w">    </span><span class="nf">sum</span><span class="p">(</span><span class="k">for</span><span class="w"> </span><span class="nv">$</span><span class="n">k</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nv">$</span><span class="n">K</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nv">$</span><span class="n">A</span><span class="p">[</span><span class="nv">$</span><span class="n">i</span><span class="p">][</span><span class="nv">$</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">$</span><span class="n">B</span><span class="p">[</span><span class="nv">$</span><span class="n">k</span><span class="p">][</span><span class="nv">$</span><span class="n">j</span><span class="p">])</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

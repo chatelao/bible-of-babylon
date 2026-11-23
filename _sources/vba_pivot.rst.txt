@@ -350,3 +350,8 @@ VBA Pivot View
 
            found = Not IsError(Application.Match(val, arr, 0))
      - Uses Application.Match function or loop over array/collection.
+   * - MatrixMultiplication
+     - .. code-block:: vb.net
+
+           C = Application.WorksheetFunction.MMult(A, B)
+     - Excel VBA provides the built-in MMult worksheet function for matrix multiplication, or nested For loops.

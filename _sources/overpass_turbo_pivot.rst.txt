@@ -178,3 +178,6 @@ Overpass Turbo Pivot View
 
            node["amenity"~"^(restaurant|pub|cafe)$"];
      - Uses regular expression matching (~"^(val1|val2)$") or union of tag values.
+   * - MatrixMultiplication
+     - N/A
+     - Overpass QL is designed for querying OpenStreetMap geospatial data and does not support matrix arithmetic.

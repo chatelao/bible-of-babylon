@@ -494,6 +494,16 @@
 </td>
 <td><p>Uses repne scasb/scasd instruction or comparison loop to scan memory array.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-nasm notranslate"><div class="highlight"><pre><span></span><span class="c1">; Inner dot-product step using FMA (AVX2)</span>
+<span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">rsi</span><span class="p">]</span>
+<span class="nf">vmovups</span><span class="w"> </span><span class="nb">ymm1</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nb">rdi</span><span class="p">]</span>
+<span class="nf">vfmadd231ps</span><span class="w"> </span><span class="nb">ymm2</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm0</span><span class="p">,</span><span class="w"> </span><span class="nb">ymm1</span>
+</pre></div>
+</div>
+</td>
+<td><p>High-performance x86 matrix multiplication uses AVX2/AVX-512 SIMD fused multiply-add (vfmadd231ps) inside tiled loops.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

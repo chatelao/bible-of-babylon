@@ -5944,6 +5944,208 @@ Programming Languages
      - .. code-block:: vb.net
 
            found = Not IsError(Application.Match(val, arr, 0))
+   * - MatrixMultiplication
+     - .. code-block:: c
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - .. code-block:: cpp
+
+           for (int i = 0; i < M; ++i)
+               for (int j = 0; j < N; ++j)
+                   for (int k = 0; k < K; ++k)
+                       C[i][j] += A[i][k] * B[k][j];
+     - .. code-block:: java
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - .. code-block:: rust
+
+           for i in 0..m {
+               for j in 0..n {
+                   for k in 0..p {
+                       c[i][j] += a[i][k] * b[k][j];
+                   }
+               }
+           }
+     - .. code-block:: erlang
+
+           [[lists:sum([Aij * Bjk || {Aij, Bjk} <- lists:zip(Row, Col)]) || Col <- transpose(B)] || Row <- A].
+     - .. code-block:: common-lisp
+
+           (mapcar (lambda (row)
+                     (apply #'mapcar (lambda (&rest col)
+                                       (reduce #'+ (mapcar #'* row col))) b)) a)
+     - .. code-block:: bash
+
+           for ((i=0; i<M; i++)); do
+               for ((j=0; j<N; j++)); do
+                   sum=0
+                   for ((k=0; k<K; k++)); do
+                       sum=$((sum + A[i*K+k] * B[k*N+j]))
+                   done
+                   C[i*N+j]=$sum
+               done
+           done
+     - N/A
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt $M; $i++) {
+               for ($j = 0; $j -lt $N; $j++) {
+                   for ($k = 0; $k -lt $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j]
+                   }
+               }
+           }
+     - .. code-block:: python
+
+           C = A @ B
+     - .. code-block:: php
+
+           for ($i = 0; $i < $M; $i++) {
+               for ($j = 0; $j < $N; $j++) {
+                   for ($k = 0; $k < $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j];
+                   }
+               }
+           }
+     - .. code-block:: css
+
+           transform: matrix(a, b, c, d, tx, ty) matrix(e, f, g, h, ux, uy);
+     - .. code-block:: cpp
+
+           __global__ void matmul(const float *A, const float *B, float *C, int M, int N, int K) {
+               int row = blockIdx.y * blockDim.y + threadIdx.y;
+               int col = blockIdx.x * blockDim.x + threadIdx.x;
+               if (row < M && col < N) {
+                   float sum = 0.0f;
+                   for (int k = 0; k < K; ++k)
+                       sum += A[row * K + k] * B[k * N + col];
+                   C[row * N + col] = sum;
+               }
+           }
+     - .. code-block:: nasm
+
+           ; Inner dot-product step using FMA (AVX2)
+           vmovups ymm0, [rsi]
+           vmovups ymm1, [rdi]
+           vfmadd231ps ymm2, ymm0, ymm1
+     - .. code-block:: asm
+
+           # Inner loop step: acc += A[i][k] * B[k][j]
+           flw ft0, 0(t0)
+           flw ft1, 0(t1)
+           fmadd.s fa0, ft0, ft1, fa0
+     - .. code-block:: prolog
+
+           mat_mul(A, B, C) :-
+               transpose(B, BT),
+               maplist(row_mul(BT), A, C).
+           row_mul(BT, Row, Res) :-
+               maplist(dot(Row), BT, Res).
+     - .. code-block:: jasmin
+
+           aload_1          ; A[i]
+           iload 4          ; k
+           faload
+           aload_2          ; B[k]
+           iload 3          ; j
+           faload
+           fmul
+           fadd             ; accumulate into C[i][j]
+     - .. code-block:: asm
+
+           // Inner loop step using NEON FMA
+           ldr q0, [x0], #16
+           ldr q1, [x1], #16
+           fmla v2.4s, v0.4s, v1.4s
+     - .. code-block:: ocaml
+
+           Array.init m (fun i ->
+             Array.init n (fun j ->
+               let sum = ref 0.0 in
+               for k = 0 to p - 1 do sum := !sum +. a.(i).(k) *. b.(k).(j) done;
+               !sum))
+     - .. code-block:: go
+
+           for i := 0; i < M; i++ {
+               for j := 0; j < N; j++ {
+                   for k := 0; k < K; k++ {
+                       C[i][j] += A[i][k] * B[k][j]
+                   }
+               }
+           }
+     - .. code-block:: haskell
+
+           matMul a b = [[sum $ zipWith (*) ar bc | bc <- transpose b] | ar <- a]
+     - .. code-block:: typescript
+
+           const C = A.map(row => B[0].map((_, j) => row.reduce((sum, val, k) => sum + val * B[k][j], 0)));
+     - .. code-block:: tcl
+
+           for {set i 0} {$i < $M} {incr i} {
+               for {set j 0} {$j < $N} {incr j} {
+                   set sum 0.0
+                   for {set k 0} {$k < $K} {incr k} {
+                       set sum [expr {$sum + [lindex $A $i $k] * [lindex $B $k $j]}]
+                   }
+                   lset C $i $j $sum
+               }
+           }
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > M
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > N
+                   PERFORM VARYING K FROM 1 BY 1 UNTIL K > P
+                       COMPUTE C(I, J) = C(I, J) + A(I, K) * B(K, J)
+                   END-PERFORM
+               END-PERFORM
+           END-PERFORM.
+     - .. code-block:: fortran
+
+           C = matmul(A, B)
+     - .. code-block:: csharp
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i, j] += A[i, k] * B[k, j];
+     - .. code-block:: swift
+
+           for i in 0..<m {
+               for j in 0..<n {
+                   for k in 0..<p {
+                       c[i][j] += a[i][k] * b[k][j]
+                   }
+               }
+           }
+     - .. code-block:: kotlin
+
+           for (i in 0 until m)
+               for (j in 0 until n)
+                   for (k in 0 until p)
+                       c[i][j] += a[i][k] * b[k][j]
+     - .. code-block:: clojure
+
+           (defn matmul [a b]
+             (let [bt (apply mapv vector b)]
+               (mapv (fn [row] (mapv #(reduce + (map * row %)) bt)) a)))
+     - .. code-block:: zig
+
+           for (0..M) |i| {
+               for (0..N) |j| {
+                   for (0..K) |k| {
+                       C[i][j] += A[i][k] * B[k][j];
+                   }
+               }
+           }
+     - .. code-block:: vb.net
+
+           C = Application.WorksheetFunction.MMult(A, B)
 
 Data Query Languages
 --------------------
@@ -6672,6 +6874,26 @@ Data Query Languages
      - .. code-block:: text
 
            node["amenity"~"^(restaurant|pub|cafe)$"];
+   * - MatrixMultiplication
+     - .. code-block:: sql
+
+           SELECT a.row_idx, b.col_idx, SUM(a.val * b.val) AS val
+           FROM matrix_a a
+           JOIN matrix_b b ON a.col_idx = b.row_idx
+           GROUP BY a.row_idx, b.col_idx;
+     - .. code-block:: xquery
+
+           for $i in 1 to $M return
+             for $j in 1 to $N return
+               sum(for $k in 1 to $K return $A[$i][$k] * $B[$k][$j])
+     - N/A
+     - .. code-block:: sparql
+
+           SELECT ?row ?col (SUM(?va * ?vb) AS ?val) WHERE {
+             ?a :row ?row ; :col ?k ; :val ?va .
+             ?b :row ?k ; :col ?col ; :val ?vb .
+           } GROUP BY ?row ?col
+     - N/A
 
 Data Formats
 ------------

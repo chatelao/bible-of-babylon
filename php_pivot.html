@@ -570,6 +570,19 @@
 </td>
 <td><p>Uses in_array() for lists/arrays or array_key_exists() for keys.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="x">for ($i = 0; $i &lt; $M; $i++) {</span>
+<span class="x">    for ($j = 0; $j &lt; $N; $j++) {</span>
+<span class="x">        for ($k = 0; $k &lt; $K; $k++) {</span>
+<span class="x">            $C[$i][$j] += $A[$i][$k] * $B[$k][$j];</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Standard triple-nested loop over 2D arrays.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

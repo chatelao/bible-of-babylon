@@ -221,7 +221,7 @@ Erlang Pivot View
      - .. code-block:: erlang
 
            A > B
-     -
+     - 
    * - SetFiltering
      - .. code-block:: erlang
 
@@ -265,3 +265,8 @@ Erlang Pivot View
 
            Found = lists:member(Val, List).
      - Uses lists:member/2 to check if an element is present in a list.
+   * - MatrixMultiplication
+     - .. code-block:: erlang
+
+           [[lists:sum([Aij * Bjk || {Aij, Bjk} <- lists:zip(Row, Col)]) || Col <- transpose(B)] || Row <- A].
+     - Uses nested list comprehensions with lists:zip and a transposed second matrix.

@@ -285,3 +285,10 @@ Clojure Pivot View
 
            (boolean (some #{val} coll))
      - Uses (contains? set val) for sets or (some #{val} coll) for sequences.
+   * - MatrixMultiplication
+     - .. code-block:: clojure
+
+           (defn matmul [a b]
+             (let [bt (apply mapv vector b)]
+               (mapv (fn [row] (mapv #(reduce + (map * row %)) bt)) a)))
+     - Transposes B with (apply mapv vector b) and maps dot products over rows.

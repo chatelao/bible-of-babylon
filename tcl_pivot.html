@@ -482,6 +482,21 @@
 </td>
 <td><p>Uses the ‘in’ operator inside expr expressions.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>i<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$M</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>i<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>j<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$N</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>j<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">        </span><span class="k">set</span><span class="w"> </span>sum<span class="w"> </span><span class="mf">0.0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>k<span class="w"> </span><span class="mi">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$K</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>k<span class="k">}</span><span class="w"> </span><span class="k">{</span>
+<span class="w">            </span><span class="k">set</span><span class="w"> </span>sum<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="k">{</span><span class="nv">$sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="nv">$k</span><span class="k">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$B</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$j</span><span class="k">]}]</span>
+<span class="w">        </span><span class="k">}</span>
+<span class="w">        </span><span class="nb">lset</span><span class="w"> </span>C<span class="w"> </span><span class="nv">$i</span><span class="w"> </span><span class="nv">$j</span><span class="w"> </span><span class="nv">$sum</span>
+<span class="w">    </span><span class="k">}</span>
+<span class="k">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops with lindex, lset, and expr.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

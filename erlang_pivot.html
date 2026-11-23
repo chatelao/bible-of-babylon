@@ -486,6 +486,13 @@
 </td>
 <td><p>Uses lists:member/2 to check if an element is present in a list.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-erlang notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="nn">lists</span><span class="p">:</span><span class="nf">sum</span><span class="p">([</span><span class="nv">Aij</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">Bjk</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="p">{</span><span class="nv">Aij</span><span class="p">,</span><span class="w"> </span><span class="nv">Bjk</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nn">lists</span><span class="p">:</span><span class="nf">zip</span><span class="p">(</span><span class="nv">Row</span><span class="p">,</span><span class="w"> </span><span class="nv">Col</span><span class="p">)])</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">Col</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">transpose</span><span class="p">(</span><span class="nv">B</span><span class="p">)]</span><span class="w"> </span><span class="p">||</span><span class="w"> </span><span class="nv">Row</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nv">A</span><span class="p">].</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested list comprehensions with lists:zip and a transposed second matrix.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

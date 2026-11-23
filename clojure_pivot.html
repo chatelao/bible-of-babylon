@@ -512,6 +512,15 @@
 </td>
 <td><p>Uses (contains? set val) for sets or (some #{val} coll) for sequences.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-clojure notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="kd">defn </span><span class="nv">matmul</span><span class="w"> </span><span class="p">[</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">]</span>
+<span class="w">  </span><span class="p">(</span><span class="k">let </span><span class="p">[</span><span class="nv">bt</span><span class="w"> </span><span class="p">(</span><span class="nb">apply </span><span class="nv">mapv</span><span class="w"> </span><span class="nb">vector </span><span class="nv">b</span><span class="p">)]</span>
+<span class="w">    </span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="p">(</span><span class="k">fn </span><span class="p">[</span><span class="nv">row</span><span class="p">]</span><span class="w"> </span><span class="p">(</span><span class="nf">mapv</span><span class="w"> </span><span class="o">#</span><span class="p">(</span><span class="nb">reduce + </span><span class="p">(</span><span class="nb">map * </span><span class="nv">row</span><span class="w"> </span><span class="nv">%</span><span class="p">))</span><span class="w"> </span><span class="nv">bt</span><span class="p">))</span><span class="w"> </span><span class="nv">a</span><span class="p">)))</span>
+</pre></div>
+</div>
+</td>
+<td><p>Transposes B with (apply mapv vector b) and maps dot products over rows.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

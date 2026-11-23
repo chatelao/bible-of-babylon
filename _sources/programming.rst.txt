@@ -11841,3 +11841,330 @@ Parameters:
 
            node["amenity"~"^(restaurant|pub|cafe)$"];
      - Uses regular expression matching (~"^(val1|val2)$") or union of tag values.
+
+
+
+MatrixMultiplication
+--------------------
+
+
+:description: Multiplying two matrices A (M x K) and B (K x N) to produce matrix C (M x N).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MatrixMultiplication Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlMatrixMultiplication
+     - .. code-block:: sql
+
+           SELECT a.row_idx, b.col_idx, SUM(a.val * b.val) AS val
+           FROM matrix_a a
+           JOIN matrix_b b ON a.col_idx = b.row_idx
+           GROUP BY a.row_idx, b.col_idx;
+     - Represents matrices in coordinate (row, col, val) form and computes the product via JOIN and SUM aggregation.
+   * - CMatrixMultiplication
+     - .. code-block:: c
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Standard triple-nested loop; production code typically uses BLAS (e.g., cblas_sgemm).
+   * - CppMatrixMultiplication
+     - .. code-block:: cpp
+
+           for (int i = 0; i < M; ++i)
+               for (int j = 0; j < N; ++j)
+                   for (int k = 0; k < K; ++k)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Triple-nested loop in standard C++; libraries like Eigen (A * B) or BLAS are commonly used.
+   * - JavaMatrixMultiplication
+     - .. code-block:: java
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Standard nested loops on 2D arrays; libraries like EJML or Apache Commons Math provide matrix APIs.
+   * - RustMatrixMultiplication
+     - .. code-block:: rust
+
+           for i in 0..m {
+               for j in 0..n {
+                   for k in 0..p {
+                       c[i][j] += a[i][k] * b[k][j];
+                   }
+               }
+           }
+     - Nested loops in pure Rust; crates like ndarray (a.dot(&b)) or nalgebra (a * b) provide optimized GEMM.
+   * - ErlangMatrixMultiplication
+     - .. code-block:: erlang
+
+           [[lists:sum([Aij * Bjk || {Aij, Bjk} <- lists:zip(Row, Col)]) || Col <- transpose(B)] || Row <- A].
+     - Uses nested list comprehensions with lists:zip and a transposed second matrix.
+   * - LispMatrixMultiplication
+     - .. code-block:: common-lisp
+
+           (mapcar (lambda (row)
+                     (apply #'mapcar (lambda (&rest col)
+                                       (reduce #'+ (mapcar #'* row col))) b)) a)
+     - Functional matrix multiplication using mapcar and reduce over rows and columns.
+   * - BashMatrixMultiplication
+     - .. code-block:: bash
+
+           for ((i=0; i<M; i++)); do
+               for ((j=0; j<N; j++)); do
+                   sum=0
+                   for ((k=0; k<K; k++)); do
+                       sum=$((sum + A[i*K+k] * B[k*N+j]))
+                   done
+                   C[i*N+j]=$sum
+               done
+           done
+     - Uses flattened 1D indexed arrays with integer arithmetic; external tools like awk or bc are needed for floats.
+   * - CmdMatrixMultiplication
+     - N/A
+     - Cmd lacks native 2D arrays and floating-point math; matrix multiplication is impractical without external tools.
+   * - PowerShellMatrixMultiplication
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt $M; $i++) {
+               for ($j = 0; $j -lt $N; $j++) {
+                   for ($k = 0; $k -lt $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j]
+                   }
+               }
+           }
+     - Uses nested loops over jagged arrays; .NET libraries like MathNet.Numerics can be invoked for large matrices.
+   * - PythonMatrixMultiplication
+     - .. code-block:: python
+
+           C = A @ B
+     - Python 3.5+ provides the dedicated @ matrix multiplication operator (used by NumPy, PyTorch, etc.).
+   * - PhpMatrixMultiplication
+     - .. code-block:: php
+
+           for ($i = 0; $i < $M; $i++) {
+               for ($j = 0; $j < $N; $j++) {
+                   for ($k = 0; $k < $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j];
+                   }
+               }
+           }
+     - Standard triple-nested loop over 2D arrays.
+   * - CssMatrixMultiplication
+     - .. code-block:: css
+
+           transform: matrix(a, b, c, d, tx, ty) matrix(e, f, g, h, ux, uy);
+     - CSS composes 2D/3D transformation matrices by chaining transform functions; general numeric matrix multiplication is not supported.
+   * - CudaMatrixMultiplication
+     - .. code-block:: cpp
+
+           __global__ void matmul(const float *A, const float *B, float *C, int M, int N, int K) {
+               int row = blockIdx.y * blockDim.y + threadIdx.y;
+               int col = blockIdx.x * blockDim.x + threadIdx.x;
+               if (row < M && col < N) {
+                   float sum = 0.0f;
+                   for (int k = 0; k < K; ++k)
+                       sum += A[row * K + k] * B[k * N + col];
+                   C[row * N + col] = sum;
+               }
+           }
+     - Each GPU thread computes one output element in parallel across a 2D grid; production workloads use shared-memory tiling or cuBLAS/Tensor Cores.
+   * - X86MatrixMultiplication
+     - .. code-block:: nasm
+
+           ; Inner dot-product step using FMA (AVX2)
+           vmovups ymm0, [rsi]
+           vmovups ymm1, [rdi]
+           vfmadd231ps ymm2, ymm0, ymm1
+     - High-performance x86 matrix multiplication uses AVX2/AVX-512 SIMD fused multiply-add (vfmadd231ps) inside tiled loops.
+   * - RiscvMatrixMultiplication
+     - .. code-block:: asm
+
+           # Inner loop step: acc += A[i][k] * B[k][j]
+           flw ft0, 0(t0)
+           flw ft1, 0(t1)
+           fmadd.s fa0, ft0, ft1, fa0
+     - Uses floating-point fused multiply-add (fmadd.s) or the RISC-V Vector Extension (RVV) inside nested loops.
+   * - ArmAarch64MatrixMultiplication
+     - .. code-block:: asm
+
+           // Inner loop step using NEON FMA
+           ldr q0, [x0], #16
+           ldr q1, [x1], #16
+           fmla v2.4s, v0.4s, v1.4s
+     - Uses NEON fused multiply-accumulate (fmla) or SME/SVE matrix instructions inside tiled loops.
+   * - PrologMatrixMultiplication
+     - .. code-block:: prolog
+
+           mat_mul(A, B, C) :-
+               transpose(B, BT),
+               maplist(row_mul(BT), A, C).
+           row_mul(BT, Row, Res) :-
+               maplist(dot(Row), BT, Res).
+     - Declarative approach transposing B and mapping dot products across rows.
+   * - JavaBytecodeMatrixMultiplication
+     - .. code-block:: jasmin
+
+           aload_1          ; A[i]
+           iload 4          ; k
+           faload
+           aload_2          ; B[k]
+           iload 3          ; j
+           faload
+           fmul
+           fadd             ; accumulate into C[i][j]
+     - Compiled from nested loops using array loads (faload), fmul, and fadd.
+   * - CamelMatrixMultiplication
+     - .. code-block:: ocaml
+
+           Array.init m (fun i ->
+             Array.init n (fun j ->
+               let sum = ref 0.0 in
+               for k = 0 to p - 1 do sum := !sum +. a.(i).(k) *. b.(k).(j) done;
+               !sum))
+     - Uses Array.init and imperative accumulation; libraries like Owl or Lacaml wrap BLAS.
+   * - GoMatrixMultiplication
+     - .. code-block:: go
+
+           for i := 0; i < M; i++ {
+               for j := 0; j < N; j++ {
+                   for k := 0; k < K; k++ {
+                       C[i][j] += A[i][k] * B[k][j]
+                   }
+               }
+           }
+     - Standard nested loops over slices; Gonum (mat.Dense.Mul) is commonly used for linear algebra.
+   * - HaskellMatrixMultiplication
+     - .. code-block:: haskell
+
+           matMul a b = [[sum $ zipWith (*) ar bc | bc <- transpose b] | ar <- a]
+     - Concise list comprehension using Data.List.transpose and zipWith (*); hmatrix provides BLAS bindings.
+   * - TypeScriptMatrixMultiplication
+     - .. code-block:: typescript
+
+           const C = A.map(row => B[0].map((_, j) => row.reduce((sum, val, k) => sum + val * B[k][j], 0)));
+     - Functional map/reduce over 2D arrays, or triple-nested loops with TypedArrays for performance.
+   * - TclMatrixMultiplication
+     - .. code-block:: tcl
+
+           for {set i 0} {$i < $M} {incr i} {
+               for {set j 0} {$j < $N} {incr j} {
+                   set sum 0.0
+                   for {set k 0} {$k < $K} {incr k} {
+                       set sum [expr {$sum + [lindex $A $i $k] * [lindex $B $k $j]}]
+                   }
+                   lset C $i $j $sum
+               }
+           }
+     - Uses nested loops with lindex, lset, and expr.
+   * - CobolMatrixMultiplication
+     - .. code-block:: cobol
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > M
+               PERFORM VARYING J FROM 1 BY 1 UNTIL J > N
+                   PERFORM VARYING K FROM 1 BY 1 UNTIL K > P
+                       COMPUTE C(I, J) = C(I, J) + A(I, K) * B(K, J)
+                   END-PERFORM
+               END-PERFORM
+           END-PERFORM.
+     - Uses nested PERFORM VARYING loops with COMPUTE over multi-dimensional OCCURS tables.
+   * - FortranMatrixMultiplication
+     - .. code-block:: fortran
+
+           C = matmul(A, B)
+     - Fortran has a built-in intrinsic matmul() function, often optimized directly to BLAS calls by compilers.
+   * - CSharpMatrixMultiplication
+     - .. code-block:: csharp
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i, j] += A[i, k] * B[k, j];
+     - Uses 2D rectangular arrays; System.Numerics.Matrix4x4 supports SIMD 4x4 multiplication and Math.NET provides general matrices.
+   * - SwiftMatrixMultiplication
+     - .. code-block:: swift
+
+           for i in 0..<m {
+               for j in 0..<n {
+                   for k in 0..<p {
+                       c[i][j] += a[i][k] * b[k][j]
+                   }
+               }
+           }
+     - Standard nested loops; Apple Accelerate (vDSP/BLAS) or simd provides hardware-accelerated matrix multiplication.
+   * - KotlinMatrixMultiplication
+     - .. code-block:: kotlin
+
+           for (i in 0 until m)
+               for (j in 0 until n)
+                   for (k in 0 until p)
+                       c[i][j] += a[i][k] * b[k][j]
+     - Standard nested loops on 2D arrays; Multik provides NumPy-like matrix operations.
+   * - ClojureMatrixMultiplication
+     - .. code-block:: clojure
+
+           (defn matmul [a b]
+             (let [bt (apply mapv vector b)]
+               (mapv (fn [row] (mapv #(reduce + (map * row %)) bt)) a)))
+     - Transposes B with (apply mapv vector b) and maps dot products over rows.
+   * - BrainfuckMatrixMultiplication
+     - N/A
+     - Brainfuck operates on a 1D tape of byte cells without native multiplication or 2D indexing; matrix multiplication requires complex tape layouts.
+   * - ScalaMatrixMultiplication
+     - .. code-block:: scala
+
+           val c = for (row <- a) yield
+             for (col <- b.transpose) yield
+               (row zip col).map { case (x, y) => x * y }.sum
+     - Uses for-comprehensions with transpose and zip; Breeze provides optimized linear algebra (a * b).
+   * - ZigMatrixMultiplication
+     - .. code-block:: zig
+
+           for (0..M) |i| {
+               for (0..N) |j| {
+                   for (0..K) |k| {
+                       C[i][j] += A[i][k] * B[k][j];
+                   }
+               }
+           }
+     - Standard nested loops; Zig's @Vector SIMD types can accelerate inner loops.
+   * - VBAMatrixMultiplication
+     - .. code-block:: vb.net
+
+           C = Application.WorksheetFunction.MMult(A, B)
+     - Excel VBA provides the built-in MMult worksheet function for matrix multiplication, or nested For loops.
+   * - XQueryMatrixMultiplication
+     - .. code-block:: xquery
+
+           for $i in 1 to $M return
+             for $j in 1 to $N return
+               sum(for $k in 1 to $K return $A[$i][$k] * $B[$k][$j])
+     - Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays.
+   * - GraphQlMatrixMultiplication
+     - N/A
+     - GraphQL is a query language for APIs and does not perform arithmetic or matrix computations.
+   * - SparqlMatrixMultiplication
+     - .. code-block:: sparql
+
+           SELECT ?row ?col (SUM(?va * ?vb) AS ?val) WHERE {
+             ?a :row ?row ; :col ?k ; :val ?va .
+             ?b :row ?k ; :col ?col ; :val ?vb .
+           } GROUP BY ?row ?col
+     - Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation.
+   * - OverpassTurboMatrixMultiplication
+     - N/A
+     - Overpass QL is designed for querying OpenStreetMap geospatial data and does not support matrix arithmetic.

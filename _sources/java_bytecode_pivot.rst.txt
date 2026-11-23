@@ -319,12 +319,12 @@ Java Bytecode Pivot View
      - .. code-block:: jasmin
 
            if_icmpne Label
-     -
+     - 
    * - GreaterThan
      - .. code-block:: jasmin
 
            if_icmpgt Label
-     -
+     - 
    * - SetFiltering
      - .. code-block:: jasmin
 
@@ -352,3 +352,15 @@ Java Bytecode Pivot View
            aload_2
            invokeinterface java/util/List.contains:(Ljava/lang/Object;)Z 2
      - Invokes java/util/List.contains or loops over array.
+   * - MatrixMultiplication
+     - .. code-block:: jasmin
+
+           aload_1          ; A[i]
+           iload 4          ; k
+           faload
+           aload_2          ; B[k]
+           iload 3          ; j
+           faload
+           fmul
+           fadd             ; accumulate into C[i][j]
+     - Compiled from nested loops using array loads (faload), fmul, and fadd.

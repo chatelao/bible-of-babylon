@@ -215,12 +215,12 @@ PowerShell Pivot View
      - .. code-block:: powershell
 
            $a -ne $b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: powershell
 
            $a -gt $b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: powershell
 
@@ -255,3 +255,14 @@ PowerShell Pivot View
 
            $found = $val -in $list
      - Uses the -in operator (or -contains with operands reversed).
+   * - MatrixMultiplication
+     - .. code-block:: powershell
+
+           for ($i = 0; $i -lt $M; $i++) {
+               for ($j = 0; $j -lt $N; $j++) {
+                   for ($k = 0; $k -lt $K; $k++) {
+                       $C[$i][$j] += $A[$i][$k] * $B[$k][$j]
+                   }
+               }
+           }
+     - Uses nested loops over jagged arrays; .NET libraries like MathNet.Numerics can be invoked for large matrices.

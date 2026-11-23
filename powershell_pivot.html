@@ -467,6 +467,19 @@
 </td>
 <td><p>Uses the -in operator (or -contains with operands reversed).</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">-lt</span> <span class="nv">$M</span><span class="p">;</span> <span class="nv">$i</span><span class="p">++)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="nv">$j</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$j</span> <span class="o">-lt</span> <span class="nv">$N</span><span class="p">;</span> <span class="nv">$j</span><span class="p">++)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$k</span> <span class="p">=</span> <span class="n">0</span><span class="p">;</span> <span class="nv">$k</span> <span class="o">-lt</span> <span class="nv">$K</span><span class="p">;</span> <span class="nv">$k</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="nv">$C</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$j</span><span class="p">]</span> <span class="p">+=</span> <span class="nv">$A</span><span class="p">[</span><span class="nv">$i</span><span class="p">][</span><span class="nv">$k</span><span class="p">]</span> <span class="p">*</span> <span class="nv">$B</span><span class="p">[</span><span class="nv">$k</span><span class="p">][</span><span class="nv">$j</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses nested loops over jagged arrays; .NET libraries like MathNet.Numerics can be invoked for large matrices.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

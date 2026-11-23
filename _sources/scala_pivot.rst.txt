@@ -299,3 +299,10 @@ Scala Pivot View
 
            val found = collection.contains(val)
      - Uses contains method on Seq, Set, or Option.
+   * - MatrixMultiplication
+     - .. code-block:: scala
+
+           val c = for (row <- a) yield
+             for (col <- b.transpose) yield
+               (row zip col).map { case (x, y) => x * y }.sum
+     - Uses for-comprehensions with transpose and zip; Breeze provides optimized linear algebra (a * b).

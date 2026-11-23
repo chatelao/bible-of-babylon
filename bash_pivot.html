@@ -494,6 +494,21 @@ c<span class="o">[</span><span class="m">3</span><span class="o">]=</span><span 
 </td>
 <td><p>Can be checked via string matching, regex, or iterating through array elements.</p></td>
 </tr>
+<tr class="row-even"><td><p>MatrixMultiplication</p></td>
+<td><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i&lt;M<span class="p">;</span><span class="w"> </span>i++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">j</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>j&lt;N<span class="p">;</span><span class="w"> </span>j++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">        </span><span class="nv">sum</span><span class="o">=</span><span class="m">0</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="nv">k</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span>k&lt;K<span class="p">;</span><span class="w"> </span>k++<span class="o">))</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">            </span><span class="nv">sum</span><span class="o">=</span><span class="k">$((</span><span class="nv">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">A</span><span class="o">[</span><span class="nv">i</span><span class="o">*</span><span class="nv">K</span><span class="o">+</span><span class="nv">k</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">B</span><span class="o">[</span><span class="nv">k</span><span class="o">*</span><span class="nv">N</span><span class="o">+</span><span class="nv">j</span><span class="o">]</span><span class="k">))</span>
+<span class="w">        </span><span class="k">done</span>
+<span class="w">        </span>C<span class="o">[</span>i*N+j<span class="o">]=</span><span class="nv">$sum</span>
+<span class="w">    </span><span class="k">done</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</td>
+<td><p>Uses flattened 1D indexed arrays with integer arithmetic; external tools like awk or bc are needed for floats.</p></td>
+</tr>
 </tbody>
 </table>
 </section>

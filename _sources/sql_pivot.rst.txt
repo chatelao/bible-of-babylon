@@ -224,7 +224,7 @@ SQL Pivot View
      - .. code-block:: sql
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: sql
 
@@ -298,3 +298,11 @@ SQL Pivot View
 
            SELECT * FROM table WHERE column IN (val1, val2, val3);
      - The IN operator checks if a column value matches any value in a list or subquery.
+   * - MatrixMultiplication
+     - .. code-block:: sql
+
+           SELECT a.row_idx, b.col_idx, SUM(a.val * b.val) AS val
+           FROM matrix_a a
+           JOIN matrix_b b ON a.col_idx = b.row_idx
+           GROUP BY a.row_idx, b.col_idx;
+     - Represents matrices in coordinate (row, col, val) form and computes the product via JOIN and SUM aggregation.

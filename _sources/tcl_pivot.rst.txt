@@ -236,12 +236,12 @@ Tcl Pivot View
      - .. code-block:: tcl
 
            [expr {$a != $b}]
-     -
+     - 
    * - GreaterThan
      - .. code-block:: tcl
 
            [expr {$a > $b}]
-     -
+     - 
    * - SetFiltering
      - .. code-block:: tcl
 
@@ -267,3 +267,16 @@ Tcl Pivot View
 
            set found [expr {$val in $list}]
      - Uses the 'in' operator inside expr expressions.
+   * - MatrixMultiplication
+     - .. code-block:: tcl
+
+           for {set i 0} {$i < $M} {incr i} {
+               for {set j 0} {$j < $N} {incr j} {
+                   set sum 0.0
+                   for {set k 0} {$k < $K} {incr k} {
+                       set sum [expr {$sum + [lindex $A $i $k] * [lindex $B $k $j]}]
+                   }
+                   lset C $i $j $sum
+               }
+           }
+     - Uses nested loops with lindex, lset, and expr.

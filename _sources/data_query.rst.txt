@@ -642,7 +642,7 @@ Parameters:
      - .. code-block:: sql
 
            a > b
-     -
+     - 
    * - XQueryGreaterThan
      - .. code-block:: xquery
 
@@ -2594,3 +2594,57 @@ Parameters:
 
            node["amenity"~"^(restaurant|pub|cafe)$"];
      - Uses regular expression matching (~"^(val1|val2)$") or union of tag values.
+
+
+
+MatrixMultiplication
+--------------------
+
+
+:description: Multiplying two matrices A (M x K) and B (K x N) to produce matrix C (M x N).
+
+
+Parameters:
+
+* syntax: String
+
+* notes: String
+
+
+
+.. list-table:: MatrixMultiplication Comparison
+   :widths: auto
+   :header-rows: 1
+
+   * - Language
+     - Syntax
+     - Notes
+   * - SqlMatrixMultiplication
+     - .. code-block:: sql
+
+           SELECT a.row_idx, b.col_idx, SUM(a.val * b.val) AS val
+           FROM matrix_a a
+           JOIN matrix_b b ON a.col_idx = b.row_idx
+           GROUP BY a.row_idx, b.col_idx;
+     - Represents matrices in coordinate (row, col, val) form and computes the product via JOIN and SUM aggregation.
+   * - XQueryMatrixMultiplication
+     - .. code-block:: xquery
+
+           for $i in 1 to $M return
+             for $j in 1 to $N return
+               sum(for $k in 1 to $K return $A[$i][$k] * $B[$k][$j])
+     - Uses nested FLWOR expressions and sum() over sequences or XQuery 3.1 arrays.
+   * - GraphQlMatrixMultiplication
+     - N/A
+     - GraphQL is a query language for APIs and does not perform arithmetic or matrix computations.
+   * - SparqlMatrixMultiplication
+     - .. code-block:: sparql
+
+           SELECT ?row ?col (SUM(?va * ?vb) AS ?val) WHERE {
+             ?a :row ?row ; :col ?k ; :val ?va .
+             ?b :row ?k ; :col ?col ; :val ?vb .
+           } GROUP BY ?row ?col
+     - Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation.
+   * - OverpassTurboMatrixMultiplication
+     - N/A
+     - Overpass QL is designed for querying OpenStreetMap geospatial data and does not support matrix arithmetic.
