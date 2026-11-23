@@ -325,3 +325,11 @@ Cpp Pivot View
 
            bool found = std::find(vec.begin(), vec.end(), val) != vec.end();
      - Uses std::find for sequences, or set.count(val) / set.contains(val) for sets.
+   * - MatrixMultiplication
+     - .. code-block:: cpp
+
+           for (int i = 0; i < M; ++i)
+               for (int j = 0; j < N; ++j)
+                   for (int k = 0; k < K; ++k)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Triple-nested loop in standard C++; libraries like Eigen (A * B) or BLAS are commonly used.

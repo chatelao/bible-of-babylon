@@ -147,10 +147,10 @@ CSS Pivot View
      - CSS does not support general-purpose comparison operations.
    * - NotEqual
      - N/A
-     -
+     - 
    * - GreaterThan
      - N/A
-     -
+     - 
    * - SetFiltering
      - N/A
      - CSS does not support set filtering in the traditional programming sense.
@@ -168,3 +168,8 @@ CSS Pivot View
 
            p:is(.class1, .class2) { color: red; }
      - CSS :is() pseudo-class matches elements against a list of selectors.
+   * - MatrixMultiplication
+     - .. code-block:: css
+
+           transform: matrix(a, b, c, d, tx, ty) matrix(e, f, g, h, ux, uy);
+     - CSS composes 2D/3D transformation matrices by chaining transform functions; general numeric matrix multiplication is not supported.

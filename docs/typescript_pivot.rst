@@ -258,7 +258,7 @@ TypeScript Pivot View
      - .. code-block:: typescript
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: typescript
 
@@ -315,3 +315,8 @@ TypeScript Pivot View
 
            const found = list.includes(val);
      - Uses Array.prototype.includes() or Set.prototype.has().
+   * - MatrixMultiplication
+     - .. code-block:: typescript
+
+           const C = A.map(row => B[0].map((_, j) => row.reduce((sum, val, k) => sum + val * B[k][j], 0)));
+     - Functional map/reduce over 2D arrays, or triple-nested loops with TypedArrays for performance.

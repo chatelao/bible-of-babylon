@@ -214,7 +214,7 @@ Haskell Pivot View
      - .. code-block:: haskell
 
            a /= b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: haskell
 
@@ -245,3 +245,8 @@ Haskell Pivot View
 
            found = val `elem` list
      - Uses elem (or Set.member) to check if element exists in structure.
+   * - MatrixMultiplication
+     - .. code-block:: haskell
+
+           matMul a b = [[sum $ zipWith (*) ar bc | bc <- transpose b] | ar <- a]
+     - Concise list comprehension using Data.List.transpose and zipWith (*); hmatrix provides BLAS bindings.

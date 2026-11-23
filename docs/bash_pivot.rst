@@ -277,3 +277,16 @@ Bash Pivot View
 
            if [[ " ${list[*]} " =~ " ${val} " ]]; then ... ; fi
      - Can be checked via string matching, regex, or iterating through array elements.
+   * - MatrixMultiplication
+     - .. code-block:: bash
+
+           for ((i=0; i<M; i++)); do
+               for ((j=0; j<N; j++)); do
+                   sum=0
+                   for ((k=0; k<K; k++)); do
+                       sum=$((sum + A[i*K+k] * B[k*N+j]))
+                   done
+                   C[i*N+j]=$sum
+               done
+           done
+     - Uses flattened 1D indexed arrays with integer arithmetic; external tools like awk or bc are needed for floats.

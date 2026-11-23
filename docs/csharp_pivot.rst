@@ -274,17 +274,17 @@ CSharp Pivot View
      - .. code-block:: csharp
 
            a == b
-     -
+     - 
    * - NotEqual
      - .. code-block:: csharp
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: csharp
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: csharp
 
@@ -340,3 +340,11 @@ CSharp Pivot View
 
            bool found = collection.Contains(val);
      - Uses Enumerable.Contains() or List.Contains() / HashSet.Contains().
+   * - MatrixMultiplication
+     - .. code-block:: csharp
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i, j] += A[i, k] * B[k, j];
+     - Uses 2D rectangular arrays; System.Numerics.Matrix4x4 supports SIMD 4x4 multiplication and Math.NET provides general matrices.

@@ -245,12 +245,12 @@ C Pivot View
      - .. code-block:: c
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: c
 
            a > b
-     -
+     - 
    * - LogicalAnd
      - .. code-block:: c
 
@@ -304,3 +304,11 @@ C Pivot View
                if (arr[i] == val) { found = true; break; }
            }
      - In C, checking membership requires iterating through the array.
+   * - MatrixMultiplication
+     - .. code-block:: c
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Standard triple-nested loop; production code typically uses BLAS (e.g., cblas_sgemm).

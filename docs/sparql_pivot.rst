@@ -192,3 +192,11 @@ SPARQL Pivot View
 
            FILTER (?val IN (val1, val2, val3))
      - Uses the IN operator inside FILTER clauses.
+   * - MatrixMultiplication
+     - .. code-block:: sparql
+
+           SELECT ?row ?col (SUM(?va * ?vb) AS ?val) WHERE {
+             ?a :row ?row ; :col ?k ; :val ?va .
+             ?b :row ?k ; :col ?col ; :val ?vb .
+           } GROUP BY ?row ?col
+     - Matrices can be modeled as RDF triples and multiplied via graph pattern joins and SUM aggregation.

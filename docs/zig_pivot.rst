@@ -301,3 +301,14 @@ Zig Pivot View
 
            const found = std.mem.indexOfScalar(T, slice, val) != null;
      - Uses std.mem.indexOfScalar or for loop searching slice.
+   * - MatrixMultiplication
+     - .. code-block:: zig
+
+           for (0..M) |i| {
+               for (0..N) |j| {
+                   for (0..K) |k| {
+                       C[i][j] += A[i][k] * B[k][j];
+                   }
+               }
+           }
+     - Standard nested loops; Zig's @Vector SIMD types can accelerate inner loops.

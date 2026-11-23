@@ -281,12 +281,12 @@ Java Pivot View
      - .. code-block:: java
 
            a != b
-     -
+     - 
    * - GreaterThan
      - .. code-block:: java
 
            a > b
-     -
+     - 
    * - SetFiltering
      - .. code-block:: java
 
@@ -343,3 +343,11 @@ Java Pivot View
 
            boolean found = collection.contains(val);
      - Uses Collection.contains() for List, Set, or other collection types.
+   * - MatrixMultiplication
+     - .. code-block:: java
+
+           for (int i = 0; i < M; i++)
+               for (int j = 0; j < N; j++)
+                   for (int k = 0; k < K; k++)
+                       C[i][j] += A[i][k] * B[k][j];
+     - Standard nested loops on 2D arrays; libraries like EJML or Apache Commons Math provide matrix APIs.
